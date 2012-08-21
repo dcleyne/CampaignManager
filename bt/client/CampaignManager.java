@@ -33,6 +33,7 @@ public class CampaignManager extends JFrame
     private static Log log = LogFactory.getLog(CampaignManager.class);
     private JDesktopPane m_MainPane = new JDesktopPane();
     private InternalFrameManager m_FrameManager = new InternalFrameManager(this, m_MainPane);
+
     // Declarations
     //
     // Panels
