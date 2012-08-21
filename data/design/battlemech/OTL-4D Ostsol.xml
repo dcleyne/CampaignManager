@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Ostsol</Name>
+  <Variant>OTL-4D</Variant>
+  <Manufacturer>Kong Interstellar Corp</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>60</Weight>
+  <Cost>5032960</Cost>
+  <BV>1034</BV>
+  <Armour>
+    <Location Name="Head" Points="8" />
+    <Location Name="Centre Torso" Points="22" />
+    <Location Name="Centre Torso Rear" Points="6" />
+    <Location Name="Left Torso" Points="22" />
+    <Location Name="Left Torso Rear" Points="4" />
+    <Location Name="Right Torso" Points="22" />
+    <Location Name="Right Torso Rear" Points="4" />
+    <Location Name="Left Arm" Points="8" />
+    <Location Name="Right Arm" Points="8" />
+    <Location Name="Left Leg" Points="20" />
+    <Location Name="Right Leg" Points="20" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="TRSS" Model="2L3">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="300" Weight="19" Manufacturer="Vlar" Model="300">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Large Laser" Manufacturer="Tronel" Model="III">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Large Laser" Manufacturer="Tronel" Model="III">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Tronel" Model="II">
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Tronel" Model="II">
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Tronel" Model="II">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" RearFacing="true"/>
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Tronel" Model="II">
+      <SlotReference Location="Centre Torso" Table="2" Slot="6" RearFacing="true"/>
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Kong Interstellar Corp">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Kong Interstellar Corp">
+      <SlotReference Location="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Kong Interstellar Corp">
+      <SlotReference Location="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Kong Interstellar Corp">
+      <SlotReference Location="Right Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Kong Interstellar Corp">
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Kong Interstellar Corp">
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+    </Item>
+  </Items>
+</BattlemechDesign>

@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Assassin</Name>
+  <Variant>ASN-21</Variant>
+  <Manufacturer>Maltex Corporation</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>40</Weight>
+  <Cost>3765814</Cost>
+  <BV>596</BV>
+  <Armour>
+    <Location Name="Head" Points="8" />
+    <Location Name="Centre Torso" Points="12" />
+    <Location Name="Centre Torso Rear" Points="4" />
+    <Location Name="Left Torso" Points="10" />
+    <Location Name="Left Torso Rear" Points="2" />
+    <Location Name="Right Torso" Points="10" />
+    <Location Name="Right Torso Rear" Points="2" />
+    <Location Name="Left Arm" Points="6" />
+    <Location Name="Right Arm" Points="6" />
+    <Location Name="Left Leg" Points="6" />
+    <Location Name="Right Leg" Points="6" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Garret" Model="500S">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="280" Weight="16" Manufacturer="Vox" Model="280">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="AFVTA" Model="100">
+      <SlotReference Location ="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="AFVTA" Model="100">
+      <SlotReference Location ="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="AFVTA" Model="100">
+      <SlotReference Location ="Left Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="AFVTA" Model="100">
+      <SlotReference Location ="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="AFVTA" Model="100">
+      <SlotReference Location ="Right Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="AFVTA" Model="100">
+      <SlotReference Location ="Right Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="AFVTA" Model="100">
+      <SlotReference Location ="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Martell" Model="Medium Laser">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="SRM 2" Manufacturer="Holly" Model="Short-Range">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 2" Manufacturer="" Model="" Shots="50">
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 5" Manufacturer="Holly" Model="Long-Range">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 5" Manufacturer="" Model="" Shots="24">
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+    </Item>
+  </Items>
+</BattlemechDesign>

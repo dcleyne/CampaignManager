@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Ostroc</Name>
+  <Variant>OSR-2C</Variant>
+  <Manufacturer>Ostmann Industries</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>60</Weight>
+  <Cost>5025600</Cost>
+  <BV>951</BV>
+  <Armour>
+    <Location Name="Head" Points="8" />
+    <Location Name="Centre Torso" Points="22" />
+    <Location Name="Centre Torso Rear" Points="6" />
+    <Location Name="Left Torso" Points="22" />
+    <Location Name="Left Torso Rear" Points="4" />
+    <Location Name="Right Torso" Points="22" />
+    <Location Name="Right Torso Rear" Points="4" />
+    <Location Name="Left Arm" Points="8" />
+    <Location Name="Right Arm" Points="8" />
+    <Location Name="Left Leg" Points="20" />
+    <Location Name="Right Leg" Points="20" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Ostmann Industries" Model="OSR-2C Ostroc">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Ostmann Industries" Model="OSR-2C Ostroc">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Ostmann Industries" Model="OSR-2C Ostroc">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Ostmann Industries" Model="OSR-2C Ostroc">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Ostmann Industries" Model="OSR-2C Ostroc">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Ostmann Industries" Model="OSR-2C Ostroc">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Ostmann Industries" Model="OSR-2C Ostroc">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Ostmann Industries" Model="OSR-2C Ostroc">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Ostmann Industries" Model="OSR-2C Ostroc">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Ostmann Industries" Model="OSR-2C Ostroc">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Ostmann Industries" Model="OSR-2C Ostroc">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Ostmann Industries" Model="OSR-2C Ostroc">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Ostmann Industries" Model="OSR-2C Ostroc">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Ostmann Industries" Model="OSR-2C Ostroc">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Ostmann Industries" Model="OSR-2C Ostroc">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Ostmann Industries" Model="OSR-2C Ostroc">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Ostmann Industries" Model="OSR-2C Ostroc">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Ferdinand" Model="a">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="300" Weight="19" Manufacturer="Vlar" Model="300">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="SRM 4" Manufacturer="Totschlagen" Model="SRM">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 4" Manufacturer="" Model="" Shots="25">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Large Laser" Manufacturer="Feuerstorm" Model="c">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Large Laser" Manufacturer="Feuerstorm" Model="c">
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Feuerstorm" Model="b">
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Feuerstorm" Model="b">
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Ostmann Industries">
+      <SlotReference Location="Centre Torso" Table="2" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Ostmann Industries">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Ostmann Industries">
+      <SlotReference Location="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Ostmann Industries">
+      <SlotReference Location="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Ostmann Industries">
+      <SlotReference Location="Right Leg" Table="1" Slot="6" />
+    </Item>
+  </Items>
+</BattlemechDesign>

@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Quickdraw</Name>
+  <Variant>QKD-4G</Variant>
+  <Manufacturer>Technicron Manufacturing</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>60</Weight>
+  <Cost>5514560</Cost>
+  <BV>1012</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="17" />
+    <Location Name="Centre Torso Rear" Points="8" />
+    <Location Name="Left Torso" Points="14" />
+    <Location Name="Left Torso Rear" Points="7" />
+    <Location Name="Right Torso" Points="14" />
+    <Location Name="Right Torso Rear" Points="7" />
+    <Location Name="Left Arm" Points="11" />
+    <Location Name="Right Arm" Points="11" />
+    <Location Name="Left Leg" Points="15" />
+    <Location Name="Right Leg" Points="15" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Technicron Manufacturing" Model="QKD-4G Quickdraw">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Technicron Manufacturing" Model="QKD-4G Quickdraw">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Technicron Manufacturing" Model="QKD-4G Quickdraw">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Technicron Manufacturing" Model="QKD-4G Quickdraw">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Technicron Manufacturing" Model="QKD-4G Quickdraw">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Technicron Manufacturing" Model="QKD-4G Quickdraw">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Technicron Manufacturing" Model="QKD-4G Quickdraw">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Technicron Manufacturing" Model="QKD-4G Quickdraw">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Technicron Manufacturing" Model="QKD-4G Quickdraw">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Technicron Manufacturing" Model="QKD-4G Quickdraw">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Technicron Manufacturing" Model="QKD-4G Quickdraw">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Technicron Manufacturing" Model="QKD-4G Quickdraw">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Technicron Manufacturing" Model="QKD-4G Quickdraw">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Technicron Manufacturing" Model="QKD-4G Quickdraw">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Technicron Manufacturing" Model="QKD-4G Quickdraw">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Technicron Manufacturing" Model="QKD-4G Quickdraw">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Technicron Manufacturing" Model="QKD-4G Quickdraw">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Technicron Manufacturing" Model="QKD-4G Quickdraw">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Technicron Manufacturing" Model="QKD-4G Quickdraw">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Dynatec" Model="2180">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="300" Weight="19" Manufacturer="Vlar" Model="300">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 10" Manufacturer="Delta Dart" Model="Ten-Rack">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 10" Manufacturer="" Model="" Shots="12">
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Weapon" WeaponType="SRM 4" Manufacturer="Hovertec" Model="Quad">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 4" Manufacturer="" Model="" Shots="25">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Omicron" Model="4000">
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Omicron" Model="4000">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Omicron" Model="4000">
+      <SlotReference Location="Right Torso" Table="1" Slot="2" RearFacing="true" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Omicron" Model="4000">
+      <SlotReference Location="Right Torso" Table="1" Slot="3" RearFacing="true" />
+    </Item>
+    <Item Type="Jump Jet" Weight="1.0" Manufacturer="Chilton" Model="460">
+      <SlotReference Location ="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Jump Jet" Weight="1.0" Manufacturer="Chilton" Model="460">
+      <SlotReference Location ="Left Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="1.0" Manufacturer="Chilton" Model="460">
+      <SlotReference Location ="Right Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Jump Jet" Weight="1.0" Manufacturer="Chilton" Model="460">
+      <SlotReference Location ="Right Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="1.0" Manufacturer="Chilton" Model="460">
+      <SlotReference Location ="Centre Torso" Table="2" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Head" Table="1" Slot="4" />
+    </Item>
+  </Items>
+</BattlemechDesign>

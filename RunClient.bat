@@ -1,0 +1,1 @@
+java -cp "build;lib\log4j-1.2.8.jar;lib\commons-logging.jar;lib\jdom.jar" bt.client.Client

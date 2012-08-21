@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Dervish</Name>
+  <Variant>DV-6M</Variant>
+  <Manufacturer>Achernar Battlemechs</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>55</Weight>
+  <Cost>4989996</Cost>
+  <BV>868</BV>
+  <Armour>
+    <Location Name="Head" Points="8" />
+    <Location Name="Centre Torso" Points="20" />
+    <Location Name="Centre Torso Rear" Points="4" />
+    <Location Name="Left Torso" Points="15" />
+    <Location Name="Left Torso Rear" Points="4" />
+    <Location Name="Right Torso" Points="15" />
+    <Location Name="Right Torso Rear" Points="4" />
+    <Location Name="Left Arm" Points="10" />
+    <Location Name="Right Arm" Points="10" />
+    <Location Name="Left Leg" Points="15" />
+    <Location Name="Right Leg" Points="15" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Achernar Battlemechs" Model="DV-6M Dervish">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Achernar Battlemechs" Model="DV-6M Dervish">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Achernar Battlemechs" Model="DV-6M Dervish">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Achernar Battlemechs" Model="DV-6M Dervish">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Achernar Battlemechs" Model="DV-6M Dervish">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Achernar Battlemechs" Model="DV-6M Dervish">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Achernar Battlemechs" Model="DV-6M Dervish">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Achernar Battlemechs" Model="DV-6M Dervish">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Achernar Battlemechs" Model="DV-6M Dervish">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Achernar Battlemechs" Model="DV-6M Dervish">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Achernar Battlemechs" Model="DV-6M Dervish">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Achernar Battlemechs" Model="DV-6M Dervish">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Achernar Battlemechs" Model="DV-6M Dervish">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Achernar Battlemechs" Model="DV-6M Dervish">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Achernar Battlemechs" Model="DV-6M Dervish">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Achernar Battlemechs" Model="DV-6M Dervish">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Achernar Battlemechs" Model="DV-6M Dervish">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Federated" Model="Hunter Mk. II">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="275" Weight="15.5" Manufacturer="Core Tech" Model="275">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 10" Manufacturer="Federated" Model="10-Shot">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 10" Manufacturer="" Model="" Shots="12">
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 10" Manufacturer="Federated" Model="10-Shot">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 10" Manufacturer="" Model="" Shots="12">
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Weapon" WeaponType="SRM 2" Manufacturer="Federated" Model="2-Shot">
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 2" Manufacturer="" Model="" Shots="50">
+      <SlotReference Location="Left Arm" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="SRM 2" Manufacturer="Federated" Model="2-Shot">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 2" Manufacturer="" Model="" Shots="50">
+      <SlotReference Location="Right Arm" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="ChisComp" Model="39">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="ChisComp" Model="39">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Swingline" Model="X-1000">
+      <SlotReference Location ="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Swingline" Model="X-1000">
+      <SlotReference Location ="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Swingline" Model="X-1000">
+      <SlotReference Location ="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Swingline" Model="X-1000">
+      <SlotReference Location ="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Swingline" Model="X-1000">
+      <SlotReference Location ="Right Leg" Table="1" Slot="6" />
+    </Item>
+  </Items>
+</BattlemechDesign>

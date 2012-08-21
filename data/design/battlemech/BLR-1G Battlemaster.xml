@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Battlemaster</Name>
+  <Variant>BLR-1G</Variant>
+  <Manufacturer>Hollis Industries</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>85</Weight>
+  <Cost>8501244</Cost>
+  <BV>1212</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="40" />
+    <Location Name="Centre Torso Rear" Points="11" />
+    <Location Name="Left Torso" Points="28" />
+    <Location Name="Left Torso Rear" Points="8" />
+    <Location Name="Right Torso" Points="28" />
+    <Location Name="Right Torso Rear" Points="8" />
+    <Location Name="Left Arm" Points="24" />
+    <Location Name="Right Arm" Points="24" />
+    <Location Name="Left Leg" Points="26" />
+    <Location Name="Right Leg" Points="26" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Hartford Co" Model="XKZ 1">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="340" Weight="27" Manufacturer="Vox" Model="340">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="PPC" Manufacturer="Donal" Model="">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+      <SlotReference Location="Right Arm" Table="1" Slot="6" />
+      <SlotReference Location="Right Arm" Table="2" Slot="1" />
+    </Item>
+   <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Martell" Model="">
+      <SlotReference Location="Left Torso" Table="1" Slot="6" />
+    </Item>
+   <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Martell" Model="">
+      <SlotReference Location="Left Torso" Table="2" Slot="1" />
+    </Item>
+   <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Martell" Model="">
+      <SlotReference Location="Left Torso" Table="2" Slot="2" RearFacing="true"/>
+    </Item>
+   <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Martell" Model="">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+   <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Martell" Model="">
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+    </Item>
+   <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Martell" Model="">
+      <SlotReference Location="Right Torso" Table="1" Slot="3" RearFacing="true"/>
+    </Item>
+    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="SperryBrowning" Model="">
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="SperryBrowning" Model="">
+      <SlotReference Location="Left Arm" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="Machine Gun" Manufacturer="" Model="" Shots="200">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="SRM 6" Manufacturer="Holly" Model="Short-Range (6)">
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 6" Manufacturer="" Model="" Shots="15">
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 6" Manufacturer="" Model="" Shots="15">
+      <SlotReference Location="Left Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Hollis Industries">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Hollis Industries">
+      <SlotReference Location="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Hollis Industries">
+      <SlotReference Location="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Hollis Industries">
+      <SlotReference Location="Right Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Hollis Industries">
+      <SlotReference Location="Left Torso" Table="2" Slot="3" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Hollis Industries">
+      <SlotReference Location="Left Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Hollis Industries">
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Hollis Industries">
+      <SlotReference Location="Right Torso" Table="1" Slot="5" />
+    </Item>
+  </Items>
+</BattlemechDesign>

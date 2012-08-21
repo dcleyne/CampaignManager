@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+	<Name>Atlas</Name>
+	<Variant>AS7-D</Variant>
+	<Manufacturer>Na'ir, Hesperus, Quentin</Manufacturer>
+	<Type>Biped</Type>
+	<Weight>100</Weight>
+	<Cost>9682000</Cost>
+	<BV>1557</BV>
+	<Armour>
+		<Location Name="Head" Points="9" />
+		<Location Name="Centre Torso" Points="47" />
+		<Location Name="Centre Torso Rear" Points="14" />
+		<Location Name="Left Torso" Points="32" />
+		<Location Name="Left Torso Rear" Points="10" />
+		<Location Name="Right Torso" Points="32" />
+		<Location Name="Right Torso Rear" Points="10" />
+		<Location Name="Left Arm" Points="34" />
+		<Location Name="Right Arm" Points="34" />
+		<Location Name="Left Leg" Points="41" />
+		<Location Name="Right Leg" Points="41" />
+	</Armour>
+	<Items>
+		<Item Type="Life Support" Manufacturer="Na'ir, Hesperus, Quentin" Model="AS7-D Atlas">
+			<SlotReference Location="Head" Table="1" Slot="1" />
+			<SlotReference Location="Head" Table="1" Slot="6" />
+		</Item>
+		<Item Type="Cockpit" Manufacturer="Na'ir, Hesperus, Quentin" Model="AS7-D Atlas">
+			<SlotReference Location="Head" Table="1" Slot="3" />
+		</Item>
+		<Item Type="Gyro" Manufacturer="Na'ir, Hesperus, Quentin" Model="AS7-D Atlas">
+			<SlotReference Location="Centre Torso" Table="1" Slot="4" />
+			<SlotReference Location="Centre Torso" Table="1" Slot="5" />
+			<SlotReference Location="Centre Torso" Table="1" Slot="6" />
+			<SlotReference Location="Centre Torso" Table="2" Slot="1" />
+		</Item>
+		<Item Type="Shoulder" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="AS7-D Atlas">
+			<SlotReference Location="Left Arm" Table="1" Slot="1" />
+		</Item>
+		<Item Type="Upper Arm Actuator" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="AS7-D Atlas">
+			<SlotReference Location="Left Arm" Table="1" Slot="2" />
+		</Item>
+		<Item Type="Lower Arm Actuator" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="AS7-D Atlas">
+			<SlotReference Location="Left Arm" Table="1" Slot="3" />
+		</Item>
+		<Item Type="Hand Actuator" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="AS7-D Atlas">
+			<SlotReference Location="Left Arm" Table="1" Slot="4" />
+		</Item>
+		<Item Type="Hip" Manufacturer="Na'ir, Hesperus, Quentin" Model="AS7-D Atlas">
+			<SlotReference Location="Left Leg" Table="1" Slot="1" />
+		</Item>
+		<Item Type="Upper Leg Actuator" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="AS7-D Atlas">
+			<SlotReference Location="Left Leg" Table="1" Slot="2" />
+		</Item>
+		<Item Type="Lower Leg Actuator" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="AS7-D Atlas">
+			<SlotReference Location="Left Leg" Table="1" Slot="3" />
+		</Item>
+		<Item Type="Foot Actuator" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="AS7-D Atlas">
+			<SlotReference Location="Left Leg" Table="1" Slot="4" />
+		</Item>
+		<Item Type="Shoulder" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="AS7-D Atlas">
+			<SlotReference Location="Right Arm" Table="1" Slot="1" />
+		</Item>
+		<Item Type="Upper Arm Actuator" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="AS7-D Atlas">
+			<SlotReference Location="Right Arm" Table="1" Slot="2" />
+		</Item>
+		<Item Type="Lower Arm Actuator" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="AS7-D Atlas">
+			<SlotReference Location="Right Arm" Table="1" Slot="3" />
+		</Item>
+		<Item Type="Hand Actuator" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="AS7-D Atlas">
+			<SlotReference Location="Right Arm" Table="1" Slot="4" />
+		</Item>
+		<Item Type="Hip" Manufacturer="Na'ir, Hesperus, Quentin" Model="AS7-D Atlas">
+			<SlotReference Location="Right Leg" Table="1" Slot="1" />
+		</Item>
+		<Item Type="Upper Leg Actuator" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="AS7-D Atlas">
+			<SlotReference Location="Right Leg" Table="1" Slot="2" />
+		</Item>
+		<Item Type="Lower Leg Actuator" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="AS7-D Atlas">
+			<SlotReference Location="Right Leg" Table="1" Slot="3" />
+		</Item>
+		<Item Type="Foot Actuator" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="AS7-D Atlas">
+			<SlotReference Location="Right Leg" Table="1" Slot="4" />
+		</Item>
+		<Item Type="Sensors" Manufacturer="Army Comp" Model="Type 29K">
+			<SlotReference Location="Head" Table="1" Slot="2" />
+			<SlotReference Location="Head" Table="1" Slot="5" />
+		</Item>
+		<Item Type="Engine" Rating="300" Weight="19" Manufacturer="Vlar"
+			Model="300">
+			<SlotReference Location="Centre Torso" Table="1" Slot="1" />
+			<SlotReference Location="Centre Torso" Table="1" Slot="2" />
+			<SlotReference Location="Centre Torso" Table="1" Slot="3" />
+			<SlotReference Location="Centre Torso" Table="2" Slot="2" />
+			<SlotReference Location="Centre Torso" Table="2" Slot="3" />
+			<SlotReference Location="Centre Torso" Table="2" Slot="4" />
+		</Item>
+		<Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Na'ir, Hesperus, Quentin">
+			<SlotReference Location="Left Arm" Table="1" Slot="6" />
+		</Item>
+		<Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Na'ir, Hesperus, Quentin">
+			<SlotReference Location="Left Arm" Table="2" Slot="1" />
+		</Item>
+		<Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Na'ir, Hesperus, Quentin">
+			<SlotReference Location="Head" Table="1" Slot="4" />
+		</Item>
+		<Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Na'ir, Hesperus, Quentin">
+			<SlotReference Location="Right Arm" Table="1" Slot="6" />
+		</Item>
+		<Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Na'ir, Hesperus, Quentin">
+			<SlotReference Location="Left Torso" Table="2" Slot="5" />
+		</Item>
+		<Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Na'ir, Hesperus, Quentin">
+			<SlotReference Location="Left Torso" Table="2" Slot="6" />
+		</Item>
+		<Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Na'ir, Hesperus, Quentin">
+			<SlotReference Location="Left Leg" Table="1" Slot="5" />
+		</Item>
+		<Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Na'ir, Hesperus, Quentin">
+			<SlotReference Location="Left Leg" Table="1" Slot="6" />
+		</Item>
+		<Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Na'ir, Hesperus, Quentin">
+			<SlotReference Location="Right Leg" Table="1" Slot="5" />
+		</Item>
+		<Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Na'ir, Hesperus, Quentin">
+			<SlotReference Location="Right Leg" Table="1" Slot="6" />
+		</Item>
+		<Item Type="Weapon" WeaponType="Autocannon 20" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="Class 20">
+			<SlotReference Location="Right Torso" Table="1" Slot="1" />
+			<SlotReference Location="Right Torso" Table="1" Slot="2" />
+			<SlotReference Location="Right Torso" Table="1" Slot="3" />
+			<SlotReference Location="Right Torso" Table="1" Slot="4" />
+			<SlotReference Location="Right Torso" Table="1" Slot="5" />
+			<SlotReference Location="Right Torso" Table="1" Slot="6" />
+			<SlotReference Location="Right Torso" Table="2" Slot="1" />
+			<SlotReference Location="Right Torso" Table="2" Slot="2" />
+			<SlotReference Location="Right Torso" Table="2" Slot="3" />
+			<SlotReference Location="Right Torso" Table="2" Slot="4" />
+		</Item>
+		<Item Type="Ammunition" WeaponType="Autocannon 20" Manufacturer=""
+			Model="" Shots="5">
+			<SlotReference Location="Right Torso" Table="2" Slot="5" />
+		</Item>
+		<Item Type="Ammunition" WeaponType="Autocannon 20" Manufacturer=""
+			Model="" Shots="5">
+			<SlotReference Location="Right Torso" Table="2" Slot="6" />
+		</Item>
+		<Item Type="Weapon" WeaponType="LRM 20" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="LRM-20">
+			<SlotReference Location="Left Torso" Table="1" Slot="1" />
+			<SlotReference Location="Left Torso" Table="1" Slot="2" />
+			<SlotReference Location="Left Torso" Table="1" Slot="3" />
+			<SlotReference Location="Left Torso" Table="1" Slot="4" />
+			<SlotReference Location="Left Torso" Table="1" Slot="5" />
+		</Item>
+		<Item Type="Ammunition" WeaponType="LRM 20" Manufacturer=""
+			Model="" Shots="6">
+			<SlotReference Location="Left Torso" Table="2" Slot="1" />
+		</Item>
+		<Item Type="Ammunition" WeaponType="LRM 20" Manufacturer=""
+			Model="" Shots="6">
+			<SlotReference Location="Left Torso" Table="2" Slot="2" />
+		</Item>
+		<Item Type="Weapon" WeaponType="SRM 6" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="SRM-6">
+			<SlotReference Location="Left Torso" Table="2" Slot="3" />
+			<SlotReference Location="Left Torso" Table="2" Slot="4" />
+		</Item>
+		<Item Type="Ammunition" WeaponType="SRM 6" Manufacturer="" Model=""
+			Shots="15">
+			<SlotReference Location="Left Torso" Table="1" Slot="6" />
+		</Item>
+		<Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="">
+			<SlotReference Location="Centre Torso" Table="2" Slot="5"
+				RearFacing="True" />
+		</Item>
+		<Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="">
+			<SlotReference Location="Centre Torso" Table="2" Slot="6"
+				RearFacing="True" />
+		</Item>
+		<Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="">
+			<SlotReference Location="Left Arm" Table="1" Slot="5" />
+		</Item>
+		<Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Na'ir, Hesperus, Quentin"
+			Model="">
+			<SlotReference Location="Right Arm" Table="1" Slot="5" />
+		</Item>
+
+	</Items>
+</BattlemechDesign>

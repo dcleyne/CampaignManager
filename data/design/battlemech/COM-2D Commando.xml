@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+	<Name>Commando</Name>
+	<Variant>COM-2D</Variant>
+	<Manufacturer>Coventry Defense Conglomerate</Manufacturer>
+	<Type>Biped</Type>
+	<Weight>25</Weight>
+	<Cost>1891250</Cost>
+	<BV>432</BV>
+	<Armour>
+		<Location Name="Head" Points="6" />
+		<Location Name="Centre Torso" Points="8" />
+		<Location Name="Centre Torso Rear" Points="4" />
+		<Location Name="Left Torso" Points="6" />
+		<Location Name="Left Torso Rear" Points="3" />
+		<Location Name="Right Torso" Points="6" />
+		<Location Name="Right Torso Rear" Points="3" />
+		<Location Name="Left Arm" Points="6" />
+		<Location Name="Right Arm" Points="6" />
+		<Location Name="Left Leg" Points="8" />
+		<Location Name="Right Leg" Points="8" />
+	</Armour>
+	<Items>
+		<Item Type="Life Support" Manufacturer="Coventry Defense Conglomerate"
+			Model="COM-2D Commando">
+			<SlotReference Location="Head" Table="1" Slot="1" />
+			<SlotReference Location="Head" Table="1" Slot="6" />
+		</Item>
+		<Item Type="Cockpit" Manufacturer="Coventry Defense Conglomerate"
+			Model="COM-2D Commando">
+			<SlotReference Location="Head" Table="1" Slot="3" />
+		</Item>
+		<Item Type="Gyro" Manufacturer="Coventry Defense Conglomerate"
+			Model="COM-2D Commando">
+			<SlotReference Location="Centre Torso" Table="1" Slot="4" />
+			<SlotReference Location="Centre Torso" Table="1" Slot="5" />
+			<SlotReference Location="Centre Torso" Table="1" Slot="6" />
+			<SlotReference Location="Centre Torso" Table="2" Slot="1" />
+		</Item>
+		<Item Type="Shoulder" Manufacturer="Coventry Defense Conglomerate"
+			Model="COM-2D Commando">
+			<SlotReference Location="Left Arm" Table="1" Slot="1" />
+		</Item>
+		<Item Type="Upper Arm Actuator" Manufacturer="Coventry Defense Conglomerate"
+			Model="COM-2D Commando">
+			<SlotReference Location="Left Arm" Table="1" Slot="2" />
+		</Item>
+		<Item Type="Lower Arm Actuator" Manufacturer="Coventry Defense Conglomerate"
+			Model="COM-2D Commando">
+			<SlotReference Location="Left Arm" Table="1" Slot="3" />
+		</Item>
+		<Item Type="Hand Actuator" Manufacturer="Coventry Defense Conglomerate"
+			Model="COM-2D Commando">
+			<SlotReference Location="Left Arm" Table="1" Slot="4" />
+		</Item>
+		<Item Type="Hip" Manufacturer="Coventry Defense Conglomerate"
+			Model="COM-2D Commando">
+			<SlotReference Location="Left Leg" Table="1" Slot="1" />
+		</Item>
+		<Item Type="Upper Leg Actuator" Manufacturer="Coventry Defense Conglomerate"
+			Model="COM-2D Commando">
+			<SlotReference Location="Left Leg" Table="1" Slot="2" />
+		</Item>
+		<Item Type="Lower Leg Actuator" Manufacturer="Coventry Defense Conglomerate"
+			Model="COM-2D Commando">
+			<SlotReference Location="Left Leg" Table="1" Slot="3" />
+		</Item>
+		<Item Type="Foot Actuator" Manufacturer="Coventry Defense Conglomerate"
+			Model="COM-2D Commando">
+			<SlotReference Location="Left Leg" Table="1" Slot="4" />
+		</Item>
+		<Item Type="Shoulder" Manufacturer="Coventry Defense Conglomerate"
+			Model="COM-2D Commando">
+			<SlotReference Location="Right Arm" Table="1" Slot="1" />
+		</Item>
+		<Item Type="Upper Arm Actuator" Manufacturer="Coventry Defense Conglomerate"
+			Model="COM-2D Commando">
+			<SlotReference Location="Right Arm" Table="1" Slot="2" />
+		</Item>
+		<Item Type="Lower Arm Actuator" Manufacturer="Coventry Defense Conglomerate"
+			Model="COM-2D Commando">
+			<SlotReference Location="Right Arm" Table="1" Slot="3" />
+		</Item>
+		<Item Type="Hand Actuator" Manufacturer="Coventry Defense Conglomerate"
+			Model="COM-2D Commando">
+			<SlotReference Location="Right Arm" Table="1" Slot="4" />
+		</Item>
+		<Item Type="Hip" Manufacturer="Coventry Defense Conglomerate"
+			Model="COM-2D Commando">
+			<SlotReference Location="Right Leg" Table="1" Slot="1" />
+		</Item>
+		<Item Type="Upper Leg Actuator" Manufacturer="Coventry Defense Conglomerate"
+			Model="COM-2D Commando">
+			<SlotReference Location="Right Leg" Table="1" Slot="2" />
+		</Item>
+		<Item Type="Lower Leg Actuator" Manufacturer="Coventry Defense Conglomerate"
+			Model="COM-2D Commando">
+			<SlotReference Location="Right Leg" Table="1" Slot="3" />
+		</Item>
+		<Item Type="Foot Actuator" Manufacturer="Coventry Defense Conglomerate"
+			Model="COM-2D Commando">
+			<SlotReference Location="Right Leg" Table="1" Slot="4" />
+		</Item>
+		<Item Type="Sensors" Manufacturer="TharHes" Model="Star Shark">
+			<SlotReference Location="Head" Table="1" Slot="2" />
+			<SlotReference Location="Head" Table="1" Slot="5" />
+		</Item>
+		<Item Type="Engine" Rating="150" Weight="5.5" Manufacturer="Omni"
+			Model="150">
+			<SlotReference Location="Centre Torso" Table="1" Slot="1" />
+			<SlotReference Location="Centre Torso" Table="1" Slot="2" />
+			<SlotReference Location="Centre Torso" Table="1" Slot="3" />
+			<SlotReference Location="Centre Torso" Table="2" Slot="2" />
+			<SlotReference Location="Centre Torso" Table="2" Slot="3" />
+			<SlotReference Location="Centre Torso" Table="2" Slot="4" />
+		</Item>
+		<Item Type="Heat Sink" HeatSinkType="Single"
+			Manufacturer="Coventry Defense Conglomerate" Model="">
+			<SlotReference Location="Left Torso" Table="1" Slot="2" />
+		</Item>
+		<Item Type="Heat Sink" HeatSinkType="Single"
+			Manufacturer="Coventry Defense Conglomerate" Model="">
+			<SlotReference Location="Left Torso" Table="1" Slot="3" />
+		</Item>
+		<Item Type="Heat Sink" HeatSinkType="Single"
+			Manufacturer="Coventry Defense Conglomerate" Model="">
+			<SlotReference Location="Right Torso" Table="1" Slot="2" />
+		</Item>
+		<Item Type="Heat Sink" HeatSinkType="Single"
+			Manufacturer="Coventry Defense Conglomerate" Model="">
+			<SlotReference Location="Right Torso" Table="1" Slot="3" />
+		</Item>
+		<Item Type="Weapon" WeaponType="SRM 6" Manufacturer="Shannon"
+			Model="Six-Shooter">
+			<SlotReference Location="Centre Torso" Table="2" Slot="5" />
+			<SlotReference Location="Centre Torso" Table="2" Slot="6" />
+		</Item>
+		<Item Type="Ammunition" WeaponType="SRM 6" Manufacturer="" Model=""
+			Shots="15">
+			<SlotReference Location="Left Torso" Table="1" Slot="1" />
+		</Item>
+		<Item Type="Weapon" WeaponType="SRM 4" Manufacturer="Coventry"
+			Model="4-Pack">
+			<SlotReference Location="Right Arm" Table="1" Slot="5" />
+		</Item>
+		<Item Type="Ammunition" WeaponType="SRM 4" Manufacturer="" Model=""
+			Shots="25">
+			<SlotReference Location="Right Torso" Table="1" Slot="1" />
+		</Item>
+		<Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Hesperus"
+			Model="B3M">
+			<SlotReference Location="Left Arm" Table="1" Slot="5" />
+		</Item>
+	</Items>
+</BattlemechDesign>

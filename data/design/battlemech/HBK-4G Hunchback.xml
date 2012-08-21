@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Hunchback</Name>
+  <Variant>HBK-4G</Variant>
+  <Manufacturer>Komiyaba/Nissan General Industries</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>50</Weight>
+  <Cost>3467876</Cost>
+  <BV>851</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="27" />
+    <Location Name="Centre Torso Rear" Points="10" />
+    <Location Name="Left Torso" Points="21" />
+    <Location Name="Left Torso Rear" Points="6" />
+    <Location Name="Right Torso" Points="21" />
+    <Location Name="Right Torso Rear" Points="6" />
+    <Location Name="Left Arm" Points="15" />
+    <Location Name="Right Arm" Points="15" />
+    <Location Name="Left Leg" Points="15" />
+    <Location Name="Right Leg" Points="15" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Komiyaba/Nissan General Industries" Model="HBK-4G Hunchback">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Komiyaba/Nissan General Industries" Model="HBK-4G Hunchback">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Komiyaba/Nissan General Industries" Model="HBK-4G Hunchback">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Komiyaba/Nissan General Industries" Model="HBK-4G Hunchback">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Komiyaba/Nissan General Industries" Model="HBK-4G Hunchback">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Komiyaba/Nissan General Industries" Model="HBK-4G Hunchback">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Komiyaba/Nissan General Industries" Model="HBK-4G Hunchback">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Komiyaba/Nissan General Industries" Model="HBK-4G Hunchback">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Komiyaba/Nissan General Industries" Model="HBK-4G Hunchback">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Komiyaba/Nissan General Industries" Model="HBK-4G Hunchback">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Komiyaba/Nissan General Industries" Model="HBK-4G Hunchback">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Komiyaba/Nissan General Industries" Model="HBK-4G Hunchback">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Komiyaba/Nissan General Industries" Model="HBK-4G Hunchback">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Komiyaba/Nissan General Industries" Model="HBK-4G Hunchback">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Komiyaba/Nissan General Industries" Model="HBK-4G Hunchback">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Komiyaba/Nissan General Industries" Model="HBK-4G Hunchback">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Komiyaba/Nissan General Industries" Model="HBK-4G Hunchback">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Komiyaba/Nissan General Industries" Model="HBK-4G Hunchback">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Komiyaba/Nissan General Industries" Model="HBK-4G Hunchback">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Tacticon" Model="Tracer 300">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="200" Weight="8.5" Manufacturer="Nisson" Model="200">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Autocannon 20" Manufacturer="Tomodzuru" Model="Mount Type 20">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+      <SlotReference Location="Right Torso" Table="1" Slot="5" />
+      <SlotReference Location="Right Torso" Table="1" Slot="6" />
+      <SlotReference Location="Right Torso" Table="2" Slot="1" />
+      <SlotReference Location="Right Torso" Table="2" Slot="2" />
+      <SlotReference Location="Right Torso" Table="2" Slot="3" />
+      <SlotReference Location="Right Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="Autocannon 20" Manufacturer="" Model="" Shots="5">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item> 
+    <Item Type="Ammunition" WeaponType="Autocannon 20" Manufacturer="" Model="" Shots="5">
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item> 
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Ichiba" Model="2000">
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Ichiba" Model="2000">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Diverse Optics" Model="Type 10">
+      <SlotReference Location="Head" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Komiyaba/Nissan General Industries">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Komiyaba/Nissan General Industries">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Komiyaba/Nissan General Industries">
+      <SlotReference Location="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Komiyaba/Nissan General Industries">
+      <SlotReference Location="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Komiyaba/Nissan General Industries">
+      <SlotReference Location="Right Leg" Table="1" Slot="6" />
+    </Item>
+  </Items>
+</BattlemechDesign>

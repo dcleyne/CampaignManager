@@ -1,0 +1,1335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Unit>
+  <Name>Alpha Storm</Name>
+  <Battlemechs>
+    <Battlemech>
+      <ID />
+      <Name />
+      <DesignName>Cicada</DesignName>
+      <DesignVariant>CDA-2A</DesignVariant>
+      <Manufacturer>Hartford Co</Manufacturer>
+      <Type>Biped</Type>
+      <Weight>40</Weight>
+      <BV>567</BV>
+      <Internals>
+        <Location Name="Centre Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+          <Spot ID="11" Status="Ok" />
+          <Spot ID="12" Status="Ok" />
+        </Location>
+        <Location Name="Right Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+        </Location>
+        <Location Name="Right Arm">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+        </Location>
+        <Location Name="Left Leg">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+        </Location>
+        <Location Name="Head">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+        </Location>
+        <Location Name="Right Leg">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+        </Location>
+        <Location Name="Left Arm">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+        </Location>
+        <Location Name="Left Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+        </Location>
+      </Internals>
+      <Armour>
+        <Location Name="Centre Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+          <Spot ID="11" Status="Ok" />
+        </Location>
+        <Location Name="Right Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+        </Location>
+        <Location Name="Right Arm">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+        </Location>
+        <Location Name="Head">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+        </Location>
+        <Location Name="Centre Torso Rear">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+        </Location>
+        <Location Name="Left Leg">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+        </Location>
+        <Location Name="Left Torso Rear">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+        </Location>
+        <Location Name="Right Leg">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+        </Location>
+        <Location Name="Left Arm">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+        </Location>
+        <Location Name="Left Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+        </Location>
+        <Location Name="Right Torso Rear">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+        </Location>
+      </Armour>
+      <Items>
+        <ItemMount>
+          <Item Type="Life Support" Manufacturer="Hartford Co" Model="CDA-2A Cicada" />
+          <SlotReference Location="Head" Table="1" Slot="1" Status="Ok" />
+          <SlotReference Location="Head" Table="1" Slot="6" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Cockpit" Manufacturer="Hartford Co" Model="CDA-2A Cicada" />
+          <SlotReference Location="Head" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Gyro" Manufacturer="Hartford Co" Model="CDA-2A Cicada" MechWeight="40" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="4" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="5" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="6" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Shoulder" Manufacturer="Hartford Co" Model="CDA-2A Cicada" />
+          <SlotReference Location="Left Arm" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Upper Arm Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada" MechWeight="40" />
+          <SlotReference Location="Left Arm" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Hip" Manufacturer="Hartford Co" Model="CDA-2A Cicada" />
+          <SlotReference Location="Left Leg" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Upper Leg Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada" MechWeight="40" />
+          <SlotReference Location="Left Leg" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Lower Leg Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada" MechWeight="40" />
+          <SlotReference Location="Left Leg" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Foot Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada" MechWeight="40" />
+          <SlotReference Location="Left Leg" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Shoulder" Manufacturer="Hartford Co" Model="CDA-2A Cicada" />
+          <SlotReference Location="Right Arm" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Upper Arm Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada" MechWeight="40" />
+          <SlotReference Location="Right Arm" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Hip" Manufacturer="Hartford Co" Model="CDA-2A Cicada" />
+          <SlotReference Location="Right Leg" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Upper Leg Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada" MechWeight="40" />
+          <SlotReference Location="Right Leg" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Lower Leg Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada" MechWeight="40" />
+          <SlotReference Location="Right Leg" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Foot Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada" MechWeight="40" />
+          <SlotReference Location="Right Leg" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Sensors" Manufacturer="Hartford" Model="J15 B" />
+          <SlotReference Location="Head" Table="1" Slot="2" Status="Ok" />
+          <SlotReference Location="Head" Table="1" Slot="5" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Engine" Rating="320" Weight="22.5" Manufacturer="Pitban" Model="320" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="1" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="2" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="3" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="2" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="3" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Magna" Model="Medium Laser" />
+          <SlotReference Location="Left Torso" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Magna" Model="Medium Laser" />
+          <SlotReference Location="Right Torso" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Magna" Model="200 Small Laser" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="5" Status="Ok" />
+        </ItemMount>
+      </Items>
+    </Battlemech>
+    <Battlemech>
+      <ID />
+      <Name />
+      <DesignName>Spider</DesignName>
+      <DesignVariant>SDR-5V</DesignVariant>
+      <Manufacturer>Newhart Interstellar Industries Ltd</Manufacturer>
+      <Type>Biped</Type>
+      <Weight>30</Weight>
+      <BV>514</BV>
+      <Internals>
+        <Location Name="Centre Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+        </Location>
+        <Location Name="Right Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+        </Location>
+        <Location Name="Right Arm">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+        </Location>
+        <Location Name="Left Leg">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+        </Location>
+        <Location Name="Head">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+        </Location>
+        <Location Name="Right Leg">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+        </Location>
+        <Location Name="Left Arm">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+        </Location>
+        <Location Name="Left Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+        </Location>
+      </Internals>
+      <Armour>
+        <Location Name="Centre Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+        </Location>
+        <Location Name="Right Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+        </Location>
+        <Location Name="Right Arm">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+        </Location>
+        <Location Name="Head">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+        </Location>
+        <Location Name="Centre Torso Rear">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+        </Location>
+        <Location Name="Left Leg">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+        </Location>
+        <Location Name="Left Torso Rear">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+        </Location>
+        <Location Name="Right Leg">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+        </Location>
+        <Location Name="Left Arm">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+        </Location>
+        <Location Name="Left Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+        </Location>
+        <Location Name="Right Torso Rear">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+        </Location>
+      </Armour>
+      <Items>
+        <ItemMount>
+          <Item Type="Life Support" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider" />
+          <SlotReference Location="Head" Table="1" Slot="1" Status="Ok" />
+          <SlotReference Location="Head" Table="1" Slot="6" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Cockpit" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider" />
+          <SlotReference Location="Head" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Gyro" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider" MechWeight="30" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="4" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="5" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="6" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Shoulder" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider" />
+          <SlotReference Location="Left Arm" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Upper Arm Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider" MechWeight="30" />
+          <SlotReference Location="Left Arm" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Lower Arm Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider" MechWeight="30" />
+          <SlotReference Location="Left Arm" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Hand Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider" MechWeight="30" />
+          <SlotReference Location="Left Arm" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Hip" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider" />
+          <SlotReference Location="Left Leg" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Upper Leg Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider" MechWeight="30" />
+          <SlotReference Location="Left Leg" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Lower Leg Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider" MechWeight="30" />
+          <SlotReference Location="Left Leg" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Foot Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider" MechWeight="30" />
+          <SlotReference Location="Left Leg" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Shoulder" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider" />
+          <SlotReference Location="Right Arm" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Upper Arm Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider" MechWeight="30" />
+          <SlotReference Location="Right Arm" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Lower Arm Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider" MechWeight="30" />
+          <SlotReference Location="Right Arm" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Hand Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider" MechWeight="30" />
+          <SlotReference Location="Right Arm" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Hip" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider" />
+          <SlotReference Location="Right Leg" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Upper Leg Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider" MechWeight="30" />
+          <SlotReference Location="Right Leg" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Lower Leg Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider" MechWeight="30" />
+          <SlotReference Location="Right Leg" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Foot Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider" MechWeight="30" />
+          <SlotReference Location="Right Leg" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Sensors" Manufacturer="O/P" Model="TA1240" />
+          <SlotReference Location="Head" Table="1" Slot="2" Status="Ok" />
+          <SlotReference Location="Head" Table="1" Slot="5" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Engine" Rating="240" Weight="11.5" Manufacturer="Pitban" Model="240" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="1" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="2" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="3" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="2" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="3" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="LFT-10" />
+          <SlotReference Location="Left Torso" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="LFT-10" />
+          <SlotReference Location="Left Torso" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="LFT-10" />
+          <SlotReference Location="Left Torso" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="LFT-10" />
+          <SlotReference Location="Left Torso" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="LFT-10" />
+          <SlotReference Location="Right Torso" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="LFT-10" />
+          <SlotReference Location="Right Torso" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="LFT-10" />
+          <SlotReference Location="Right Torso" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="LFT-10" />
+          <SlotReference Location="Right Torso" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Heat Sink" Manufacturer="Newhart Interstellar Industries Ltd" Model="" />
+          <SlotReference Location="Head" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Aberdovey" Model="Mk. III" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="5" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Aberdovey" Model="Mk. III" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="6" Status="Ok" />
+        </ItemMount>
+      </Items>
+    </Battlemech>
+    <Battlemech>
+      <ID />
+      <Name />
+      <DesignName>Whitworth</DesignName>
+      <DesignVariant>WTH-1</DesignVariant>
+      <Manufacturer>Whitworth Company</Manufacturer>
+      <Type>Biped</Type>
+      <Weight>40</Weight>
+      <BV>771</BV>
+      <Internals>
+        <Location Name="Centre Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+          <Spot ID="11" Status="Ok" />
+          <Spot ID="12" Status="Ok" />
+        </Location>
+        <Location Name="Right Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+        </Location>
+        <Location Name="Right Arm">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+        </Location>
+        <Location Name="Left Leg">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+        </Location>
+        <Location Name="Head">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+        </Location>
+        <Location Name="Right Leg">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+        </Location>
+        <Location Name="Left Arm">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+        </Location>
+        <Location Name="Left Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+        </Location>
+      </Internals>
+      <Armour>
+        <Location Name="Centre Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+          <Spot ID="11" Status="Ok" />
+          <Spot ID="12" Status="Ok" />
+          <Spot ID="13" Status="Ok" />
+          <Spot ID="14" Status="Ok" />
+          <Spot ID="15" Status="Ok" />
+          <Spot ID="16" Status="Ok" />
+        </Location>
+        <Location Name="Right Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+          <Spot ID="11" Status="Ok" />
+          <Spot ID="12" Status="Ok" />
+        </Location>
+        <Location Name="Right Arm">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+          <Spot ID="11" Status="Ok" />
+          <Spot ID="12" Status="Ok" />
+        </Location>
+        <Location Name="Head">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+        </Location>
+        <Location Name="Centre Torso Rear">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+        </Location>
+        <Location Name="Left Leg">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+          <Spot ID="11" Status="Ok" />
+          <Spot ID="12" Status="Ok" />
+          <Spot ID="13" Status="Ok" />
+          <Spot ID="14" Status="Ok" />
+          <Spot ID="15" Status="Ok" />
+          <Spot ID="17" Status="Ok" />
+          <Spot ID="16" Status="Ok" />
+          <Spot ID="18" Status="Ok" />
+        </Location>
+        <Location Name="Left Torso Rear">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+        </Location>
+        <Location Name="Right Leg">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+          <Spot ID="11" Status="Ok" />
+          <Spot ID="12" Status="Ok" />
+          <Spot ID="13" Status="Ok" />
+          <Spot ID="14" Status="Ok" />
+          <Spot ID="15" Status="Ok" />
+          <Spot ID="17" Status="Ok" />
+          <Spot ID="16" Status="Ok" />
+          <Spot ID="18" Status="Ok" />
+        </Location>
+        <Location Name="Left Arm">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+          <Spot ID="11" Status="Ok" />
+          <Spot ID="12" Status="Ok" />
+        </Location>
+        <Location Name="Left Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+          <Spot ID="11" Status="Ok" />
+          <Spot ID="12" Status="Ok" />
+        </Location>
+        <Location Name="Right Torso Rear">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+        </Location>
+      </Armour>
+      <Items>
+        <ItemMount>
+          <Item Type="Life Support" Manufacturer="Whitworth Company" Model="WTH-1 Whitworth" />
+          <SlotReference Location="Head" Table="1" Slot="1" Status="Ok" />
+          <SlotReference Location="Head" Table="1" Slot="6" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Cockpit" Manufacturer="Whitworth Company" Model="WTH-1 Whitworth" />
+          <SlotReference Location="Head" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Gyro" Manufacturer="Whitworth Company" Model="WTH-1 Whitworth" MechWeight="40" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="4" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="5" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="6" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Shoulder" Manufacturer="Whitworth Company" Model="WTH-1 Whitworth" />
+          <SlotReference Location="Left Arm" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Upper Arm Actuator" Manufacturer="Whitworth Company" Model="WTH-1 Whitworth" MechWeight="40" />
+          <SlotReference Location="Left Arm" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Lower Arm Actuator" Manufacturer="Whitworth Company" Model="WTH-1 Whitworth" MechWeight="40" />
+          <SlotReference Location="Left Arm" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Hip" Manufacturer="Whitworth Company" Model="WTH-1 Whitworth" />
+          <SlotReference Location="Left Leg" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Upper Leg Actuator" Manufacturer="Whitworth Company" Model="WTH-1 Whitworth" MechWeight="40" />
+          <SlotReference Location="Left Leg" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Lower Leg Actuator" Manufacturer="Whitworth Company" Model="WTH-1 Whitworth" MechWeight="40" />
+          <SlotReference Location="Left Leg" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Foot Actuator" Manufacturer="Whitworth Company" Model="WTH-1 Whitworth" MechWeight="40" />
+          <SlotReference Location="Left Leg" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Shoulder" Manufacturer="Whitworth Company" Model="WTH-1 Whitworth" />
+          <SlotReference Location="Right Arm" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Upper Arm Actuator" Manufacturer="Whitworth Company" Model="WTH-1 Whitworth" MechWeight="40" />
+          <SlotReference Location="Right Arm" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Lower Arm Actuator" Manufacturer="Whitworth Company" Model="WTH-1 Whitworth" MechWeight="40" />
+          <SlotReference Location="Right Arm" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Hip" Manufacturer="Whitworth Company" Model="WTH-1 Whitworth" />
+          <SlotReference Location="Right Leg" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Upper Leg Actuator" Manufacturer="Whitworth Company" Model="WTH-1 Whitworth" MechWeight="40" />
+          <SlotReference Location="Right Leg" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Lower Leg Actuator" Manufacturer="Whitworth Company" Model="WTH-1 Whitworth" MechWeight="40" />
+          <SlotReference Location="Right Leg" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Foot Actuator" Manufacturer="Whitworth Company" Model="WTH-1 Whitworth" MechWeight="40" />
+          <SlotReference Location="Right Leg" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Sensors" Manufacturer="Garret" Model="D2j" />
+          <SlotReference Location="Head" Table="1" Slot="2" Status="Ok" />
+          <SlotReference Location="Head" Table="1" Slot="5" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Engine" Rating="160" Weight="6.0" Manufacturer="LTV" Model="160" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="1" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="2" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="3" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="2" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="3" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Weapon" WeaponType="LRM 10" Manufacturer="Longbow" Model="10" />
+          <SlotReference Location="Right Torso" Table="1" Slot="1" Status="Ok" />
+          <SlotReference Location="Right Torso" Table="1" Slot="5" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Ammunition" WeaponType="LRM 10" Weight="1.0" Shots="12" Manufacturer="" Model="" />
+          <SlotReference Location="Right Torso" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Weapon" WeaponType="LRM 10" Manufacturer="Longbow" Model="10" />
+          <SlotReference Location="Left Torso" Table="1" Slot="1" Status="Ok" />
+          <SlotReference Location="Left Torso" Table="1" Slot="5" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Ammunition" WeaponType="LRM 10" Weight="1.0" Shots="12" Manufacturer="" Model="" />
+          <SlotReference Location="Left Torso" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Intek" Model="Medium Laser" />
+          <SlotReference Location="Right Arm" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Intek" Model="Medium Laser" />
+          <SlotReference Location="Left Arm" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Intek" Model="Medium Laser" />
+          <SlotReference Location="Head" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Jump Jet" Weight="0.5" Manufacturer="Whitworth" Model="Jetlift" />
+          <SlotReference Location="Left Leg" Table="1" Slot="5" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Jump Jet" Weight="0.5" Manufacturer="Whitworth" Model="Jetlift" />
+          <SlotReference Location="Left Leg" Table="1" Slot="6" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Jump Jet" Weight="0.5" Manufacturer="Whitworth" Model="Jetlift" />
+          <SlotReference Location="Right Leg" Table="1" Slot="5" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Jump Jet" Weight="0.5" Manufacturer="Whitworth" Model="Jetlift" />
+          <SlotReference Location="Right Leg" Table="1" Slot="6" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Heat Sink" Manufacturer="Whitworth Company" Model="" />
+          <SlotReference Location="Left Torso" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Heat Sink" Manufacturer="Whitworth Company" Model="" />
+          <SlotReference Location="Left Torso" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Heat Sink" Manufacturer="Whitworth Company" Model="" />
+          <SlotReference Location="Right Torso" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Heat Sink" Manufacturer="Whitworth Company" Model="" />
+          <SlotReference Location="Right Torso" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+      </Items>
+    </Battlemech>
+    <Battlemech>
+      <ID />
+      <Name />
+      <DesignName>Valkyrie</DesignName>
+      <DesignVariant>VLK-QA</DesignVariant>
+      <Manufacturer>Corean Enterprises</Manufacturer>
+      <Type>Biped</Type>
+      <Weight>30</Weight>
+      <BV>640</BV>
+      <Internals>
+        <Location Name="Centre Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+        </Location>
+        <Location Name="Right Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+        </Location>
+        <Location Name="Right Arm">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+        </Location>
+        <Location Name="Left Leg">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+        </Location>
+        <Location Name="Head">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+        </Location>
+        <Location Name="Right Leg">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+        </Location>
+        <Location Name="Left Arm">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+        </Location>
+        <Location Name="Left Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+        </Location>
+      </Internals>
+      <Armour>
+        <Location Name="Centre Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+          <Spot ID="11" Status="Ok" />
+          <Spot ID="12" Status="Ok" />
+          <Spot ID="13" Status="Ok" />
+          <Spot ID="14" Status="Ok" />
+        </Location>
+        <Location Name="Right Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+          <Spot ID="11" Status="Ok" />
+          <Spot ID="12" Status="Ok" />
+        </Location>
+        <Location Name="Right Arm">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+        </Location>
+        <Location Name="Head">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+        </Location>
+        <Location Name="Centre Torso Rear">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+        </Location>
+        <Location Name="Left Leg">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+          <Spot ID="11" Status="Ok" />
+          <Spot ID="12" Status="Ok" />
+        </Location>
+        <Location Name="Left Torso Rear">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+        </Location>
+        <Location Name="Right Leg">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+          <Spot ID="11" Status="Ok" />
+          <Spot ID="12" Status="Ok" />
+        </Location>
+        <Location Name="Left Arm">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+        </Location>
+        <Location Name="Left Torso">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+          <Spot ID="3" Status="Ok" />
+          <Spot ID="4" Status="Ok" />
+          <Spot ID="5" Status="Ok" />
+          <Spot ID="6" Status="Ok" />
+          <Spot ID="7" Status="Ok" />
+          <Spot ID="8" Status="Ok" />
+          <Spot ID="9" Status="Ok" />
+          <Spot ID="10" Status="Ok" />
+          <Spot ID="11" Status="Ok" />
+          <Spot ID="12" Status="Ok" />
+        </Location>
+        <Location Name="Right Torso Rear">
+          <Spot ID="1" Status="Ok" />
+          <Spot ID="2" Status="Ok" />
+        </Location>
+      </Armour>
+      <Items>
+        <ItemMount>
+          <Item Type="Life Support" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie" />
+          <SlotReference Location="Head" Table="1" Slot="1" Status="Ok" />
+          <SlotReference Location="Head" Table="1" Slot="6" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Cockpit" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie" />
+          <SlotReference Location="Head" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Gyro" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie" MechWeight="30" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="4" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="5" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="6" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Shoulder" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie" />
+          <SlotReference Location="Left Arm" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Upper Arm Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie" MechWeight="30" />
+          <SlotReference Location="Left Arm" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Lower Arm Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie" MechWeight="30" />
+          <SlotReference Location="Left Arm" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Hand Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie" MechWeight="30" />
+          <SlotReference Location="Left Arm" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Hip" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie" />
+          <SlotReference Location="Left Leg" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Upper Leg Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie" MechWeight="30" />
+          <SlotReference Location="Left Leg" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Lower Leg Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie" MechWeight="30" />
+          <SlotReference Location="Left Leg" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Foot Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie" MechWeight="30" />
+          <SlotReference Location="Left Leg" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Shoulder" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie" />
+          <SlotReference Location="Right Arm" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Upper Arm Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie" MechWeight="30" />
+          <SlotReference Location="Right Arm" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Lower Arm Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie" MechWeight="30" />
+          <SlotReference Location="Right Arm" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Hip" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie" />
+          <SlotReference Location="Right Leg" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Upper Leg Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie" MechWeight="30" />
+          <SlotReference Location="Right Leg" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Lower Leg Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie" MechWeight="30" />
+          <SlotReference Location="Right Leg" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Foot Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie" MechWeight="30" />
+          <SlotReference Location="Right Leg" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Sensors" Manufacturer="Sync" Model="Tracker (39-42071)" />
+          <SlotReference Location="Head" Table="1" Slot="2" Status="Ok" />
+          <SlotReference Location="Head" Table="1" Slot="5" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Engine" Rating="150" Weight="5.5" Manufacturer="Omni" Model="150" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="1" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="2" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="1" Slot="3" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="2" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="3" Status="Ok" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Heat Sink" Manufacturer="Corean Enterprises" Model="" />
+          <SlotReference Location="Left Torso" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Heat Sink" Manufacturer="Corean Enterprises" Model="" />
+          <SlotReference Location="Left Torso" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Heat Sink" Manufacturer="Corean Enterprises" Model="" />
+          <SlotReference Location="Right Torso" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Heat Sink" Manufacturer="Corean Enterprises" Model="" />
+          <SlotReference Location="Right Torso" Table="1" Slot="3" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Heat Sink" Manufacturer="Corean Enterprises" Model="" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="6" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Jump Jet" Weight="0.5" Manufacturer="Norse Industries" Model="3S" />
+          <SlotReference Location="Left Leg" Table="1" Slot="5" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Jump Jet" Weight="0.5" Manufacturer="Norse Industries" Model="3S" />
+          <SlotReference Location="Left Leg" Table="1" Slot="6" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Jump Jet" Weight="0.5" Manufacturer="Norse Industries" Model="3S" />
+          <SlotReference Location="Right Leg" Table="1" Slot="5" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Jump Jet" Weight="0.5" Manufacturer="Norse Industries" Model="3S" />
+          <SlotReference Location="Right Leg" Table="1" Slot="6" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Jump Jet" Weight="0.5" Manufacturer="Norse Industries" Model="3S" />
+          <SlotReference Location="Centre Torso" Table="2" Slot="5" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Weapon" WeaponType="LRM 10" Manufacturer="Devastator" Model="Series-07" />
+          <SlotReference Location="Left Torso" Table="1" Slot="1" Status="Ok" />
+          <SlotReference Location="Left Torso" Table="1" Slot="2" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Ammunition" WeaponType="LRM 10" Weight="1.0" Shots="10" Manufacturer="" Model="" />
+          <SlotReference Location="Right Torso" Table="1" Slot="1" Status="Ok" />
+        </ItemMount>
+        <ItemMount>
+          <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Sutel" Model="IX" />
+          <SlotReference Location="Right Arm" Table="1" Slot="4" Status="Ok" />
+        </ItemMount>
+      </Items>
+    </Battlemech>
+  </Battlemechs>
+  <Personnel>
+    <Personnel JobType="Mechwarrior" Name="Gaynor" Surname="Hallauer" Rank="None" Rating="Regular" Notes="" PilotingSkill="5" GunnerySkill="4" Hits="0" SuccessfulFiringAttempts="0" FailedFiringAttempts="0" SuccessfulPilotingRolls="0" FailedPilotingRolls="0" Missions="0" />
+    <Personnel JobType="Mechwarrior" Name="Davie" Surname="Bloise" Rank="None" Rating="Regular" Notes="" PilotingSkill="5" GunnerySkill="4" Hits="0" SuccessfulFiringAttempts="0" FailedFiringAttempts="0" SuccessfulPilotingRolls="0" FailedPilotingRolls="0" Missions="0" />
+    <Personnel JobType="Mechwarrior" Name="Tatianna" Surname="Quinn" Rank="None" Rating="Regular" Notes="" PilotingSkill="5" GunnerySkill="4" Hits="0" SuccessfulFiringAttempts="0" FailedFiringAttempts="0" SuccessfulPilotingRolls="0" FailedPilotingRolls="0" Missions="0" />
+    <Personnel JobType="Mechwarrior" Name="Sherri" Surname="Lombardi" Rank="None" Rating="Regular" Notes="" PilotingSkill="5" GunnerySkill="4" Hits="0" SuccessfulFiringAttempts="0" FailedFiringAttempts="0" SuccessfulPilotingRolls="0" FailedPilotingRolls="0" Missions="0" />
+    <Personnel JobType="Technician" Name="Marianna" Surname="Black" Rank="None" Rating="Regular" Notes="" />
+    <Personnel JobType="Technician" Name="Salome" Surname="Armitage" Rank="None" Rating="Regular" Notes="" />
+    <Personnel JobType="Astech" Name="Dorian" Surname="Polson" Rank="None" Rating="Regular" Notes="" />
+    <Personnel JobType="Medtech" Name="Louella" Surname="Laurence" Rank="None" Rating="Regular" Notes="" />
+    <Personnel JobType="Administration" Name="Royale" Surname="Sayre" Rank="None" Rating="Regular" Notes="" />
+  </Personnel>
+  <AssignedMissions />
+</Unit>
+

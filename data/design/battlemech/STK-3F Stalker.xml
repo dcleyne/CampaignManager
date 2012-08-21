@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Stalker</Name>
+  <Variant>STK-3F</Variant>
+  <Manufacturer>Triad Technologies</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>85</Weight>
+  <Cost>7463825</Cost>
+  <BV>1152</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="36" />
+    <Location Name="Centre Torso Rear" Points="11" />
+    <Location Name="Left Torso" Points="25" />
+    <Location Name="Left Torso Rear" Points="7" />
+    <Location Name="Right Torso" Points="25" />
+    <Location Name="Right Torso Rear" Points="7" />
+    <Location Name="Left Arm" Points="23" />
+    <Location Name="Right Arm" Points="23" />
+    <Location Name="Left Leg" Points="25" />
+    <Location Name="Right Leg" Points="25" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Triad Technologies" Model="STK-3F Stalker">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Triad Technologies" Model="STK-3F Stalker">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Triad Technologies" Model="STK-3F Stalker">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Triad Technologies" Model="STK-3F Stalker">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Triad Technologies" Model="STK-3F Stalker">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Triad Technologies" Model="STK-3F Stalker">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Triad Technologies" Model="STK-3F Stalker">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Triad Technologies" Model="STK-3F Stalker">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Triad Technologies" Model="STK-3F Stalker">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Triad Technologies" Model="STK-3F Stalker">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Triad Technologies" Model="STK-3F Stalker">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Triad Technologies" Model="STK-3F Stalker">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Triad Technologies" Model="STK-3F Stalker">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Triad Technologies" Model="STK-3F Stalker">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Triad Technologies" Model="STK-3F Stalker">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Spar" Model="3c Tight Band">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="255" Weight="13" Manufacturer="Strand" Model="255">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 10" Manufacturer="Jackson" Model="B5c">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 10" Manufacturer="" Model="" Shots="12">
+      <SlotReference Location="Right Arm" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 10" Manufacturer="Jackson" Model="B5c">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 10" Manufacturer="" Model="" Shots="12">
+      <SlotReference Location="Left Arm" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Large Laser" Manufacturer="Magna" Model="MkIII">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Large Laser" Manufacturer="Magna" Model="MkIII">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Magna" Model="MkII">
+      <SlotReference Location="Left Arm" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Magna" Model="MkII">
+      <SlotReference Location="Left Arm" Table="2" Slot="2" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Magna" Model="MkII">
+      <SlotReference Location="Right Arm" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Magna" Model="MkII">
+      <SlotReference Location="Right Arm" Table="2" Slot="2" />
+    </Item>
+    <Item Type="Weapon" WeaponType="SRM 6" Manufacturer="Thunderstroke" Model="SRM-6">
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 6" Manufacturer="" Model="" Shots="15">
+      <SlotReference Location="Left Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="SRM 6" Manufacturer="Thunderstroke" Model="SRM-6">
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 6" Manufacturer="" Model="" Shots="15">
+      <SlotReference Location="Right Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Triad Technologies">
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Triad Technologies">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Triad Technologies">
+      <SlotReference Location="Left Torso" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Triad Technologies">
+      <SlotReference Location="Right Torso" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Triad Technologies">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Triad Technologies">
+      <SlotReference Location="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Triad Technologies">
+      <SlotReference Location="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Triad Technologies">
+      <SlotReference Location="Right Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Triad Technologies">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Triad Technologies">
+      <SlotReference Location="Centre Torso" Table="2" Slot="6" />
+    </Item>
+  </Items>
+</BattlemechDesign>

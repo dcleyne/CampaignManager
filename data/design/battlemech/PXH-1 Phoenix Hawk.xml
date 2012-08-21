@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Phoenix Hawk</Name>
+  <Variant>PXH-1</Variant>
+  <Manufacturer>Orguss Industries</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>45</Weight>
+  <Cost>4067540</Cost>
+  <BV>838</BV>
+  <Armour>
+    <Location Name="Head" Points="6" />
+    <Location Name="Centre Torso" Points="23" />
+    <Location Name="Centre Torso Rear" Points="5" />
+    <Location Name="Left Torso" Points="18" />
+    <Location Name="Left Torso Rear" Points="4" />
+    <Location Name="Right Torso" Points="18" />
+    <Location Name="Right Torso Rear" Points="4" />
+    <Location Name="Left Arm" Points="10" />
+    <Location Name="Right Arm" Points="10" />
+    <Location Name="Left Leg" Points="15" />
+    <Location Name="Right Leg" Points="15" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Orguss Industries" Model="PXH-1 Phoenix Hawk">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Orguss Industries" Model="PXH-1 Phoenix Hawk">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Orguss Industries" Model="PXH-1 Phoenix Hawk">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Orguss Industries" Model="PXH-1 Phoenix Hawk">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Orguss Industries" Model="PXH-1 Phoenix Hawk">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Orguss Industries" Model="PXH-1 Phoenix Hawk">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Orguss Industries" Model="PXH-1 Phoenix Hawk">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Orguss Industries" Model="PXH-1 Phoenix Hawk">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Orguss Industries" Model="PXH-1 Phoenix Hawk">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Orguss Industries" Model="PXH-1 Phoenix Hawk">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Orguss Industries" Model="PXH-1 Phoenix Hawk">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Orguss Industries" Model="PXH-1 Phoenix Hawk">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Orguss Industries" Model="PXH-1 Phoenix Hawk">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Orguss Industries" Model="PXH-1 Phoenix Hawk">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Orguss Industries" Model="PXH-1 Phoenix Hawk">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Orguss Industries" Model="PXH-1 Phoenix Hawk">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Orguss Industries" Model="PXH-1 Phoenix Hawk">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Orguss Industries" Model="PXH-1 Phoenix Hawk">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Orguss Industries" Model="PXH-1 Phoenix Hawk">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Tek" Model="Tru-Trak">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="270" Weight="14.5" Manufacturer="GM" Model="270">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Large Laser" Manufacturer="Harmon" Model="Heavy Laser">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+      <SlotReference Location="Right Arm" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Harmon" Model="Medium Laser">
+      <SlotReference Location="Right Arm" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Harmon" Model="Medium Laser">
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="M" Model="100">
+      <SlotReference Location="Left Arm" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="M" Model="100">
+      <SlotReference Location="Right Arm" Table="2" Slot="2" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="Machine Gun" Manufacturer="" Model="" Shots="200">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="9000">
+      <SlotReference Location ="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="9000">
+      <SlotReference Location ="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="9000">
+      <SlotReference Location ="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="9000">
+      <SlotReference Location ="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="9000">
+      <SlotReference Location ="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="9000">
+      <SlotReference Location ="Right Torso" Table="1" Slot="3" />
+    </Item>
+      </Items>
+</BattlemechDesign>

@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Hatchetman</Name>
+  <Variant>HCT-3F</Variant>
+  <Manufacturer>Defiance Industries of Hesperus II</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>45</Weight>
+  <Cost>3129390</Cost>
+  <BV>769</BV>
+  <Armour>
+    <Location Name="Head" Points="6" />
+    <Location Name="Centre Torso" Points="14" />
+    <Location Name="Centre Torso Rear" Points="4" />
+    <Location Name="Left Torso" Points="14" />
+    <Location Name="Left Torso Rear" Points="4" />
+    <Location Name="Right Torso" Points="14" />
+    <Location Name="Right Torso Rear" Points="4" />
+    <Location Name="Left Arm" Points="11" />
+    <Location Name="Right Arm" Points="11" />
+    <Location Name="Left Leg" Points="11" />
+    <Location Name="Right Leg" Points="11" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Defiance Industries of Hesperus II" Model="HCT-3F Hatchetman">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Defiance Industries of Hesperus II" Model="HCT-3F Hatchetman">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Defiance Industries of Hesperus II" Model="HCT-3F Hatchetman">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Defiance Industries of Hesperus II" Model="HCT-3F Hatchetman">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Defiance Industries of Hesperus II" Model="HCT-3F Hatchetman">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Defiance Industries of Hesperus II" Model="HCT-3F Hatchetman">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Defiance Industries of Hesperus II" Model="HCT-3F Hatchetman">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Defiance Industries of Hesperus II" Model="HCT-3F Hatchetman">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Defiance Industries of Hesperus II" Model="HCT-3F Hatchetman">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Defiance Industries of Hesperus II" Model="HCT-3F Hatchetman">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Defiance Industries of Hesperus II" Model="HCT-3F Hatchetman">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Defiance Industries of Hesperus II" Model="HCT-3F Hatchetman">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Defiance Industries of Hesperus II" Model="HCT-3F Hatchetman">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Defiance Industries of Hesperus II" Model="HCT-3F Hatchetman">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Defiance Industries of Hesperus II" Model="HCT-3F Hatchetman">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Defiance Industries of Hesperus II" Model="HCT-3F Hatchetman">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Defiance Industries of Hesperus II" Model="HCT-3F Hatchetman">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Defiance Industries of Hesperus II" Model="HCT-3F Hatchetman">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Defiance Industries of Hesperus II" Model="HCT-3F Hatchetman">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="TharHess" Model="Ares-8a">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="180" Weight="7" Manufacturer="GM" Model="180">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Autocannon 10" Manufacturer="Defiance" Model="Killer">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+      <SlotReference Location="Right Torso" Table="1" Slot="5" />
+      <SlotReference Location="Right Torso" Table="1" Slot="6" />
+      <SlotReference Location="Right Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="Autocannon 10" Manufacturer="" Model="" Shots="10">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item> 
+    <Item Type="Ammunition" WeaponType="Autocannon 10" Manufacturer="" Model="" Shots="10">
+      <SlotReference Location="Centre Torso" Table="2" Slot="6" />
+    </Item> 
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Defiance" Model="B3M">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Defiance" Model="B3M">
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Luxor" Model="2/Q">
+      <SlotReference Location ="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Luxor" Model="2/Q">
+      <SlotReference Location ="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Luxor" Model="2/Q">
+      <SlotReference Location ="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Luxor" Model="2/Q">
+      <SlotReference Location ="Right Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Defiance Industries of Hesperus II">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>  
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Defiance Industries of Hesperus II">
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>  
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Defiance Industries of Hesperus II">
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+    </Item>  
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Defiance Industries of Hesperus II">
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>  
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Defiance Industries of Hesperus II">
+      <SlotReference Location="Right Torso" Table="2" Slot="2" />
+    </Item>  
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Defiance Industries of Hesperus II">
+      <SlotReference Location="Right Torso" Table="2" Slot="3" />
+    </Item>  
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Defiance Industries of Hesperus II">
+      <SlotReference Location="Right Torso" Table="2" Slot="4" />
+    </Item>  
+  </Items>
+</BattlemechDesign>

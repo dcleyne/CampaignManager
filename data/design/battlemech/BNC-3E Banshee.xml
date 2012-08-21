@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Banshee</Name>
+  <Variant>BNC-3E</Variant>
+  <Manufacturer>Star League Weapons Research</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>95</Weight>
+  <Cost>9530853</Cost>
+  <BV>1223</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="40" />
+    <Location Name="Centre Torso Rear" Points="17" />
+    <Location Name="Left Torso" Points="30" />
+    <Location Name="Left Torso Rear" Points="10" />
+    <Location Name="Right Torso" Points="30" />
+    <Location Name="Right Torso Rear" Points="10" />
+    <Location Name="Left Arm" Points="21" />
+    <Location Name="Right Arm" Points="21" />
+    <Location Name="Left Leg" Points="26" />
+    <Location Name="Right Leg" Points="26" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Dalban" Model="HiRez-B">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="380" Weight="41" Manufacturer="GM" Model="380">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="PPC" Manufacturer="Magna" Model="Hellstar">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Autocannon 5" Manufacturer="Imperator" Model="A">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="Autocannon 5" Manufacturer="" Model="" Shots="20">
+      <SlotReference Location="Left Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Magna" Model="MkI">
+      <SlotReference Location="Head" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Star League Weapons Research">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Star League Weapons Research">
+      <SlotReference Location="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Star League Weapons Research">
+      <SlotReference Location="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Star League Weapons Research">
+      <SlotReference Location="Right Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Star League Weapons Research">
+      <SlotReference Location="Left Torso" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Star League Weapons Research">
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+    </Item>
+  </Items>
+</BattlemechDesign>

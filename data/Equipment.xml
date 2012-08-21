@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WeaponSystems>
+	<Weapon Name="Small Laser" Abbreviation="SL" TechLevel="1" TechBase="Inner Sphere" Type="Energy">
+		<Cost>11250</Cost>
+		<BV>9</BV>
+		<Weight>0.5</Weight>
+		<CritSlots>1</CritSlots>
+		<Range Minimum="0" Short="1" Medium="2" Long="3" Extreme="4" Type="Hex"/>
+		<Damage>3</Damage>
+		<Heat>1</Heat>		
+	</Weapon>
+	<Weapon Name="Medium Laser" Abbreviation="ML" TechLevel="1" TechBase="Inner Sphere" Type="Energy">
+		<Cost>40000</Cost>
+		<BV>46</BV>
+		<Weight>1</Weight>
+		<CritSlots>1</CritSlots>
+		<Range Minimum="0" Short="3" Medium="6" Long="9" Extreme="12" Type="Hex"/>
+		<Damage>5</Damage>
+		<Heat>3</Heat>		
+	</Weapon>
+	<Weapon Name="Large Laser" Abbreviation="LL" TechLevel="1" TechBase="Inner Sphere" Type="Energy">
+		<Cost>100000</Cost>
+		<BV>124</BV>
+		<Weight>5</Weight>
+		<CritSlots>2</CritSlots>
+		<Range Minimum="0" Short="5" Medium="10" Long="15" Extreme="20" Type="Hex"/>
+		<Damage>8</Damage>
+		<Heat>8</Heat>		
+	</Weapon>
+	<Weapon Name="Autocannon/2" Abbreviation="AC2" TechLevel="1" TechBase="Inner Sphere" Type="Ballistic">
+		<Cost>75000</Cost>
+		<BV>37</BV>
+		<Weight>6</Weight>
+		<CritSlots>1</CritSlots>
+		<Range Minimum="4" Short="8" Medium="16" Long="24" Extreme="32" Type="Hex"/>
+		<Damage>2</Damage>
+		<Heat>1</Heat>		
+	</Weapon>
+	<Weapon Name="Autocannon/5" Abbreviation="AC5" TechLevel="1" TechBase="Inner Sphere" Type="Ballistic">
+		<Cost>125000</Cost>
+		<BV>70</BV>
+		<Weight>8</Weight>
+		<CritSlots>5</CritSlots>
+		<Range Minimum="3" Short="6" Medium="12" Long="18" Extreme="24" Type="Hex"/>
+		<Damage>5</Damage>
+		<Heat>1</Heat>		
+	</Weapon>
+	<Weapon Name="Autocannon/10" Abbreviation="AC10" TechLevel="1" TechBase="Inner Sphere" Type="Ballistic">
+		<Cost>200000</Cost>
+		<BV>124</BV>
+		<Weight>12</Weight>
+		<CritSlots>7</CritSlots>
+		<Range Minimum="0" Short="5" Medium="10" Long="15" Extreme="20" Type="Hex"/>
+		<Damage>10</Damage>
+		<Heat>2</Heat>		
+	</Weapon>
+	<Weapon Name="Autocannon/20" Abbreviation="AC20" TechLevel="1" TechBase="Inner Sphere" Type="Ballistic">
+		<Cost>300000</Cost>
+		<BV>178</BV>
+		<Weight>14</Weight>
+		<CritSlots>10</CritSlots>
+		<Range Minimum="0" Short="3" Medium="6" Long="9" Extreme="12" Type="Hex"/>
+		<Damage>20</Damage>
+		<Heat>7</Heat>
+		<SpreadableCrits>True</SpreadableCrits>		
+	</Weapon>
+	<Weapon Name="SRM 2" Abbreviation="SRM2" TechLevel="1" TechBase="Inner Sphere" Type="Missile">
+		<Cost>10000</Cost>
+		<BV>21</BV>
+		<Weight>1</Weight>
+		<CritSlots>1</CritSlots>
+		<Range Minimum="0" Short="3" Medium="6" Long="9" Extreme="12" Type="Hex"/>
+		<Damage Type="Missile">2</Damage>
+		<Heat>2</Heat>
+	</Weapon>
+	<Weapon Name="SRM 4" Abbreviation="SRM4" TechLevel="1" TechBase="Inner Sphere" Type="Missile">
+		<Cost>60000</Cost>
+		<BV>39</BV>
+		<Weight>2</Weight>
+		<CritSlots>1</CritSlots>
+		<Range Minimum="0" Short="3" Medium="6" Long="9" Extreme="12" Type="Hex"/>
+		<Damage Type="Missile">2</Damage>
+		<Heat>3</Heat>
+	</Weapon>
+	<Weapon Name="SRM 6" Abbreviation="SRM6" TechLevel="1" TechBase="Inner Sphere" Type="Missile">
+		<Cost>80000</Cost>
+		<BV>59</BV>
+		<Weight>3</Weight>
+		<CritSlots>2</CritSlots>
+		<Range Minimum="0" Short="3" Medium="6" Long="9" Extreme="12" Type="Hex"/>
+		<Damage Type="Missile">2</Damage>
+		<Heat>4</Heat>
+	</Weapon>
+
+	<Weapon Name="Machine Gun" Abbreviation="MG" TechLevel="1" TechBase="Inner Sphere" Type="Ballistic">
+		<Cost>5000</Cost>
+		<BV>5</BV>
+		<Weight>0.5</Weight>
+		<CritSlots>1</CritSlots>
+		<Range Minimum="0" Short="1" Medium="2" Long="3" Extreme="4" Type="Hex"/>
+		<Damage>1</Damage>
+		<Heat>0</Heat>
+	</Weapon>
+
+	<Weapon Name="LRM 5" Abbreviation="LRM5" TechLevel="1" TechBase="Inner Sphere" Type="Missile">
+		<Cost>30000</Cost>
+		<BV>45</BV>
+		<Weight>2</Weight>
+		<CritSlots>1</CritSlots>
+		<Range Minimum="6" Short="7" Medium="14" Long="21" Extreme="28" Type="Hex"/>
+		<Damage Type="Missile">1</Damage>
+		<Heat>2</Heat>
+	</Weapon>
+	<Weapon Name="LRM 10" Abbreviation="LRM10" TechLevel="1" TechBase="Inner Sphere" Type="Missile">
+		<Cost>100000</Cost>
+		<BV>90</BV>
+		<Weight>5</Weight>
+		<CritSlots>2</CritSlots>
+		<Range Minimum="6" Short="7" Medium="14" Long="21" Extreme="28" Type="Hex"/>
+		<Damage Type="Missile">1</Damage>
+		<Heat>4</Heat>
+	</Weapon>
+	<Weapon Name="LRM 15" Abbreviation="LRM10" TechLevel="1" TechBase="Inner Sphere" Type="Missile">
+		<Cost>175000</Cost>
+		<BV>136</BV>
+		<Weight>7</Weight>
+		<CritSlots>3</CritSlots>
+		<Range Minimum="6" Short="7" Medium="14" Long="21" Extreme="28" Type="Hex"/>
+		<Damage Type="Missile">1</Damage>
+		<Heat>5</Heat>
+	</Weapon>
+	<Weapon Name="LRM 20" Abbreviation="LRM10" TechLevel="1" TechBase="Inner Sphere" Type="Missile">
+		<Cost>250000</Cost>
+		<BV>181</BV>
+		<Weight>10</Weight>
+		<CritSlots>5</CritSlots>
+		<Range Minimum="6" Short="7" Medium="14" Long="21" Extreme="28" Type="Hex"/>
+		<Damage Type="Missile">1</Damage>
+		<Heat>6</Heat>
+	</Weapon>
+
+	<Weapon Name="Particle Projection Cannon" Abbreviation="PPC" TechLevel="1" TechBase="Inner Sphere" Type="Energy">
+		<Cost>200000</Cost>
+		<BV>176</BV>
+		<Weight>7</Weight>
+		<CritSlots>3</CritSlots>
+		<Range Minimum="3" Short="6" Medium="12" Long="18" Extreme="24" Type="Hex"/>
+		<Damage>10</Damage>
+		<Heat>10</Heat>		
+	</Weapon>
+	<Weapon Name="Flamer" Abbreviation="Flamer" TechLevel="1" TechBase="Inner Sphere" Type="Energy">
+		<Cost>7500</Cost>
+		<BV>6</BV>
+		<Weight>1</Weight>
+		<CritSlots>1</CritSlots>
+		<Range Minimum="0" Short="1" Medium="2" Long="3" Extreme="4" Type="Hex"/>
+		<Damage>2</Damage>
+		<Heat>3</Heat>		
+	</Weapon>
+	
+	<Ammunition Name="Autocannon/2">
+		<Cost>1000</Cost>
+		<BV>5</BV>
+		<Explosive>true</Explosive>
+	</Ammunition>
+	<Ammunition Name="Autocannon/5">
+		<Cost>5000</Cost>
+		<BV>9</BV>
+		<Explosive>true</Explosive>
+	</Ammunition>
+	<Ammunition Name="Autocannon/10">
+		<Cost>6000</Cost>
+		<BV>15</BV>
+		<Explosive>true</Explosive>
+	</Ammunition>
+	<Ammunition Name="Autocannon/20">
+		<Cost>10000</Cost>
+		<BV>20</BV>
+		<Explosive>true</Explosive>
+	</Ammunition>
+
+	<Ammunition Name="SRM 2">
+		<Cost>27000</Cost>
+		<BV>3</BV>
+		<Explosive>true</Explosive>
+	</Ammunition>
+	<Ammunition Name="SRM 4">
+		<Cost>27000</Cost>
+		<BV>5</BV>
+		<Explosive>true</Explosive>
+	</Ammunition>
+	<Ammunition Name="SRM 6">
+		<Cost>27000</Cost>
+		<BV>7</BV>
+		<Explosive>true</Explosive>
+	</Ammunition>
+
+	<Ammunition Name="Machine Gun">
+		<Cost>1000</Cost>
+		<BV>1</BV>
+		<Explosive>true</Explosive>
+	</Ammunition>
+
+	<Ammunition Name="LRM 5">
+		<Cost>30000</Cost>
+		<BV>6</BV>
+		<Explosive>true</Explosive>
+	</Ammunition>
+	<Ammunition Name="LRM 10">
+		<Cost>30000</Cost>
+		<BV>11</BV>
+		<Explosive>true</Explosive>
+	</Ammunition>
+	<Ammunition Name="LRM 15">
+		<Cost>30000</Cost>
+		<BV>17</BV>
+		<Explosive>true</Explosive>
+	</Ammunition>
+	<Ammunition Name="LRM 20">
+		<Cost>30000</Cost>
+		<BV>23</BV>
+		<Explosive>true</Explosive>
+	</Ammunition>
+	
+</WeaponSystems>

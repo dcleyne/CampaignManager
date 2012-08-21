@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Trebuchet</Name>
+  <Variant>TBT-5N</Variant>
+  <Manufacturer>Corean Enterprises</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>50</Weight>
+  <Cost>4299500</Cost>
+  <BV>864</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="22" />
+    <Location Name="Centre Torso Rear" Points="7" />
+    <Location Name="Left Torso" Points="11" />
+    <Location Name="Left Torso Rear" Points="5" />
+    <Location Name="Right Torso" Points="11" />
+    <Location Name="Right Torso Rear" Points="5" />
+    <Location Name="Left Arm" Points="10" />
+    <Location Name="Right Arm" Points="10" />
+    <Location Name="Left Leg" Points="15" />
+    <Location Name="Right Leg" Points="15" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Corean Enterprises" Model="TBT-5N Trebuchet">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Corean Enterprises" Model="TBT-5N Trebuchet">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Corean Enterprises" Model="TBT-5N Trebuchet">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Corean Enterprises" Model="TBT-5N Trebuchet">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Corean Enterprises" Model="TBT-5N Trebuchet">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Corean Enterprises" Model="TBT-5N Trebuchet">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Corean Enterprises" Model="TBT-5N Trebuchet">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Corean Enterprises" Model="TBT-5N Trebuchet">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Corean Enterprises" Model="TBT-5N Trebuchet">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Corean Enterprises" Model="TBT-5N Trebuchet">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Corean Enterprises" Model="TBT-5N Trebuchet">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Corean Enterprises" Model="TBT-5N Trebuchet">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Corean Enterprises" Model="TBT-5N Trebuchet">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Corean Enterprises" Model="TBT-5N Trebuchet">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Corean Enterprises" Model="TBT-5N Trebuchet">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Corean Enterprises" Model="TBT-5N Trebuchet">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Corean Enterprises" Model="TBT-5N Trebuchet">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Corean Enterprises" Model="TBT-5N Trebuchet">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Corean" Model="B-Tech">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="250" Weight="12.5" Manufacturer="Magna" Model="250">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 15" Manufacturer="Zeus" Model="LRM-15">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 15" Manufacturer="" Model="" Shots="8">
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 15" Manufacturer="Zeus" Model="LRM-15">
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+      <SlotReference Location="Left Arm" Table="1" Slot="6" />
+      <SlotReference Location="Left Arm" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 15" Manufacturer="" Model="" Shots="8">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Magna" Model="MkII">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Magna" Model="MkII">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Magna" Model="MkII">
+      <SlotReference Location="Left Arm" Table="2" Slot="2" />
+    </Item>
+  </Items>
+</BattlemechDesign>

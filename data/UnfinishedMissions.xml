@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Missions>
+  <Mission ID="9" Name="And you thought it couldn't smell worse than this">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio>1</ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="10" Name="Getting it home isn't going to be easy...">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio>1</ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="11" Name="is that a PPC in your pocket?">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio>1</ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="12" Name="Not to be judging a book by its cover but...">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio>1</ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="13" Name="An ugly bloke just spat in your drink...">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio></ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="14" Name="We seem to have lost contact...">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio></ForceRatio>
+    <Notes></Notes>
+    <ForceRatio></ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="15" Name="Its getting hot in here.">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio></ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="16" Name="You broke what?">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio></ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="17" Name="Now, that would go nicely under the christmas tree">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio></ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="18" Name="Mercy... what's that?">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio></ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="19" Name="I thought you meant sick as in 'nuts'">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio></ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="20" Name="If we can just keep the locals in the dark for a little while longer.">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio></ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="21" Name="A game played with Buckyballs">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio></ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="22" Name="Solaris cheap, Solaris shiny.">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio></ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="23" Name="Do I look like a mule to you?">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio></ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="24" Name="Stepping in cow pats">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio></ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="25" Name="Better whitewash that mech...">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio></ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="26" Name="It's those damned ComStar missionaries at the door again.">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio></ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="27" Name="Stash, cash, bash, thrash">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio></ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="28" Name="Funny, as in funny... not funny...">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio></ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="29" Name="What was that noise?">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio></ForceRatio>
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="30" Name="Better get a lawyer son... better get a real good one...">
+    <Description></Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing></Briefing>
+      <Setup></Setup>
+      <Objective></Objective>
+      <VictoryConditions></VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio></ForceRatio>
+    <Notes></Notes>
+  </Mission>
+</Missions>

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Hermes II</Name>
+  <Variant>HER-2S</Variant>
+  <Manufacturer>Irian Battlemechs Unlimited</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>40</Weight>
+  <Cost>3165680</Cost>
+  <BV>665</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="17" />
+    <Location Name="Centre Torso Rear" Points="6" />
+    <Location Name="Left Torso" Points="14" />
+    <Location Name="Left Torso Rear" Points="5" />
+    <Location Name="Right Torso" Points="14" />
+    <Location Name="Right Torso Rear" Points="5" />
+    <Location Name="Left Arm" Points="11" />
+    <Location Name="Right Arm" Points="11" />
+    <Location Name="Left Leg" Points="14" />
+    <Location Name="Right Leg" Points="14" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Irian Battlemechs Unlimited" Model="HER-2S Hermes II">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Irian Battlemechs Unlimited" Model="HER-2S Hermes II">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Irian Battlemechs Unlimited" Model="HER-2S Hermes II">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Irian Battlemechs Unlimited" Model="HER-2S Hermes II">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Irian Battlemechs Unlimited" Model="HER-2S Hermes II">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Irian Battlemechs Unlimited" Model="HER-2S Hermes II">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Irian Battlemechs Unlimited" Model="HER-2S Hermes II">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Irian Battlemechs Unlimited" Model="HER-2S Hermes II">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Irian Battlemechs Unlimited" Model="HER-2S Hermes II">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Irian Battlemechs Unlimited" Model="HER-2S Hermes II">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Irian Battlemechs Unlimited" Model="HER-2S Hermes II">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Irian Battlemechs Unlimited" Model="HER-2S Hermes II">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Irian Battlemechs Unlimited" Model="HER-2S Hermes II">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Irian Battlemechs Unlimited" Model="HER-2S Hermes II">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Irian Battlemechs Unlimited" Model="HER-2S Hermes II">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Irian Battlemechs Unlimited" Model="HER-2S Hermes II">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Irian Battlemechs Unlimited" Model="HER-2S Hermes II">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Irian Battlemechs Unlimited" Model="HER-2S Hermes II">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Wasat" Model="Aggressor">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="240" Weight="11.5" Manufacturer="Hermes" Model="240">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Irian Battlemechs Unlimited">
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Autocannon 5" Manufacturer="Oriente" Model="Autocannon">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="Autocannon 5" Manufacturer="" Model="" Shots="20">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="I.W.W" Model="Medium Laser">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Flamer" Manufacturer="Olympian" Model="">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+  </Items>
+</BattlemechDesign>

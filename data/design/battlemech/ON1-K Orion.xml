@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Orion</Name>
+  <Variant>ON1-K</Variant>
+  <Manufacturer>KaliYama Weapons Industries of Kalidasa</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>75</Weight>
+  <Cost>6674500</Cost>
+  <BV>1069</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="36" />
+    <Location Name="Centre Torso Rear" Points="9" />
+    <Location Name="Left Torso" Points="22" />
+    <Location Name="Left Torso Rear" Points="10" />
+    <Location Name="Right Torso" Points="22" />
+    <Location Name="Right Torso Rear" Points="10" />
+    <Location Name="Left Arm" Points="21" />
+    <Location Name="Right Arm" Points="21" />
+    <Location Name="Left Leg" Points="32" />
+    <Location Name="Right Leg" Points="32" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="KaliYama Weapons Industries of Kalidasa" Model="ON1-K Orion">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="KaliYama Weapons Industries of Kalidasa" Model="ON1-K Orion">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="KaliYama Weapons Industries of Kalidasa" Model="ON1-K Orion">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="KaliYama Weapons Industries of Kalidasa" Model="ON1-K Orion">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="KaliYama Weapons Industries of Kalidasa" Model="ON1-K Orion">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="KaliYama Weapons Industries of Kalidasa" Model="ON1-K Orion">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="KaliYama Weapons Industries of Kalidasa" Model="ON1-K Orion">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="KaliYama Weapons Industries of Kalidasa" Model="ON1-K Orion">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="KaliYama Weapons Industries of Kalidasa" Model="ON1-K Orion">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="KaliYama Weapons Industries of Kalidasa" Model="ON1-K Orion">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="KaliYama Weapons Industries of Kalidasa" Model="ON1-K Orion">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="KaliYama Weapons Industries of Kalidasa" Model="ON1-K Orion">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="KaliYama Weapons Industries of Kalidasa" Model="ON1-K Orion">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="KaliYama Weapons Industries of Kalidasa" Model="ON1-K Orion">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="KaliYama Weapons Industries of Kalidasa" Model="ON1-K Orion">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="KaliYama Weapons Industries of Kalidasa" Model="ON1-K Orion">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="KaliYama Weapons Industries of Kalidasa" Model="ON1-K Orion">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Wasat Aggressor" Model="Type 5">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="300" Weight="19" Manufacturer="Vlar" Model="300">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Autocannon 10" Manufacturer="KaliYama" Model="Class 10">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+      <SlotReference Location="Right Torso" Table="1" Slot="5" />
+      <SlotReference Location="Right Torso" Table="1" Slot="6" />
+      <SlotReference Location="Right Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="Autocannon 10" Manufacturer="" Model="" Shots="10">
+      <SlotReference Location="Right Torso" Table="2" Slot="2" />
+    </Item> 
+    <Item Type="Ammunition" WeaponType="Autocannon 10" Manufacturer="" Model="" Shots="10">
+      <SlotReference Location="Right Torso" Table="2" Slot="3" />
+    </Item> 
+    <Item Type="Weapon" WeaponType="LRM 15" Manufacturer="KaliYama" Model="Death Bloom">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 15" Manufacturer="" Model="" Shots="8">
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 15" Manufacturer="" Model="" Shots="8">
+      <SlotReference Location="Left Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="SRM 4" Manufacturer="I.W.W" Model="Class 4">
+      <SlotReference Location="Left Torso" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 4" Manufacturer="" Model="" Shots="25">
+      <SlotReference Location="Left Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 4" Manufacturer="" Model="" Shots="25">
+      <SlotReference Location="Left Torso" Table="2" Slot="2" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="I.W.W" Model="">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="I.W.W" Model="">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+  </Items>
+</BattlemechDesign>

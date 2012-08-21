@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Spider</Name>
+  <Variant>SDR-5V</Variant>
+  <Manufacturer>Newhart Interstellar Industries Ltd</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>30</Weight>
+  <Cost>2984540</Cost>
+  <BV>514</BV>
+  <Armour>
+    <Location Name="Head" Points="6" />
+    <Location Name="Centre Torso" Points="8" />
+    <Location Name="Centre Torso Rear" Points="4" />
+    <Location Name="Left Torso" Points="6" />
+    <Location Name="Left Torso Rear" Points="2" />
+    <Location Name="Right Torso" Points="6" />
+    <Location Name="Right Torso Rear" Points="2" />
+    <Location Name="Left Arm" Points="5" />
+    <Location Name="Right Arm" Points="5" />
+    <Location Name="Left Leg" Points="6" />
+    <Location Name="Right Leg" Points="6" />
+  </Armour>
+  <Items>
+	<Item Type="Life Support" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Newhart Interstellar Industries Ltd" Model="SDR-5V Spider">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="O/P" Model="TA1240">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="240" Weight="11.5" Manufacturer="Pitban" Model="240">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="LFT-10">
+      <SlotReference Location ="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="LFT-10">
+      <SlotReference Location ="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="LFT-10">
+      <SlotReference Location ="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="LFT-10">
+      <SlotReference Location ="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="LFT-10">
+      <SlotReference Location ="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="LFT-10">
+      <SlotReference Location ="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="LFT-10">
+      <SlotReference Location ="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="LFT-10">
+      <SlotReference Location ="Right Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Newhart Interstellar Industries Ltd">
+      <SlotReference Location ="Head" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Aberdovey" Model="Mk. III">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Aberdovey" Model="Mk. III">
+      <SlotReference Location="Centre Torso" Table="2" Slot="6" />
+    </Item>
+  </Items>
+</BattlemechDesign>

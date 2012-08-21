@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Crusader</Name>
+  <Variant>CRD-3R</Variant>
+  <Manufacturer>Kallon Industries</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>65</Weight>
+  <Cost>5686011</Cost>
+  <BV>948</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="33" />
+    <Location Name="Centre Torso Rear" Points="8" />
+    <Location Name="Left Torso" Points="24" />
+    <Location Name="Left Torso Rear" Points="6" />
+    <Location Name="Right Torso" Points="24" />
+    <Location Name="Right Torso Rear" Points="6" />
+    <Location Name="Left Arm" Points="20" />
+    <Location Name="Right Arm" Points="20" />
+    <Location Name="Left Leg" Points="21" />
+    <Location Name="Right Leg" Points="21" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Kallon Industries" Model="CRD-3R Crusader">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Kallon Industries" Model="CRD-3R Crusader">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Kallon Industries" Model="CRD-3R Crusader">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Kallon Industries" Model="CRD-3R Crusader">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Kallon Industries" Model="CRD-3R Crusader">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Kallon Industries" Model="CRD-3R Crusader">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Kallon Industries" Model="CRD-3R Crusader">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Kallon Industries" Model="CRD-3R Crusader">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Kallon Industries" Model="CRD-3R Crusader">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Kallon Industries" Model="CRD-3R Crusader">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Kallon Industries" Model="CRD-3R Crusader">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Kallon Industries" Model="CRD-3R Crusader">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Kallon Industries" Model="CRD-3R Crusader">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Kallon Industries" Model="CRD-3R Crusader">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Kallon Industries" Model="CRD-3R Crusader">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Kallon Industries" Model="CRD-3R Crusader">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Kallon Industries" Model="CRD-3R Crusader">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Kallon Industries" Model="CRD-3R Crusader">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Kallon Industries" Model="CRD-3R Crusader">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Garret" Model="A6">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="260" Weight="13.5" Manufacturer="Magna" Model="260">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 15" Manufacturer="Magna" Model="Longbow-15">
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+      <SlotReference Location="Left Arm" Table="1" Slot="6" />
+      <SlotReference Location="Left Arm" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 15" Manufacturer="" Model="" Shots="8">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 15" Manufacturer="Magna" Model="Longbow-15">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+      <SlotReference Location="Right Arm" Table="1" Slot="6" />
+      <SlotReference Location="Right Arm" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 15" Manufacturer="" Model="" Shots="8">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="SRM 6" Manufacturer="Harpoon" Model="6">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+      <SlotReference Location="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="SRM 6" Manufacturer="Harpoon" Model="6">
+      <SlotReference Location="Right Leg" Table="1" Slot="5" />
+      <SlotReference Location="Right Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 6" Manufacturer="" Model="" Shots="15">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Intek" Model="Medium Laser">
+      <SlotReference Location="Left Arm" Table="2" Slot="2" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Intek" Model="Medium Laser">
+      <SlotReference Location="Right Arm" Table="2" Slot="2" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="M" Model="100">
+      <SlotReference Location="Left Arm" Table="2" Slot="3" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="M" Model="100">
+      <SlotReference Location="Right Arm" Table="2" Slot="3" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="Machine Gun" Manufacturer="" Model="" Shots="200">
+      <SlotReference Location="Centre Torso" Table="2" Slot="6" />
+    </Item>
+  </Items>
+</BattlemechDesign>

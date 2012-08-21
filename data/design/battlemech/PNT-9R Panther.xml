@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Panther</Name>
+  <Variant>PNT-9R</Variant>
+  <Manufacturer>Alshain Weapons</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>35</Weight>
+  <Cost>2485710</Cost>
+  <BV>664</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="14" />
+    <Location Name="Centre Torso Rear" Points="7" />
+    <Location Name="Left Torso" Points="10" />
+    <Location Name="Left Torso Rear" Points="5" />
+    <Location Name="Right Torso" Points="10" />
+    <Location Name="Right Torso Rear" Points="5" />
+    <Location Name="Left Arm" Points="10" />
+    <Location Name="Right Arm" Points="10" />
+    <Location Name="Left Leg" Points="12" />
+    <Location Name="Right Leg" Points="12" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Alshain Weapons" Model="PNT-9R Panther">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Alshain Weapons" Model="PNT-9R Panther">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Alshain Weapons" Model="PNT-9R Panther">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Alshain Weapons" Model="PNT-9R Panther">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Alshain Weapons" Model="PNT-9R Panther">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Alshain Weapons" Model="PNT-9R Panther">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Alshain Weapons" Model="PNT-9R Panther">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Alshain Weapons" Model="PNT-9R Panther">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Alshain Weapons" Model="PNT-9R Panther">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Alshain Weapons" Model="PNT-9R Panther">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Alshain Weapons" Model="PNT-9R Panther">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Alshain Weapons" Model="PNT-9R Panther">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Alshain Weapons" Model="PNT-9R Panther">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Alshain Weapons" Model="PNT-9R Panther">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Alshain Weapons" Model="PNT-9R Panther">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Alshain Weapons" Model="PNT-9R Panther">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Alshain Weapons" Model="PNT-9R Panther">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Alshain Weapons" Model="PNT-9R Panther">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Alshain Weapons" Model="PNT-9R Panther">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Cat's Eyes" Model="5">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="140" Weight="5" Manufacturer="Hermes" Model="140">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Alshain Weapons">
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Alshain Weapons">
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Alshain Weapons">
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Alshain Weapons">
+      <SlotReference Location="Left Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Alshain Weapons">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Alshain Weapons">
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Alshain Weapons">
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Alshain Weapons">
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Lexington" Model="Lifters">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Lexington" Model="Lifters">
+      <SlotReference Location="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Lexington" Model="Lifters">
+      <SlotReference Location="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Lexington" Model="Lifters">
+      <SlotReference Location="Right Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="SRM 4" Manufacturer="Telos" Model="Four-Shot">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 4" Manufacturer="" Model="" Shots="25">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="PPC" Manufacturer="Lord's Light" Model="Particle Beam Weapon">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+      <SlotReference Location="Right Arm" Table="1" Slot="6" />
+      <SlotReference Location="Right Arm" Table="2" Slot="1" />
+    </Item>
+  </Items>
+</BattlemechDesign>

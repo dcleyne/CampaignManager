@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Ostscout</Name>
+  <Variant>OTT-7J</Variant>
+  <Manufacturer>Kong Interstellar Corp</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>35</Weight>
+  <Cost>3409200</Cost>
+  <BV>497</BV>
+  <Armour>
+    <Location Name="Head" Points="6" />
+    <Location Name="Centre Torso" Points="12" />
+    <Location Name="Centre Torso Rear" Points="4" />
+    <Location Name="Left Torso" Points="9" />
+    <Location Name="Left Torso Rear" Points="2" />
+    <Location Name="Right Torso" Points="9" />
+    <Location Name="Right Torso Rear" Points="2" />
+    <Location Name="Left Arm" Points="6" />
+    <Location Name="Right Arm" Points="6" />
+    <Location Name="Left Leg" Points="8" />
+    <Location Name="Right Leg" Points="8" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Kong Interstellar Corp" Model="OTT-7J Ostscout">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Kong Interstellar Corp" Model="OTT-7J Ostscout">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Kong Interstellar Corp" Model="OTT-7J Ostscout">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Kong Interstellar Corp" Model="OTT-7J Ostscout">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Kong Interstellar Corp" Model="OTT-7J Ostscout">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Kong Interstellar Corp" Model="OTT-7J Ostscout">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Kong Interstellar Corp" Model="OTT-7J Ostscout">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Kong Interstellar Corp" Model="OTT-7J Ostscout">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Kong Interstellar Corp" Model="OTT-7J Ostscout">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Kong Interstellar Corp" Model="OTT-7J Ostscout">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Kong Interstellar Corp" Model="OTT-7J Ostscout">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Kong Interstellar Corp" Model="OTT-7J Ostscout">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Kong Interstellar Corp" Model="OTT-7J Ostscout">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Kong Interstellar Corp" Model="OTT-7J Ostscout">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Kong Interstellar Corp" Model="OTT-7J Ostscout">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Kong Interstellar Corp" Model="OTT-7J Ostscout">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Kong Interstellar Corp" Model="OTT-7J Ostscout">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Kong Interstellar Corp" Model="OTT-7J Ostscout">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Kong Interstellar Corp" Model="OTT-7J Ostscout">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="TRSS" Model="2L3">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="280" Weight="16" Manufacturer="Vox" Model="280">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Ostmann" Model="Sct-A">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Ostmann" Model="Sct-A">
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Ostmann" Model="Sct-A">
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Ostmann" Model="Sct-A">
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Ostmann" Model="Sct-A">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Ostmann" Model="Sct-A">
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Ostmann" Model="Sct-A">
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Ostmann" Model="Sct-A">
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Tronel" Model="II">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+  </Items>
+</BattlemechDesign>

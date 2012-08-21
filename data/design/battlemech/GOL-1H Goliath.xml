@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Goliath</Name>
+  <Variant>GOL-1H</Variant>
+  <Manufacturer>Brigaidier Corporation</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>80</Weight>
+  <Cost>7616641</Cost>
+  <BV>1200</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="30" />
+    <Location Name="Centre Torso Rear" Points="20" />
+    <Location Name="Left Torso" Points="20" />
+    <Location Name="Left Torso Rear" Points="14" />
+    <Location Name="Right Torso" Points="20" />
+    <Location Name="Right Torso Rear" Points="14" />
+    <Location Name="Left Arm" Points="26" />
+    <Location Name="Right Arm" Points="26" />
+    <Location Name="Left Leg" Points="34" />
+    <Location Name="Right Leg" Points="34" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Brigaidier Corporation" Model="GOL-1H Goliath">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Brigaidier Corporation" Model="GOL-1H Goliath">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Brigaidier Corporation" Model="GOL-1H Goliath">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Brigaidier Corporation" Model="GOL-1H Goliath">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1H Goliath">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1H Goliath">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1H Goliath">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Brigaidier Corporation" Model="GOL-1H Goliath">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1H Goliath">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1H Goliath">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1H Goliath">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Brigaidier Corporation" Model="GOL-1H Goliath">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1H Goliath">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1H Goliath">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1H Goliath">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Brigaidier Corporation" Model="GOL-1H Goliath">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1H Goliath">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1H Goliath">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1H Goliath">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Garret" Model="GRNDTRAK 15">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="320" Weight="22.5" Manufacturer="Pitban" Model="320">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="PPC" Manufacturer="Rand" Model="PPC-10">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 10" Manufacturer="Holly" Model="Long-Range (10)">
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+      <SlotReference Location="Right Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 10" Manufacturer="" Model="" Shots="12">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 10" Manufacturer="Holly" Model="Long-Range (10)">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 10" Manufacturer="" Model="" Shots="12">
+      <SlotReference Location="Centre Torso" Table="2" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="Ramsey" Model="">
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="Ramsey" Model="">
+      <SlotReference Location="Right Torso" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="Machine Gun" Manufacturer="" Model="" Shots="200">
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Brigaidier Corporation">
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Brigaidier Corporation">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Brigaidier Corporation">
+      <SlotReference Location="Head" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Brigaidier Corporation">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Brigaidier Corporation">
+      <SlotReference Location="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Brigaidier Corporation">
+      <SlotReference Location="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Brigaidier Corporation">
+      <SlotReference Location="Right Leg" Table="1" Slot="6" />
+    </Item>
+  </Items>
+</BattlemechDesign>

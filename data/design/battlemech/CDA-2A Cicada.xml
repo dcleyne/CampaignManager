@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Cicada</Name>
+  <Variant>CDA-2A</Variant>
+  <Manufacturer>Hartford Co</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>40</Weight>
+  <Cost>3705216</Cost>
+  <BV>567</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="11" />
+    <Location Name="Centre Torso Rear" Points="6" />
+    <Location Name="Left Torso" Points="6" />
+    <Location Name="Left Torso Rear" Points="3" />
+    <Location Name="Right Torso" Points="6" />
+    <Location Name="Right Torso Rear" Points="3" />
+    <Location Name="Left Arm" Points="4" />
+    <Location Name="Right Arm" Points="4" />
+    <Location Name="Left Leg" Points="6" />
+    <Location Name="Right Leg" Points="6" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Hartford" Model="J15 B">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="320" Weight="22.5" Manufacturer="Pitban" Model="320">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Magna" Model="Medium Laser">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Magna" Model="Medium Laser">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Magna" Model="200 Small Laser">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+  </Items>
+</BattlemechDesign>

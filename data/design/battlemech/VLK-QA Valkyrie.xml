@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Valkyrie</Name>
+  <Variant>VLK-QA</Variant>
+  <Manufacturer>Corean Enterprises</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>30</Weight>
+  <Cost>2205320</Cost>
+  <BV>640</BV>
+  <Armour>
+    <Location Name="Head" Points="8" />
+    <Location Name="Centre Torso" Points="14" />
+    <Location Name="Centre Torso Rear" Points="4" />
+    <Location Name="Left Torso" Points="12" />
+    <Location Name="Left Torso Rear" Points="2" />
+    <Location Name="Right Torso" Points="12" />
+    <Location Name="Right Torso Rear" Points="2" />
+    <Location Name="Left Arm" Points="9" />
+    <Location Name="Right Arm" Points="9" />
+    <Location Name="Left Leg" Points="12" />
+    <Location Name="Right Leg" Points="12" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Corean Enterprises" Model="VLK-QA Valkyrie">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Sync" Model="Tracker (39-42071)">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="150" Weight="5.5" Manufacturer="Omni" Model="150">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Corean Enterprises">
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Corean Enterprises">
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Corean Enterprises">
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Corean Enterprises">
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Corean Enterprises">
+      <SlotReference Location="Centre Torso" Table="2" Slot="6" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Norse Industries" Model="3S">
+      <SlotReference Location ="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Norse Industries" Model="3S">
+      <SlotReference Location ="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Norse Industries" Model="3S">
+      <SlotReference Location ="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Norse Industries" Model="3S">
+      <SlotReference Location ="Right Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Norse Industries" Model="3S">
+      <SlotReference Location ="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 10" Manufacturer="Devastator" Model="Series-07">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 10" Manufacturer="" Model="" Shots="10">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Sutel" Model="IX">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+  </Items>
+</BattlemechDesign>

@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BattlemechDesign>
+  <Name>Wasp</Name>
+  <Variant>WSP-1A</Variant>
+  <Manufacturer>General Mechanics, Incorporated</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>20</Weight>
+  <Cost>1646640</Cost>
+  <BV>336</BV>
+  <Armour>
+    <Location Name="Head" Points="4" />
+    <Location Name="Centre Torso" Points="6" />
+    <Location Name="Centre Torso Rear" Points="4" />
+    <Location Name="Left Torso" Points="6" />
+    <Location Name="Left Torso Rear" Points="2" />
+    <Location Name="Right Torso" Points="6" />
+    <Location Name="Right Torso Rear" Points="2" />
+    <Location Name="Left Arm" Points="4" />
+    <Location Name="Right Arm" Points="4" />
+    <Location Name="Left Leg" Points="5" />
+    <Location Name="Right Leg" Points="5" />
+  </Armour>
+
+  <Items>
+  	<Item Type="Life Support" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+      <Item Type="Gyro" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Radcom" Model="TXX">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Life Support" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp">
+      <SlotReference Location="Head" Table="1" Slot="1" />
+      <SlotReference Location="Head" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Cockpit" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp">
+      <SlotReference Location="Head" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp" MechWeight="20">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp" MechWeight="20">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp" MechWeight="20">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp" MechWeight="20">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp" MechWeight="20">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp" MechWeight="20">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Hip" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp" MechWeight="20">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp" MechWeight="20">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp" MechWeight="20">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp" MechWeight="20">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp" MechWeight="20">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="General Mechanics, Incorporated" Model="WSP-1A Wasp" MechWeight="20">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Engine" Rating="120" Weight="4" Manufacturer="GM" Model="120">
+        <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+        <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+        <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+        <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+        <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+        <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Rawlings" Model="52">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Rawlings" Model="52">
+      <SlotReference Location="Centre Torso" Table="2" Slot="6" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Rawlings" Model="52">
+      <SlotReference Location="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Rawlings" Model="52">
+      <SlotReference Location="Right Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Rawlings" Model="52">
+      <SlotReference Location="Left Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Rawlings" Model="52">
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" Weight="0.5" Manufacturer="GM" Model="" HeatSinkType="Single">
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Heat Sink" Weight="0.5" Manufacturer="GM" Model="" HeatSinkType="Single">
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Heat Sink" Weight="0.5" Manufacturer="GM" Model="" HeatSinkType="Single">
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" Weight="0.5" Manufacturer="GM" Model="" HeatSinkType="Single">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Heat Sink" Weight="0.5" Manufacturer="GM" Model="" HeatSinkType="Single">
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Heat Sink" Weight="0.5" Manufacturer="GM" Model="" HeatSinkType="Single">
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Weapon" WeaponType="SRM 2" Manufacturer="Bical" Model="SRM Twin-Rack">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Diverse Optics" Model="Type 2">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 2" Manufacturer="" Model="" Shots="50">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+
+  </Items>
+</BattlemechDesign>

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Scorpion</Name>
+  <Variant>SCP-1N</Variant>
+  <Manufacturer>Brigaidier Corporation</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>55</Weight>
+  <Cost>5181340</Cost>
+  <BV>786</BV>
+  <Armour>
+    <Location Name="Head" Points="8" />
+    <Location Name="Centre Torso" Points="24" />
+    <Location Name="Centre Torso Rear" Points="8" />
+    <Location Name="Left Torso" Points="11" />
+    <Location Name="Left Torso Rear" Points="5" />
+    <Location Name="Right Torso" Points="11" />
+    <Location Name="Right Torso Rear" Points="5" />
+    <Location Name="Left Arm" Points="10" />
+    <Location Name="Right Arm" Points="10" />
+    <Location Name="Left Leg" Points="10" />
+    <Location Name="Right Leg" Points="10" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Brigaidier Corporation" Model="SCP-1N Scorpion">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Brigaidier Corporation" Model="SCP-1N Scorpion">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Brigaidier Corporation" Model="SCP-1N Scorpion">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Brigaidier Corporation" Model="SCP-1N Scorpion">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1N Scorpion">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1N Scorpion">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1N Scorpion">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Brigaidier Corporation" Model="SCP-1N Scorpion">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1N Scorpion">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1N Scorpion">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1N Scorpion">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Brigaidier Corporation" Model="SCP-1N Scorpion">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1N Scorpion">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1N Scorpion">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1N Scorpion">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Brigaidier Corporation" Model="SCP-1N Scorpion">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1N Scorpion">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1N Scorpion">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1N Scorpion">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Garret" Model="GRNDTRAK 9">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="330" Weight="24.5" Manufacturer="Vox" Model="330">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="PPC" Manufacturer="Anderson Armaments" Model="12">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Weapon" WeaponType="SRM 6" Manufacturer="Marvel" Model="Six-Load">
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+      <SlotReference Location="Right Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 6" Manufacturer="" Model="" Shots="15">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+
+  </Items>
+</BattlemechDesign>

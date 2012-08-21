@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BattlemechDesign>
+  <Name>Locust</Name>
+  <Variant>LCT-1V</Variant>
+  <Manufacturer>Bergan Industries</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>20</Weight>
+  <Cost>1512400</Cost>
+  <BV>356</BV>
+  <Armour>
+    <Location Name="Head" Points="8" />
+    <Location Name="Centre Torso" Points="10" />
+    <Location Name="Centre Torso Rear" Points="2" />
+    <Location Name="Left Torso" Points="8" />
+    <Location Name="Left Torso Rear" Points="2" />
+    <Location Name="Right Torso" Points="8" />
+    <Location Name="Right Torso Rear" Points="2" />
+    <Location Name="Left Arm" Points="4" />
+    <Location Name="Right Arm" Points="4" />
+    <Location Name="Left Leg" Points="8" />
+    <Location Name="Right Leg" Points="8" />
+  </Armour>
+
+  <Items>
+    <Item Type="Sensors" Manufacturer="O/P" Model="911">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Life Support" Manufacturer="Bergan Industries" Model="LCT-1V Locust">
+      <SlotReference Location="Head" Table="1" Slot="1" />
+      <SlotReference Location="Head" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Cockpit" Manufacturer="Bergan Industries" Model="LCT-1V Locust">
+      <SlotReference Location="Head" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Bergan Industries" Model="LCT-1V Locust">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Bergan Industries" Model="LCT-1V Locust">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Bergan Industries" Model="LCT-1V Locust" MechWeight="20">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Bergan Industries" Model="LCT-1V Locust" MechWeight="20">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Bergan Industries" Model="LCT-1V Locust">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Bergan Industries" Model="LCT-1V Locust">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Bergan Industries" Model="LCT-1V Locust" MechWeight="20">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Bergan Industries" Model="LCT-1V Locust" MechWeight="20">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Bergan Industries" Model="LCT-1V Locust" MechWeight="20">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Bergan Industries" Model="LCT-1V Locust" MechWeight="20">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Bergan Industries" Model="LCT-1V Locust" MechWeight="20">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Bergan Industries" Model="LCT-1V Locust" MechWeight="20">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Engine" Rating="160" Weight="6" Manufacturer="LTV" Model="160">
+        <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+        <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+        <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+        <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+        <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+        <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" Manufacturer="LTV" Model="" HeatSinkType="Single">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Heat Sink" Manufacturer="LTV" Model="" HeatSinkType="Single">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Heat Sink" Manufacturer="LTV" Model="" HeatSinkType="Single">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" Manufacturer="LTV" Model="" HeatSinkType="Single">
+      <SlotReference Location="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Gyro" Manufacturer="Bergan Industries" Model="LCT-1V Locust" MechWeight="20">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Martell" Model="">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="SperryBrowning" Model="">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="SperryBrowning" Model="">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="Machine Gun" Manufacturer="" Model="" Shots="200">
+      <SlotReference Location="Centre Torso" Table="2" Slot="6" />
+    </Item>
+
+  </Items>
+</BattlemechDesign>

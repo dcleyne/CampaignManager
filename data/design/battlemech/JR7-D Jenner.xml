@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Jenner</Name>
+  <Variant>JR7-D</Variant>
+  <Manufacturer>Diplan Mechyards</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>35</Weight>
+  <Cost>3198375</Cost>
+  <BV>669</BV>
+  <Armour>
+    <Location Name="Head" Points="7" />
+    <Location Name="Centre Torso" Points="10" />
+    <Location Name="Centre Torso Rear" Points="3" />
+    <Location Name="Left Torso" Points="8" />
+    <Location Name="Left Torso Rear" Points="4" />
+    <Location Name="Right Torso" Points="8" />
+    <Location Name="Right Torso Rear" Points="4" />
+    <Location Name="Left Arm" Points="4" />
+    <Location Name="Right Arm" Points="4" />
+    <Location Name="Left Leg" Points="6" />
+    <Location Name="Right Leg" Points="6" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Diplan Mechyards" Model="JR7-D Jenner">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Diplan Mechyards" Model="JR7-D Jenner">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Diplan Mechyards" Model="JR7-D Jenner">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Diplan Mechyards" Model="JR7-D Jenner">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Diplan Mechyards" Model="JR7-D Jenner">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Diplan Mechyards" Model="JR7-D Jenner">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Diplan Mechyards" Model="JR7-D Jenner">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Diplan Mechyards" Model="JR7-D Jenner">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Diplan Mechyards" Model="JR7-D Jenner">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Diplan Mechyards" Model="JR7-D Jenner">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Diplan Mechyards" Model="JR7-D Jenner">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Diplan Mechyards" Model="JR7-D Jenner">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Diplan Mechyards" Model="JR7-D Jenner">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Diplan Mechyards" Model="JR7-D Jenner">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Diplan Mechyards" Model="JR7-D Jenner">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Bk" Model="309">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="245" Weight="12" Manufacturer="Magna" Model="245">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Diplan Mechyards">
+      <SlotReference Location="Head" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Smithson" Model="Lifters">
+      <SlotReference Location ="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Smithson" Model="Lifters">
+      <SlotReference Location ="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Smithson" Model="Lifters">
+      <SlotReference Location ="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Smithson" Model="Lifters">
+      <SlotReference Location ="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Smithson" Model="Lifters">
+      <SlotReference Location ="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Smithson" Model="Lifters">
+      <SlotReference Location ="Centre Torso" Table="2" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Argra" Model="3L">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Argra" Model="3L">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Argra" Model="3L">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Argra" Model="3L">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="SRM 4" Manufacturer="Thunderstroke" Model="SRM-4">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 4" Manufacturer="" Model="" Shots="25">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+  </Items>
+</BattlemechDesign>

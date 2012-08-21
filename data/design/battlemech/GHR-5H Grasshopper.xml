@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Grasshopper</Name>
+  <Variant>GHR-5H</Variant>
+  <Manufacturer>Lantren Corporation</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>70</Weight>
+  <Cost>6024574</Cost>
+  <BV>1268</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="30" />
+    <Location Name="Centre Torso Rear" Points="15" />
+    <Location Name="Left Torso" Points="20" />
+    <Location Name="Left Torso Rear" Points="10" />
+    <Location Name="Right Torso" Points="20" />
+    <Location Name="Right Torso Rear" Points="10" />
+    <Location Name="Left Arm" Points="22" />
+    <Location Name="Right Arm" Points="22" />
+    <Location Name="Left Leg" Points="25" />
+    <Location Name="Right Leg" Points="25" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Allet" Model="T11">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="280" Weight="16" Manufacturer="Vox" Model="280">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Large Laser" Manufacturer="Diplan" Model="HD">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Diplan" Model="M3">
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Diplan" Model="M3">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+    </Item>
+      <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Diplan" Model="M3">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Diplan" Model="M3">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 5" Manufacturer="Holly" Model="Long-Range">
+      <SlotReference Location="Head" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 5" Manufacturer="" Model="" Shots="24">
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Lantren Corporation">
+      <SlotReference Location="Left Arm" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Lantren Corporation">
+      <SlotReference Location="Right Arm" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Lantren Corporation">
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Lantren Corporation">
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Lantren Corporation">
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Lantren Corporation">
+      <SlotReference Location="Left Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Lantren Corporation">
+      <SlotReference Location="Left Torso" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Lantren Corporation">
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Lantren Corporation">
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Lantren Corporation">
+      <SlotReference Location="Right Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Lantren Corporation">
+      <SlotReference Location="Right Torso" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Lantren Corporation">
+      <SlotReference Location="Right Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Jump Jet" Weight="1.0" Manufacturer="Leviathon" Model="Lifters">
+      <SlotReference Location ="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="1.0" Manufacturer="Leviathon" Model="Lifters">
+      <SlotReference Location ="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Jump Jet" Weight="1.0" Manufacturer="Leviathon" Model="Lifters">
+      <SlotReference Location ="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="1.0" Manufacturer="Leviathon" Model="Lifters">
+      <SlotReference Location ="Right Leg" Table="1" Slot="6" />
+    </Item>
+  </Items>
+</BattlemechDesign>

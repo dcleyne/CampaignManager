@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Players>
+	<Player>
+	    <ID>1</ID>
+		<Name>Daniel Cleyne</Name>
+		<Password>MvPs7nnmFEYSZcYvn8hzDeN7C+c=</Password>
+		<Nickname>Dan</Nickname>
+		<EmailAddress>dcleyne@gmail.com</EmailAddress>
+		<LastLogin>2008/12/11 00:00:00</LastLogin>
+		<Units>
+			<Unit Name="Kirrian Grenadiers" />
+		</Units>
+	</Player>
+	
+	<Player>
+	    <ID>2</ID>
+		<Name>Ed Corsar</Name>
+		<Password></Password>
+		<Nickname>Ed</Nickname>
+		<EmailAddress>edisafort@yahoo.com.au</EmailAddress>
+		<LastLogin></LastLogin>
+		<Units>
+  			<Unit Name="Ed's Ironclads" />
+  		</Units> 
+  	</Player>
+- <Player>
+	    <ID>3</ID>
+		<Name>Andreas Kammel</Name>
+		<Password></Password>
+		<Nickname>The Baron</Nickname>
+		<EmailAddress>andreas.kammel@gmail.com</EmailAddress>
+		<LastLogin></LastLogin>
+		<Units>
+  			<Unit Name="The Baron's Bunnies" />
+  		</Units> 
+  </Player>
+- <Player>
+  	    <ID>4</ID>
+		<Name>Walter Spivak</Name>
+		<Password></Password>
+		<Nickname>Walter</Nickname>
+		<EmailAddress>walterspivak@gmail.com</EmailAddress>
+		<LastLogin></LastLogin>
+		<Units>
+  			<Unit Name="Alpha Storm" /> 
+  		</Units>
+  </Player>
+- <Player>
+  	    <ID>5</ID>
+		<Name>Karsten Zeidler</Name>
+		<Password></Password>
+		<Nickname>Lucky</Nickname>
+		<EmailAddress>karstenz@gmail.com</EmailAddress>
+		<LastLogin></LastLogin>
+		<Units>
+  			<Unit Name="7th company, 51st Dark Panzer Jägers 'Boys from Brazil'" /> 
+  		</Units>
+  </Player>
+- <Player>
+  	    <ID>6</ID>
+		<Name>Glenn Beaumont</Name>
+		<Password></Password>
+		<Nickname>Chippy</Nickname>
+		<EmailAddress>Chipp9@gmail.com</EmailAddress>
+		<LastLogin></LastLogin>
+		<Units>
+  			<Unit Name="House Colossus" /> 
+  		</Units>
+  </Player>
+- <Player>
+  	    <ID>7</ID>
+		<Name>Adrian Stacey</Name>
+		<Password></Password>
+		<Nickname>Ed</Nickname>
+		<EmailAddress>mrstaceman@yahoo.com.au</EmailAddress>
+		<LastLogin></LastLogin>
+		<Units>
+  			<Unit Name="Shadow's Hunters" /> 
+  		</Units>
+  </Player>
+- <Player Name="Phil LeHunt" Email="mrstaceman@yahoo.com.au">
+  	    <ID>8</ID>
+		<Name>Phil LeHunt</Name>
+		<Password></Password>
+		<Nickname>Potus</Nickname>
+		<EmailAddress>phil_lehunt@hotmail.com</EmailAddress>
+		<LastLogin></LastLogin>
+		<Units>
+  			<Unit Name="Das Fliegen-Höllen-Fische" /> 
+  		</Units>
+  </Player>
+- <Player>
+  	    <ID>9</ID>
+		<Name>Andrew Oates</Name>
+		<Password></Password>
+		<Nickname>Lord T</Nickname>
+		<EmailAddress>oates.andrew@gmail.com</EmailAddress>
+		<LastLogin></LastLogin>
+		<Units>
+  			<Unit Name="Snakes Teeth" /> 
+  		</Units>
+  </Player>
+- <Player>
+  	    <ID>10</ID>
+		<Name>Jeff Cedic</Name>
+		<Password></Password>
+		<Nickname>Jeff</Nickname>
+		<EmailAddress>franjess@iprimus.com.au</EmailAddress>
+		<LastLogin></LastLogin>
+		<Units>
+  			<Unit Name="Yamato Ravens" /> 
+  		</Units>
+  </Player>
+- <Player>
+  	    <ID>11</ID>
+		<Name>Emil Zanettin</Name>
+		<Password></Password>
+		<Nickname>Emil</Nickname>
+		<EmailAddress>ezanettin@yahoo.com</EmailAddress>
+		<LastLogin></LastLogin>
+		<Units>
+  			<Unit Name="The Qinggong Warriors" /> 
+  		</Units>
+  </Player>
+</Players>

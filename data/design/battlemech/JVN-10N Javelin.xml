@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Javelin</Name>
+  <Variant>JVN-10N</Variant>
+  <Manufacturer>Stormvanger Assemblies, Light Division</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>30</Weight>
+  <Cost>2400840</Cost>
+  <BV>487</BV>
+  <Armour>
+    <Location Name="Head" Points="6" />
+    <Location Name="Centre Torso" Points="8" />
+    <Location Name="Centre Torso Rear" Points="2" />
+    <Location Name="Left Torso" Points="8" />
+    <Location Name="Left Torso Rear" Points="2" />
+    <Location Name="Right Torso" Points="8" />
+    <Location Name="Right Torso Rear" Points="2" />
+    <Location Name="Left Arm" Points="6" />
+    <Location Name="Right Arm" Points="6" />
+    <Location Name="Left Leg" Points="8" />
+    <Location Name="Right Leg" Points="8" />
+  </Armour>
+  <Items>
+		<Item Type="Life Support" Manufacturer="Stormvanger Assemblies, Light Division"
+			Model="JVN-10N Javelin">
+			<SlotReference Location="Head" Table="1" Slot="1" />
+			<SlotReference Location="Head" Table="1" Slot="6" />
+		</Item>
+		<Item Type="Cockpit" Manufacturer="Stormvanger Assemblies, Light Division"
+			Model="JVN-10N Javelin">
+			<SlotReference Location="Head" Table="1" Slot="3" />
+		</Item>
+    <Item Type="Gyro" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Dynatec" Model="128C">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="180" Weight="7" Manufacturer="GM" Model="180">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Rawlings" Model="95">
+      <SlotReference Location ="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Rawlings" Model="95">
+      <SlotReference Location ="Centre Torso" Table="2" Slot="6" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Rawlings" Model="95">
+      <SlotReference Location ="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Rawlings" Model="95">
+      <SlotReference Location ="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Rawlings" Model="95">
+      <SlotReference Location ="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Rawlings" Model="95">
+      <SlotReference Location ="Right Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Stormvanger Assemblies, Light Division" Model="">
+      <SlotReference Location ="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Stormvanger Assemblies, Light Division" Model="">
+      <SlotReference Location ="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Stormvanger Assemblies, Light Division" Model="">
+      <SlotReference Location ="Right Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="SRM 6" Manufacturer="Arrowlite" Model="">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 6" Manufacturer="" Model="" Shots="15">
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Weapon" WeaponType="SRM 6" Manufacturer="Arrowlite" Model="">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 6" Manufacturer="" Model="" Shots="15">
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+    </Item>
+
+  </Items>
+</BattlemechDesign>

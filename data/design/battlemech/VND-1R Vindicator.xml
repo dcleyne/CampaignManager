@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Vindicator</Name>
+  <Variant>VND-1R</Variant>
+  <Manufacturer>Ceres Metal Industries</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>45</Weight>
+  <Cost>3181082</Cost>
+  <BV>900</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="18" />
+    <Location Name="Centre Torso Rear" Points="9" />
+    <Location Name="Left Torso" Points="16" />
+    <Location Name="Left Torso Rear" Points="6" />
+    <Location Name="Right Torso" Points="16" />
+    <Location Name="Right Torso Rear" Points="6" />
+    <Location Name="Left Arm" Points="14" />
+    <Location Name="Right Arm" Points="14" />
+    <Location Name="Left Leg" Points="18" />
+    <Location Name="Right Leg" Points="18" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Ceres Metal Industries" Model="VND-1R Vindicator">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Ceres Metal Industries" Model="VND-1R Vindicator">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Ceres Metal Industries" Model="VND-1R Vindicator">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Ceres Metal Industries" Model="VND-1R Vindicator">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Ceres Metal Industries" Model="VND-1R Vindicator">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Ceres Metal Industries" Model="VND-1R Vindicator">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Ceres Metal Industries" Model="VND-1R Vindicator">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Ceres Metal Industries" Model="VND-1R Vindicator">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Ceres Metal Industries" Model="VND-1R Vindicator">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Ceres Metal Industries" Model="VND-1R Vindicator">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Ceres Metal Industries" Model="VND-1R Vindicator">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Ceres Metal Industries" Model="VND-1R Vindicator">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Ceres Metal Industries" Model="VND-1R Vindicator">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Ceres Metal Industries" Model="VND-1R Vindicator">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Ceres Metal Industries" Model="VND-1R Vindicator">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Ceres Metal Industries" Model="VND-1R Vindicator">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Ceres Metal Industries" Model="VND-1R Vindicator">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Ceres Metal Industries" Model="VND-1R Vindicator">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="C-Apple" Model="Churchill">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="180" Weight="7" Manufacturer="GM" Model="180">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="PPC" Manufacturer="CeresArms" Model="Smasher">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+      <SlotReference Location="Right Arm" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 5" Manufacturer="Sian/Ceres" Model="Jaguar">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 5" Manufacturer="" Model="" Shots="24">
+      <SlotReference Location="Left Torso" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="CeresArms" Model="Medium Laser">
+      <SlotReference Location="Head" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Hessen" Model="Medium Laser">
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Anderson Propulsion" Model="30">
+      <SlotReference Location ="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Anderson Propulsion" Model="30">
+      <SlotReference Location ="Left Leg" Table="1" Slot="5" />
+    </Item>
+      <Item Type="Jump Jet" Weight="0.5" Manufacturer="Anderson Propulsion" Model="30">
+      <SlotReference Location ="Centre Torso" Table="2" Slot="5" />
+    </Item>
+      <Item Type="Jump Jet" Weight="0.5" Manufacturer="Anderson Propulsion" Model="30">
+      <SlotReference Location ="Centre Torso" Table="2" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Ceres Metal Industries">
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>  
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Ceres Metal Industries">
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+    </Item>  
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Ceres Metal Industries">
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>  
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Ceres Metal Industries">
+      <SlotReference Location="Left Torso" Table="1" Slot="5" />
+    </Item>  
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Ceres Metal Industries">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>  
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Ceres Metal Industries">
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+    </Item>  
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Ceres Metal Industries">
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+    </Item>  
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Ceres Metal Industries">
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+    </Item>  
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Ceres Metal Industries">
+      <SlotReference Location="Right Torso" Table="1" Slot="5" />
+    </Item>  
+  </Items>
+</BattlemechDesign>

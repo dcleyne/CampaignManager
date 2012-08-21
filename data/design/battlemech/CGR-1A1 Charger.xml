@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Charger</Name>
+  <Variant>CGR-1A1</Variant>
+  <Manufacturer>Wells technologies</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>80</Weight>
+  <Cost>7520369</Cost>
+  <BV>820</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="25" />
+    <Location Name="Centre Torso Rear" Points="6" />
+    <Location Name="Left Torso" Points="20" />
+    <Location Name="Left Torso Rear" Points="5" />
+    <Location Name="Right Torso" Points="20" />
+    <Location Name="Right Torso Rear" Points="5" />
+    <Location Name="Left Arm" Points="15" />
+    <Location Name="Right Arm" Points="15" />
+    <Location Name="Left Leg" Points="20" />
+    <Location Name="Right Leg" Points="20" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Wells technologies" Model="CGR-1A1 Charger">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Wells technologies" Model="CGR-1A1 Charger">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Wells technologies" Model="CGR-1A1 Charger">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Wells technologies" Model="CGR-1A1 Charger">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Wells technologies" Model="CGR-1A1 Charger">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Wells technologies" Model="CGR-1A1 Charger">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Wells technologies" Model="CGR-1A1 Charger">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Wells technologies" Model="CGR-1A1 Charger">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Wells technologies" Model="CGR-1A1 Charger">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Wells technologies" Model="CGR-1A1 Charger">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Wells technologies" Model="CGR-1A1 Charger">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Wells technologies" Model="CGR-1A1 Charger">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Wells technologies" Model="CGR-1A1 Charger">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Wells technologies" Model="CGR-1A1 Charger">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Wells technologies" Model="CGR-1A1 Charger">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Wells technologies" Model="CGR-1A1 Charger">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Wells technologies" Model="CGR-1A1 Charger">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Wells technologies" Model="CGR-1A1 Charger">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Tek" Model="BattleCom">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="400" Weight="52.5" Manufacturer="LTV" Model="400">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Magna" Model="MkI">
+      <SlotReference Location="Head" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Magna" Model="MkI">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Magna" Model="MkI">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Magna" Model="MkI">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Magna" Model="MkI">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+  </Items>
+</BattlemechDesign>

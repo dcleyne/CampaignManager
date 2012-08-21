@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Shadow Hawk</Name>
+  <Variant>SHD-2H</Variant>
+  <Manufacturer>Lang Industries Inc.</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>55</Weight>
+  <Cost>4539381</Cost>
+  <BV>918</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="23" />
+    <Location Name="Centre Torso Rear" Points="8" />
+    <Location Name="Left Torso" Points="18" />
+    <Location Name="Left Torso Rear" Points="6" />
+    <Location Name="Right Torso" Points="18" />
+    <Location Name="Right Torso Rear" Points="6" />
+    <Location Name="Left Arm" Points="16" />
+    <Location Name="Right Arm" Points="16" />
+    <Location Name="Left Leg" Points="16" />
+    <Location Name="Right Leg" Points="16" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Lang Industries Inc." Model="SHD-2H Shadow Hawk">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Lang Industries Inc." Model="SHD-2H Shadow Hawk">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Lang Industries Inc." Model="SHD-2H Shadow Hawk">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Lang Industries Inc." Model="SHD-2H Shadow Hawk">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Lang Industries Inc." Model="SHD-2H Shadow Hawk">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Lang Industries Inc." Model="SHD-2H Shadow Hawk">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Lang Industries Inc." Model="SHD-2H Shadow Hawk">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Lang Industries Inc." Model="SHD-2H Shadow Hawk">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Lang Industries Inc." Model="SHD-2H Shadow Hawk">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Lang Industries Inc." Model="SHD-2H Shadow Hawk">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Lang Industries Inc." Model="SHD-2H Shadow Hawk">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Lang Industries Inc." Model="SHD-2H Shadow Hawk">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Lang Industries Inc." Model="SHD-2H Shadow Hawk">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Lang Industries Inc." Model="SHD-2H Shadow Hawk">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Lang Industries Inc." Model="SHD-2H Shadow Hawk">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Lang Industries Inc." Model="SHD-2H Shadow Hawk">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Lang Industries Inc." Model="SHD-2H Shadow Hawk">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Lang Industries Inc." Model="SHD-2H Shadow Hawk">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Lang Industries Inc." Model="SHD-2H Shadow Hawk">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="O/P" Model="2000A">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="275" Weight="15.5" Manufacturer="Core Tech" Model="275">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Autocannon 5" Manufacturer="Armstrong" Model="J11">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="Autocannon 5" Manufacturer="" Model="" Shots="20">
+      <SlotReference Location="Left Torso" Table="1" Slot="5" />
+    </Item>    
+    <Item Type="Weapon" WeaponType="SRM 2" Manufacturer="Holly" Model="Short-Range">
+      <SlotReference Location="Head" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 2" Manufacturer="" Model="" Shots="50">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 5" Manufacturer="Holly" Model="Long-Range">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 5" Manufacturer="" Model="" Shots="24">
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Martell" Model="Model 5">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+    </Item>
+     <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="LFT-50">
+      <SlotReference Location ="Centre Torso" Table="2" Slot="6" />
+    </Item>
+     <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="LFT-50">
+      <SlotReference Location ="Left Torso" Table="1" Slot="6" />
+    </Item>
+     <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="LFT-50">
+      <SlotReference Location ="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Lang Industries Inc.">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Lang Industries Inc.">
+      <SlotReference Location="Right Leg" Table="1" Slot="5" />
+    </Item>
+    
+  </Items>
+</BattlemechDesign>

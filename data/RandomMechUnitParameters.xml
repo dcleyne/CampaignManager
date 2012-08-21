@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RandomMechUnitParameters>
+  <MechUnitParameters Name="Ultralight" MechCount="4" MinBV="1400" MaxBV="1600" MinWeight="80" MaxWeight="120">
+    <IncludedMechWeight>20</IncludedMechWeight>
+    <IncludedMechWeight>25</IncludedMechWeight>
+    <IncludedMechWeight>30</IncludedMechWeight>
+    <IncludedMechWeight>35</IncludedMechWeight>
+  </MechUnitParameters>
+  <MechUnitParameters Name="Light" MechCount="4" MinBV="1800" MaxBV="2000" MinWeight="80" MaxWeight="160">
+    <IncludedMechWeight>20</IncludedMechWeight>
+    <IncludedMechWeight>25</IncludedMechWeight>
+    <IncludedMechWeight>30</IncludedMechWeight>
+    <IncludedMechWeight>35</IncludedMechWeight>
+    <IncludedMechWeight>40</IncludedMechWeight>
+  </MechUnitParameters>
+  <MechUnitParameters Name="Light Medium" MechCount="4" MinBV="2400" MaxBV="2600" MinWeight="110" MaxWeight="200">
+    <IncludedMechWeight>25</IncludedMechWeight>
+    <IncludedMechWeight>30</IncludedMechWeight>
+    <IncludedMechWeight>35</IncludedMechWeight>
+    <IncludedMechWeight>40</IncludedMechWeight>
+    <IncludedMechWeight>45</IncludedMechWeight>
+    <IncludedMechWeight>50</IncludedMechWeight>
+  </MechUnitParameters>
+  <MechUnitParameters Name="Medium" MechCount="4" MinBV="3000" MaxBV="3200" MinWeight="140" MaxWeight="200">
+    <IncludedMechWeight>35</IncludedMechWeight>
+    <IncludedMechWeight>40</IncludedMechWeight>
+    <IncludedMechWeight>45</IncludedMechWeight>
+    <IncludedMechWeight>50</IncludedMechWeight>
+    <IncludedMechWeight>55</IncludedMechWeight>
+    <IncludedMechWeight>60</IncludedMechWeight>
+  </MechUnitParameters>
+  <MechUnitParameters Name="Medium Heavy" MechCount="4" MinBV="3400" MaxBV="3600" MinWeight="180" MaxWeight="280">
+    <IncludedMechWeight>40</IncludedMechWeight>
+    <IncludedMechWeight>45</IncludedMechWeight>
+    <IncludedMechWeight>50</IncludedMechWeight>
+    <IncludedMechWeight>55</IncludedMechWeight>
+    <IncludedMechWeight>60</IncludedMechWeight>
+    <IncludedMechWeight>65</IncludedMechWeight>
+  </MechUnitParameters>
+  <MechUnitParameters Name="Heavy" MechCount="4" MinBV="3800" MaxBV="4000" MinWeight="220" MaxWeight="320">
+    <IncludedMechWeight>55</IncludedMechWeight>
+    <IncludedMechWeight>60</IncludedMechWeight>
+    <IncludedMechWeight>65</IncludedMechWeight>
+    <IncludedMechWeight>70</IncludedMechWeight>
+    <IncludedMechWeight>75</IncludedMechWeight>
+    <IncludedMechWeight>80</IncludedMechWeight>
+  </MechUnitParameters>
+  <MechUnitParameters Name="Light Assault" MechCount="4" MinBV="4200" MaxBV="4400" MinWeight="260" MaxWeight="360">
+    <IncludedMechWeight>60</IncludedMechWeight>
+    <IncludedMechWeight>65</IncludedMechWeight>
+    <IncludedMechWeight>70</IncludedMechWeight>
+    <IncludedMechWeight>75</IncludedMechWeight>
+    <IncludedMechWeight>80</IncludedMechWeight>
+    <IncludedMechWeight>85</IncludedMechWeight>
+    <IncludedMechWeight>90</IncludedMechWeight>
+  </MechUnitParameters>
+  <MechUnitParameters Name="Assault" MechCount="4" MinBV="4600" MaxBV="4800" MinWeight="300" MaxWeight="400">
+    <IncludedMechWeight>75</IncludedMechWeight>
+    <IncludedMechWeight>80</IncludedMechWeight>
+    <IncludedMechWeight>85</IncludedMechWeight>
+    <IncludedMechWeight>90</IncludedMechWeight>
+    <IncludedMechWeight>95</IncludedMechWeight>
+    <IncludedMechWeight>100</IncludedMechWeight>
+  </MechUnitParameters>
+  <MechUnitParameters Name="Heavy Assault" MechCount="4" MinBV="4600" MaxBV="5200" MinWeight="320" MaxWeight="400">
+    <IncludedMechWeight>80</IncludedMechWeight>
+    <IncludedMechWeight>85</IncludedMechWeight>
+    <IncludedMechWeight>90</IncludedMechWeight>
+    <IncludedMechWeight>95</IncludedMechWeight>
+    <IncludedMechWeight>100</IncludedMechWeight>
+  </MechUnitParameters>
+  <MechAvailability>
+    <AvailableMech Name="Locust" Variant="LCT-1V" Weight="20" BV="356" Availability="4" />
+    <AvailableMech Name="Wasp" Variant="WSP-1A" Weight="20" BV="336" Availability="4" />
+    <AvailableMech Name="Stinger" Variant="STG-3R" Weight="20" BV="320" Availability="4" />
+    <AvailableMech Name="Commando" Variant="COM-2D" Weight="25" BV="432" Availability="9" />
+    <AvailableMech Name="Javelin" Variant="JVN-10N" Weight="25" BV="487" Availability="7" />
+    <AvailableMech Name="Spider" Variant="SDR-5V" Weight="30" BV="514" Availability="10" />
+    <AvailableMech Name="Urbanmech" Variant="UM-R60" Weight="30" BV="454" Availability="6" />
+    <AvailableMech Name="Valkyrie" Variant="VLK-QA" Weight="30" BV="640" Availability="5" />
+    <AvailableMech Name="Firestarter" Variant="FS9-H" Weight="35" BV="500" Availability="5" />
+    <AvailableMech Name="Jenner" Variant="JR7-D" Weight="35" BV="669" Availability="9" />
+    <AvailableMech Name="Ostscout" Variant="OTT-7J" Weight="35" BV="497" Availability="7" />
+    <AvailableMech Name="Panther" Variant="PNT-9R" Weight="35" BV="664" Availability="8" />
+    <AvailableMech Name="Assassin" Variant="ASN-21" Weight="40" BV="596" Availability="9" />
+    <AvailableMech Name="Cicada" Variant="CDA-2A" Weight="40" BV="567" Availability="8" />
+    <AvailableMech Name="Clint" Variant="CLNT-2-3T" Weight="40" BV="672" Availability="8" />
+    <AvailableMech Name="Hermes II" Variant="HER-2S" Weight="40" BV="665" Availability="9" />
+    <AvailableMech Name="Vulcan" Variant="VL 2T" Weight="40" BV="523" Availability="6" />
+    <AvailableMech Name="Whitworth" Variant="WTH-1" Weight="40" BV="771" Availability="8" />
+    <AvailableMech Name="Blackjack" Variant="BJ-1" Weight="45" BV="795" Availability="10" />
+    <AvailableMech Name="Hatchetman" Variant="HCT-3F" Weight="45" BV="769" Availability="9" />
+    <AvailableMech Name="Phoenix Hawk" Variant="PXH-1" Weight="45" BV="838" Availability="5" />
+    <AvailableMech Name="Vindicator" Variant="VND-1R" Weight="45" BV="900" Availability="7" />
+    <AvailableMech Name="Centurion" Variant="CN9-A" Weight="50" BV="772" Availability="7" />
+    <AvailableMech Name="Enforcer" Variant="ENF-4R" Weight="50" BV="895" Availability="8" />
+    <AvailableMech Name="Hunchback" Variant="HBK-4G" Weight="50" BV="851" Availability="7" />
+    <AvailableMech Name="Trebuchet" Variant="TBT-5N" Weight="50" BV="864" Availability="5" />
+    <AvailableMech Name="Dervish" Variant="DV-6M" Weight="55" BV="868" Availability="4" />
+    <AvailableMech Name="Griffin" Variant="GRF-1N" Weight="55" BV="1021" Availability="5" />
+    <AvailableMech Name="Shadow Hawk" Variant="SHD-2H" Weight="55" BV="918" Availability="6" />
+    <AvailableMech Name="Scorpion" Variant="SCP-1N" Weight="55" BV="786" Availability="9" />
+    <AvailableMech Name="Wolverine" Variant="WVR-6R" Weight="55" BV="957" Availability="7" />
+    <AvailableMech Name="Dragon" Variant="DRG-1N" Weight="60" BV="917" Availability="9" />
+    <AvailableMech Name="Ostroc" Variant="OSR-2C" Weight="60" BV="951" Availability="8" />
+    <AvailableMech Name="Ostsol" Variant="OTL-4D" Weight="60" BV="1034" Availability="6" />
+    <AvailableMech Name="Quickdraw" Variant="QKD-4G" Weight="60" BV="1012" Availability="7" />
+    <AvailableMech Name="Rifleman" Variant="RFL-3N" Weight="60" BV="797" Availability="6" />
+    <AvailableMech Name="Catapult" Variant="CPLT-C1" Weight="65" BV="1165" Availability="10" />
+    <AvailableMech Name="Crusader" Variant="CRD-3R" Weight="65" BV="948" Availability="4" />
+    <AvailableMech Name="Jagermech" Variant="JM6-S" Weight="65" BV="749" Availability="9" />
+    <AvailableMech Name="Thunderbolt" Variant="TDR-5S" Weight="65" BV="1015" Availability="6" />
+    <AvailableMech Name="Archer" Variant="ARC-2R" Weight="70" BV="1117" Availability="6" />
+    <AvailableMech Name="Grasshopper" Variant="GHR-5H" Weight="70" BV="1268" Availability="8" />
+    <AvailableMech Name="Warhammer" Variant="WHM-6R" Weight="70" BV="978" Availability="7" />
+    <AvailableMech Name="Marauder" Variant="MAD-3R" Weight="75" BV="1089" Availability="7" />
+    <AvailableMech Name="Orion" Variant="ON1-K" Weight="75" BV="1069" Availability="6" />
+    <AvailableMech Name="Awesome" Variant="AWS-8Q" Weight="80" BV="1358" Availability="7" />
+    <AvailableMech Name="Charger" Variant="CGR-1A1" Weight="80" BV="820" Availability="9" />
+    <AvailableMech Name="Goliath" Variant="GOL-1H" Weight="80" BV="1200" Availability="10" />
+    <AvailableMech Name="Victor" Variant="VTR 9B" Weight="80" BV="1165" Availability="10" />
+    <AvailableMech Name="Zeus" Variant="ZEU-6S" Weight="80" BV="1148" Availability="8" />
+    <AvailableMech Name="Battlemaster" Variant="BLR-1G" Weight="85" BV="1212" Availability="6" />
+    <AvailableMech Name="Stalker" Variant="STK-3F" Weight="85" BV="1152" Availability="6" />
+    <AvailableMech Name="Cyclops" Variant="CP 10-Z" Weight="90" BV="965" Availability="8" />
+    <AvailableMech Name="Banshee" Variant="BNC-3E" Weight="95" BV="1223" Availability="7" />
+    <AvailableMech Name="Atlas" Variant="AS7-D" Weight="100" BV="1557" Availability="8" />
+  </MechAvailability>
+</RandomMechUnitParameters>
+
+
+

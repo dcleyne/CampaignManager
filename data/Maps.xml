@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Maps>
+    <Map Name="DropPort #1" Set="MapSet #7" >
+    	<Locations>0109,0508,0709,0711,0512,0715,0315,0114,0112</Locations>
+   	</Map>
+    <Map Name="DropPort #2" Set="MapSet #7" >
+    	<Locations>0201,0702,0106,1103,0706,0302,0107,0105,0815,0215</Locations>
+   	</Map>
+    <Map Name="Archipelago #1" Set="MapSet #7" >
+    	<Locations>0401,0702,0205,0513,0214,0716,1213</Locations>
+   	</Map>
+    <Map Name="Archipelago #2" Set="MapSet #7" >
+    	<Locations>0304,0706,0514,0915,1512,1406</Locations>
+   	</Map>
+    <Map Name="Coast #1" Set="MapSet #7" >
+    	<Locations>0402,0701,0903,0907,0709,1310,1513,1515,1214,1016,0317</Locations>
+   	</Map>
+    <Map Name="Coast #2" Set="MapSet #7" >
+    	<Locations>1002,1203,1305,1312,1214,1416,0916</Locations>
+   	</Map>
+    <Map Name="Military Base #1" Set="MapSet #7" >
+    	<Locations>0403,0307,0705,1103,1505,1512,0716,0414,0212,0908,1106</Locations>
+   	</Map>
+    <Map Name="Military Base #2" Set="MapSet #7" >
+    	<Locations>0105,0901,1202,1501,0904,0705,0506,0409,0711,1210,1312,1014,0714,0112</Locations>
+   	</Map>
+    <Map Name="Seaport" Set="MapSet #7" >
+    	<Locations>0502,0803,1202,1205,1505,1208,0710,0912,0814,1015,1214,1514,1317,1508</Locations>
+   	</Map>
+    <Map Name="Basic Battletech" Set="Compilation #1" >
+    	<Locations>0303,0902,1205,1007,0610,0414,1212,1315,1410</Locations>
+   	</Map>
+    <Map Name="Scattered Woods" Set="Compilation #1" >
+    	<Locations>0403,1002,0508,0807,1005,1405,1409,1414,0714,0314,0509</Locations>
+   	</Map>
+    <Map Name="City Ruins" Set="Compilation #1" >
+    	<Locations>0203,0604,0406,1105,1007,1210,1114,0414,0215</Locations>
+   	</Map>
+    <Map Name="Mountain Lake" Set="Compilation #1" >
+    	<Locations>0905,1205,1205,1215,0312,0509</Locations>
+   	</Map>
+    <Map Name="River Valley" Set="Compilation #1" >
+    	<Locations>0502,1303,1106,0908,1112,1013,0813,0415,0411,0406</Locations>
+   	</Map>
+    <Map Name="Lake Area" Set="Compilation #1" >
+    	<Locations>0302,0906,1311,0713,0413,0410</Locations>
+   	</Map>
+    <Map Name="Citytech" Set="Compilation #1" >
+    	<Locations>0702,1402,0606,1107,0710,1010,0912,0714,1415,0416</Locations>
+   	</Map>
+    <Map Name="Desert Hills" Set="Compilation #1" >
+    	<Locations>0602,1303,1409,1016,0912,0314,0708,0108</Locations>
+   	</Map>
+    <Map Name="Rolling Hills #1" Set="Compilation #1" >
+    	<Locations>0103,0109,0702,0508,0116,0515,0911,1208,1316,1503</Locations>
+   	</Map>
+    <Map Name="Rolling Hills #2" Set="Compilation #1" >
+    	<Locations>1101,1405,1008,1209,1413,1215,0413,0405</Locations>
+   	</Map>
+    <Map Name="Desert Sinkhole #1" Set="Compilation #1" >
+    	<Locations>0604,1304,1009,1113,1315,0415</Locations>
+   	</Map>
+    <Map Name="Desert Sinkhole #2" Set="Compilation #1" >
+    	<Locations>0402,1103,1107,1309,1212,0415,0411</Locations>
+   	</Map>
+    <Map Name="Desert Mountain #1" Set="Compilation #1" >
+    	<Locations>0602,1203,1007,1513,0612,0313</Locations>
+   	</Map>
+    <Map Name="Desert Mountain #2" Set="Compilation #1" >
+    	<Locations>0302,0904,1203,1211,0712,0314</Locations>
+   	</Map>
+    <Map Name="Heavy Forest #1" Set="Compilation #1" >
+    	<Locations>0304,0802,1104,1306,1210,1012,0713,0413</Locations>
+   	</Map>
+    <Map Name="Heavy Forest #2" Set="Compilation #1" >
+    	<Locations>0304,0904,1206,0908,1112,1214,0515,0314,0210</Locations>
+   	</Map>
+    <Map Name="City Street Grid/Park #1" Set="Compilation #1" >
+    	<Locations>0308,0304,0202,0803,1006,1307,1111,1313,0815,0516,0809</Locations>
+   	</Map>
+    <Map Name="City Street Grid/Park #2" Set="Compilation #1" >
+    	<Locations>0202,0402,0206,0212,0608.0905,0911,1204,1110,1115,1407,1413</Locations>
+   	</Map>
+    <Map Name="City (Hills/Residential> #1" Set="Compilation #1" >
+    	<Locations>0205,0202,1002,1203,1308,1312,0914,0716,0515,0314,0410</Locations>
+   	</Map>
+    <Map Name="City (Hills/Residential> #2" Set="Compilation #1" >
+    	<Locations>0402,0804,0507,1209,0513,0515,1113,1313,1502</Locations>
+   	</Map>
+    <Map Name="Large Lakes #1" Set="Compilation #1" >
+    	<Locations>0702,1301,1414,0416,0213,0209,0405,0204</Locations>
+   	</Map>
+    <Map Name="Large Lakes #2" Set="Compilation #1" >
+    	<Locations>0202,1002,1107,1515,0610,0116,0608,0203,1001</Locations>
+   	</Map>
+    <Map Name="River Delta #1" Set="Compilation #1" >
+    	<Locations>0503,1102,1402,0805,0911,1314,0813,0516,0710,0506</Locations>
+   	</Map>
+    <Map Name="River Delta #2" Set="Compilation #1" >
+    	<Locations>0202,0804,1204,1508,0810,1113,0815,0414,0212</Locations>
+   	</Map>
+    <Map Name="Open Terrain #1" Set="Compilation #2" >
+    	<Locations>0206,0505,1009,1210,0215,1402</Locations>
+   	</Map>
+    <Map Name="Open Terrain #2" Set="Compilation #2" >
+    	<Locations>0403,0604,1208,1408,0312,0513,0714,0814</Locations>
+   	</Map>
+    <Map Name="Large Mountain #1" Set="Compilation #2" >
+    	<Locations>0202,0702,1302,1405,1412,1415,0716,0214</Locations>
+   	</Map>
+    <Map Name="Large Mountain #2" Set="Compilation #2" >
+    	<Locations>0104,1202,0110,1316,1410,0611,0508,0807</Locations>
+   	</Map>
+    <Map Name="Deep Canyon #1" Set="Compilation #2" >
+    	<Locations>0603,0408,1104,1207,1216,0714,0414,0215,0106</Locations>
+   	</Map>
+    <Map Name="Deep Canyon #2" Set="Compilation #2" >
+    	<Locations>0606,1106,1211,0715,0315,1515,0409</Locations>
+   	</Map>
+    <Map Name="Moonscape #1" Set="Compilation #2" >
+    	<Locations>0202,1402,0707,1011,1415,0615,0313,1109</Locations>
+   	</Map>
+    <Map Name="Moonscape #2" Set="Compilation #2" >
+    	<Locations>0202,0605,0807,1407,0810,1314,0315</Locations>
+   	</Map>
+    <Map Name="City (Downtown)" Set="Compilation #2" >
+    	<Locations>0305,0703,1103,1006,1304,1309,1011,1313,0915,0515,0115,0509,0207</Locations>
+   	</Map>
+    <Map Name="City (Residential)" Set="Compilation #2" >
+    	<Locations>0401,0305,0603,1003,1305,1005,1308,0909,0913,0614,0313,0309,0709</Locations>
+   	</Map>
+    <Map Name="City (Skyscrapers)" Set="Compilation #2" >
+    	<Locations>0302,1302,1406,0206,0608,1108,1311,0311,0112,0514,0715,1014,1314,1416</Locations>
+   	</Map>
+    <Map Name="City (Suburbs)" Set="Compilation #2" >
+    	<Locations>0503,1103,0306,1306,0508,1108,1310,1013,0412,0213,1216,1516,0107,1007</Locations>
+   	</Map>
+    <Map Name="Wide River" Set="Compilation #2" >
+    	<Locations>0404,1306,0909,1011,1513,0513,0415</Locations>
+   	</Map>
+    <Map Name="Woodland" Set="Compilation #2" >
+    	<Locations>0403,0706,1202,1305,1207,1011,1316,0413,0206</Locations>
+   	</Map>
+    <Map Name="Box Canyon" Set="Compilation #2" >
+    	<Locations>0403,1003,1308,0809,1011,1416,0514,0511,0207</Locations>
+   	</Map>
+    <Map Name="Battleforce 2" Set="Compilation #2" >
+    	<Locations>0105,1103,1402,1507,1208,1512,1316,0715,0213,0311</Locations>
+   	</Map>
+    <Map Name="Basic Battletech" Set="Original Boxed Set" Notes="Cardboard">
+    	<Locations>0702,1302,1409,1016,0913,0212,0206,0806</Locations>
+   	</Map>
+    <Map Name="Desert Hills" Set="Map Set #2" >
+    	<Locations>0602,1303,1409,1016,0912,0314,0708,0108</Locations>
+   	</Map>
+    <Map Name="City Ruins" Set="Map Set #2" >
+    	<Locations>0203,0604,0406,1105,1007,1210,1114,0414,0215</Locations>
+   	</Map>
+    <Map Name="Basic Battletech" Set="" Notes="Repaint in newer style">
+    	<Locations>0303,0902,1205,1007,0610,0414,1212,1315,1410</Locations>
+   	</Map>
+    <Map Name="Woods and River" Set="" Notes="Unnamed map">
+    	<Locations>0502,0703,1303,0807,1206,1112,0813,0415,0412,0406</Locations>
+   	</Map>
+
+	<MapSet Name="Drop Port" Maps="2" Rows="2" Columns="1">
+	    <Map Number="1" Name="DropPort #1" Row="2" Column="1" />
+	    <Map Number="2" Name="DropPort #2" Row="1" Column="1" />
+	</MapSet>
+	<MapSet Name="Coast Road" Maps="4" Rows="4" Columns="1">
+	    <Map Number="1" Name="Archipelago #1" Row="4" Column="1"/>
+	    <Map Number="2" Name="Archipelago #2" Row="3" Column="1" />
+	    <Map Number="3" Name="Coast #1" Row="2" Column="1" />
+	    <Map Number="4" Name="Coast #2" Row="1" Column="1" />
+	</MapSet>
+	<MapSet Name="Seaport" Maps="1" Rows="1" Columns="1" >
+	    <Map Number="1" Name="Seaport" Row="1" Column="1"/>
+	</MapSet>
+	<MapSet Name="Military Base" Maps="2" Rows="1" Columns="2">
+	    <Map Number="2" Name="Military Base #1" Row="1" Column="2"/>
+	    <Map Number="1" Name="Military Base #2" Row="1" Column="1"/>
+	</MapSet>
+	<MapSet Name="Rolling Hills" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="Rolling Hills #1" Row="1" Column="1"/>
+	    <Map Number="2" Name="Rolling Hills #2" Row="1" Column="2"/>
+	</MapSet>
+	<MapSet Name="Rolling Hills" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="Rolling Hills #1" Row="1" Column="1"/>
+	    <Map Number="2" Name="Rolling Hills #2" Row="1" Column="2"/>
+	</MapSet>
+	<MapSet Name="Desert Sinkhole" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="Desert Sinkhole #1" Row="1" Column="1" />
+	    <Map Number="2" Name="Desert Sinkhole #2" Row="1" Column="2" />
+	</MapSet>
+	<MapSet Name="Desert Sinkhole" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="Desert Sinkhole #1" Row="1" Column="1" />
+	    <Map Number="2" Name="Desert Sinkhole #2" Row="1" Column="2" />
+	</MapSet>
+	<MapSet Name="Desert Mountain" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="Desert Mountain #1" Row="1" Column="1" />
+	    <Map Number="2" Name="Desert Mountain #2" Row="1" Column="2" />
+	</MapSet>
+	<MapSet Name="Desert Mountain" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="Desert Mountain #1" Row="1" Column="1" />
+	    <Map Number="2" Name="Desert Mountain #2" Row="1" Column="2" />
+	</MapSet>
+	<MapSet Name="Heavy Forest" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="Heavy Forest #1" Row="1" Column="1" />
+	    <Map Number="2" Name="Heavy Forest #2" Row="1" Column="2" />
+	</MapSet>
+	<MapSet Name="Heavy Forest" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="Heavy Forest #1" Row="1" Column="1" />
+	    <Map Number="2" Name="Heavy Forest #2" Row="1" Column="2" />
+	</MapSet>
+	<MapSet Name="City Street Grid/Park" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="City Street Grid/Park #1" Row="1" Column="1" />
+	    <Map Number="2" Name="City Street Grid/Park #2" Row="1" Column="2" />
+	</MapSet>
+	<MapSet Name="City (Hills/Residential)" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="City (Hills/Residential) #1" Row="1" Column="1" />
+	    <Map Number="2" Name="City (Hills/Residential) #2" Row="1" Column="2" />
+	</MapSet>
+	<MapSet Name="Large Lakes" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="Large Lakes #1" Row="1" Column="1" />
+	    <Map Number="2" Name="Large Lakes #2" Row="1" Column="2" />
+	</MapSet>
+	<MapSet Name="River Delta" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="River Delta #1" Row="1" Column="1" />
+	    <Map Number="2" Name="River Delta #2" Row="1" Column="2" />
+	</MapSet>
+	<MapSet Name="Open Terrain" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="Open Terrain #1" Row="1" Column="1" />
+	    <Map Number="2" Name="Open Terrain #2" Row="1" Column="2" />
+	</MapSet>
+	<MapSet Name="Large Mountain" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="Large Mountain #1" Row="1" Column="1" />
+	    <Map Number="2" Name="Large Mountain #2" Row="1" Column="2" />
+	</MapSet>
+	<MapSet Name="Deep Canyon" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="Deep Canyon #1" Row="1" Column="1" />
+	    <Map Number="2" Name="Deep Canyon #2" Row="1" Column="2" />
+	</MapSet>
+	<MapSet Name="Moonscape" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="Moonscape #1" Row="1" Column="1" />
+	    <Map Number="2" Name="Moonscape #2" Row="1" Column="2" />
+	</MapSet>
+	<MapSet Name="City" Maps="4" Rows="2" Columns="2">
+	    <Map Number="1" Name="City (Downtown)"  Row="1" Column="1" />
+	    <Map Number="2" Name="City (Residential)"  Row="2" Column="1" />
+	    <Map Number="3" Name="City (Skyscrapers)"  Row="1" Column="2" />
+	    <Map Number="4" Name="City (Suburbs)"  Row="2" Column="2" />
+	</MapSet>
+	<MapSet Name="Basic Battletech" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="Basic Battletech" Row="1" Column="1" />
+	    <Map Number="2" Name="Basic Battletech" Row="1" Column="2" />
+	</MapSet>
+	<MapSet Name="Scattered Woods" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="Scattered Woods" Row="1" Column="1" />
+	    <Map Number="2" Name="Scattered Woods" Row="1" Column="2" />
+	</MapSet>
+	<MapSet Name="Citytech" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="Citytech" Row="1" Column="1" />
+	    <Map Number="2" Name="City Ruins" Row="1" Column="2" />
+	</MapSet>
+	<MapSet Name="River Valley Lake Area" Maps="2" Rows="2" Columns="1">
+	    <Map Number="1" Name="River Valley" Row="1" Column="1" />
+	    <Map Number="2" Name="Lake Area" Row="2" Column="1" />
+	</MapSet>
+	<MapSet Name="Mountain Lake Desert Hills" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="Mountain Lake" Row="1" Column="1" />
+	    <Map Number="2" Name="Desert Hills" Row="1" Column="2" />
+	</MapSet>
+	<MapSet Name="Woodland Box Canyon" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="Woodland" Row="1" Column="1" />
+	    <Map Number="2" Name="Box Canyon" Row="1" Column="2" />
+	</MapSet>
+	<MapSet Name="Wide River Battleforce 2" Maps="2" Rows="2" Columns="1">
+	    <Map Number="1" Name="Wide River" Row="1" Column="1" />
+	    <Map Number="2" Name="Battleforce 2" Row="2" Column="1" />
+	</MapSet>
+	<MapSet Name="Woodland Box Canyon" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="Desert Hills" Row="1" Column="1" />
+	    <Map Number="2" Name="City Ruins" Row="1" Column="2" />
+	</MapSet>
+	<MapSet Name="Basic Battletech" Maps="1" Rows="1" Columns="1">
+	    <Map Number="1" Name="Basic Battletech" Row="1" Column="1" />
+	</MapSet>
+	<MapSet Name="Basic Battletech" Maps="1" Rows="1" Columns="1">
+	    <Map Number="1" Name="Basic Battletech" Row="1" Column="1" />
+	</MapSet>
+	<MapSet Name="Woods and River" Maps="1" Rows="1" Columns="1">
+	    <Map Number="1" Name="Woods and River" Row="1" Column="1" />
+	</MapSet>
+	<MapSet Name="River Delta 2 Large Lake" Maps="2" Rows="2" Columns="1">
+	    <Map Number="1" Name="River Delta 2" Row="1" Column="1" />
+	    <Map Number="2" Name="Large Lake" Row="2" Column="1" />
+	</MapSet>
+	<MapSet Name="City Ruins" Maps="1" Rows="1" Columns="1">
+	    <Map Number="1" Name="City Ruins" Row="1" Column="1" />
+	</MapSet>
+	<MapSet Name="Cityscape" Maps="2" Rows="1" Columns="2">
+	    <Map Number="1" Name="City (Hills/Residential) #2" Row="1" Column="1" />
+	    <Map Number="2" Name="City Street Grid/Park #2" Row="1" Column="2" />
+	</MapSet>
+</Maps>
+    

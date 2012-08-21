@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Archer</Name>
+  <Variant>ARC-2R</Variant>
+  <Manufacturer>Earthwerks Incorporated</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>70</Weight>
+  <Cost>6384974</Cost>
+  <BV>1117</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="33" />
+    <Location Name="Centre Torso Rear" Points="10" />
+    <Location Name="Left Torso" Points="24" />
+    <Location Name="Left Torso Rear" Points="6" />
+    <Location Name="Right Torso" Points="24" />
+    <Location Name="Right Torso Rear" Points="6" />
+    <Location Name="Left Arm" Points="22" />
+    <Location Name="Right Arm" Points="22" />
+    <Location Name="Left Leg" Points="26" />
+    <Location Name="Right Leg" Points="26" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="RCA Instatrac" Model="Mark XII">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="280" Weight="16" Manufacturer="Vox" Model="280">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 20" Manufacturer="Doombud" Model="20-Rack">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+      <SlotReference Location="Left Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 15" Manufacturer="" Model="" Shots="8">
+      <SlotReference Location="Left Torso" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 15" Manufacturer="" Model="" Shots="8">
+      <SlotReference Location="Left Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 20" Manufacturer="Doombud" Model="20-Rack">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+      <SlotReference Location="Right Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 15" Manufacturer="" Model="" Shots="8">
+      <SlotReference Location="Right Torso" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 15" Manufacturer="" Model="" Shots="8">
+      <SlotReference Location="Right Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Diverse Optics" Model="Type 18">
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Diverse Optics" Model="Type 18">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Diverse Optics" Model="Type 18">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" RearFacing="true"/>
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Diverse Optics" Model="Type 18">
+      <SlotReference Location="Centre Torso" Table="2" Slot="6" RearFacing="true"/>
+    </Item>
+  </Items>
+</BattlemechDesign>

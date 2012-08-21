@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Clint</Name>
+  <Variant>CLNT-2-3T</Variant>
+  <Manufacturer>Andoran Industries Ltd</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>40</Weight>
+  <Cost>3572380</Cost>
+  <BV>672</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="11" />
+    <Location Name="Centre Torso Rear" Points="4" />
+    <Location Name="Left Torso" Points="6" />
+    <Location Name="Left Torso Rear" Points="4" />
+    <Location Name="Right Torso" Points="6" />
+    <Location Name="Right Torso Rear" Points="4" />
+    <Location Name="Left Arm" Points="6" />
+    <Location Name="Right Arm" Points="6" />
+    <Location Name="Left Leg" Points="8" />
+    <Location Name="Right Leg" Points="8" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Sloane" Model="220 Lockover System">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="240" Weight="11.5" Manufacturer="Pitban" Model="240">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Diplan Mechyards">
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Andoran" Model="JJII">
+      <SlotReference Location ="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Andoran" Model="JJII">
+      <SlotReference Location ="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Andoran" Model="JJII">
+      <SlotReference Location ="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Andoran" Model="JJII">
+      <SlotReference Location ="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Andoran" Model="JJII">
+      <SlotReference Location ="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Andoran" Model="JJII">
+      <SlotReference Location ="Right Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Martell" Model="Medium Laser">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Martell" Model="Medium Laser">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Autocannon 5" Manufacturer="Armstrong" Model="Autocannon/5">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+      <SlotReference Location="Right Arm" Table="1" Slot="6" />
+      <SlotReference Location="Right Arm" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="Autocannon 5" Manufacturer="" Model="" Shots="20">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+  </Items>
+</BattlemechDesign>

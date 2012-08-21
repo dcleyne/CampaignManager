@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Warhammer</Name>
+  <Variant>WHM-6R</Variant>
+  <Manufacturer>StarCorp Industries</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>70</Weight>
+  <Cost>6070984</Cost>
+  <BV>978</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="22" />
+    <Location Name="Centre Torso Rear" Points="9" />
+    <Location Name="Left Torso" Points="17" />
+    <Location Name="Left Torso Rear" Points="8" />
+    <Location Name="Right Torso" Points="17" />
+    <Location Name="Right Torso Rear" Points="8" />
+    <Location Name="Left Arm" Points="20" />
+    <Location Name="Right Arm" Points="20" />
+    <Location Name="Left Leg" Points="15" />
+    <Location Name="Right Leg" Points="15" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="O/P" Model="1500 ARB">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="280" Weight="16" Manufacturer="Vox" Model="280">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="PPC" Manufacturer="Donal" Model="PPC">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+      <SlotReference Location="Left Arm" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="PPC" Manufacturer="Donal" Model="PPC">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+      <SlotReference Location="Right Arm" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="SRM 6" Manufacturer="Holly" Model="Short-Range (6)">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+      <SlotReference Location="Right Torso" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 6" Manufacturer="" Model="" Shots="15">
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Martell" Model="">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Martell" Model="">
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Magna" Model="">
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Magna" Model="">
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="SperryBrowning" Model="">
+      <SlotReference Location="Right Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="SperryBrowning" Model="">
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="Machine Gun" Manufacturer="" Model="" Shots="200">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" Manufacturer="StarCorp Industries" Model="" HeatSinkType="Single">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" Manufacturer="StarCorp Industries" Model="" HeatSinkType="Single">
+      <SlotReference Location="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" Manufacturer="StarCorp Industries" Model="" HeatSinkType="Single">
+      <SlotReference Location="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" Manufacturer="StarCorp Industries" Model="" HeatSinkType="Single">
+      <SlotReference Location="Right Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" Manufacturer="StarCorp Industries" Model="" HeatSinkType="Single">
+      <SlotReference Location="Left Arm" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Heat Sink" Manufacturer="StarCorp Industries" Model="" HeatSinkType="Single">
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" Manufacturer="StarCorp Industries" Model="" HeatSinkType="Single">
+      <SlotReference Location="Right Arm" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Heat Sink" Manufacturer="StarCorp Industries" Model="" HeatSinkType="Single">
+      <SlotReference Location="Head" Table="1" Slot="4" />
+    </Item>
+  </Items>
+</BattlemechDesign>

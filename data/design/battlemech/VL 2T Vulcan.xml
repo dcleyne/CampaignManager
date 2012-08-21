@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Vulcan</Name>
+  <Variant>VL 2T</Variant>
+  <Manufacturer>MatherTechno Incorporated</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>40</Weight>
+  <Cost>3462900</Cost>
+  <BV>523</BV>
+  <Armour>
+    <Location Name="Head" Points="8" />
+    <Location Name="Centre Torso" Points="10" />
+    <Location Name="Centre Torso Rear" Points="6" />
+    <Location Name="Left Torso" Points="8" />
+    <Location Name="Left Torso Rear" Points="4" />
+    <Location Name="Right Torso" Points="8" />
+    <Location Name="Right Torso Rear" Points="4" />
+    <Location Name="Left Arm" Points="6" />
+    <Location Name="Right Arm" Points="6" />
+    <Location Name="Left Leg" Points="10" />
+    <Location Name="Right Leg" Points="10" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="MatherTechno Incorporated" Model="VL 2T Vulcan">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="MatherTechno Incorporated" Model="VL 2T Vulcan">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="MatherTechno Incorporated" Model="VL 2T Vulcan">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="MatherTechno Incorporated" Model="VL 2T Vulcan">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="MatherTechno Incorporated" Model="VL 2T Vulcan">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="MatherTechno Incorporated" Model="VL 2T Vulcan">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="MatherTechno Incorporated" Model="VL 2T Vulcan">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="MatherTechno Incorporated" Model="VL 2T Vulcan">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="MatherTechno Incorporated" Model="VL 2T Vulcan">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="MatherTechno Incorporated" Model="VL 2T Vulcan">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="MatherTechno Incorporated" Model="VL 2T Vulcan">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="MatherTechno Incorporated" Model="VL 2T Vulcan">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="MatherTechno Incorporated" Model="VL 2T Vulcan">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="MatherTechno Incorporated" Model="VL 2T Vulcan">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="MatherTechno Incorporated" Model="VL 2T Vulcan">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="MatherTechno Incorporated" Model="VL 2T Vulcan">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="MatherTechno Incorporated" Model="VL 2T Vulcan">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Hartford" Model="TA10">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="240" Weight="11.5" Manufacturer="Pitban" Model="240">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Autocannon 2" Manufacturer="Armstrong" Model="Autocannon">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="Autocannon 2" Manufacturer="" Model="" Shots="45">
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+    </Item>  
+    <Item Type="Weapon" WeaponType="Flamer" Manufacturer="Firestorm" Model="Flamer">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item> 
+        <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="SperryBrowning" Model="">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="Machine Gun" Manufacturer="" Model="" Shots="200">
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Randell" Model="Medium Laser">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="Model 9">
+      <SlotReference Location ="Right Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="Model 9">
+      <SlotReference Location ="Right Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="Model 9">
+      <SlotReference Location ="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="Model 9">
+      <SlotReference Location ="Left Torso" Table="1" Slot="4" />
+    </Item>
+      <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="Model 9">
+      <SlotReference Location ="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="Model 9">
+      <SlotReference Location ="Centre Torso" Table="2" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="MatherTechno Incorporated">
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+    </Item>
+  </Items>
+</BattlemechDesign>

@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Stinger</Name>
+  <Variant>STG-3R</Variant>
+  <Manufacturer>Earthwerks Incorporated</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>30</Weight>
+  <Cost>1615440</Cost>
+  <BV>320</BV>
+  <Armour>
+    <Location Name="Head" Points="4" />
+    <Location Name="Centre Torso" Points="6" />
+    <Location Name="Centre Torso Rear" Points="4" />
+    <Location Name="Left Torso" Points="6" />
+    <Location Name="Left Torso Rear" Points="2" />
+    <Location Name="Right Torso" Points="6" />
+    <Location Name="Right Torso Rear" Points="2" />
+    <Location Name="Left Arm" Points="4" />
+    <Location Name="Right Arm" Points="4" />
+    <Location Name="Left Leg" Points="5" />
+    <Location Name="Right Leg" Points="5" />
+  </Armour>
+  <Items>
+	<Item Type="Life Support" Manufacturer="Earthwerks Incorporated" Model="STG-3R Stinger">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Earthwerks Incorporated" Model="STG-3R Stinger">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Earthwerks Incorporated" Model="STG-3R Stinger">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Earthwerks Incorporated" Model="STG-3R Stinger">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Earthwerks Incorporated" Model="STG-3R Stinger">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Earthwerks Incorporated" Model="STG-3R Stinger">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Earthwerks Incorporated" Model="STG-3R Stinger">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Earthwerks Incorporated" Model="STG-3R Stinger">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Earthwerks Incorporated" Model="STG-3R Stinger">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Earthwerks Incorporated" Model="STG-3R Stinger">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Earthwerks Incorporated" Model="STG-3R Stinger">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Earthwerks Incorporated" Model="STG-3R Stinger">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Earthwerks Incorporated" Model="STG-3R Stinger">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Earthwerks Incorporated" Model="STG-3R Stinger">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Earthwerks Incorporated" Model="STG-3R Stinger">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Earthwerks Incorporated" Model="STG-3R Stinger">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Earthwerks Incorporated" Model="STG-3R Stinger">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Earthwerks Incorporated" Model="STG-3R Stinger">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Earthwerks Incorporated" Model="STG-3R Stinger">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Dynatec" Model="990">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="120" Weight="4" Manufacturer="GM" Model="120">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Earthwerks Incorporated" Model="">
+      <SlotReference Location ="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Earthwerks Incorporated" Model="">
+      <SlotReference Location ="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Earthwerks Incorporated" Model="">
+      <SlotReference Location ="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Earthwerks Incorporated" Model="">
+      <SlotReference Location ="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Earthwerks Incorporated" Model="">
+      <SlotReference Location ="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Earthwerks Incorporated" Model="">
+      <SlotReference Location ="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Chilton" Model="360">
+      <SlotReference Location ="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Chilton" Model="360">
+      <SlotReference Location ="Left Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Chilton" Model="360">
+      <SlotReference Location ="Left Torso" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Chilton" Model="360">
+      <SlotReference Location ="Right Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Chilton" Model="360">
+      <SlotReference Location ="Right Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Chilton" Model="360">
+      <SlotReference Location ="Right Torso" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Omicron" Model="3000">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="Linblad" Model="LFN">
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="Linblad" Model="LFN">
+      <SlotReference Location="Right Arm" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="Machine Gun" Manufacturer="" Model="" Shots="200">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+  </Items>
+</BattlemechDesign>
