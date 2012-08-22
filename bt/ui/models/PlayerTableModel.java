@@ -2,11 +2,12 @@ package bt.ui.models;
 
 import java.util.Vector;
 
+
 import javax.swing.table.AbstractTableModel;
 
 import bt.elements.unit.Player;
 import bt.elements.unit.PlayerSummary;
-import bt.managers.PlayerCache;
+import bt.managers.PlayerManager;
 import bt.managers.listeners.PlayerCacheListener;
 
 public class PlayerTableModel extends AbstractTableModel implements PlayerCacheListener
@@ -63,7 +64,7 @@ public class PlayerTableModel extends AbstractTableModel implements PlayerCacheL
 
     public void PlayerAdded(Player p)
     {
-        this.fireTableRowsInserted(PlayerCache.getInstance().getPlayerSummaries().size(), PlayerCache.getInstance().getPlayerSummaries().size());
+        this.fireTableRowsInserted(PlayerManager.getInstance().getPlayerSummaries().size(), PlayerManager.getInstance().getPlayerSummaries().size());
         this.fireTableDataChanged();
     }
 

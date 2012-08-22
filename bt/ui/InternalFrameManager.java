@@ -2,6 +2,7 @@ package bt.ui;
 
 import java.awt.Color;
 
+
 import java.awt.Dimension;
 import java.util.Vector;
 
@@ -22,14 +23,10 @@ import org.apache.commons.logging.LogFactory;
 import bt.elements.galaxy.InnerSpherePlanet;
 import bt.elements.galaxy.SolarSystemDetails;
 import bt.elements.unit.Player;
-import bt.elements.unit.PlayerSummary;
 import bt.elements.unit.Unit;
-import bt.elements.unit.UnitSummary;
 import bt.managers.PlanetManager;
-import bt.managers.PlayerCache;
-import bt.managers.SolarSystemDetailCache;
+import bt.managers.PlayerManager;
 import bt.managers.SolarSystemManager;
-import bt.managers.UnitCache;
 import bt.managers.UnitManager;
 import bt.managers.listeners.SolarSystemManagerListener;
 import bt.ui.listeners.PlayerChangeListener;
@@ -99,7 +96,7 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
         {
             if (m_PlayerListFrame == null)
             {
-                m_PlayerListFrame = new PlayerListInternalFrame("Player List", PlayerCache.getInstance().getPlayerSummaries(),this);
+                m_PlayerListFrame = new PlayerListInternalFrame("Player List", PlayerManager.getInstance().getPlayerSummaries(),this);
                 m_DesktopPane.add(m_PlayerListFrame);
                 m_PlayerListFrame.setBounds(10, 10, 640, 480);
                 m_PlayerListFrame.setVisible(true);
@@ -227,7 +224,7 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
 
 	public void requestUnitEdit(String unitName) 
 	{
-		Unit u = UnitCache.getInstance().getUnit(unitName);
+		Unit u = UnitManager.getInstance().getUnit(unitName);
 		if (u != null)
 		{
 	        boolean found = false;
@@ -413,35 +410,22 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
     
     public void registerSolarSystemDetails(Long id, SolarSystemDetails ssd)
     {
-    	SolarSystemDetailCache.getInstance().putDetails(id, ssd);
     	if (m_PlanetRequests.contains(id))
     	{
     		PlanetEditRequest(PlanetManager.getPlanetFromID(id), ssd);
     	}
     }
     
-    public void registerUnitList(Vector<UnitSummary> summaries)
-    {
-    	UnitCache.getInstance().setUnits(summaries);
-    }
-    
     public void registerUnitDetails(String unitName, Unit unit)
     {
-    	UnitCache.getInstance().putUnit(unitName, unit);
     	if (m_UnitRequests.contains(unitName))
     	{
     		requestUnitEdit(unitName);
     	}
     }
 
-    public void registerPlayerList(Vector<PlayerSummary> summaries)
-    {
-    	PlayerCache.getInstance().setPlayerSummaries(summaries);
-    }
-    
     public void registerPlayerDetails(String playerName, Player player)
     {
-    	PlayerCache.getInstance().putPlayer(playerName, player);
     	if (m_PlayerRequests.contains(playerName))
     	{
     		requestPlayerEdit(playerName);
@@ -451,7 +435,7 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
 	@Override
 	public void requestPlayerEdit(String playerName) 
 	{
-		Player p = PlayerCache.getInstance().getPlayer(playerName);
+		Player p = PlayerManager.getInstance().getPlayer(playerName);
 		if (p != null)
 		{
 	        boolean found = false;
