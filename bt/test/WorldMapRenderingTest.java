@@ -53,14 +53,14 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.helpers.Loader;
 
-import bt.common.elements.galaxy.InnerSpherePlanet;
-import bt.common.elements.galaxy.SolarSystemDetails;
-import bt.common.managers.PlanetManager;
-import bt.common.ui.mapping.planetmap.PlanetElevationPanel;
-import bt.common.ui.mapping.planetmap.PlanetPanel;
-import bt.common.util.ExceptionUtil;
-import bt.common.util.PropertyUtil;
-import bt.server.managers.SolarSystemManager;
+import bt.elements.galaxy.InnerSpherePlanet;
+import bt.elements.galaxy.SolarSystemDetails;
+import bt.managers.PlanetManager;
+import bt.managers.SolarSystemManager;
+import bt.ui.mapping.planetmap.PlanetElevationPanel;
+import bt.ui.mapping.planetmap.PlanetPanel;
+import bt.util.ExceptionUtil;
+import bt.util.PropertyUtil;
 
 
 public class WorldMapRenderingTest extends JFrame implements

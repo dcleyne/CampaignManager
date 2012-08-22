@@ -35,17 +35,16 @@ import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
-import bt.common.elements.galaxy.InnerSpherePlanet;
-import bt.common.managers.PlanetManager;
-import bt.common.util.ExceptionUtil;
-import bt.common.util.PropertyUtil;
-import bt.common.util.WebFile;
+import bt.elements.galaxy.InnerSpherePlanet;
+import bt.managers.PlanetManager;
+import bt.util.ExceptionUtil;
+import bt.util.PropertyUtil;
+import bt.util.WebFile;
 
 
 public class ExtractPlanetDetailsFromISAtlas
 
 {
-    private static final long serialVersionUID = 1;
     private static Log log = LogFactory.getLog(ExtractPlanetDetailsFromISAtlas.class);
     
     public static String Proxy = "auproxy";

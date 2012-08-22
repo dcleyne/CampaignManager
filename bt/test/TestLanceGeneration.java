@@ -3,14 +3,14 @@ package bt.test;
 import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.helpers.Loader;
 
-import bt.common.elements.Battlemech;
-import bt.common.elements.personnel.Rating;
-import bt.common.elements.unit.MechUnitParameters;
-import bt.common.elements.unit.Player;
-import bt.common.elements.unit.Unit;
-import bt.common.util.ExceptionUtil;
-import bt.common.util.PropertyUtil;
-import bt.server.managers.UnitManager;
+import bt.elements.Battlemech;
+import bt.elements.personnel.Rating;
+import bt.elements.unit.MechUnitParameters;
+import bt.elements.unit.Player;
+import bt.elements.unit.Unit;
+import bt.managers.UnitManager;
+import bt.util.ExceptionUtil;
+import bt.util.PropertyUtil;
 
 public class TestLanceGeneration
 {

@@ -25,14 +25,12 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.helpers.Loader;
 
-import bt.common.util.ExceptionUtil;
-import bt.common.util.PropertyUtil;
+import bt.util.ExceptionUtil;
+import bt.util.PropertyUtil;
 
 
 public class TestPersonnelGeneration
-
 {
-    private static final long serialVersionUID = 1;
     private static Log log = LogFactory.getLog(TestPersonnelGeneration.class);
     
 	/**

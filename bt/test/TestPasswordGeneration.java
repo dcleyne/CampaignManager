@@ -20,15 +20,13 @@
 package bt.test;
 
 
-import bt.common.managers.PasswordManager;
-import bt.common.util.ExceptionUtil;
-import bt.common.util.PropertyUtil;
+import bt.managers.PasswordManager;
+import bt.util.ExceptionUtil;
+import bt.util.PropertyUtil;
 
 
 public class TestPasswordGeneration
-
 {
-    private static final long serialVersionUID = 1;
     
 	/**
 	 * @param args

@@ -5,12 +5,12 @@ import java.util.Vector;
 import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.helpers.Loader;
 
-import bt.common.elements.Battlemech;
-import bt.common.elements.design.BattlemechDesign;
-import bt.common.util.ExceptionUtil;
-import bt.common.util.PropertyUtil;
-import bt.server.managers.BattlemechManager;
-import bt.server.managers.DesignManager;
+import bt.elements.Battlemech;
+import bt.elements.design.BattlemechDesign;
+import bt.managers.BattlemechManager;
+import bt.managers.DesignManager;
+import bt.util.ExceptionUtil;
+import bt.util.PropertyUtil;
 
 public class TestBattlemechDesign 
 {

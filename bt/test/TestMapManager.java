@@ -6,9 +6,9 @@ import java.util.Vector;
 import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.helpers.Loader;
 
-import bt.common.util.ExceptionUtil;
-import bt.common.util.PropertyUtil;
-import bt.server.managers.MapManager;
+import bt.managers.MapManager;
+import bt.util.ExceptionUtil;
+import bt.util.PropertyUtil;
 
 public class TestMapManager 
 {

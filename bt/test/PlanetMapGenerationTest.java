@@ -32,19 +32,17 @@ import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
 
-import bt.common.elements.galaxy.InnerSpherePlanet;
-import bt.common.elements.galaxy.SolarSystemDetails;
-import bt.common.managers.PlanetManager;
-import bt.common.util.ExceptionUtil;
-import bt.common.util.PropertyUtil;
-import bt.server.managers.SolarSystemManager;
-import bt.server.mapping.PlanetMapGenerator;
+import bt.elements.galaxy.InnerSpherePlanet;
+import bt.elements.galaxy.SolarSystemDetails;
+import bt.managers.PlanetManager;
+import bt.managers.SolarSystemManager;
+import bt.mapping.PlanetMapGenerator;
+import bt.util.ExceptionUtil;
+import bt.util.PropertyUtil;
 
 
 public class PlanetMapGenerationTest
-
 {
-    private static final long serialVersionUID = 1;
     private static Log log = LogFactory.getLog(PlanetMapGenerationTest.class);
     
 	/**

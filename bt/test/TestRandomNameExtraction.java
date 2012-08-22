@@ -24,14 +24,12 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.helpers.Loader;
-import bt.common.util.ExceptionUtil;
-import bt.common.util.PropertyUtil;
-import bt.server.managers.RandomNameManager;
+import bt.managers.RandomNameManager;
+import bt.util.ExceptionUtil;
+import bt.util.PropertyUtil;
 
 public class TestRandomNameExtraction
-
 {
-    private static final long serialVersionUID = 1;
     private static Log log = LogFactory.getLog(TestRandomNameExtraction.class);
     
 	/**

@@ -22,15 +22,13 @@ package bt.test;
 
 
 
-import bt.common.util.ExceptionUtil;
-import bt.common.util.PropertyUtil;
-import bt.server.managers.MissionManager;
+import bt.managers.MissionManager;
+import bt.util.ExceptionUtil;
+import bt.util.PropertyUtil;
 
 
 public class TestBattleValueCalculations
-
 {
-    private static final long serialVersionUID = 1;
     
 	/**
 	 * @param args

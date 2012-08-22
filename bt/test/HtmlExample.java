@@ -1,6 +1,6 @@
 package bt.test;
 
-import bt.common.html.*;
+import bt.html.Tag;
 
 class HtmlExample
 {
