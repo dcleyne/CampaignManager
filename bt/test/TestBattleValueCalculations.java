@@ -22,6 +22,9 @@ package bt.test;
 
 
 
+import org.apache.log4j.PropertyConfigurator;
+import org.apache.log4j.helpers.Loader;
+
 import bt.managers.MissionManager;
 import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;
@@ -37,7 +40,8 @@ public class TestBattleValueCalculations
 	{
 		try
 		{
-	        PropertyUtil.loadSystemProperties("bt/common/system.properties");
+	        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
+	        PropertyUtil.loadSystemProperties("bt/system.properties");
 
 	        int numUnits = 4;
 	        int battleValue = 2500;

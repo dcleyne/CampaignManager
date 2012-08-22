@@ -25,9 +25,8 @@ public class TestMissionManager
 	{
 		try
 		{
-	        PropertyConfigurator.configure(Loader.getResource("bt/server/log4j.properties"));
-			PropertyUtil.loadSystemProperties("bt/common/system.properties");
-            PropertyUtil.loadSystemProperties("bt/client/client.properties");
+	        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
+			PropertyUtil.loadSystemProperties("bt/system.properties");
 
             Vector<String> missions = MissionManager.getInstance().getMissionList();
             for (String missionName : missions)
@@ -42,7 +41,7 @@ public class TestMissionManager
 	            
 	            String filename = "/tmp/TestScenario.xml";
 	            
-	            System.out.println("Generating Scenario\n"); 
+	            System.out.println("Generating Scenario for unit: " + unitName + "\n"); 
 	            Scenario scenario = MissionManager.getInstance().generateScenario(u);
 	            System.out.println("Storing Scenario\n"); 
 	            MissionManager.getInstance().saveScenario(filename, scenario);

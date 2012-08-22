@@ -20,9 +20,8 @@ public class TestMapManager
 	{
 		try
 		{
-	        PropertyConfigurator.configure(Loader.getResource("bt/server/log4j.properties"));
-			PropertyUtil.loadSystemProperties("bt/common/system.properties");
-            PropertyUtil.loadSystemProperties("bt/client/client.properties");
+	        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
+			PropertyUtil.loadSystemProperties("bt/system.properties");
 
             Vector<String> mapSheets = MapManager.getInstance().getMapSheetList();
             for (String sheetName : mapSheets)

@@ -22,9 +22,8 @@ public class TestLanceGeneration
 	{
 		try
 		{
-	        PropertyConfigurator.configure(Loader.getResource("bt/server/log4j.properties"));
-			PropertyUtil.loadSystemProperties("bt/common/system.properties");
-	        PropertyUtil.loadSystemProperties("bt/client/client.properties");
+	        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
+			PropertyUtil.loadSystemProperties("bt/system.properties");
 			
 			
 	        Player p = new Player();

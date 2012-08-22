@@ -61,7 +61,7 @@ public class ExtractPlanetSummaryFromISAtlas
 		try
 		{
 	        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
-	        PropertyUtil.loadSystemProperties("bt/common/system.properties");
+	        PropertyUtil.loadSystemProperties("bt/system.properties");
 	        
 	        String Path = System.getProperty("DataPath");
 	        if (Path == null)

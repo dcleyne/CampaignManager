@@ -27,9 +27,8 @@ public class TestMapLayoutRenderer
 	{
 		try
 		{
-	        PropertyConfigurator.configure(Loader.getResource("bt/server/log4j.properties"));
-			PropertyUtil.loadSystemProperties("bt/common/system.properties");
-            PropertyUtil.loadSystemProperties("bt/client/client.properties");
+	        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
+			PropertyUtil.loadSystemProperties("bt/system.properties");
 
             Vector<MapSet> mapSets = MapManager.getInstance().getMapSets();
             for (MapSet mapSet : mapSets)
@@ -38,7 +37,7 @@ public class TestMapLayoutRenderer
 	            
 	            System.out.println(mapSet.getName());
 	            
-	            String filename = "C:/temp/" + mapSet.getName().replace('/', '-') + ".png";
+	            String filename = "/tmp/" + mapSet.getName().replace('/', '-') + ".png";
 	            ImageIO.write(image, "PNG", new File(filename));
 	            
 	            System.out.println("Rendered Ok " + mapSet.getName());

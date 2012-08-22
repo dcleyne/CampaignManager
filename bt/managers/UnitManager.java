@@ -117,7 +117,7 @@ public class UnitManager
 
 	private void loadMechUnitParameters() throws Exception
 	{
-		String fileName = PropertyUtil.getStringProperty("BaseDataPath", "data/") + "/RandomMechUnitParameters.xml";
+		String fileName = PropertyUtil.getStringProperty("BaseDataPath", "data") + "/RandomMechUnitParameters.xml";
 
 		SAXBuilder b = new SAXBuilder();
 		Document doc = b.build(new File(fileName));
@@ -377,14 +377,14 @@ public class UnitManager
 
 			unitsNode.addContent(unitElement);
 		}
-		String fileName = PropertyUtil.getStringProperty("UniverseDataPath", "data/") + "/units/UnitSummaries.xml";
+		String fileName = PropertyUtil.getStringProperty("UniverseDataPath", "data") + "/units/UnitSummaries.xml";
 		XMLOutputter out = new XMLOutputter(Format.getPrettyFormat());
 		out.output(doc, new FileOutputStream(fileName));
 	}
 
 	public void saveUnit(Unit u) throws Exception
 	{
-		String fileName = PropertyUtil.getStringProperty("UniverseDataPath", "data/") + "/units/" + u.getName() + ".xml";
+		String fileName = PropertyUtil.getStringProperty("UniverseDataPath", "data") + "/units/" + u.getName() + ".xml";
 
 		org.jdom.Document doc = new org.jdom.Document();
 		doc.setRootElement(saveUnitToElement(u));
@@ -615,7 +615,7 @@ public class UnitManager
 
 	private void loadUnits() throws Exception
 	{
-		String dataPath = PropertyUtil.getStringProperty("UniverseDataPath", "bt/data/") + "/units/";
+		String dataPath = PropertyUtil.getStringProperty("UniverseDataPath", "data") + "/units/";
 		String[] files = new File(dataPath).list(new ExtensionFileFilter("xml"));
 		for (String fileName : files)
 		{
@@ -642,7 +642,7 @@ public class UnitManager
 
 	public void deleteUnit(String unitName)
 	{
-		String filename = PropertyUtil.getStringProperty("UniverseDataPath", "bt/data/") + "/units/" + unitName + ".xml";
+		String filename = PropertyUtil.getStringProperty("UniverseDataPath", "data") + "/units/" + unitName + ".xml";
 		try
 		{
 			new File(filename).delete();
@@ -655,7 +655,7 @@ public class UnitManager
 
 	private void loadRandomNames() throws Exception
 	{
-		String fileName = PropertyUtil.getStringProperty("DataPath", "bt/data/") + "RandomNames.xml";
+		String fileName = PropertyUtil.getStringProperty("DataPath", "data") + "/RandomNames.xml";
 
 		SAXBuilder b = new SAXBuilder();
 		File f = new File(fileName);
@@ -691,7 +691,7 @@ public class UnitManager
 			rootElement.addContent(nameElement);
 		}
 
-		String fileName = PropertyUtil.getStringProperty("DataPath", "bt/data/") + "RandomNames.xml";
+		String fileName = PropertyUtil.getStringProperty("DataPath", "data") + "/RandomNames.xml";
 		XMLOutputter out = new XMLOutputter(Format.getPrettyFormat());
 		out.output(doc, new FileOutputStream(fileName));
 	}

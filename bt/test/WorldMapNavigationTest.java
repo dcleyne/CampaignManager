@@ -58,6 +58,7 @@ import bt.managers.PlanetManager;
 import bt.managers.SolarSystemManager;
 import bt.ui.mapping.planetmap.PlanetPanel;
 import bt.util.ExceptionUtil;
+import bt.util.PropertyUtil;
 
 
 public class WorldMapNavigationTest extends JFrame implements
@@ -144,11 +145,12 @@ ActionListener
 	 */
 	public static void main(String[] args)
 	{
-        PropertyConfigurator.configure(Loader.getResource("battletech/test/log4j.properties"));
-        log.info("Starting PrefectPlanetRenderingTest Client");
-
         try
         {
+            PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
+            PropertyUtil.loadSystemProperties("bt/system.properties");
+            log.info("Starting PlanetRenderingTest Client");
+
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
             WorldMapNavigationTest client = new WorldMapNavigationTest();
             client.setVisible(true);

@@ -1,11 +1,9 @@
 package bt;
 
 import java.util.*;
-
-
-
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
 
 import bt.ui.InternalFrameManager;
@@ -26,7 +24,7 @@ import org.apache.log4j.helpers.Loader;
  * @version 0.1
  */
 
-public class CampaignManager extends JFrame
+public class CampaignManager extends JFrame implements ActionListener, WindowListener
 {
 	private static final long serialVersionUID = 1;
 	
@@ -68,8 +66,7 @@ public class CampaignManager extends JFrame
         // Initialize
     	try
     	{
-	        PropertyUtil.loadSystemProperties("bt/common/system.properties");
-	        PropertyUtil.loadSystemProperties("bt/client/client.properties");
+	        PropertyUtil.loadSystemProperties("bt/system.properties");
     	}
     	catch (Exception ex)
     	{
@@ -119,13 +116,7 @@ public class CampaignManager extends JFrame
         // Register listeners
         //
         // Window listener
-        EvtListener elWindow = new EvtListener();
-        this.addWindowListener(elWindow);
-        // Menu and toolbar listener
-        ActListener alMenuToolbar = new ActListener();
-//        buttonAbout.addActionListener(alMenuToolbar);
-        menuitemAbout.addActionListener(alMenuToolbar);
-
+        addWindowListener(this);
     }
 
     protected void LoadCommonImages()
@@ -161,9 +152,6 @@ public class CampaignManager extends JFrame
     protected void menuAddItems(JMenuBar hmenu) {
         JMenu menu;
         JMenuItem item;
-        // Menu and toolbar listener
-        ActListener alMenuToolbar = new ActListener();
-
         //
         //"Tasks" menu
         menu = new JMenu("Task");
@@ -177,7 +165,7 @@ public class CampaignManager extends JFrame
         item.setActionCommand("UnitStructure");
         item.setBorderPainted(false);
         item.setMnemonic( (int)'U');
-        item.addActionListener(alMenuToolbar);
+        item.addActionListener(this);
         menu.add(item);
         // "StaticData" item
         item = new JMenuItem("View Map");
@@ -185,7 +173,7 @@ public class CampaignManager extends JFrame
         item.setActionCommand("ViewMap");
         item.setBorderPainted(false);
         item.setMnemonic( (int)'M');
-        item.addActionListener(alMenuToolbar);
+        item.addActionListener(this);
         menu.add(item);
         // "StaticData" item
         item = new JMenuItem("View Units");
@@ -193,7 +181,7 @@ public class CampaignManager extends JFrame
         item.setActionCommand("ViewUnits");
         item.setBorderPainted(false);
         item.setMnemonic( (int)'V');
-        item.addActionListener(alMenuToolbar);
+        item.addActionListener(this);
         menu.add(item);
 
         //
@@ -211,6 +199,7 @@ public class CampaignManager extends JFrame
         menuitemAbout.setBorderPainted(false);
         menuitemAbout.setMnemonic((int)'A');
         menuitemAbout.setIcon(iconAbout);
+        menuitemAbout.addActionListener(this);
         menu.add(menuitemAbout);
     }
 
@@ -220,7 +209,7 @@ public class CampaignManager extends JFrame
          * The entry point for this application.
          * @param args
          */
-        PropertyConfigurator.configure(Loader.getResource("bt/client/log4j.properties"));
+        PropertyConfigurator.configure(Loader.getResource("bt/log4j.properties"));
         log.info("Starting CampaignManager");
 
         try {
@@ -313,51 +302,58 @@ public class CampaignManager extends JFrame
         }
     }
 
-    class EvtListener extends WindowAdapter
-    {
-        public void windowClosing(WindowEvent event)
-        {
-            Object object = event.getSource();
-            if (object==CampaignManager.this)
-            {
-                InnerSphereApp_windowClosing(event);
-            }
-        }
-    }
-
-    void InnerSphereApp_windowClosing(WindowEvent event)
-    {
-        try
-        {
-            this.ExitApplication();
-        }
-        catch (Exception e)
-        {
-            log.debug("Exception on Application Close : " + e);
-        }
-    }
-
-    class ActListener implements ActionListener {
-        public void actionPerformed(ActionEvent event) {
+	@Override
+	public void actionPerformed(ActionEvent event) 
+	{
+		// TODO Auto-generated method stub
             String command = event.getActionCommand();
             if (command=="About...") {
-                menuitemAbout_Action(event);
+                AboutApplication();
             }
             if (command.equals("ViewUnits"))
             {
                 m_FrameManager.ShowUnitListFrame();
-            }
-        }
-    }
+            }		
+            if (command.equals("ViewMap"))
+            {
+                m_FrameManager.ShowFlatStarMapFrame();
+            }		
+	}
 
-    void menuitemAbout_Action(ActionEvent event) {
+	@Override
+	public void windowActivated(WindowEvent event) 
+	{
+	}
 
-        // TODO:  code goes here
+	@Override
+	public void windowClosed(WindowEvent event) 
+	{
+		this.ExitApplication();
+	}
 
-        try {
-            this.AboutApplication();
-        } catch (Exception e) {
-        }
-    }
+	@Override
+	public void windowClosing(WindowEvent event) 
+	{
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent event) 
+	{
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent event) 
+	{
+	}
+
+	@Override
+	public void windowIconified(WindowEvent event) 
+	{
+	}
+
+	@Override
+	public void windowOpened(WindowEvent arg0) 
+	{
+	}
 
 }

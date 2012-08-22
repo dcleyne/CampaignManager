@@ -46,8 +46,7 @@ public class TestRandomNameExtraction
 		try
 		{
 	        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
-	        PropertyUtil.loadSystemProperties("bt/common/system.properties");
-	        PropertyUtil.loadSystemProperties("bt/server/server.properties");
+	        PropertyUtil.loadSystemProperties("bt/system.properties");
 	        
 	        log.info("Random Name Extraction Started");
 	        

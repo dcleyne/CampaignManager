@@ -41,7 +41,7 @@ public class TestPersonnelGeneration
 		try
 		{
 	        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
-	        PropertyUtil.loadSystemProperties("bt/common/system.properties");
+	        PropertyUtil.loadSystemProperties("bt/system.properties");
 	        
 	        log.info("Starting Personnel Generation Test");
 /*

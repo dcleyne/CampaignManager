@@ -155,13 +155,12 @@ ActionListener
 	 */
 	public static void main(String[] args)
 	{
-        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
-        log.info("Starting PlanetRenderingTest Client");
-
         try
         {
-            PropertyUtil.loadSystemProperties("bt/common/system.properties");
-            PropertyUtil.loadSystemProperties("bt/server/server.properties");
+            PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
+            log.info("Starting PlanetRenderingTest Client");
+
+            PropertyUtil.loadSystemProperties("bt/system.properties");
         	
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
             WorldMapRenderingTest client = new WorldMapRenderingTest();

@@ -35,7 +35,7 @@ public class TestPasswordGeneration
 	{
 		try
 		{
-	        PropertyUtil.loadSystemProperties("bt/common/system.properties");
+	        PropertyUtil.loadSystemProperties("bt/system.properties");
 
         	String password = "decker01";
         	String hash = PasswordManager.encrypt(password);

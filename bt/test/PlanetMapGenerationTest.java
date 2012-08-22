@@ -60,7 +60,7 @@ public class PlanetMapGenerationTest
             
             boolean doAll = false;
             
-            PropertyUtil.loadSystemProperties("bt/common/system.properties");
+            PropertyUtil.loadSystemProperties("bt/system.properties");
 	        
 	        String Path = System.getProperty("DataPath");
 	        if (Path == null)

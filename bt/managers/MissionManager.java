@@ -343,8 +343,8 @@ public class MissionManager
 			MechUnitParameters mup = new MechUnitParameters();
 			mup.setName("Custom");
 			mup.setIncludedMechWeights(MechUnitParameters.AllMechWeights);
-			mup.setMinBV(chosenForceSize.getBV() - 20);
-			mup.setMaxBV(chosenForceSize.getBV() + 20);
+			mup.setMinBV(chosenForceSize.getBV() - 10000);
+			mup.setMaxBV(chosenForceSize.getBV() + 10000);
 			mup.setMechCount(chosenForceSize.getNumUnits());
 			
 			try
