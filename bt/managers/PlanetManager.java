@@ -13,6 +13,7 @@ import org.jdom.input.SAXBuilder;
 
 import bt.elements.galaxy.InnerSpherePlanet;
 import bt.elements.galaxy.SolarSystemRoute;
+import bt.util.PropertyUtil;
 
 public class PlanetManager 
 {
@@ -144,13 +145,11 @@ public class PlanetManager
     private Vector<InnerSpherePlanet> loadPlanets()
     {
     	Vector<InnerSpherePlanet> planets = new Vector<InnerSpherePlanet>();
-        String Path = System.getProperty("BaseDataPath");
-        if (Path == null)
-            Path = "data/";
+        String Path = PropertyUtil.getStringProperty("DataPath", "data");
         
         try {            
             SAXBuilder b = new SAXBuilder();
-            Document SolarSystemDoc = b.build(new File(Path, "SolarSystem.xml"));
+            Document SolarSystemDoc = b.build(new File(Path, "/SolarSystem.xml"));
             Element root = SolarSystemDoc.getRootElement();
             List<Element> planetElements = root.getChildren("SolarSystem");
             for (Element planetElement: planetElements)

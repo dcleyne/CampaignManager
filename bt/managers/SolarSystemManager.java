@@ -22,6 +22,7 @@ import bt.elements.galaxy.SolarSystemDetails;
 import bt.elements.galaxy.SolarSystemRoute;
 import bt.elements.galaxy.StarType;
 import bt.util.ExceptionUtil;
+import bt.util.PropertyUtil;
 
 /**
  * <p>Title: Miradan Phedd</p>
@@ -315,9 +316,7 @@ public class SolarSystemManager
     public void loadSolarSystemDetails(long id, String name, SolarSystemDetails ssd)
     {
     	String filename = Long.toString(id) + "-" + name + ".gz";
-        String path = System.getProperty("PlanetDataDirectory");
-        if (path == null)
-            path = "data/planets/";
+        String path = PropertyUtil.getStringProperty("ExternalDataPath", "data") + "/planets/";
         
         File f = new File(path + filename);
         if (f.exists())
@@ -356,11 +355,7 @@ public class SolarSystemManager
     {
     	String filename = Long.toString(id) + "-" + name;
     	
-        String path = System.getProperty("UniverseDataPath");
-        if (path == null)
-            path = "data/planets/";
-        else
-        	path += "/planets/";
+        String path = PropertyUtil.getStringProperty("ExternalDataPath", "data") + "/planets/";
         
         new File(path).mkdirs();
         

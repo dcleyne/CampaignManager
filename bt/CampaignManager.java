@@ -328,12 +328,12 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
 	@Override
 	public void windowClosed(WindowEvent event) 
 	{
-		this.ExitApplication();
 	}
 
 	@Override
 	public void windowClosing(WindowEvent event) 
 	{
+		this.ExitApplication();
 	}
 
 	@Override

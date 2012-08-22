@@ -28,6 +28,7 @@ import bt.elements.unit.UnitSummary;
 import bt.managers.PlanetManager;
 import bt.managers.PlayerCache;
 import bt.managers.SolarSystemDetailCache;
+import bt.managers.SolarSystemManager;
 import bt.managers.UnitCache;
 import bt.managers.UnitManager;
 import bt.managers.listeners.SolarSystemManagerListener;
@@ -326,7 +327,7 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
     private void CreateNewPlanetFrame(InnerSpherePlanet isp)
     {
     	
-    	SolarSystemDetails ssd = SolarSystemDetailCache.getInstance().getDetails(isp.getID());
+    	SolarSystemDetails ssd = SolarSystemManager.getSystemDetails(isp);
     	
         PlanetInternalFrame pif = null;
         pif = new PlanetInternalFrame("Planet : " + isp.getSystem(), isp, ssd);

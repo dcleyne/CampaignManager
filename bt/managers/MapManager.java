@@ -17,6 +17,7 @@ import bt.elements.mapping.MapSet;
 import bt.elements.mapping.MapSheet;
 import bt.util.Dice;
 import bt.util.ExceptionUtil;
+import bt.util.PropertyUtil;
 
 public class MapManager
 {
@@ -53,13 +54,11 @@ public class MapManager
 		_MapSheets.clear();
 		_MapSets.clear();
 		
-        String Path = System.getProperty("BaseDataPath");
-        if (Path == null)
-            Path = "data/";
+        String Path = PropertyUtil.getStringProperty("DataPath","data");
         
         try {            
             SAXBuilder b = new SAXBuilder();
-            Document mapDoc = b.build(new File(Path, "Maps.xml"));
+            Document mapDoc = b.build(new File(Path, "/Maps.xml"));
             Element root = mapDoc.getRootElement();
             List<Element> mapElements = root.getChildren("Map");
             for (Element mapElement: mapElements)

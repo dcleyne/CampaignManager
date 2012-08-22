@@ -27,6 +27,7 @@ import bt.elements.ItemMount;
 import bt.elements.ItemStatus;
 import bt.elements.design.BattlemechDesign;
 import bt.util.ExceptionUtil;
+import bt.util.PropertyUtil;
 
 public class BattlemechRenderer
 {
@@ -56,9 +57,8 @@ public class BattlemechRenderer
 
     private BattlemechRenderer()
     {
-        String DataPath = System.getProperty("DataPath");
-        //String filename = DataPath + "Images\\BattlemechArmourDiagram.png";
-        String filename = DataPath + "images/MechSheet.png";
+        String DataPath = PropertyUtil.getStringProperty("DataPath", "data");
+        String filename = DataPath + "/images/MechSheet.png";
         System.out.println(filename);
         try
         {
@@ -246,7 +246,7 @@ public class BattlemechRenderer
 
     private void loadDots(String dataPath) throws Exception
     {
-        String filename = dataPath + "BattlemechDiagramLocations.xml";
+        String filename = dataPath + "/BattlemechDiagramLocations.xml";
 
         SAXBuilder b = new SAXBuilder();
         Document doc = b.build(new File(filename));

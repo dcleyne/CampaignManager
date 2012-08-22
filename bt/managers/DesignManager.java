@@ -45,7 +45,7 @@ public class DesignManager
 	
     private static DesignManager theInstance = new DesignManager();
 
-    private String _DataPath = PropertyUtil.getStringProperty("BaseDataPath", "bt/data") + "/design/battlemech/";
+    private String _DataPath = PropertyUtil.getStringProperty("DataPath", "data") + "/design/battlemech/";
     private HashMap<String, BattlemechDesign> _Designs = new HashMap<String, BattlemechDesign>();
 
     private DesignManager()

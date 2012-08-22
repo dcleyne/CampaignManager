@@ -23,7 +23,7 @@ public class RandomNameManager
 
 	private static RandomNameManager theInstance;
 	
-	private final String _FileName = PropertyUtil.getStringProperty("UniverseDataPath", "bt/data/") + "/RandomNames.xml";
+	private final String _FileName = PropertyUtil.getStringProperty("DataPath", "data") + "/RandomNames.xml";
 	private Vector<RandomName> _RandomNames = new Vector<RandomName>();
 	private Vector<RandomName> _ServedNames = new Vector<RandomName>();
 	

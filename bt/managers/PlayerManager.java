@@ -19,6 +19,7 @@ import org.jdom.output.XMLOutputter;
 
 import bt.elements.unit.Player;
 import bt.elements.unit.PlayerSummary;
+import bt.util.PropertyUtil;
 
 public class PlayerManager 
 {
@@ -101,10 +102,7 @@ public class PlayerManager
 	{
 		_Players.clear();
 		
-        String Path = System.getProperty("UniverseDataPath");
-        if (Path == null)
-            Path = "data/";
-
+        String Path = PropertyUtil.getStringProperty("ExternalDataPath", "data");
         File f = new File(Path + "/Players.xml");
         if (!f.exists())
         	return;
@@ -158,10 +156,7 @@ public class PlayerManager
 	
 	public void savePlayers()
 	{
-        String Path = System.getProperty("UniverseDataPath");
-        if (Path == null)
-            Path = "data/";
-        
+        String Path = PropertyUtil.getStringProperty("ExternalDataPath", "data");        
         File f = new File(Path + "/Players.xml");
         if (f.exists())
         	f.delete();
@@ -183,8 +178,7 @@ public class PlayerManager
         } catch (Exception exx) {
             log.info("Failure Saving Players");
             log.error(exx);
-        } 
-
+        }
 	}
 	
 	private org.jdom.Element savePlayer(Player p)

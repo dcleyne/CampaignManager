@@ -117,7 +117,7 @@ public class UnitManager
 
 	private void loadMechUnitParameters() throws Exception
 	{
-		String fileName = PropertyUtil.getStringProperty("BaseDataPath", "data") + "/RandomMechUnitParameters.xml";
+		String fileName = PropertyUtil.getStringProperty("DataPath", "data") + "/RandomMechUnitParameters.xml";
 
 		SAXBuilder b = new SAXBuilder();
 		Document doc = b.build(new File(fileName));
@@ -173,7 +173,7 @@ public class UnitManager
 		u.setPlayer(p);
 		u.setName(unitName);
 
-		u.getBattlemechs().addAll(generateLance(mup));
+		u.addBattlemechs(generateLance(mup));
 		int supportReq = 0;
 
 		for (Battlemech mech : u.getBattlemechs())
@@ -377,14 +377,14 @@ public class UnitManager
 
 			unitsNode.addContent(unitElement);
 		}
-		String fileName = PropertyUtil.getStringProperty("UniverseDataPath", "data") + "/units/UnitSummaries.xml";
+		String fileName = PropertyUtil.getStringProperty("ExternalDataPath", "data") + "/units/UnitSummaries.xml";
 		XMLOutputter out = new XMLOutputter(Format.getPrettyFormat());
 		out.output(doc, new FileOutputStream(fileName));
 	}
 
 	public void saveUnit(Unit u) throws Exception
 	{
-		String fileName = PropertyUtil.getStringProperty("UniverseDataPath", "data") + "/units/" + u.getName() + ".xml";
+		String fileName = PropertyUtil.getStringProperty("ExternalDataPath", "data") + "/units/" + u.getName() + ".xml";
 
 		org.jdom.Document doc = new org.jdom.Document();
 		doc.setRootElement(saveUnitToElement(u));
@@ -615,7 +615,7 @@ public class UnitManager
 
 	private void loadUnits() throws Exception
 	{
-		String dataPath = PropertyUtil.getStringProperty("UniverseDataPath", "data") + "/units/";
+		String dataPath = PropertyUtil.getStringProperty("ExternalDataPath", "data") + "/units/";
 		String[] files = new File(dataPath).list(new ExtensionFileFilter("xml"));
 		for (String fileName : files)
 		{
@@ -642,7 +642,7 @@ public class UnitManager
 
 	public void deleteUnit(String unitName)
 	{
-		String filename = PropertyUtil.getStringProperty("UniverseDataPath", "data") + "/units/" + unitName + ".xml";
+		String filename = PropertyUtil.getStringProperty("ExternalDataPath", "data") + "/units/" + unitName + ".xml";
 		try
 		{
 			new File(filename).delete();

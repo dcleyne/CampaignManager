@@ -99,6 +99,11 @@ public class Unit implements Serializable
 		
 		return mechs;
 	}
+	
+	public void addBattlemechs(Vector<Battlemech> mechs)
+	{
+		_Assets.addAll(mechs);
+	}
 
 	public Vector<Ammunition> getSpareAmmunition()
 	{

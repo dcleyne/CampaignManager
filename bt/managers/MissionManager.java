@@ -50,6 +50,7 @@ import bt.ui.BattlemechRenderer;
 import bt.ui.MapLayoutRenderer;
 import bt.util.Dice;
 import bt.util.ExceptionUtil;
+import bt.util.PropertyUtil;
 
 public class MissionManager
 {
@@ -78,13 +79,11 @@ public class MissionManager
 	{
 		_Missions.clear();
 		
-        String Path = System.getProperty("BaseDataPath");
-        if (Path == null)
-            Path = "data/";
+        String Path = PropertyUtil.getStringProperty("DataPath", "data");
         
         try {            
             SAXBuilder b = new SAXBuilder();
-            Document mapDoc = b.build(new File(Path, "Missions.xml"));
+            Document mapDoc = b.build(new File(Path, "/Missions.xml"));
             Element root = mapDoc.getRootElement();
             Iterator<?> iter = root.getChildren("Mission").iterator();
             while (iter.hasNext())
