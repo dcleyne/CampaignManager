@@ -191,7 +191,34 @@ public class SolarSystemDetails implements Serializable
 	public double getPrimaryPlanetOrbitInAU()
     { return m_PrimaryPlanetOrbitInAU; }
 
-    public void setPrimaryPlanetOrbitInAU(double OrbitInAU)
+	public int getPrimaryPlanetHydrographics()
+	{
+		if (m_Map != null)
+		{
+			return m_Map.getHydrographics();
+		}	
+		return 0;
+	}
+
+	public int getPrimaryPlanetMeanAltitude()
+	{
+		if (m_Map != null)
+		{
+			return m_Map.getMeanAltitude();
+		}	
+		return 0;
+	}
+
+	public int getPrimaryPlanetSurfaceTemperature()
+	{
+		if (m_Map != null)
+		{
+			return m_Map.getMeanSurfaceTemperature();
+		}	
+		return 0;
+	}
+
+	public void setPrimaryPlanetOrbitInAU(double OrbitInAU)
     { m_PrimaryPlanetOrbitInAU = OrbitInAU; }
 
     public String getNotes()

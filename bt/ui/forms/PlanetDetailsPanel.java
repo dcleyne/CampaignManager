@@ -1,6 +1,7 @@
 package bt.ui.forms;
 
 import java.text.*;
+
 import javax.swing.*;
 import javax.swing.event.*;
 
@@ -77,7 +78,7 @@ public class PlanetDetailsPanel extends JPanel implements ClosableEditForm, Acti
 
 	private JLabel m_Owner_3025Label = null;
 	private JLabel m_Owner_3030Label = null;
-	private JLabel m_Owner_2750_Label = null;
+	private JLabel m_Owner_2750Label = null;
 	private JLabel m_Owner_3040Label = null;
 	private JLabel m_Owner_3052Label = null;
 	private JLabel m_Owner_3057Label = null;
@@ -94,15 +95,10 @@ public class PlanetDetailsPanel extends JPanel implements ClosableEditForm, Acti
 	private JLabel m_YCoordLabel = null;
 
 	private JLabel m_HydrographicsLabel = null;
-
 	private JTextField m_HydrographicsTextField = null;
-
 	private JLabel m_MeanAltitudeLabel = null;
-
 	private JTextField m_MeanAltitudeTextField = null;
-
 	private JLabel m_MeanSurfaceTemperatureLabel = null;
-
 	private JTextField m_MeanSurfaceTemperatureTextField = null;
 
 	public PlanetDetailsPanel(InnerSpherePlanet isp, SolarSystemDetails details)
@@ -368,8 +364,8 @@ public class PlanetDetailsPanel extends JPanel implements ClosableEditForm, Acti
 		gridBagConstraints31.gridx = 0;
 		gridBagConstraints31.insets = new Insets(0, 9, 0, 0);
 		gridBagConstraints31.gridy = 1;
-		m_Owner_2750_Label = new JLabel();
-		m_Owner_2750_Label.setText("2750");
+		m_Owner_2750Label = new JLabel();
+		m_Owner_2750Label.setText("2750");
 		GridBagConstraints gridBagConstraints21 = new GridBagConstraints();
 		gridBagConstraints21.gridx = 4;
 		gridBagConstraints21.insets = new Insets(0, 9, 0, 0);
@@ -465,7 +461,7 @@ public class PlanetDetailsPanel extends JPanel implements ClosableEditForm, Acti
 		m_OwnerPanel.add(m_Owner_3062TextField, gridBagConstraints6);
 		m_OwnerPanel.add(m_Owner_3025Label, gridBagConstraints11);
 		m_OwnerPanel.add(m_Owner_3030Label, gridBagConstraints21);
-		m_OwnerPanel.add(m_Owner_2750_Label, gridBagConstraints31);
+		m_OwnerPanel.add(m_Owner_2750Label, gridBagConstraints31);
 		m_OwnerPanel.add(m_Owner_3040Label, gridBagConstraints41);
 		m_OwnerPanel.add(m_Owner_3052Label, gridBagConstraints51);
 		m_OwnerPanel.add(m_Owner_3057Label, gridBagConstraints61);
@@ -536,6 +532,11 @@ public class PlanetDetailsPanel extends JPanel implements ClosableEditForm, Acti
         NumberFormat formatter = new DecimalFormat("0.00");
         m_PrimaryOrbitInAUTextField.setText(formatter.format(m_Details.getPrimaryPlanetOrbitInAU()));
 
+        formatter = new DecimalFormat("0");
+    	m_HydrographicsTextField.setText(formatter.format(m_Details.getPrimaryPlanetHydrographics()));
+    	m_MeanAltitudeTextField.setText(formatter.format(m_Details.getPrimaryPlanetMeanAltitude()));
+    	m_MeanSurfaceTemperatureTextField.setText(formatter.format(m_Details.getPrimaryPlanetSurfaceTemperature()));
+    	
         m_NotesTextArea.setText(m_Details.getNotes());
         m_NotesTextArea.setCaretPosition(0);
 
