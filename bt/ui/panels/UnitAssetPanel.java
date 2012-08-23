@@ -1,12 +1,17 @@
 package bt.ui.panels;
 
 import javax.swing.*;
+
 import org.apache.commons.logging.LogFactory;
 import org.apache.commons.logging.Log;
 
 import bt.elements.Asset;
+import bt.elements.Battlemech;
+import bt.elements.ElementType;
 import bt.elements.unit.Unit;
+import bt.managers.RandomNameManager;
 import bt.ui.dialogs.AddElementsDialog;
+import bt.ui.dialogs.BattlemechStatusDialog;
 import bt.ui.models.AssetTableModel;
 import bt.ui.models.TableSorter;
 import bt.util.SwingHelper;
@@ -46,9 +51,9 @@ public class UnitAssetPanel extends JPanel implements ClosableEditPanel, MouseLi
     protected JTextField m_IdentifierTextField = new JTextField();
     protected JTextField m_ElementTypeTextField = new JTextField();
     protected JTextField m_ElementNameTextField = new JTextField();
+    protected JTextField m_ModelInformationTextField = new JTextField();
     protected JTextField m_StatusTextField = new JTextField();
     protected JTextField m_ConditionTextField = new JTextField();
-    protected JComboBox m_GroupAssignmentCombo = new JComboBox();
     protected JTextArea m_NotesTextArea = new JTextArea();
 
     protected JButton m_AddAssetButton = new JButton("Add");
@@ -64,7 +69,6 @@ public class UnitAssetPanel extends JPanel implements ClosableEditPanel, MouseLi
     	log.debug("Unit Asset Panel Constructor called");
     	
         m_Unit = u;
-        m_Unit = u;
         m_Model = new AssetTableModel(m_Unit);
         m_Sorter.setTableModel(m_Model);
         m_AssetTable.setModel(m_Sorter);
@@ -78,16 +82,18 @@ public class UnitAssetPanel extends JPanel implements ClosableEditPanel, MouseLi
 
         m_EditPanel.setBorder(BorderFactory.createEtchedBorder());
         m_EditPanel.setLayout(new BoxLayout(m_EditPanel, BoxLayout.Y_AXIS));
-        m_EditPanel.add(SwingHelper.GetTextFieldWithAction(m_IdentifierTextField, "Identifier", "Identification of the Asset",true,"RandomName","Generate a Random Name",this));
-        m_EditPanel.add(SwingHelper.GetTextField(m_ElementTypeTextField, "Element Type", "The type of Element this asset is",true));
-        m_EditPanel.add(SwingHelper.GetTextField(m_ElementNameTextField, "Element Name", "The name of the Element this asset is",true));
-        m_EditPanel.add(SwingHelper.GetTextField(m_StatusTextField, "Status", "The status of this Asset",true));
+        m_EditPanel.add(SwingHelper.GetTextField(m_IdentifierTextField, "Identifier", "Identification of the Asset",true));
+        m_EditPanel.add(SwingHelper.GetTextFieldWithAction(m_ElementNameTextField, "Name", "The name of the Element this asset is",true,"RandomName","Generate a Random Name",this));
+        m_EditPanel.add(SwingHelper.GetTextField(m_ElementTypeTextField, "Type", "The type of Element this asset is",true));
+        m_EditPanel.add(SwingHelper.GetTextField(m_ModelInformationTextField, "Model", "The Model that this asset is",true));
+        m_EditPanel.add(SwingHelper.GetTextFieldWithAction(m_StatusTextField, "Status", "The status of this Asset",true,"AssetCondition","Show the Condition of this Asset",this));
         m_EditPanel.add(SwingHelper.GetTextField(m_ConditionTextField, "Condition", "The condition of this Asset",true));
-        m_EditPanel.add(SwingHelper.GetComboBox(m_GroupAssignmentCombo,"Group Assignment","The group this Asset is assigned to",true));
         m_EditPanel.add(SwingHelper.GetTextArea(m_NotesTextArea, "Notes", "Notes for this Asset",true));
 
         m_ElementTypeTextField.setEnabled(false);
-        m_ElementNameTextField.setEnabled(false);
+        m_StatusTextField.setEnabled(false);
+        m_ConditionTextField.setEnabled(false);
+        m_ModelInformationTextField.setEnabled(false);
 
         m_AddAssetButton.setActionCommand("AddAsset");
         m_AddAssetButton.addActionListener(this);
@@ -124,7 +130,6 @@ public class UnitAssetPanel extends JPanel implements ClosableEditPanel, MouseLi
     
     public void mouseClicked(MouseEvent me)
     {
-    	/*
         int Index = m_AssetTable.getSelectedRow();
         m_CurrentAsset = m_Unit.getAsset(Index);
         if (m_CurrentAsset != m_PreviousAsset)
@@ -133,7 +138,6 @@ public class UnitAssetPanel extends JPanel implements ClosableEditPanel, MouseLi
             m_PreviousAsset = m_CurrentAsset;
             SetFields();
         }
-        */
     }
 
     public void mouseEntered(MouseEvent me)
@@ -166,9 +170,13 @@ public class UnitAssetPanel extends JPanel implements ClosableEditPanel, MouseLi
         {
 
         }
-        if (command.equals("RandomIdentifier"))
+        if (command.equals("RandomName"))
         {
-            SetRandomIdentifier();
+            SetRandomName();
+        }
+        if (command.equals("AssetCondition"))
+        {
+        	ShowAssetCondition();
         }
     }
 
@@ -190,8 +198,8 @@ public class UnitAssetPanel extends JPanel implements ClosableEditPanel, MouseLi
         {
             m_IdentifierTextField.setText(m_CurrentAsset.getIdentifier());
             m_ElementTypeTextField.setText(m_CurrentAsset.getElementType().toString());
-            m_ElementNameTextField.setText("Fix this");
-            m_GroupAssignmentCombo.setSelectedIndex(-1);
+            m_ElementNameTextField.setText(m_CurrentAsset.getName());
+            m_ModelInformationTextField.setText(m_CurrentAsset.getModelInformation());
             m_StatusTextField.setText(m_CurrentAsset.getStatus());
             m_ConditionTextField.setText(m_CurrentAsset.getCondition());
             m_NotesTextArea.setText(m_CurrentAsset.getNotes());
@@ -201,7 +209,7 @@ public class UnitAssetPanel extends JPanel implements ClosableEditPanel, MouseLi
             m_IdentifierTextField.setText("");
             m_ElementTypeTextField.setText("");
             m_ElementNameTextField.setText("");
-            m_GroupAssignmentCombo.setSelectedIndex(-1);
+            m_ModelInformationTextField.setText("");
             m_StatusTextField.setText("");
             m_ConditionTextField.setText("");
             m_NotesTextArea.setText("");
@@ -213,21 +221,41 @@ public class UnitAssetPanel extends JPanel implements ClosableEditPanel, MouseLi
         if (m_PreviousAsset == null) return;
 
         m_PreviousAsset.setIdentifier(m_IdentifierTextField.getText());
-        m_PreviousAsset.setStatus(m_StatusTextField.getText());
-        m_PreviousAsset.setCondition(m_ConditionTextField.getText());
-        m_PreviousAsset.setGroupAssignment(-1);
+        m_PreviousAsset.setName(m_ElementNameTextField.getText());
         m_PreviousAsset.setNotes(m_NotesTextArea.getText());
     }
 
 
-    protected void SetRandomIdentifier()
+    protected void SetRandomName()
     {
         if (m_CurrentAsset == null)
         {
-            JOptionPane.showMessageDialog(this,"Select an Asset record or add a new Record!","Setting Random Identifier",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this,"Select an Asset record or add a new Record!","Setting Random Name",JOptionPane.INFORMATION_MESSAGE);
             return;
         }
-        m_IdentifierTextField.setText("Fix this");
+        
+        m_ElementNameTextField.setText(RandomNameManager.getInstance().GetRandomName().toString());
+    }
+
+    protected void ShowAssetCondition()
+    {
+        if (m_CurrentAsset == null)
+        {
+            JOptionPane.showMessageDialog(this,"Select an Asset record or add a new Record!","Show Asset Condition",JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        
+        if (m_CurrentAsset.getElementType() == ElementType.BATTLEMECH)
+        {
+        	Battlemech mech = (Battlemech)m_CurrentAsset;
+        	BattlemechStatusDialog dialog = new BattlemechStatusDialog(JOptionPane.getFrameForComponent(this), mech);
+        	dialog.setModal(true);
+        	dialog.setVisible(true);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this,"Not Implemented Yet!","Show Asset Condition",JOptionPane.INFORMATION_MESSAGE);        	
+        }
     }
 
     protected void FillCombos()

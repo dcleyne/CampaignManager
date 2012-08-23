@@ -62,13 +62,13 @@ public class PlanetDetailsPanel extends JPanel implements ClosableEditPanel, Act
     JTextField m_Owner_3057TextField = new JTextField();
     JTextField m_Owner_3062TextField = new JTextField();
 
-    JComboBox m_StarTypeComboBox = new JComboBox();
-    JComboBox m_StarMagnitudeComboBox = new JComboBox();
+    JComboBox<StarType> m_StarTypeComboBox = new JComboBox<StarType>();
+    JComboBox<Integer> m_StarMagnitudeComboBox = new JComboBox<Integer>();
     JTextField m_PrimaryOrbitInAUTextField = new JTextField();
     JTextField m_JumpSailRechargeTimeTextField = new JTextField();
     JTextArea m_NotesTextArea = new JTextArea();
     JSlider m_OrbitSlider = new JSlider(JSlider.HORIZONTAL,1,100,50);
-    JComboBox m_GRatingComboBox = new JComboBox();
+    JComboBox<Double> m_GRatingComboBox = new JComboBox<Double>();
     JTextField m_TransitTimeTextField = new JTextField();
 
     protected double m_BiozoneInner;

@@ -11,7 +11,7 @@ import java.awt.Dimension;
 public class BattlemechHeatScalePanel extends JPanel
 {
 	private static final long serialVersionUID = 1L;
-	private JList _HeatScaleList = null;
+	private JList<String> _HeatScaleList = null;
 
 	/**
 	 * This method initializes 
@@ -38,11 +38,11 @@ public class BattlemechHeatScalePanel extends JPanel
 	 * 	
 	 * @return javax.swing.JList	
 	 */
-	private JList get_HeatScaleList()
+	private JList<String> get_HeatScaleList()
 	{
 		if (_HeatScaleList == null)
 		{
-			_HeatScaleList = new JList(Battlemech.HeatScale);
+			_HeatScaleList = new JList<String>(Battlemech.HeatScale);
 		}
 		return _HeatScaleList;
 	}

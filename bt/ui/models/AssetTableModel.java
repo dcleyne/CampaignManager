@@ -25,9 +25,9 @@ public class AssetTableModel extends AbstractTableModel implements UnitListener
 	private static final long serialVersionUID = 1;
 	
     private String ColumnNames[] =
-        {"Identifier", "ElementType", "Element Name", "GroupAssignment","Status","Condition","Notes"};
+        {"ID", "Type", "Name", "Model","Status","Condition","Notes"};
     private Class<?> ColumnTypes[] =
-        {String.class,String.class,String.class,String.class,String.class,String.class,String.class};
+        {Long.class,String.class,String.class,Long.class,String.class,String.class,String.class};
     protected Unit m_Unit;
 
     public AssetTableModel(Unit u)
@@ -42,8 +42,7 @@ public class AssetTableModel extends AbstractTableModel implements UnitListener
 
     public int getRowCount()
     {
-    	return 0;
-    	//return m_Unit.getAssetCount();
+    	return m_Unit.getAssetCount();
     }
 
     public int getColumnCount()
@@ -52,34 +51,33 @@ public class AssetTableModel extends AbstractTableModel implements UnitListener
 
     public Object getValueAt(int row, int col)
     {
-    	return null;
-    	/*
         Asset a = m_Unit.getAsset(row);
         switch (col)
         {
             case 0:
-                return a.GetIdentifier();
+                return a.getIdentifier();
             case 1:
-                return a.GetElementType().toString();
+                return a.getElementType().toString();
             case 2:
-                return "Fix This";
+                return a.getName();
             case 3:
-                return "";
+                return a.getModelInformation();
             case 4:
-                return a.GetStatus();
+                return a.getStatus();
             case 5:
-                return a.GetCondition();
+                return a.getCondition();
             case 6:
-                return a.GetNotes();
+                return a.getNotes();
 
             default:
                 return "Unknown Column";
         }
-        */
+        
     }
 
     public boolean isCellEditable(int row, int col)
-    {return false;
+    {
+    	return false;
     }
 
     public Class<?> getColumnClass(int c)
@@ -97,22 +95,22 @@ public class AssetTableModel extends AbstractTableModel implements UnitListener
 
     public void AssetAdded(Asset a)
     {
-        //this.fireTableRowsInserted(m_Unit.getAssetCount(), m_Unit.getAssetCount());
-        //this.fireTableDataChanged();
+        this.fireTableRowsInserted(m_Unit.getAssetCount(), m_Unit.getAssetCount());
+        this.fireTableDataChanged();
     }
 
     public void AssetRemoved(Asset a)
     {
-        //int Index = m_Unit.getAssetIndex(a);
-        //this.fireTableRowsDeleted(Index, Index);
-        //this.fireTableDataChanged();
+        int Index = m_Unit.getAssetIndex(a);
+        this.fireTableRowsDeleted(Index, Index);
+        this.fireTableDataChanged();
     }
 
     public void AssetChanged(Asset a)
     {
-        //int Index = m_Unit.getAssetIndex(a);
-        //this.fireTableRowsUpdated(Index, Index);
-        //this.fireTableDataChanged();
+        int Index = m_Unit.getAssetIndex(a);
+        this.fireTableRowsUpdated(Index, Index);
+        this.fireTableDataChanged();
     }
 
 

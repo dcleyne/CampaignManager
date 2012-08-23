@@ -9,6 +9,7 @@ import javax.swing.*;
 import org.apache.commons.logging.LogFactory;
 import org.apache.commons.logging.Log;
 
+import bt.elements.galaxy.InnerSpherePlanet;
 import bt.elements.personnel.JobType;
 import bt.elements.personnel.Personnel;
 import bt.elements.personnel.Rank;
@@ -45,11 +46,11 @@ public class UnitPersonnelPanel extends JPanel implements ClosableEditPanel, Mou
 
     protected JTextField m_NameTextField = new JTextField();
     protected JTextField m_CallsignTextField = new JTextField();
-    protected JComboBox m_RankCombo = new JComboBox();
-    protected JComboBox m_HomePlanetCombo = new JComboBox();
-    protected JComboBox m_RatingCombo = new JComboBox();
-    protected JComboBox m_JobTypeCombo = new JComboBox();
-    protected JComboBox m_GroupAssignmentCombo = new JComboBox();
+    protected JComboBox<Rank> m_RankCombo = new JComboBox<Rank>();
+    protected JComboBox<InnerSpherePlanet> m_HomePlanetCombo = new JComboBox<InnerSpherePlanet>();
+    protected JComboBox<Rating> m_RatingCombo = new JComboBox<Rating>();
+    protected JComboBox<JobType> m_JobTypeCombo = new JComboBox<JobType>();
+    protected JComboBox<String> m_GroupAssignmentCombo = new JComboBox<String>();
     protected JTextArea m_NotesTextArea = new JTextArea();
 
     protected JButton m_AddPersonnelButton = new JButton("Add");

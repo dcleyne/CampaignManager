@@ -55,13 +55,13 @@ public class GenerateNewUnitPanel extends JPanel
 	private JLabel _UnitNameLabel = null;
 	private JTextField _UnitNameTextField = null;
 	private JLabel _UnitWeightLabel = null;
-	private JComboBox _UnitWeightComboBox = null;
+	private JComboBox<String> _UnitWeightComboBox = null;
 	private JLabel _MechListLabel = null;
 	private JScrollPane _MechList = null;
-	private DefaultListModel _MechListModel = null;
+	private DefaultListModel<String> _MechListModel = null;
 	private JLabel _PersonnelListLabel = null;
 	private JScrollPane _PersonnelList = null;
-	private DefaultListModel _PersonnelListModel = null;
+	private DefaultListModel<String> _PersonnelListModel = null;
 	private JLabel _MechBVLabel = null;
 	private JLabel _MechWeightLabel = null;
 	private JLabel _AnnualSalaryLabel = null;
@@ -212,11 +212,11 @@ public class GenerateNewUnitPanel extends JPanel
 	 * 	
 	 * @return javax.swing.JComboBox	
 	 */
-	private JComboBox get_UnitWeightComboBox()
+	private JComboBox<String> get_UnitWeightComboBox()
 	{
 		if (_UnitWeightComboBox == null)
 		{
-			_UnitWeightComboBox = new JComboBox(_UnitWeights);
+			_UnitWeightComboBox = new JComboBox<String>(_UnitWeights);
 			_UnitWeightComboBox.setBounds(new Rectangle(436, 167, 165, 23));
 		}
 		return _UnitWeightComboBox;
@@ -231,8 +231,8 @@ public class GenerateNewUnitPanel extends JPanel
 	{
 		if (_MechList == null)
 		{
-			_MechListModel = new DefaultListModel();
-			_MechList = new JScrollPane(new JList(_MechListModel));
+			_MechListModel = new DefaultListModel<String>();
+			_MechList = new JScrollPane(new JList<String>(_MechListModel));
 			_MechList.setBounds(new Rectangle(16, 211, 585, 90));
 		}
 		return _MechList;
@@ -247,8 +247,8 @@ public class GenerateNewUnitPanel extends JPanel
 	{
 		if (_PersonnelList == null)
 		{
-			_PersonnelListModel = new DefaultListModel();
-			_PersonnelList = new JScrollPane(new JList(_PersonnelListModel));
+			_PersonnelListModel = new DefaultListModel<String>();
+			_PersonnelList = new JScrollPane(new JList<String>(_PersonnelListModel));
 			_PersonnelList.setBounds(new Rectangle(15, 330, 586, 121));
 		}
 		return _PersonnelList;

@@ -2,12 +2,14 @@ package bt.elements.unit;
 
 import java.io.Serializable;
 
+
 import java.util.Date;
 import java.util.Vector;
 
 import bt.elements.Ammunition;
 import bt.elements.Asset;
 import bt.elements.Battlemech;
+import bt.elements.Character;
 import bt.elements.ElementType;
 import bt.elements.Item;
 import bt.elements.personnel.Personnel;
@@ -34,6 +36,7 @@ public class Unit implements Serializable
     private Date _EstablishDate;
     private String _Notes;
 
+    private Character m_Leader;
     private Vector<Personnel> _Personnel = new Vector<Personnel>();
     private Vector<Asset> _Assets = new Vector<Asset>();
 
@@ -43,6 +46,8 @@ public class Unit implements Serializable
     private Vector<Asset> _SalvagedAssets = new Vector<Asset>();
     
     private Vector<String> _AssignedMissions = new Vector<String>();
+
+    private Vector<Formation> m_Formations = new Vector<Formation>();
 
 	public String getName()
 	{
@@ -64,19 +69,29 @@ public class Unit implements Serializable
 		_Player = player;
 	}
 
-	public Date getEstablishDate() {
+    public Character getLeader()
+    { return m_Leader; }
+    
+    public void setLeader(Character leader)
+    { m_Leader = leader; }
+
+	public Date getEstablishDate() 
+	{
 		return _EstablishDate;
 	}
 
-	public void setEstablishDate(Date establishDate) {
+	public void setEstablishDate(Date establishDate) 
+	{
 		_EstablishDate = establishDate;
 	}
 
-	public String getNotes() {
+	public String getNotes() 
+	{
 		return _Notes;
 	}
 
-	public void setNotes(String notes) {
+	public void setNotes(String notes) 
+	{
 		_Notes = notes;
 	}
 
@@ -85,10 +100,62 @@ public class Unit implements Serializable
 		return _Personnel;
 	}
 
+    public int getGroupCount()
+    {
+        return m_Formations.size();
+    }
+
+    public Formation getGroup(int Index)
+    {
+        if (Index < 0) return null;
+        return (Formation)m_Formations.elementAt(Index);
+    }
+
+    public int getGroupIndex(Formation ug)
+    {
+        return m_Formations.indexOf(ug);
+    }
+
+    public Formation addNewGroup(UnitDesignation ud)
+    {
+        Formation ug = new Formation();
+        ug.setUnitDesignation(ud);
+        ug.setCommander(-1);
+        ug.setName("New Group");
+        m_Formations.add(ug);
+        return ug;
+    }
+
+    public void removeGroup(Formation f)
+    { m_Formations.remove(f); }
+
 	public Vector<Asset> getAssets()
 	{
 		return _Assets;
 	}
+
+    public int getAssetCount()
+    { return _Assets.size(); }
+
+    public Asset getAsset(int Index)
+    {
+        if (Index < 0) return null;
+        return _Assets.elementAt(Index);
+    }
+
+    public Asset addNewAsset(ElementType et, String identifier)
+    {
+        Asset NewAsset = new Asset();
+        NewAsset.setElementType(et);
+        NewAsset.setIdentifier(identifier);
+        _Assets.add(NewAsset);
+        return NewAsset;
+    }
+
+    public int getAssetIndex(Asset a)
+    {
+        return _Assets.indexOf(a);
+    }
 
 	public Vector<Battlemech> getBattlemechs()
 	{

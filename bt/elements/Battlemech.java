@@ -39,6 +39,7 @@ public class Battlemech extends Asset implements BattleValue
 		"_[00] ",
 	};
 	
+	private String _Name;
     private String _DesignName;
     private String _DesignVariant;
     private String _Manufacturer;
@@ -51,6 +52,14 @@ public class Battlemech extends Asset implements BattleValue
     private HashMap<String, HashMap<Integer, ItemStatus>> _Armour = new HashMap<String, HashMap<Integer, ItemStatus>>();
     private Vector<ItemMount> _Items = new Vector<ItemMount>();
     
+	public String getName()
+	{
+		return _Name;
+	}
+	public void setName(String name)
+	{
+		_Name = name;
+	}
 	public String getDesignName()
 	{
 		return _DesignName;

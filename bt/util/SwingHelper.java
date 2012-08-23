@@ -80,7 +80,7 @@ public class SwingHelper
         return Panel;
     }
 
-    public static Component GetComboBox(JComboBox ComboBox, String FieldName, String ToolTipText, boolean SetPreferredSize)
+    public static Component GetComboBox(JComboBox<?> ComboBox, String FieldName, String ToolTipText, boolean SetPreferredSize)
     {
         JLabel Label = new JLabel();
         JPanel Panel = new JPanel();

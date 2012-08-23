@@ -223,8 +223,9 @@ public class BattlemechManager
         Battlemech mech = new Battlemech();
 
         mech.setIdentifier(mechElement.getChildTextTrim("ID"));
-        mech.setDesignName(mechElement.getChildTextTrim("Name"));
-        mech.setDesignVariant(mechElement.getChildTextTrim("Variant"));
+        mech.setName(mechElement.getChildTextTrim("Name"));
+        mech.setDesignName(mechElement.getChildTextTrim("DesignName"));
+        mech.setDesignVariant(mechElement.getChildTextTrim("DesignVariant"));
         mech.setManufacturer(mechElement.getChildTextTrim("Manufacturer"));
 
         mech.setType(mechElement.getChildTextTrim("Type"));
@@ -941,7 +942,8 @@ public class BattlemechManager
         org.jdom.Element battlemechNode = new org.jdom.Element("Battlemech");
 
         battlemechNode.addContent(new org.jdom.Element("ID").setText(mech.getIdentifier()));
-        battlemechNode.addContent(new org.jdom.Element("Name").setText(mech.getDesignName()));
+        battlemechNode.addContent(new org.jdom.Element("Name").setText(mech.getName()));
+        battlemechNode.addContent(new org.jdom.Element("DesignName").setText(mech.getDesignName()));
         battlemechNode.addContent(new org.jdom.Element("Variant").setText(mech.getDesignVariant()));
         battlemechNode.addContent(new org.jdom.Element("Manufacturer").setText(mech.getManufacturer()));
 

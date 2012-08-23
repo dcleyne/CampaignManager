@@ -18,8 +18,6 @@ public class Asset
 //  private static Log log = LogFactory.getLog(Asset.class);
     
   protected ElementType m_ElementType;
-  protected long m_ElementID;
-  protected long m_GroupAssignment;
   protected String m_Identifier = "";
   protected String m_Status = "";
   protected String m_Condition = "";
@@ -31,22 +29,6 @@ public class Asset
   public void setElementType(ElementType et)
   {
       m_ElementType = et;
-  }
-
-  public long getElementID()
-  { return m_ElementID; }
-
-  public void setElementID(long ElementID)
-  {
-      m_ElementID = ElementID;
-  }
-
-  public long getGroupAssignment()
-  { return m_GroupAssignment; }
-
-  public void setGroupAssignment(long GroupAssignment)
-  {
-      m_GroupAssignment = GroupAssignment;
   }
 
   public String getIdentifier()
@@ -79,6 +61,10 @@ public class Asset
   public void setNotes(String Notes)
   {
       m_Notes = Notes;
+  }
+  
+  public void setName(String Name)
+  {
   }
   
   public String getName()
