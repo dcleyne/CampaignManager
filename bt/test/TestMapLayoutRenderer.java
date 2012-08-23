@@ -13,7 +13,7 @@ import org.apache.log4j.helpers.Loader;
 
 import bt.elements.mapping.MapSet;
 import bt.managers.MapManager;
-import bt.ui.MapLayoutRenderer;
+import bt.ui.renderers.MapLayoutRenderer;
 import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;
 

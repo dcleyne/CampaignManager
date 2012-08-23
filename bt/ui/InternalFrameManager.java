@@ -29,6 +29,12 @@ import bt.managers.PlayerManager;
 import bt.managers.SolarSystemManager;
 import bt.managers.UnitManager;
 import bt.managers.listeners.SolarSystemManagerListener;
+import bt.ui.frames.FlatStarMapInternalFrame;
+import bt.ui.frames.PlanetInternalFrame;
+import bt.ui.frames.PlayerInternalFrame;
+import bt.ui.frames.PlayerListInternalFrame;
+import bt.ui.frames.UnitInternalFrame;
+import bt.ui.frames.UnitListInternalFrame;
 import bt.ui.listeners.PlayerChangeListener;
 import bt.ui.listeners.UnitChangeListener;
 

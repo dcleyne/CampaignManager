@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.helpers.Loader;
 
-import bt.ui.forms.GenerateNewUnitPanel;
+import bt.ui.panels.GenerateNewUnitPanel;
 import bt.util.PropertyUtil;
 
 public class TestUnitGenerationPanel

@@ -153,21 +153,38 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
         JMenu menu;
         JMenuItem item;
         //
-        //"Tasks" menu
-        menu = new JMenu("Task");
-        menu.setActionCommand("Task");
+        //"Campaign" menu
+        menu = new JMenu("Campaign");
+        menu.setActionCommand("Campaign");
         menu.setBorderPainted(false);
-        menu.setMnemonic( (int)'T');
+        menu.setMnemonic( (int)'C');
         hmenu.add(menu);
-        // "StaticData" item
-        item = new JMenuItem("Edit Unit Structure Setup");
+
+        // "View Players" item
+        item = new JMenuItem("View Players");
         item.setHorizontalTextPosition(SwingConstants.RIGHT);
-        item.setActionCommand("UnitStructure");
+        item.setActionCommand("ViewPlayers");
+        item.setBorderPainted(false);
+        item.setMnemonic( (int)'P');
+        item.addActionListener(this);
+        menu.add(item);
+
+        // "View Units" item
+        item = new JMenuItem("View Units");
+        item.setHorizontalTextPosition(SwingConstants.RIGHT);
+        item.setActionCommand("ViewUnits");
         item.setBorderPainted(false);
         item.setMnemonic( (int)'U');
         item.addActionListener(this);
         menu.add(item);
-        // "StaticData" item
+
+        //"Tools" menu
+        menu = new JMenu("Tools");
+        menu.setActionCommand("Tools");
+        menu.setBorderPainted(false);
+        menu.setMnemonic( (int)'T');
+        hmenu.add(menu);
+        // "View Map" item
         item = new JMenuItem("View Map");
         item.setHorizontalTextPosition(SwingConstants.RIGHT);
         item.setActionCommand("ViewMap");
@@ -175,15 +192,23 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
         item.setMnemonic( (int)'M');
         item.addActionListener(this);
         menu.add(item);
-        // "StaticData" item
-        item = new JMenuItem("View Units");
+        
+        
+        //"Setup" menu
+        menu = new JMenu("Setup");
+        menu.setActionCommand("Setup");
+        menu.setBorderPainted(false);
+        menu.setMnemonic( (int)'S');
+        hmenu.add(menu);
+        // "Edit Unit Structure Setup item
+        item = new JMenuItem("Edit Unit Structure Setup");
         item.setHorizontalTextPosition(SwingConstants.RIGHT);
-        item.setActionCommand("ViewUnits");
+        item.setActionCommand("UnitStructure");
         item.setBorderPainted(false);
-        item.setMnemonic( (int)'V');
+        item.setMnemonic( (int)'E');
         item.addActionListener(this);
         menu.add(item);
-
+        
         //
         // "Help" menu
         //
@@ -317,6 +342,10 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
             if (command.equals("ViewMap"))
             {
                 m_FrameManager.ShowFlatStarMapFrame();
+            }		
+            if (command.equals("ViewPlayers"))
+            {
+                m_FrameManager.ShowPlayerListFrame();
             }		
 	}
 

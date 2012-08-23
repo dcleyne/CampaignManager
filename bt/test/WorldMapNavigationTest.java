@@ -56,7 +56,7 @@ import bt.elements.galaxy.InnerSpherePlanet;
 import bt.elements.galaxy.SolarSystemDetails;
 import bt.managers.PlanetManager;
 import bt.managers.SolarSystemManager;
-import bt.ui.mapping.planetmap.PlanetPanel;
+import bt.ui.panels.PlanetPanel;
 import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;
 

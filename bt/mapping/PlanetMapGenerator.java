@@ -15,7 +15,7 @@ import bt.elements.galaxy.InnerSpherePlanet;
 import bt.elements.galaxy.PlanetMap;
 import bt.elements.galaxy.SolarSystemDetails;
 import bt.managers.SolarSystemManager;
-import bt.ui.mapping.planetmap.WorldMap;
+import bt.ui.renderers.WorldMapRenderer;
 import bt.util.ExceptionUtil;
 
 public class PlanetMapGenerator 
@@ -66,7 +66,7 @@ public class PlanetMapGenerator
 		
 		if (pm == null) return;
 		
-		WorldMap wm = new WorldMap(ssd,24);
+		WorldMapRenderer wm = new WorldMapRenderer(ssd,24);
 		Dimension bounds = wm.getMapSize();
 		
 		try
@@ -75,7 +75,7 @@ public class PlanetMapGenerator
 			BufferedImage image = new BufferedImage(bounds.width, bounds.height,BufferedImage.TYPE_INT_RGB);
 			Graphics2D g = (Graphics2D)image.getGraphics();
 			g.setClip(0, 0, bounds.width, bounds.height);
-			wm.draw(g, 0, 0, WorldMap.DrawMode.MAP);		
+			wm.draw(g, 0, 0, WorldMapRenderer.DrawMode.MAP);		
 			ImageIO.write(image, "PNG", f);
 		}
 		catch (Exception ex)
@@ -105,7 +105,7 @@ public class PlanetMapGenerator
 				return;
 		}
 		
-		WorldMap wm = new WorldMap(ssd,24);
+		WorldMapRenderer wm = new WorldMapRenderer(ssd,24);
 		Dimension bounds = wm.getMapSize();
 		
 		try
@@ -115,7 +115,7 @@ public class PlanetMapGenerator
 			g.setClip(0, 0, bounds.width, bounds.height);
 
 			log.info("Generating elevation image for " + planet.toString());
-			wm.draw(g, 0, 0, WorldMap.DrawMode.ELEVATION);		
+			wm.draw(g, 0, 0, WorldMapRenderer.DrawMode.ELEVATION);		
 			ImageIO.write(image, "PNG", f);
 		}
 		catch (Exception ex)
@@ -145,7 +145,7 @@ public class PlanetMapGenerator
 				return;
 		}
 		
-		WorldMap wm = new WorldMap(ssd,24);
+		WorldMapRenderer wm = new WorldMapRenderer(ssd,24);
 		Dimension bounds = wm.getMapSize();
 		
 		try
@@ -155,7 +155,7 @@ public class PlanetMapGenerator
 			Graphics2D g = (Graphics2D)image.getGraphics();
 			g.setClip(0, 0, bounds.width, bounds.height);
 			log.info("Generating temperature image for " + planet.toString());
-			wm.draw(g, 0, 0, WorldMap.DrawMode.TEMPERATURE);		
+			wm.draw(g, 0, 0, WorldMapRenderer.DrawMode.TEMPERATURE);		
 
 			ImageIO.write(image, "PNG", f);
 		}
