@@ -21,6 +21,7 @@ package bt.test;
 
 
 import java.awt.BorderLayout;
+
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Frame;
@@ -57,8 +58,8 @@ import bt.elements.galaxy.InnerSpherePlanet;
 import bt.elements.galaxy.SolarSystemDetails;
 import bt.managers.PlanetManager;
 import bt.managers.SolarSystemManager;
-import bt.ui.panels.PlanetElevationPanel;
 import bt.ui.panels.PlanetPanel;
+import bt.ui.renderers.WorldMapRenderer;
 import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;
 
@@ -100,7 +101,7 @@ ActionListener
             
             m_TabPane = new JTabbedPane();
             m_TabPane.add("Map",m_ScrollPane);
-            JScrollPane elevPane = new JScrollPane(new PlanetElevationPanel(ssd,16));
+            JScrollPane elevPane = new JScrollPane(new PlanetPanel(ssd,24,WorldMapRenderer.DrawMode.ELEVATION));
             elevPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
             elevPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             m_TabPane.add("Elevation",elevPane);

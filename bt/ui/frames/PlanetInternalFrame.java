@@ -1,7 +1,6 @@
 package bt.ui.frames;
 
 import javax.swing.*;
-
 import bt.elements.galaxy.InnerSpherePlanet;
 import bt.elements.galaxy.SolarSystemDetails;
 import bt.ui.frames.ClosableEditFrame;
@@ -34,13 +33,13 @@ public class PlanetInternalFrame extends JInternalFrame implements ClosableEditF
         m_Planet = isp;
 
         m_DetailsPanel = new PlanetDetailsPanel(isp,ssd);
-        m_MapPanel = new PlanetPanel(ssd,16);
+        m_MapPanel = new PlanetPanel(ssd,24);
         
         JTabbedPane tabbedPane = new JTabbedPane();
         JScrollPane mapScrollPane = new JScrollPane(m_MapPanel);
         mapScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         mapScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        
+
         tabbedPane.addTab("Details", m_DetailsPanel);
         tabbedPane.addTab("Map", mapScrollPane);
         

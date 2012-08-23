@@ -24,10 +24,22 @@ public class PlanetPanel extends JPanel implements MouseListener
 	private int[] m_CurrentPath;
 	
 	private BufferedImage m_Image = null;
+	private WorldMapRenderer.DrawMode m_DrawMode = WorldMapRenderer.DrawMode.MAP;
 	
 	
 	public PlanetPanel(SolarSystemDetails details, int hexSize)
 	{
+		init(details, hexSize, WorldMapRenderer.DrawMode.MAP);
+	}
+
+	public PlanetPanel(SolarSystemDetails details, int hexSize, WorldMapRenderer.DrawMode drawMode)
+	{
+		init(details, hexSize, drawMode);
+	}
+
+	public void init(SolarSystemDetails details, int hexSize, WorldMapRenderer.DrawMode drawMode)
+	{
+		m_DrawMode = drawMode;
 		this.m_WorldMap = new WorldMapRenderer(details,hexSize);
 		this.setSize(m_WorldMap.getMapSize());
 		this.invalidate();
@@ -35,33 +47,52 @@ public class PlanetPanel extends JPanel implements MouseListener
 		
         addMouseListener(this);		
 	}
+
+	public WorldMapRenderer.DrawMode getDrawMode()
+	{
+		return m_DrawMode;
+	}
+	
+	public void setDrawMode(WorldMapRenderer.DrawMode drawMode)
+	{
+		if (m_DrawMode != drawMode)
+		{
+			m_DrawMode = drawMode;
+			m_Image = null;
+			repaint();
+		}
+	}
 	
     public void paintComponent(Graphics comp)
     {
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-
         if (m_Image == null)
         {
-	        Dimension size = m_WorldMap.getMapSize();
-			m_Image = new BufferedImage(size.width, size.height,BufferedImage.TYPE_INT_RGB);
-			Graphics2D g = (Graphics2D)m_Image.getGraphics();
-			g.setClip(0, 0, size.width, size.height);
-			m_WorldMap.draw(g, 0, 0, WorldMapRenderer.DrawMode.MAP);
+        	Cursor currentCursor = getCursor();
+        	try
+        	{
+	        	setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+		        Dimension size = m_WorldMap.getMapSize();
+				m_Image = new BufferedImage(size.width, size.height,BufferedImage.TYPE_INT_RGB);
+				Graphics2D g = (Graphics2D)m_Image.getGraphics();
+				g.setClip(0, 0, size.width, size.height);
+				m_WorldMap.draw(g, 0, 0, getDrawMode());
+        	}
+        	finally
+        	{
+	        	setCursor(currentCursor);        		
+        	}
         }
         
-        Graphics2D g2D = (Graphics2D)comp;        
-        boolean ShowHexNeighbours = true;
-
+        Graphics2D g2D = (Graphics2D)comp;
         g2D.drawImage(m_Image, null , 0, 0);
 
+        boolean ShowHexNeighbours = true;
         if (m_CurrentSegment != -1)
             m_WorldMap.HighlightSegment(comp,m_CurrentSegment,true);
         if (m_CurrentSector != -1)
             m_WorldMap.HighlightSector(g2D,m_CurrentSector,true,ShowHexNeighbours);
         if (m_CurrentPath != null)
             m_WorldMap.HighlightPath(g2D,m_CurrentPath,true,ShowHexNeighbours);
-
-        this.setCursor(null);
     }
 		
 	public Dimension getPreferredSize()
