@@ -35,10 +35,10 @@ public class BattlemechStatusDialog extends javax.swing.JDialog implements Actio
 		initGUI(mech);
 	}
 	
-	private void initGUI(Battlemech mech) {
-		try {
-			{
-			}
+	private void initGUI(Battlemech mech) 
+	{
+		try 
+		{
 			BorderLayout thisLayout = new BorderLayout();
 			getContentPane().setLayout(thisLayout);
 			{
@@ -63,7 +63,7 @@ public class BattlemechStatusDialog extends javax.swing.JDialog implements Actio
 				}
 			}
 			{
-				_BattlemechStatusPanel = new BattlemechStatusPanel(mech);
+				_BattlemechStatusPanel = new BattlemechStatusPanel(mech, 0.8);
 				_ScrollPane = new JScrollPane(_BattlemechStatusPanel);
 				getContentPane().add(_ScrollPane, BorderLayout.CENTER);
 				_ScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -71,23 +71,30 @@ public class BattlemechStatusDialog extends javax.swing.JDialog implements Actio
 				_ScrollPane.setAutoscrolls(true);
 				
 			}
-			setSize(800, 600);
-		} catch (Exception e) {
+			setSize(1010, 800);
+		} catch (Exception e) 
+		{
 			e.printStackTrace();
 		}
 	}
 
     public void setBounds(int x, int y, int w, int h)
     {
-        _ScrollPane.setPreferredSize(new Dimension(w,h-50));
-        _ScrollPane.setBounds(0,25,w,h-50);
+    	if (_ScrollPane != null)
+    	{
+	        _ScrollPane.setPreferredSize(new Dimension(w,h-50));
+	        _ScrollPane.setBounds(0,25,w,h-50);
+    	}
         super.setBounds(x,y,w,h);
     }
 
     public void setSize(Dimension d)
     {
-        _ScrollPane.setPreferredSize(new Dimension(d.width,d.height - 50));
-        _ScrollPane.setSize(new Dimension(d.width,d.height - 50));
+    	if (_ScrollPane != null)
+    	{
+	        _ScrollPane.setPreferredSize(new Dimension(d.width,d.height - 50));
+	        _ScrollPane.setSize(new Dimension(d.width,d.height - 50));
+    	}
         super.setSize(d);
     }
 
