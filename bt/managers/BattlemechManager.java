@@ -138,11 +138,13 @@ public class BattlemechManager
         mech.setInternals(buildMechInternals(mech.getWeight(), design.getInternalLocations()));
         mech.setArmour(buildMechArmour(design.getArmour()));
 
+        int itemIdentifier = 0;
         for (DesignItem di : design.getItems())
         {
             Item i = _ItemCreateHandlers.get(di.getType()).createItem(di);
             i.setManufacturer(di.getManufacturer());
             i.setModel(di.getModel());
+            i.setIdentifier(itemIdentifier++);
 
             if (i instanceof WeightClassBasedItem)
                 ((WeightClassBasedItem)i).setMechWeight(design.getWeight());
@@ -267,16 +269,23 @@ public class BattlemechManager
             mech.getArmour().put(Location, armourStatuses);
         }
 
+        int itemIdentifier = 1;
         iter = mechElement.getChild("Items").getChildren().iterator();
         while (iter.hasNext())
         {
         	org.jdom.Element itemMountElement = (org.jdom.Element)iter.next();
             ItemMount mount = new ItemMount();
             org.jdom.Element itemElement = itemMountElement.getChild("Item");
+            
             String type = itemElement.getAttributeValue("Type");
             if (_ItemLoadHandlers.containsKey(type))
             {
             	Item item = _ItemLoadHandlers.get(type).loadItem(itemElement);
+            	if (itemElement.getAttribute("ID") != null)
+            		item.setIdentifier(Integer.parseInt(itemElement.getAttributeValue("ID")));
+            	else
+            		item.setIdentifier(itemIdentifier);
+            	
                 mount.setMountedItem(item);
                 loadItemBaseElements(itemElement, mount.getMountedItem());
             }
@@ -285,6 +294,7 @@ public class BattlemechManager
             	
             loadCritSlotReferences(itemMountElement, mount);
             mech.getItems().add(mount);
+            itemIdentifier++;
         }
 
         return mech;
@@ -994,6 +1004,7 @@ public class BattlemechManager
             	throw new RuntimeException("Item mount contains no Item for " + mech.getDesignVariant() + " " + mech.getDesignName());
             String mountedItemType = mount.getMountedItem().getType();
             itemElement.setAttribute("Type", mountedItemType);
+            itemElement.setAttribute("ID", Integer.toString(mount.getMountedItem().getIdentifier()));
             if (_ItemSaveHandlers.containsKey(mountedItemType))
                 _ItemSaveHandlers.get(mountedItemType).saveItem(mount.getMountedItem(), itemElement);
             saveItemBaseElements(mount.getMountedItem(), itemElement);

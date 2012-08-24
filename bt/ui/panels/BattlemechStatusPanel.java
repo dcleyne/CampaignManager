@@ -1,6 +1,5 @@
 package bt.ui.panels;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -103,12 +102,13 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener
 		if (_MechImage != null)
 		{
 			((Graphics2D)g).drawImage(_MechImage, 0, 0, this);
-		
+		/* For testing
 			g.setColor(Color.red);
 			for (String key : _HotSpotAreas.keySet())
 			{
 				((Graphics2D)g).draw(_HotSpotAreas.get(key));
 			}
+			*/
 		}
 	}
 	

@@ -71,7 +71,7 @@ public class BattlemechStatusDialog extends javax.swing.JDialog implements Actio
 				_ScrollPane.setAutoscrolls(true);
 				
 			}
-			setSize(1010, 800);
+			setSize(1010, 600);
 		} catch (Exception e) 
 		{
 			e.printStackTrace();

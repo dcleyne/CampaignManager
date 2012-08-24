@@ -2,9 +2,20 @@ package bt.elements;
 
 public abstract class Item
 {
+	private int _Identifier = -1;
     private String _Name = "";
     private String _Manufacturer = "";
     private String _Model = "";
+    
+    public int getIdentifier()
+    {
+    	return _Identifier;
+    }
+    
+    public void setIdentifier(int identifier)
+    {
+    	_Identifier = identifier;
+    }
     
     public String getName()
 	{
@@ -52,6 +63,6 @@ public abstract class Item
     @Override
     public String toString()
     {
-    	return getType();
+    	return "(" + _Identifier + ") " + getType();
     }
 }
