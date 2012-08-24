@@ -257,6 +257,13 @@ public class BattlemechRenderer
     	}
     }
     
+    private Rectangle2D.Double createHotspotRectangle(double xOff, double yOff, double size, double scale)
+    {
+        double x = xOff - (size / 2);
+        double y = yOff - (size / 2);
+        
+        return new Rectangle2D.Double(x * scale, y * scale, size * scale, size * scale);
+    }
     
     public HashMap<String, HashMap<String, Vector<Rectangle2D.Double>>> GenerateBattlemechDiagramHotspots(Graphics2D g, Battlemech mech, double scale)
     {
@@ -272,7 +279,7 @@ public class BattlemechRenderer
             for (Integer index : mech.getInternals().get(locationName).keySet())
             {
                 Point p = _InternalDots.get(locationName).get(index);
-                internalHotspotRects.add(new Rectangle2D.Double(p.x * scale, p.y * scale, dotSize * scale, dotSize * scale));
+                internalHotspotRects.add(createHotspotRectangle(p.x,p.y,dotSize,scale));
             }
             internalHotspots.put(locationName, internalHotspotRects);
         }
@@ -286,7 +293,7 @@ public class BattlemechRenderer
             for (Integer index : mech.getArmour().get(locationName).keySet())
             {
                 Point p = _ArmourDots.get(locationName).get(index);
-                armourHotspotRects.add(new Rectangle2D.Double(p.x * scale, p.y * scale, dotSize * scale, dotSize * scale));
+                armourHotspotRects.add(createHotspotRectangle(p.x,p.y,dotSize,scale));
             }
             armourHotspots.put(locationName, armourHotspotRects);
         }
@@ -295,6 +302,7 @@ public class BattlemechRenderer
         HashMap<String, Vector<Rectangle2D.Double>> mountedItemHotspots = new HashMap<String, Vector<Rectangle2D.Double>>();        
         FontMetrics metrics = g.getFontMetrics(_CriticalSlotFont);
         int hgt = metrics.getHeight();
+        int baseline = metrics.getAscent();
         for (ItemMount im : mech.getItems())
         {
         	Vector<Rectangle2D.Double> mountedItemHotspotRects = new Vector<Rectangle2D.Double>();
@@ -307,7 +315,7 @@ public class BattlemechRenderer
 				
 				Point p = _CriticalTablePoints.get(iss.getInternalLocation()).get(iss.getTable()).get(iss.getSlot());
 		        int adv = metrics.stringWidth(mountText);
-				mountedItemHotspotRects.add(new Rectangle2D.Double(p.x * scale, p.y * scale, adv * scale, largeDot * hgt));
+				mountedItemHotspotRects.add(new Rectangle2D.Double(p.x * scale, (p.y - baseline) * scale, adv * scale, hgt * scale));
         	}
         	mountedItemHotspots.put(im.toString(), mountedItemHotspotRects);
         }
@@ -322,7 +330,7 @@ public class BattlemechRenderer
         for (int i = 0; i < integralHS; i++)
         {
         	Point p = _HeatSinkDots.get(HeatSinkIndex);
-        	heatSinkHotspotRects.add(new Rectangle2D.Double(p.x * scale, p.y * scale, largeDot * scale, largeDot * scale));
+        	heatSinkHotspotRects.add(createHotspotRectangle(p.x,p.y,largeDot,scale));
         	HeatSinkIndex++;
         }
         heatSinkHotspots.put("Internal", heatSinkHotspotRects);
@@ -333,7 +341,7 @@ public class BattlemechRenderer
         	for (int i = 0; i < im.getSlotReferences().size(); i++)
         	{
 	        	Point p = _HeatSinkDots.get(HeatSinkIndex);
-	        	heatSinkHotspotRects.add(new Rectangle2D.Double(p.x * scale, p.y * scale, largeDot * scale, largeDot * scale));	        	
+	        	heatSinkHotspotRects.add(createHotspotRectangle(p.x,p.y,largeDot,scale));	        	
 	        	HeatSinkIndex++;
         	}
         	heatSinkHotspots.put(im.toString(), heatSinkHotspotRects);

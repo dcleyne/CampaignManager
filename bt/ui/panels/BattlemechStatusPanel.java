@@ -145,7 +145,7 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener
 	@Override
 	public void mouseClicked(MouseEvent e) 
 	{
-		Point p = e.getLocationOnScreen();
+		Point p = e.getPoint();
 		for (String key : _HotSpotAreas.keySet())
 		{
 			if (_HotSpotAreas.get(key).contains(p))
