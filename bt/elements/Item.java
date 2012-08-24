@@ -63,6 +63,6 @@ public abstract class Item
     @Override
     public String toString()
     {
-    	return "(" + _Identifier + ") " + getType();
+    	return getType();
     }
 }

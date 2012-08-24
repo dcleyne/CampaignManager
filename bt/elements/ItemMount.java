@@ -50,6 +50,7 @@ public class ItemMount
     public String toString()
     {
     	StringBuilder sb = new StringBuilder();
+    	sb.append("(" + _MountedItem.getIdentifier() + ") ");
     	sb.append(_MountedItem.toString());
     	sb.append(" [");
     	sb.append(_SlotReferences.elementAt(0).getInternalLocation());
