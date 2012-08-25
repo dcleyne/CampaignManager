@@ -188,19 +188,15 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener, Mous
 	public void mouseReleased(MouseEvent e) 
 	{
 		currentShape = null;
+		updateMechStatus();
 		shapes.clear();
 		repaint();
 	}
 
 	@Override
-	public void mouseEntered(MouseEvent e) 
-	{
-	}
-
+	public void mouseEntered(MouseEvent e){}
 	@Override
-	public void mouseExited(MouseEvent e) 
-	{
-	}
+	public void mouseExited(MouseEvent e){}
 	
     public void mouseDragged ( MouseEvent e )
     {
@@ -210,7 +206,22 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener, Mous
     }
 
 	@Override
-	public void mouseMoved(MouseEvent arg0)
+	public void mouseMoved(MouseEvent arg0){}
+	
+	private void updateMechStatus()
 	{
+		Vector<String> coveredLocations = new Vector<String>();
+		for (String location : _HotSpotAreas.keySet())
+		{
+			if (currentShape.intersects(_HotSpotAreas.get(location).getBounds()))
+			{
+				coveredLocations.add(location);
+			}
+		}
+		
+		if (coveredLocations.size() == 1)
+		{
+			// Now we need to drill down to see what areas were covered by the drawing
+		}
 	}
 }
