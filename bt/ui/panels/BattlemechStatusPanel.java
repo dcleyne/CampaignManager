@@ -121,15 +121,7 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener, Mous
 	        for ( Shape shape : shapes )
 	        {
 	            g2d.draw ( shape );
-	        }
-	        
-		/* For testing
-			g.setColor(Color.red);
-			for (String key : _HotSpotAreas.keySet())
-			{
-				((Graphics2D)g).draw(_HotSpotAreas.get(key));
-			}
-			*/
+	        }	        
 		}
 	}
 	
@@ -187,8 +179,8 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener, Mous
 	@Override
 	public void mouseReleased(MouseEvent e) 
 	{
-		currentShape = null;
 		updateMechStatus();
+		currentShape = null;
 		shapes.clear();
 		repaint();
 	}
@@ -213,7 +205,7 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener, Mous
 		Vector<String> coveredLocations = new Vector<String>();
 		for (String location : _HotSpotAreas.keySet())
 		{
-			if (currentShape.intersects(_HotSpotAreas.get(location).getBounds()))
+			if (currentShape.intersects(_HotSpotAreas.get(location).getBounds2D()))
 			{
 				coveredLocations.add(location);
 			}
@@ -221,7 +213,23 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener, Mous
 		
 		if (coveredLocations.size() == 1)
 		{
+			Vector<String> coveredLocalAreas = new Vector<String>();
 			// Now we need to drill down to see what areas were covered by the drawing
+			HashMap<String, Area> localAreas = _HotSpotLocalAreas.get(coveredLocations.elementAt(0));
+			for (String key : localAreas.keySet())
+			{
+				if (currentShape.intersects(localAreas.get(key).getBounds2D()))
+				{
+					coveredLocalAreas.add(key);
+				}
+			}
+			
+			if (coveredLocalAreas.size() == 1)
+			{
+				// This is to ensure that the user did in fact mean to mark an area
+				
+				System.out.println("Marking :" + coveredLocations.elementAt(0) + " :" + coveredLocalAreas.elementAt(0));
+			}
 		}
 	}
 }
