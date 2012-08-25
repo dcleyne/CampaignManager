@@ -45,7 +45,7 @@ public class TestBattlemechRenderer
 	                
 	                System.out.println(design.getName());
 	                
-	                String filename = "C:/temp/" + mech.getDesignVariant() + " " + mech.getDesignName() + ".png";
+	                String filename = "/tmp/" + mech.getDesignVariant() + " " + mech.getDesignName() + ".png";
 	                BufferedImage mechImage = BattlemechRenderer.getInstance().RenderBattlemech(mech);
 	                ImageIO.write(mechImage, "PNG", new File(filename));
 	                

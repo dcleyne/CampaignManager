@@ -1,32 +1,43 @@
 package bt.ui.panels;
 
 import java.awt.Dimension;
+
+import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.Shape;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.geom.Area;
-import java.awt.geom.Rectangle2D;
+import java.awt.geom.Line2D;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Vector;
 
 import javax.swing.JPanel;
 
 import bt.elements.Battlemech;
 import bt.ui.renderers.BattlemechRenderer;
+import bt.util.IndexedRectangle;
 
-public class BattlemechStatusPanel extends JPanel implements MouseListener
+public class BattlemechStatusPanel extends JPanel implements MouseListener, MouseMotionListener
 {
 	private static final long serialVersionUID = 7369612760668862772L;
 
 	private Battlemech _Mech;
 	private BufferedImage _MechImage;
-	private HashMap<String, HashMap<String, Vector<Rectangle2D.Double>>> _HotSpots;
+	private HashMap<String, HashMap<String, Vector<IndexedRectangle>>> _HotSpots;
 	private HashMap<String, Area> _HotSpotAreas;
 	private HashMap<String, HashMap<String, Area>> _HotSpotLocalAreas;
 	private double _Scale;
+	
+    private List<Shape> shapes = new ArrayList<Shape>();
+    private Shape currentShape = null;
 
 	public BattlemechStatusPanel(double scale)
 	{
@@ -45,6 +56,7 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener
 		setPreferredSize(getSize());
 		setOpaque(false);
 		addMouseListener(this);
+		addMouseMotionListener(this);
 	}
 	
 	public Battlemech getBattlemech()
@@ -101,7 +113,16 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener
 		
 		if (_MechImage != null)
 		{
-			((Graphics2D)g).drawImage(_MechImage, 0, 0, this);
+			Graphics2D g2d = (Graphics2D)g;
+			g2d.drawImage(_MechImage, 0, 0, this);
+			
+			g2d.setStroke(new BasicStroke(5F));
+	        g2d.setPaint ( Color.red );
+	        for ( Shape shape : shapes )
+	        {
+	            g2d.draw ( shape );
+	        }
+	        
 		/* For testing
 			g.setColor(Color.red);
 			for (String key : _HotSpotAreas.keySet())
@@ -120,18 +141,18 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener
 		_HotSpotLocalAreas = new HashMap<String, HashMap<String,Area>>();
 		for (String key: _HotSpots.keySet())
 		{
-			HashMap<String,Vector<Rectangle2D.Double>> rectVectorMap = _HotSpots.get(key);
+			HashMap<String,Vector<IndexedRectangle>> rectVectorMap = _HotSpots.get(key);
 			Area area = new Area();
 			
 			HashMap<String,Area> areaMap = new HashMap<String, Area>();
 			
 			for (String rectVectorKey : rectVectorMap.keySet())
 			{
-				Vector<Rectangle2D.Double> rects = rectVectorMap.get(rectVectorKey);
+				Vector<IndexedRectangle> rects = rectVectorMap.get(rectVectorKey);
 				Area localArea = new Area();
-				for (Rectangle2D.Double rect : rects)
+				for (IndexedRectangle rect : rects)
 				{
-					Area rectArea = new Area(rect);
+					Area rectArea = new Area(rect.getRectangle());
 					area.add(rectArea);
 					localArea.add(rectArea);
 				}
@@ -157,12 +178,18 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener
 
 	@Override
 	public void mousePressed(MouseEvent e) 
-	{
+	{    
+		currentShape = new Line2D.Double ( e.getPoint (), e.getPoint () );
+	    shapes.add ( currentShape );
+	    repaint ();
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) 
 	{
+		currentShape = null;
+		shapes.clear();
+		repaint();
 	}
 
 	@Override
@@ -172,6 +199,18 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener
 
 	@Override
 	public void mouseExited(MouseEvent e) 
+	{
+	}
+	
+    public void mouseDragged ( MouseEvent e )
+    {
+	    Line2D shape = ( Line2D ) currentShape;
+	    shape.setLine ( shape.getP1 (), e.getPoint () );
+	    repaint ();
+    }
+
+	@Override
+	public void mouseMoved(MouseEvent arg0)
 	{
 	}
 }

@@ -27,6 +27,7 @@ import bt.elements.ItemMount;
 import bt.elements.ItemStatus;
 import bt.elements.design.BattlemechDesign;
 import bt.util.ExceptionUtil;
+import bt.util.IndexedRectangle;
 import bt.util.PropertyUtil;
 
 public class BattlemechRenderer
@@ -265,47 +266,47 @@ public class BattlemechRenderer
         return new Rectangle2D.Double(x * scale, y * scale, size * scale, size * scale);
     }
     
-    public HashMap<String, HashMap<String, Vector<Rectangle2D.Double>>> GenerateBattlemechDiagramHotspots(Graphics2D g, Battlemech mech, double scale)
+    public HashMap<String, HashMap<String, Vector<IndexedRectangle>>> GenerateBattlemechDiagramHotspots(Graphics2D g, Battlemech mech, double scale)
     {
-    	HashMap<String, HashMap<String, Vector<Rectangle2D.Double>>> hotSpots = new HashMap<String, HashMap<String, Vector<Rectangle2D.Double>>>();
+    	HashMap<String, HashMap<String, Vector<IndexedRectangle>>> hotSpots = new HashMap<String, HashMap<String, Vector<IndexedRectangle>>>();
     	
         if (mech == null) return hotSpots;
 
-        HashMap<String, Vector<Rectangle2D.Double>> internalHotspots = new HashMap<String, Vector<Rectangle2D.Double>>();
+        HashMap<String, Vector<IndexedRectangle>> internalHotspots = new HashMap<String, Vector<IndexedRectangle>>();
         for (String locationName : mech.getInternals().keySet())
         {
             int dotSize = _DotSizes.get("Internals").get(locationName);
-            Vector<Rectangle2D.Double> internalHotspotRects = new Vector<Rectangle2D.Double>();
+            Vector<IndexedRectangle> internalHotspotRects = new Vector<IndexedRectangle>();
             for (Integer index : mech.getInternals().get(locationName).keySet())
             {
                 Point p = _InternalDots.get(locationName).get(index);
-                internalHotspotRects.add(createHotspotRectangle(p.x,p.y,dotSize,scale));
+                internalHotspotRects.add(new IndexedRectangle(index,createHotspotRectangle(p.x,p.y,dotSize,scale)));
             }
             internalHotspots.put(locationName, internalHotspotRects);
         }
         hotSpots.put("Internals", internalHotspots);
         
-        HashMap<String, Vector<Rectangle2D.Double>> armourHotspots = new HashMap<String, Vector<Rectangle2D.Double>>();        
+        HashMap<String, Vector<IndexedRectangle>> armourHotspots = new HashMap<String, Vector<IndexedRectangle>>();        
         for (String locationName : mech.getArmour().keySet())
         {
             int dotSize = _DotSizes.get("Armour").get(locationName);
-            Vector<Rectangle2D.Double> armourHotspotRects = new Vector<Rectangle2D.Double>();
+            Vector<IndexedRectangle> armourHotspotRects = new Vector<IndexedRectangle>();
             for (Integer index : mech.getArmour().get(locationName).keySet())
             {
                 Point p = _ArmourDots.get(locationName).get(index);
-                armourHotspotRects.add(createHotspotRectangle(p.x,p.y,dotSize,scale));
+                armourHotspotRects.add(new IndexedRectangle(index,createHotspotRectangle(p.x,p.y,dotSize,scale)));
             }
             armourHotspots.put(locationName, armourHotspotRects);
         }
         hotSpots.put("Armour", armourHotspots);
         
-        HashMap<String, Vector<Rectangle2D.Double>> mountedItemHotspots = new HashMap<String, Vector<Rectangle2D.Double>>();        
+        HashMap<String, Vector<IndexedRectangle>> mountedItemHotspots = new HashMap<String, Vector<IndexedRectangle>>();        
         FontMetrics metrics = g.getFontMetrics(_CriticalSlotFont);
         int hgt = metrics.getHeight();
         int baseline = metrics.getAscent();
         for (ItemMount im : mech.getItems())
         {
-        	Vector<Rectangle2D.Double> mountedItemHotspotRects = new Vector<Rectangle2D.Double>();
+        	Vector<IndexedRectangle> mountedItemHotspotRects = new Vector<IndexedRectangle>();
 
         	for (InternalSlotStatus iss : im.getSlotReferences())
         	{
@@ -315,33 +316,33 @@ public class BattlemechRenderer
 				
 				Point p = _CriticalTablePoints.get(iss.getInternalLocation()).get(iss.getTable()).get(iss.getSlot());
 		        int adv = metrics.stringWidth(mountText);
-				mountedItemHotspotRects.add(new Rectangle2D.Double(p.x * scale, (p.y - baseline) * scale, adv * scale, hgt * scale));
+				mountedItemHotspotRects.add(new IndexedRectangle(im.getMountedItem().getIdentifier() ,new Rectangle2D.Double(p.x * scale, (p.y - baseline) * scale, adv * scale, hgt * scale)));
         	}
         	mountedItemHotspots.put(im.toString(), mountedItemHotspotRects);
         }
         hotSpots.put("MountedItems", mountedItemHotspots);
 
         
-        HashMap<String, Vector<Rectangle2D.Double>> heatSinkHotspots = new HashMap<String, Vector<Rectangle2D.Double>>();
-        Vector<Rectangle2D.Double> heatSinkHotspotRects = new Vector<Rectangle2D.Double>();
+        HashMap<String, Vector<IndexedRectangle>> heatSinkHotspots = new HashMap<String, Vector<IndexedRectangle>>();
+        Vector<IndexedRectangle> heatSinkHotspotRects = new Vector<IndexedRectangle>();
 
         int HeatSinkIndex = 1;
         int integralHS = mech.getIntegralHeatSinks();
         for (int i = 0; i < integralHS; i++)
         {
         	Point p = _HeatSinkDots.get(HeatSinkIndex);
-        	heatSinkHotspotRects.add(createHotspotRectangle(p.x,p.y,largeDot,scale));
+        	heatSinkHotspotRects.add(new IndexedRectangle(i,createHotspotRectangle(p.x,p.y,largeDot,scale)));
         	HeatSinkIndex++;
         }
         heatSinkHotspots.put("Internal", heatSinkHotspotRects);
         
         for (ItemMount im : mech.getAllHeatSinkMounts())
         {
-            heatSinkHotspotRects = new Vector<Rectangle2D.Double>();
+            heatSinkHotspotRects = new Vector<IndexedRectangle>();
         	for (int i = 0; i < im.getSlotReferences().size(); i++)
         	{
 	        	Point p = _HeatSinkDots.get(HeatSinkIndex);
-	        	heatSinkHotspotRects.add(createHotspotRectangle(p.x,p.y,largeDot,scale));	        	
+	        	heatSinkHotspotRects.add(new IndexedRectangle(im.getMountedItem().getIdentifier(), createHotspotRectangle(p.x,p.y,largeDot,scale)));	        	
 	        	HeatSinkIndex++;
         	}
         	heatSinkHotspots.put(im.toString(), heatSinkHotspotRects);
