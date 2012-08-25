@@ -302,7 +302,7 @@ public class BattlemechRenderer
         
         HashMap<String, Vector<IndexedRectangle>> mountedItemHotspots = new HashMap<String, Vector<IndexedRectangle>>();        
         FontMetrics metrics = g.getFontMetrics(_CriticalSlotFont);
-        int hgt = metrics.getHeight();
+        double hgt = 16.8; // Inferred from the point data
         int baseline = metrics.getAscent();
         for (ItemMount im : mech.getItems())
         {

@@ -1,12 +1,12 @@
 package bt.ui.panels;
 
-import java.awt.Dimension;
-
-import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.BasicStroke;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.Shape;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -22,6 +22,7 @@ import java.util.Vector;
 import javax.swing.JPanel;
 
 import bt.elements.Battlemech;
+import bt.elements.ItemStatus;
 import bt.ui.renderers.BattlemechRenderer;
 import bt.util.IndexedRectangle;
 
@@ -39,6 +40,8 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener, Mous
     private List<Shape> shapes = new ArrayList<Shape>();
     private Shape currentShape = null;
 
+    private ItemStatus _MarkingMode = ItemStatus.DESTROYED;
+    
 	public BattlemechStatusPanel(double scale)
 	{
 		_Scale = scale;
@@ -57,6 +60,16 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener, Mous
 		setOpaque(false);
 		addMouseListener(this);
 		addMouseMotionListener(this);
+	}
+	
+	public void setMarkingMode(ItemStatus status)
+	{
+		_MarkingMode = status;
+	}
+	
+	public ItemStatus getMarkingMode()
+	{
+		return _MarkingMode;
 	}
 	
 	public Battlemech getBattlemech()
@@ -116,8 +129,8 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener, Mous
 			Graphics2D g2d = (Graphics2D)g;
 			g2d.drawImage(_MechImage, 0, 0, this);
 			
-			g2d.setStroke(new BasicStroke(5F));
 	        g2d.setPaint ( Color.red );
+			g2d.setStroke(new BasicStroke(5F));
 	        for ( Shape shape : shapes )
 	        {
 	            g2d.draw ( shape );
@@ -202,10 +215,21 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener, Mous
 	
 	private void updateMechStatus()
 	{
+	    Line2D shape = ( Line2D ) currentShape;
+	    Rectangle shapeRect = new Rectangle(shape.getBounds());
+	    if (shapeRect.isEmpty())
+	    {
+	    	shapeRect.width += 2;
+	    	shapeRect.height += 2;
+	    }
+	    
+
 		Vector<String> coveredLocations = new Vector<String>();
 		for (String location : _HotSpotAreas.keySet())
 		{
-			if (currentShape.intersects(_HotSpotAreas.get(location).getBounds2D()))
+			Area currentShapeArea = new Area(shapeRect);
+			currentShapeArea.intersect(_HotSpotAreas.get(location));
+			if (!currentShapeArea.isEmpty())
 			{
 				coveredLocations.add(location);
 			}
@@ -218,7 +242,9 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener, Mous
 			HashMap<String, Area> localAreas = _HotSpotLocalAreas.get(coveredLocations.elementAt(0));
 			for (String key : localAreas.keySet())
 			{
-				if (currentShape.intersects(localAreas.get(key).getBounds2D()))
+				Area currentShapeArea = new Area(shapeRect);
+				currentShapeArea.intersect(localAreas.get(key));
+				if (!currentShapeArea.isEmpty())
 				{
 					coveredLocalAreas.add(key);
 				}
@@ -227,9 +253,15 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener, Mous
 			if (coveredLocalAreas.size() == 1)
 			{
 				// This is to ensure that the user did in fact mean to mark an area
-				
 				System.out.println("Marking :" + coveredLocations.elementAt(0) + " :" + coveredLocalAreas.elementAt(0));
+				
 			}
+			else
+				System.out.println("Marking :" + coveredLocalAreas.toString());
+				
 		}
 	}
+	
+	
+	
 }
