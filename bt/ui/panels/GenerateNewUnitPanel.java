@@ -23,7 +23,9 @@ import bt.elements.Battlemech;
 import bt.elements.personnel.Personnel;
 import bt.elements.personnel.Rating;
 import bt.elements.unit.Player;
+import bt.elements.unit.QualityRating;
 import bt.elements.unit.RandomName;
+import bt.elements.unit.TechRating;
 import bt.elements.unit.Unit;
 import bt.managers.UnitManager;
 
@@ -56,6 +58,12 @@ public class GenerateNewUnitPanel extends JPanel
 	private JTextField _UnitNameTextField = null;
 	private JLabel _UnitWeightLabel = null;
 	private JComboBox<String> _UnitWeightComboBox = null;
+	private JLabel _UnitRatingLabel = null;
+	private JComboBox<Rating> _UnitRatingComboBox = null;
+	private JLabel _UnitQualityRatingLabel = null;
+	private JComboBox<QualityRating> _UnitQualityRatingComboBox = null;
+	private JLabel _UnitTechRatingLabel = null;
+	private JComboBox<TechRating> _UnitTechRatingComboBox = null;
 	private JLabel _MechListLabel = null;
 	private JScrollPane _MechList = null;
 	private DefaultListModel<String> _MechListModel = null;
@@ -108,6 +116,15 @@ public class GenerateNewUnitPanel extends JPanel
         _UnitWeightLabel = new JLabel();
         _UnitWeightLabel.setBounds(new Rectangle(435, 151, 76, 16));
         _UnitWeightLabel.setText("Unit Weight");
+        _UnitRatingLabel = new JLabel();
+        _UnitRatingLabel.setBounds(new Rectangle(435, 151, 76, 16));
+        _UnitRatingLabel.setText("Unit Rating");
+        _UnitQualityRatingLabel = new JLabel();
+        _UnitQualityRatingLabel.setBounds(new Rectangle(435, 151, 76, 16));
+        _UnitQualityRatingLabel.setText("Unit Quality Rating");
+        _UnitTechRatingLabel = new JLabel();
+        _UnitTechRatingLabel.setBounds(new Rectangle(435, 151, 76, 16));
+        _UnitTechRatingLabel.setText("Unit Tech Rating");
         _UnitNameLabel = new JLabel();
         _UnitNameLabel.setBounds(new Rectangle(15, 152, 76, 16));
         _UnitNameLabel.setText("Unit Name");
@@ -118,6 +135,12 @@ public class GenerateNewUnitPanel extends JPanel
         this.add(get_UnitNameTextField(), null);
         this.add(_UnitWeightLabel, null);
         this.add(get_UnitWeightComboBox(), null);
+        this.add(_UnitRatingLabel, null);
+        this.add(get_UnitRatingComboBox(), null);
+        this.add(_UnitQualityRatingLabel, null);
+        this.add(get_UnitQualityRatingComboBox(), null);
+        this.add(_UnitTechRatingLabel, null);
+        this.add(get_UnitTechRatingComboBox(), null);
         this.add(_MechListLabel, null);
         this.add(get_MechList(), null);
         this.add(_PersonnelListLabel, null);
@@ -212,16 +235,61 @@ public class GenerateNewUnitPanel extends JPanel
 	 * 	
 	 * @return javax.swing.JComboBox	
 	 */
-	private JComboBox<String> get_UnitWeightComboBox()
+	private JComboBox get_UnitWeightComboBox()
 	{
 		if (_UnitWeightComboBox == null)
 		{
-			_UnitWeightComboBox = new JComboBox<String>(_UnitWeights);
+			_UnitWeightComboBox = new JComboBox(_UnitWeights);
 			_UnitWeightComboBox.setBounds(new Rectangle(436, 167, 165, 23));
 		}
 		return _UnitWeightComboBox;
 	}
 
+	/**
+	 * This method initializes _UnitRatingComboBox	
+	 * 	
+	 * @return javax.swing.JComboBox	
+	 */
+	private JComboBox get_UnitRatingComboBox()
+	{
+		if (_UnitRatingComboBox == null)
+		{
+			_UnitRatingComboBox = new JComboBox(Rating.values());
+			_UnitRatingComboBox.setBounds(new Rectangle(436, 167, 165, 23));
+		}
+		return _UnitRatingComboBox;
+	}
+
+	/**
+	 * This method initializes _UnitQualityRatingComboBox	
+	 * 	
+	 * @return javax.swing.JComboBox	
+	 */
+	private JComboBox get_UnitQualityRatingComboBox()
+	{
+		if (_UnitQualityRatingComboBox == null)
+		{
+			_UnitQualityRatingComboBox = new JComboBox(QualityRating.values());
+			_UnitQualityRatingComboBox.setBounds(new Rectangle(436, 167, 165, 23));
+		}
+		return _UnitQualityRatingComboBox;
+	}
+	
+	/**
+	 * This method initializes _UnitTechRatingComboBox	
+	 * 	
+	 * @return javax.swing.JComboBox	
+	 */
+	private JComboBox get_UnitTechRatingComboBox()
+	{
+		if (_UnitTechRatingComboBox == null)
+		{
+			_UnitTechRatingComboBox = new JComboBox(TechRating.values());
+			_UnitTechRatingComboBox.setBounds(new Rectangle(436, 167, 165, 23));
+		}
+		return _UnitTechRatingComboBox;
+	}
+	
 	/**
 	 * This method initializes _MechList	
 	 * 	
@@ -341,7 +409,7 @@ public class GenerateNewUnitPanel extends JPanel
 
 		            try
 					{
-						_GeneratedUnit = _UnitManager.GenerateUnit(_Player, _UnitNameTextField.getText(), _UnitWeightComboBox.getSelectedItem().toString(),Rating.REGULAR);
+						_GeneratedUnit = _UnitManager.GenerateUnit(_Player, _UnitNameTextField.getText(), _UnitWeightComboBox.getSelectedItem().toString(),(Rating)_UnitRatingComboBox.getSelectedItem(), (QualityRating)_UnitQualityRatingComboBox.getSelectedItem(), (TechRating)_UnitTechRatingComboBox.getSelectedItem());
 					} catch (Exception e1)
 					{
 						// TODO Auto-generated catch block
