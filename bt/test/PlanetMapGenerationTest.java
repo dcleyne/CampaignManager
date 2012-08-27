@@ -58,7 +58,7 @@ public class PlanetMapGenerationTest
         {
             log.info("Generating Planets");
             
-            boolean doAll = false;
+            boolean doAll = true;
             
             PropertyUtil.loadSystemProperties("bt/system.properties");
 	        
@@ -87,8 +87,12 @@ public class PlanetMapGenerationTest
 		        	ssd.setNotes(planetNotes.get(i + 1));
 		        	
 		        	PlanetMapGenerator pmg = new PlanetMapGenerator();
-		        	pmg.generatePlanetMap(isp, ssd, true, true, false, false, false);
-	
+		        	
+		        	boolean generateTerrain = !ssd.isMapGenerated();
+		        	boolean generateSettlements = ssd.getSettlementCount() == 0;
+		        	boolean generateRoads = generateSettlements;
+		        	
+		        	pmg.generatePlanetMap(isp, ssd, generateTerrain, generateSettlements, generateRoads, true, true);	
 		        	pmg.generatePlanetMapImage(isp, ssd, false);
 	        	}
             }
@@ -100,9 +104,9 @@ public class PlanetMapGenerationTest
 	        	ssd.setNotes(planetNotes.get(index + 1));
 	        	
 	        	PlanetMapGenerator pmg = new PlanetMapGenerator();
-	        	pmg.generatePlanetMap(isp, ssd, true, true, false, true, false);
+	        	pmg.generatePlanetMap(isp, ssd, false, true, true, true, true);
 
-//	        	pmg.generatePlanetMapImage(isp, ssd, true);
+	        	pmg.generatePlanetMapImage(isp, ssd, true);
             }
 
         }

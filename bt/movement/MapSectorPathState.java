@@ -100,7 +100,7 @@ public class MapSectorPathState extends aState
 		
 		for (int i = 0; i < path.length - 1; i++)
 		{
-			distance += calcDistance(path[i],path[i+1],false);
+			distance += calcDistance(path[i],path[i+1],true);
 		}		
 		
 		return distance * 0.5;

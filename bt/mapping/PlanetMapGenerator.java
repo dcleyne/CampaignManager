@@ -17,6 +17,7 @@ import bt.elements.galaxy.SolarSystemDetails;
 import bt.managers.SolarSystemManager;
 import bt.ui.renderers.WorldMapRenderer;
 import bt.util.ExceptionUtil;
+import bt.util.PropertyUtil;
 
 public class PlanetMapGenerator 
 {
@@ -47,7 +48,7 @@ public class PlanetMapGenerator
 	
 	public void generatePlanetMapImage(InnerSpherePlanet planet, SolarSystemDetails ssd, boolean forceCreate)
 	{
-		String path = "data/planets/maps/";
+		String path = PropertyUtil.getStringProperty("ExternalDataPath", "data") + "/planets/maps/";
 		File pathFile = new File(path);
 		if (!pathFile.exists())
 			pathFile.mkdirs();

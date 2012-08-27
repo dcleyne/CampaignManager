@@ -351,10 +351,15 @@ public class SolarSystemDetails implements Serializable
     	{
     		//Clear any existing roads
     		for (int i = 0; i < m_Map.getPlanetSectorCount(); i++)
-    			m_Map.getPlanetSector(i).clearRoads();
+    			m_Map.getPlanetSector(i + 1).clearRoads();
     		
 			//Lay down roads
-			HashMap<Integer,Vector<Integer>> builtRoads = new HashMap<Integer,Vector<Integer>>();  
+			HashMap<Integer,Vector<Integer>> builtRoads = new HashMap<Integer,Vector<Integer>>();
+			for (Settlement place1: m_Settlements)
+			{
+				builtRoads.put(place1.getLocation(), new Vector<Integer>());
+			}
+			
 			for (Settlement place1: m_Settlements)
 			{
 				log.info("Laying roads for settlement " + place1.toString());
@@ -366,13 +371,8 @@ public class SolarSystemDetails implements Serializable
 						continue;
 					
 					Integer key2 = new Integer(place2.getLocation());
-					if (builtRoads.containsKey(key2))
-					{
-						if (builtRoads.get(key2).contains(key1))
-							continue;
-					}
-					else
-						builtRoads.put(key2, new Vector<Integer>());
+					if (builtRoads.get(key2).contains(key1))
+						continue;
 					
 					int roadWidth = Math.min(place1.getType().getRoadWidth(), place2.getType().getRoadWidth());
 		        	
