@@ -7,6 +7,8 @@ import bt.elements.Battlemech;
 import bt.elements.personnel.Rating;
 import bt.elements.unit.MechUnitParameters;
 import bt.elements.unit.Player;
+import bt.elements.unit.QualityRating;
+import bt.elements.unit.TechRating;
 import bt.elements.unit.Unit;
 import bt.managers.UnitManager;
 import bt.util.ExceptionUtil;
@@ -39,7 +41,7 @@ public class TestLanceGeneration
 			        unitDisplay += "Min BV: " + Integer.toString(mup.getMinBV()) + ", ";
 			        unitDisplay += "Max BV: " + Integer.toString(mup.getMaxBV()) + "\r\n";
 			        
-			        Unit u = UnitManager.getInstance().GenerateUnit(p, "Generated Unit", mup, Rating.REGULAR);
+			        Unit u = UnitManager.getInstance().GenerateUnit(p, "Generated Unit", mup, Rating.REGULAR, QualityRating.D, TechRating.D);
 			
 			        int totalBV = 0;
 			        int totalWeight = 0;

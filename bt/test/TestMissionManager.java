@@ -8,7 +8,10 @@ import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.helpers.Loader;
 
 import bt.elements.Battlemech;
+import bt.elements.personnel.Rating;
 import bt.elements.scenario.Scenario;
+import bt.elements.unit.QualityRating;
+import bt.elements.unit.TechRating;
 import bt.elements.unit.Unit;
 import bt.managers.MissionManager;
 import bt.managers.UnitManager;
@@ -42,7 +45,7 @@ public class TestMissionManager
 	            String filename = "/tmp/TestScenario.xml";
 	            
 	            System.out.println("Generating Scenario for unit: " + unitName + "\n"); 
-	            Scenario scenario = MissionManager.getInstance().generateScenario(u);
+	            Scenario scenario = MissionManager.getInstance().generateScenario(u, Rating.REGULAR, QualityRating.D, TechRating.D);
 	            System.out.println("Storing Scenario\n"); 
 	            MissionManager.getInstance().saveScenario(filename, scenario);
 	            System.out.println("Loading Scenario\n"); 

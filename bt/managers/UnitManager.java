@@ -29,7 +29,9 @@ import bt.elements.personnel.Technician;
 import bt.elements.unit.MechAvailability;
 import bt.elements.unit.MechUnitParameters;
 import bt.elements.unit.Player;
+import bt.elements.unit.QualityRating;
 import bt.elements.unit.RandomName;
+import bt.elements.unit.TechRating;
 import bt.elements.unit.Unit;
 import bt.util.Dice;
 import bt.util.ExceptionUtil;
@@ -167,11 +169,13 @@ public class UnitManager
 		}
 	}
 
-	public Unit GenerateUnit(Player p, String unitName, MechUnitParameters mup, Rating rating) throws Exception
+	public Unit GenerateUnit(Player p, String unitName, MechUnitParameters mup, Rating rating, QualityRating qualityRating, TechRating techRating) throws Exception
 	{
 		Unit u = new Unit();
 		u.setPlayer(p);
 		u.setName(unitName);
+		u.setQualityRating(qualityRating);
+		u.setTechRating(techRating);
 
 		u.addBattlemechs(generateLance(mup));
 		int supportReq = 0;
@@ -244,14 +248,14 @@ public class UnitManager
 		return u;
 	}
 
-	public Unit GenerateUnit(Player p, String unitName, String lanceWeight, Rating rating) throws Exception
+	public Unit GenerateUnit(Player p, String unitName, String lanceWeight, Rating rating, QualityRating qualityRating, TechRating techRating) throws Exception
 	{
 		if (!_Parameters.containsKey(lanceWeight))
 			throw new IllegalArgumentException("Unable to determine lance parameters from Lance Weight : " + lanceWeight);
 
 		MechUnitParameters mup = _Parameters.get(lanceWeight);
 
-		return GenerateUnit(p, unitName, mup, rating);
+		return GenerateUnit(p, unitName, mup, rating, qualityRating, techRating);
 
 	}
 
@@ -359,6 +363,7 @@ public class UnitManager
 			int totalBV = 0;
 			int totalWeight = 0;
 			unitElement.setAttribute("Name", u.getName());
+			
 			for (Battlemech b : u.getBattlemechs())
 			{
 				totalBV += b.getBV();
@@ -400,6 +405,10 @@ public class UnitManager
 		org.jdom.Element unitNode = new org.jdom.Element("Unit");
 
 		unitNode.addContent(new org.jdom.Element("Name").setText(u.getName()));
+		unitNode.addContent(new org.jdom.Element("QualityRating").setText(u.getQualityRating().toString()));
+		unitNode.addContent(new org.jdom.Element("TechRating").setText(u.getTechRating().toString()));
+		unitNode.addContent(new org.jdom.Element("Notes").setText(u.getNotes()));
+
 		if (u.getPlayer() != null)
 			unitNode.addContent(new org.jdom.Element("Player").setText(u.getPlayer().getName()));
 
@@ -582,6 +591,19 @@ public class UnitManager
 		BattlemechManager bm = new BattlemechManager();
 
 		u.setName(unitNode.getChildTextTrim("Name"));
+		if (unitNode.getChild("QualityRating") != null)
+		{
+			u.setQualityRating(QualityRating.fromString(unitNode.getChildTextTrim("QualityRating")));
+		}
+		if (unitNode.getChild("TechRating") != null)
+		{
+			u.setTechRating(TechRating.fromString(unitNode.getChildTextTrim("TechRating")));
+		}
+		if (unitNode.getChild("Notes") != null)
+		{
+			u.setNotes(unitNode.getChildTextTrim("Notes"));
+		}
+		
 		if (unitNode.getChild("Player") != null)
 			u.setPlayer(PlayerManager.getInstance().getPlayer(unitNode.getChildTextTrim("Player")));
 

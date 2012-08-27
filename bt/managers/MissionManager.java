@@ -44,6 +44,8 @@ import bt.elements.scenario.TimeOfDay;
 import bt.elements.scenario.Wind;
 import bt.elements.unit.MechUnitParameters;
 import bt.elements.unit.Player;
+import bt.elements.unit.QualityRating;
+import bt.elements.unit.TechRating;
 import bt.elements.unit.Unit;
 import bt.html.Tag;
 import bt.ui.renderers.BattlemechRenderer;
@@ -272,7 +274,7 @@ public class MissionManager
 	}
 	
 	
-	public Scenario generateScenario(Unit u)
+	public Scenario generateScenario(Unit u, Rating opponentRating, QualityRating opponentQualityRating, TechRating opponentTechRating)
 	{
 		Scenario scenario = new Scenario();
 		
@@ -303,7 +305,7 @@ public class MissionManager
 			forceSize = Math.round((float)u.getUnitStrength() / m.getForceRatio());
 		}
 		
-		Unit opposingUnit = generateOpposingUnit(forceBV, forceSize);
+		Unit opposingUnit = generateOpposingUnit(forceBV, forceSize, opponentRating, opponentQualityRating, opponentTechRating);
 		
 		scenario.getSides().put(sideName, u);
 		scenario.getSides().put(oppositionName, opposingUnit);
@@ -311,7 +313,7 @@ public class MissionManager
 		return scenario;
 	}
 	
-	private Unit generateOpposingUnit(int forceBV, int unitStrength)
+	private Unit generateOpposingUnit(int forceBV, int unitStrength, Rating rating, QualityRating qualityRating, TechRating techRating)
 	{
 		
 		Player p = new Player();
@@ -348,7 +350,7 @@ public class MissionManager
 			
 			try
 			{
-				u = UnitManager.getInstance().GenerateUnit(p, unitName, mup, Rating.REGULAR);
+				u = UnitManager.getInstance().GenerateUnit(p, unitName, mup, rating, qualityRating, techRating);
 				unitBV = u.getUnitBV();
 				if (unitBV == 0)
 					log.debug("Unit generation failed");
