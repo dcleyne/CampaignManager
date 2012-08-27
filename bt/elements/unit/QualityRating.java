@@ -43,5 +43,4 @@ public enum QualityRating
 		}
 		return null;
 	}
-	
 }

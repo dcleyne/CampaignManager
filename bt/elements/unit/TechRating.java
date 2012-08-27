@@ -31,4 +31,5 @@ public enum TechRating
 		}
 		return null;
 	}
+	
 }
