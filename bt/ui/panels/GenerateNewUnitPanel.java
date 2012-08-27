@@ -96,40 +96,40 @@ public class GenerateNewUnitPanel extends JPanel
 	 */
 	private void initialize() {
         _BiWeeklySalaryLabel = new JLabel();
-        _BiWeeklySalaryLabel.setBounds(new Rectangle(316, 466, 105, 16));
+        _BiWeeklySalaryLabel.setBounds(new Rectangle(316, 544, 105, 16));
         _BiWeeklySalaryLabel.setText("BiWeekly Salary");
         _AnnualSalaryLabel = new JLabel();
-        _AnnualSalaryLabel.setBounds(new Rectangle(210, 466, 91, 16));
+        _AnnualSalaryLabel.setBounds(new Rectangle(210, 544, 91, 16));
         _AnnualSalaryLabel.setText("Annual Salary");
         _MechWeightLabel = new JLabel();
-        _MechWeightLabel.setBounds(new Rectangle(106, 466, 90, 16));
+        _MechWeightLabel.setBounds(new Rectangle(106, 544, 90, 16));
         _MechWeightLabel.setText("Mech Weight");
         _MechBVLabel = new JLabel();
-        _MechBVLabel.setBounds(new Rectangle(16, 466, 75, 16));
+        _MechBVLabel.setBounds(new Rectangle(16, 544, 75, 16));
         _MechBVLabel.setText("Mech BV");
         _PersonnelListLabel = new JLabel();
-        _PersonnelListLabel.setBounds(new Rectangle(14, 316, 77, 16));
+        _PersonnelListLabel.setBounds(new Rectangle(15, 385, 77, 16));
         _PersonnelListLabel.setText("Personnel");
         _MechListLabel = new JLabel();
-        _MechListLabel.setBounds(new Rectangle(15, 194, 61, 16));
+        _MechListLabel.setBounds(new Rectangle(15, 257, 61, 16));
         _MechListLabel.setText("Mechs");
         _UnitWeightLabel = new JLabel();
-        _UnitWeightLabel.setBounds(new Rectangle(435, 151, 76, 16));
+        _UnitWeightLabel.setBounds(new Rectangle(15, 196, 76, 16));
         _UnitWeightLabel.setText("Unit Weight");
         _UnitRatingLabel = new JLabel();
-        _UnitRatingLabel.setBounds(new Rectangle(435, 151, 76, 16));
+        _UnitRatingLabel.setBounds(new Rectangle(168, 196, 76, 16));
         _UnitRatingLabel.setText("Unit Rating");
         _UnitQualityRatingLabel = new JLabel();
-        _UnitQualityRatingLabel.setBounds(new Rectangle(435, 151, 76, 16));
+        _UnitQualityRatingLabel.setBounds(new Rectangle(326, 196, 123, 16));
         _UnitQualityRatingLabel.setText("Unit Quality Rating");
         _UnitTechRatingLabel = new JLabel();
-        _UnitTechRatingLabel.setBounds(new Rectangle(435, 151, 76, 16));
+        _UnitTechRatingLabel.setBounds(new Rectangle(459, 196, 133, 16));
         _UnitTechRatingLabel.setText("Unit Tech Rating");
         _UnitNameLabel = new JLabel();
         _UnitNameLabel.setBounds(new Rectangle(15, 152, 76, 16));
         _UnitNameLabel.setText("Unit Name");
         this.setLayout(null);
-        this.setSize(new Dimension(623, 557));
+        this.setSize(new Dimension(623, 644));
         this.add(get_PlayerPanel(), null);
         this.add(_UnitNameLabel, null);
         this.add(get_UnitNameTextField(), null);
@@ -155,6 +155,12 @@ public class GenerateNewUnitPanel extends JPanel
         this.add(get_BiWeeklySalaryTextField(), null);
         this.add(get_GenerateButton(), null);
         this.add(get_SaveButton(), null);
+        JList<String> list = new JList<String>(_PersonnelListModel);
+        list.setBounds(15, 412, 584, 119);
+        add(list);
+        JList<String> list_1 = new JList<String>(_MechListModel);
+        list_1.setBounds(15, 284, 583, 88);
+        add(list_1);
 			
 	}
 
@@ -225,7 +231,7 @@ public class GenerateNewUnitPanel extends JPanel
 		if (_UnitNameTextField == null)
 		{
 			_UnitNameTextField = new JTextField();
-			_UnitNameTextField.setBounds(new Rectangle(17, 167, 404, 20));
+			_UnitNameTextField.setBounds(new Rectangle(17, 167, 587, 20));
 		}
 		return _UnitNameTextField;
 	}
@@ -235,12 +241,12 @@ public class GenerateNewUnitPanel extends JPanel
 	 * 	
 	 * @return javax.swing.JComboBox	
 	 */
-	private JComboBox get_UnitWeightComboBox()
+	private JComboBox<String> get_UnitWeightComboBox()
 	{
 		if (_UnitWeightComboBox == null)
 		{
-			_UnitWeightComboBox = new JComboBox(_UnitWeights);
-			_UnitWeightComboBox.setBounds(new Rectangle(436, 167, 165, 23));
+			_UnitWeightComboBox = new JComboBox<String>(_UnitWeights);
+			_UnitWeightComboBox.setBounds(new Rectangle(15, 223, 143, 23));
 		}
 		return _UnitWeightComboBox;
 	}
@@ -250,12 +256,12 @@ public class GenerateNewUnitPanel extends JPanel
 	 * 	
 	 * @return javax.swing.JComboBox	
 	 */
-	private JComboBox get_UnitRatingComboBox()
+	private JComboBox<Rating> get_UnitRatingComboBox()
 	{
 		if (_UnitRatingComboBox == null)
 		{
-			_UnitRatingComboBox = new JComboBox(Rating.values());
-			_UnitRatingComboBox.setBounds(new Rectangle(436, 167, 165, 23));
+			_UnitRatingComboBox = new JComboBox<Rating>(Rating.values());
+			_UnitRatingComboBox.setBounds(new Rectangle(168, 223, 133, 23));
 		}
 		return _UnitRatingComboBox;
 	}
@@ -265,12 +271,12 @@ public class GenerateNewUnitPanel extends JPanel
 	 * 	
 	 * @return javax.swing.JComboBox	
 	 */
-	private JComboBox get_UnitQualityRatingComboBox()
+	private JComboBox<QualityRating> get_UnitQualityRatingComboBox()
 	{
 		if (_UnitQualityRatingComboBox == null)
 		{
-			_UnitQualityRatingComboBox = new JComboBox(QualityRating.values());
-			_UnitQualityRatingComboBox.setBounds(new Rectangle(436, 167, 165, 23));
+			_UnitQualityRatingComboBox = new JComboBox<QualityRating>(QualityRating.values());
+			_UnitQualityRatingComboBox.setBounds(new Rectangle(326, 223, 123, 23));
 		}
 		return _UnitQualityRatingComboBox;
 	}
@@ -280,12 +286,12 @@ public class GenerateNewUnitPanel extends JPanel
 	 * 	
 	 * @return javax.swing.JComboBox	
 	 */
-	private JComboBox get_UnitTechRatingComboBox()
+	private JComboBox<TechRating> get_UnitTechRatingComboBox()
 	{
 		if (_UnitTechRatingComboBox == null)
 		{
-			_UnitTechRatingComboBox = new JComboBox(TechRating.values());
-			_UnitTechRatingComboBox.setBounds(new Rectangle(436, 167, 165, 23));
+			_UnitTechRatingComboBox = new JComboBox<TechRating>(TechRating.values());
+			_UnitTechRatingComboBox.setBounds(new Rectangle(459, 223, 141, 23));
 		}
 		return _UnitTechRatingComboBox;
 	}
@@ -300,8 +306,8 @@ public class GenerateNewUnitPanel extends JPanel
 		if (_MechList == null)
 		{
 			_MechListModel = new DefaultListModel<String>();
-			_MechList = new JScrollPane(new JList<String>(_MechListModel));
-			_MechList.setBounds(new Rectangle(16, 211, 585, 90));
+			_MechList = new JScrollPane();
+			_MechList.setBounds(new Rectangle(15, 284, 585, 90));
 		}
 		return _MechList;
 	}
@@ -316,8 +322,8 @@ public class GenerateNewUnitPanel extends JPanel
 		if (_PersonnelList == null)
 		{
 			_PersonnelListModel = new DefaultListModel<String>();
-			_PersonnelList = new JScrollPane(new JList<String>(_PersonnelListModel));
-			_PersonnelList.setBounds(new Rectangle(15, 330, 586, 121));
+			_PersonnelList = new JScrollPane();
+			_PersonnelList.setBounds(new Rectangle(15, 412, 586, 121));
 		}
 		return _PersonnelList;
 	}
@@ -332,7 +338,7 @@ public class GenerateNewUnitPanel extends JPanel
 		if (_MechBVTextField == null)
 		{
 			_MechBVTextField = new JTextField();
-			_MechBVTextField.setBounds(new Rectangle(15, 480, 76, 20));
+			_MechBVTextField.setBounds(new Rectangle(15, 571, 76, 20));
 			_MechBVTextField.setEditable(false);
 		}
 		return _MechBVTextField;
@@ -348,7 +354,7 @@ public class GenerateNewUnitPanel extends JPanel
 		if (_MechWeightTextField == null)
 		{
 			_MechWeightTextField = new JTextField();
-			_MechWeightTextField.setBounds(new Rectangle(106, 480, 90, 20));
+			_MechWeightTextField.setBounds(new Rectangle(106, 571, 90, 20));
 			_MechWeightTextField.setEditable(false);
 		}
 		return _MechWeightTextField;
@@ -364,7 +370,7 @@ public class GenerateNewUnitPanel extends JPanel
 		if (_AnnualSalaryTextField == null)
 		{
 			_AnnualSalaryTextField = new JTextField();
-			_AnnualSalaryTextField.setBounds(new Rectangle(210, 480, 91, 20));
+			_AnnualSalaryTextField.setBounds(new Rectangle(210, 571, 91, 20));
 			_AnnualSalaryTextField.setEditable(false);
 		}
 		return _AnnualSalaryTextField;
@@ -380,7 +386,7 @@ public class GenerateNewUnitPanel extends JPanel
 		if (_BiWeeklySalaryTextField == null)
 		{
 			_BiWeeklySalaryTextField = new JTextField();
-			_BiWeeklySalaryTextField.setBounds(new Rectangle(316, 480, 105, 20));
+			_BiWeeklySalaryTextField.setBounds(new Rectangle(316, 571, 105, 20));
 			_BiWeeklySalaryTextField.setEditable(false);
 		}
 		return _BiWeeklySalaryTextField;
@@ -396,7 +402,7 @@ public class GenerateNewUnitPanel extends JPanel
 		if (_GenerateButton == null)
 		{
 			_GenerateButton = new JButton();
-			_GenerateButton.setBounds(new Rectangle(14, 510, 107, 31));
+			_GenerateButton.setBounds(new Rectangle(15, 602, 107, 31));
 			_GenerateButton.setText("Generate");
 			_GenerateButton.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e)
@@ -455,7 +461,7 @@ public class GenerateNewUnitPanel extends JPanel
 		if (_SaveButton == null)
 		{
 			_SaveButton = new JButton();
-			_SaveButton.setBounds(new Rectangle(134, 510, 107, 31));
+			_SaveButton.setBounds(new Rectangle(132, 602, 107, 31));
 			_SaveButton.setText("Save");
 			_SaveButton.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e)
