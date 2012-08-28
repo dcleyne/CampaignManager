@@ -257,18 +257,18 @@ public class SolarSystemDetails implements Serializable
     
     public void generateRandomPlanet(boolean generateTerrain, boolean generateSettlements, boolean generateRoads)
     {
-    	m_Settlements.clear();
-    	
-		setSize(Dice.d6(2) + 23);    	
+    	Vector<Integer> settlementLocations = new Vector<Integer>();    	
 		WorldTerrainGenerator wtg = new WorldTerrainGenerator(m_Size);
     	WorldMapNavigation wmn = wtg.getWorldMapNavigation();
-    	
-    	Vector<Integer> settlementLocations = new Vector<Integer>();
     	
     	if (generateTerrain)
     	{
 	    	do
 	    	{
+	    		setSize(Dice.d6(2) + 23);
+	    		wtg = new WorldTerrainGenerator(m_Size);
+	        	wmn = wtg.getWorldMapNavigation();
+	        	
 				wtg.generateRandomPlanet(m_MeanTemperatureAtSeaLevel);
 				setMap(wtg.getPlanetMap());
 		
