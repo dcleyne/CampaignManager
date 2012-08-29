@@ -59,7 +59,7 @@ public class MissionManager
 	private static MissionManager theInstance = new MissionManager();
     private Log log = LogFactory.getLog(MissionManager.class);
     
-    private HashMap<String,Mission> _Missions = new HashMap<String,Mission>();
+    private HashMap<Long,Mission> _Missions = new HashMap<Long,Mission>();
 
 	private MissionManager()
 	{
@@ -92,14 +92,14 @@ public class MissionManager
             {
             	org.jdom.Element missionElement = (org.jdom.Element)iter.next();
             	Mission ms = loadMission(missionElement);
-            	_Missions.put(ms.getName(),ms);            	
+            	_Missions.put(ms.getID(),ms);            	
             }
     	
         } catch(java.io.IOException ex) {
-            log.info("Error Opening Player File!");
+            log.info("Error Opening Missions File!");
             log.error(ex);
         } catch (JDOMException jdex) {
-            log.info("Failure Parsing Player File!");
+            log.info("Failure Parsing Missions File!");
             log.error(jdex);
         }	
 	}
@@ -194,13 +194,26 @@ public class MissionManager
 	
 	public Vector<String> getMissionList()
 	{
-		return new Vector<String>(_Missions.keySet()); 
+		Vector<String> missionList = new Vector<String>();
+		for (Long id : _Missions.keySet())
+			missionList.add(_Missions.get(id).getName());
+		
+		return missionList; 
 	}
 	
-	public Mission getRandomMission(Vector<String> excludeMissions)
+	public Vector<String> getMissionList(Vector<Long> missionIDs)
 	{
-		Vector<String> eligibleMissions = new Vector<String>(_Missions.keySet());
-		eligibleMissions.removeAll(excludeMissions);
+		Vector<String> missionList = new Vector<String>();
+		for (Long id : missionIDs)
+			missionList.add(_Missions.get(id).getName());
+		
+		return missionList; 
+	}
+	
+	public Mission getRandomMission(Vector<Long> completedMissions)
+	{
+		Vector<Long> eligibleMissions = new Vector<Long>(_Missions.keySet());
+		eligibleMissions.removeAll(completedMissions);
 		if (eligibleMissions.size() > 0)
 		{
 			int randomMission = Dice.random(eligibleMissions.size()) - 1;
@@ -344,8 +357,8 @@ public class MissionManager
 			MechUnitParameters mup = new MechUnitParameters();
 			mup.setName("Custom");
 			mup.setIncludedMechWeights(MechUnitParameters.AllMechWeights);
-			mup.setMinBV(chosenForceSize.getBV() - 10000);
-			mup.setMaxBV(chosenForceSize.getBV() + 10000);
+			mup.setMinBV(chosenForceSize.getBV() - 20);
+			mup.setMaxBV(chosenForceSize.getBV() + 20);
 			mup.setMechCount(chosenForceSize.getNumUnits());
 			
 			try
@@ -366,9 +379,11 @@ public class MissionManager
 	
 	public Scenario loadScenario(String filename) throws Exception
 	{
+        String Path = PropertyUtil.getStringProperty("ExternalDataPath", "data") + "/scenarios/";
+
         SAXBuilder b = new SAXBuilder();
-        Document mapDoc = b.build(filename);
-        return loadScenario(mapDoc.getRootElement());
+        Document scenarioDoc = b.build(Path + filename);
+        return loadScenario(scenarioDoc.getRootElement());
 	}
 	
 	public Scenario loadScenario(org.jdom.Element element)
@@ -427,13 +442,35 @@ public class MissionManager
 		return scenario;
 	}
 	
+	public Scenario loadScenarioForUnit(Unit u, long missionID) throws Exception
+	{
+		Mission m = _Missions.get(missionID);
+		String filename = createScenarioFilename(m, u);
+		
+		return loadScenario(filename);
+	}
+	
+	public String createScenarioFilename(Mission m, Unit u)
+	{
+		return u.getName() + " - " + m.getName();
+	}
+	
+	public void SaveScenarioForUnit(Unit u, Scenario s) throws Exception
+	{
+		String filename = createScenarioFilename(s.getMission(), u);
+
+		saveScenario(filename, s);
+	}
+	
 	public void saveScenario(String filename, Scenario scenario) throws Exception
 	{
+        String Path = PropertyUtil.getStringProperty("ExternalDataPath", "data") + "/scenarios/";
+
 		org.jdom.Document doc = new Document();
 		doc.setRootElement(saveScenario(scenario));
 		
         XMLOutputter out = new XMLOutputter(Format.getPrettyFormat());            
-        out.output(doc, new FileOutputStream(filename));	
+        out.output(doc, new FileOutputStream(Path + filename));	
 		
 	}
 	

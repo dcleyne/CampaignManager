@@ -55,7 +55,8 @@ public class Unit implements Serializable
 	private Vector<Ammunition> _SpareAmmunition = new Vector<Ammunition>();
 	private Vector<Item> _SpareParts = new Vector<Item>();
 	private Vector<Asset> _SalvagedAssets = new Vector<Asset>();
-	private Vector<String> _AssignedMissions = new Vector<String>();
+	private Vector<Long> _AssignedMissions = new Vector<Long>();
+	private Vector<Long> _CompletedMissions = new Vector<Long>();
 	private Vector<Formation> m_Formations = new Vector<Formation>();
 
 	public String getName()
@@ -246,9 +247,27 @@ public class Unit implements Serializable
 		return _SalvagedAssets;
 	}
 
-	public Vector<String> getAssignedMissions()
+	public Vector<Long> getAssignedMissions()
 	{
 		return _AssignedMissions;
+	}
+
+	public Vector<Long> getCompletedMissions()
+	{
+		return _CompletedMissions;
+	}
+	
+	public void missionCompleted(long missionID)
+	{
+		Long id = new Long(missionID);
+		_AssignedMissions.remove(id);
+		_CompletedMissions.add(id);
+	}
+	
+	public void missionAbandoned(long missionID)
+	{
+		Long id = new Long(missionID);
+		_AssignedMissions.remove(id);		
 	}
 
 	public int getUnitStrength()
