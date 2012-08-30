@@ -210,6 +210,17 @@ public class MissionManager
 		return missionList; 
 	}
 	
+	public String getMissionName(Long missionID)
+	{
+		Mission m = _Missions.get(missionID);
+		if (m != null)
+		{
+			return m.getName();
+		}
+		
+		return ""; 
+	}
+	
 	public Mission getRandomMission(Vector<Long> completedMissions)
 	{
 		Vector<Long> eligibleMissions = new Vector<Long>(_Missions.keySet());
@@ -291,7 +302,7 @@ public class MissionManager
 	{
 		Scenario scenario = new Scenario();
 		
-		Mission m = getRandomMission(u.getAssignedMissions());
+		Mission m = getRandomMission(u.getCompletedMissions());
 		scenario.setMission(m);
 		scenario.setTimeOfDay(TimeOfDay.random());
 		scenario.setSeason(Season.getRandomSeason());

@@ -7,6 +7,8 @@ import bt.managers.MissionManager;
 import org.apache.commons.logging.LogFactory;
 import org.apache.commons.logging.Log;
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.event.ListSelectionEvent;
@@ -33,13 +35,12 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
 	private static final long serialVersionUID = 1;
 	
     private static Log log = LogFactory.getLog(UnitMissionPanel.class);
-    protected Unit m_Unit;
+    protected Unit _Unit;
 
     private JList<String> _CompletedMissionList;
-    private JList<String> _AssignedMissionList;
+    private JTextField _AssignedMissionTextField;
     
     private JButton _DeleteCompletedMissionButton;
-    private JButton _MarkCompletedMissionIncompleteButton;
     private JButton _ExportCompletedMissionButton;
     private JButton _ViewCompletedMissionButton;
     
@@ -52,69 +53,31 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
     public UnitMissionPanel(Unit u)
     {
     	log.debug("UnitMissionPanel constructor called");
-        m_Unit = u;
+        _Unit = u;
         
-        InitialisePanel();
-        FillLists();
+        initialisePanel();
+        fillLists();
+        setButtonState();
     }
 
-    public void InitialisePanel()
+    public void initialisePanel()
     {
-    	setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-    	
-    	JPanel completedMissionsPanel = new JPanel();
-    	completedMissionsPanel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Completed Missions", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-    	completedMissionsPanel.setLayout(new BorderLayout(2, 2));
-    	add(completedMissionsPanel);
-    	
-    	_CompletedMissionList = new JList<String>();
-    	_CompletedMissionList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-    	_CompletedMissionList.addListSelectionListener(this);
-    	completedMissionsPanel.add(_CompletedMissionList, BorderLayout.CENTER);
-    	
-    	JPanel completedMissionButtonPanel = new JPanel();
-    	completedMissionsPanel.add(completedMissionButtonPanel, BorderLayout.SOUTH);
-    	completedMissionButtonPanel.setLayout(new BoxLayout(completedMissionButtonPanel, BoxLayout.X_AXIS));
-    	
-    	_DeleteCompletedMissionButton = new JButton("Delete");
-    	_DeleteCompletedMissionButton.setActionCommand("DeleteCompleteMission");
-    	_DeleteCompletedMissionButton.addActionListener(this);
-    	completedMissionButtonPanel.add(_DeleteCompletedMissionButton);
-    	
-    	Component completedMissionsHorizontalGlue = Box.createHorizontalGlue();
-    	completedMissionButtonPanel.add(completedMissionsHorizontalGlue);
-    	
-    	_MarkCompletedMissionIncompleteButton = new JButton("Mark Incomplete");
-    	_MarkCompletedMissionIncompleteButton.addActionListener(this);
-    	_MarkCompletedMissionIncompleteButton.setActionCommand("MarkMissionIncomplete");
-    	completedMissionButtonPanel.add(_MarkCompletedMissionIncompleteButton);
-    	
-    	Component completedMissionsHorizontalGlue2 = Box.createHorizontalGlue();
-    	completedMissionButtonPanel.add(completedMissionsHorizontalGlue2);
-    	
-    	_ExportCompletedMissionButton = new JButton("Export");
-    	_ExportCompletedMissionButton.addActionListener(this);
-    	_ExportCompletedMissionButton.setActionCommand("ExportCompleteMission");
-    	completedMissionButtonPanel.add(_ExportCompletedMissionButton);
-    	
-    	_ViewCompletedMissionButton = new JButton("View");
-    	_ViewCompletedMissionButton.addActionListener(this);
-    	_ViewCompletedMissionButton.setActionCommand("ViewCompletedMission");
-    	completedMissionButtonPanel.add(_ViewCompletedMissionButton);
+    	setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
     	
     	JPanel assignedMissionsPanel = new JPanel();
-    	assignedMissionsPanel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Assigned Missions", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-    	assignedMissionsPanel.setLayout(new BorderLayout(2, 2));
+    	assignedMissionsPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE,80));
+    	assignedMissionsPanel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Assigned Mission", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+    	assignedMissionsPanel.setLayout(new BoxLayout(assignedMissionsPanel, BoxLayout.PAGE_AXIS));
     	add(assignedMissionsPanel);
     	
-    	_AssignedMissionList = new JList<String>();
-    	_AssignedMissionList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-    	_AssignedMissionList.addListSelectionListener(this);
-    	assignedMissionsPanel.add(_AssignedMissionList, BorderLayout.CENTER);
+    	_AssignedMissionTextField = new JTextField();
+    	_AssignedMissionTextField.setEditable(false);
+    	assignedMissionsPanel.add(_AssignedMissionTextField);
     	
     	JPanel assignedMissionButtonPanel = new JPanel();
-    	assignedMissionsPanel.add(assignedMissionButtonPanel, BorderLayout.SOUTH);
-    	assignedMissionButtonPanel.setLayout(new BoxLayout(assignedMissionButtonPanel, BoxLayout.X_AXIS));
+    	assignedMissionsPanel.add(assignedMissionButtonPanel);
+
+    	assignedMissionButtonPanel.setLayout(new BoxLayout(assignedMissionButtonPanel, BoxLayout.LINE_AXIS));
 
     	_DeleteAssignedMissionButton = new JButton("Delete");
     	_DeleteAssignedMissionButton.addActionListener(this);
@@ -149,12 +112,61 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
     	_ViewAssignedMissionButton.addActionListener(this);
     	_ViewAssignedMissionButton.setActionCommand("ViewAssignedMission");
     	assignedMissionButtonPanel.add(_ViewAssignedMissionButton);
+    	
+    	JPanel completedMissionsPanel = new JPanel();
+    	completedMissionsPanel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Completed Missions", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+    	completedMissionsPanel.setLayout(new BorderLayout(2, 2));
+    	add(completedMissionsPanel);
+    	
+    	_CompletedMissionList = new JList<String>();
+    	_CompletedMissionList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+    	_CompletedMissionList.addListSelectionListener(this);
+    	completedMissionsPanel.add(_CompletedMissionList, BorderLayout.CENTER);
+    	
+    	JPanel completedMissionButtonPanel = new JPanel();
+    	completedMissionsPanel.add(completedMissionButtonPanel, BorderLayout.SOUTH);
+    	completedMissionButtonPanel.setLayout(new BoxLayout(completedMissionButtonPanel, BoxLayout.X_AXIS));
+    	
+    	_DeleteCompletedMissionButton = new JButton("Delete");
+    	_DeleteCompletedMissionButton.setActionCommand("DeleteCompleteMission");
+    	_DeleteCompletedMissionButton.addActionListener(this);
+    	completedMissionButtonPanel.add(_DeleteCompletedMissionButton);
+    	
+    	Component completedMissionsHorizontalGlue = Box.createHorizontalGlue();
+    	completedMissionButtonPanel.add(completedMissionsHorizontalGlue);
+    	
+    	_ExportCompletedMissionButton = new JButton("Export");
+    	_ExportCompletedMissionButton.addActionListener(this);
+    	_ExportCompletedMissionButton.setActionCommand("ExportCompleteMission");
+    	completedMissionButtonPanel.add(_ExportCompletedMissionButton);
+    	
+    	_ViewCompletedMissionButton = new JButton("View");
+    	_ViewCompletedMissionButton.addActionListener(this);
+    	_ViewCompletedMissionButton.setActionCommand("ViewCompletedMission");
+    	completedMissionButtonPanel.add(_ViewCompletedMissionButton);
+    	
+
     }
 
-    private void FillLists()
+    private void fillLists()
     {
-    	_CompletedMissionList.setListData(MissionManager.getInstance().getMissionList(m_Unit.getCompletedMissions()));
-    	_AssignedMissionList.setListData(MissionManager.getInstance().getMissionList(m_Unit.getAssignedMissions()));
+    	_CompletedMissionList.setListData(MissionManager.getInstance().getMissionList(_Unit.getCompletedMissions()));
+    	_AssignedMissionTextField.setText(MissionManager.getInstance().getMissionName(_Unit.getAssignedMission()));
+    }
+    
+    private void setButtonState()
+    {
+    	boolean itemSelected = _CompletedMissionList.getSelectedIndex() > -1;
+    	_ViewCompletedMissionButton.setEnabled(itemSelected);
+    	_ExportCompletedMissionButton.setEnabled(itemSelected);
+    	_DeleteCompletedMissionButton.setEnabled(itemSelected);
+    	
+    	boolean unitHasAssignedMission = _Unit.getAssignedMission() != null;
+    	_DeleteAssignedMissionButton.setEnabled(unitHasAssignedMission);
+    	_MarkMissionCompleteButton.setEnabled(unitHasAssignedMission);
+    	_GenerateNewMissionButton.setEnabled(!unitHasAssignedMission);
+    	_ExportAssignedMissionButton.setEnabled(unitHasAssignedMission);
+    	_ViewAssignedMissionButton.setEnabled(unitHasAssignedMission);
     }
     
     public boolean IsClosable()
@@ -169,15 +181,45 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		// TODO Auto-generated method stub
-		
+		String actionCommand = e.getActionCommand();
+		if (actionCommand.equalsIgnoreCase("DeleteAssignedMission"))
+		{
+			
+		}
+		if (actionCommand.equalsIgnoreCase("MarkMissionComplete"))
+		{
+			
+		}
+		if (actionCommand.equalsIgnoreCase("GenerateNewMission"))
+		{
+			
+		}
+		if (actionCommand.equalsIgnoreCase("ExportAssignedMission"))
+		{
+			
+		}
+		if (actionCommand.equalsIgnoreCase("ViewAssignedMission"))
+		{
+			
+		}
+		if (actionCommand.equalsIgnoreCase("DeleteCompleteMission"))
+		{
+			
+		}
+		if (actionCommand.equalsIgnoreCase("ExportCompleteMission"))
+		{
+			
+		}
+		if (actionCommand.equalsIgnoreCase("ViewCompletedMission"))
+		{
+			
+		}
 	}
 
 	@Override
 	public void valueChanged(ListSelectionEvent e) 
 	{
-		// TODO Auto-generated method stub
-		
+		setButtonState();
 	}
 
 }

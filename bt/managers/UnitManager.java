@@ -426,12 +426,12 @@ public class UnitManager
 		}
 		unitNode.addContent(personnelNode);
 
-		org.jdom.Element assignedMissionsNode = new org.jdom.Element("AssignedMissions");
-		for (Long mission : u.getAssignedMissions())
+		if (u.getAssignedMission() != null)
 		{
-			assignedMissionsNode.addContent(new org.jdom.Element("Mission").setText(Long.toString(mission)));
+			org.jdom.Element assignedMissionNode = new org.jdom.Element("AssignedMission");
+			assignedMissionNode.setText(Long.toString(u.getAssignedMission()));
+			unitNode.addContent(assignedMissionNode);
 		}
-		unitNode.addContent(assignedMissionsNode);
 		
 		org.jdom.Element completedMissionsNode = new org.jdom.Element("CompletedMissions");
 		for (Long mission : u.getCompletedMissions())
@@ -628,15 +628,10 @@ public class UnitManager
 			org.jdom.Element pe = (org.jdom.Element) iter.next();
 			u.getPersonnel().add(loadPersonnel(pe));
 		}
-		org.jdom.Element assignedMissionsElement = unitNode.getChild("AssignedMissions");
+		org.jdom.Element assignedMissionsElement = unitNode.getChild("AssignedMission");
 		if (assignedMissionsElement != null)
 		{
-			iter = assignedMissionsElement.getChildren("Mission").iterator();
-			while (iter.hasNext())
-			{
-				org.jdom.Element me = (org.jdom.Element)iter.next();
-				u.getAssignedMissions().add(Long.parseLong(me.getText()));
-			}
+			u.setAssignedMission(Long.parseLong(assignedMissionsElement.getText()));
 		}
 
 		org.jdom.Element completedMissionsElement = unitNode.getChild("CompletedMissions");
@@ -646,7 +641,7 @@ public class UnitManager
 			while (iter.hasNext())
 			{
 				org.jdom.Element me = (org.jdom.Element)iter.next();
-				u.getAssignedMissions().add(Long.parseLong(me.getText()));
+				u.getCompletedMissions().add(Long.parseLong(me.getText()));
 			}
 		}
 
