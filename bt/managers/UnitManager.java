@@ -602,9 +602,17 @@ public class UnitManager
 		{
 			u.setQualityRating(QualityRating.fromString(unitNode.getChildTextTrim("QualityRating")));
 		}
+		else
+		{
+			u.setQualityRating(QualityRating.D);
+		}
 		if (unitNode.getChild("TechRating") != null)
 		{
 			u.setTechRating(TechRating.fromString(unitNode.getChildTextTrim("TechRating")));
+		}
+		else
+		{
+			u.setTechRating(TechRating.D);
 		}
 		if (unitNode.getChild("Notes") != null)
 		{

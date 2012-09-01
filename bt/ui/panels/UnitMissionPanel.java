@@ -3,6 +3,7 @@ package bt.ui.panels;
 import javax.swing.*;
 import bt.elements.unit.Unit;
 import bt.managers.MissionManager;
+import bt.ui.dialogs.GenerateNewMissionDialog;
 
 import org.apache.commons.logging.LogFactory;
 import org.apache.commons.logging.Log;
@@ -15,6 +16,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import java.awt.Component;
+import java.awt.Dialog.ModalityType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -192,7 +194,10 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
 		}
 		if (actionCommand.equalsIgnoreCase("GenerateNewMission"))
 		{
-			
+			GenerateNewMissionDialog dlg = new GenerateNewMissionDialog(_Unit);
+			dlg.setLocationRelativeTo(this);
+			dlg.setModalityType(ModalityType.APPLICATION_MODAL);
+			dlg.setVisible(true);
 		}
 		if (actionCommand.equalsIgnoreCase("ExportAssignedMission"))
 		{
