@@ -1,8 +1,11 @@
 package bt.ui.panels;
 
 import javax.swing.*;
+
+
 import bt.elements.unit.Unit;
 import bt.managers.MissionManager;
+import bt.managers.UnitManager;
 import bt.ui.dialogs.GenerateNewMissionDialog;
 
 import org.apache.commons.logging.LogFactory;
@@ -58,7 +61,7 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
         _Unit = u;
         
         initialisePanel();
-        fillLists();
+        fillControls();
         setButtonState();
     }
 
@@ -150,7 +153,7 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
 
     }
 
-    private void fillLists()
+    private void fillControls()
     {
     	_CompletedMissionList.setListData(MissionManager.getInstance().getMissionList(_Unit.getCompletedMissions()));
     	_AssignedMissionTextField.setText(MissionManager.getInstance().getMissionName(_Unit.getAssignedMission()));
@@ -186,7 +189,20 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
 		String actionCommand = e.getActionCommand();
 		if (actionCommand.equalsIgnoreCase("DeleteAssignedMission"))
 		{
-			
+			if (JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this Mission?", "Delete Mission", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+			{
+				try
+				{
+					_Unit.assignedMissionAbandoned();
+					UnitManager.getInstance().saveUnit(_Unit);
+					fillControls();
+					setButtonState();
+				} 
+				catch (Exception e1) 
+				{
+					e1.printStackTrace();
+				}
+			}
 		}
 		if (actionCommand.equalsIgnoreCase("MarkMissionComplete"))
 		{
@@ -198,6 +214,12 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
 			dlg.setLocationRelativeTo(this);
 			dlg.setModalityType(ModalityType.APPLICATION_MODAL);
 			dlg.setVisible(true);
+			
+			if (dlg.wasMissionGenerated())
+			{
+				fillControls();
+				setButtonState();
+			}
 		}
 		if (actionCommand.equalsIgnoreCase("ExportAssignedMission"))
 		{
@@ -205,7 +227,15 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
 		}
 		if (actionCommand.equalsIgnoreCase("ViewAssignedMission"))
 		{
-			
+			try
+			{
+				MissionManager.getInstance().printMissionDirectly(_Unit, _Unit.getAssignedMission());
+			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+			}
+
 		}
 		if (actionCommand.equalsIgnoreCase("DeleteCompleteMission"))
 		{
@@ -217,7 +247,6 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
 		}
 		if (actionCommand.equalsIgnoreCase("ViewCompletedMission"))
 		{
-			
 		}
 	}
 

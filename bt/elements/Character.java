@@ -1,6 +1,8 @@
 package bt.elements;
 
 import java.util.Vector;
+import bt.elements.personnel.Personnel;
+import bt.elements.personnel.PersonnelModifier;
 
 public class Character extends Personnel 
 {

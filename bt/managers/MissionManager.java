@@ -1,6 +1,7 @@
 package bt.managers;
 
 import java.awt.Color;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -456,19 +457,19 @@ public class MissionManager
 	public Scenario loadScenarioForUnit(Unit u, long missionID) throws Exception
 	{
 		Mission m = _Missions.get(missionID);
-		String filename = createScenarioFilename(m, u);
+		String filename = createScenarioFilename(m, u, ".xml");
 		
 		return loadScenario(filename);
 	}
 	
-	public String createScenarioFilename(Mission m, Unit u)
+	public String createScenarioFilename(Mission m, Unit u, String extension)
 	{
-		return u.getName() + " - " + m.getName();
+		return u.getName() + " - " + m.getName() + extension;
 	}
 	
 	public void SaveScenarioForUnit(Unit u, Scenario s) throws Exception
 	{
-		String filename = createScenarioFilename(s.getMission(), u);
+		String filename = createScenarioFilename(s.getMission(), u, ".xml");
 
 		saveScenario(filename, s);
 	}
@@ -525,15 +526,22 @@ public class MissionManager
 		
 		return element;
 	}
-	
+
 	public void printScenarioToPDF(String folder, Unit scenarioUnit, int scenarioNumber, Scenario scenario) throws Exception
 	{
 		folder += "/" + scenarioUnit.getName() + "/Scenario " + Integer.toString(scenarioNumber) + "/";
-		File f = new File(folder);
-		if (!f.exists())
-			f.mkdirs();		
+		
 
 		String filename = folder + "/Scenario.pdf";
+		
+		printScenarioToPDF(folder, scenarioUnit, scenario, filename);
+	}
+	
+	public void printScenarioToPDF(String folder, Unit scenarioUnit, Scenario scenario, String filename) throws Exception
+	{
+		File f = new File(folder);
+		if (!f.exists())
+			f.mkdirs();
 
 		f = new File(filename);
 		if (f.exists())
@@ -764,7 +772,16 @@ public class MissionManager
 		
 	}
 	
-	
+	public void printMissionDirectly(Unit u, Long missionID) throws Exception
+	{
+		Mission m = _Missions.get(missionID);
+        String Path = PropertyUtil.getStringProperty("ExternalDataPath", "data") + "/scenarios/";
+        String pdfFilename = Path + createScenarioFilename(m, u, ".pdf");
+        
+        Scenario scenario = loadScenarioForUnit(u, missionID);
+        printScenarioToPDF(Path,u,scenario,pdfFilename);
+
+	}
 	
 	public class ForceSize
 	{

@@ -1,5 +1,7 @@
 package bt.elements;
 
+import bt.elements.personnel.PersonnelModifier;
+
 public enum CharacterTraining 
 {
 	FAMILY_TRAINED,

@@ -14,5 +14,6 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/CampaignManager/lib/iText-2.1.7.doc.zip!/iText-2.1.7.doc"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="lib/PDFRenderer-0.9.1.jar"/>
 	<classpathentry kind="output" path="build"/>
 </classpath>

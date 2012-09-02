@@ -2,11 +2,12 @@ package bt.ui.panels;
 
 import java.awt.Dimension;
 
+
 import javax.swing.JPanel;
 import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 
-import bt.elements.Rating;
+import bt.elements.personnel.Rating;
 import bt.elements.unit.QualityRating;
 import bt.elements.unit.TechRating;
 import bt.elements.unit.Unit;

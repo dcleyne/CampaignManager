@@ -34,19 +34,24 @@ public class RandomName
     	_Surname = surname;
     }
 
-    public void splitName(String Name)
+    public static RandomName splitName(String Name)
     {
+    	String name;
+    	String surname;
+    	
         String[] al = Name.split(" ");
         if (al.length > 1)
         {
-            _Name = al[0];
-            _Surname = al[1];
+            name = al[0];
+            surname = al[1];
         }
         else
         {
-            _Name = al[0];
-            _Surname = "";
+            name = al[0];
+            surname = "";
         }
+        
+        return new RandomName(name, surname);
     }
 
     public String toString()

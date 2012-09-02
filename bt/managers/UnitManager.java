@@ -188,8 +188,7 @@ public class UnitManager
 			mw.setGunnerySkill(rating.getGunneryValue());
 
 			RandomName rn = RandomNameManager.getInstance().GetRandomName();
-			mw.setName(rn.getName());
-			mw.setSurname(rn.getSurname());
+			mw.setName(rn.toString());
 			u.getPersonnel().add(mw);
 
 			supportReq += 40 + mech.getWeight() / 5;
@@ -213,8 +212,7 @@ public class UnitManager
 			Technician tech = new Technician();
 			tech.setRating(rating);
 			RandomName rn = RandomNameManager.getInstance().GetRandomName();
-			tech.setName(rn.getName());
-			tech.setSurname(rn.getSurname());
+			tech.setName(rn.toString());
 			u.getPersonnel().add(tech);
 		}
 		for (int i = 0; i < numASTechs; i++)
@@ -222,8 +220,7 @@ public class UnitManager
 			Astech tech = new Astech();
 			tech.setRating(rating);
 			RandomName rn = RandomNameManager.getInstance().GetRandomName();
-			tech.setName(rn.getName());
-			tech.setSurname(rn.getSurname());
+			tech.setName(rn.toString());
 			u.getPersonnel().add(tech);
 		}
 		for (int i = 0; i < numMedics; i++)
@@ -231,8 +228,7 @@ public class UnitManager
 			Medic tech = new Medic();
 			tech.setRating(rating);
 			RandomName rn = RandomNameManager.getInstance().GetRandomName();
-			tech.setName(rn.getName());
-			tech.setSurname(rn.getSurname());
+			tech.setName(rn.toString());
 			u.getPersonnel().add(tech);
 		}
 		for (int i = 0; i < numAdmin; i++)
@@ -240,8 +236,7 @@ public class UnitManager
 			Administrator admin = new Administrator();
 			admin.setRating(rating);
 			RandomName rn = RandomNameManager.getInstance().GetRandomName();
-			admin.setName(rn.getName());
-			admin.setSurname(rn.getSurname());
+			admin.setName(rn.toString());
 			u.getPersonnel().add(admin);
 		}
 
@@ -449,7 +444,6 @@ public class UnitManager
 		org.jdom.Element pElement = new org.jdom.Element("Personnel");
 		pElement.setAttribute("JobType", p.getJobType().toString());
 		pElement.setAttribute("Name", p.getName());
-		pElement.setAttribute("Surname", p.getSurname());
 		pElement.setAttribute("Rank", p.getRank().toString());
 		pElement.setAttribute("Rating", p.getRating().toString());
 		pElement.setAttribute("Notes", p.getNotes());
@@ -467,7 +461,6 @@ public class UnitManager
 		Personnel p = _PersonnelLoadHandlers.get(jobType).loadPersonnel(e);
 
 		p.setName(e.getAttributeValue("Name"));
-		p.setSurname(e.getAttributeValue("Surname"));
 		p.setRank(Rank.fromString(e.getAttributeValue("Rank")));
 		p.setRating(Rating.fromString(e.getAttributeValue("Rating")));
 		p.setNotes(e.getAttributeValue("Notes"));

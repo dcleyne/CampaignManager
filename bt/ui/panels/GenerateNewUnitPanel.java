@@ -472,7 +472,7 @@ public class GenerateNewUnitPanel extends JPanel
 
 			            Vector<RandomName> names = new Vector<RandomName>();
 			            for (Personnel p : _GeneratedUnit.getPersonnel())
-			                names.add(new RandomName(p.getName(), p.getSurname()));
+			                names.add(RandomName.splitName(p.getName()));
 	
 			            _UnitManager.purgeRandomNames(names);
 	

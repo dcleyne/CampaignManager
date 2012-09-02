@@ -1,4 +1,4 @@
-package bt.elements;
+package bt.elements.personnel;
 
 public enum PersonnelModifier
 {

@@ -1,6 +1,7 @@
 package bt.ui.dialogs;
 
 import javax.swing.JDialog;
+
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
@@ -13,7 +14,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 
+import bt.elements.personnel.Rating;
+import bt.elements.scenario.Scenario;
+import bt.elements.unit.QualityRating;
+import bt.elements.unit.TechRating;
 import bt.elements.unit.Unit;
+import bt.managers.MissionManager;
+import bt.managers.UnitManager;
 import bt.ui.panels.NewOpponentPanel;
 
 public class GenerateNewMissionDialog extends JDialog implements ActionListener
@@ -22,9 +29,13 @@ public class GenerateNewMissionDialog extends JDialog implements ActionListener
 	private JButton _OkButton;
 	private JButton _CancelButton;
 	
+	private Unit _Unit;
+	
+	private boolean _MissionGenerated = false;
 	
 	public GenerateNewMissionDialog(Unit u) 
 	{
+		_Unit = u;
 		setTitle("Generate New Mission");
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
@@ -53,7 +64,11 @@ public class GenerateNewMissionDialog extends JDialog implements ActionListener
 	}
 	private static final long serialVersionUID = 2108926199669612135L;
 
-
+	public boolean wasMissionGenerated()
+	{
+		return _MissionGenerated;
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
@@ -61,7 +76,25 @@ public class GenerateNewMissionDialog extends JDialog implements ActionListener
 		
 		if (cmd.equalsIgnoreCase("Ok"))
 		{
-			this.setVisible(false);			
+			try 
+			{
+				Rating opponentRating = _OpponentRatingsPanel.getSelectedRating();
+				QualityRating opponentQualityRating = _OpponentRatingsPanel.getSelectedQualityRating();
+				TechRating opponentTechRating = _OpponentRatingsPanel.getSelectedTechRating();
+				
+				Scenario scenario = MissionManager.getInstance().generateScenario(_Unit, opponentRating, opponentQualityRating, opponentTechRating);
+				MissionManager.getInstance().SaveScenarioForUnit(_Unit, scenario);
+				_Unit.setAssignedMission(scenario.getMission().getID());
+				UnitManager.getInstance().saveUnit(_Unit);
+				
+				_MissionGenerated = true;
+				
+				this.setVisible(false);			
+			} 
+			catch (Exception e1) 
+			{
+				e1.printStackTrace();
+			}
 		}
 		if (cmd.equalsIgnoreCase("Cancel"))
 		{

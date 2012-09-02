@@ -1,6 +1,7 @@
 package bt.managers;
 
 import java.io.File;
+
 import java.io.FileOutputStream;
 import java.util.Iterator;
 import java.util.Vector;
@@ -13,6 +14,7 @@ import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
 import bt.elements.unit.RandomName;
+import bt.util.Dice;
 import bt.util.PropertyUtil;
 import bt.util.RandomNameParser;
 import bt.util.WebFile;
@@ -64,9 +66,10 @@ public class RandomNameManager
 	public RandomName GetRandomName()
 	{
 		checkAvailableRandomNames();
-		RandomName name = _RandomNames.elementAt(0);
+		int index = Dice.random(_RandomNames.size());
+		RandomName name = _RandomNames.elementAt(index);
 		_ServedNames.add(name);
-		_RandomNames.remove(0);
+		_RandomNames.remove(index);
 		return name;
 	}
 

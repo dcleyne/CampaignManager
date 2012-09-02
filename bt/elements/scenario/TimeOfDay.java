@@ -28,14 +28,14 @@ public enum TimeOfDay
     
     public static TimeOfDay random()
     {
-    	switch (Dice.d6(1))
+    	switch (Dice.d6(2))
     	{
-    	case 1:
-    		return DAWN;
     	case 2:
-    		return DUSK;
-    	case 3:
     		return NIGHT;
+    	case 3:
+    		return DUSK;
+    	case 4:
+    		return DAWN;
     	}
     	return DAY;
     }
