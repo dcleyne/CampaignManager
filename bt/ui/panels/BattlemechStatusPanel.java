@@ -43,7 +43,7 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener, Mous
     private Shape currentShape = null;
 
     private HashMap<String, BattlemechDamageNotation> _DamageNotations = new HashMap<String, BattlemechDamageNotation>();
-    private ItemStatus _MarkingMode = ItemStatus.DESTROYED;
+    private ItemStatus _MarkingMode = ItemStatus.DAMAGED;
     
 	public BattlemechStatusPanel(double scale)
 	{

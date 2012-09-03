@@ -16,7 +16,7 @@ public class TransparentColorFilter extends RGBImageFilter
         if ((RGB | 0xFF000000) == keyColor) 
         {
                 // Mark the alpha bits as zero - transparent
-                return 0x00FFFFFF & RGB;
+                return 0xFFFFFF & RGB;
         } else {
                 // nothing to do
                 return RGB;

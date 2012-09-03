@@ -225,7 +225,7 @@ public class BattlemechRenderer
 
     public BufferedImage RenderBattlemechDamage(Battlemech mech, double scale, Vector<BattlemechDamageNotation> damageNotations)
     {
-        BufferedImage RenderedImage = new BufferedImage(_MechDiagram.getWidth(), _MechDiagram.getHeight(), _MechDiagram.getType());
+        BufferedImage RenderedImage = new BufferedImage(_MechDiagram.getWidth(), _MechDiagram.getHeight(), BufferedImage.TYPE_INT_ARGB);
         if (mech == null) return RenderedImage;
 
         Graphics2D g = (Graphics2D)RenderedImage.getGraphics();
@@ -324,8 +324,8 @@ public class BattlemechRenderer
                 g.fill(new Ellipse2D.Double(x, y, dotSize, dotSize));
                 break;
             case DAMAGED:
-                g.drawLine(x, y, x + dotSize, y + dotSize);
-                g.drawLine(x, y + dotSize, x + dotSize, y);
+                g.setColor(Color.red);
+                g.fill(new Ellipse2D.Double(x, y, dotSize, dotSize));
                 break;
 			case JURYRIGGED:
 				break;
