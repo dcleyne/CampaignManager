@@ -1,5 +1,7 @@
 package bt.elements;
 
+import java.util.Vector;
+
 public class BattlemechDamageNotation
 {
 	private String _Area;
@@ -65,4 +67,16 @@ public class BattlemechDamageNotation
 		return toString().hashCode();
 	}
 	
+    public static Vector<BattlemechDamageNotation> getDamageNotationsForArea(String area, Vector<BattlemechDamageNotation> damageNotations)
+    {
+    	Vector<BattlemechDamageNotation> notations = new Vector<BattlemechDamageNotation>();
+    	
+    	for (BattlemechDamageNotation notation : damageNotations)
+    	{
+    		if (notation.getArea().equalsIgnoreCase(area))
+    			notations.add(notation);
+    	}
+    	
+    	return notations;
+    }
 }

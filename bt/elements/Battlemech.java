@@ -303,4 +303,39 @@ public class Battlemech extends Asset implements BattleValue
 		return _DesignVariant + " " + _DesignName;
 	}
 	
+	public void applyDamage(Vector<BattlemechDamageNotation> damageNotations)
+	{
+        Vector<BattlemechDamageNotation> internalNotations = BattlemechDamageNotation.getDamageNotationsForArea("Internals", damageNotations);
+        for (BattlemechDamageNotation internalNotation : internalNotations)
+        {
+        	HashMap<Integer, ItemStatus> areaMap = _Internals.get(internalNotation.getLocation());
+        	areaMap.put(new Integer(internalNotation.getIndex()), internalNotation.getStatus());
+        }
+                
+        Vector<BattlemechDamageNotation> armourNotations = BattlemechDamageNotation.getDamageNotationsForArea("Armour", damageNotations);
+        for (BattlemechDamageNotation armourNotation : armourNotations)
+        {
+        	HashMap<Integer, ItemStatus> areaMap = _Armour.get(armourNotation.getLocation());
+        	areaMap.put(new Integer(armourNotation.getIndex()), armourNotation.getStatus());
+        }
+        
+        Vector<BattlemechDamageNotation> heatsinkNotations = BattlemechDamageNotation.getDamageNotationsForArea("HeatSinks", damageNotations);
+        
+        Vector<BattlemechDamageNotation> equipmentNotations = new Vector<BattlemechDamageNotation>(damageNotations);
+        equipmentNotations.removeAll(internalNotations);
+        equipmentNotations.removeAll(armourNotations);
+        equipmentNotations.removeAll(heatsinkNotations);
+
+        for (BattlemechDamageNotation equipmentNotation : equipmentNotations)
+        {
+        	ItemMount im = getItemMount(equipmentNotation.getLocation());
+        	if (im != null)
+        	{
+	    		InternalSlotStatus iss = im.getSlotReferences().get(equipmentNotation.getIndex());
+	    		iss.setStatus(equipmentNotation.getStatus());
+        	}
+        }
+
+	}
+	
 }

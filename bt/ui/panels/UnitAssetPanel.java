@@ -10,6 +10,7 @@ import bt.elements.Battlemech;
 import bt.elements.ElementType;
 import bt.elements.unit.Unit;
 import bt.managers.RandomNameManager;
+import bt.managers.UnitManager;
 import bt.ui.dialogs.AddElementsDialog;
 import bt.ui.dialogs.BattlemechStatusDialog;
 import bt.ui.models.AssetTableModel;
@@ -251,6 +252,18 @@ public class UnitAssetPanel extends JPanel implements ClosableEditPanel, MouseLi
         	BattlemechStatusDialog dialog = new BattlemechStatusDialog(JOptionPane.getFrameForComponent(this), mech);
         	dialog.setModal(true);
         	dialog.setVisible(true);
+        	
+        	if (dialog.wasDamageApplied())
+        	{
+        		try 
+        		{
+					UnitManager.getInstance().saveUnit(m_Unit);
+				} 
+        		catch (Exception e) 
+				{
+					e.printStackTrace();
+				}
+        	}
         }
         else
         {

@@ -25,7 +25,7 @@ public class BattlemechStatusDialog extends javax.swing.JDialog implements Actio
 	private JButton _OkButton;
 	private JScrollPane _ScrollPane;
 	private BattlemechStatusPanel _BattlemechStatusPanel;
-
+	private boolean _DamageApplied = false;
 	/**
 	* Auto-generated main method to display this JDialog
 	*/
@@ -77,6 +77,11 @@ public class BattlemechStatusDialog extends javax.swing.JDialog implements Actio
 			e.printStackTrace();
 		}
 	}
+	
+	public boolean wasDamageApplied()
+	{
+		return _DamageApplied;
+	}
 
     public void setBounds(int x, int y, int w, int h)
     {
@@ -104,6 +109,9 @@ public class BattlemechStatusDialog extends javax.swing.JDialog implements Actio
 	{
 		if (ae.getActionCommand().equals("Ok"))
 		{
+			Battlemech mech = _BattlemechStatusPanel.getBattlemech();
+			mech.applyDamage(_BattlemechStatusPanel.finaliseDamageNotation());
+			_DamageApplied = true;
 			this.setVisible(false);
 		}
 		if (ae.getActionCommand().equals("Cancel"))

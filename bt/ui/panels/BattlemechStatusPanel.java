@@ -295,6 +295,23 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener, Mous
 		}
 	}
 	
-	
+
+	public Vector<BattlemechDamageNotation> finaliseDamageNotation()
+	{
+		Vector<BattlemechDamageNotation> finalDamageNotations = new Vector<BattlemechDamageNotation>();
+		for (BattlemechDamageNotation notation: _DamageNotations.values())
+		{
+			if (notation.getStatus() == ItemStatus.DAMAGED)
+				notation.setStatus(ItemStatus.DESTROYED);
+			
+			if (notation.getStatus() == ItemStatus.REPAIRED)
+				notation.setStatus(ItemStatus.OK);
+			
+			finalDamageNotations.add(notation);
+		}
+		
+		_DamageNotations.clear();
+		return finalDamageNotations;
+	}
 	
 }

@@ -210,18 +210,7 @@ public class BattlemechRenderer
         return RenderedImage;
     }
     
-    private Vector<BattlemechDamageNotation> getDamageNotationsForArea(String area, Vector<BattlemechDamageNotation> damageNotations)
-    {
-    	Vector<BattlemechDamageNotation> notations = new Vector<BattlemechDamageNotation>();
-    	
-    	for (BattlemechDamageNotation notation : damageNotations)
-    	{
-    		if (notation.getArea().equalsIgnoreCase(area))
-    			notations.add(notation);
-    	}
-    	
-    	return notations;
-    }
+
 
     public BufferedImage RenderBattlemechDamage(Battlemech mech, double scale, Vector<BattlemechDamageNotation> damageNotations)
     {
@@ -233,7 +222,7 @@ public class BattlemechRenderer
         g.fillRect(0, 0, _MechDiagram.getWidth(), _MechDiagram.getHeight());
         g.scale(scale, scale);
         
-        Vector<BattlemechDamageNotation> internalNotations = getDamageNotationsForArea("Internals", damageNotations);
+        Vector<BattlemechDamageNotation> internalNotations = BattlemechDamageNotation.getDamageNotationsForArea("Internals", damageNotations);
         for (BattlemechDamageNotation internalNotation : internalNotations)
         {
             int dotSize = _DotSizes.get("Internals").get(internalNotation.getLocation());
@@ -242,7 +231,7 @@ public class BattlemechRenderer
             drawDotStatus(g, p.x, p.y, dotSize, internalNotation.getStatus());
         }
                 
-        Vector<BattlemechDamageNotation> armourNotations = getDamageNotationsForArea("Armour", damageNotations);
+        Vector<BattlemechDamageNotation> armourNotations = BattlemechDamageNotation.getDamageNotationsForArea("Armour", damageNotations);
         for (BattlemechDamageNotation armourNotation : armourNotations)
         {
             int dotSize = _DotSizes.get("Armour").get(armourNotation.getLocation());
@@ -252,7 +241,7 @@ public class BattlemechRenderer
         }
 
         
-        Vector<BattlemechDamageNotation> heatsinkNotations = getDamageNotationsForArea("HeatSinks", damageNotations);
+        Vector<BattlemechDamageNotation> heatsinkNotations = BattlemechDamageNotation.getDamageNotationsForArea("HeatSinks", damageNotations);
         for (BattlemechDamageNotation heatsinkNotation : heatsinkNotations)
         {
     		Point p = _HeatSinkDots.get(heatsinkNotation.getIndex());
@@ -328,10 +317,14 @@ public class BattlemechRenderer
                 g.fill(new Ellipse2D.Double(x, y, dotSize, dotSize));
                 break;
 			case JURYRIGGED:
+                g.setColor(Color.yellow);
+                g.fill(new Ellipse2D.Double(x, y, dotSize, dotSize));
 				break;
 			case OK:
 				break;
 			case REPAIRED:
+                g.setColor(Color.green);
+                g.fill(new Ellipse2D.Double(x, y, dotSize, dotSize));
 				break;
 			default:
 				break;
@@ -347,15 +340,26 @@ public class BattlemechRenderer
     	switch (status)
     	{
     	case DAMAGED:
+            g.setColor(Color.red);
+    		g.setStroke(new BasicStroke(3F));
+    		g.drawLine(xOff, (int)(yOff - (fontRect.getHeight() / 4)), (int)(xOff + fontRect.getWidth()), (int)(yOff - (fontRect.getHeight() / 4)));
+    		break;
     	case DESTROYED:
+            g.setColor(Color.black);
     		g.setStroke(new BasicStroke(3F));
     		g.drawLine(xOff, (int)(yOff - (fontRect.getHeight() / 4)), (int)(xOff + fontRect.getWidth()), (int)(yOff - (fontRect.getHeight() / 4)));
     		break;
 		case JURYRIGGED:
+            g.setColor(Color.yellow);
+    		g.setStroke(new BasicStroke(3F));
+    		g.drawLine(xOff, (int)(yOff - (fontRect.getHeight() / 4)), (int)(xOff + fontRect.getWidth()), (int)(yOff - (fontRect.getHeight() / 4)));
 			break;
 		case OK:
 			break;
 		case REPAIRED:
+            g.setColor(Color.green);
+    		g.setStroke(new BasicStroke(3F));
+    		g.drawLine(xOff, (int)(yOff - (fontRect.getHeight() / 4)), (int)(xOff + fontRect.getWidth()), (int)(yOff - (fontRect.getHeight() / 4)));
 			break;
 		default:
 			break;
