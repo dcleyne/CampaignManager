@@ -1,14 +1,18 @@
 package bt.ui.renderers;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
+import java.awt.image.FilteredImageSource;
+import java.awt.image.ImageProducer;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -22,10 +26,12 @@ import org.jdom.Document;
 import org.jdom.input.SAXBuilder;
 
 import bt.elements.Battlemech;
+import bt.elements.BattlemechDamageNotation;
 import bt.elements.InternalSlotStatus;
 import bt.elements.ItemMount;
 import bt.elements.ItemStatus;
 import bt.elements.design.BattlemechDesign;
+import bt.ui.filters.TransparentColorFilter;
 import bt.util.ExceptionUtil;
 import bt.util.IndexedRectangle;
 import bt.util.PropertyUtil;
@@ -204,6 +210,102 @@ public class BattlemechRenderer
         return RenderedImage;
     }
     
+    private Vector<BattlemechDamageNotation> getDamageNotationsForArea(String area, Vector<BattlemechDamageNotation> damageNotations)
+    {
+    	Vector<BattlemechDamageNotation> notations = new Vector<BattlemechDamageNotation>();
+    	
+    	for (BattlemechDamageNotation notation : damageNotations)
+    	{
+    		if (notation.getArea().equalsIgnoreCase(area))
+    			notations.add(notation);
+    	}
+    	
+    	return notations;
+    }
+
+    public BufferedImage RenderBattlemechDamage(Battlemech mech, double scale, Vector<BattlemechDamageNotation> damageNotations)
+    {
+        BufferedImage RenderedImage = new BufferedImage(_MechDiagram.getWidth(), _MechDiagram.getHeight(), _MechDiagram.getType());
+        if (mech == null) return RenderedImage;
+
+        Graphics2D g = (Graphics2D)RenderedImage.getGraphics();
+        g.setColor(Color.white);
+        g.fillRect(0, 0, _MechDiagram.getWidth(), _MechDiagram.getHeight());
+        g.scale(scale, scale);
+        
+        Vector<BattlemechDamageNotation> internalNotations = getDamageNotationsForArea("Internals", damageNotations);
+        for (BattlemechDamageNotation internalNotation : internalNotations)
+        {
+            int dotSize = _DotSizes.get("Internals").get(internalNotation.getLocation());
+            Point p = _InternalDots.get(internalNotation.getLocation()).get(internalNotation.getIndex());
+
+            drawDotStatus(g, p.x, p.y, dotSize, internalNotation.getStatus());
+        }
+                
+        Vector<BattlemechDamageNotation> armourNotations = getDamageNotationsForArea("Armour", damageNotations);
+        for (BattlemechDamageNotation armourNotation : armourNotations)
+        {
+            int dotSize = _DotSizes.get("Armour").get(armourNotation.getLocation());
+            Point p = _ArmourDots.get(armourNotation.getLocation()).get(armourNotation.getIndex());
+
+            drawDotStatus(g, p.x, p.y, dotSize, armourNotation.getStatus());
+        }
+
+        
+        Vector<BattlemechDamageNotation> heatsinkNotations = getDamageNotationsForArea("HeatSinks", damageNotations);
+        for (BattlemechDamageNotation heatsinkNotation : heatsinkNotations)
+        {
+    		Point p = _HeatSinkDots.get(heatsinkNotation.getIndex());
+    		drawDotStatus(g, p.x, p.y, largeDot, heatsinkNotation.getStatus());
+        }
+        
+        g.setFont(_CriticalSlotFont);
+        
+        Vector<BattlemechDamageNotation> equipmentNotations = new Vector<BattlemechDamageNotation>(damageNotations);
+        equipmentNotations.removeAll(internalNotations);
+        equipmentNotations.removeAll(armourNotations);
+        equipmentNotations.removeAll(heatsinkNotations);
+
+        for (BattlemechDamageNotation equipmentNotation : equipmentNotations)
+        {
+        	ItemMount im = mech.getItemMount(equipmentNotation.getLocation());
+        	if (im != null)
+        	{
+	    		InternalSlotStatus iss = im.getSlotReferences().get(equipmentNotation.getIndex());
+				String mountText = im.getMountedItem().toString();
+				if (iss.getRearFacing())
+					mountText += " (R)";
+				
+				Point p = _CriticalTablePoints.get(iss.getInternalLocation()).get(iss.getTable()).get(iss.getSlot());
+				drawCriticalSlotItem(g, p.x, p.y, mountText, equipmentNotation.getStatus());
+        	}
+        	else
+        	{
+        		log.error("Failed to find ItemMount " + equipmentNotation.toString());
+        	}
+        }
+
+        g.dispose();
+        
+        return imageToBufferedImage(makeColorTransparent(RenderedImage, Color.white));
+    }
+    
+    private BufferedImage imageToBufferedImage(Image image) 
+    {
+        BufferedImage bufferedImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = bufferedImage.createGraphics();
+        g2.drawImage(image, 0, 0, null);
+        g2.dispose();
+
+        return bufferedImage;
+    }
+
+    private Image makeColorTransparent(BufferedImage im, final Color color) 
+    {
+        ImageProducer ip = new FilteredImageSource(im.getSource(), new TransparentColorFilter(color.getRGB()));
+        return Toolkit.getDefaultToolkit().createImage(ip);
+    }
+    
     private void drawInformation(Graphics2D g, String text, Point p)
     {
     	g.drawString(text, p.x, p.y);
@@ -238,6 +340,7 @@ public class BattlemechRenderer
     
     private void drawCriticalSlotItem(Graphics2D g, int xOff, int yOff, String mountText, ItemStatus status)
     {
+        g.setColor(Color.black);
     	Rectangle2D fontRect = g.getFontMetrics().getStringBounds(mountText, g);
     	g.drawString(mountText, xOff, yOff);
     	
@@ -245,7 +348,8 @@ public class BattlemechRenderer
     	{
     	case DAMAGED:
     	case DESTROYED:
-    		g.drawLine(xOff, (int)(yOff - (fontRect.getHeight() / 2)), (int)(xOff + fontRect.getWidth()), (int)(yOff - (fontRect.getHeight() / 2)));
+    		g.setStroke(new BasicStroke(3F));
+    		g.drawLine(xOff, (int)(yOff - (fontRect.getHeight() / 4)), (int)(xOff + fontRect.getWidth()), (int)(yOff - (fontRect.getHeight() / 4)));
     		break;
 		case JURYRIGGED:
 			break;
@@ -308,15 +412,16 @@ public class BattlemechRenderer
         {
         	Vector<IndexedRectangle> mountedItemHotspotRects = new Vector<IndexedRectangle>();
 
-        	for (InternalSlotStatus iss : im.getSlotReferences())
+        	for (int slotReference = 0; slotReference < im.getSlotReferences().size(); slotReference++)
         	{
+        		InternalSlotStatus iss = im.getSlotReferences().get(slotReference);
 				String mountText = im.getMountedItem().toString();
 				if (iss.getRearFacing())
 					mountText += " (R)";
 				
 				Point p = _CriticalTablePoints.get(iss.getInternalLocation()).get(iss.getTable()).get(iss.getSlot());
 		        int adv = metrics.stringWidth(mountText);
-				mountedItemHotspotRects.add(new IndexedRectangle(im.getMountedItem().getIdentifier() ,new Rectangle2D.Double(p.x * scale, (p.y - baseline) * scale, adv * scale, hgt * scale)));
+				mountedItemHotspotRects.add(new IndexedRectangle(slotReference,new Rectangle2D.Double(p.x * scale, (p.y - baseline) * scale, adv * scale, hgt * scale)));
         	}
         	mountedItemHotspots.put(im.toString(), mountedItemHotspotRects);
         }
@@ -331,7 +436,7 @@ public class BattlemechRenderer
         for (int i = 0; i < integralHS; i++)
         {
         	Point p = _HeatSinkDots.get(HeatSinkIndex);
-        	heatSinkHotspotRects.add(new IndexedRectangle(i,createHotspotRectangle(p.x,p.y,largeDot,scale)));
+        	heatSinkHotspotRects.add(new IndexedRectangle(HeatSinkIndex,createHotspotRectangle(p.x,p.y,largeDot,scale)));
         	HeatSinkIndex++;
         }
         heatSinkHotspots.put("Internal", heatSinkHotspotRects);
@@ -342,7 +447,7 @@ public class BattlemechRenderer
         	for (int i = 0; i < im.getSlotReferences().size(); i++)
         	{
 	        	Point p = _HeatSinkDots.get(HeatSinkIndex);
-	        	heatSinkHotspotRects.add(new IndexedRectangle(im.getMountedItem().getIdentifier(), createHotspotRectangle(p.x,p.y,largeDot,scale)));	        	
+	        	heatSinkHotspotRects.add(new IndexedRectangle(HeatSinkIndex, createHotspotRectangle(p.x,p.y,largeDot,scale)));	        	
 	        	HeatSinkIndex++;
         	}
         	heatSinkHotspots.put(im.toString(), heatSinkHotspotRects);

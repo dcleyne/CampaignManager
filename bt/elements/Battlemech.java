@@ -168,6 +168,17 @@ public class Battlemech extends Asset implements BattleValue
 		return null;
 	}
 
+	public ItemMount getItemMount(String itemString)
+	{
+		for (ItemMount im : _Items)
+		{
+			if (im.toString().equalsIgnoreCase(itemString))
+				return im;
+		}
+		
+		return null;
+	}
+
 	public Vector<ItemMount> getAllWeaponMounts()
 	{
 		return getAllMounts("Weapon");

@@ -22,6 +22,7 @@ import java.util.Vector;
 import javax.swing.JPanel;
 
 import bt.elements.Battlemech;
+import bt.elements.BattlemechDamageNotation;
 import bt.elements.ItemStatus;
 import bt.ui.renderers.BattlemechRenderer;
 import bt.util.IndexedRectangle;
@@ -32,6 +33,7 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener, Mous
 
 	private Battlemech _Mech;
 	private BufferedImage _MechImage;
+	private BufferedImage _DamageImage;
 	private HashMap<String, HashMap<String, Vector<IndexedRectangle>>> _HotSpots;
 	private HashMap<String, Area> _HotSpotAreas;
 	private HashMap<String, HashMap<String, Area>> _HotSpotLocalAreas;
@@ -40,6 +42,7 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener, Mous
     private List<Shape> shapes = new ArrayList<Shape>();
     private Shape currentShape = null;
 
+    private HashMap<String, BattlemechDamageNotation> _DamageNotations = new HashMap<String, BattlemechDamageNotation>();
     private ItemStatus _MarkingMode = ItemStatus.DESTROYED;
     
 	public BattlemechStatusPanel(double scale)
@@ -129,6 +132,13 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener, Mous
 			Graphics2D g2d = (Graphics2D)g;
 			g2d.drawImage(_MechImage, 0, 0, this);
 			
+			if (_DamageImage == null)
+			{
+				_DamageImage = BattlemechRenderer.getInstance().RenderBattlemechDamage(_Mech, _Scale, new Vector<BattlemechDamageNotation>(_DamageNotations.values()));
+			}
+			
+			g2d.drawImage(_DamageImage, 0, 0, this);
+			
 	        g2d.setPaint ( Color.red );
 			g2d.setStroke(new BasicStroke(5F));
 	        for ( Shape shape : shapes )
@@ -215,6 +225,7 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener, Mous
 	
 	private void updateMechStatus()
 	{
+		boolean redrawRequired = false;
 	    Line2D shape = ( Line2D ) currentShape;
 	    Rectangle shapeRect = new Rectangle(shape.getBounds());
 	    if (shapeRect.isEmpty())
@@ -254,11 +265,33 @@ public class BattlemechStatusPanel extends JPanel implements MouseListener, Mous
 			{
 				// This is to ensure that the user did in fact mean to mark an area
 				System.out.println("Marking :" + coveredLocations.elementAt(0) + " :" + coveredLocalAreas.elementAt(0));
-				
+				for (IndexedRectangle rect : _HotSpots.get(coveredLocations.elementAt(0)).get(coveredLocalAreas.elementAt(0)))
+				{
+					Area currentShapeArea = new Area(shapeRect);
+					currentShapeArea.intersect(new Area(rect.getRectangle()));
+					if (!currentShapeArea.isEmpty())
+					{
+						BattlemechDamageNotation bdn = new BattlemechDamageNotation(coveredLocations.elementAt(0), coveredLocalAreas.elementAt(0), rect.getIndex(), _MarkingMode);
+						if (_DamageNotations.containsKey(bdn.toString()))
+						{
+							_DamageNotations.remove(bdn.toString());
+						}
+						else
+						{
+							_DamageNotations.put(bdn.toString(), bdn);
+						}
+						redrawRequired = true;
+					}
+				}
 			}
 			else
-				System.out.println("Marking :" + coveredLocalAreas.toString());
-				
+				System.out.println("Marking :" + coveredLocalAreas.toString());				
+		}
+		
+		if (redrawRequired)
+		{
+			_DamageImage = null;
+			repaint();
 		}
 	}
 	
