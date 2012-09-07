@@ -14,6 +14,7 @@ import org.jdom.output.XMLOutputter;
 import bt.elements.Ammunition;
 import bt.elements.Autocannon;
 import bt.elements.Battlemech;
+import bt.elements.BattlemechSection;
 import bt.elements.Cockpit;
 import bt.elements.Engine;
 import bt.elements.Flamer;
@@ -34,6 +35,7 @@ import bt.elements.LowerArmActuator;
 import bt.elements.LowerLegActuator;
 import bt.elements.MachineGun;
 import bt.elements.ParticleProjectionCannon;
+import bt.elements.SectionStatus;
 import bt.elements.Sensors;
 import bt.elements.ShortRangeMissile;
 import bt.elements.Shoulder;
@@ -135,6 +137,7 @@ public class BattlemechManager
         mech.setWeight(design.getWeight());
         mech.setBV(design.getBV());
 
+        mech.setSectionStatuses(buildMechSections(design.getSections()));
         mech.setInternals(buildMechInternals(mech.getWeight(), design.getInternalLocations()));
         mech.setArmour(buildMechArmour(design.getArmour()));
 
@@ -162,6 +165,18 @@ public class BattlemechManager
         }
 
         return mech;
+    }
+
+    private HashMap<BattlemechSection, SectionStatus> buildMechSections(BattlemechSection[] sections)
+    {
+        HashMap<BattlemechSection, SectionStatus> sectionStatuses = new HashMap<BattlemechSection, SectionStatus>();
+
+        for (BattlemechSection sec : sections)
+        {
+        	sectionStatuses.put(sec, SectionStatus.OK);
+        }
+
+        return sectionStatuses;
     }
 
     private HashMap<String, HashMap<Integer, ItemStatus>> buildMechInternals(int weight, String[] Locations)
@@ -233,6 +248,26 @@ public class BattlemechManager
         mech.setType(mechElement.getChildTextTrim("Type"));
         mech.setWeight(Integer.parseInt(mechElement.getChildTextTrim("Weight")));
         mech.setBV(Integer.parseInt(mechElement.getChildTextTrim("BV")));
+
+        if (mechElement.getChild("Sections") != null)
+        {
+	        Iterator<?> iter = mechElement.getChild("Sections").getChildren().iterator();
+	        while (iter.hasNext())
+	        {
+	        	org.jdom.Element internalElement = (org.jdom.Element)iter.next();
+	            String Location = internalElement.getAttributeValue("Name");
+	            String Status = internalElement.getAttributeValue("Status");
+	            mech.getSectionStatuses().put(BattlemechSection.fromString(Location), SectionStatus.fromString(Status));
+	        }
+        }
+        else
+        {
+			BattlemechDesign bd = DesignManager.getInstance().Design(mech.getDesignVariant() + " " + mech.getDesignName());
+			if (bd != null)
+			{
+				mech.setSectionStatuses(buildMechSections(bd.getSections()));
+			}
+        }
 
         Iterator<?> iter = mechElement.getChild("Internals").getChildren().iterator();
         while (iter.hasNext())
@@ -961,6 +996,16 @@ public class BattlemechManager
         battlemechNode.addContent(new org.jdom.Element("Weight").setText(Integer.toString(mech.getWeight())));
         battlemechNode.addContent(new org.jdom.Element("BV").setText(Integer.toString(mech.getBV())));
 
+        org.jdom.Element sectionsNode = new org.jdom.Element("Sections");
+        for (BattlemechSection section : mech.getSectionStatuses().keySet())
+        {
+            org.jdom.Element sectionNode = new org.jdom.Element("Section");
+            sectionNode.setAttribute("Name", section.toString());
+            sectionNode.setAttribute("Status", mech.getSectionStatuses().get(section).toString());
+            sectionsNode.addContent(sectionNode);
+        }
+        battlemechNode.addContent(sectionsNode);
+        
         org.jdom.Element internalsNode = new org.jdom.Element("Internals");
         for (String locationName : mech.getInternals().keySet())
         {

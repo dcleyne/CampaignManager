@@ -4,6 +4,8 @@ import java.util.Vector;
 
 import java.util.HashMap;
 
+import bt.elements.BattlemechSection;
+
 public class BattlemechDesign
 {
 	public enum Type
@@ -30,6 +32,11 @@ public class BattlemechDesign
 	    }
 	}
 
+    private static BattlemechSection[] _SectionsBiped = { BattlemechSection.HEAD, BattlemechSection.CENTER_TORSO, BattlemechSection.LEFT_TORSO, BattlemechSection.RIGHT_TORSO, BattlemechSection.LEFT_ARM, BattlemechSection.RIGHT_ARM, BattlemechSection.LEFT_LEG, BattlemechSection.RIGHT_LEG };
+    private static BattlemechSection[] _SectionsQuad = { BattlemechSection.HEAD, BattlemechSection.CENTER_TORSO, BattlemechSection.LEFT_TORSO, BattlemechSection.RIGHT_TORSO, BattlemechSection.LEFT_FRONT_LEG, BattlemechSection.RIGHT_FRONT_LEG, BattlemechSection.LEFT_REAR_LEG, BattlemechSection.RIGHT_REAR_LEG };
+    private static BattlemechSection[] _SectionsLAM = { BattlemechSection.HEAD, BattlemechSection.CENTER_TORSO, BattlemechSection.LEFT_TORSO, BattlemechSection.RIGHT_TORSO, BattlemechSection.LEFT_ARM, BattlemechSection.RIGHT_ARM, BattlemechSection.LEFT_LEG, BattlemechSection.RIGHT_LEG  };
+    private static BattlemechSection[] _SectionsOmni = { BattlemechSection.HEAD, BattlemechSection.CENTER_TORSO, BattlemechSection.LEFT_TORSO, BattlemechSection.RIGHT_TORSO, BattlemechSection.LEFT_ARM, BattlemechSection.RIGHT_ARM, BattlemechSection.LEFT_LEG, BattlemechSection.RIGHT_LEG  };
+
     private static String[] _InternalLocationsBiped = { "Head", "Centre Torso", "Left Torso", "Right Torso", "Left Arm", "Right Arm", "Left Leg", "Right Leg" };
     private static String[] _InternalLocationsQuad = { "Head", "Centre Torso", "Left Torso", "Right Torso", "Left Front Leg", "Right Front Leg", "Left Rear Leg", "Right Rear Leg" };
     private static String[] _InternalLocationsLAM = { "Head", "Centre Torso", "Left Torso", "Right Torso", "Left Arm", "Right Arm", "Left Leg", "Right Leg" };
@@ -52,6 +59,7 @@ public class BattlemechDesign
 
     private Vector<DesignItem> _Items = new Vector<DesignItem>();
 
+    private static BattlemechSection[] _Sections;
     private String[] _InternalLocations = _InternalLocationsBiped;
     private String[] _ArmourLocations = _ArmourLocationsBiped;
     
@@ -91,21 +99,25 @@ public class BattlemechDesign
         _Type = type;
         if (_Type == Type.BIPED)
         {
+        	_Sections = _SectionsBiped;
             _InternalLocations = _InternalLocationsBiped;
             _ArmourLocations = _ArmourLocationsBiped;
         }
         if (_Type == Type.QUAD)
         {
+        	_Sections = _SectionsQuad;
             _InternalLocations = _InternalLocationsQuad;
             _ArmourLocations = _ArmourLocationsQuad;
         }
         if (_Type == Type.LAM)
         {
+        	_Sections = _SectionsLAM;
             _InternalLocations = _InternalLocationsLAM;
             _ArmourLocations = _ArmourLocationsLAM;
         }
         if (_Type == Type.OMNI)
         {
+        	_Sections = _SectionsOmni;
             _InternalLocations = _InternalLocationsOmni;
             _ArmourLocations = _ArmourLocationsOmni;
         }
@@ -149,6 +161,10 @@ public class BattlemechDesign
 	public void setItems(Vector<DesignItem> items)
 	{
 		_Items = items;
+	}
+	public BattlemechSection[] getSections()
+	{
+		return _Sections;
 	}
 	public String[] getInternalLocations()
 	{

@@ -48,6 +48,7 @@ public class Battlemech extends Asset implements BattleValue
     private int _Weight;
     private int _BV;
 
+    private HashMap<BattlemechSection, SectionStatus> _SectionStatuses = new HashMap<BattlemechSection, SectionStatus>();
     private HashMap<String, HashMap<Integer, ItemStatus>> _Internals = new HashMap<String, HashMap<Integer, ItemStatus>>();
     private HashMap<String, HashMap<Integer, ItemStatus>> _Armour = new HashMap<String, HashMap<Integer, ItemStatus>>();
     private Vector<ItemMount> _Items = new Vector<ItemMount>();
@@ -124,6 +125,14 @@ public class Battlemech extends Asset implements BattleValue
 	{
 		_Armour = armour;
 	}
+	public HashMap<BattlemechSection, SectionStatus> getSectionStatuses() 
+	{
+		return _SectionStatuses;
+	}
+	public void setSectionStatuses(HashMap<BattlemechSection, SectionStatus> sectionStatuses) 
+	{
+		_SectionStatuses = sectionStatuses;
+	}
 	public Vector<ItemMount> getItems()
 	{
 		return _Items;
@@ -132,6 +141,7 @@ public class Battlemech extends Asset implements BattleValue
 	{
 		_Items = items;
 	}
+	
 	
 	@Override
 	public int getAdjustedBV()

@@ -109,8 +109,7 @@ public class BattlemechStatusDialog extends javax.swing.JDialog implements Actio
 	{
 		if (ae.getActionCommand().equals("Ok"))
 		{
-			Battlemech mech = _BattlemechStatusPanel.getBattlemech();
-			mech.applyDamage(_BattlemechStatusPanel.finaliseDamageNotation());
+			_BattlemechStatusPanel.finaliseDamageNotation();
 			_DamageApplied = true;
 			this.setVisible(false);
 		}
