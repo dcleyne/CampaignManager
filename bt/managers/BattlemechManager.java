@@ -14,6 +14,7 @@ import org.jdom.output.XMLOutputter;
 import bt.elements.Ammunition;
 import bt.elements.Autocannon;
 import bt.elements.Battlemech;
+import bt.elements.BattlemechRepairReport;
 import bt.elements.BattlemechSection;
 import bt.elements.Cockpit;
 import bt.elements.Engine;
@@ -26,6 +27,7 @@ import bt.elements.Hip;
 import bt.elements.InternalSlotStatus;
 import bt.elements.Item;
 import bt.elements.ItemMount;
+import bt.elements.ItemRepairDetail;
 import bt.elements.ItemStatus;
 import bt.elements.JumpJet;
 import bt.elements.Laser;
@@ -1063,4 +1065,37 @@ public class BattlemechManager
         return battlemechNode;
     }
 
+    
+    public BattlemechRepairReport createRepairReport(Battlemech mech, int modifiedSkillTarget)
+    {
+    	BattlemechRepairReport report = new BattlemechRepairReport(mech, modifiedSkillTarget);
+    	
+    	doArmourRepairReport(mech, report);
+    	
+    	return report;
+    }
+    
+    private void doArmourRepairReport(Battlemech mech, BattlemechRepairReport report)
+    {
+    	for (String location : mech.getArmour().keySet())
+    	{
+    		int destroyed = 0;
+    		
+    		HashMap<Integer, ItemStatus> statuses = mech.getArmour().get(location);
+    		for (Integer index : statuses.keySet())
+    		{
+    			ItemStatus status = statuses.get(index);
+    			
+    			if (status == ItemStatus.DESTROYED)
+    				destroyed += 1;
+    		}
+    		
+    		if (destroyed > 0)
+    		{
+    			int cost = (int)(10000.0 * (double)destroyed / 16.0);
+    			ItemRepairDetail ird = new ItemRepairDetail(ItemRepairDetail.Type.REPLACEMENT, -2, Integer.MIN_VALUE, "", 5 * destroyed, cost);
+    			report.addArmourRepairDetail(location, ird);
+    		}
+    	}
+    }
 }
