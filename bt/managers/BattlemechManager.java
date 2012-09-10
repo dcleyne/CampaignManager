@@ -1072,6 +1072,8 @@ public class BattlemechManager
     	
     	doArmourRepairReport(mech, report);
     	
+    	doInternalRepairReport(mech , report);
+    	
     	return report;
     }
     
@@ -1095,6 +1097,44 @@ public class BattlemechManager
     			int cost = (int)(10000.0 * (double)destroyed / 16.0);
     			ItemRepairDetail ird = new ItemRepairDetail(ItemRepairDetail.Type.REPLACEMENT, -2, Integer.MIN_VALUE, "", 5 * destroyed, cost);
     			report.addArmourRepairDetail(location, ird);
+    		}
+    	}
+    }
+    
+    private void doInternalRepairReport(Battlemech mech, BattlemechRepairReport report)
+    {
+    	for (String location: mech.getInternals().keySet())
+    	{
+    		int destroyed = 0;
+    		int total = 0;
+    		HashMap<Integer, ItemStatus> statuses = mech.getInternals().get(location);
+    		for (Integer index : statuses.keySet())
+    		{
+    			ItemStatus status = statuses.get(index);
+    			
+    			if (status == ItemStatus.DESTROYED)
+    				destroyed += 1;
+    			
+    			total++;
+    		}
+    		
+    		if (destroyed > 0)
+    		{
+    			ItemRepairDetail ird;
+    			
+    			int cost = 0; //TODO fix this
+
+    			double percent = (double)total / (double) destroyed;
+    			if (percent < 0.25)
+    				ird = new ItemRepairDetail(ItemRepairDetail.Type.REPAIR, -1, 1, "1 pt permanent damage", 90, cost);
+    			else if (percent < 0.50)
+    				ird = new ItemRepairDetail(ItemRepairDetail.Type.REPAIR, 0, 1, "2 pts permanent damage", 135, cost);
+    			else if (percent < 0.75)
+    				ird = new ItemRepairDetail(ItemRepairDetail.Type.REPAIR, 1, 2, "3 pts permanent damage", 180, cost);
+    			else
+    				ird = new ItemRepairDetail(ItemRepairDetail.Type.REPAIR, 2, 2, "4 pts permanent damage", 270, cost);
+    			 
+    			report.addInternalRepairDetail(location, ird);
     		}
     	}
     }

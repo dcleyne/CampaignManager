@@ -101,7 +101,7 @@ public class BattlemechRepairReport
 		sb.append(System.lineSeparator());
 
 		sb.append("Replacements" + System.lineSeparator());
-		sb.append("------------" + System.lineSeparator());
+		sb.append("============" + System.lineSeparator());
 		sb.append(System.lineSeparator());
 		
 		if (_ArmourRepairDetails.size() > 0)
@@ -129,7 +129,7 @@ public class BattlemechRepairReport
 				{
 					sb1.append(Integer.toString(ird.getPartialRepair()));				
 				}
-				sb1.append(padToColumn(sb.length(), getIndentLength() + 68));
+				sb1.append(padToColumn(sb1.length(), getIndentLength() + 68));
 				sb1.append(ird.getPartialRepairEffect());
 				sb1.append(System.lineSeparator());	
 				
@@ -138,6 +138,46 @@ public class BattlemechRepairReport
 			indent(-1);
 			indent(-1);
 		}
+
+		sb.append("Repairs" + System.lineSeparator());
+		sb.append("=======" + System.lineSeparator());
+		sb.append(System.lineSeparator());
+		
+		if (_InternalRepairDetails.size() > 0)
+		{
+			indent(1);
+			
+			sb.append("Internal Structure" + System.lineSeparator());
+			sb.append("------------------" + System.lineSeparator());
+			sb.append(indent(1) + "Location:           Time:   Cost:       Target#:  Partial Repair:   Partial Repair Effect: ");
+			sb.append(System.lineSeparator());
+			for (String location : _InternalRepairDetails.keySet())
+			{
+				ItemRepairDetail ird = _InternalRepairDetails.get(location);
+				StringBuilder sb1 = new StringBuilder();
+				sb1.append(indent());
+				sb1.append(location);
+				sb1.append(padToColumn(sb1.length(), getIndentLength() + 20));
+				sb1.append(Integer.toString(ird.getTime()));
+				sb1.append(padToColumn(sb1.length(), getIndentLength() + 28));
+				sb1.append(Integer.toString(ird.getCost()));
+				sb1.append(padToColumn(sb1.length(), getIndentLength() + 40));
+				sb1.append(Integer.toString(_ModifiedSkillTarget + ird.getSkillModifier()));
+				sb1.append(padToColumn(sb1.length(), getIndentLength() + 50));
+				if (ird.getPartialRepair() > Integer.MIN_VALUE)
+				{
+					sb1.append(Integer.toString(ird.getPartialRepair()));				
+				}
+				sb1.append(padToColumn(sb1.length(), getIndentLength() + 68));
+				sb1.append(ird.getPartialRepairEffect());
+				sb1.append(System.lineSeparator());	
+				
+				sb.append(sb1.toString());
+			}
+			indent(-1);
+			indent(-1);
+		}
+
 		
 		return sb.toString();
 	}
