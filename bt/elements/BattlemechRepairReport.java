@@ -1,6 +1,7 @@
 package bt.elements;
 
 import java.util.HashMap;
+import java.util.Vector;
 
 public class BattlemechRepairReport
 {
@@ -12,6 +13,7 @@ public class BattlemechRepairReport
 	
 	private HashMap<String, ItemRepairDetail> _InternalRepairDetails = new HashMap<String, ItemRepairDetail>();
 	private HashMap<String, ItemRepairDetail> _ArmourRepairDetails = new HashMap<String, ItemRepairDetail>();
+	private Vector<ItemRepairDetail> _ItemRepairDetails = new Vector<ItemRepairDetail>();
 	
 	private int _Indent = 0;
 	
@@ -52,6 +54,11 @@ public class BattlemechRepairReport
 	public void addArmourRepairDetail(String section, ItemRepairDetail ird)
 	{
 		_ArmourRepairDetails.put(section, ird);
+	}
+	
+	public void addItemRepairDetail(ItemRepairDetail ird)
+	{
+		_ItemRepairDetails.add(ird);
 	}
 	
 	private int getIndentLength()
@@ -127,7 +134,7 @@ public class BattlemechRepairReport
 				sb1.append(padToColumn(sb1.length(), getIndentLength() + 50));
 				if (ird.getPartialRepair() > Integer.MIN_VALUE)
 				{
-					sb1.append(Integer.toString(ird.getPartialRepair()));				
+					sb1.append(Integer.toString(_ModifiedSkillTarget + ird.getSkillModifier() - ird.getPartialRepair()));				
 				}
 				sb1.append(padToColumn(sb1.length(), getIndentLength() + 68));
 				sb1.append(ird.getPartialRepairEffect());
@@ -166,7 +173,7 @@ public class BattlemechRepairReport
 				sb1.append(padToColumn(sb1.length(), getIndentLength() + 50));
 				if (ird.getPartialRepair() > Integer.MIN_VALUE)
 				{
-					sb1.append(Integer.toString(ird.getPartialRepair()));				
+					sb1.append(Integer.toString(_ModifiedSkillTarget + ird.getSkillModifier() - ird.getPartialRepair()));				
 				}
 				sb1.append(padToColumn(sb1.length(), getIndentLength() + 68));
 				sb1.append(ird.getPartialRepairEffect());
@@ -178,6 +185,39 @@ public class BattlemechRepairReport
 			indent(-1);
 		}
 
+		if (_ItemRepairDetails.size() > 0)
+		{
+			indent(1);
+			
+			sb.append("Items" + System.lineSeparator());
+			sb.append("-----" + System.lineSeparator());
+			sb.append(indent(1) + "Mounted Item Type:            Time:   Cost:       Target#:  Partial Repair:   Partial Repair Effect: ");
+			sb.append(System.lineSeparator());
+			for (ItemRepairDetail ird : _ItemRepairDetails)
+			{
+				StringBuilder sb1 = new StringBuilder();
+				sb1.append(indent());
+				sb1.append(ird.getItemType());
+				sb1.append(padToColumn(sb1.length(), getIndentLength() + 30));
+				sb1.append(Integer.toString(ird.getTime()));
+				sb1.append(padToColumn(sb1.length(), getIndentLength() + 38));
+				sb1.append(Integer.toString(ird.getCost()));
+				sb1.append(padToColumn(sb1.length(), getIndentLength() + 50));
+				sb1.append(Integer.toString(_ModifiedSkillTarget + ird.getSkillModifier()));
+				sb1.append(padToColumn(sb1.length(), getIndentLength() + 60));
+				if (ird.getPartialRepair() > Integer.MIN_VALUE)
+				{
+					sb1.append(Integer.toString(_ModifiedSkillTarget + ird.getSkillModifier() - ird.getPartialRepair()));				
+				}
+				sb1.append(padToColumn(sb1.length(), getIndentLength() + 78));
+				sb1.append(ird.getPartialRepairEffect());
+				sb1.append(System.lineSeparator());	
+				
+				sb.append(sb1.toString());
+			}
+			indent(-1);
+			indent(-1);
+		}
 		
 		return sb.toString();
 	}

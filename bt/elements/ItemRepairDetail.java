@@ -27,6 +27,7 @@ public class ItemRepairDetail
 	}
 	
 	private Type _Type = Type.REPLACEMENT;
+	private String _ItemType = "";
 	private int _SkillModifier = 0;
 	private int _PartialRepair = Integer.MIN_VALUE;
 	private String _PartialRepairEffect = "";
@@ -40,6 +41,14 @@ public class ItemRepairDetail
 	public void setType(Type type)
 	{
 		_Type = type;
+	}
+	public String getItemType()
+	{
+		return _ItemType;
+	}
+	public void setItemType(String itemType)
+	{
+		_ItemType = itemType;
 	}
 	public int getSkillModifier()
 	{
@@ -82,9 +91,10 @@ public class ItemRepairDetail
 	{
 		_Cost = cost;
 	}
-	public ItemRepairDetail(Type type, int skillModifier, int partialRepair, String partialRepairEffect, int time, int cost)
+	public ItemRepairDetail(Type type, String itemType, int skillModifier, int partialRepair, String partialRepairEffect, int time, int cost)
 	{
 		_Type = type;
+		_ItemType = itemType;
 		_SkillModifier = skillModifier;
 		_PartialRepair = partialRepair;
 		_PartialRepairEffect = partialRepairEffect;
