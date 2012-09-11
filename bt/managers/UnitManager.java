@@ -28,15 +28,18 @@ import bt.elements.personnel.Rating;
 import bt.elements.personnel.Technician;
 import bt.elements.unit.MechAvailability;
 import bt.elements.unit.MechUnitParameters;
+import bt.elements.unit.PersonnelAssetAssignment;
 import bt.elements.unit.Player;
 import bt.elements.unit.QualityRating;
 import bt.elements.unit.RandomName;
+import bt.elements.unit.Role;
 import bt.elements.unit.TechRating;
 import bt.elements.unit.Unit;
 import bt.util.Dice;
 import bt.util.ExceptionUtil;
 import bt.util.ExtensionFileFilter;
 import bt.util.PropertyUtil;
+import bt.util.SwingHelper;
 
 /**
  * <p>
@@ -400,6 +403,8 @@ public class UnitManager
 		org.jdom.Element unitNode = new org.jdom.Element("Unit");
 
 		unitNode.addContent(new org.jdom.Element("Name").setText(u.getName()));
+		unitNode.addContent(new org.jdom.Element("EstablishDate").setText(SwingHelper.FormatDate(u.getEstablishDate())));
+		unitNode.addContent(new org.jdom.Element("CurrentDate").setText(SwingHelper.FormatDate(u.getCurrentDate())));
 		unitNode.addContent(new org.jdom.Element("QualityRating").setText(u.getQualityRating().toString()));
 		unitNode.addContent(new org.jdom.Element("TechRating").setText(u.getTechRating().toString()));
 		unitNode.addContent(new org.jdom.Element("Notes").setText(u.getNotes()));
@@ -424,7 +429,8 @@ public class UnitManager
 		if (u.getAssignedMission() != null)
 		{
 			org.jdom.Element assignedMissionNode = new org.jdom.Element("AssignedMission");
-			assignedMissionNode.setText(Long.toString(u.getAssignedMission()));
+			assignedMissionNode.setAttribute("ID", Long.toString(u.getAssignedMission()));
+			assignedMissionNode.setAttribute("Title", u.getAssignedMissionTitle());
 			unitNode.addContent(assignedMissionNode);
 		}
 		
@@ -435,6 +441,17 @@ public class UnitManager
 		}
 		unitNode.addContent(completedMissionsNode);
 
+		org.jdom.Element assetAssignmentsNode = new org.jdom.Element("AssetAssignments");
+		for (PersonnelAssetAssignment ass : u.getPersonnelAssetAssignments())
+		{
+			org.jdom.Element assignedAssetNode = new org.jdom.Element("AssetAssignment");
+			assignedAssetNode.setAttribute("Name", ass.getName());
+			assignedAssetNode.setAttribute("AssetIdentifier", ass.getAssetIdentifier());
+			assignedAssetNode.setAttribute("Role", ass.getRole().toString());
+			assetAssignmentsNode.addContent(assignedAssetNode);
+		}
+		unitNode.addContent(assetAssignmentsNode);
+		
 		return unitNode;
 
 	}
@@ -591,6 +608,22 @@ public class UnitManager
 		BattlemechManager bm = new BattlemechManager();
 
 		u.setName(unitNode.getChildTextTrim("Name"));
+		if (unitNode.getChild("EstablishDate") != null)
+		{
+			try
+			{
+				u.setEstablishDate(SwingHelper.GetDateFromString(unitNode.getChildTextTrim("EstablishDate")));
+			}
+			catch (Exception e) {}
+		}
+		if (unitNode.getChild("CurrentDate") != null)
+		{
+			try
+			{
+				u.setCurrentDate(SwingHelper.GetDateFromString(unitNode.getChildTextTrim("CurrentDate")));
+			}
+			catch (Exception e) {}
+		}
 		if (unitNode.getChild("QualityRating") != null)
 		{
 			u.setQualityRating(QualityRating.fromString(unitNode.getChildTextTrim("QualityRating")));
@@ -632,7 +665,9 @@ public class UnitManager
 		org.jdom.Element assignedMissionsElement = unitNode.getChild("AssignedMission");
 		if (assignedMissionsElement != null)
 		{
-			u.setAssignedMission(Long.parseLong(assignedMissionsElement.getText()));
+			Long missionID = Long.parseLong(assignedMissionsElement.getAttributeValue("ID"));
+			String missionTitle = assignedMissionsElement.getAttributeValue("Title");
+			u.setAssignedMission(missionID, missionTitle);
 		}
 
 		org.jdom.Element completedMissionsElement = unitNode.getChild("CompletedMissions");
@@ -646,6 +681,19 @@ public class UnitManager
 			}
 		}
 
+		org.jdom.Element assetAssignmentsElement = unitNode.getChild("AssetAssignments");
+		if (assetAssignmentsElement != null)
+		{
+			iter = assetAssignmentsElement.getChildren("AssetAssignment").iterator();
+			while (iter.hasNext())
+			{
+				org.jdom.Element me = (org.jdom.Element)iter.next();
+				String name = me.getAttributeValue("Name");
+				String assetIdentifier = me.getAttributeValue("AssetIdentifer");
+				Role role = Role.fromString(me.getAttributeValue("Role"));
+				u.addPersonnelAssignment(name, assetIdentifier, role);
+			}
+		}
 		return u;
 	}
 

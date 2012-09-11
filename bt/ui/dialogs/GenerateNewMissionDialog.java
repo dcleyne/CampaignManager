@@ -84,7 +84,7 @@ public class GenerateNewMissionDialog extends JDialog implements ActionListener
 				
 				Scenario scenario = MissionManager.getInstance().generateScenario(_Unit, opponentRating, opponentQualityRating, opponentTechRating);
 				MissionManager.getInstance().SaveScenarioForUnit(_Unit, scenario);
-				_Unit.setAssignedMission(scenario.getMission().getID());
+				_Unit.setAssignedMission(scenario.getMission().getID(), scenario.getMission().getName());
 				UnitManager.getInstance().saveUnit(_Unit);
 				
 				_MissionGenerated = true;

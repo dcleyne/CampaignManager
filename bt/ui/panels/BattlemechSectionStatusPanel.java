@@ -1,9 +1,9 @@
 package bt.ui.panels;
 
 import java.awt.Dimension;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -17,7 +17,8 @@ public class BattlemechSectionStatusPanel extends JPanel
 
 	private BattlemechSection _Section;
 	
-	private JComboBox<SectionStatus> _StatusComboBox;
+	private JCheckBox _BreachedCheckBox;
+	private JComboBox<SectionStatus.Status> _StatusComboBox;
 	
 	public BattlemechSectionStatusPanel(BattlemechSection section, SectionStatus status)
 	{
@@ -30,8 +31,12 @@ public class BattlemechSectionStatusPanel extends JPanel
 		sectionNameTextField.setEditable(false);
 		add(sectionNameTextField);
 		
-		_StatusComboBox = new JComboBox<SectionStatus>(section.validStatuses());
-		_StatusComboBox.setSelectedItem(status);
+		_BreachedCheckBox = new JCheckBox("Breached");
+		_BreachedCheckBox.setSelected(status.isBreached());
+		add(_BreachedCheckBox);
+		
+		_StatusComboBox = new JComboBox<SectionStatus.Status>(section.validStatuses());
+		_StatusComboBox.setSelectedItem(status.getStatus());
 		add(_StatusComboBox);
 		
     	add(Box.createHorizontalGlue());
@@ -47,9 +52,14 @@ public class BattlemechSectionStatusPanel extends JPanel
 		return _Section;
 	}
 	
-	public SectionStatus getSectionStatus()
+	public SectionStatus.Status getSectionStatus()
 	{
-		return (SectionStatus)_StatusComboBox.getSelectedItem();
+		return (SectionStatus.Status)_StatusComboBox.getSelectedItem();
+	}
+	
+	public boolean isBreached()
+	{
+		return _BreachedCheckBox.isSelected();
 	}
 	
 }

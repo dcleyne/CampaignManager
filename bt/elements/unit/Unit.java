@@ -2,7 +2,9 @@ package bt.elements.unit;
 
 import java.io.Serializable;
 
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 import java.util.Vector;
 
 import bt.elements.Ammunition;
@@ -48,16 +50,21 @@ public class Unit implements Serializable
 
 	private String _Notes;
 
-	private Character m_Leader;
+	private Character _Leader;
 	private Vector<Personnel> _Personnel = new Vector<Personnel>();
 
 	private Vector<Asset> _Assets = new Vector<Asset>();
 	private Vector<Ammunition> _SpareAmmunition = new Vector<Ammunition>();
 	private Vector<Item> _SpareParts = new Vector<Item>();
 	private Vector<Asset> _SalvagedAssets = new Vector<Asset>();
+	
 	private Long _AssignedMission = null;
-	private Vector<Long> _CompletedMissions = new Vector<Long>();
-	private Vector<Formation> m_Formations = new Vector<Formation>();
+	private String _AssignedMissionTitle = null;
+	
+	private Vector<CompletedMission> _CompletedMissions = new Vector<CompletedMission>();
+	private Vector<Formation> _Formations = new Vector<Formation>();
+	
+	private Vector<PersonnelAssetAssignment> _PersonnelAssetAssignments = new Vector<PersonnelAssetAssignment>();
 
 	public String getName()
 	{
@@ -81,12 +88,12 @@ public class Unit implements Serializable
 
 	public Character getLeader()
 	{
-		return m_Leader;
+		return _Leader;
 	}
 
 	public void setLeader(Character leader)
 	{
-		m_Leader = leader;
+		_Leader = leader;
 	}
 
 	public Date getCurrentDate()
@@ -146,19 +153,19 @@ public class Unit implements Serializable
 
 	public int getGroupCount()
 	{
-		return m_Formations.size();
+		return _Formations.size();
 	}
 
 	public Formation getGroup(int Index)
 	{
 		if (Index < 0)
 			return null;
-		return (Formation) m_Formations.elementAt(Index);
+		return (Formation) _Formations.elementAt(Index);
 	}
 
 	public int getGroupIndex(Formation ug)
 	{
-		return m_Formations.indexOf(ug);
+		return _Formations.indexOf(ug);
 	}
 
 	public Formation addNewGroup(UnitDesignation ud)
@@ -167,13 +174,13 @@ public class Unit implements Serializable
 		ug.setUnitDesignation(ud);
 		ug.setCommander(-1);
 		ug.setName("New Group");
-		m_Formations.add(ug);
+		_Formations.add(ug);
 		return ug;
 	}
 
 	public void removeGroup(Formation f)
 	{
-		m_Formations.remove(f);
+		_Formations.remove(f);
 	}
 
 	public Vector<Asset> getAssets()
@@ -252,22 +259,33 @@ public class Unit implements Serializable
 		return _AssignedMission;
 	}
 	
-	public void setAssignedMission(Long missionID)
+	public String getAssignedMissionTitle()
+	{
+		return _AssignedMissionTitle;
+	}
+	
+	public void setAssignedMission(Long missionID, String missionTitle)
 	{
 		_AssignedMission = missionID;
+		_AssignedMissionTitle = missionTitle;
 	}
 
 	public Vector<Long> getCompletedMissions()
 	{
-		return _CompletedMissions;
+		Vector<Long> completedMissions = new Vector<Long>();
+		for (CompletedMission cm : _CompletedMissions)
+			completedMissions.add(new Long(cm.getMissionIdentifier()));
+		
+		return completedMissions;
 	}
 	
-	public void assignedMissionCompleted()
+	public void assignedMissionCompleted(CompletedMission.Result result, double prizeMoney)
 	{
 		if (_AssignedMission != null)
 		{
-			_CompletedMissions.add(_AssignedMission);
+			_CompletedMissions.add(new CompletedMission(_AssignedMission, _AssignedMissionTitle, result, prizeMoney));
 			_AssignedMission = null;
+			_AssignedMissionTitle = null;
 		}
 	}
 	
@@ -276,6 +294,7 @@ public class Unit implements Serializable
 		if (_AssignedMission != null)
 		{
 			_AssignedMission = null;
+			_AssignedMissionTitle = null;
 		}
 	}
 
@@ -293,6 +312,56 @@ public class Unit implements Serializable
 			totalBV += bm.getAdjustedBV();
 
 		return totalBV;
+	}
+	
+	public Vector<String> getAssetsAssignedToPersonnel(String name)
+	{
+		Vector<String> assets = new Vector<String>();
+		for (PersonnelAssetAssignment ass : _PersonnelAssetAssignments)
+		{
+			if (ass.getName().equalsIgnoreCase(name))
+				assets.add(ass.getAssetIdentifier());
+		}
+		
+		return assets;
+	}
+	
+	public List<PersonnelAssetAssignment> getPersonnelAssetAssignments()
+	{
+		return Collections.unmodifiableList(_PersonnelAssetAssignments);
+	}
+	
+	public Vector<String> getPersonnelAssignedToAsset(String assetIdentifier)
+	{
+		Vector<String> personnel = new Vector<String>();
+		for (PersonnelAssetAssignment ass : _PersonnelAssetAssignments)
+		{
+			if (ass.getAssetIdentifier().equalsIgnoreCase(assetIdentifier))
+				personnel.add(ass.getName());
+		}
+		
+		return personnel;		
+	}
+	
+	public Vector<PersonnelAssetAssignment> getAssignments(String personnelName)
+	{
+		Vector<PersonnelAssetAssignment> assignments = new Vector<PersonnelAssetAssignment>();
+		for (PersonnelAssetAssignment ass : _PersonnelAssetAssignments)
+		{
+			if (ass.getName().equalsIgnoreCase(personnelName))
+				assignments.add(ass);
+		}
+		
+		return assignments;
+	}
+	
+	public void addPersonnelAssignment(String name, String assetIdentifier, Role role)
+	{
+		PersonnelAssetAssignment paa = new PersonnelAssetAssignment(name, assetIdentifier, role);
+		if (_PersonnelAssetAssignments.contains(paa))
+			_PersonnelAssetAssignments.remove(paa);
+		
+		_PersonnelAssetAssignments.add(paa);
 	}
 
 }

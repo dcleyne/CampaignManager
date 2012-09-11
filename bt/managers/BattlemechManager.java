@@ -181,7 +181,7 @@ public class BattlemechManager
 
         for (BattlemechSection sec : sections)
         {
-        	sectionStatuses.put(sec, SectionStatus.OK);
+        	sectionStatuses.put(sec, new SectionStatus(SectionStatus.Status.OK, false));
         }
 
         return sectionStatuses;
@@ -263,9 +263,10 @@ public class BattlemechManager
 	        while (iter.hasNext())
 	        {
 	        	org.jdom.Element internalElement = (org.jdom.Element)iter.next();
-	            String Location = internalElement.getAttributeValue("Name");
-	            String Status = internalElement.getAttributeValue("Status");
-	            mech.getSectionStatuses().put(BattlemechSection.fromString(Location), SectionStatus.fromString(Status));
+	            String location = internalElement.getAttributeValue("Name");
+	            String status = internalElement.getAttributeValue("Status");
+	            boolean breached = Boolean.parseBoolean(internalElement.getAttributeValue("Breached"));
+	            mech.getSectionStatuses().put(BattlemechSection.fromString(location), new SectionStatus(SectionStatus.Status.fromString(status), breached));
 	        }
         }
         else
@@ -1009,7 +1010,8 @@ public class BattlemechManager
         {
             org.jdom.Element sectionNode = new org.jdom.Element("Section");
             sectionNode.setAttribute("Name", section.toString());
-            sectionNode.setAttribute("Status", mech.getSectionStatuses().get(section).toString());
+            sectionNode.setAttribute("Status", mech.getSectionStatuses().get(section).getStatus().toString());
+            sectionNode.setAttribute("Breached", Boolean.toString(mech.getSectionStatuses().get(section).isBreached()));
             sectionsNode.addContent(sectionNode);
         }
         battlemechNode.addContent(sectionsNode);

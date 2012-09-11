@@ -10,31 +10,34 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import bt.elements.unit.Unit;
+import bt.ui.dialogs.SelectDateDialog;
 import bt.util.SwingHelper;
 
 public class UnitDetailsPanel extends JPanel implements ClosableEditPanel, ActionListener
 {
 	private static final long serialVersionUID = 1; 
-    protected Unit m_Unit = null;
+    protected Unit _Unit = null;
 
-    JPanel m_EditPanel = new JPanel();
+    JPanel _EditPanel = new JPanel();
 
-    JTextField m_NameTextField = new JTextField();
-    JTextField m_DateEstablishedTextField = new JTextField();
-    JTextArea m_NotesTextArea = new JTextArea();
+    JTextField _NameTextField = new JTextField();
+    JTextField _CurrentDateTextField = new JTextField();
+    JTextField _DateEstablishedTextField = new JTextField();
+    JTextArea _NotesTextArea = new JTextArea();
 
     public UnitDetailsPanel(Unit a)
     {
-        m_Unit = a;
+        _Unit = a;
 
-        m_EditPanel.setBorder(BorderFactory.createEtchedBorder());
-        m_EditPanel.setLayout(new BoxLayout(m_EditPanel, BoxLayout.Y_AXIS));
-        m_EditPanel.add(SwingHelper.GetTextField(m_NameTextField, "Name", "The Unit's Name",true));
-        m_EditPanel.add(SwingHelper.GetTextField(m_DateEstablishedTextField, "Date Established", "The Unit's Formation date",true));
-        m_EditPanel.add(SwingHelper.GetTextArea(m_NotesTextArea, "Notes", "Notes for this Unit",true));
+        _EditPanel.setBorder(BorderFactory.createEtchedBorder());
+        _EditPanel.setLayout(new BoxLayout(_EditPanel, BoxLayout.Y_AXIS));
+        _EditPanel.add(SwingHelper.GetTextField(_NameTextField, "Name", "The Unit's Name",true));
+        _EditPanel.add(SwingHelper.GetTextFieldWithAction(_DateEstablishedTextField, "Date Established", "The Unit's Formation date",true,"SetEstablishDate","Set the date the unit was established",this));
+        _EditPanel.add(SwingHelper.GetTextFieldWithAction(_CurrentDateTextField, "Current Date", "The current date for the unit",true,"SetCurrentDate","Set the current date",this));
+        _EditPanel.add(SwingHelper.GetTextArea(_NotesTextArea, "Notes", "Notes for this Unit",true));
 
         this.setLayout(new BorderLayout());
-        this.add(m_EditPanel, BorderLayout.CENTER);
+        this.add(_EditPanel, BorderLayout.CENTER);
 
         setVisible(true);
         SetFields();
@@ -42,6 +45,21 @@ public class UnitDetailsPanel extends JPanel implements ClosableEditPanel, Actio
 
     public void actionPerformed(ActionEvent e)
     {
+    	String actionCommand = e.getActionCommand();
+    	if (actionCommand.equalsIgnoreCase("SetCurrentDate"))
+    	{
+    		SelectDateDialog dlg = new SelectDateDialog(_Unit.getCurrentDate());
+    		dlg.setLocationRelativeTo(this);
+    		dlg.setModal(true);
+    		dlg.setVisible(true);
+    	}
+    	if (actionCommand.equalsIgnoreCase("SetEstablishDate"))
+    	{
+    		SelectDateDialog dlg = new SelectDateDialog(_Unit.getEstablishDate());
+    		dlg.setLocationRelativeTo(this);
+    		dlg.setModal(true);
+    		dlg.setVisible(true);    		
+    	}
     }
 
     public boolean IsClosable()
@@ -56,21 +74,22 @@ public class UnitDetailsPanel extends JPanel implements ClosableEditPanel, Actio
 
     protected void SetFields()
     {
-        m_NameTextField.setText(m_Unit.getName());
-        m_DateEstablishedTextField.setText(SwingHelper.FormatDate(m_Unit.getEstablishDate()));
-        m_NotesTextArea.setText(m_Unit.getNotes());
+        _NameTextField.setText(_Unit.getName());
+        _CurrentDateTextField.setText(SwingHelper.FormatDate(_Unit.getCurrentDate()));
+        _DateEstablishedTextField.setText(SwingHelper.FormatDate(_Unit.getEstablishDate()));
+        _NotesTextArea.setText(_Unit.getNotes());
 
-        m_NameTextField.requestFocus();
-        m_NameTextField.selectAll();
+        _NameTextField.requestFocus();
+        _NameTextField.selectAll();
     }
 
     protected void GetFields()
     {
         try
         {
-            m_Unit.setName(m_NameTextField.getText());
-            m_Unit.setEstablishDate(SwingHelper.GetDateFromString(m_DateEstablishedTextField.getText()));
-            m_Unit.setNotes(m_NotesTextArea.getText());
+            _Unit.setName(_NameTextField.getText());
+            _Unit.setEstablishDate(SwingHelper.GetDateFromString(_DateEstablishedTextField.getText()));
+            _Unit.setNotes(_NotesTextArea.getText());
         }
         catch (Exception e)
         {
