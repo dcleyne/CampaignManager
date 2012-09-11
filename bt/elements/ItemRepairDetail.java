@@ -32,7 +32,7 @@ public class ItemRepairDetail
 	private int _PartialRepair = Integer.MIN_VALUE;
 	private String _PartialRepairEffect = "";
 	private int _Time = 0;
-	private int _Cost = 0;
+	private double _Cost = 0;
 	
 	public Type getType()
 	{
@@ -83,15 +83,16 @@ public class ItemRepairDetail
 		_Time = time;
 	}
 	
-	public int getCost()
+	public double getCost()
 	{
 		return _Cost;
 	}
-	public void setCost(int cost)
+	public void setCost(double cost)
 	{
 		_Cost = cost;
 	}
-	public ItemRepairDetail(Type type, String itemType, int skillModifier, int partialRepair, String partialRepairEffect, int time, int cost)
+	
+	public ItemRepairDetail(Type type, String itemType, int skillModifier, int partialRepair, String partialRepairEffect, int time, double cost)
 	{
 		_Type = type;
 		_ItemType = itemType;
@@ -99,7 +100,7 @@ public class ItemRepairDetail
 		_PartialRepair = partialRepair;
 		_PartialRepairEffect = partialRepairEffect;
 		_Time = time;
-		setCost(cost);
+		_Cost = cost;
 	}
 	
 	

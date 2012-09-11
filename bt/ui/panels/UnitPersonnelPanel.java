@@ -107,12 +107,12 @@ public class UnitPersonnelPanel extends JPanel implements ClosableEditPanel, Mou
         setVisible(true);
     }
 
-    public boolean IsClosable()
+    public boolean isClosable()
     {
         return true;
     }
 
-    public void ForceEditCompletion()
+    public void forceEditCompletion()
     {
         GetFields();
     }

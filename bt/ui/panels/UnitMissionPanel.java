@@ -174,12 +174,12 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
     	_ViewAssignedMissionButton.setEnabled(unitHasAssignedMission);
     }
     
-    public boolean IsClosable()
+    public boolean isClosable()
     {
         return true;
     }
 
-    public void ForceEditCompletion()
+    public void forceEditCompletion()
     {
     }
 

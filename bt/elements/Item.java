@@ -59,6 +59,7 @@ public abstract class Item
 
 
     public abstract String getType();
+    public abstract double getCost();
     
     @Override
     public String toString()

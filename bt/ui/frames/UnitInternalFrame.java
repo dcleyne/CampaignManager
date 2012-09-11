@@ -9,6 +9,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import bt.elements.unit.Unit;
+import bt.managers.UnitManager;
 import bt.ui.frames.ClosableEditFrame;
 import bt.ui.panels.ClosableEditPanel;
 import bt.ui.panels.UnitAssetPanel;
@@ -21,58 +22,66 @@ public class UnitInternalFrame extends JInternalFrame implements ClosableEditFra
 {
 	private static final long serialVersionUID = 1;
 	
-    protected JTabbedPane m_Tabs = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.WRAP_TAB_LAYOUT);
-    protected Unit m_Unit = null;
+    protected JTabbedPane _Tabs = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.WRAP_TAB_LAYOUT);
+    protected Unit _Unit = null;
 
     public UnitInternalFrame(String Title, Unit u)
     {
         super(Title, true, true, true, true);
-        m_Unit = u;
+        _Unit = u;
         getContentPane().setLayout(new BorderLayout());
 
-        m_Tabs.add("Details", new UnitDetailsPanel(u));
-        m_Tabs.add("Structure", new JPanel());
-        m_Tabs.add("Personnel", new UnitPersonnelPanel(u));
-        m_Tabs.add("Assets", new UnitAssetPanel(u));
-        m_Tabs.add("Finances", new UnitFinancePanel(u));
-        m_Tabs.add("Missions", new UnitMissionPanel(u));
+        _Tabs.add("Details", new UnitDetailsPanel(u));
+        _Tabs.add("Structure", new JPanel());
+        _Tabs.add("Personnel", new UnitPersonnelPanel(u));
+        _Tabs.add("Assets", new UnitAssetPanel(u));
+        _Tabs.add("Finances", new UnitFinancePanel(u));
+        _Tabs.add("Missions", new UnitMissionPanel(u));
 
-        m_Tabs.addChangeListener(this);
+        _Tabs.addChangeListener(this);
 
-        getContentPane().add(m_Tabs, BorderLayout.CENTER);
+        getContentPane().add(_Tabs, BorderLayout.CENTER);
         setVisible(true);
 
-        m_Tabs.requestFocus();
+        _Tabs.requestFocus();
     }
 
     public Unit GetUnit()
-    {return m_Unit;
+    {return _Unit;
     }
 
-    public boolean IsClosable()
+    public boolean isFrameClosable()
     {
         boolean Closable = false;
-        for (int count = 0; count < m_Tabs.getTabCount(); count++)
+        for (int count = 0; count < _Tabs.getTabCount(); count++)
         {
-            Closable &= ( (ClosableEditPanel)m_Tabs.getComponentAt(count)).IsClosable();
+            Closable &= ( (ClosableEditPanel)_Tabs.getComponentAt(count)).isClosable();
         }
         return Closable;
     }
 
-    public void ForceEditCompletion()
+    public void forceFrameEditCompletion()
     {
-        for (int count = 0; count < m_Tabs.getTabCount(); count++)
+        for (int count = 0; count < _Tabs.getTabCount(); count++)
         {
-        	if (m_Tabs.getComponentAt(count) instanceof ClosableEditPanel)
+        	if (_Tabs.getComponentAt(count) instanceof ClosableEditPanel)
         	{
-        		( (ClosableEditPanel)m_Tabs.getComponentAt(count)).ForceEditCompletion();
+        		( (ClosableEditPanel)_Tabs.getComponentAt(count)).forceEditCompletion();
         	}
         }
+        
+        try
+		{
+			UnitManager.getInstance().saveUnit(_Unit);
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		}
     }
 
     public void stateChanged(ChangeEvent ce)
     {
-        ForceEditCompletion();
+        forceFrameEditCompletion();
     }
 
 }

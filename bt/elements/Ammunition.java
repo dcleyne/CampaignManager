@@ -68,4 +68,9 @@ public class Ammunition extends Item
     	return "@ " + _WeaponType + " (" + _Shots + ")";
     }
 
+    public double getCost()
+    {
+    	//TODO fix this!
+    	return 0;
+    }
 }

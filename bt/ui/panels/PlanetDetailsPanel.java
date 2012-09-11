@@ -552,12 +552,12 @@ public class PlanetDetailsPanel extends JPanel implements ClosableEditPanel, Act
     	m_Details.setNotes(m_NotesTextArea.getText());
     }
 
-    public boolean IsClosable()
+    public boolean isClosable()
     {
         return true;
     }
 
-    public void ForceEditCompletion()
+    public void forceEditCompletion()
     {
         GetFields();
     }

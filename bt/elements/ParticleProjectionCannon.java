@@ -9,4 +9,8 @@ public class ParticleProjectionCannon extends Weapon
 		return "PPC";
 	}
 
+	public double getCost()
+	{
+		return 200000;
+	}
 }

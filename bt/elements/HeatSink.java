@@ -9,4 +9,8 @@ public class HeatSink extends Item
 		return "Heat Sink";
 	}
 
+	public double getCost()
+	{
+		return 2000;
+	}
 }

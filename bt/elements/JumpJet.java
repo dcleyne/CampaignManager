@@ -20,4 +20,8 @@ public class JumpJet extends Item
 		return "Jump Jet";
 	}
 
+	public double getCost()
+	{
+		return 200 * _Weight;
+	}
 }

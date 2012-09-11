@@ -40,7 +40,7 @@ public class UnitDetailsPanel extends JPanel implements ClosableEditPanel, Actio
         this.add(_EditPanel, BorderLayout.CENTER);
 
         setVisible(true);
-        SetFields();
+        setFields();
     }
 
     public void actionPerformed(ActionEvent e)
@@ -52,27 +52,51 @@ public class UnitDetailsPanel extends JPanel implements ClosableEditPanel, Actio
     		dlg.setLocationRelativeTo(this);
     		dlg.setModal(true);
     		dlg.setVisible(true);
+    		
+    		if (dlg.wasValueSelected())
+    		{
+    			getFields();
+    			_Unit.setCurrentDate(dlg.getValueSelected());
+    			if (_Unit.getEstablishDate() == null)
+    				_Unit.setEstablishDate(_Unit.getCurrentDate());
+    			else
+    			{
+	    			if (_Unit.getCurrentDate().compareTo(_Unit.getEstablishDate()) < 0)
+	    				_Unit.setCurrentDate(_Unit.getEstablishDate());
+    			}	
+    			setFields();
+    		}
     	}
     	if (actionCommand.equalsIgnoreCase("SetEstablishDate"))
     	{
     		SelectDateDialog dlg = new SelectDateDialog(_Unit.getEstablishDate());
     		dlg.setLocationRelativeTo(this);
     		dlg.setModal(true);
-    		dlg.setVisible(true);    		
+    		dlg.setVisible(true);
+    		
+    		if (dlg.wasValueSelected())
+    		{
+    			getFields();
+    			_Unit.setEstablishDate(dlg.getValueSelected());
+    			if (_Unit.getCurrentDate() == null || _Unit.getCurrentDate().compareTo(_Unit.getEstablishDate()) < 0)
+    				_Unit.setCurrentDate(_Unit.getEstablishDate());
+
+    			setFields();
+    		}
     	}
     }
 
-    public boolean IsClosable()
+    public boolean isClosable()
     {
         return true;
     }
 
-    public void ForceEditCompletion()
+    public void forceEditCompletion()
     {
-        GetFields();
+        getFields();
     }
 
-    protected void SetFields()
+    protected void setFields()
     {
         _NameTextField.setText(_Unit.getName());
         _CurrentDateTextField.setText(SwingHelper.FormatDate(_Unit.getCurrentDate()));
@@ -83,12 +107,13 @@ public class UnitDetailsPanel extends JPanel implements ClosableEditPanel, Actio
         _NameTextField.selectAll();
     }
 
-    protected void GetFields()
+    protected void getFields()
     {
         try
         {
             _Unit.setName(_NameTextField.getText());
             _Unit.setEstablishDate(SwingHelper.GetDateFromString(_DateEstablishedTextField.getText()));
+            _Unit.setCurrentDate(SwingHelper.GetDateFromString(_CurrentDateTextField.getText()));
             _Unit.setNotes(_NotesTextArea.getText());
         }
         catch (Exception e)

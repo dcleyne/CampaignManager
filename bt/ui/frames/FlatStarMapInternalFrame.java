@@ -35,12 +35,12 @@ public class FlatStarMapInternalFrame extends JInternalFrame implements Closable
         m_DetailsPanel.addSolarSystemManagerListener(sspml);
     }
 
-    public boolean IsClosable()
+    public boolean isFrameClosable()
     {
         return true;
     }
 
-    public void ForceEditCompletion()
+    public void forceFrameEditCompletion()
     {
     }
 }

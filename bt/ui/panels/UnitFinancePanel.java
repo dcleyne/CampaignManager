@@ -31,12 +31,12 @@ public class UnitFinancePanel extends JPanel implements ClosableEditPanel
         m_Unit = u;
     }
 
-    public boolean IsClosable()
+    public boolean isClosable()
     {
         return true;
     }
 
-    public void ForceEditCompletion()
+    public void forceEditCompletion()
     {
     }
 

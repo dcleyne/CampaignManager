@@ -40,12 +40,12 @@ public class PlayerDetailsPanel extends JPanel implements ClosableEditPanel, Act
     {
     }
 
-    public boolean IsClosable()
+    public boolean isClosable()
     {
         return true;
     }
 
-    public void ForceEditCompletion()
+    public void forceEditCompletion()
     {
         GetFields();
     }

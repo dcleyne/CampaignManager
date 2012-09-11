@@ -120,12 +120,12 @@ public class UnitAssetPanel extends JPanel implements ClosableEditPanel, MouseLi
     }
 
 
-    public boolean IsClosable()
+    public boolean isClosable()
     {
         return true;
     }
 
-    public void ForceEditCompletion()
+    public void forceEditCompletion()
     {
     }
     

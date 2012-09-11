@@ -10,7 +10,7 @@ package bt.ui.frames;
 
 public interface ClosableEditFrame
 {
-    public boolean IsClosable();
+    public boolean isFrameClosable();
 
-    public void ForceEditCompletion();
+    public void forceFrameEditCompletion();
 }

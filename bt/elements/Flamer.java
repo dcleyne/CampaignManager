@@ -9,4 +9,8 @@ public class Flamer extends Weapon
 		return "Flamer";
 	}
 
+	public double getCost()
+	{
+		return 7500;
+	}
 }

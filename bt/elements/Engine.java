@@ -42,5 +42,23 @@ public class Engine extends Item
 		_Weight = weight;
 	}
     
+	public double getCost()
+	{
+		int factor = 5000;
+		switch (_Type)
+		{
+		case FUSION:
+			factor = 5000;
+			break;
+		case ICE:
+			factor = 1250;
+			break;
+		case XL_FUSION:
+			factor = 20000;
+			break;
+		}
+		
+		return factor * _Weight * _Rating / 75;
+	}
 
 }

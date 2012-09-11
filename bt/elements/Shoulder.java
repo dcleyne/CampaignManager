@@ -1,6 +1,6 @@
 package bt.elements;
 
-public class Shoulder extends Item
+public class Shoulder extends Actuator
 {
 
 	@Override
@@ -9,4 +9,8 @@ public class Shoulder extends Item
 		return "Shoulder";
 	}
 
+	public double getCost()
+	{
+		return getWeight() * 200;
+	}
 }

@@ -1,6 +1,6 @@
 package bt.elements;
 
-public class Hip extends Item
+public class Hip extends Actuator
 {
 
 	@Override
@@ -9,4 +9,8 @@ public class Hip extends Item
 		return "Hip";
 	}
 
+	public double getCost()
+	{
+		return getWeight() * 300;
+	}
 }

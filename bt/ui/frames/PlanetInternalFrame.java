@@ -51,14 +51,14 @@ public class PlanetInternalFrame extends JInternalFrame implements ClosableEditF
     public InnerSpherePlanet GetPlanet()
     { return m_Planet; }
 
-    public boolean IsClosable()
+    public boolean isFrameClosable()
     {
-        boolean Closable = m_DetailsPanel.IsClosable();
+        boolean Closable = m_DetailsPanel.isClosable();
         return Closable;
     }
 
-    public void ForceEditCompletion()
+    public void forceFrameEditCompletion()
     {
-        m_DetailsPanel.ForceEditCompletion();
+        m_DetailsPanel.forceEditCompletion();
     }
 }

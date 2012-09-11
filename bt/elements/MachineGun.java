@@ -9,4 +9,8 @@ public class MachineGun extends Weapon
 		return "Machine Gun";
 	}
 
+	public double getCost()
+	{
+		return 5000;
+	}
 }

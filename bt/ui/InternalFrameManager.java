@@ -54,41 +54,41 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
 {
     private static Log log = LogFactory.getLog(InternalFrameManager.class);
 
-    protected JFrame m_ParentFrame;
-    protected JDesktopPane m_DesktopPane;
+    protected JFrame _ParentFrame;
+    protected JDesktopPane _DesktopPane;
 
-    protected UnitListInternalFrame m_UnitListFrame;
-    private PlayerListInternalFrame m_PlayerListFrame;
-    private FlatStarMapInternalFrame m_FlatStarMapFrame;
-    protected Vector<UnitInternalFrame> m_UnitFrames = new Vector<UnitInternalFrame>();
-    protected Vector<PlanetInternalFrame> m_PlanetFrames = new Vector<PlanetInternalFrame>();
-    private Vector<PlayerInternalFrame> m_PlayerFrames = new Vector<PlayerInternalFrame>();
+    protected UnitListInternalFrame _UnitListFrame;
+    private PlayerListInternalFrame _PlayerListFrame;
+    private FlatStarMapInternalFrame _FlatStarMapFrame;
+    protected Vector<UnitInternalFrame> _UnitFrames = new Vector<UnitInternalFrame>();
+    protected Vector<PlanetInternalFrame> _PlanetFrames = new Vector<PlanetInternalFrame>();
+    private Vector<PlayerInternalFrame> _PlayerFrames = new Vector<PlayerInternalFrame>();
     
-    private Vector<Long> m_PlanetRequests = new Vector<Long>();
-    private Vector<String> m_UnitRequests = new Vector<String>();
-    private Vector<String> m_PlayerRequests = new Vector<String>();
+    private Vector<Long> _PlanetRequests = new Vector<Long>();
+    private Vector<String> _UnitRequests = new Vector<String>();
+    private Vector<String> _PlayerRequests = new Vector<String>();
 
     
     public InternalFrameManager(JFrame frame, JDesktopPane DesktopPane)
     {
-        m_ParentFrame = frame;
-        m_DesktopPane = DesktopPane;
-        m_UnitListFrame = null;
+        _ParentFrame = frame;
+        _DesktopPane = DesktopPane;
+        _UnitListFrame = null;
     }
 
     public void ShowUnitListFrame()
     {
         try
         {
-            if (m_UnitListFrame == null)
+            if (_UnitListFrame == null)
             {
-                m_UnitListFrame = new UnitListInternalFrame("Unit List", UnitManager.getInstance().getUnits(),this);
-                m_DesktopPane.add(m_UnitListFrame);
-                m_UnitListFrame.setBounds(10, 10, 640, 480);
-                m_UnitListFrame.setVisible(true);
-                m_UnitListFrame.addInternalFrameListener(this);
+                _UnitListFrame = new UnitListInternalFrame("Unit List", UnitManager.getInstance().getUnits(),this);
+                _DesktopPane.add(_UnitListFrame);
+                _UnitListFrame.setBounds(10, 10, 640, 480);
+                _UnitListFrame.setVisible(true);
+                _UnitListFrame.addInternalFrameListener(this);
             }
-            m_UnitListFrame.toFront();
+            _UnitListFrame.toFront();
         }
         catch (Exception e)
         {
@@ -100,15 +100,15 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
     {
         try
         {
-            if (m_PlayerListFrame == null)
+            if (_PlayerListFrame == null)
             {
-                m_PlayerListFrame = new PlayerListInternalFrame("Player List", PlayerManager.getInstance().getPlayerSummaries(),this);
-                m_DesktopPane.add(m_PlayerListFrame);
-                m_PlayerListFrame.setBounds(10, 10, 640, 480);
-                m_PlayerListFrame.setVisible(true);
-                m_PlayerListFrame.addInternalFrameListener(this);
+                _PlayerListFrame = new PlayerListInternalFrame("Player List", PlayerManager.getInstance().getPlayerSummaries(),this);
+                _DesktopPane.add(_PlayerListFrame);
+                _PlayerListFrame.setBounds(10, 10, 640, 480);
+                _PlayerListFrame.setVisible(true);
+                _PlayerListFrame.addInternalFrameListener(this);
             }
-            m_PlayerListFrame.toFront();
+            _PlayerListFrame.toFront();
         }
         catch (Exception e)
         {
@@ -120,15 +120,15 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
     {
     	try
     	{
-            if (m_FlatStarMapFrame == null)
+            if (_FlatStarMapFrame == null)
             {
-	    		m_FlatStarMapFrame = new FlatStarMapInternalFrame("Inner Sphere", this);
-	    		m_DesktopPane.add(m_FlatStarMapFrame);
-	    		m_FlatStarMapFrame.setBounds(10, 10, 640, 480);
-	    		m_FlatStarMapFrame.setVisible(true);
-	    		m_FlatStarMapFrame.addInternalFrameListener(this);
+	    		_FlatStarMapFrame = new FlatStarMapInternalFrame("Inner Sphere", this);
+	    		_DesktopPane.add(_FlatStarMapFrame);
+	    		_FlatStarMapFrame.setBounds(10, 10, 640, 480);
+	    		_FlatStarMapFrame.setVisible(true);
+	    		_FlatStarMapFrame.addInternalFrameListener(this);
             }   
-            m_FlatStarMapFrame.toFront();
+            _FlatStarMapFrame.toFront();
     	}
     	catch (Exception e)
     	{
@@ -155,40 +155,40 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
     public void internalFrameClosing(InternalFrameEvent e)
     {
         JInternalFrame jif = e.getInternalFrame();
-        if (jif.equals(m_UnitListFrame))
+        if (jif.equals(_UnitListFrame))
         {
-            m_UnitListFrame = null;
+            _UnitListFrame = null;
         } 
         
-        if (jif.equals(m_FlatStarMapFrame))
+        if (jif.equals(_FlatStarMapFrame))
         {
-        	m_FlatStarMapFrame = null;
+        	_FlatStarMapFrame = null;
         }
         
-        if (jif.equals(m_PlayerListFrame))
+        if (jif.equals(_PlayerListFrame))
         {
-            m_PlayerListFrame = null;
+            _PlayerListFrame = null;
         }
         
-        if (m_UnitFrames.contains(jif))
+        if (_UnitFrames.contains(jif))
         {
             UnitInternalFrame aif = (UnitInternalFrame)jif;
-            aif.ForceEditCompletion();
-            m_UnitFrames.remove(jif);
+            aif.forceFrameEditCompletion();
+            _UnitFrames.remove(jif);
         } 
         
-        if (m_PlanetFrames.contains(jif))
+        if (_PlanetFrames.contains(jif))
         {
             PlanetInternalFrame pif = (PlanetInternalFrame)jif;
-            pif.ForceEditCompletion();
-            m_PlanetFrames.remove(jif);
+            pif.forceFrameEditCompletion();
+            _PlanetFrames.remove(jif);
         }
 
-        if (m_PlayerFrames.contains(jif))
+        if (_PlayerFrames.contains(jif))
         {
             PlayerInternalFrame aif = (PlayerInternalFrame)jif;
-            aif.ForceEditCompletion();
-            m_PlayerFrames.remove(jif);
+            aif.forceFrameEditCompletion();
+            _PlayerFrames.remove(jif);
         }
 
     }
@@ -208,24 +208,24 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
     public void UnitRemoved(Unit u)
     {
         UnitInternalFrame aif = null;
-        for (int i = 0; i < m_UnitFrames.size(); i++)
+        for (int i = 0; i < _UnitFrames.size(); i++)
         {
-            UnitInternalFrame uif = (UnitInternalFrame)m_UnitFrames.elementAt(i);
+            UnitInternalFrame uif = (UnitInternalFrame)_UnitFrames.elementAt(i);
             Unit uif_a = uif.GetUnit();
             if (u.equals(uif_a))
             {
-                uif.ForceEditCompletion();
-                m_UnitFrames.remove(aif);
-                m_DesktopPane.remove(aif);
+                uif.forceFrameEditCompletion();
+                _UnitFrames.remove(aif);
+                _DesktopPane.remove(aif);
                 uif.dispose();
-                m_ParentFrame.repaint();
+                _ParentFrame.repaint();
             }
         }
     }
 
     public void UnitChanged(Unit u)
     {
-        m_ParentFrame.repaint();
+        _ParentFrame.repaint();
     }
 
 	public void requestUnitEdit(String unitName) 
@@ -235,9 +235,9 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
 		{
 	        boolean found = false;
 	        UnitInternalFrame uif = null;
-	        for (int i = 0; i < m_UnitFrames.size(); i++)
+	        for (int i = 0; i < _UnitFrames.size(); i++)
 	        {
-	            uif = (UnitInternalFrame)m_UnitFrames.elementAt(i);
+	            uif = (UnitInternalFrame)_UnitFrames.elementAt(i);
 	            Unit uif_a = uif.GetUnit();
 	            if (u.equals(uif_a))
 	            {
@@ -248,10 +248,10 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
 	        if (!found)
 	        {
 	            uif = new UnitInternalFrame("Unit : " + u.getName(), u);
-	            m_DesktopPane.add(uif);
+	            _DesktopPane.add(uif);
 	            uif.setBounds(10, 10, 640, 620);
 	            uif.addInternalFrameListener(this);
-	            m_UnitFrames.add(uif);
+	            _UnitFrames.add(uif);
 	        }
 	        else
 	        {
@@ -268,11 +268,11 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
 	            }
 	
 	        }
-	        m_DesktopPane.getDesktopManager().activateFrame(uif);
+	        _DesktopPane.getDesktopManager().activateFrame(uif);
 		}
 		else
 		{
-    		m_UnitRequests.add(unitName);
+    		_UnitRequests.add(unitName);
 		}
 	}
 	
@@ -284,13 +284,13 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
 		// TODO Auto-generated method stub
     	if (ssd != null)
     	{
-    		m_PlanetRequests.remove(isp.getID());
+    		_PlanetRequests.remove(isp.getID());
     		
 	        boolean found = false;
 	        PlanetInternalFrame pif = null;
-	        for (int i = 0; i < m_PlanetFrames.size(); i++)
+	        for (int i = 0; i < _PlanetFrames.size(); i++)
 	        {
-	            pif = (PlanetInternalFrame)m_PlanetFrames.elementAt(i);
+	            pif = (PlanetInternalFrame)_PlanetFrames.elementAt(i);
 	            InnerSpherePlanet pif_a = pif.GetPlanet();
 	            if (isp.equals(pif_a))
 	            {
@@ -316,13 +316,13 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
 	                }
 	            }
 	            
-	            m_DesktopPane.getDesktopManager().activateFrame(pif);
+	            _DesktopPane.getDesktopManager().activateFrame(pif);
 	        }
     	}
     	else
     	{
     		Long planetID = new Long(isp.getID());
-    		m_PlanetRequests.add(planetID);
+    		_PlanetRequests.add(planetID);
     	}
 		
 	}
@@ -334,37 +334,37 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
     	
         PlanetInternalFrame pif = null;
         pif = new PlanetInternalFrame("Planet : " + isp.getSystem(), isp, ssd);
-        m_DesktopPane.add(pif);
+        _DesktopPane.add(pif);
         pif.setBounds(10, 10, 640, 620);
         pif.addInternalFrameListener(this);
-        m_PlanetFrames.add(pif);
-        m_DesktopPane.getDesktopManager().activateFrame(pif);
+        _PlanetFrames.add(pif);
+        _DesktopPane.getDesktopManager().activateFrame(pif);
     }
 
     public void CloseInternalFrames()
     {
         try
         {
-            if (m_UnitListFrame != null)
-                m_UnitListFrame.setClosed(true);
-            if (m_PlayerListFrame != null)
-                m_PlayerListFrame.setClosed(true);
-            if (m_FlatStarMapFrame != null)
-            	m_FlatStarMapFrame.setClosed(true);
+            if (_UnitListFrame != null)
+                _UnitListFrame.setClosed(true);
+            if (_PlayerListFrame != null)
+                _PlayerListFrame.setClosed(true);
+            if (_FlatStarMapFrame != null)
+            	_FlatStarMapFrame.setClosed(true);
             
-            for (int i = 0; i < m_UnitFrames.size(); i++)
+            for (int i = 0; i < _UnitFrames.size(); i++)
             {
-                UnitInternalFrame uif = (UnitInternalFrame) m_UnitFrames.elementAt(i);
+                UnitInternalFrame uif = (UnitInternalFrame) _UnitFrames.elementAt(i);
                 uif.setClosed(true);
             }
-            for (int i = 0; i < m_PlanetFrames.size(); i++)
+            for (int i = 0; i < _PlanetFrames.size(); i++)
             {
-                PlanetInternalFrame pif = (PlanetInternalFrame) m_PlanetFrames.elementAt(i);
+                PlanetInternalFrame pif = (PlanetInternalFrame) _PlanetFrames.elementAt(i);
                 pif.setClosed(true);
             }
-            for (int i = 0; i < m_PlayerFrames.size(); i++)
+            for (int i = 0; i < _PlayerFrames.size(); i++)
             {
-                PlayerInternalFrame pif = (PlayerInternalFrame) m_PlayerFrames.elementAt(i);
+                PlayerInternalFrame pif = (PlayerInternalFrame) _PlayerFrames.elementAt(i);
                 pif.setClosed(true);
             }            
         }
@@ -376,7 +376,7 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
 
     public void showGlassPane(String message)
     {
-        JPanel glass = (JPanel)((JFrame)JOptionPane.getFrameForComponent(m_ParentFrame)).getGlassPane();
+        JPanel glass = (JPanel)((JFrame)JOptionPane.getFrameForComponent(_ParentFrame)).getGlassPane();
         glass.removeAll();
 
         glass.setVisible(false);
@@ -408,7 +408,7 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
 
     public void hideGlassPane() 
     {
-        JPanel glass = (JPanel)m_ParentFrame.getRootPane().getGlassPane();
+        JPanel glass = (JPanel)_ParentFrame.getRootPane().getGlassPane();
         glass.setVisible(false);
         glass.removeAll();
         glass.setLayout(null);
@@ -416,7 +416,7 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
     
     public void registerSolarSystemDetails(Long id, SolarSystemDetails ssd)
     {
-    	if (m_PlanetRequests.contains(id))
+    	if (_PlanetRequests.contains(id))
     	{
     		PlanetEditRequest(PlanetManager.getPlanetFromID(id), ssd);
     	}
@@ -424,7 +424,7 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
     
     public void registerUnitDetails(String unitName, Unit unit)
     {
-    	if (m_UnitRequests.contains(unitName))
+    	if (_UnitRequests.contains(unitName))
     	{
     		requestUnitEdit(unitName);
     	}
@@ -432,7 +432,7 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
 
     public void registerPlayerDetails(String playerName, Player player)
     {
-    	if (m_PlayerRequests.contains(playerName))
+    	if (_PlayerRequests.contains(playerName))
     	{
     		requestPlayerEdit(playerName);
     	}
@@ -446,9 +446,9 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
 		{
 	        boolean found = false;
 	        PlayerInternalFrame uif = null;
-	        for (int i = 0; i < m_PlayerFrames.size(); i++)
+	        for (int i = 0; i < _PlayerFrames.size(); i++)
 	        {
-	            uif = (PlayerInternalFrame)m_PlayerFrames.elementAt(i);
+	            uif = (PlayerInternalFrame)_PlayerFrames.elementAt(i);
 	            Player uif_a = uif.GetPlayer();
 	            if (p.equals(uif_a))
 	            {
@@ -459,10 +459,10 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
 	        if (!found)
 	        {
 	            uif = new PlayerInternalFrame("Player : " + p.getName(), p);
-	            m_DesktopPane.add(uif);
+	            _DesktopPane.add(uif);
 	            uif.setBounds(10, 10, 640, 620);
 	            uif.addInternalFrameListener(this);
-	            m_PlayerFrames.add(uif);
+	            _PlayerFrames.add(uif);
 	        }
 	        else
 	        {
@@ -479,11 +479,11 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
 	            }
 	
 	        }
-	        m_DesktopPane.getDesktopManager().activateFrame(uif);
+	        _DesktopPane.getDesktopManager().activateFrame(uif);
 		}
 		else
 		{
-    		m_PlayerRequests.add(playerName);
+    		_PlayerRequests.add(playerName);
 		}
 	}
 

@@ -9,4 +9,8 @@ public class LifeSupport extends Item
 		return "Life Support";
 	}
 
+	public double getCost()
+	{
+		return 50000;
+	}
 }

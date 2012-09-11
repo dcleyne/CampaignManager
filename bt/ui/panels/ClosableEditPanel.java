@@ -10,7 +10,7 @@ package bt.ui.panels;
 
 public interface ClosableEditPanel
 {
-    public boolean IsClosable();
+    public boolean isClosable();
 
-    public void ForceEditCompletion();
+    public void forceEditCompletion();
 }

@@ -31,19 +31,19 @@ public class PlayerInternalFrame extends JInternalFrame implements ClosableEditF
     {return m_Player;
     }
 
-    public boolean IsClosable()
+    public boolean isFrameClosable()
     {
-    	return _PlayerDetailsPanel.IsClosable();
+    	return _PlayerDetailsPanel.isClosable();
     }
 
-    public void ForceEditCompletion()
+    public void forceFrameEditCompletion()
     {
-		_PlayerDetailsPanel.ForceEditCompletion();
+		_PlayerDetailsPanel.forceEditCompletion();
     }
 
     public void stateChanged(ChangeEvent ce)
     {
-        ForceEditCompletion();
+        forceFrameEditCompletion();
     }
 
 }

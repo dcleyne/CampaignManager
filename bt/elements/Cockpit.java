@@ -9,4 +9,8 @@ public class Cockpit extends Item
 		return "Cockpit";
 	}
 
+	public double getCost()
+	{
+		return 200000;
+	}
 }
