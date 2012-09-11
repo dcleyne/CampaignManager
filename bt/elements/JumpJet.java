@@ -1,6 +1,6 @@
 package bt.elements;
 
-public class JumpJet extends Item
+public class JumpJet extends WeightClassBasedItem
 {
     private double _Weight;
     

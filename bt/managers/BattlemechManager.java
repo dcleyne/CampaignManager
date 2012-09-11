@@ -334,7 +334,7 @@ public class BattlemechManager
             		item.setIdentifier(itemIdentifier);
             	
                 mount.setMountedItem(item);
-                loadItemBaseElements(itemElement, mount.getMountedItem());
+                loadItemBaseElements(itemElement, mount.getMountedItem(), mech.getWeight());
             }
             else
         		throw new RuntimeException("Unable to load item from type " + type);
@@ -413,7 +413,7 @@ public class BattlemechManager
     }
 
 
-    private void loadItemBaseElements(org.jdom.Element element, Item item)
+    private void loadItemBaseElements(org.jdom.Element element, Item item, int mechWeight)
     {
         if (element.getAttribute("Manufacturer") != null)
             item.setManufacturer(element.getAttributeValue("Manufacturer"));
@@ -426,7 +426,10 @@ public class BattlemechManager
             if (element.getAttribute("Manufacturer") != null)
             {
                 WeightClassBasedItem wcbi = (WeightClassBasedItem)item;
-                wcbi.setMechWeight(Integer.parseInt(element.getAttributeValue("MechWeight")));
+                if (element.getAttribute("MechWeight") != null)
+                	wcbi.setMechWeight(Integer.parseInt(element.getAttributeValue("MechWeight")));
+                else
+                    wcbi.setMechWeight(mechWeight);            	
             }
         }
     }

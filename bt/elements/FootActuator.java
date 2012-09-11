@@ -1,6 +1,6 @@
 package bt.elements;
 
-public class FootActuator extends Actuator
+public class FootActuator extends WeightClassBasedItem
 {
 
 	@Override
@@ -11,6 +11,6 @@ public class FootActuator extends Actuator
 
 	public double getCost()
 	{
-		return getWeight() * 120;
+		return getMechWeight() * 120;
 	}
 }

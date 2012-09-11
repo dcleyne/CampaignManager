@@ -1,6 +1,6 @@
 package bt.elements;
 
-public class Shoulder extends Actuator
+public class Shoulder extends WeightClassBasedItem
 {
 
 	@Override
@@ -11,6 +11,6 @@ public class Shoulder extends Actuator
 
 	public double getCost()
 	{
-		return getWeight() * 200;
+		return getMechWeight() * 200;
 	}
 }

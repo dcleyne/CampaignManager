@@ -34,19 +34,18 @@ public class Gyro extends WeightClassBasedItem
 		}
 	}
 	
-	private int _Weight = 1;
 	private Type _Type = Type.STANDARD;
-	
-	public int getWeight()
-	{
-		return _Weight;
-	}
-	
-	public void setWeight(int weight)
-	{
-		_Weight = weight;
-	}
 
+	public Gyro.Type getGyroType()
+	{
+		return _Type;
+	}
+	
+	public void setGyroType(Gyro.Type type)
+	{
+		_Type = type;
+	}
+	
 	@Override
 	public String getType()
 	{
@@ -55,7 +54,7 @@ public class Gyro extends WeightClassBasedItem
 	
 	public double getCost()
 	{
-		return _Weight * _Type.getCostMultiplier(); 
+		return getMechWeight() * _Type.getCostMultiplier(); 
 	}
 
 }
