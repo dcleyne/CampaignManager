@@ -221,7 +221,7 @@ public class Battlemech extends Asset implements BattleValue
 				}
 			}
 		}
-		defensiveBV += (double)armourFactors * 2.5;
+		defensiveBV += (double)armourFactors * 2;
 		
 		int internalFactors = 0;
 		for (String location : _Internals.keySet())
@@ -246,7 +246,7 @@ public class Battlemech extends Asset implements BattleValue
 				numAmmoSlots++;
 		}
 		
-		defensiveBV -= (15 * numAmmoSlots);
+		defensiveBV -= (20 * numAmmoSlots);
 		defensiveBV *= getMaxMoveModifier(getRunRating(), getJumpRating());
 		
 		double offensiveBV = 0;
