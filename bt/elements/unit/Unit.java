@@ -52,6 +52,7 @@ public class Unit implements Serializable
 
 	private Character _Leader;
 	private Vector<Personnel> _Personnel = new Vector<Personnel>();
+	private double _CurrentBankBalance = 0;
 
 	private Vector<Asset> _Assets = new Vector<Asset>();
 	private Vector<Ammunition> _SpareAmmunition = new Vector<Ammunition>();
@@ -134,6 +135,14 @@ public class Unit implements Serializable
 	public void setEstablishDate(Date establishDate)
 	{
 		_EstablishDate = establishDate;
+	}
+
+	public double getCurrentBankBalance() {
+		return _CurrentBankBalance;
+	}
+
+	public void setCurrentBankBalance(double currentBankBalance) {
+		_CurrentBankBalance = currentBankBalance;
 	}
 
 	public String getNotes()
@@ -362,6 +371,15 @@ public class Unit implements Serializable
 			_PersonnelAssetAssignments.remove(paa);
 		
 		_PersonnelAssetAssignments.add(paa);
+	}
+	
+	public double getBaseMonthlySalary()
+	{
+		double salary = 0;
+		for (Personnel p : _Personnel)
+			salary += p.getJobType().GetBaseMonthlySalary();
+		
+		return salary;
 	}
 
 }

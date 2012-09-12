@@ -41,7 +41,7 @@ public class TestLanceGeneration
 			        unitDisplay += "Min BV: " + Integer.toString(mup.getMinBV()) + ", ";
 			        unitDisplay += "Max BV: " + Integer.toString(mup.getMaxBV()) + "\r\n";
 			        
-			        Unit u = UnitManager.getInstance().GenerateUnit(p, "Generated Unit", mup, Rating.REGULAR, QualityRating.D, TechRating.D);
+			        Unit u = UnitManager.getInstance().GenerateUnit(p, "Generated Unit", mup, Rating.REGULAR, QualityRating.D, TechRating.D, 0);
 			
 			        int totalBV = 0;
 			        int totalWeight = 0;

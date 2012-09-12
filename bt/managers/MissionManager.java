@@ -375,7 +375,7 @@ public class MissionManager
 			
 			try
 			{
-				u = UnitManager.getInstance().GenerateUnit(p, unitName, mup, rating, qualityRating, techRating);
+				u = UnitManager.getInstance().GenerateUnit(p, unitName, mup, rating, qualityRating, techRating, 0);
 				unitBV = u.getUnitBV();
 				if (unitBV == 0)
 					log.debug("Unit generation failed");

@@ -172,13 +172,14 @@ public class UnitManager
 		}
 	}
 
-	public Unit GenerateUnit(Player p, String unitName, MechUnitParameters mup, Rating rating, QualityRating qualityRating, TechRating techRating) throws Exception
+	public Unit GenerateUnit(Player p, String unitName, MechUnitParameters mup, Rating rating, QualityRating qualityRating, TechRating techRating, double startingBankBalance) throws Exception
 	{
 		Unit u = new Unit();
 		u.setPlayer(p);
 		u.setName(unitName);
 		u.setQualityRating(qualityRating);
 		u.setTechRating(techRating);
+		u.setCurrentBankBalance(startingBankBalance);
 
 		u.addBattlemechs(generateLance(mup));
 		int supportReq = 0;
@@ -246,14 +247,14 @@ public class UnitManager
 		return u;
 	}
 
-	public Unit GenerateUnit(Player p, String unitName, String lanceWeight, Rating rating, QualityRating qualityRating, TechRating techRating) throws Exception
+	public Unit GenerateUnit(Player p, String unitName, String lanceWeight, Rating rating, QualityRating qualityRating, TechRating techRating, double startingBankBalance) throws Exception
 	{
 		if (!_Parameters.containsKey(lanceWeight))
 			throw new IllegalArgumentException("Unable to determine lance parameters from Lance Weight : " + lanceWeight);
 
 		MechUnitParameters mup = _Parameters.get(lanceWeight);
 
-		return GenerateUnit(p, unitName, mup, rating, qualityRating, techRating);
+		return GenerateUnit(p, unitName, mup, rating, qualityRating, techRating, startingBankBalance);
 
 	}
 
@@ -407,6 +408,7 @@ public class UnitManager
 		unitNode.addContent(new org.jdom.Element("CurrentDate").setText(SwingHelper.FormatDate(u.getCurrentDate())));
 		unitNode.addContent(new org.jdom.Element("QualityRating").setText(u.getQualityRating().toString()));
 		unitNode.addContent(new org.jdom.Element("TechRating").setText(u.getTechRating().toString()));
+		unitNode.addContent(new org.jdom.Element("CurrentBankBalance").setText(Double.toString(u.getCurrentBankBalance())));
 		unitNode.addContent(new org.jdom.Element("Notes").setText(u.getNotes()));
 
 		if (u.getPlayer() != null)
@@ -647,6 +649,9 @@ public class UnitManager
 		
 		if (unitNode.getChild("Player") != null)
 			u.setPlayer(PlayerManager.getInstance().getPlayer(unitNode.getChildTextTrim("Player")));
+		
+		if (unitNode.getChild("CurrentBankBalance") != null)
+			u.setCurrentBankBalance(Double.parseDouble(unitNode.getChildTextTrim("CurrentBankBalance")));
 
 		org.jdom.Element mechsElement = unitNode.getChild("Battlemechs");
 		Iterator<?> iter = mechsElement.getChildren().iterator();

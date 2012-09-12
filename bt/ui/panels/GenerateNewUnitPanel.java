@@ -415,7 +415,9 @@ public class GenerateNewUnitPanel extends JPanel
 
 		            try
 					{
-						_GeneratedUnit = _UnitManager.GenerateUnit(_Player, _UnitNameTextField.getText(), _UnitWeightComboBox.getSelectedItem().toString(),(Rating)_UnitRatingComboBox.getSelectedItem(), (QualityRating)_UnitQualityRatingComboBox.getSelectedItem(), (TechRating)_UnitTechRatingComboBox.getSelectedItem());
+		            	
+		            	// TODO fix the starting bank balance
+						_GeneratedUnit = _UnitManager.GenerateUnit(_Player, _UnitNameTextField.getText(), _UnitWeightComboBox.getSelectedItem().toString(),(Rating)_UnitRatingComboBox.getSelectedItem(), (QualityRating)_UnitQualityRatingComboBox.getSelectedItem(), (TechRating)_UnitTechRatingComboBox.getSelectedItem(),0);
 					} catch (Exception e1)
 					{
 						// TODO Auto-generated catch block

@@ -117,25 +117,31 @@ public class BattlemechRepairReport
 	
 	private String buildItemRepairDetailLine(ItemRepairDetail ird, String detailStr, int col1, int col2, int col3, int col4, int col5)
 	{
-		StringBuilder sb1 = new StringBuilder();
-		sb1.append(indent());
-		sb1.append(detailStr);
-		sb1.append(padToColumn(sb1.length(), getIndentLength() + col1));
-		sb1.append(Integer.toString(ird.getTime()));
-		sb1.append(padToColumn(sb1.length(), getIndentLength() + col2));
-		sb1.append(Double.toString(ird.getCost()));
-		sb1.append(padToColumn(sb1.length(), getIndentLength() + col3));
-		sb1.append(Integer.toString(_ModifiedSkillTarget + ird.getSkillModifier()));
-		sb1.append(padToColumn(sb1.length(), getIndentLength() + col4));
+		StringBuilder sb = new StringBuilder();
+		sb.append(indent());
+		sb.append(detailStr);
+		sb.append(padToColumn(sb.length(), getIndentLength() + col1));
+		sb.append(Integer.toString(ird.getTime()));
+		sb.append(padToColumn(sb.length(), getIndentLength() + col2));
+		
+		double cost = ird.getCost();
+		if (cost >= 0)
+			sb.append(Double.toString(ird.getCost()));
+		else
+			sb.append("**");
+		
+		sb.append(padToColumn(sb.length(), getIndentLength() + col3));
+		sb.append(Integer.toString(_ModifiedSkillTarget + ird.getSkillModifier()));
+		sb.append(padToColumn(sb.length(), getIndentLength() + col4));
 		if (ird.getPartialRepair() > Integer.MIN_VALUE)
 		{
-			sb1.append(Integer.toString(_ModifiedSkillTarget + ird.getSkillModifier() - ird.getPartialRepair()));				
+			sb.append(Integer.toString(_ModifiedSkillTarget + ird.getSkillModifier() - ird.getPartialRepair()));				
 		}
-		sb1.append(padToColumn(sb1.length(), getIndentLength() + col5));
-		sb1.append(ird.getPartialRepairEffect());
-		sb1.append(System.lineSeparator());
+		sb.append(padToColumn(sb.length(), getIndentLength() + col5));
+		sb.append(ird.getPartialRepairEffect());
+		sb.append(System.lineSeparator());
 		
-		return sb1.toString();
+		return sb.toString();
 	}
 	
 	public String toString()
@@ -255,6 +261,14 @@ public class BattlemechRepairReport
 			indent(-1);
 			indent(-1);
 		}
+
+		sb.append(System.lineSeparator());
+		sb.append(System.lineSeparator());
+		sb.append("** - If the section is destroyed, the cost is that of an equivalent section. " + System.lineSeparator());
+		sb.append("     If it is a blown off limb and the limb is retained, the cost is 0; " + System.lineSeparator());
+		sb.append("     If the limb is not retained then the cost is of a replacement limb without any equipment other than actuators and no armour");
+		sb.append(System.lineSeparator());
+
 		
 		return sb.toString();
 	}
