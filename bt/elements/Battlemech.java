@@ -1,5 +1,7 @@
 package bt.elements;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -38,6 +40,10 @@ public class Battlemech extends Asset implements BattleValue
 		"_[01] ",
 		"_[00] ",
 	};
+	
+	private static double _SpeedFactor[] = {0.44,0.54,0.65,0.77,0.88,1,1.12,1.24,
+		1.37,1.5,1.63,1.76,1.89,2.02,2.16,2.3,2.44,2.58,2.72,2.86,3,3.15,3.29,3.44,
+		3.59,3.74};
 	
 	private String _Name;
     private String _DesignName;
@@ -142,12 +148,142 @@ public class Battlemech extends Asset implements BattleValue
 		_Items = items;
 	}
 	
+	private int getMoveModifier(int move)
+	{
+		if (move < 3) return 0;
+		if (move < 5) return 1;
+		if (move < 7) return 2;
+		if (move < 10) return 3;
+		return 4;
+	}
+	
+	private double getMaxMoveModifier(int run, int jump)
+	{
+		int mod = Math.max(getMoveModifier(run), getMoveModifier(jump) + 1);
+		return 1 + ((double)mod / 10.0);
+	}
+	
+	private int getMaxMovementHeat()
+	{
+		return Math.max(2, getJumpRating());
+	}
+	
+	private Vector<ItemMount> getWeaponsByBV()
+	{
+		Vector<ItemMount> weapons = getAllWeaponMounts();
+		for (int i = weapons.size() - 1; i >= 0; i--)
+		{
+			ItemMount mount = weapons.elementAt(i);
+			if (mount.isDamaged())
+				weapons.remove(i);
+		}
+		
+		Collections.sort(weapons, new Comparator<ItemMount>() 
+		{
+			public int compare(ItemMount m1, ItemMount m2)
+			{
+				Weapon w1 = (Weapon)m1.getMountedItem();
+				Weapon w2 = (Weapon)m2.getMountedItem();
+				
+				int bv1 = w1.getBV();
+				int bv2 = w2.getBV();
+				if (bv1 == bv2)
+				{
+					Integer.compare(w1.getHeat(), w1.getHeat());
+				}
+				return Integer.compare(bv1, bv2);
+			}
+		});
+		Collections.reverse(weapons);
+		
+		return weapons;
+	}
+	
+
+	private double getSpeedFactor()
+	{
+		int rating = getRunRating() + (getJumpRating() / 2);
+		return _SpeedFactor[rating];
+	}
 	
 	@Override
 	public int getAdjustedBV()
 	{
-		// TODO This routine has to factor in damage;
-		return _BV;
+		double defensiveBV = 0;
+		int armourFactors = 0;
+		for (String location : _Armour.keySet())
+		{
+			for (Integer index : _Armour.get(location).keySet())
+			{
+				if (_Armour.get(location).get(index) == ItemStatus.OK)
+				{
+					armourFactors++;
+				}
+			}
+		}
+		defensiveBV += (double)armourFactors * 2.5;
+		
+		int internalFactors = 0;
+		for (String location : _Internals.keySet())
+		{
+			for (Integer index : _Internals.get(location).keySet())
+			{
+				if (_Internals.get(location).get(index) == ItemStatus.OK)
+				{
+					internalFactors++;
+				}
+			}
+		}
+		defensiveBV += (double)internalFactors * 1.5;
+		
+		defensiveBV += (double)_Weight * 0.5;
+		
+		int numAmmoSlots = 0;
+		Vector<ItemMount> ammunitionMounts = getAllAmmunitionMounts();
+		for (ItemMount mount : ammunitionMounts)
+		{
+			if (!mount.isDamaged())
+				numAmmoSlots++;
+		}
+		
+		defensiveBV -= (15 * numAmmoSlots);
+		defensiveBV *= getMaxMoveModifier(getRunRating(), getJumpRating());
+		
+		double offensiveBV = 0;
+		int heatEfficiency = 6 + getTotalHeatSinks() - getMaxMovementHeat();
+		
+		int weaponHeatGenerated = 0;
+		int weaponBV = 0;
+		Vector<ItemMount> weapons = getWeaponsByBV();
+		for (ItemMount mount : weapons)
+		{
+			Weapon w = (Weapon)mount.getMountedItem();
+			if (weaponHeatGenerated < heatEfficiency)
+			{
+				weaponHeatGenerated += w.getHeat();
+				if (!mount.isRearFacing())
+					weaponBV += w.getBV();
+				else
+					weaponBV += w.getBV() / 2;					
+			}
+			else
+			{
+				weaponHeatGenerated += w.getHeat();
+				weaponBV += w.getBV() / 2;				
+			}
+		}
+		
+		for (ItemMount mount : getAllAmmunitionMounts())
+		{
+			Ammunition ammo = (Ammunition)mount.getMountedItem();
+			offensiveBV += ammo.getBV();
+		}
+		
+		offensiveBV += weaponBV;
+		offensiveBV += _Weight;
+		offensiveBV *= getSpeedFactor();
+		
+		return (int) Math.round(offensiveBV + defensiveBV);
 	}
 	
 	public Vector<ItemMount> getAllMountsForInternalLocation(String locationName)
@@ -347,5 +483,7 @@ public class Battlemech extends Asset implements BattleValue
         }
 
 	}
+	
+
 	
 }

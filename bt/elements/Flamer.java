@@ -13,4 +13,14 @@ public class Flamer extends Weapon
 	{
 		return 7500;
 	}
+	
+	public int getBV()
+	{
+		return 5;
+	}
+	
+	public int getHeat()
+	{
+		return 3;
+	}
 }

@@ -46,6 +46,15 @@ public class ItemMount
     	
     	return false;
     }
+
+    public boolean isRearFacing()
+    {
+    	for (InternalSlotStatus iss: _SlotReferences)
+    		if (iss.getRearFacing())
+    			return true;
+    	
+    	return false;
+    }
     
     public String toString()
     {

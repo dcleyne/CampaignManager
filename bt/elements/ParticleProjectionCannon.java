@@ -13,4 +13,14 @@ public class ParticleProjectionCannon extends Weapon
 	{
 		return 200000;
 	}
+	
+	public int getBV()
+	{
+		return 176;
+	}
+	
+	public int getHeat()
+	{
+		return 10;
+	}
 }

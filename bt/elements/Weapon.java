@@ -23,6 +23,8 @@ public abstract class Weapon extends Item
     }
 
     public abstract String getWeaponType();
+    public abstract int getBV();
+    public abstract int getHeat();
     
     @Override
     public String toString()

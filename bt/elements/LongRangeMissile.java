@@ -37,4 +37,38 @@ public class LongRangeMissile extends Weapon
 		
 		return Double.MAX_VALUE;
 	}
+	
+	public int getBV()
+	{
+		switch (_Size)
+		{
+		case 5:
+			return 45;
+		case 10:
+			return 90;
+		case 15:
+			return 136;
+		case 20:
+			return 181;
+		}
+		
+		return Integer.MAX_VALUE;	
+	}
+	
+	public int getHeat()
+	{
+		switch (_Size)
+		{
+		case 5:
+			return 2;
+		case 10:
+			return 4;
+		case 15:
+			return 5;
+		case 20:
+			return 6;
+		}
+		
+		return Integer.MAX_VALUE;
+	}
 }

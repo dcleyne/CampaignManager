@@ -10,6 +10,8 @@ public class BattlemechRepairReport
 	private String _DesignName;
 	private String _DesignVariant;
 	private int _ModifiedSkillTarget;
+	private int _BV;
+	private int _AdjustedBV;
 
 	private Vector<ItemRepairDetail> _SectionReplacementDetails = new Vector<ItemRepairDetail>();
 	private HashMap<String, ItemRepairDetail> _ArmourReplacementDetails = new HashMap<String, ItemRepairDetail>();
@@ -41,6 +43,16 @@ public class BattlemechRepairReport
 		return _DesignVariant;
 	}
 	
+	public int getBV()
+	{
+		return _BV;
+	}
+	
+	public int getAdjustedBV()
+	{
+		return _AdjustedBV;
+	}
+	
 	public BattlemechRepairReport(Battlemech mech, int modifiedSkillTarget)
 	{
 		_ID = mech.getIdentifier();
@@ -48,6 +60,8 @@ public class BattlemechRepairReport
 		_DesignName = mech.getDesignName();
 		_DesignVariant = mech.getDesignVariant();
 		_ModifiedSkillTarget = modifiedSkillTarget;
+		_BV = mech.getBV();
+		_AdjustedBV = mech.getAdjustedBV();
 	}
 	
 	public void addSectionReplacementDetail(ItemRepairDetail ird)
@@ -154,6 +168,9 @@ public class BattlemechRepairReport
 		sb.append(_Name + "(" + _ID + ") - " + _DesignVariant + " " + _DesignName);
 		sb.append(System.lineSeparator());
 		sb.append(System.lineSeparator());
+		sb.append("Battle Value         :" + Integer.toString(_BV) + System.lineSeparator());
+		sb.append("Adjusted Battle Value:" + Integer.toString(_AdjustedBV) + System.lineSeparator());
+		sb.append(System.lineSeparator());		
 
 		sb.append("Replacements" + System.lineSeparator());
 		sb.append("============" + System.lineSeparator());

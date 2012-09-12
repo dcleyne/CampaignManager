@@ -73,4 +73,58 @@ public class Ammunition extends Item
     	//TODO fix this!
     	return 0;
     }
+    
+    public int getBV()
+    {
+    	if (_WeaponType.equalsIgnoreCase("Autocannon 2"))
+    	{
+    		return (int)(5 * _Weight);
+    	}
+    	if (_WeaponType.equalsIgnoreCase("Autocannon 5"))
+    	{
+    		return (int)(9 * _Weight);
+    	}
+    	if (_WeaponType.equalsIgnoreCase("Autocannon 10"))
+    	{
+    		return (int)(15 * _Weight);
+    	}
+    	if (_WeaponType.equalsIgnoreCase("Autocannon 20"))
+    	{
+    		return (int)(22 * _Weight);
+    	}
+    	if (_WeaponType.equalsIgnoreCase("LRM 5"))
+    	{
+    		return (int)(6 * _Weight);
+    	}
+    	if (_WeaponType.equalsIgnoreCase("LRM 10"))
+    	{
+    		return (int)(11 * _Weight);
+    	}
+    	if (_WeaponType.equalsIgnoreCase("LRM 15"))
+    	{
+    		return (int)(17 * _Weight);
+    	}
+    	if (_WeaponType.equalsIgnoreCase("LRM 20"))
+    	{
+    		return (int)(23 * _Weight);
+    	}
+    	if (_WeaponType.equalsIgnoreCase("SRM 2"))
+    	{
+    		return (int)(3 * _Weight);
+    	}
+    	if (_WeaponType.equalsIgnoreCase("SRM 4"))
+    	{
+    		return (int)(5 * _Weight);
+    	}
+    	if (_WeaponType.equalsIgnoreCase("SRM 6"))
+    	{
+    		return (int)(7 * _Weight);
+    	}
+    	if (_WeaponType.equalsIgnoreCase("Machine Gun"))
+    	{
+    		return (int)(1 * _Weight);
+    	}
+
+    	return 0;
+    }
 }

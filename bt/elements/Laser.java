@@ -31,4 +31,28 @@ public class Laser extends Weapon
     	
     	return Double.MAX_VALUE;
     }
+    
+    public int getBV()
+    {
+    	if (_Size.equalsIgnoreCase("Small"))
+    		return 9;
+    	if (_Size.equalsIgnoreCase("Medium"))
+    		return 46;
+    	if (_Size.equalsIgnoreCase("Large"))
+    		return 123;
+    	
+    	return Integer.MAX_VALUE;   	
+    }
+    
+    public int getHeat()
+    {
+    	if (_Size.equalsIgnoreCase("Small"))
+    		return 1;
+    	if (_Size.equalsIgnoreCase("Medium"))
+    		return 3;
+    	if (_Size.equalsIgnoreCase("Large"))
+    		return 8;
+    	
+    	return Integer.MAX_VALUE; 	
+    }
 }

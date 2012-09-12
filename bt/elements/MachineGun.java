@@ -13,4 +13,14 @@ public class MachineGun extends Weapon
 	{
 		return 5000;
 	}
+	
+	public int getBV()
+	{
+		return 5;
+	}
+	
+	public int getHeat()
+	{
+		return 0;
+	}
 }

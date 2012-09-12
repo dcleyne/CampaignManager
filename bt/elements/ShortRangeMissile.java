@@ -34,4 +34,34 @@ public class ShortRangeMissile extends Weapon
 		
 		return Double.MAX_VALUE;
 	}
+	
+	public int getBV()
+	{
+		switch (_Size)
+		{
+		case 2:
+			return 21;
+		case 4:
+			return 39;
+		case 6:
+			return 59;
+		}
+		
+		return Integer.MAX_VALUE;		
+	}
+	
+	public int getHeat()
+	{
+		switch (_Size)
+		{
+		case 2:
+			return 2;
+		case 4:
+			return 3;
+		case 6:
+			return 4;
+		}
+		
+		return Integer.MAX_VALUE;
+	}
 }
