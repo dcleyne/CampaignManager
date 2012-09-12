@@ -168,6 +168,38 @@ public class Battlemech extends Asset implements BattleValue
 		return Math.max(2, getJumpRating());
 	}
 	
+	private int getMaxWeaponHeat()
+	{
+		int weaponHeatGenerated = 0;
+		Vector<ItemMount> weapons = getWeaponsByBV();
+		for (ItemMount mount : weapons)
+		{
+			Weapon w = (Weapon)mount.getMountedItem();
+			weaponHeatGenerated += w.getHeat();
+		}
+		return weaponHeatGenerated;
+	}
+	
+	private int getMaxHeatBuildup()
+	{
+		return getMaxMovementHeat() + getMaxWeaponHeat();
+	}
+	
+	private int getRearMountedWeaponBV()
+	{
+		int bv = 0;
+		Vector<ItemMount> weapons = getWeaponsByBV();
+		for (ItemMount mount : weapons)
+		{
+			if (mount.isRearFacing())
+			{
+				Weapon w = (Weapon)mount.getMountedItem();
+				bv += w.getBV();
+			}
+		}
+		return bv;
+	}
+	
 	private Vector<ItemMount> getWeaponsByBV()
 	{
 		Vector<ItemMount> weapons = getAllWeaponMounts();
@@ -202,7 +234,7 @@ public class Battlemech extends Asset implements BattleValue
 
 	private double getSpeedFactor()
 	{
-		int rating = getRunRating() + (getJumpRating() / 2);
+		int rating = getRunRating() + getJumpRating();
 		return _SpeedFactor[rating];
 	}
 	
@@ -235,8 +267,7 @@ public class Battlemech extends Asset implements BattleValue
 			}
 		}
 		defensiveBV += (double)internalFactors * 1.5;
-		
-		defensiveBV += (double)_Weight * 0.5;
+		defensiveBV += (double)_Weight;
 		
 		int numAmmoSlots = 0;
 		Vector<ItemMount> ammunitionMounts = getAllAmmunitionMounts();
@@ -245,43 +276,42 @@ public class Battlemech extends Asset implements BattleValue
 			if (!mount.isDamaged())
 				numAmmoSlots++;
 		}
-		
 		defensiveBV -= (20 * numAmmoSlots);
+		defensiveBV -= ((getMaxWeaponHeat() + getMaxMovementHeat()) - getTotalHeatSinks()) * 5;
+		defensiveBV -= getRearMountedWeaponBV();
 		defensiveBV *= getMaxMoveModifier(getRunRating(), getJumpRating());
 		
-		double offensiveBV = 0;
-		int heatEfficiency = 6 + getTotalHeatSinks() - getMaxMovementHeat();
 		
-		int weaponHeatGenerated = 0;
-		int weaponBV = 0;
+		double baseWeaponBattleRating = 0;
+		double forwardWeaponRating = 0;
+		double rearWeaponRating = 0;
+		
 		Vector<ItemMount> weapons = getWeaponsByBV();
 		for (ItemMount mount : weapons)
 		{
 			Weapon w = (Weapon)mount.getMountedItem();
-			if (weaponHeatGenerated < heatEfficiency)
-			{
-				weaponHeatGenerated += w.getHeat();
-				if (!mount.isRearFacing())
-					weaponBV += w.getBV();
-				else
-					weaponBV += w.getBV() / 2;					
-			}
+			if (!mount.isRearFacing())
+				forwardWeaponRating += w.getBV();
 			else
-			{
-				weaponHeatGenerated += w.getHeat();
-				weaponBV += w.getBV() / 2;				
-			}
+				rearWeaponRating += w.getBV();					
 		}
-		
+
+		baseWeaponBattleRating += Math.max(forwardWeaponRating, rearWeaponRating) + (Math.min(forwardWeaponRating, rearWeaponRating) / 2);
 		for (ItemMount mount : getAllAmmunitionMounts())
 		{
 			Ammunition ammo = (Ammunition)mount.getMountedItem();
-			offensiveBV += ammo.getBV();
+			baseWeaponBattleRating += ammo.getBV();
 		}
 		
-		offensiveBV += weaponBV;
-		offensiveBV += _Weight;
-		offensiveBV *= getSpeedFactor();
+		double modifiedWeaponBattleRating = baseWeaponBattleRating;
+		if (getMaxHeatBuildup() > getTotalHeatSinks())
+		{
+			double x = getTotalHeatSinks() * baseWeaponBattleRating / getMaxHeatBuildup();
+			double y = (baseWeaponBattleRating - x) / 2;
+			modifiedWeaponBattleRating = x + y;
+		}
+		
+		double offensiveBV = modifiedWeaponBattleRating * getSpeedFactor();
 		
 		return (int) Math.round(offensiveBV + defensiveBV);
 	}
