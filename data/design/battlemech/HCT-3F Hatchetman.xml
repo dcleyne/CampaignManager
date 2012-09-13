@@ -6,7 +6,7 @@
   <Type>Biped</Type>
   <Weight>45</Weight>
   <Cost>3129390</Cost>
-  <BV>769</BV>
+  <BV>792</BV>
   <Armour>
     <Location Name="Head" Points="6" />
     <Location Name="Centre Torso" Points="14" />

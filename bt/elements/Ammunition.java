@@ -90,7 +90,7 @@ public class Ammunition extends Item
     	}
     	if (_WeaponType.equalsIgnoreCase("Autocannon 20"))
     	{
-    		return (int)(22 * _Weight);
+    		return (int)(20 * _Weight);
     	}
     	if (_WeaponType.equalsIgnoreCase("LRM 5"))
     	{

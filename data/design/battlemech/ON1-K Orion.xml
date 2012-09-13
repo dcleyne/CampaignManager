@@ -6,7 +6,7 @@
   <Type>Biped</Type>
   <Weight>75</Weight>
   <Cost>6674500</Cost>
-  <BV>1069</BV>
+  <BV>1052</BV>
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="36" />
@@ -115,16 +115,13 @@
       <SlotReference Location="Left Torso" Table="1" Slot="5" />
     </Item>
     <Item Type="Weapon" WeaponType="SRM 4" Manufacturer="I.W.W" Model="Class 4">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 4" Manufacturer="" Model="" Shots="25">
       <SlotReference Location="Left Torso" Table="1" Slot="6" />
     </Item>
-    <Item Type="Ammunition" WeaponType="SRM 4" Manufacturer="" Model="" Shots="25">
-      <SlotReference Location="Left Torso" Table="2" Slot="1" />
-    </Item>
-    <Item Type="Ammunition" WeaponType="SRM 4" Manufacturer="" Model="" Shots="25">
-      <SlotReference Location="Left Torso" Table="2" Slot="2" />
-    </Item>
     <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="I.W.W" Model="">
-      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
     </Item>
     <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="I.W.W" Model="">
       <SlotReference Location="Right Arm" Table="1" Slot="4" />

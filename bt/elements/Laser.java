@@ -39,7 +39,7 @@ public class Laser extends Weapon
     	if (_Size.equalsIgnoreCase("Medium"))
     		return 46;
     	if (_Size.equalsIgnoreCase("Large"))
-    		return 123;
+    		return 124;
     	
     	return Integer.MAX_VALUE;   	
     }

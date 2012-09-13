@@ -3,22 +3,22 @@
   <Name>Goliath</Name>
   <Variant>GOL-1H</Variant>
   <Manufacturer>Brigaidier Corporation</Manufacturer>
-  <Type>Biped</Type>
+  <Type>Quad</Type>
   <Weight>80</Weight>
   <Cost>7616641</Cost>
   <BV>1200</BV>
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="30" />
-    <Location Name="Centre Torso Rear" Points="20" />
+    <Location Name="Centre Torso Rear" Points="19" />
     <Location Name="Left Torso" Points="20" />
-    <Location Name="Left Torso Rear" Points="14" />
+    <Location Name="Left Torso Rear" Points="13" />
     <Location Name="Right Torso" Points="20" />
-    <Location Name="Right Torso Rear" Points="14" />
-    <Location Name="Left Arm" Points="26" />
-    <Location Name="Right Arm" Points="26" />
-    <Location Name="Left Leg" Points="34" />
-    <Location Name="Right Leg" Points="34" />
+    <Location Name="Right Torso Rear" Points="13" />
+    <Location Name="Left Arm" Points="24" />
+    <Location Name="Right Arm" Points="24" />
+    <Location Name="Left Leg" Points="30" />
+    <Location Name="Right Leg" Points="30" />
   </Armour>
   <Items>
   	<Item Type="Life Support" Manufacturer="Brigaidier Corporation" Model="GOL-1H Goliath">

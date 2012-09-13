@@ -10,7 +10,7 @@
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="16" />
-    <Location Name="Centre Torso Rear" Points="8" />
+    <Location Name="Centre Torso Rear" Points="7" />
     <Location Name="Left Torso" Points="12" />
     <Location Name="Left Torso Rear" Points="6" />
     <Location Name="Right Torso" Points="12" />

@@ -128,7 +128,7 @@
     <Item Type="Weapon" WeaponType="SRM 4" Manufacturer="Hovertec" Model="Quad">
       <SlotReference Location="Centre Torso" Table="2" Slot="5" />
     </Item>
-    <Item Type="Ammunition" WeaponType="SRM 6" Manufacturer="" Model="" Shots="15">
+    <Item Type="Ammunition" WeaponType="SRM 4" Manufacturer="" Model="" Shots="15">
       <SlotReference Location="Centre Torso" Table="2" Slot="6" />
     </Item>
     <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Diverse Optics" Model="Type 20">

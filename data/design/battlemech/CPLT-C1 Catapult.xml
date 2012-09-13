@@ -134,5 +134,8 @@
     <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Hollis Incorporated">
       <SlotReference Location="Right Leg" Table="1" Slot="6" />
     </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Hollis Incorporated">
+      <SlotReference Location="Head" Table="1" Slot="4" />
+    </Item>
   </Items>
 </BattlemechDesign>

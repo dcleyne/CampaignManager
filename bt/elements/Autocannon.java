@@ -44,7 +44,7 @@ public class Autocannon extends Weapon
 		case 5:
 			return 70;
 		case 10:
-			return 123;
+			return 124;
 		case 20:
 			return 178;
 		}

@@ -98,9 +98,6 @@
       <SlotReference Location ="Right Torso" Table="1" Slot="3" />
     </Item>
     <Item Type="Jump Jet" Weight="0.5" Manufacturer="Smithson" Model="Lifters">
-      <SlotReference Location ="Left Torso" Table="1" Slot="1" />
-    </Item>
-    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Smithson" Model="Lifters">
       <SlotReference Location ="Centre Torso" Table="2" Slot="6" />
     </Item>
     <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Argra" Model="3L">

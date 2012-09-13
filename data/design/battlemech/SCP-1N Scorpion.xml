@@ -3,7 +3,7 @@
   <Name>Scorpion</Name>
   <Variant>SCP-1N</Variant>
   <Manufacturer>Brigaidier Corporation</Manufacturer>
-  <Type>Biped</Type>
+  <Type>Quad</Type>
   <Weight>55</Weight>
   <Cost>5181340</Cost>
   <BV>786</BV>
