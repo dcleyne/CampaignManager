@@ -303,7 +303,7 @@ public class MissionManager
 	{
 		Scenario scenario = new Scenario();
 		
-		Mission m = getRandomMission(u.getCompletedMissions());
+		Mission m = getRandomMission(u.getCompletedMissionIDs());
 		scenario.setMission(m);
 		scenario.setTimeOfDay(TimeOfDay.random());
 		scenario.setSeason(Season.getRandomSeason());

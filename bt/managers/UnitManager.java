@@ -1,8 +1,11 @@
 package bt.managers;
 
+import java.awt.Color;
+
 import java.io.File;
 
 import java.io.FileOutputStream;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
@@ -13,6 +16,13 @@ import org.jdom.Document;
 import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
+
+import com.lowagie.text.Chapter;
+import com.lowagie.text.Font;
+import com.lowagie.text.FontFactory;
+import com.lowagie.text.PageSize;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.PdfWriter;
 
 import bt.elements.BattleValue;
 import bt.elements.Battlemech;
@@ -26,6 +36,7 @@ import bt.elements.personnel.Personnel;
 import bt.elements.personnel.Rank;
 import bt.elements.personnel.Rating;
 import bt.elements.personnel.Technician;
+import bt.elements.unit.CompletedMission;
 import bt.elements.unit.MechAvailability;
 import bt.elements.unit.MechUnitParameters;
 import bt.elements.unit.PersonnelAssetAssignment;
@@ -437,9 +448,16 @@ public class UnitManager
 		}
 		
 		org.jdom.Element completedMissionsNode = new org.jdom.Element("CompletedMissions");
-		for (Long mission : u.getCompletedMissions())
+		for (CompletedMission mission : u.getCompletedMissions())
 		{
-			completedMissionsNode.addContent(new org.jdom.Element("Mission").setText(Long.toString(mission)));
+			org.jdom.Element completedMissionElement = new org.jdom.Element("CompletedMission");
+			completedMissionElement.setAttribute("MissionID", Long.toString(mission.getMissionIdentifier()));
+			completedMissionElement.setAttribute("MissionTitle", mission.getMissionTitle());
+			completedMissionElement.setAttribute("Result", mission.getResult().toString());
+			completedMissionElement.setAttribute("PrizeMoney", Double.toString(mission.getPrizeMoney()));
+			completedMissionElement.setAttribute("MissionDate", SwingHelper.FormatDate(mission.getMissionDate()));
+			
+			completedMissionsNode.addContent(completedMissionElement);
 		}
 		unitNode.addContent(completedMissionsNode);
 
@@ -678,11 +696,24 @@ public class UnitManager
 		org.jdom.Element completedMissionsElement = unitNode.getChild("CompletedMissions");
 		if (completedMissionsElement != null)
 		{
-			iter = completedMissionsElement.getChildren("Mission").iterator();
+			iter = completedMissionsElement.getChildren("CompletedMission").iterator();
 			while (iter.hasNext())
 			{
-				org.jdom.Element me = (org.jdom.Element)iter.next();
-				u.getCompletedMissions().add(Long.parseLong(me.getText()));
+				try
+				{
+					org.jdom.Element me = (org.jdom.Element)iter.next();
+					long missionID = Long.parseLong(me.getAttributeValue("MissionID"));
+					String missionTitle = me.getAttributeValue("MissionTitle");
+					CompletedMission.Result missionResult = CompletedMission.Result.fromString(me.getAttributeValue("Result"));
+					double prizeMoney = Double.parseDouble(me.getAttributeValue("PrizeMoney"));
+					Date missionDate = SwingHelper.GetDateFromString(me.getAttributeValue("MissionDate"));
+					
+					u.addCompletedMission(new CompletedMission(missionID,missionTitle,missionResult,prizeMoney,missionDate));
+				}
+				catch (Exception ex)
+				{
+					ex.printStackTrace();
+				}
 			}
 		}
 
@@ -802,5 +833,29 @@ public class UnitManager
 	public RandomName GetRandomName()
 	{
 		return _RandomNames.elementAt(++_LastServedName);
+	}
+	
+	public void printUnitSummaryToPDF(Unit unit) throws Exception
+	{
+		String path = PropertyUtil.getStringProperty("ExternalDataPath", "data");
+		String filename = path + "/units/" + unit.getName() + " - Summary.pdf";
+
+		File f = new File(filename);
+		if (f.exists())
+			f.delete();
+		
+		com.lowagie.text.Document document = new com.lowagie.text.Document(PageSize.A4, 5, 5, 5, 5);
+		PdfWriter.getInstance(document, new FileOutputStream(filename));
+		document.open();
+		
+		Paragraph title1 = new Paragraph(unit.getName(), FontFactory.getFont(FontFactory.HELVETICA, 24, Font.BOLDITALIC, Color.black));
+		Chapter chapter1 = new Chapter(title1, 1);
+		chapter1.setNumberDepth(0);
+		
+		//Add bits in here
+		
+		document.add(chapter1);
+		
+		document.close();
 	}
 }

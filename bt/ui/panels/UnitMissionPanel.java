@@ -3,6 +3,7 @@ package bt.ui.panels;
 import javax.swing.*;
 
 
+import bt.elements.unit.CompletedMission;
 import bt.elements.unit.Unit;
 import bt.managers.MissionManager;
 import bt.managers.UnitManager;
@@ -43,7 +44,7 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
     private static Log log = LogFactory.getLog(UnitMissionPanel.class);
     protected Unit _Unit;
 
-    private JList<String> _CompletedMissionList;
+    private JList<CompletedMission> _CompletedMissionList;
     private JTextField _AssignedMissionTextField;
     
     private JButton _DeleteCompletedMissionButton;
@@ -124,7 +125,7 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
     	completedMissionsPanel.setLayout(new BorderLayout(2, 2));
     	add(completedMissionsPanel);
     	
-    	_CompletedMissionList = new JList<String>();
+    	_CompletedMissionList = new JList<CompletedMission>();
     	_CompletedMissionList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     	_CompletedMissionList.addListSelectionListener(this);
     	completedMissionsPanel.add(_CompletedMissionList, BorderLayout.CENTER);
@@ -156,8 +157,8 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
 
     private void fillControls()
     {
-    	_CompletedMissionList.setListData(MissionManager.getInstance().getMissionList(_Unit.getCompletedMissions()));
-    	_AssignedMissionTextField.setText(MissionManager.getInstance().getMissionName(_Unit.getAssignedMission()));
+    	_CompletedMissionList.setListData(_Unit.getCompletedMissions());
+    	_AssignedMissionTextField.setText(_Unit.getAssignedMissionTitle());
     }
     
     private void setButtonState()

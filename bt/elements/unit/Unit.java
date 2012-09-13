@@ -279,13 +279,23 @@ public class Unit implements Serializable
 		_AssignedMissionTitle = missionTitle;
 	}
 
-	public Vector<Long> getCompletedMissions()
+	public Vector<CompletedMission> getCompletedMissions()
 	{
-		Vector<Long> completedMissions = new Vector<Long>();
+		return new Vector<CompletedMission>(_CompletedMissions);
+	}
+
+	public Vector<Long> getCompletedMissionIDs()
+	{
+		Vector<Long> missionIDs = new Vector<Long>();
 		for (CompletedMission cm : _CompletedMissions)
-			completedMissions.add(new Long(cm.getMissionIdentifier()));
+			missionIDs.add(new Long(cm.getMissionIdentifier()));
 		
-		return completedMissions;
+		return missionIDs;
+	}
+	
+	public void addCompletedMission(CompletedMission cm)
+	{
+		_CompletedMissions.add(cm);
 	}
 	
 	public void assignedMissionCompleted(CompletedMission.Result result, double prizeMoney)
