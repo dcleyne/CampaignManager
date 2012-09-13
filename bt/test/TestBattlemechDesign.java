@@ -25,6 +25,8 @@ public class TestBattlemechDesign
 	        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
 			PropertyUtil.loadSystemProperties("bt/system.properties");
 
+			String path = PropertyUtil.getStringProperty("ExternalDataPath", "data");
+			
             DesignManager dm = DesignManager.getInstance();
             BattlemechManager bm = new BattlemechManager();
             Vector<String> designs = dm.getDesignNames();
@@ -35,7 +37,8 @@ public class TestBattlemechDesign
                     BattlemechDesign design = dm.Design(designName);
 
                     Battlemech mech = bm.createBattlemechFromDesign(design);
-                    String saveName = "C:/temp/" + mech.getDesignVariant() + " " + mech.getDesignName() + " Instance.xml";
+                    
+                    String saveName = path + "/battlemechs/" + mech.getDesignVariant() + " " + mech.getDesignName() + ".xml";
                                         
                     bm.saveBattlemech(mech, saveName);
 

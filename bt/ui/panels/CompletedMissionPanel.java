@@ -2,6 +2,8 @@ package bt.ui.panels;
 
 import java.text.NumberFormat;
 
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
@@ -26,17 +28,24 @@ public class CompletedMissionPanel extends JPanel
 		_MissionResultComboBox = new JComboBox<CompletedMission.Result>(CompletedMission.Result.values());
 		_PrizeMoneyTextField = new JFormattedTextField(NumberFormat.getCurrencyInstance());
 		
+		setBorder(BorderFactory.createEtchedBorder());
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		add(SwingHelper.GetTextField(_MissionIdTextField, "Mission ID", "The identifier of the mission", true));
 		add(SwingHelper.GetTextField(_MissionTitleTextField, "Mission Title", "The title of the mission", true));
 		add(SwingHelper.GetComboBox(_MissionResultComboBox, "Result", "The outcome of the Mission", true));
 		add(SwingHelper.GetTextField(_PrizeMoneyTextField, "Prize Money", "Enter the prize money for the completion of this mission", true));
 		
+		_MissionIdTextField.setText(missionID);
+		_MissionIdTextField.setEditable(false);
+		_MissionTitleTextField.setText(missionTitle);
+		_MissionTitleTextField.setEditable(false);
 		_MissionResultComboBox.setSelectedItem(CompletedMission.Result.WIN);
+		_PrizeMoneyTextField.setValue(new Double(0));
 	}
 	
 	public double getPrizeMoney()
 	{
-		return (Double)_PrizeMoneyTextField.getValue();
+		return new Double((Long)_PrizeMoneyTextField.getValue());
 	}
 	
 	public CompletedMission.Result getResult()

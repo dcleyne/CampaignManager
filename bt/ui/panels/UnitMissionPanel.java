@@ -6,6 +6,7 @@ import javax.swing.*;
 import bt.elements.unit.Unit;
 import bt.managers.MissionManager;
 import bt.managers.UnitManager;
+import bt.ui.dialogs.CompletedMissionDialog;
 import bt.ui.dialogs.GenerateNewMissionDialog;
 
 import org.apache.commons.logging.LogFactory;
@@ -206,7 +207,23 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
 		}
 		if (actionCommand.equalsIgnoreCase("MarkMissionComplete"))
 		{
+			CompletedMissionDialog dlg = new CompletedMissionDialog(Long.toString(_Unit.getAssignedMission()), _Unit.getAssignedMissionTitle());
+			dlg.setLocationRelativeTo(this);
+			dlg.setModal(true);
+			dlg.setVisible(true);
 			
+			if (dlg.wasMissionCompleted())
+			{
+				try
+				{
+					_Unit.assignedMissionCompleted(dlg.getMissionResult(), dlg.getPrizeMoney());
+					UnitManager.getInstance().saveUnit(_Unit);
+				} 
+				catch (Exception e1) 
+				{
+					e1.printStackTrace();
+				}
+			}
 		}
 		if (actionCommand.equalsIgnoreCase("GenerateNewMission"))
 		{

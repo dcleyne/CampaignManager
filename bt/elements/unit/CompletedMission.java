@@ -1,5 +1,9 @@
 package bt.elements.unit;
 
+import java.util.Date;
+
+import bt.util.SwingHelper;
+
 public class CompletedMission 
 {
 	public enum Result
@@ -27,6 +31,7 @@ public class CompletedMission
 
 	private long _MissionIdentifier;
 	private String _MissionTitle;
+	private Date _MissionDate;
 	private Result _Result;
 	private double _PrizeMoney;
 	
@@ -41,6 +46,14 @@ public class CompletedMission
 	}
 	public void setMissionTitle(String missionTitle) {
 		_MissionTitle = missionTitle;
+	}
+	public Date getMissionDate()
+	{
+		return _MissionDate;
+	}
+	public void setMissionDate(Date missionDate)
+	{
+		_MissionDate = missionDate;
 	}
 	public Result getResult() {
 		return _Result;
@@ -59,16 +72,17 @@ public class CompletedMission
 	{
 	}
 
-	public CompletedMission(long missionIdentifier, String missionTitle, Result result, double prizeMoney)
+	public CompletedMission(long missionIdentifier, String missionTitle, Result result, double prizeMoney, Date missionDate)
 	{
 		_MissionIdentifier = missionIdentifier;
 		_MissionTitle = missionTitle;
 		_Result = result;
 		_PrizeMoney = prizeMoney;
+		_MissionDate = missionDate;
 	}
 	
 	public String toString()
 	{
-		return _MissionTitle + " (" + Long.toString(_MissionIdentifier) + ") " + _Result.toString();
+		return _MissionTitle + " (" + Long.toString(_MissionIdentifier) + ") " + _Result.toString() + " - " + SwingHelper.FormatDate(_MissionDate);
 	}
 }

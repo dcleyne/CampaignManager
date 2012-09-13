@@ -1,8 +1,11 @@
 package bt.ui.panels;
 
+import java.text.NumberFormat;
+
 import javax.swing.*;
 
 import bt.elements.unit.Unit;
+import bt.util.SwingHelper;
 
 import org.apache.commons.logging.LogFactory;
 import org.apache.commons.logging.Log;
@@ -23,12 +26,30 @@ public class UnitFinancePanel extends JPanel implements ClosableEditPanel
 	private static final long serialVersionUID = 1;
 	
     private static Log log = LogFactory.getLog(UnitFinancePanel.class);
-    protected Unit m_Unit;
+    protected Unit _Unit;
+    
+	private JFormattedTextField _CurrentBankBalanceTextField;
+	private JFormattedTextField _MonthlyBaseSalaryTextField;
+
 
     public UnitFinancePanel(Unit u)
     {
     	log.debug("UnitFinancePanel constructor called");
-        m_Unit = u;
+        _Unit = u;
+        
+		_CurrentBankBalanceTextField = new JFormattedTextField(NumberFormat.getCurrencyInstance());
+		_MonthlyBaseSalaryTextField = new JFormattedTextField(NumberFormat.getCurrencyInstance());;
+		
+		setBorder(BorderFactory.createEtchedBorder());
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		add(SwingHelper.GetTextField(_CurrentBankBalanceTextField, "Current Bank Balance", "The current bank balance of the unit", true));
+		add(SwingHelper.GetTextField(_MonthlyBaseSalaryTextField, "Monthly Base Salary", "The monthly base salary of the unit", true));
+
+		
+		_MonthlyBaseSalaryTextField.setEditable(false);
+		
+		_CurrentBankBalanceTextField.setValue(new Double(_Unit.getCurrentBankBalance()));
+		_MonthlyBaseSalaryTextField.setValue(new Double(_Unit.getBaseMonthlySalary()));
     }
 
     public boolean isClosable()

@@ -292,7 +292,8 @@ public class Unit implements Serializable
 	{
 		if (_AssignedMission != null)
 		{
-			_CompletedMissions.add(new CompletedMission(_AssignedMission, _AssignedMissionTitle, result, prizeMoney));
+			_CompletedMissions.add(new CompletedMission(_AssignedMission, _AssignedMissionTitle, result, prizeMoney, _CurrentDate));
+			_CurrentBankBalance += prizeMoney;
 			_AssignedMission = null;
 			_AssignedMissionTitle = null;
 		}

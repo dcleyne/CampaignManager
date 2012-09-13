@@ -58,7 +58,7 @@ public class Engine extends Item
 			break;
 		}
 		
-		return factor * _Weight * _Rating / 75;
+		return Math.round(factor * _Weight * _Rating / 75);
 	}
 
 }
