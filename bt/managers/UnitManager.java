@@ -725,7 +725,7 @@ public class UnitManager
 			{
 				org.jdom.Element me = (org.jdom.Element)iter.next();
 				String name = me.getAttributeValue("Name");
-				String assetIdentifier = me.getAttributeValue("AssetIdentifer");
+				String assetIdentifier = me.getAttributeValue("AssetIdentifier");
 				Role role = Role.fromString(me.getAttributeValue("Role"));
 				u.addPersonnelAssignment(name, assetIdentifier, role);
 			}

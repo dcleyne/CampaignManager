@@ -76,6 +76,11 @@ public class Asset
   {
 	  return "";
   }
+  
+  public String getDetails()
+  {
+	  return "(" + getIdentifier() + ") " + getModelInformation() + " - '" + getName() + "'";
+  }
 
   public int getAdjustedBV()
   {

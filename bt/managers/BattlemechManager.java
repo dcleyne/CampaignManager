@@ -1112,7 +1112,10 @@ public class BattlemechManager
     			destroyed++;
     	
     	if (destroyed > 0)
-    		return new ItemRepairDetail(Type.REPLACEMENT, mount.getMountedItem().toString(), -1, Integer.MIN_VALUE, "", 180, mount.getMountedItem().getCost());
+    	{
+    		Item item = mount.getMountedItem();
+    		return new ItemRepairDetail(Type.REPLACEMENT, item.toString(), -1, Integer.MIN_VALUE, "", 180, item.getCost(), item.getManufacturer(), item.getModel());
+    	}
     		
     	return null;
     }
@@ -1120,8 +1123,10 @@ public class BattlemechManager
     private ItemRepairDetail getCockpitReplacementDetail(ItemMount mount)
     {
     	if (mount.getSlotReferences().elementAt(0).getStatus() == ItemStatus.DESTROYED)
-    		return new ItemRepairDetail(Type.REPLACEMENT, mount.getMountedItem().toString(), 0, Integer.MIN_VALUE, "", 120, mount.getMountedItem().getCost());
-    		
+    	{
+    		Item item = mount.getMountedItem();
+    		return new ItemRepairDetail(Type.REPLACEMENT, item.toString(), 0, Integer.MIN_VALUE, "", 120, item.getCost(), item.getManufacturer(), item.getModel());
+    	}	
     	return null;
     }
     
@@ -1134,7 +1139,8 @@ public class BattlemechManager
     	
     	if (destroyed > 0)
     	{
-    		return new ItemRepairDetail(Type.REPLACEMENT, mount.getMountedItem().toString(), 0, 2, "+1 Piloting Modifier", 200, mount.getMountedItem().getCost());
+    		Item item = mount.getMountedItem();
+    		return new ItemRepairDetail(Type.REPLACEMENT, item.toString(), 0, 2, "+1 Piloting Modifier", 200, item.getCost(), item.getManufacturer(), item.getModel());
     	}
 
     	return null;
@@ -1143,7 +1149,10 @@ public class BattlemechManager
     private ItemRepairDetail getHeatSinkReplacementDetail(ItemMount mount)
     {
     	if (mount.getSlotReferences().elementAt(0).getStatus() == ItemStatus.DESTROYED)
-    		return new ItemRepairDetail(Type.REPLACEMENT, mount.getMountedItem().toString(), -2, Integer.MIN_VALUE, "", 90, mount.getMountedItem().getCost());
+    	{
+    		Item item = mount.getMountedItem();
+    		return new ItemRepairDetail(Type.REPLACEMENT, item.toString(), -2, Integer.MIN_VALUE, "", 90, item.getCost(), item.getManufacturer(), item.getModel());
+    	}
     		
     	return null;
     }   
@@ -1151,7 +1160,10 @@ public class BattlemechManager
     private ItemRepairDetail getActuatorReplacementDetail(ItemMount mount)
     {
     	if (mount.getSlotReferences().elementAt(0).getStatus() == ItemStatus.DESTROYED)
-    		return new ItemRepairDetail(Type.REPLACEMENT, mount.getMountedItem().toString(), -3, Integer.MIN_VALUE, "", 90, mount.getMountedItem().getCost());
+    	{
+    		Item item = mount.getMountedItem();
+    		return new ItemRepairDetail(Type.REPLACEMENT, item.toString(), -3, Integer.MIN_VALUE, "", 90, item.getCost(), item.getManufacturer(), item.getModel());
+    	}
     		
     	return null;
     }    
@@ -1164,7 +1176,10 @@ public class BattlemechManager
     			destroyed++;
     	
     	if (destroyed > 0)
-    		return new ItemRepairDetail(Type.REPLACEMENT, mount.getMountedItem().toString(), 0, Integer.MIN_VALUE, "", 260, mount.getMountedItem().getCost());
+    	{
+    		Item item = mount.getMountedItem();
+    		return new ItemRepairDetail(Type.REPLACEMENT, item.toString(), 0, Integer.MIN_VALUE, "", 260, item.getCost(), item.getManufacturer(), item.getModel());
+    	}
 
     	return null;
     }    
@@ -1177,7 +1192,10 @@ public class BattlemechManager
     			destroyed++;
     	
     	if (destroyed > 0)
-    		return new ItemRepairDetail(Type.REPLACEMENT, mount.getMountedItem().toString(), -1, 1, "+1 Heat Point/turn", 360, mount.getMountedItem().getCost());
+    	{
+    		Item item = mount.getMountedItem();
+    		return new ItemRepairDetail(Type.REPLACEMENT, item.toString(), -1, 1, "+1 Heat Point/turn", 360, item.getCost(), item.getManufacturer(), item.getModel());
+    	}
 
     	return null;   	
     }    
@@ -1185,7 +1203,10 @@ public class BattlemechManager
     private ItemRepairDetail getJumpJetReplacementDetail(ItemMount mount)
     {
     	if (mount.getSlotReferences().elementAt(0).getStatus() == ItemStatus.DESTROYED)
-    		return new ItemRepairDetail(Type.REPLACEMENT, mount.getMountedItem().toString(), 0, Integer.MIN_VALUE, "", 60, mount.getMountedItem().getCost());
+    	{
+    		Item item = mount.getMountedItem();
+    		return new ItemRepairDetail(Type.REPLACEMENT, item.toString(), 0, Integer.MIN_VALUE, "", 60, item.getCost(), item.getManufacturer(), item.getModel());
+    	}
     		
     	return null;
     } 
@@ -1200,7 +1221,7 @@ public class BattlemechManager
     	if (destroyed > 0)
     	{
         	Weapon weapon = (Weapon)mount.getMountedItem();
-    		return new ItemRepairDetail(Type.REPLACEMENT, weapon.getWeaponType(), 0, Integer.MIN_VALUE, "", 120, mount.getMountedItem().getCost());
+    		return new ItemRepairDetail(Type.REPLACEMENT, weapon.getWeaponType(), 0, Integer.MIN_VALUE, "", 120, weapon.getCost(), weapon.getManufacturer(), weapon.getModel());
     	}
 
     	return null;
@@ -1244,10 +1265,11 @@ public class BattlemechManager
     		if (iss.getStatus() == ItemStatus.DESTROYED)
     			destroyed++;
     	
+		Item item = mount.getMountedItem();
     	if (destroyed == 1)
-    		return new ItemRepairDetail(Type.REPAIR, mount.getMountedItem().getType(), -1, Integer.MIN_VALUE, "", 60, 0);
+    		return new ItemRepairDetail(Type.REPAIR, item.getType(), -1, Integer.MIN_VALUE, "", 60, 0, item.getManufacturer(), item.getModel());
     	else if (destroyed == 2)
-    		return new ItemRepairDetail(Type.REPAIR, mount.getMountedItem().getType(), 1, Integer.MIN_VALUE, "", 120, 0);
+    		return new ItemRepairDetail(Type.REPAIR, item.getType(), 1, Integer.MIN_VALUE, "", 120, 0, item.getManufacturer(), item.getModel());
     		
     	return null;
     }
@@ -1255,7 +1277,10 @@ public class BattlemechManager
     private ItemRepairDetail getCockpitRepairDetail(ItemMount mount)
     {
     	if (mount.getSlotReferences().elementAt(0).getStatus() == ItemStatus.DESTROYED)
-    		return new ItemRepairDetail(Type.REPAIR, mount.getMountedItem().getType(), -3, Integer.MIN_VALUE, "", 100, 0);
+    	{
+    		Item item = mount.getMountedItem();
+    		return new ItemRepairDetail(Type.REPAIR, item.getType(), -3, Integer.MIN_VALUE, "", 100, 0, item.getManufacturer(), item.getModel());
+    	}
     		
     	return null;
     }
@@ -1267,10 +1292,11 @@ public class BattlemechManager
     		if (iss.getStatus() == ItemStatus.DESTROYED)
     			destroyed++;
     	
+		Item item = mount.getMountedItem();
     	if (destroyed == 1)
-    		return new ItemRepairDetail(Type.REPAIR, mount.getMountedItem().getType(), 1, 3, "+1 Piloting Modifier", 120, 0);
+    		return new ItemRepairDetail(Type.REPAIR, item.getType(), 1, 3, "+1 Piloting Modifier", 120, 0, item.getManufacturer(), item.getModel());
     	else if (destroyed == 2)
-    		return new ItemRepairDetail(Type.REPAIR, mount.getMountedItem().getType(), 4, 4, "+2 Piloting Modifier", 240, 0);
+    		return new ItemRepairDetail(Type.REPAIR, item.getType(), 4, 4, "+2 Piloting Modifier", 240, 0, item.getManufacturer(), item.getModel());
 
     	return null;
     }
@@ -1278,7 +1304,10 @@ public class BattlemechManager
     private ItemRepairDetail getHeatSinkRepairDetail(ItemMount mount)
     {
     	if (mount.getSlotReferences().elementAt(0).getStatus() == ItemStatus.DESTROYED)
-    		return new ItemRepairDetail(Type.REPAIR, mount.getMountedItem().getType(), -1, 3, "Heat sink works at 1/2 capacity", 90, 0);
+    	{
+    		Item item = mount.getMountedItem();
+    		return new ItemRepairDetail(Type.REPAIR, item.getType(), -1, 3, "Heat sink works at 1/2 capacity", 90, 0, item.getManufacturer(), item.getModel());
+    	}
     		
     	return null;
     }   
@@ -1286,7 +1315,10 @@ public class BattlemechManager
     private ItemRepairDetail getActuatorRepairDetail(ItemMount mount)
     {
     	if (mount.getSlotReferences().elementAt(0).getStatus() == ItemStatus.DESTROYED)
-    		return new ItemRepairDetail(Type.REPAIR, mount.getMountedItem().getType(), 0, Integer.MIN_VALUE, "", 120, 0);
+    	{
+    		Item item = mount.getMountedItem();
+    		return new ItemRepairDetail(Type.REPAIR, item.getType(), 0, Integer.MIN_VALUE, "", 120, 0, item.getManufacturer(), item.getModel());
+    	}
     		
     	return null;
     }    
@@ -1298,10 +1330,11 @@ public class BattlemechManager
     		if (iss.getStatus() == ItemStatus.DESTROYED)
     			destroyed++;
     	
+		Item item = mount.getMountedItem();
     	if (destroyed == 1)
-    		return new ItemRepairDetail(Type.REPAIR, mount.getMountedItem().getType(), 0, 3, "+1 to-hit Modifier", 75, 0);
+    		return new ItemRepairDetail(Type.REPAIR, item.getType(), 0, 3, "+1 to-hit Modifier", 75, 0, item.getManufacturer(), item.getModel());
     	else if (destroyed == 2)
-    		return new ItemRepairDetail(Type.REPAIR, mount.getMountedItem().getType(), 3, 4, "+2 to-hit Modifier", 150, 0);
+    		return new ItemRepairDetail(Type.REPAIR, item.getType(), 3, 4, "+2 to-hit Modifier", 150, 0, item.getManufacturer(), item.getModel());
 
     	return null;
     }    
@@ -1313,12 +1346,13 @@ public class BattlemechManager
     		if (iss.getStatus() == ItemStatus.DESTROYED)
     			destroyed++;
     	
+		Item item = mount.getMountedItem();
     	if (destroyed == 1)
-    		return new ItemRepairDetail(Type.REPAIR, mount.getMountedItem().getType(), -1, 2, "+3 Heat Points/turn", 100, 0);
+    		return new ItemRepairDetail(Type.REPAIR, item.getType(), -1, 2, "+3 Heat Points/turn", 100, 0, item.getManufacturer(), item.getModel());
     	else if (destroyed == 2)
-    		return new ItemRepairDetail(Type.REPAIR, mount.getMountedItem().getType(), 0, 3, "+5 Heat Points/turn", 200, 0);
+    		return new ItemRepairDetail(Type.REPAIR, item.getType(), 0, 3, "+5 Heat Points/turn", 200, 0, item.getManufacturer(), item.getModel());
     	else if (destroyed == 3)
-    		return new ItemRepairDetail(Type.REPAIR, mount.getMountedItem().getType(), 2, 4, "+8 Heat Points/turn", 300, 0);
+    		return new ItemRepairDetail(Type.REPAIR, item.getType(), 2, 4, "+8 Heat Points/turn", 300, 0, item.getManufacturer(), item.getModel());
 
     	return null;   	
     }    
@@ -1326,7 +1360,10 @@ public class BattlemechManager
     private ItemRepairDetail getJumpJetRepairDetail(ItemMount mount)
     {
     	if (mount.getSlotReferences().elementAt(0).getStatus() == ItemStatus.DESTROYED)
-    		return new ItemRepairDetail(Type.REPAIR, mount.getMountedItem().getType(), 0, 1, "+1 Heat Point when jumping", 90, 0);
+    	{
+    		Item item = mount.getMountedItem();
+    		return new ItemRepairDetail(Type.REPAIR, item.getType(), 0, 1, "+1 Heat Point when jumping", 90, 0, item.getManufacturer(), item.getModel());
+    	}
     		
     	return null;
     } 
@@ -1340,13 +1377,13 @@ public class BattlemechManager
     	
     	Weapon weapon = (Weapon)mount.getMountedItem();
     	if (destroyed == 1)
-    		return new ItemRepairDetail(Type.REPAIR, weapon.getWeaponType(), -3, Integer.MIN_VALUE, "", 100, 0);
+    		return new ItemRepairDetail(Type.REPAIR, weapon.getWeaponType(), -3, Integer.MIN_VALUE, "", 100, 0, weapon.getManufacturer(), weapon.getModel());
     	else if (destroyed == 2)
-    		return new ItemRepairDetail(Type.REPAIR, weapon.getWeaponType(), -2, Integer.MIN_VALUE, "", 150, 0);
+    		return new ItemRepairDetail(Type.REPAIR, weapon.getWeaponType(), -2, Integer.MIN_VALUE, "", 150, 0, weapon.getManufacturer(), weapon.getModel());
     	else if (destroyed == 3)
-    		return new ItemRepairDetail(Type.REPAIR, weapon.getWeaponType(), 0, Integer.MIN_VALUE, "", 200, 0);
+    		return new ItemRepairDetail(Type.REPAIR, weapon.getWeaponType(), 0, Integer.MIN_VALUE, "", 200, 0, weapon.getManufacturer(), weapon.getModel());
     	else if (destroyed >= 4)
-    		return new ItemRepairDetail(Type.REPAIR, weapon.getWeaponType(), 2, Integer.MIN_VALUE, "", 250, 0);
+    		return new ItemRepairDetail(Type.REPAIR, weapon.getWeaponType(), 2, Integer.MIN_VALUE, "", 250, 0, weapon.getManufacturer(), weapon.getModel());
 
     	return null;
     }    
@@ -1381,17 +1418,17 @@ public class BattlemechManager
     		{
     			if (section == BattlemechSection.HEAD)
     			{
-        			ItemRepairDetail ird = new ItemRepairDetail(ItemRepairDetail.Type.REPLACEMENT, section.toString() + " - Reattach/Replace", 2, Integer.MIN_VALUE, "", 200, -1);
+        			ItemRepairDetail ird = new ItemRepairDetail(ItemRepairDetail.Type.REPLACEMENT, section.toString() + " - Reattach/Replace", 2, Integer.MIN_VALUE, "", 200, -1, "", "");
     				report.addSectionReplacementDetail(ird);    				
     			}
     			else
     			{
-        			ItemRepairDetail ird = new ItemRepairDetail(ItemRepairDetail.Type.REPLACEMENT, section.toString() + " - Reattach/Replace", 1, Integer.MIN_VALUE, "", 180, -1);
+        			ItemRepairDetail ird = new ItemRepairDetail(ItemRepairDetail.Type.REPLACEMENT, section.toString() + " - Reattach/Replace", 1, Integer.MIN_VALUE, "", 180, -1, "", "");
     				report.addSectionReplacementDetail(ird);    				    				
     			}
     		} else if (status.getStatus() == SectionStatus.Status.DESTROYED)
     		{
-    			ItemRepairDetail ird = new ItemRepairDetail(ItemRepairDetail.Type.REPLACEMENT, section.toString() + " - Replace", 3, Integer.MIN_VALUE, "", 240, -1);
+    			ItemRepairDetail ird = new ItemRepairDetail(ItemRepairDetail.Type.REPLACEMENT, section.toString() + " - Replace", 3, Integer.MIN_VALUE, "", 240, -1, "", "");
 				report.addSectionReplacementDetail(ird);
     		}
     	}    	
@@ -1415,7 +1452,7 @@ public class BattlemechManager
     		if (destroyed > 0)
     		{
     			int cost = (int)(10000.0 * (double)destroyed / 16.0);
-    			ItemRepairDetail ird = new ItemRepairDetail(ItemRepairDetail.Type.REPLACEMENT, "Armour", -2, Integer.MIN_VALUE, "", 5 * destroyed, cost);
+    			ItemRepairDetail ird = new ItemRepairDetail(ItemRepairDetail.Type.REPLACEMENT, "Armour", -2, Integer.MIN_VALUE, "", 5 * destroyed, cost, "", "");
     			report.addArmourReplacementDetail(location, ird);
     		}
     	}
@@ -1462,13 +1499,13 @@ public class BattlemechManager
 
     			double percent = (double)total / (double) destroyed;
     			if (percent < 0.25)
-    				ird = new ItemRepairDetail(ItemRepairDetail.Type.REPAIR, "Internal Structure", -1, 1, "1 pt permanent damage", 90, cost);
+    				ird = new ItemRepairDetail(ItemRepairDetail.Type.REPAIR, "Internal Structure", -1, 1, "1 pt permanent damage", 90, cost, "", "");
     			else if (percent < 0.50)
-    				ird = new ItemRepairDetail(ItemRepairDetail.Type.REPAIR, "Internal Structure", 0, 1, "2 pts permanent damage", 135, cost);
+    				ird = new ItemRepairDetail(ItemRepairDetail.Type.REPAIR, "Internal Structure", 0, 1, "2 pts permanent damage", 135, cost, "", "");
     			else if (percent < 0.75)
-    				ird = new ItemRepairDetail(ItemRepairDetail.Type.REPAIR, "Internal Structure", 1, 2, "3 pts permanent damage", 180, cost);
+    				ird = new ItemRepairDetail(ItemRepairDetail.Type.REPAIR, "Internal Structure", 1, 2, "3 pts permanent damage", 180, cost, "", "");
     			else
-    				ird = new ItemRepairDetail(ItemRepairDetail.Type.REPAIR, "Internal Structure", 2, 2, "4 pts permanent damage", 270, cost);
+    				ird = new ItemRepairDetail(ItemRepairDetail.Type.REPAIR, "Internal Structure", 2, 2, "4 pts permanent damage", 270, cost, "", "");
     			 
     			report.addInternalRepairDetail(location, ird);
     		}
@@ -1498,7 +1535,7 @@ public class BattlemechManager
     		SectionStatus status = mech.getSectionStatuses().get(section);
     		if (status.isBreached())
     		{
-    			ItemRepairDetail ird = new ItemRepairDetail(ItemRepairDetail.Type.REPAIR, section.toString() + " - BREACHED", -5, Integer.MIN_VALUE, "", 60, 0);
+    			ItemRepairDetail ird = new ItemRepairDetail(ItemRepairDetail.Type.REPAIR, section.toString() + " - BREACHED", -5, Integer.MIN_VALUE, "", 60, 0, "", "");
 				report.addSectionRepairDetail(ird);
     		}
     	}    	

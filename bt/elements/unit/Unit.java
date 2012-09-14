@@ -222,6 +222,19 @@ public class Unit implements Serializable
 	{
 		return _Assets.indexOf(a);
 	}
+	
+	public Vector<String> getUnassignedAssetIDs()
+	{
+		Vector<String> assetIDs = new Vector<String>();
+		for (Asset a : _Assets)
+			assetIDs.add(a.getIdentifier());
+		
+		for (PersonnelAssetAssignment paa : _PersonnelAssetAssignments)
+			if (assetIDs.contains(paa.getAssetIdentifier()))
+				assetIDs.remove(paa.getAssetIdentifier());
+		
+		return assetIDs;
+	}
 
 	public Vector<Battlemech> getBattlemechs()
 	{
@@ -317,6 +330,17 @@ public class Unit implements Serializable
 			_AssignedMissionTitle = null;
 		}
 	}
+	
+	public Asset getAssetFromID(String assetID)
+	{
+		for (Asset a : _Assets)
+		{
+			if (a.getIdentifier().equalsIgnoreCase(assetID))
+				return a;
+		}
+		
+		return null;
+	}
 
 	public int getUnitStrength()
 	{
@@ -334,16 +358,36 @@ public class Unit implements Serializable
 		return totalBV;
 	}
 	
-	public Vector<String> getAssetsAssignedToPersonnel(String name)
+	public PersonnelAssetAssignment getPersonnelAssetAssignment(String name)
 	{
-		Vector<String> assets = new Vector<String>();
 		for (PersonnelAssetAssignment ass : _PersonnelAssetAssignments)
 		{
 			if (ass.getName().equalsIgnoreCase(name))
-				assets.add(ass.getAssetIdentifier());
+				return ass;
 		}
 		
-		return assets;
+		return null;
+	}
+	
+	public String getAssetAssignedToPersonnel(String name)
+	{
+		PersonnelAssetAssignment ass = getPersonnelAssetAssignment(name);
+		if (ass != null)
+			return ass.getAssetIdentifier();
+		
+		return null;
+	}
+	
+	public String getAssetDetailForAssetAssignedToPersonnel(String name)
+	{
+		PersonnelAssetAssignment paa = getPersonnelAssetAssignment(name);
+		if (paa != null)
+		{
+			Asset ass = getAssetFromID(paa.getAssetIdentifier()); 
+			return ass.getDetails();
+		}
+		
+		return null;
 	}
 	
 	public List<PersonnelAssetAssignment> getPersonnelAssetAssignments()
@@ -363,18 +407,6 @@ public class Unit implements Serializable
 		return personnel;		
 	}
 	
-	public Vector<PersonnelAssetAssignment> getAssignments(String personnelName)
-	{
-		Vector<PersonnelAssetAssignment> assignments = new Vector<PersonnelAssetAssignment>();
-		for (PersonnelAssetAssignment ass : _PersonnelAssetAssignments)
-		{
-			if (ass.getName().equalsIgnoreCase(personnelName))
-				assignments.add(ass);
-		}
-		
-		return assignments;
-	}
-	
 	public void addPersonnelAssignment(String name, String assetIdentifier, Role role)
 	{
 		PersonnelAssetAssignment paa = new PersonnelAssetAssignment(name, assetIdentifier, role);
@@ -382,6 +414,13 @@ public class Unit implements Serializable
 			_PersonnelAssetAssignments.remove(paa);
 		
 		_PersonnelAssetAssignments.add(paa);
+	}
+	
+	public void removePersonnelAssignment(String name, String assetIdentifier, Role role)
+	{
+		PersonnelAssetAssignment paa = new PersonnelAssetAssignment(name, assetIdentifier, role);
+		if (_PersonnelAssetAssignments.contains(paa))
+			_PersonnelAssetAssignments.remove(paa);
 	}
 	
 	public double getBaseMonthlySalary()

@@ -2,12 +2,13 @@ package bt.elements.unit;
 
 public enum Role 
 {
+	NONE,
 	PILOT,
 	COMMANDER,
 	GUNNER,
 	DRIVER;
 	
-	private static String[] _Names = {"Pilot", "Commander", "Gunner", "Driver"};
+	private static String[] _Names = {"No Role", "Pilot", "Commander", "Gunner", "Driver"};
 	
 	public String toString()
 	{

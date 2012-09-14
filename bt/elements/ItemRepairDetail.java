@@ -33,6 +33,8 @@ public class ItemRepairDetail
 	private String _PartialRepairEffect = "";
 	private int _Time = 0;
 	private double _Cost = 0;
+	private String _ItemManufacturer = "";
+	private String _ItemModel = "";
 	
 	public Type getType()
 	{
@@ -92,7 +94,23 @@ public class ItemRepairDetail
 		_Cost = cost;
 	}
 	
-	public ItemRepairDetail(Type type, String itemType, int skillModifier, int partialRepair, String partialRepairEffect, int time, double cost)
+	public String getItemManufacturer()
+	{
+		return _ItemManufacturer;
+	}
+	public void setItemManufacturer(String itemManufacturer)
+	{
+		_ItemManufacturer = itemManufacturer;
+	}
+	public String getItemModel()
+	{
+		return _ItemModel;
+	}
+	public void setItemModel(String itemModel)
+	{
+		_ItemModel = itemModel;
+	}
+	public ItemRepairDetail(Type type, String itemType, int skillModifier, int partialRepair, String partialRepairEffect, int time, double cost, String manufacturer, String model)
 	{
 		_Type = type;
 		_ItemType = itemType;
@@ -101,6 +119,8 @@ public class ItemRepairDetail
 		_PartialRepairEffect = partialRepairEffect;
 		_Time = time;
 		_Cost = cost;
+		_ItemManufacturer = manufacturer;
+		_ItemModel = model;
 	}
 	
 	
