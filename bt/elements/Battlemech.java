@@ -390,6 +390,43 @@ public class Battlemech extends Asset implements BattleValue
 		}
 		return mounts;
 	}
+	
+	public int getItemHits(String itemName)
+	{
+		int engineHits = 0;
+		Vector<ItemMount> engineMounts = getAllMounts(itemName);
+		if (engineMounts.size() > 0)
+		{
+			ItemMount mount = engineMounts.elementAt(0);
+			for (InternalSlotStatus iss : mount.getSlotReferences())
+			{
+				if (iss.getStatus() != ItemStatus.OK)
+					engineHits++;
+			}
+		}
+		
+		return engineHits;
+	}
+
+	public int getEngineHits()
+	{
+		return getItemHits("Engine");
+	}
+	
+	public int getGyroHits()
+	{
+		return getItemHits("Gyro");
+	}
+	
+	public int getSensorHits()
+	{
+		return getItemHits("Sensors");
+	}
+	
+	public boolean isLifeSupportHit()
+	{
+		return getItemHits("Life Support") > 0;		
+	}
 
 	public int getWalkRating()
 	{

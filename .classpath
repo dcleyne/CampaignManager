@@ -3,12 +3,17 @@
 	<classpathentry kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/jdom.jar"/>
-	<classpathentry kind="lib" path="lib/iText-2.1.7.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:platform:/resource/CampaignManager/lib/iText-2.1.7.doc.zip!/iText-2.1.7.doc"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="lib/PDFRenderer-0.9.1.jar"/>
 	<classpathentry kind="lib" path="lib/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/itext-xtra-5.3.2.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/CampaignManager/lib/itext-xtra-5.3.2-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/itextpdf-5.3.2.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/CampaignManager/lib/itextpdf-5.3.2-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build"/>
 </classpath>

@@ -46,6 +46,16 @@ public class ItemMount
     	
     	return false;
     }
+    
+    public ItemStatus getWorstStatus()
+    {
+    	ItemStatus status = ItemStatus.OK;
+    	for (InternalSlotStatus iss: _SlotReferences)
+    		if (iss.getStatus().ordinal() > status.ordinal())
+    			status = iss.getStatus();
+    	
+		return status;
+    }
 
     public boolean isRearFacing()
     {

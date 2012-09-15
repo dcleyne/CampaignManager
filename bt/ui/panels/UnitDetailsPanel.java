@@ -4,12 +4,15 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import bt.elements.unit.Unit;
+import bt.managers.UnitManager;
 import bt.ui.dialogs.SelectDateDialog;
 import bt.util.SwingHelper;
 
@@ -19,6 +22,7 @@ public class UnitDetailsPanel extends JPanel implements ClosableEditPanel, Actio
     protected Unit _Unit = null;
 
     JPanel _EditPanel = new JPanel();
+    JPanel _ButtonPanel = new JPanel();
 
     JTextField _NameTextField = new JTextField();
     JTextField _CurrentDateTextField = new JTextField();
@@ -36,8 +40,17 @@ public class UnitDetailsPanel extends JPanel implements ClosableEditPanel, Actio
         _EditPanel.add(SwingHelper.GetTextFieldWithAction(_CurrentDateTextField, "Current Date", "The current date for the unit",true,"SetCurrentDate","Set the current date",this));
         _EditPanel.add(SwingHelper.GetTextArea(_NotesTextArea, "Notes", "Notes for this Unit",true));
 
-        this.setLayout(new BorderLayout());
-        this.add(_EditPanel, BorderLayout.CENTER);
+        setLayout(new BorderLayout());
+        add(_EditPanel, BorderLayout.CENTER);
+        
+        
+        JButton exportSummaryButton = new JButton("Export Summary");
+        exportSummaryButton.setActionCommand("ExportSummary");
+        exportSummaryButton.addActionListener(this);
+        _ButtonPanel.setLayout(new BoxLayout(_ButtonPanel, BoxLayout.LINE_AXIS));
+        _ButtonPanel.add(Box.createHorizontalGlue());
+        _ButtonPanel.add(exportSummaryButton);
+        add(_ButtonPanel, BorderLayout.SOUTH);
 
         setVisible(true);
         setFields();
@@ -82,6 +95,17 @@ public class UnitDetailsPanel extends JPanel implements ClosableEditPanel, Actio
     				_Unit.setCurrentDate(_Unit.getEstablishDate());
 
     			setFields();
+    		}
+    	}
+    	if (actionCommand.equalsIgnoreCase("ExportSummary"))
+    	{
+    		try
+    		{
+    			UnitManager.getInstance().printUnitSummaryToPDF(_Unit);
+    		}
+    		catch (Exception ex)
+    		{
+    			ex.printStackTrace();
     		}
     	}
     }

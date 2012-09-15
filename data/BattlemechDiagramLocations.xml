@@ -633,6 +633,14 @@
 		<Point location="BattleValue" x="421" y="1568" />
 		<Point location="Cost" x="421" y="1587" />
 		<Point location="HeatSinkTotal" x="971" y="587" />
+		<Point location="Engine-1" x="430" y="1444" />
+		<Point location="Engine-2" x="453" y="1444" />
+		<Point location="Engine-3" x="476" y="1444" />
+		<Point location="Gyro-1" x="430" y="1468" />
+		<Point location="Gyro-2" x="453" y="1468" />
+		<Point location="Sensors-1" x="430" y="1491" />
+		<Point location="Sensors-2" x="453" y="1491" />
+		<Point location="Life Support" x="453" y="1514" />
 	</NamedLocations>
 	<WeaponLocations>
 		<Point index="1" x="840" y="305" />
@@ -700,7 +708,17 @@
 		<Dot index="45" x="1023" y="634" />
 		<Dot index="46" x="1037" y="634" />
 		<Dot index="47" x="1052" y="634" />
-		<Dot index="48" x="1067" y="634" />
-		
+		<Dot index="48" x="1067" y="634" />		
 	</HeatSinkLocations>
+	<CriticalTableAreas>
+		<Area location="Left Arm" x="138" y="910" width="122" height="226" />
+		<Area location="Right Arm" x="620" y="910" width="122" height="226" />
+		<Area location="Left Torso" x="138" y="1196" width="122" height="226" />
+		<Area location="Right Torso" x="620" y="1196" width="122" height="226" />
+		<Area location="Left Leg" x="138" y="1483" width="122" height="105" />
+		<Area location="Right Leg" x="620" y="1483" width="122" height="105" />
+		<Area location="Head" x="380" y="988" width="122" height="105" />
+		<Area location="Centre Torso" x="380" y="1160" width="122" height="226" />
+	</CriticalTableAreas>
+	
 </DiagramLocations>

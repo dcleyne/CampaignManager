@@ -1,8 +1,6 @@
 package bt.managers;
 
-import java.awt.Color;
-
-
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 import java.io.FileOutputStream;
@@ -11,20 +9,28 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 
+import javax.imageio.ImageIO;
+
 import org.jdom.Document;
 import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
-import com.lowagie.text.Chapter;
-import com.lowagie.text.Font;
-import com.lowagie.text.FontFactory;
-import com.lowagie.text.PageSize;
-import com.lowagie.text.Paragraph;
-import com.lowagie.text.pdf.PdfWriter;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chapter;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfWriter;
 
 import bt.elements.BattleValue;
 import bt.elements.Battlemech;
+import bt.elements.BattlemechRepairReport;
+import bt.elements.ItemRepairDetail;
 import bt.elements.design.BattlemechDesign;
 import bt.elements.personnel.Administrator;
 import bt.elements.personnel.Astech;
@@ -45,6 +51,7 @@ import bt.elements.unit.RandomName;
 import bt.elements.unit.Role;
 import bt.elements.unit.TechRating;
 import bt.elements.unit.Unit;
+import bt.ui.renderers.BattlemechRenderer;
 import bt.util.Dice;
 import bt.util.ExceptionUtil;
 import bt.util.ExtensionFileFilter;
@@ -831,6 +838,139 @@ public class UnitManager
 		return _RandomNames.elementAt(++_LastServedName);
 	}
 	
+	private com.itextpdf.text.pdf.PdfPCell createHeaderCell(String content, BaseColor foreColor, BaseColor background) throws Exception
+	{
+		Font f = FontFactory.getFont(FontFactory.HELVETICA, 11, Font.BOLD);
+		f.setColor(foreColor);
+		com.itextpdf.text.Phrase phrase = new Phrase(content, f);
+		com.itextpdf.text.pdf.PdfPCell cell = new com.itextpdf.text.pdf.PdfPCell(phrase);
+		cell.setBackgroundColor(background);
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+		return cell;
+	}
+	
+	private com.itextpdf.text.pdf.PdfPCell createDataCell(String content, BaseColor foreColor, BaseColor background) throws Exception
+	{
+		Font f = FontFactory.getFont(FontFactory.HELVETICA, 8, Font.BOLD);
+		f.setColor(foreColor);
+		com.itextpdf.text.Phrase phrase = new Phrase(content, f);
+		com.itextpdf.text.pdf.PdfPCell cell = new com.itextpdf.text.pdf.PdfPCell(phrase);
+		cell.setBackgroundColor(background);
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+		return cell;
+	}
+	
+	private com.itextpdf.text.pdf.PdfPTable getRepairDetailTable(String col1Header, Vector<ItemRepairDetail> details, int modifiedSkillTarget) throws Exception
+	{
+		com.itextpdf.text.pdf.PdfPTable table = new com.itextpdf.text.pdf.PdfPTable(8);
+		table.setWidthPercentage(100);
+		
+		table.addCell(createHeaderCell(col1Header, BaseColor.WHITE, BaseColor.GRAY));
+		table.addCell(createHeaderCell("Time", BaseColor.WHITE, BaseColor.GRAY));
+		table.addCell(createHeaderCell("Cost", BaseColor.WHITE, BaseColor.GRAY));
+		table.addCell(createHeaderCell("Target#", BaseColor.WHITE, BaseColor.GRAY));
+		table.addCell(createHeaderCell("Partial Repair#", BaseColor.WHITE, BaseColor.GRAY));
+		table.addCell(createHeaderCell("Partial Repair Effect", BaseColor.WHITE, BaseColor.GRAY));
+		table.addCell(createHeaderCell("Manufacturer", BaseColor.WHITE, BaseColor.GRAY));
+		table.addCell(createHeaderCell("Model", BaseColor.WHITE, BaseColor.GRAY));
+		table.setHeaderRows(1);
+		
+		for (ItemRepairDetail ird : details)
+		{
+			table.addCell(ird.getItemType());
+			table.addCell(Integer.toString(ird.getTime()));
+			
+			double cost = ird.getCost();
+			if (cost >= 0)
+				table.addCell(Double.toString(ird.getCost()));
+			else
+				table.addCell("**");
+			
+			table.addCell(Integer.toString(modifiedSkillTarget + ird.getSkillModifier()));
+			
+			if (ird.getPartialRepair() > Integer.MIN_VALUE)
+				table.addCell(Integer.toString(modifiedSkillTarget + ird.getSkillModifier() - ird.getPartialRepair()));				
+			else
+				table.addCell(" ");
+				
+			table.addCell(ird.getPartialRepairEffect());
+			table.addCell(ird.getItemManufacturer());
+			table.addCell(ird.getItemModel());
+		}
+		
+		return table;
+	}
+	
+	private com.itextpdf.text.pdf.PdfPTable getBattlemechRepairReport(Battlemech mech, int modifiedSkillTarget) throws Exception
+	{
+		BattlemechManager bm = new BattlemechManager();
+		BattlemechRepairReport report = bm.createRepairReport(mech, modifiedSkillTarget);
+		com.itextpdf.text.pdf.PdfPTable table = new com.itextpdf.text.pdf.PdfPTable(2);
+		table.setWidths(new int[] {1,9});
+		table.setWidthPercentage(98);
+		
+		com.itextpdf.text.pdf.PdfPCell header1Cell = createHeaderCell(mech.getDetails(), BaseColor.WHITE, BaseColor.BLACK);
+		header1Cell.setColspan(2);
+		table.addCell(header1Cell);
+		//table.setHeaderRows(1);
+		
+		com.itextpdf.text.pdf.PdfPCell mechBVCell = createDataCell("Battle Value: " + Integer.toString(mech.getBV()), BaseColor.BLACK, BaseColor.WHITE);
+		mechBVCell.setColspan(2);
+		table.addCell(mechBVCell);
+		
+		com.itextpdf.text.pdf.PdfPCell mechAdjBVCell = createDataCell("Adjusted Battle Value: " + Integer.toString(mech.getAdjustedBV()), BaseColor.BLACK, BaseColor.WHITE);
+		mechAdjBVCell.setColspan(2);
+		table.addCell(mechAdjBVCell);
+
+		if (report.hasReplacementDetails())
+		{
+			com.itextpdf.text.pdf.PdfPCell replacementHeaderCell = createHeaderCell("Replacements", BaseColor.WHITE, BaseColor.BLACK);
+			replacementHeaderCell.setColspan(2);
+			table.addCell(replacementHeaderCell);
+			
+			if (report.hasArmourReplacementDetails())
+			{
+				table.addCell("Armour");
+				table.addCell(getRepairDetailTable("Location", report.getArmourReplacementDetails(), modifiedSkillTarget));
+			}
+			if (report.hasSectionReplacementDetails())
+			{
+				table.addCell("Section");
+				table.addCell(getRepairDetailTable("Section", report.getSectionReplacementDetails(), modifiedSkillTarget));
+			}
+			if (report.hasItemReplacementDetails())
+			{
+				table.addCell("Item");
+				table.addCell(getRepairDetailTable("Mounted Item", report.getItemReplacementDetails(), modifiedSkillTarget));
+			}
+		}
+		
+		if (report.hasRepairDetails())
+		{
+			com.itextpdf.text.pdf.PdfPCell repairsHeaderCell = createHeaderCell("Repairs", BaseColor.WHITE, BaseColor.BLACK);
+			repairsHeaderCell.setColspan(2);
+			table.addCell(repairsHeaderCell);
+			
+			if (report.hasInternalRepairDetails())
+			{
+				table.addCell("Armour");
+				table.addCell(getRepairDetailTable("Location", report.getInternalRepairDetails(), modifiedSkillTarget));
+			}
+			if (report.hasSectionRepairDetails())
+			{
+				table.addCell("Section");
+				table.addCell(getRepairDetailTable("Section", report.getSectionRepairDetails(), modifiedSkillTarget));
+			}
+			if (report.hasItemRepairDetails())
+			{
+				table.addCell("Item");
+				table.addCell(getRepairDetailTable("Mounted Item", report.getItemRepairDetails(), modifiedSkillTarget));
+			}
+		}
+
+		return table;
+	}
+	
 	public void printUnitSummaryToPDF(Unit unit) throws Exception
 	{
 		String path = PropertyUtil.getStringProperty("ExternalDataPath", "data");
@@ -840,17 +980,105 @@ public class UnitManager
 		if (f.exists())
 			f.delete();
 		
-		com.lowagie.text.Document document = new com.lowagie.text.Document(PageSize.A4, 5, 5, 5, 5);
+		com.itextpdf.text.Document document = new com.itextpdf.text.Document(PageSize.A4, 5, 5, 5, 5);
 		PdfWriter.getInstance(document, new FileOutputStream(filename));
 		document.open();
 		
-		Paragraph title1 = new Paragraph(unit.getName(), FontFactory.getFont(FontFactory.HELVETICA, 24, Font.BOLDITALIC, Color.black));
+		Paragraph title1 = new Paragraph("Unit Summary - " + unit.getName(), FontFactory.getFont(FontFactory.HELVETICA, 24, Font.BOLDITALIC));
 		Chapter chapter1 = new Chapter(title1, 1);
 		chapter1.setNumberDepth(0);
 		
-		//Add bits in here
+		chapter1.add(new Paragraph("Current Date: " + SwingHelper.FormatDate(unit.getCurrentDate()),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
+		chapter1.add(new Paragraph("Establish Date: " + SwingHelper.FormatDate(unit.getEstablishDate()),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
+		chapter1.add(new Paragraph("Current Bank Balance: " + Double.toString(unit.getCurrentBankBalance()),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
+		chapter1.add(new Paragraph("Base Monthly Salary: " + Double.toString(unit.getBaseMonthlySalary()),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
+
+		chapter1.add(new Paragraph("Personnel",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL)));
+		chapter1.add(new Paragraph(" ",FontFactory.getFont(FontFactory.HELVETICA, 4, Font.NORMAL)));
 		
+		com.itextpdf.text.pdf.PdfPTable table = new com.itextpdf.text.pdf.PdfPTable(7);
+		table.setWidthPercentage(98);
+		table.addCell(createHeaderCell("Name", BaseColor.WHITE, BaseColor.BLACK));
+		table.addCell(createHeaderCell("Callsign", BaseColor.WHITE, BaseColor.BLACK));
+		table.addCell(createHeaderCell("Rank", BaseColor.WHITE, BaseColor.BLACK));
+		table.addCell(createHeaderCell("Job Type", BaseColor.WHITE, BaseColor.BLACK));
+		table.addCell(createHeaderCell("Rating", BaseColor.WHITE, BaseColor.BLACK));
+		table.addCell(createHeaderCell("Base Monthly Salary", BaseColor.WHITE, BaseColor.BLACK));
+		table.addCell(createHeaderCell("Notes", BaseColor.WHITE, BaseColor.BLACK));
+		table.setHeaderRows(1);
+		
+		for (Personnel p : unit.getPersonnel())
+		{
+			table.addCell(p.getName());
+			table.addCell(p.getCallsign());
+			table.addCell(p.getRank().toString());
+			table.addCell(p.getJobType().toString());
+			table.addCell(p.getRating().toString());
+			table.addCell(Double.toString(p.getJobType().GetBaseMonthlySalary()));
+			table.addCell(p.getNotes());
+			
+		}
+		chapter1.add(table);
+
+		chapter1.add(new Paragraph("Completed Missions",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL)));
+		chapter1.add(new Paragraph(" ",FontFactory.getFont(FontFactory.HELVETICA, 4, Font.NORMAL)));
+		com.itextpdf.text.pdf.PdfPTable missionTable = new com.itextpdf.text.pdf.PdfPTable(5);
+		missionTable.setWidthPercentage(98);
+		missionTable.addCell(createHeaderCell("ID", BaseColor.WHITE, BaseColor.BLACK));
+		missionTable.addCell(createHeaderCell("Title", BaseColor.WHITE, BaseColor.BLACK));
+		missionTable.addCell(createHeaderCell("Date", BaseColor.WHITE, BaseColor.BLACK));
+		missionTable.addCell(createHeaderCell("Result", BaseColor.WHITE, BaseColor.BLACK));
+		missionTable.addCell(createHeaderCell("Prize Money", BaseColor.WHITE, BaseColor.BLACK));
+		missionTable.setHeaderRows(1);
+		
+		for (CompletedMission cm : unit.getCompletedMissions())
+		{
+			missionTable.addCell(Long.toString(cm.getMissionIdentifier()));
+			missionTable.addCell(cm.getMissionTitle());
+			missionTable.addCell(SwingHelper.FormatDate(cm.getMissionDate()));
+			missionTable.addCell(cm.getResult().toString());
+			missionTable.addCell(Double.toString(cm.getPrizeMoney()));			
+		}
+		chapter1.add(missionTable);
 		document.add(chapter1);
+		
+		document.setPageSize(PageSize.A4.rotate());
+		Paragraph title2 = new Paragraph("Asset Condition Reports", FontFactory.getFont(FontFactory.HELVETICA, 24, Font.BOLDITALIC));
+		Chapter chapter2 = new Chapter(title2, 2);
+		chapter2.setNumberDepth(0);
+		chapter2.add(new Paragraph(" ",FontFactory.getFont(FontFactory.HELVETICA, 4, Font.NORMAL)));
+
+		for (Battlemech mech : unit.getBattlemechs())
+		{
+			// TODO: make sure we use the units real skill target
+			chapter2.add(getBattlemechRepairReport(mech, 7));
+			chapter2.add(new Paragraph(" ",FontFactory.getFont(FontFactory.HELVETICA, 4, Font.NORMAL)));
+		}
+		
+		
+		document.add(chapter2);
+		
+		document.setPageSize(PageSize.A4);
+		Chapter chapter3 = new Chapter(3);
+		chapter3.setNumberDepth(0);
+		
+		int elementID = 0;
+		for (Battlemech mech : unit.getBattlemechs())				
+		{
+			BufferedImage image = BattlemechRenderer.getInstance().RenderBattlemech(mech);
+			String mechFilename = path + "/units/" + unit.getName() + "Element " + Integer.toString(elementID) + ".png";
+			File mechFile = new File(mechFilename);
+	        ImageIO.write(image, "PNG", mechFile);
+	        
+	        Image mechImage = Image.getInstance(mechFile.getAbsolutePath());
+	        mechImage.scalePercent(48);
+			chapter3.add(mechImage);
+			mechFile.delete();
+	        
+			elementID++;
+		}
+		
+		document.add(chapter3);
 		
 		document.close();
 	}

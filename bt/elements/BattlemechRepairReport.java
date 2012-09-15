@@ -1,6 +1,5 @@
 package bt.elements;
 
-import java.util.HashMap;
 import java.util.Vector;
 
 public class BattlemechRepairReport
@@ -14,10 +13,10 @@ public class BattlemechRepairReport
 	private int _AdjustedBV;
 
 	private Vector<ItemRepairDetail> _SectionReplacementDetails = new Vector<ItemRepairDetail>();
-	private HashMap<String, ItemRepairDetail> _ArmourReplacementDetails = new HashMap<String, ItemRepairDetail>();
+	private Vector<ItemRepairDetail> _ArmourReplacementDetails = new Vector<ItemRepairDetail>();
 	private Vector<ItemRepairDetail> _ItemReplacementDetails = new Vector<ItemRepairDetail>();
 
-	private HashMap<String, ItemRepairDetail> _InternalRepairDetails = new HashMap<String, ItemRepairDetail>();
+	private Vector<ItemRepairDetail> _InternalRepairDetails = new Vector<ItemRepairDetail>();
 	private Vector<ItemRepairDetail> _SectionRepairDetails = new Vector<ItemRepairDetail>();
 	private Vector<ItemRepairDetail> _ItemRepairDetails = new Vector<ItemRepairDetail>();
 	
@@ -64,14 +63,88 @@ public class BattlemechRepairReport
 		_AdjustedBV = mech.getAdjustedBV();
 	}
 	
+	public boolean hasReplacementDetails()
+	{
+		return hasSectionReplacementDetails() ||
+				hasArmourReplacementDetails() ||
+				hasItemReplacementDetails();
+	}
+	
+	public boolean hasSectionReplacementDetails()
+	{
+		return _SectionReplacementDetails.size() > 0;
+	}
+	
+	public Vector<ItemRepairDetail> getSectionReplacementDetails()
+	{
+		return new Vector<ItemRepairDetail>(_SectionReplacementDetails);
+	}
+	
+	public boolean hasArmourReplacementDetails()
+	{
+		return _ArmourReplacementDetails.size() > 0;
+	}
+
+	public Vector<ItemRepairDetail> getArmourReplacementDetails()
+	{
+		return new Vector<ItemRepairDetail>(_ArmourReplacementDetails);
+	}
+	
+	public boolean hasItemReplacementDetails()
+	{
+		return _ItemReplacementDetails.size() > 0;
+	}
+
+	public Vector<ItemRepairDetail> getItemReplacementDetails()
+	{
+		return new Vector<ItemRepairDetail>(_ItemReplacementDetails);
+	}
+	
+	public boolean hasRepairDetails()
+	{
+		return hasInternalRepairDetails() ||
+				hasSectionRepairDetails() ||
+				hasItemRepairDetails();
+	}
+	
+	public boolean hasSectionRepairDetails()
+	{
+		return _SectionRepairDetails.size() > 0;
+	}
+	
+	public Vector<ItemRepairDetail> getSectionRepairDetails()
+	{
+		return new Vector<ItemRepairDetail>(_SectionRepairDetails);
+	}
+	
+	public boolean hasInternalRepairDetails()
+	{
+		return _InternalRepairDetails.size() > 0;
+	}
+	
+	public Vector<ItemRepairDetail> getInternalRepairDetails()
+	{
+		return new Vector<ItemRepairDetail>(_InternalRepairDetails);
+	}
+	
+	public boolean hasItemRepairDetails()
+	{
+		return _ItemRepairDetails.size() > 0;
+	}
+
+	public Vector<ItemRepairDetail> getItemRepairDetails()
+	{
+		return new Vector<ItemRepairDetail>(_ItemRepairDetails);
+	}
+
 	public void addSectionReplacementDetail(ItemRepairDetail ird)
 	{
 		_SectionReplacementDetails.add(ird);
 	}
 	
-	public void addArmourReplacementDetail(String section, ItemRepairDetail ird)
+	public void addArmourReplacementDetail(ItemRepairDetail ird)
 	{
-		_ArmourReplacementDetails.put(section, ird);
+		_ArmourReplacementDetails.add(ird);
 	}
 	
 	public void addItemReplacementDetail(ItemRepairDetail ird)
@@ -79,9 +152,9 @@ public class BattlemechRepairReport
 		_ItemReplacementDetails.add(ird);
 	}
 	
-	public void addInternalRepairDetail(String section, ItemRepairDetail ird)
+	public void addInternalRepairDetail(ItemRepairDetail ird)
 	{
-		_InternalRepairDetails.put(section,  ird);
+		_InternalRepairDetails.add(ird);
 	}
 	
 	public void addSectionRepairDetail(ItemRepairDetail ird)
@@ -200,10 +273,9 @@ public class BattlemechRepairReport
 			sb.append("------" + System.lineSeparator());
 			sb.append(indent(1) + "Location:           Time:   Cost:       Target#:  Partial Repair:   Partial Repair Effect: ");
 			sb.append(System.lineSeparator());
-			for (String location : _ArmourReplacementDetails.keySet())
+			for (ItemRepairDetail ird : _ArmourReplacementDetails)
 			{
-				ItemRepairDetail ird = _ArmourReplacementDetails.get(location);
-				sb.append(buildItemRepairDetailLine(ird,location,20,28,40,50,68));
+				sb.append(buildItemRepairDetailLine(ird,ird.getItemType(),20,28,40,50,68));
 			}
 			indent(-1);
 			indent(-1);
@@ -238,10 +310,9 @@ public class BattlemechRepairReport
 			sb.append("------------------" + System.lineSeparator());
 			sb.append(indent(1) + "Location:           Time:   Cost:       Target#:  Partial Repair:   Partial Repair Effect: ");
 			sb.append(System.lineSeparator());
-			for (String location : _InternalRepairDetails.keySet())
+			for (ItemRepairDetail ird : _InternalRepairDetails)
 			{
-				ItemRepairDetail ird = _InternalRepairDetails.get(location);
-				sb.append(buildItemRepairDetailLine(ird,location,20,28,40,50,68));
+				sb.append(buildItemRepairDetailLine(ird,ird.getItemType(),20,28,40,50,68));
 			}
 			indent(-1);
 			indent(-1);

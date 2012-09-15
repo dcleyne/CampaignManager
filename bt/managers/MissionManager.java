@@ -1,8 +1,5 @@
 package bt.managers;
 
-import java.awt.Color;
-
-
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -23,13 +20,13 @@ import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
-import com.lowagie.text.Chapter;
-import com.lowagie.text.Font;
-import com.lowagie.text.FontFactory;
-import com.lowagie.text.Image;
-import com.lowagie.text.PageSize;
-import com.lowagie.text.Paragraph;
-import com.lowagie.text.pdf.PdfWriter;
+import com.itextpdf.text.Chapter;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 
 import bt.elements.Battlemech;
 import bt.elements.mapping.MapSet;
@@ -543,26 +540,26 @@ public class MissionManager
 		if (f.exists())
 			f.delete();
 		
-		com.lowagie.text.Document document = new com.lowagie.text.Document(PageSize.A4, 5, 5, 5, 5);
+		com.itextpdf.text.Document document = new com.itextpdf.text.Document(PageSize.A4, 5, 5, 5, 5);
 		PdfWriter.getInstance(document, new FileOutputStream(filename));
 		document.open();
 		
-		Paragraph title1 = new Paragraph(scenario.getMission().getName(), FontFactory.getFont(FontFactory.HELVETICA, 24, Font.BOLDITALIC, Color.black));
+		Paragraph title1 = new Paragraph(scenario.getMission().getName(), FontFactory.getFont(FontFactory.HELVETICA, 24, Font.BOLDITALIC));
 		Chapter chapter1 = new Chapter(title1, 1);
 		chapter1.setNumberDepth(0);
 
-		chapter1.add(new Paragraph(scenario.getMission().getDescription(), FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL, Color.black)));
+		chapter1.add(new Paragraph(scenario.getMission().getDescription(), FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
 
-		chapter1.add(new Paragraph("Season",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
-		chapter1.add(new Paragraph(scenario.getSeason().toString(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL, Color.black)));
-		chapter1.add(new Paragraph("Time Of Day",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
-		chapter1.add(new Paragraph(scenario.getTimeOfDay().toString(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL, Color.black)));
-		chapter1.add(new Paragraph("Wind",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
-		chapter1.add(new Paragraph(scenario.getWind().toString(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL, Color.black)));
+		chapter1.add(new Paragraph("Season",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD)));
+		chapter1.add(new Paragraph(scenario.getSeason().toString(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
+		chapter1.add(new Paragraph("Time Of Day",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD)));
+		chapter1.add(new Paragraph(scenario.getTimeOfDay().toString(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
+		chapter1.add(new Paragraph("Wind",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD)));
+		chapter1.add(new Paragraph(scenario.getWind().toString(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
 		
 		
-		chapter1.add(new Paragraph("Map Set",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
-		chapter1.add(new Paragraph(scenario.getMapSet().getName(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL, Color.black)));
+		chapter1.add(new Paragraph("Map Set",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD)));
+		chapter1.add(new Paragraph(scenario.getMapSet().getName(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
 
 		BufferedImage image = MapLayoutRenderer.getInstance().renderMapLayout(scenario.getMapSet());
 		File mapFile = new File(folder + "MapSet.png");
@@ -580,27 +577,27 @@ public class MissionManager
 			Unit u = scenario.getSides().get(teamName);
 			PlayerBriefing briefing = scenario.getMission().getBriefing(teamName);
 
-			Chapter chapter = new Chapter(new Paragraph(teamName + " - " + u.getName(),FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)), ChapterNumber++);
+			Chapter chapter = new Chapter(new Paragraph(teamName + " - " + u.getName(),FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD)), ChapterNumber++);
 						
-			chapter.add(new Paragraph("Briefing",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
-			chapter.add(new Paragraph(briefing.getBriefing(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL, Color.black)));
-			chapter.add(new Paragraph("Setup",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
-			chapter.add(new Paragraph(briefing.getSetup(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL, Color.black)));
-			chapter.add(new Paragraph("Objective",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
-			chapter.add(new Paragraph(briefing.getObjective(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL, Color.black)));
-			chapter.add(new Paragraph("Victory Conditions",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
-			chapter.add(new Paragraph(briefing.getVictoryConditions(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL, Color.black)));
+			chapter.add(new Paragraph("Briefing",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD)));
+			chapter.add(new Paragraph(briefing.getBriefing(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
+			chapter.add(new Paragraph("Setup",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD)));
+			chapter.add(new Paragraph(briefing.getSetup(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
+			chapter.add(new Paragraph("Objective",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD)));
+			chapter.add(new Paragraph(briefing.getObjective(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
+			chapter.add(new Paragraph("Victory Conditions",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD)));
+			chapter.add(new Paragraph(briefing.getVictoryConditions(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
 
 			if (!briefing.getSpecialConditions().isEmpty())
 			{
-				chapter.add(new Paragraph("Special Conditions",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
-				chapter.add(new Paragraph(briefing.getSpecialConditions(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL, Color.black)));
+				chapter.add(new Paragraph("Special Conditions",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD)));
+				chapter.add(new Paragraph(briefing.getSpecialConditions(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
 			}
 
 			if (!briefing.getNotes().isEmpty())
 			{
-				chapter.add(new Paragraph("Notes",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
-				chapter.add(new Paragraph(briefing.getNotes(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL, Color.black)));
+				chapter.add(new Paragraph("Notes",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD)));
+				chapter.add(new Paragraph(briefing.getNotes(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
 			}
 
 			int elementID = 0;

@@ -2,12 +2,14 @@ package bt.ui.renderers;
 
 import java.awt.BasicStroke;
 
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
@@ -25,9 +27,11 @@ import org.jdom.input.SAXBuilder;
 
 import bt.elements.Battlemech;
 import bt.elements.BattlemechDamageNotation;
+import bt.elements.BattlemechSection;
 import bt.elements.InternalSlotStatus;
 import bt.elements.ItemMount;
 import bt.elements.ItemStatus;
+import bt.elements.SectionStatus;
 import bt.elements.design.BattlemechDesign;
 import bt.ui.filters.TransparentColorFilter;
 import bt.util.ExceptionUtil;
@@ -42,6 +46,7 @@ public class BattlemechRenderer
     private HashMap<String, HashMap<Integer, Point>> _InternalDots = new HashMap<String, HashMap<Integer, Point>>();
     private HashMap<String, HashMap<Integer, Point>> _ArmourDots = new HashMap<String, HashMap<Integer, Point>>();
     private HashMap<String, HashMap<Integer, HashMap<Integer, Point>>> _CriticalTablePoints = new HashMap<String, HashMap<Integer,HashMap<Integer,Point>>>();
+    private HashMap<String, Rectangle> _CriticalTableAreas = new HashMap<String, Rectangle>();
     private HashMap<String, Point> _NamedPoints = new HashMap<String, Point>();
     private HashMap<Integer, Point> _WeaponPoints = new HashMap<Integer, Point>();
     private HashMap<Integer, Point> _HeatSinkDots = new HashMap<Integer, Point>();
@@ -52,12 +57,14 @@ public class BattlemechRenderer
     private Font _CriticalSlotFont = new Font("SansSerif",Font.PLAIN,14);
     private Font _InformationFont = new Font("SansSerif",Font.BOLD,14);
     private Font _SmallInformationFont = new Font("SansSerif",Font.PLAIN,11);
+    private Font _LargeInformationFont = new Font("SansSerif",Font.BOLD,16);
 
     private final int extraSmallDot = 6;
     private final int smallDot = 8;
     private final int mediumDot = 10;
     private final int largeDot = 11;
     private final int extraLargeDot = 13;
+    private final int superLargeDot = 20;
 
     private BattlemechRenderer()
     {
@@ -159,20 +166,20 @@ public class BattlemechRenderer
         	}
         }
         g.setFont(_InformationFont);
-        drawInformation(g,mech.getDesignVariant() + " " + mech.getDesignName(), _NamedPoints.get("Type"));
-        drawInformation(g,Integer.toString(mech.getWeight()), _NamedPoints.get("Tonnage"));
-        drawInformation(g,Integer.toString(mech.getWalkRating()), _NamedPoints.get("Walking"));
-        drawInformation(g,Integer.toString(mech.getRunRating()), _NamedPoints.get("Running"));
-        drawInformation(g,Integer.toString(mech.getJumpRating()), _NamedPoints.get("Jumping"));
-        drawInformation(g,Integer.toString(mech.getAdjustedBV()), _NamedPoints.get("BattleValue"));
-        drawInformation(g,Integer.toString(mech.getTotalHeatSinks()), _NamedPoints.get("HeatSinkTotal"));
+        drawInformation(g,mech.getDesignVariant() + " " + mech.getDesignName(), _NamedPoints.get("Type"), null);
+        drawInformation(g,Integer.toString(mech.getWeight()), _NamedPoints.get("Tonnage"), null);
+        drawInformation(g,Integer.toString(mech.getWalkRating()), _NamedPoints.get("Walking"), null);
+        drawInformation(g,Integer.toString(mech.getRunRating()), _NamedPoints.get("Running"), null);
+        drawInformation(g,Integer.toString(mech.getJumpRating()), _NamedPoints.get("Jumping"), null);
+        drawInformation(g,Integer.toString(mech.getAdjustedBV()), _NamedPoints.get("BattleValue"), null);
+        drawInformation(g,Integer.toString(mech.getTotalHeatSinks()), _NamedPoints.get("HeatSinkTotal"), null);
         
         g.setFont(_SmallInformationFont);
         int WeaponIndex = 1;
         for (ItemMount im : mech.getAllWeaponMounts())
         {
 			Point p = _WeaponPoints.get(WeaponIndex);
-			drawInformation(g, im.toString(), p);
+			drawInformation(g, im.toString(), p, im.getWorstStatus());
 			WeaponIndex++;
 			if (WeaponIndex > 16) break;
         }
@@ -181,7 +188,7 @@ public class BattlemechRenderer
             for (ItemMount im : mech.getAllAmmunitionMounts())
             {
     			Point p = _WeaponPoints.get(WeaponIndex);
-    			drawInformation(g, im.toString(), p);
+    			drawInformation(g, im.toString(), p, im.getWorstStatus());
     			WeaponIndex++;
     			if (WeaponIndex > 16) break;
             }
@@ -204,10 +211,76 @@ public class BattlemechRenderer
         	}
         }
 
+        g.setColor(Color.BLACK);
+        for (BattlemechSection section : mech.getSectionStatuses().keySet())
+        {
+        	if (_CriticalTableAreas.containsKey(section.GetName()))
+        	{
+        		SectionStatus status = mech.getSectionStatuses().get(section);
+				
+        		switch (status.getStatus())
+        		{
+        			case BLOWNOFF:
+					case DAMAGED:
+					case DESTROYED:
+					case JURYRIGGED:
+		        		Rectangle rect = _CriticalTableAreas.get(section.GetName());
+						g.drawRect(rect.x, rect.y, rect.width, rect.height);
+						g.drawLine(rect.x, rect.y, rect.x + rect.width, rect.y + rect.height);
+						g.drawLine(rect.x + rect.width, rect.y, rect.x, rect.y + rect.height);
+						Point p = new Point(rect.x, rect.y + (rect.height / 2));
+						g.setFont(_LargeInformationFont);
+
+        				drawInformation(g, status.getStatus().toString(), p, null);
+						break;
+					case OK:
+					default:
+						break;
+        		}
+        	}
+        }
+        
+        int engineHits = mech.getEngineHits();
+        if (engineHits > 0)
+        {
+        	for (int i = 1; i <= engineHits; i++)
+        	{
+        		String name = "Engine-" + Integer.toString(i);
+        		Point p = _NamedPoints.get(name);
+        		drawDotStatus(g, p.x, p.y, superLargeDot, ItemStatus.DESTROYED);
+        	}
+        }
+        
+        int gyroHits = mech.getGyroHits();
+        if (gyroHits > 0)
+        {
+        	for (int i = 1; i <= gyroHits; i++)
+        	{
+        		String name = "Gyro-" + Integer.toString(i);
+        		Point p = _NamedPoints.get(name);
+        		drawDotStatus(g, p.x, p.y, superLargeDot, ItemStatus.DESTROYED);
+        	}        	
+        }
+        
+        int sensorHits = mech.getSensorHits();
+        if (sensorHits > 0)
+        {
+        	for (int i = 1; i <= sensorHits; i++)
+        	{
+        		String name = "Sensors-" + Integer.toString(i);
+        		Point p = _NamedPoints.get(name);
+        		drawDotStatus(g, p.x, p.y, superLargeDot, ItemStatus.DESTROYED);
+        	}
+        }
+        
+        if (mech.isLifeSupportHit())
+        {
+    		Point p = _NamedPoints.get("Life Support");
+    		drawDotStatus(g, p.x, p.y, superLargeDot, ItemStatus.DESTROYED);
+        }
+        
         return RenderedImage;
     }
-    
-
 
     public BufferedImage RenderBattlemechDamage(Battlemech mech, double scale, Vector<BattlemechDamageNotation> damageNotations)
     {
@@ -292,9 +365,44 @@ public class BattlemechRenderer
         return Toolkit.getDefaultToolkit().createImage(ip);
     }
     
-    private void drawInformation(Graphics2D g, String text, Point p)
+    private void drawInformation(Graphics2D g, String text, Point p, ItemStatus status)
     {
     	g.drawString(text, p.x, p.y);
+    	
+    	if (status == null)
+    		return;
+    	
+    	int xOff = p.x;
+    	int yOff = p.y;
+    	Rectangle2D fontRect = g.getFontMetrics().getStringBounds(text, g);
+
+    	switch (status)
+    	{
+    	case DAMAGED:
+            g.setColor(Color.red);
+    		g.setStroke(new BasicStroke(3F));
+    		g.drawLine(xOff, (int)(yOff - (fontRect.getHeight() / 4)), (int)(xOff + fontRect.getWidth()), (int)(yOff - (fontRect.getHeight() / 4)));
+    		break;
+    	case DESTROYED:
+            g.setColor(Color.black);
+    		g.setStroke(new BasicStroke(3F));
+    		g.drawLine(xOff, (int)(yOff - (fontRect.getHeight() / 4)), (int)(xOff + fontRect.getWidth()), (int)(yOff - (fontRect.getHeight() / 4)));
+    		break;
+		case JURYRIGGED:
+            g.setColor(Color.yellow);
+    		g.setStroke(new BasicStroke(3F));
+    		g.drawLine(xOff, (int)(yOff - (fontRect.getHeight() / 4)), (int)(xOff + fontRect.getWidth()), (int)(yOff - (fontRect.getHeight() / 4)));
+			break;
+		case OK:
+			break;
+		case REPAIRED:
+            g.setColor(Color.green);
+    		g.setStroke(new BasicStroke(3F));
+    		g.drawLine(xOff, (int)(yOff - (fontRect.getHeight() / 4)), (int)(xOff + fontRect.getWidth()), (int)(yOff - (fontRect.getHeight() / 4)));
+			break;
+		default:
+			break;
+    	}
     }
 
     private void drawDotStatus(Graphics2D g, int xOff, int yOff, int dotSize, ItemStatus status)
@@ -546,6 +654,20 @@ public class BattlemechRenderer
 
             _HeatSinkDots.put(index, new Point(x, y));
         }
+        
+        iter = rootElement.getChild("CriticalTableAreas").getChildren("Area").iterator();
+        while (iter.hasNext())
+        {
+        	org.jdom.Element dotElement = (org.jdom.Element)iter.next();
+            String locationName = dotElement.getAttributeValue("location");
+            Integer x = Integer.parseInt(dotElement.getAttributeValue("x"));
+            Integer y = Integer.parseInt(dotElement.getAttributeValue("y"));
+            Integer width = Integer.parseInt(dotElement.getAttributeValue("width"));
+            Integer height = Integer.parseInt(dotElement.getAttributeValue("height"));
+            
+            _CriticalTableAreas.put(locationName, new Rectangle(x,y,width,height));
+        }
+
         
         _DotSizes.put("Internals", new HashMap<String, Integer>());
         _DotSizes.get("Internals").put("Head", smallDot);
