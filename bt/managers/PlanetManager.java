@@ -1,11 +1,10 @@
 package bt.managers;
 
 import java.io.File;
+
 import java.util.List;
 import java.util.Vector;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
@@ -17,8 +16,6 @@ import bt.util.PropertyUtil;
 
 public class PlanetManager 
 {
-    private static Log log = LogFactory.getLog(PlanetManager.class);
-	
 	private static PlanetManager theInstance = null;
 	
     private Vector<InnerSpherePlanet> m_Planets;
@@ -169,14 +166,14 @@ public class PlanetManager
             }
     	
         } catch(java.io.IOException ex) {
-            log.info("Error Opening SolarSystem File!");
-            log.error(ex);
+        	System.out.println("Error Opening SolarSystem File!");
+            ex.printStackTrace();
         } catch (JDOMException jdex) {
-            log.info("Failure Parsing SolarSystem File!");
-            log.error(jdex);
+        	System.out.println("Failure Parsing SolarSystem File!");
+            jdex.printStackTrace();
         } catch (Exception exx) {
-            log.info("Failure Loading SolarSystems!");
-            log.error(exx);
+        	System.out.println("Failure Loading SolarSystems!");
+            exx.printStackTrace();
         }
     	
     	return planets;

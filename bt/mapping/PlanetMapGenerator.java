@@ -2,14 +2,12 @@ package bt.mapping;
 
 import java.awt.Dimension;
 
+
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
 import javax.imageio.ImageIO;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 import bt.elements.galaxy.InnerSpherePlanet;
 import bt.elements.galaxy.PlanetMap;
@@ -21,8 +19,6 @@ import bt.util.PropertyUtil;
 
 public class PlanetMapGenerator 
 {
-    private static Log log = LogFactory.getLog(PlanetMapGenerator.class);
-
 	public PlanetMapGenerator()
 	{
 		
@@ -33,17 +29,17 @@ public class PlanetMapGenerator
 		
 		if (ssd.isMapGenerated() && !forceCreate)
 		{
-			log.info("Map Already generated for " + planet.toString());
+			System.out.println("Map Already generated for " + planet.toString());
 			return;
 		}
 		
-		log.info("Generating Map for " + planet.toString());
+		System.out.println("Generating Map for " + planet.toString());
 		ssd.generateRandomPlanet(generateTerrain,generateSettlements,generateRoads);
 		
-		log.info("Storing Map for " + planet.toString());
+		System.out.println("Storing Map for " + planet.toString());
 		SolarSystemManager.getInstance().saveSolarSystemDetails(planet, ssd, compress);
 		
-		log.info("Completed Generating Map for " + planet.toString());
+		System.out.println("Completed Generating Map for " + planet.toString());
 	}
 	
 	public void generatePlanetMapImage(InnerSpherePlanet planet, SolarSystemDetails ssd, boolean forceCreate)
@@ -72,7 +68,7 @@ public class PlanetMapGenerator
 		
 		try
 		{
-			log.info("Generating map image for " + planet.toString());
+			System.out.println("Generating map image for " + planet.toString());
 			BufferedImage image = new BufferedImage(bounds.width, bounds.height,BufferedImage.TYPE_INT_RGB);
 			Graphics2D g = (Graphics2D)image.getGraphics();
 			g.setClip(0, 0, bounds.width, bounds.height);
@@ -81,7 +77,7 @@ public class PlanetMapGenerator
 		}
 		catch (Exception ex)
 		{
-			log.fatal(ExceptionUtil.getExceptionStackTrace(ex));
+			System.out.println(ExceptionUtil.getExceptionStackTrace(ex));
 		}
 		
 	}
@@ -115,13 +111,13 @@ public class PlanetMapGenerator
 			Graphics2D g = (Graphics2D)image.getGraphics();
 			g.setClip(0, 0, bounds.width, bounds.height);
 
-			log.info("Generating elevation image for " + planet.toString());
+			System.out.println("Generating elevation image for " + planet.toString());
 			wm.draw(g, 0, 0, WorldMapRenderer.DrawMode.ELEVATION);		
 			ImageIO.write(image, "PNG", f);
 		}
 		catch (Exception ex)
 		{
-			log.fatal(ExceptionUtil.getExceptionStackTrace(ex));
+			System.out.println(ExceptionUtil.getExceptionStackTrace(ex));
 		}
 		
 	}
@@ -151,18 +147,18 @@ public class PlanetMapGenerator
 		
 		try
 		{
-			log.info("Generating map image for " + planet.toString());
+			System.out.println("Generating map image for " + planet.toString());
 			BufferedImage image = new BufferedImage(bounds.width, bounds.height,BufferedImage.TYPE_INT_RGB);
 			Graphics2D g = (Graphics2D)image.getGraphics();
 			g.setClip(0, 0, bounds.width, bounds.height);
-			log.info("Generating temperature image for " + planet.toString());
+			System.out.println("Generating temperature image for " + planet.toString());
 			wm.draw(g, 0, 0, WorldMapRenderer.DrawMode.TEMPERATURE);		
 
 			ImageIO.write(image, "PNG", f);
 		}
 		catch (Exception ex)
 		{
-			log.fatal(ExceptionUtil.getExceptionStackTrace(ex));
+			System.out.println(ExceptionUtil.getExceptionStackTrace(ex));
 		}
 		
 	}

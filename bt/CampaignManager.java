@@ -1,19 +1,36 @@
 package bt;
 
-import java.util.*;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Insets;
+import java.awt.Rectangle;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.util.HashMap;
 
-import javax.swing.*;
+import javax.swing.DefaultDesktopManager;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JToolBar;
+import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 
 import bt.ui.InternalFrameManager;
 import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.PropertyConfigurator;
-import org.apache.log4j.helpers.Loader;
 
 /**
  * <p>Title: Battletech Mercenary Management</p>
@@ -28,7 +45,6 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
 {
 	private static final long serialVersionUID = 1;
 	
-    private static Log log = LogFactory.getLog(CampaignManager.class);
     private JDesktopPane m_MainPane = new JDesktopPane();
     private InternalFrameManager m_FrameManager = new InternalFrameManager(this, m_MainPane);
 
@@ -234,8 +250,7 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
          * The entry point for this application.
          * @param args
          */
-        PropertyConfigurator.configure(Loader.getResource("bt/log4j.properties"));
-        log.info("Starting CampaignManager");
+    	System.out.println("Starting CampaignManager");
 
         try {
             // Set the "look and feel" to the native system

@@ -1,6 +1,7 @@
 package bt.managers;
 
 import java.util.HashMap;
+
 import java.util.Iterator;
 import java.util.Vector;
 import java.io.File;
@@ -17,12 +18,9 @@ import bt.elements.design.HeatSinkDesign;
 import bt.elements.design.InternalSlotReference;
 import bt.elements.design.JumpJetDesign;
 import bt.elements.design.SensorsDesign;
-import bt.util.ExceptionUtil;
 import bt.util.ExtensionFileFilter;
 import bt.util.PropertyUtil;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
@@ -31,8 +29,6 @@ import org.jdom.Element;
 
 public class DesignManager
 {
-    private static Log log = LogFactory.getLog(DesignManager.class);
-
     public interface ItemLoadHandler 
 	{
 		DesignItem loadItem(Element element);
@@ -50,8 +46,6 @@ public class DesignManager
 
     private DesignManager()
     {
-   		log.info("Initialising DesignManager");
-   		
     	File dataPath = new File(_DataPath);
     	FilenameFilter ff = new ExtensionFileFilter("xml");
         String[] files =  dataPath.list(ff);
@@ -64,7 +58,7 @@ public class DesignManager
         	}
         	catch (Exception ex)
         	{
-        		log.error(ExceptionUtil.getExceptionStackTrace(ex));
+        		ex.printStackTrace();
         	}
         }
     }

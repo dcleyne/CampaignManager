@@ -2,6 +2,7 @@ package bt.managers;
 
 import java.awt.Color;
 
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -15,8 +16,6 @@ import java.util.Vector;
 
 import javax.imageio.ImageIO;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
@@ -52,13 +51,11 @@ import bt.html.Tag;
 import bt.ui.renderers.BattlemechRenderer;
 import bt.ui.renderers.MapLayoutRenderer;
 import bt.util.Dice;
-import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;
 
 public class MissionManager
 {
 	private static MissionManager theInstance = new MissionManager();
-    private Log log = LogFactory.getLog(MissionManager.class);
     
     private HashMap<Long,Mission> _Missions = new HashMap<Long,Mission>();
 
@@ -66,12 +63,11 @@ public class MissionManager
 	{
 		try
 		{
-	   		log.info("Initialising MissionManager");
 			loadMissions();
 		}
 		catch (Exception ex)
 		{
-			log.fatal(ExceptionUtil.getExceptionStackTrace(ex));
+			ex.printStackTrace();
 		}
 	}
 	
@@ -97,11 +93,11 @@ public class MissionManager
             }
     	
         } catch(java.io.IOException ex) {
-            log.info("Error Opening Missions File!");
-            log.error(ex);
+            System.out.println("Error Opening Missions File!");
+            ex.printStackTrace();
         } catch (JDOMException jdex) {
-            log.info("Failure Parsing Missions File!");
-            log.error(jdex);
+        	System.out.println("Failure Parsing Missions File!");
+            jdex.printStackTrace();
         }	
 	}
 	
@@ -354,7 +350,7 @@ public class MissionManager
 				fs.setBV(getFinalBattleValue(unitStrength,forceBV,st));
 				forceSizes.add(fs);
 				
-				log.debug("Force option ->  NumUnits:" + fs.getNumUnits() + " BV:" + fs.getBV());
+				System.out.println("Force option ->  NumUnits:" + fs.getNumUnits() + " BV:" + fs.getBV());
 			}
 		}
 		int unitBV = 0;
@@ -362,7 +358,7 @@ public class MissionManager
 		while (unitBV == 0 && forceSizes.size() > 0)
 		{
 			ForceSize chosenForceSize = forceSizes.elementAt(Dice.random(forceSizes.size())- 1);
-			log.debug("SELECTED Force option ->  NumUnits:" + chosenForceSize.getNumUnits() + " BV:" + chosenForceSize.getBV());
+			System.out.println("SELECTED Force option ->  NumUnits:" + chosenForceSize.getNumUnits() + " BV:" + chosenForceSize.getBV());
 			
 			forceSizes.remove(chosenForceSize);
 			
@@ -378,7 +374,7 @@ public class MissionManager
 				u = UnitManager.getInstance().GenerateUnit(p, unitName, mup, rating, qualityRating, techRating, 0);
 				unitBV = u.getUnitBV();
 				if (unitBV == 0)
-					log.debug("Unit generation failed");
+					System.out.println("Unit generation failed");
 			} catch (Exception ex)
 			{
 				ex.printStackTrace();

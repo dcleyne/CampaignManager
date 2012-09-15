@@ -1,6 +1,7 @@
 package bt.ui.panels;
 
 import java.awt.*;
+
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.Vector;
@@ -11,9 +12,6 @@ import bt.managers.SolarSystemManager;
 import bt.managers.listeners.SolarSystemManagerListener;
 import bt.ui.panes.FlatStarMapPane;
 import bt.ui.renderers.FlatStarMapRenderer;
-
-import org.apache.commons.logging.LogFactory;
-import org.apache.commons.logging.Log;
 
 /**
  * <p>Title: Battletech Mercenary Management</p>
@@ -28,7 +26,6 @@ public class FlatStarMapPanel extends JPanel  implements ActionListener, MouseLi
 {
 	private static final long serialVersionUID = 1;
 	
-    private static Log log = LogFactory.getLog(FlatStarMapPanel.class);
     JToolBar m_Toolbar;
     JButton[] m_TBButtons;
     ButtonGroup m_TBGroup;
@@ -212,7 +209,8 @@ public class FlatStarMapPanel extends JPanel  implements ActionListener, MouseLi
             }
             catch (Exception ex)
             {
-                log.fatal("Exception occurred while loading SolarSystem : " + ex.toString());
+            	System.out.println("Exception occurred while loading SolarSystem : ");
+            	ex.printStackTrace();
             }
         }
 

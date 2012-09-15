@@ -1,13 +1,12 @@
 package bt.managers;
 
 import java.io.File;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
@@ -16,13 +15,11 @@ import org.jdom.input.SAXBuilder;
 import bt.elements.mapping.MapSet;
 import bt.elements.mapping.MapSheet;
 import bt.util.Dice;
-import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;
 
 public class MapManager
 {
 	private static MapManager theInstance;
-    private static Log log = LogFactory.getLog(MapManager.class);
     
     private HashMap<String, MapSheet> _MapSheets = new HashMap<String, MapSheet>();
     private Vector<MapSet> _MapSets = new Vector<MapSet>();
@@ -31,12 +28,11 @@ public class MapManager
 	{
 		try
 		{
-	   		log.info("Initialising MapManager");
 			loadMaps();
 		}
 		catch (Exception ex)
 		{
-			log.fatal(ExceptionUtil.getExceptionStackTrace(ex));
+			ex.printStackTrace();
 		}
 	}
 	
@@ -74,14 +70,14 @@ public class MapManager
             }
     	
         } catch(java.io.IOException ex) {
-            log.info("Error Opening Player File!");
-            log.error(ex);
+            System.out.println("Error Opening Player File!");
+            ex.printStackTrace();
         } catch (JDOMException jdex) {
-            log.info("Failure Parsing Player File!");
-            log.error(jdex);
+        	System.out.println("Failure Parsing Player File!");
+        	jdex.printStackTrace();
         } catch (Exception exx) {
-            log.info("Failure Loading Player!");
-            log.error(exx);
+        	System.out.println("Failure Loading Player!");
+        	exx.printStackTrace();
         }
 	}
 	

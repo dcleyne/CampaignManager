@@ -1,6 +1,7 @@
 package bt.managers;
 
 import java.io.File;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.List;
@@ -8,8 +9,6 @@ import java.util.Vector;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
@@ -21,7 +20,6 @@ import bt.elements.galaxy.InnerSpherePlanet;
 import bt.elements.galaxy.SolarSystemDetails;
 import bt.elements.galaxy.SolarSystemRoute;
 import bt.elements.galaxy.StarType;
-import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;
 
 /**
@@ -38,8 +36,6 @@ import bt.util.PropertyUtil;
  */
 public class SolarSystemManager
 {
-    private static Log log = LogFactory.getLog(SolarSystemManager.class);
-	
     private static SolarSystemManager theInstance;
 
     private Vector<InnerSpherePlanet> m_Planets;
@@ -300,14 +296,14 @@ public class SolarSystemManager
             }
     	
         } catch(java.io.IOException ex) {
-            log.info("Error Opening SolarSystem File!");
-            log.error(ex);
+        	System.out.println("Error Opening SolarSystem File!");
+        	ex.printStackTrace();
         } catch (JDOMException jdex) {
-            log.info("Failure Parsing SolarSystem File!");
-            log.error(jdex);
+        	System.out.println("Failure Parsing SolarSystem File!");
+        	jdex.printStackTrace();
         } catch (Exception exx) {
-            log.info("Failure Loading SolarSystems!");
-            log.error(exx);
+        	System.out.println("Failure Loading SolarSystems!");
+        	exx.printStackTrace();
         }
     	
     	return planets;
@@ -332,14 +328,14 @@ public class SolarSystemManager
                 ssd.loadFromElement(root);            
         	
             } catch(java.io.IOException ex) {
-                log.info("Error Opening SolarSystem File!");
-                log.error(ex);
+            	System.out.println("Error Opening SolarSystem File!");
+            	ex.printStackTrace();
             } catch (JDOMException jdex) {
-                log.info("Failure Parsing SolarSystem File!");
-                log.error(jdex);
+            	System.out.println("Failure Parsing SolarSystem File!");
+            	jdex.printStackTrace();
             } catch (Exception exx) {
-                log.info("Failure Loading SolarSystems!");
-                log.error(ExceptionUtil.getExceptionStackTrace(exx));
+            	System.out.println("Failure Loading SolarSystems!");
+            	exx.printStackTrace();
                 System.exit(1);
             }
         }
@@ -384,9 +380,9 @@ public class SolarSystemManager
             }
                           
         } catch (Exception exx) {
-            log.info("Failure Saving SolarSystemDetails");
-            log.error(exx);
-        } 
+        	System.out.println("Failure Saving SolarSystemDetails");
+            exx.printStackTrace();
+        }
         
     }
     

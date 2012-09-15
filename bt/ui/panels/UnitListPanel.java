@@ -1,6 +1,7 @@
 package bt.ui.panels;
 
 import java.awt.BorderLayout;
+
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -12,10 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import bt.elements.unit.Unit;
 import bt.ui.listeners.UnitChangeListener;
 import bt.ui.models.TableSorter;
@@ -24,7 +21,6 @@ import bt.ui.models.UnitTableModel;
 public class UnitListPanel extends JPanel implements ListSelectionListener, MouseListener
 {
 	private static final long serialVersionUID = 1;
-    private static Log log = LogFactory.getLog(UnitListPanel.class);
 
     protected JTable m_UnitTable = new JTable();
     protected JScrollPane m_ScrollPane = new JScrollPane();
@@ -96,7 +92,7 @@ public class UnitListPanel extends JPanel implements ListSelectionListener, Mous
             if (u != null)
             {
                 m_UnitTable.transferFocus();
-                log.debug("Requesting Edit for Unit : " + u.toString());
+                System.out.println("Requesting Edit for Unit : " + u.toString());
                 requestUnitEdit(u);                
             }
         }

@@ -1,12 +1,6 @@
 package bt.test;
 
 import java.util.Vector;
-
-
-
-import org.apache.log4j.PropertyConfigurator;
-import org.apache.log4j.helpers.Loader;
-
 import bt.elements.Battlemech;
 import bt.elements.personnel.Rating;
 import bt.elements.scenario.Scenario;
@@ -28,7 +22,6 @@ public class TestMissionManager
 	{
 		try
 		{
-	        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
 			PropertyUtil.loadSystemProperties("bt/system.properties");
 
             Vector<String> missions = MissionManager.getInstance().getMissionList();

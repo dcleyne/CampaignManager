@@ -1,6 +1,7 @@
 package bt.ui.renderers;
 
 import java.awt.BasicStroke;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
@@ -19,9 +20,6 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import javax.imageio.ImageIO;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.jdom.Document;
 import org.jdom.input.SAXBuilder;
 
@@ -38,7 +36,6 @@ import bt.util.PropertyUtil;
 
 public class BattlemechRenderer
 {
-    private static Log log = LogFactory.getLog(BattlemechRenderer.class);
     private static BattlemechRenderer theInstance = new BattlemechRenderer();
 
     private BufferedImage _MechDiagram;
@@ -75,7 +72,7 @@ public class BattlemechRenderer
         }
         catch (Exception ex)
         {
-        	log.fatal(ExceptionUtil.getExceptionStackTrace(ex));
+        	System.out.println(ExceptionUtil.getExceptionStackTrace(ex));
         }
     }
 
@@ -270,7 +267,7 @@ public class BattlemechRenderer
         	}
         	else
         	{
-        		log.error("Failed to find ItemMount " + equipmentNotation.toString());
+        		System.out.println("Failed to find ItemMount " + equipmentNotation.toString());
         	}
         }
 

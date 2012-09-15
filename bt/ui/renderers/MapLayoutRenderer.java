@@ -1,6 +1,7 @@
 package bt.ui.renderers;
 
 import java.awt.Color;
+
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -11,16 +12,11 @@ import java.awt.font.TextLayout;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.text.AttributedString;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import bt.elements.mapping.MapSet;
 import bt.util.Hexagon;
 
 public class MapLayoutRenderer
 {
-	private static Log log = LogFactory.getLog(MapLayoutRenderer.class);
 	private static MapLayoutRenderer theInstance = new MapLayoutRenderer();
 
 	private final int _MapDesiredWidth = 600;
@@ -37,7 +33,7 @@ public class MapLayoutRenderer
 
 	public BufferedImage renderMapLayout(MapSet mapSet)
 	{
-		log.debug("Rendering MapSet " + mapSet.getName());
+		System.out.println("Rendering MapSet " + mapSet.getName());
 
 		int imageWidth = mapSet.getColumnCount() * _MapWidth;
 		int imageHeight = mapSet.getRowCount() * _MapHeight;

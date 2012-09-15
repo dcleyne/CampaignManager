@@ -19,18 +19,12 @@
  */
 package bt.test;
 
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.PropertyConfigurator;
-import org.apache.log4j.helpers.Loader;
 import bt.managers.RandomNameManager;
 import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;
 
 public class TestRandomNameExtraction
 {
-    private static Log log = LogFactory.getLog(TestRandomNameExtraction.class);
     
 	/**
 	 * @param args
@@ -45,14 +39,13 @@ public class TestRandomNameExtraction
     {
 		try
 		{
-	        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
 	        PropertyUtil.loadSystemProperties("bt/system.properties");
 	        
-	        log.info("Random Name Extraction Started");
+	        System.out.println("Random Name Extraction Started");
 	        
-	        log.info(RandomNameManager.getInstance().dumpRandomNames());
+	        System.out.println(RandomNameManager.getInstance().dumpRandomNames());
 	        
-	        log.info("Random Name Extraction Complete");
+	        System.out.println("Random Name Extraction Complete");
 		}
 		catch (Exception ex)
 		{

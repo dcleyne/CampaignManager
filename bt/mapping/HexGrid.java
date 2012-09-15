@@ -1,11 +1,10 @@
 package bt.mapping;
 
 import java.awt.*;
+
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Vector;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 /**
  * <p>Title: Legatus</p>
@@ -38,7 +37,6 @@ public class HexGrid extends Object implements Serializable
     static final long serialVersionUID = 1;
     public static final double HEXSIDE = Math.PI / 3.0;
 
-    private static Log log = LogFactory.getLog(HexGrid.class);
     private int m_NumHexes;
     
     protected Hexagon[] m_HexList;
@@ -56,7 +54,7 @@ public class HexGrid extends Object implements Serializable
 
     public HexGrid(int gridWidth, int gridHeight, int xOffset,int yOffset)
     {
-    	log.info("Creating hexGrid Width(" + Integer.toString(gridWidth) + ") Height(" + Integer.toString(gridHeight) + ")");
+    	System.out.println("Creating hexGrid Width(" + Integer.toString(gridWidth) + ") Height(" + Integer.toString(gridHeight) + ")");
     	m_GridWidth = gridWidth;
     	m_GridHeight = gridHeight;
     	m_XOffset = xOffset;

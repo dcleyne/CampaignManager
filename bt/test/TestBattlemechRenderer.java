@@ -1,14 +1,10 @@
 package bt.test;
 
 import java.awt.image.BufferedImage;
+
 import java.io.File;
 import java.util.Vector;
-
 import javax.imageio.ImageIO;
-
-import org.apache.log4j.PropertyConfigurator;
-import org.apache.log4j.helpers.Loader;
-
 import bt.elements.Battlemech;
 import bt.elements.design.BattlemechDesign;
 import bt.managers.BattlemechManager;
@@ -27,8 +23,6 @@ public class TestBattlemechRenderer
 	{
 		try
 		{
-
-	        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
 			PropertyUtil.loadSystemProperties("bt/system.properties");
 	
 	        DesignManager dm = DesignManager.getInstance();

@@ -2,6 +2,7 @@ package bt.ui.panels;
 
 import java.awt.BorderLayout;
 
+
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -13,10 +14,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import bt.elements.unit.PlayerSummary;
 import bt.ui.listeners.PlayerChangeListener;
 import bt.ui.models.PlayerTableModel;
@@ -25,7 +22,6 @@ import bt.ui.models.TableSorter;
 public class PlayerListPanel extends JPanel implements ListSelectionListener, MouseListener
 {
 	private static final long serialVersionUID = 1;
-    private static Log log = LogFactory.getLog(PlayerListPanel.class);
 
     protected JTable m_PlayerTable = new JTable();
     protected JScrollPane m_ScrollPane = new JScrollPane();
@@ -97,7 +93,7 @@ public class PlayerListPanel extends JPanel implements ListSelectionListener, Mo
             if (ps != null)
             {
                 m_PlayerTable.transferFocus();
-                log.debug("Requesting Edit for Player : " + ps.toString());
+                System.out.println("Requesting Edit for Player : " + ps.toString());
                 requestPlayerEdit(ps.getName());                
             }
         }

@@ -21,12 +21,9 @@ package bt.test;
 
 
 import java.io.File;
+
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.PropertyConfigurator;
-import org.apache.log4j.helpers.Loader;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
@@ -41,8 +38,6 @@ import bt.util.PropertyUtil;
 
 public class UpdateSolarSystemNotes
 {
-    private static Log log = LogFactory.getLog(UpdateSolarSystemNotes.class);
-    
     public static String Proxy = "auproxy";
     public static int ProxyPort = 3128;
     
@@ -60,7 +55,6 @@ public class UpdateSolarSystemNotes
     {
 		try
 		{
-	        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
 	        PropertyUtil.loadSystemProperties("bt/system.properties");
 	        
 	        String Path = System.getProperty("DataPath");
@@ -79,17 +73,17 @@ public class UpdateSolarSystemNotes
             	InnerSpherePlanet isp = PlanetManager.getPlanetFromID(index);
             	if (isp != null)
             	{
-	            	log.info("Updating : " + isp.getSystem());
+            		System.out.println("Updating : " + isp.getSystem());
 	            	
 	            	SolarSystemDetails ssd = SolarSystemManager.getSystemDetails(isp);
 	            	ssd.setNotes(planetElement.getChildText("Description"));
 	            	SolarSystemManager.getInstance().saveSolarSystemDetails(index, isp.getSystem(), ssd, true);
             	}
             	else
-            		log.info("Couldn't find : " + Integer.toString(index));
+            		System.out.println("Couldn't find : " + Integer.toString(index));
             }
 
-	        log.info("Solar System Note Update Complete");
+            System.out.println("Solar System Note Update Complete");
 		}
 		catch (Exception ex)
 		{

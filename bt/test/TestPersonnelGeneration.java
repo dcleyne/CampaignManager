@@ -19,19 +19,12 @@
  */
 package bt.test;
 
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.PropertyConfigurator;
-import org.apache.log4j.helpers.Loader;
-
 import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;
 
 
 public class TestPersonnelGeneration
 {
-    private static Log log = LogFactory.getLog(TestPersonnelGeneration.class);
     
 	/**
 	 * @param args
@@ -40,10 +33,9 @@ public class TestPersonnelGeneration
 	{
 		try
 		{
-	        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
 	        PropertyUtil.loadSystemProperties("bt/system.properties");
 	        
-	        log.info("Starting Personnel Generation Test");
+	        System.out.println("Starting Personnel Generation Test");
 /*
 	        Vector<Character> availableCharacters = UnitManager.getInstance().getAvailableCharacters(JobType.MECHWARRIOR);
 	        for (Character c: availableCharacters)
@@ -55,7 +47,7 @@ public class TestPersonnelGeneration
 	        
 	        UnitManager.storeData();
 */	        
-	        log.info("Personnel Generation Test Complete");
+	        System.out.println("Personnel Generation Test Complete");
 		}
 		catch (Exception ex)
 		{

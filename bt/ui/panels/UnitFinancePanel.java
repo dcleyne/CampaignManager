@@ -2,13 +2,11 @@ package bt.ui.panels;
 
 import java.text.NumberFormat;
 
+
 import javax.swing.*;
 
 import bt.elements.unit.Unit;
 import bt.util.SwingHelper;
-
-import org.apache.commons.logging.LogFactory;
-import org.apache.commons.logging.Log;
 /**
  * <p>Title: Miradan Phedd</p>
  *
@@ -24,8 +22,6 @@ import org.apache.commons.logging.Log;
 public class UnitFinancePanel extends JPanel implements ClosableEditPanel
 {
 	private static final long serialVersionUID = 1;
-	
-    private static Log log = LogFactory.getLog(UnitFinancePanel.class);
     protected Unit _Unit;
     
 	private JFormattedTextField _CurrentBankBalanceTextField;
@@ -34,7 +30,7 @@ public class UnitFinancePanel extends JPanel implements ClosableEditPanel
 
     public UnitFinancePanel(Unit u)
     {
-    	log.debug("UnitFinancePanel constructor called");
+    	System.out.println("UnitFinancePanel constructor called");
         _Unit = u;
         
 		_CurrentBankBalanceTextField = new JFormattedTextField(NumberFormat.getCurrencyInstance());

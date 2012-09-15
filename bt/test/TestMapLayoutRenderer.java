@@ -1,16 +1,9 @@
 package bt.test;
 
 import java.awt.image.BufferedImage;
-
 import java.io.File;
 import java.util.Vector;
-
 import javax.imageio.ImageIO;
-
-
-import org.apache.log4j.PropertyConfigurator;
-import org.apache.log4j.helpers.Loader;
-
 import bt.elements.mapping.MapSet;
 import bt.managers.MapManager;
 import bt.ui.renderers.MapLayoutRenderer;
@@ -27,7 +20,6 @@ public class TestMapLayoutRenderer
 	{
 		try
 		{
-	        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
 			PropertyUtil.loadSystemProperties("bt/system.properties");
 
             Vector<MapSet> mapSets = MapManager.getInstance().getMapSets();

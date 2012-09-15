@@ -20,15 +20,10 @@
 package bt.util;
 
 import java.io.FileInputStream;
+
 import java.util.Properties;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 public class PropertyUtil
 {
-	private static Log log = LogFactory.getLog(PropertyUtil.class);
-	
     private PropertyUtil()
     {
         
@@ -57,7 +52,7 @@ public class PropertyUtil
     	}
     	catch (Exception ex)
     	{
-    		log.error("Property not set '" + propertyName + "' using default value of (" + Integer.toString(defaultValue) + ")");
+    		System.out.println("Property not set '" + propertyName + "' using default value of (" + Integer.toString(defaultValue) + ")");
     		return defaultValue;
     	}
     }
@@ -74,7 +69,7 @@ public class PropertyUtil
     	}
     	catch (Exception ex)
     	{
-    		log.error("Property not set '" + propertyName + "' using default value of (" + Boolean.toString(defaultValue) + ")");
+    		System.out.println("Property not set '" + propertyName + "' using default value of (" + Boolean.toString(defaultValue) + ")");
     		return defaultValue;
     	}
     }
@@ -91,7 +86,7 @@ public class PropertyUtil
     	}
     	catch (Exception ex)
     	{
-    		log.error("Property not set '" + propertyName + "' using default value of (" + Long.toString(defaultValue) + ")");
+    		System.out.println("Property not set '" + propertyName + "' using default value of (" + Long.toString(defaultValue) + ")");
     		return defaultValue;
     	}
     }
@@ -108,7 +103,7 @@ public class PropertyUtil
     	}
     	catch (Exception ex)
     	{
-    		log.error("Property not set '" + propertyName + "' using default value of (" + defaultValue + ")");
+    		System.out.println("Property not set '" + propertyName + "' using default value of (" + defaultValue + ")");
     		return defaultValue;
     	}
     }
@@ -121,7 +116,7 @@ public class PropertyUtil
     	}
     	catch (Exception ex)
     	{
-    		log.error("Property not set '" + propertyName + "' with value of (" + Integer.toString(value) + ")");
+    		System.out.println("Property not set '" + propertyName + "' with value of (" + Integer.toString(value) + ")");
     	}
     }
 
@@ -133,7 +128,7 @@ public class PropertyUtil
     	}
     	catch (Exception ex)
     	{
-    		log.error("Property not set '" + propertyName + "' with value of (" + Boolean.toString(value) + ")");
+    		System.out.println("Property not set '" + propertyName + "' with value of (" + Boolean.toString(value) + ")");
     	}
     }
 
@@ -145,7 +140,7 @@ public class PropertyUtil
     	}
     	catch (Exception ex)
     	{
-    		log.error("Property not set '" + propertyName + "' with value of (" + Long.toString(value) + ")");
+    		System.out.println("Property not set '" + propertyName + "' with value of (" + Long.toString(value) + ")");
     	}
     }
 
@@ -157,7 +152,7 @@ public class PropertyUtil
     	}
     	catch (Exception ex)
     	{
-    		log.error("Property not set '" + propertyName + "' with value of (" + value + ")");
+    		System.out.println("Property not set '" + propertyName + "' with value of (" + value + ")");
     	}
     }
     

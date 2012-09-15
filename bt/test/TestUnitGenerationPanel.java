@@ -2,11 +2,8 @@ package bt.test;
 
 import java.awt.BorderLayout;
 
+
 import javax.swing.JFrame;
-
-import org.apache.log4j.PropertyConfigurator;
-import org.apache.log4j.helpers.Loader;
-
 import bt.ui.panels.GenerateNewUnitPanel;
 import bt.util.PropertyUtil;
 
@@ -20,7 +17,6 @@ public class TestUnitGenerationPanel
 	{
 		try
 		{
-	        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
 			PropertyUtil.loadSystemProperties("bt/system.properties");
 	
 	        //1. Create the frame.

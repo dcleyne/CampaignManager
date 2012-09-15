@@ -21,13 +21,10 @@ package bt.test;
 
 
 import java.io.File;
+
 import java.io.FileOutputStream;
 import java.util.HashMap;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.PropertyConfigurator;
-import org.apache.log4j.helpers.Loader;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.output.Format;
@@ -42,8 +39,6 @@ import bt.util.WebFile;
 
 public class ExtractPlanetSummaryFromISAtlas
 {
-    private static Log log = LogFactory.getLog(ExtractPlanetSummaryFromISAtlas.class);
-    
     public static String Proxy = "auproxy";
     public static int ProxyPort = 3128;
     
@@ -60,7 +55,6 @@ public class ExtractPlanetSummaryFromISAtlas
     {
 		try
 		{
-	        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
 	        PropertyUtil.loadSystemProperties("bt/system.properties");
 	        
 	        String Path = System.getProperty("DataPath");
@@ -77,7 +71,7 @@ public class ExtractPlanetSummaryFromISAtlas
             planetDoc.setRootElement(root);
 	        
 	        
-	        log.info("Starting Personnel Generation Test");
+            System.out.println("Starting Personnel Generation Test");
 
 	        HashMap<String,PlanetDetails> hashDetails = new HashMap<String,PlanetDetails>(); 
 	        int planetCount = PlanetManager.getPlanetCount();
@@ -162,7 +156,7 @@ public class ExtractPlanetSummaryFromISAtlas
             XMLOutputter out = new XMLOutputter(Format.getPrettyFormat());            
             out.output(planetDoc, new FileOutputStream(f));
             
-	        log.info("Planet Summary Extraction Complete");
+            System.out.println("Planet Summary Extraction Complete");
 		}
 		catch (Exception ex)
 		{

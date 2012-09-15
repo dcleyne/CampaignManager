@@ -2,12 +2,11 @@ package bt.managers;
 
 import java.io.File;
 
+
 import java.io.FileOutputStream;
 import java.util.Iterator;
 import java.util.Vector;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.jdom.Document;
 import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
@@ -21,8 +20,6 @@ import bt.util.WebFile;
 
 public class RandomNameManager 
 {
-	private static Log log = LogFactory.getLog(RandomNameManager.class);
-
 	private static RandomNameManager theInstance;
 	
 	private final String _FileName = PropertyUtil.getStringProperty("DataPath", "data") + "/RandomNames.xml";
@@ -35,8 +32,6 @@ public class RandomNameManager
 	
 	private RandomNameManager()
 	{
-   		log.info("Initialising RandomNameManager");
-		
 		loadRandomNames();
 		checkAvailableRandomNames();
 	}
@@ -108,7 +103,8 @@ public class RandomNameManager
 		}
 		catch (Exception ex)
 		{
-			log.fatal("Failed to load Random Names",ex);
+			System.out.println("Failed to load Random Names");
+			ex.printStackTrace();
 			System.exit(1);
 		}
 	}
@@ -153,7 +149,7 @@ public class RandomNameManager
 		{
 			if (_RandomNames.size() < _RandomNameThreshold)
 			{
-				log.info("Random name pool has dropped below threshold. Collecting more");
+				System.out.println("Random name pool has dropped below threshold. Collecting more");
 	            Class<?> imClass = Class.forName(_RandomNameParser, true, ClassLoader.getSystemClassLoader());
 	            Class<?> superClass = imClass.getSuperclass();
 	            if (!superClass.getName().equals("bt.common.util.RandomNameParser"))
@@ -168,18 +164,18 @@ public class RandomNameManager
 	            
 				while (_RandomNames.size() < _RandomNameThreshold)
 				{
-					log.info("Grabbing random names from : " + _RandomNameURL);
+					System.out.println("Grabbing random names from : " + _RandomNameURL);
 		        	String html = WebFile.getWebPageContent(_RandomNameURL, "", 0);
 		            _RandomNames.addAll(parser.parseRandomNames(html));			
 		        }
 				
-				log.info("Random name pool topped up.");
+				System.out.println("Random name pool topped up.");
 				saveRandomNames();
 			}
 		}
 		catch (Exception ex)
 		{
-			log.fatal("Unable to gather more random names", ex);
+			ex.printStackTrace();
 		}
 		
 	}

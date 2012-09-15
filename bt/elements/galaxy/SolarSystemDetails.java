@@ -1,15 +1,12 @@
 package bt.elements.galaxy;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import bt.movement.MapSectorPathState;
 import bt.util.Dice;
 import bt.util.ai.aStar;
@@ -33,8 +30,6 @@ public class SolarSystemDetails implements Serializable
 
 	private static final long serialVersionUID = 7473729908210390580L;
 
-	private static Log log = LogFactory.getLog(SolarSystemDetails.class);
-	
     protected static int[][] m_JumpSailRecharge = {
         /*M*/{201,202,203,204,205,206,207,208,209,210},
         /*K*/{191,192,193,194,195,196,197,198,199,200},
@@ -306,7 +301,7 @@ public class SolarSystemDetails implements Serializable
 					s.setName(typeOrder[currentType].toString() + " " + Integer.toString(i + 1));
 					m_Settlements.add(s);
 					
-					log.info("Adding Settlement of type " + typeOrder[currentType] + " at location " + Integer.toString(location));
+					System.out.println("Adding Settlement of type " + typeOrder[currentType] + " at location " + Integer.toString(location));
 					settlementLocations.removeElementAt(index);
 					
 					if (settlementLocations.size() == 0)
@@ -316,7 +311,7 @@ public class SolarSystemDetails implements Serializable
 			}
 			
 			//Place the Starport
-			log.info("Finding Location for Starport");
+			System.out.println("Finding Location for Starport");
 			int capitolLocation = m_Settlements.elementAt(0).getLocation();
 			Vector<Integer> surround = wmn.getSurroundingSectors(capitolLocation, 1); 
 			double distance = Integer.MAX_VALUE;
@@ -339,7 +334,7 @@ public class SolarSystemDetails implements Serializable
 			}
 			if (chosenLocation > 0)
 			{
-				log.info("Placing Spaceport at location " + Integer.toString(chosenLocation));
+				System.out.println("Placing Spaceport at location " + Integer.toString(chosenLocation));
 				Settlement starport = new Settlement(chosenLocation);
 				starport.setName("Starport 1");
 				starport.setType(SettlementType.SPACEPORT);
@@ -362,7 +357,7 @@ public class SolarSystemDetails implements Serializable
 			
 			for (Settlement place1: m_Settlements)
 			{
-				log.info("Laying roads for settlement " + place1.toString());
+				System.out.println("Laying roads for settlement " + place1.toString());
 				Integer key1 = new Integer(place1.getLocation());
 				builtRoads.put(key1,new Vector<Integer>());
 				for (Settlement place2: m_Settlements)
@@ -381,7 +376,7 @@ public class SolarSystemDetails implements Serializable
 		        	ArrayList<aState> result = engine.search();
 		        	if (result != null)
 		        	{
-						log.info("Adding road between " + key1.toString() + " and " + key2.toString());
+		        		System.out.println("Adding road between " + key1.toString() + " and " + key2.toString());
 		        		Iterator<aState> iter = result.iterator();
 	        			MapSectorPathState sector1 = (MapSectorPathState)iter.next();
 		        		while (iter.hasNext())

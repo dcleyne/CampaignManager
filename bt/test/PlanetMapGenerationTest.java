@@ -21,13 +21,10 @@ package bt.test;
 
 
 import java.io.File;
+
 import java.util.HashMap;
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.PropertyConfigurator;
-import org.apache.log4j.helpers.Loader;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
@@ -43,20 +40,15 @@ import bt.util.PropertyUtil;
 
 public class PlanetMapGenerationTest
 {
-    private static Log log = LogFactory.getLog(PlanetMapGenerationTest.class);
-    
 	/**
 	 * @param args
 	 */
     @SuppressWarnings("unchecked")
 	public static void main(String[] args)
 	{
-        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
-        log.info("Starting Planet Map Generation Client");
-
         try
         {
-            log.info("Generating Planets");
+        	System.out.println("Generating Planets");
             
             boolean doAll = true;
             
@@ -112,9 +104,9 @@ public class PlanetMapGenerationTest
         }
         catch (Exception e)
         {
-            log.error(ExceptionUtil.getExceptionStackTrace(e));
+        	System.out.println(ExceptionUtil.getExceptionStackTrace(e));
         }
-        log.info("Generating Planets Complete");
+        System.out.println("Generating Planets Complete");
 
 	}
 

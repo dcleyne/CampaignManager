@@ -2,9 +2,6 @@ package bt.test;
 
 import java.util.Vector;
 
-import org.apache.log4j.PropertyConfigurator;
-import org.apache.log4j.helpers.Loader;
-
 import bt.elements.Battlemech;
 import bt.elements.design.BattlemechDesign;
 import bt.elements.unit.Unit;
@@ -24,8 +21,6 @@ public class RefreshUnitBattlemechs
 	{
 		try
 		{
-
-	        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
 			PropertyUtil.loadSystemProperties("bt/system.properties");
 	
 	        DesignManager dm = DesignManager.getInstance();

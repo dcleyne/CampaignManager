@@ -3,15 +3,13 @@ package bt.ui.panels;
 import javax.swing.*;
 
 
+
 import bt.elements.unit.CompletedMission;
 import bt.elements.unit.Unit;
 import bt.managers.MissionManager;
 import bt.managers.UnitManager;
 import bt.ui.dialogs.CompletedMissionDialog;
 import bt.ui.dialogs.GenerateNewMissionDialog;
-
-import org.apache.commons.logging.LogFactory;
-import org.apache.commons.logging.Log;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
@@ -41,7 +39,6 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
 {
 	private static final long serialVersionUID = 1;
 	
-    private static Log log = LogFactory.getLog(UnitMissionPanel.class);
     protected Unit _Unit;
 
     private JList<CompletedMission> _CompletedMissionList;
@@ -59,7 +56,6 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
     
     public UnitMissionPanel(Unit u)
     {
-    	log.debug("UnitMissionPanel constructor called");
         _Unit = u;
         
         initialisePanel();

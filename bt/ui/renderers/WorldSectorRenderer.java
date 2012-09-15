@@ -1,10 +1,6 @@
 package bt.ui.renderers;
 
 import java.awt.*;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import bt.elements.galaxy.PlanetMapSector;
 import bt.elements.galaxy.SettlementType;
 import bt.elements.galaxy.TerrainType;
@@ -24,8 +20,6 @@ public class WorldSectorRenderer extends Hexagon
 {
 	private static final long serialVersionUID = 1;
 
-    private static Log log = LogFactory.getLog(WorldSectorRenderer.class);
-	
     PlanetMapSector m_Details;
 
     boolean m_NorthHemisphere = true;
@@ -268,7 +262,7 @@ public class WorldSectorRenderer extends Hexagon
             comp.setColor(Color.black);
             comp.drawPolygon(this);
         } else
-        	log.error("Failed to draw Settlement of type " + st.toString() + " at " + m_Details.getSectorNumber());
+        	System.out.println("Failed to draw Settlement of type " + st.toString() + " at " + m_Details.getSectorNumber());
         
 		for (int i = 0; i < m_Offsets.size(); i++)
 		{

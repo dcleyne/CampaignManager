@@ -1,8 +1,6 @@
 package bt.ui;
 
 import java.awt.Color;
-
-
 import java.awt.Dimension;
 import java.util.Vector;
 
@@ -16,10 +14,6 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import javax.swing.event.InternalFrameEvent;
 import javax.swing.event.InternalFrameListener;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import bt.elements.galaxy.InnerSpherePlanet;
 import bt.elements.galaxy.SolarSystemDetails;
 import bt.elements.unit.Player;
@@ -52,8 +46,6 @@ import bt.ui.listeners.UnitChangeListener;
  */
 public class InternalFrameManager implements InternalFrameListener, SolarSystemManagerListener, UnitChangeListener, PlayerChangeListener
 {
-    private static Log log = LogFactory.getLog(InternalFrameManager.class);
-
     protected JFrame _ParentFrame;
     protected JDesktopPane _DesktopPane;
 
@@ -92,7 +84,8 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
         }
         catch (Exception e)
         {
-            log.fatal("Failed to open Unit List Internal Frame", e);
+        	System.out.println("Failed to open Unit List Internal Frame");
+        	e.printStackTrace();
         }
     }
     
@@ -112,7 +105,8 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
         }
         catch (Exception e)
         {
-            log.fatal("Failed to open Player List Internal Frame", e);
+        	System.out.println("Failed to open Player List Internal Frame");
+        	e.printStackTrace();
         }
     }
     
@@ -132,7 +126,8 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
     	}
     	catch (Exception e)
     	{
-    		log.fatal("Failed to open Star Map Internal Frame", e);
+    		System.out.println("Failed to open Star Map Internal Frame");
+    		e.printStackTrace();
     	}
     }
 
@@ -263,7 +258,8 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
 	                }
 	                catch (Exception e)
 	                {
-	                    log.warn("Exception changing internal frame out of Icon mode", e);
+	                	System.out.println("Exception changing internal frame out of Icon mode");
+	                	e.printStackTrace();
 	                }
 	            }
 	
@@ -312,7 +308,8 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
 	                }
 	                catch (Exception e)
 	                {
-	                    log.warn("Exception changing internal frame out of Icon mode", e);
+	                	System.out.println("Exception changing internal frame out of Icon mode");
+	                    e.printStackTrace();
 	                }
 	            }
 	            
@@ -370,7 +367,8 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
         }
         catch (Exception e)
         {
-            log.debug("Failed to close an internal frame: " + e);
+        	System.out.println("Failed to close an internal frame: ");
+        	e.printStackTrace();
         }
     }
 
@@ -474,7 +472,8 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
 	                }
 	                catch (Exception e)
 	                {
-	                    log.warn("Exception changing internal frame out of Icon mode", e);
+	                	System.out.println("Exception changing internal frame out of Icon mode");
+	                	e.printStackTrace();
 	                }
 	            }
 	

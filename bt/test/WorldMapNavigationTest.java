@@ -21,6 +21,7 @@ package bt.test;
 
 
 import java.awt.BorderLayout;
+
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Frame;
@@ -46,12 +47,6 @@ import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.PropertyConfigurator;
-import org.apache.log4j.helpers.Loader;
-
 import bt.elements.galaxy.InnerSpherePlanet;
 import bt.elements.galaxy.SolarSystemDetails;
 import bt.managers.PlanetManager;
@@ -65,7 +60,6 @@ public class WorldMapNavigationTest extends JFrame implements
 ActionListener
 {
     private static final long serialVersionUID = 1;
-    private static Log log = LogFactory.getLog(WorldMapNavigationTest.class);
     
     private PlanetPanel m_PlanetPanel = null;
     private JScrollPane m_ScrollPane = null;
@@ -104,7 +98,7 @@ ActionListener
         }
         catch (Exception e)
         {
-            log.error(ExceptionUtil.getExceptionStackTrace(e));
+        	System.out.println(ExceptionUtil.getExceptionStackTrace(e));
         	System.exit(0);
         }
 		
@@ -147,17 +141,14 @@ ActionListener
 	{
         try
         {
-            PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
             PropertyUtil.loadSystemProperties("bt/system.properties");
-            log.info("Starting PlanetRenderingTest Client");
-
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
             WorldMapNavigationTest client = new WorldMapNavigationTest();
             client.setVisible(true);
         }
         catch (Exception e)
         {
-            log.error(ExceptionUtil.getExceptionStackTrace(e));
+        	System.out.println(ExceptionUtil.getExceptionStackTrace(e));
         }
 
 	}
@@ -190,7 +181,7 @@ ActionListener
         }
         catch (Exception e)
         {
-            log.error(ExceptionUtil.getExceptionStackTrace(e));
+        	System.out.println(ExceptionUtil.getExceptionStackTrace(e));
         }
 		
     }

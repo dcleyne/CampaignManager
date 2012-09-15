@@ -1,16 +1,10 @@
 package bt.elements.galaxy;
 
 import java.util.Vector;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import bt.util.Dice;
 
 public class WorldTerrainGenerator
 {
-    private static Log log = LogFactory.getLog(WorldTerrainGenerator.class);
-    
     private PlanetMap m_PlanetMap;
     private WorldMapNavigation m_WorldMapNavigation = new WorldMapNavigation();
 
@@ -117,7 +111,7 @@ public class WorldTerrainGenerator
     {
     	int continents = (Dice.d6(2) / 2) + 2;
     	int currentContinent = 0;
-    	log.info("Generating Planet with " + Integer.toString(continents) + " continent" + (continents != 1 ? "s" : ""));
+    	System.out.println("Generating Planet with " + Integer.toString(continents) + " continent" + (continents != 1 ? "s" : ""));
     	
     	Vector<Integer> usedSectors = new Vector<Integer>();
 
@@ -125,7 +119,7 @@ public class WorldTerrainGenerator
     	while (currentContinent < continents)
     	{
     		count++;
-        	log.info("Generating continent " + Integer.toString(count));
+    		System.out.println("Generating continent " + Integer.toString(count));
 
     		int segment = Dice.d10(1);
     		while (usedSectors.contains(segment))
@@ -160,7 +154,7 @@ public class WorldTerrainGenerator
     			ClearTerrain();
     			currentContinent = 0;
     			usedSectors.clear();
-            	log.info("Generating continent FAILED! Resetting map!");
+            	System.out.println("Generating continent FAILED! Resetting map!");
             	count = 0;
     		}    		
     	}
@@ -169,46 +163,46 @@ public class WorldTerrainGenerator
 
     public boolean generateRandomContinent(int location, int width, int height)
     {
-    	log.info("Generating Continent Outline");
+    	System.out.println("Generating Continent Outline");
     	Vector<PlanetMapSector> sectorsInContinent = generateWater(location,width,height);
 
-    	log.info("Solidifying Continent Outline");
+    	System.out.println("Solidifying Continent Outline");
     	if (!generateDeepSaltwater(location,sectorsInContinent))
     		return false;    	
 
-    	log.info("Filling In Grassland");
+    	System.out.println("Filling In Grassland");
     	fillContinentWithPlains(sectorsInContinent);
     	if (sectorsInContinent.size() > (width * height))
     		return false;
 
-    	log.info("Adding Mountains");
+    	System.out.println("Adding Mountains");
     	generateMountainRanges(sectorsInContinent, width, height);
 
-    	log.info("Adding Hills");
+    	System.out.println("Adding Hills");
     	generateHills(sectorsInContinent, width, height);
     	
-    	log.info("Generating Basic elevation");
+    	System.out.println("Generating Basic elevation");
     	generateElevation(sectorsInContinent, width, height);
 
-    	log.info("Generating Lakes");
+    	System.out.println("Generating Lakes");
     	generateLakes(sectorsInContinent, width, height);
 
-    	log.info("Generating Rivers");
+    	System.out.println("Generating Rivers");
     	generateRiversAndFreshWaterAndSwamp(sectorsInContinent, width, height);
     	
-    	log.info("Generating Extra Terrain");
+    	System.out.println("Generating Extra Terrain");
     	generateOtherTerrain(sectorsInContinent, width, height);
 
-    	log.info("Generating Forests");
+    	System.out.println("Generating Forests");
     	generateForests(sectorsInContinent, width, height);
     	
-    	log.info("Completed Continent");
+    	System.out.println("Completed Continent");
         return true;
     }
     
     public void finishGeneration(int meanTemperatureAtSeaLevel)
     {    	
-    	log.info("Filling in blank sectors with ocean");
+    	System.out.println("Filling in blank sectors with ocean");
     	
         int Size = m_WorldMapNavigation.getMapSectorCount();
         //Fill in the blank spaces with deep water and set an initial elevation
@@ -221,7 +215,7 @@ public class WorldTerrainGenerator
             	wsd.setMeanAltitude(- ( Dice.random( 4 ) * 200 ) - 2000);
             }
         }
-        log.info("Cleaning Up Stray Water");
+        System.out.println("Cleaning Up Stray Water");
         //Fill in the blank spaces with deep water and set an initial elevation
         for (int i = 1; i <= Size; i++)
         {
@@ -248,12 +242,12 @@ public class WorldTerrainGenerator
         }
         
         
-    	log.info("Generating Temperatures");
+    	System.out.println("Generating Temperatures");
         generateTemperature(meanTemperatureAtSeaLevel);
         
         m_PlanetMap.recalculateAverages();
 
-    	log.info("Final Map Preparation Complete");
+    	System.out.println("Final Map Preparation Complete");
     }
 
     public void ClearTerrain()
@@ -535,7 +529,7 @@ public class WorldTerrainGenerator
     		}
     		if (count >= 1000)
     		{
-    			log.info("Abandoning placing mountains!");
+    			System.out.println("Abandoning placing mountains!");
     			numOfRanges = 0;
     			continue;
     		}
@@ -733,7 +727,7 @@ public class WorldTerrainGenerator
 			else if ( elevation > maxElevation )
 				elevation = maxElevation;
 
-//			log.info("Setting elevation of sector " + Integer.toString(sector.GetSectorNumber()) + " to " + Integer.toString(elevation));
+//			System.out.println("Setting elevation of sector " + Integer.toString(sector.GetSectorNumber()) + " to " + Integer.toString(elevation));
 			sector.setMeanAltitude( elevation );
 		}
     }
@@ -904,7 +898,7 @@ public class WorldTerrainGenerator
 
     	Vector<Integer> riverRegister = new Vector<Integer>();
 
-    	log.info("Attempting to create " + Integer.toString(numOfRivers) + " rivers");
+    	System.out.println("Attempting to create " + Integer.toString(numOfRivers) + " rivers");
     	while ( numOfRivers > 0)
     	{
     		// determine upstreamRiverCoordinate
@@ -936,7 +930,7 @@ public class WorldTerrainGenerator
     		}
     		if (count >= 1000)
     		{
-    			log.info("Abandoning River Placement");
+    			System.out.println("Abandoning River Placement");
     			numOfRivers = 0;
     			continue;
     		}

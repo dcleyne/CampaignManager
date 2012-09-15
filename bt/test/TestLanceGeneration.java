@@ -1,8 +1,5 @@
 package bt.test;
 
-import org.apache.log4j.PropertyConfigurator;
-import org.apache.log4j.helpers.Loader;
-
 import bt.elements.Battlemech;
 import bt.elements.personnel.Rating;
 import bt.elements.unit.MechUnitParameters;
@@ -24,7 +21,6 @@ public class TestLanceGeneration
 	{
 		try
 		{
-	        PropertyConfigurator.configure(Loader.getResource("bt/test/log4j.properties"));
 			PropertyUtil.loadSystemProperties("bt/system.properties");
 			
 			

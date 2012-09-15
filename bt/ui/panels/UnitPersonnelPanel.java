@@ -2,13 +2,10 @@ package bt.ui.panels;
 
 import java.awt.Dimension;
 
+
 import java.awt.BorderLayout;
 import java.awt.event.*;
 import javax.swing.*;
-
-import org.apache.commons.logging.LogFactory;
-import org.apache.commons.logging.Log;
-
 import bt.elements.galaxy.InnerSpherePlanet;
 import bt.elements.personnel.JobType;
 import bt.elements.personnel.Personnel;
@@ -37,7 +34,6 @@ public class UnitPersonnelPanel extends JPanel implements ClosableEditPanel, Mou
 {
 	private static final long serialVersionUID = 1;
 	
-    private static Log log = LogFactory.getLog(UnitPersonnelPanel.class);
     protected Unit _Unit;
     protected JTable _PersonnelTable = new JTable();
     protected JScrollPane _ScrollPane;
@@ -63,7 +59,6 @@ public class UnitPersonnelPanel extends JPanel implements ClosableEditPanel, Mou
 
     public UnitPersonnelPanel(Unit u)
     {
-    	log.debug("UnitPersonnelPanel constructor called");
         _Unit = u;
         _Model = new PersonnelTableModel(_Unit);
         _Sorter.setTableModel(_Model);

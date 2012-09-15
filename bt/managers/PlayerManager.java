@@ -2,14 +2,13 @@ package bt.managers;
 
 import java.io.File;
 
+
 import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
@@ -23,15 +22,12 @@ import bt.util.PropertyUtil;
 
 public class PlayerManager 
 {
-    private static Log log = LogFactory.getLog(PlayerManager.class);
 	private static PlayerManager theInstance;
 
 	private HashMap<String,Player> _Players = new HashMap<String,Player>();
 	
 	private PlayerManager()
 	{
-   		log.info("Initialising PlayerManager");
-
 		loadPlayers();
 	}
 
@@ -119,14 +115,14 @@ public class PlayerManager
             }
     	
         } catch(java.io.IOException ex) {
-            log.info("Error Opening Player File!");
-            log.error(ex);
+        	System.out.println("Error Opening Player File!");
+            ex.printStackTrace();
         } catch (JDOMException jdex) {
-            log.info("Failure Parsing Player File!");
-            log.error(jdex);
+        	System.out.println("Failure Parsing Player File!");
+            jdex.printStackTrace();
         } catch (Exception exx) {
-            log.info("Failure Loading Player!");
-            log.error(exx);
+        	System.out.println("Failure Loading Player!");
+            exx.printStackTrace();
         }
 	}
 	
@@ -176,8 +172,8 @@ public class PlayerManager
             out.output(planetDoc, new FileOutputStream(f));
                                       
         } catch (Exception exx) {
-            log.info("Failure Saving Players");
-            log.error(exx);
+        	System.out.println("Failure Saving Players");
+            exx.printStackTrace();
         }
 	}
 	

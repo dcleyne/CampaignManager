@@ -2,6 +2,7 @@ package bt.managers;
 
 import java.awt.Color;
 
+
 import java.io.File;
 
 import java.io.FileOutputStream;
@@ -10,8 +11,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.jdom.Document;
 import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
@@ -74,8 +73,6 @@ import bt.util.SwingHelper;
  */
 public class UnitManager
 {
-	private static Log log = LogFactory.getLog(UnitManager.class);
-
 	public interface PersonnelSaveHandler
 	{
 		public void savePersonnel(org.jdom.Element e, Personnel p);
@@ -102,7 +99,6 @@ public class UnitManager
 	{
 		try
 		{
-	   		log.info("Initialising UnitManager");
 			loadMechUnitParameters();
 			loadRandomNames();
 			
@@ -112,7 +108,7 @@ public class UnitManager
 			loadUnits();
 		} catch (Exception ex)
 		{
-			log.fatal(ExceptionUtil.getExceptionStackTrace(ex));
+			System.out.println(ExceptionUtil.getExceptionStackTrace(ex));
 		}
 	}
 
@@ -494,7 +490,7 @@ public class UnitManager
 	private Personnel loadPersonnel(org.jdom.Element e)
 	{
 		JobType jobType = JobType.fromString(e.getAttributeValue("JobType"));
-		log.debug("Loading JobType ->" + jobType.toString() + "<-");
+		System.out.println("Loading JobType ->" + jobType.toString() + "<-");
 		Personnel p = _PersonnelLoadHandlers.get(jobType).loadPersonnel(e);
 
 		p.setName(e.getAttributeValue("Name"));
@@ -769,7 +765,7 @@ public class UnitManager
 			refreshUnitList();
 		} catch (Exception ex)
 		{
-			log.error(ExceptionUtil.getExceptionStackTrace(ex));
+			System.out.println(ExceptionUtil.getExceptionStackTrace(ex));
 		}
 	}
 

@@ -1,10 +1,6 @@
 package bt.ui.panels;
 
 import javax.swing.*;
-
-import org.apache.commons.logging.LogFactory;
-import org.apache.commons.logging.Log;
-
 import bt.elements.Asset;
 import bt.elements.Battlemech;
 import bt.elements.ElementType;
@@ -40,7 +36,6 @@ public class UnitAssetPanel extends JPanel implements ClosableEditPanel, MouseLi
 {
 	private static final long serialVersionUID = 1;
 	
-    private static Log log = LogFactory.getLog(UnitAssetPanel.class);
     protected Unit m_Unit;
     protected JTable m_AssetTable = new JTable();
     protected JScrollPane m_ScrollPane;
@@ -67,7 +62,7 @@ public class UnitAssetPanel extends JPanel implements ClosableEditPanel, MouseLi
 
     public UnitAssetPanel(Unit u)
     {
-    	log.debug("Unit Asset Panel Constructor called");
+    	System.out.println("Unit Asset Panel Constructor called");
     	
         m_Unit = u;
         m_Model = new AssetTableModel(m_Unit);
