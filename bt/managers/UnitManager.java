@@ -208,6 +208,7 @@ public class UnitManager
 			RandomName rn = RandomNameManager.getInstance().GetRandomName();
 			mw.setName(rn.toString());
 			u.getPersonnel().add(mw);
+			u.addPersonnelAssignment(mw.getName(), mech.getIdentifier(), Role.PILOT);
 
 			supportReq += 40 + mech.getWeight() / 5;
 		}
@@ -1065,7 +1066,8 @@ public class UnitManager
 		int elementID = 0;
 		for (Battlemech mech : unit.getBattlemechs())				
 		{
-			BufferedImage image = BattlemechRenderer.getInstance().RenderBattlemech(mech);
+			Mechwarrior warrior = unit.getMechwarriorAssignedToMech(mech.getIdentifier());
+			BufferedImage image = BattlemechRenderer.getInstance().RenderBattlemech(mech, warrior);
 			String mechFilename = path + "/units/" + unit.getName() + "Element " + Integer.toString(elementID) + ".png";
 			File mechFile = new File(mechFilename);
 	        ImageIO.write(image, "PNG", mechFile);

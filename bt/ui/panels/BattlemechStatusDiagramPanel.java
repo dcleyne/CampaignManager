@@ -24,6 +24,7 @@ import javax.swing.JPanel;
 import bt.elements.Battlemech;
 import bt.elements.BattlemechDamageNotation;
 import bt.elements.ItemStatus;
+import bt.elements.personnel.Mechwarrior;
 import bt.ui.renderers.BattlemechRenderer;
 import bt.util.IndexedRectangle;
 
@@ -32,6 +33,7 @@ public class BattlemechStatusDiagramPanel extends JPanel implements MouseListene
 	private static final long serialVersionUID = 7369612760668862772L;
 
 	private Battlemech _Mech;
+	private Mechwarrior _Warrior;
 	private BufferedImage _MechImage;
 	private BufferedImage _DamageImage;
 	private HashMap<String, HashMap<String, Vector<IndexedRectangle>>> _HotSpots;
@@ -50,11 +52,12 @@ public class BattlemechStatusDiagramPanel extends JPanel implements MouseListene
 		_Scale = scale;
 	}
 	
-	public BattlemechStatusDiagramPanel(Battlemech mech, double scale)
+	public BattlemechStatusDiagramPanel(Battlemech mech, Mechwarrior warrior, double scale)
 	{
 		super(false);
 		
 		_Mech = mech;
+		_Warrior = warrior;
 		_Scale = scale;
 		buildMechImage();
 		
@@ -150,7 +153,7 @@ public class BattlemechStatusDiagramPanel extends JPanel implements MouseListene
 	
 	private void buildMechImage()
 	{
-		_MechImage = BattlemechRenderer.getInstance().RenderBattlemech(_Mech, _Scale);
+		_MechImage = BattlemechRenderer.getInstance().RenderBattlemech(_Mech, _Warrior, _Scale);
 		_HotSpots = BattlemechRenderer.getInstance().GenerateBattlemechDiagramHotspots((Graphics2D)_MechImage.getGraphics(), _Mech, _Scale);
 		_HotSpotAreas = new HashMap<String, Area>();
 		_HotSpotLocalAreas = new HashMap<String, HashMap<String,Area>>();

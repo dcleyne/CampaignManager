@@ -18,8 +18,6 @@ public abstract class Personnel
     private String _Name = "";
     private String _Callsign = "";
     private Rank _Rank = Rank.NONE;
-    private int _Piloting = 9;
-    private int _Gunnery = 9;
     private int _Age = 16;
     private long _HomePlanet;
     private Rating _Rating = Rating.GREEN;
@@ -68,21 +66,8 @@ public abstract class Personnel
     public void setNotes(String Notes)
     { _Notes = Notes; }
     
-    public void setPiloting(int piloting)
-    { _Piloting = piloting; }
-    
-    public void setGunnery(int gunnery)
-    { _Gunnery = gunnery; }
-    
     public void setAge(int age)
     { _Age = age; }
-    
-
-    public int getPiloting()
-    { return _Piloting; }
-    
-    public int getGunnery()
-    { return _Gunnery; }
     
     public int getAge()
     { return _Age; }
@@ -104,8 +89,6 @@ public abstract class Personnel
      	e.addContent(new org.jdom.Element("Name").setText(_Name));
      	e.addContent(new org.jdom.Element("Callsign").setText(_Callsign));
      	e.addContent(new org.jdom.Element("Rank").setText(_Rank.toString()));
-     	e.addContent(new org.jdom.Element("Piloting").setText(Integer.toString(_Piloting)));
-     	e.addContent(new org.jdom.Element("Gunnery").setText(Integer.toString(_Gunnery)));
      	e.addContent(new org.jdom.Element("Age").setText(Integer.toString(_Age)));
      	e.addContent(new org.jdom.Element("HomePlanet").setText(Long.toString(_HomePlanet)));
      	e.addContent(new org.jdom.Element("Rating").setText(_Rating.toString()));
@@ -118,8 +101,6 @@ public abstract class Personnel
      	_Name = e.getChildText("Name");
     	_Callsign = e.getChildText("Callsign");
     	_Rank = Rank.fromString(e.getChildText("Rank"));
-    	_Piloting = Integer.parseInt(e.getChildText("Piloting"));
-    	_Gunnery = Integer.parseInt(e.getChildText("Gunnery"));
     	_Age = Integer.parseInt(e.getChildText("Age"));
     	_HomePlanet = Long.parseLong(e.getChildText("HomePlanet"));
     	_Rating = Rating.fromString(e.getChildText("Rating"));

@@ -4,6 +4,7 @@ import javax.swing.*;
 import bt.elements.Asset;
 import bt.elements.Battlemech;
 import bt.elements.ElementType;
+import bt.elements.personnel.Mechwarrior;
 import bt.elements.unit.Unit;
 import bt.managers.RandomNameManager;
 import bt.managers.UnitManager;
@@ -244,7 +245,8 @@ public class UnitAssetPanel extends JPanel implements ClosableEditPanel, MouseLi
         if (m_CurrentAsset.getElementType() == ElementType.BATTLEMECH)
         {
         	Battlemech mech = (Battlemech)m_CurrentAsset;
-        	BattlemechStatusDialog dialog = new BattlemechStatusDialog(JOptionPane.getFrameForComponent(this), mech);
+        	Mechwarrior warrior = m_Unit.getMechwarriorAssignedToMech(mech.getIdentifier());
+        	BattlemechStatusDialog dialog = new BattlemechStatusDialog(JOptionPane.getFrameForComponent(this), mech, warrior);
         	dialog.setModal(true);
         	dialog.setVisible(true);
         	

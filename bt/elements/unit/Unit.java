@@ -13,6 +13,7 @@ import bt.elements.Battlemech;
 import bt.elements.Character;
 import bt.elements.ElementType;
 import bt.elements.Item;
+import bt.elements.personnel.Mechwarrior;
 import bt.elements.personnel.Personnel;
 
 /**
@@ -405,6 +406,31 @@ public class Unit implements Serializable
 		}
 		
 		return personnel;		
+	}
+	
+	public Mechwarrior getMechwarriorAssignedToMech(String assetIdentifier)
+	{
+		for (PersonnelAssetAssignment ass : _PersonnelAssetAssignments)
+		{
+			if (ass.getAssetIdentifier().equalsIgnoreCase(assetIdentifier))
+			{
+				if (ass.getRole() == Role.PILOT)
+					return (Mechwarrior)getPersonnelByName(ass.getName());
+			}
+		}
+		
+		return null;
+	}
+
+	public Personnel getPersonnelByName(String name)
+	{
+		for (Personnel p: _Personnel)
+		{
+			if (p.getName().equalsIgnoreCase(name))
+				return p;
+		}
+		
+		return null;
 	}
 	
 	public void addPersonnelAssignment(String name, String assetIdentifier, Role role)
