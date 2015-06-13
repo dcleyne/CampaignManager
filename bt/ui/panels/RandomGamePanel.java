@@ -20,6 +20,11 @@ public class RandomGamePanel extends JPanel
 	
 	public RandomGamePanel() 
 	{
+		initialize();
+	}
+
+	private void initialize() 
+	{
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -76,27 +81,27 @@ public class RandomGamePanel extends JPanel
 		add(_MiniatureCollection2ComboBox, gbcMiniatureCollection2ComboBox);
 		
 		JLabel lblScenario = new JLabel("Scenario");
-		GridBagConstraints gbc_lblScenario = new GridBagConstraints();
-		gbc_lblScenario.anchor = GridBagConstraints.EAST;
-		gbc_lblScenario.insets = new Insets(0, 5, 5, 5);
-		gbc_lblScenario.gridx = 0;
-		gbc_lblScenario.gridy = 3;
-		add(lblScenario, gbc_lblScenario);
+		GridBagConstraints gbclblScenario = new GridBagConstraints();
+		gbclblScenario.anchor = GridBagConstraints.EAST;
+		gbclblScenario.insets = new Insets(0, 5, 5, 5);
+		gbclblScenario.gridx = 0;
+		gbclblScenario.gridy = 3;
+		add(lblScenario, gbclblScenario);
 		
 		JComboBox<String> _ScenarioSelectionComboBox = new JComboBox<String>();
-		GridBagConstraints gbc__ScenarioSelectionComboBox = new GridBagConstraints();
-		gbc__ScenarioSelectionComboBox.insets = new Insets(0, 0, 5, 5);
-		gbc__ScenarioSelectionComboBox.fill = GridBagConstraints.HORIZONTAL;
-		gbc__ScenarioSelectionComboBox.gridx = 1;
-		gbc__ScenarioSelectionComboBox.gridy = 3;
-		add(_ScenarioSelectionComboBox, gbc__ScenarioSelectionComboBox);
+		GridBagConstraints gbcScenarioSelectionComboBox = new GridBagConstraints();
+		gbcScenarioSelectionComboBox.insets = new Insets(0, 0, 5, 5);
+		gbcScenarioSelectionComboBox.fill = GridBagConstraints.HORIZONTAL;
+		gbcScenarioSelectionComboBox.gridx = 1;
+		gbcScenarioSelectionComboBox.gridy = 3;
+		add(_ScenarioSelectionComboBox, gbcScenarioSelectionComboBox);
 		
 		JButton _RandomScenarioButton = new JButton("...");
-		GridBagConstraints gbc__RandomScenarioButton = new GridBagConstraints();
-		gbc__RandomScenarioButton.insets = new Insets(0, 0, 5, 0);
-		gbc__RandomScenarioButton.gridx = 2;
-		gbc__RandomScenarioButton.gridy = 3;
-		add(_RandomScenarioButton, gbc__RandomScenarioButton);
+		GridBagConstraints gbcRandomScenarioButton = new GridBagConstraints();
+		gbcRandomScenarioButton.insets = new Insets(0, 0, 5, 0);
+		gbcRandomScenarioButton.gridx = 2;
+		gbcRandomScenarioButton.gridy = 3;
+		add(_RandomScenarioButton, gbcRandomScenarioButton);
 		
 		JButton btnGenerate = new JButton("Generate");
 		GridBagConstraints gbc_btnGenerate = new GridBagConstraints();
@@ -107,13 +112,13 @@ public class RandomGamePanel extends JPanel
 		
 		JPanel _Side1Panel = new JPanel();
 		_Side1Panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Side 1", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		GridBagConstraints gbc__Side1Panel = new GridBagConstraints();
-		gbc__Side1Panel.gridwidth = 3;
-		gbc__Side1Panel.insets = new Insets(0, 0, 5, 5);
-		gbc__Side1Panel.fill = GridBagConstraints.BOTH;
-		gbc__Side1Panel.gridx = 0;
-		gbc__Side1Panel.gridy = 5;
-		add(_Side1Panel, gbc__Side1Panel);
+		GridBagConstraints gbcSide1Panel = new GridBagConstraints();
+		gbcSide1Panel.gridwidth = 3;
+		gbcSide1Panel.insets = new Insets(0, 0, 5, 5);
+		gbcSide1Panel.fill = GridBagConstraints.BOTH;
+		gbcSide1Panel.gridx = 0;
+		gbcSide1Panel.gridy = 5;
+		add(_Side1Panel, gbcSide1Panel);
 		_Side1Panel.setLayout(new BorderLayout(0, 0));
 		
 		JTextPane _Side1TextPane = new JTextPane();
@@ -122,13 +127,13 @@ public class RandomGamePanel extends JPanel
 		
 		JPanel _Side2Panel = new JPanel();
 		_Side2Panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Side 2", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		GridBagConstraints gbc__Side2Panel = new GridBagConstraints();
-		gbc__Side2Panel.gridwidth = 3;
-		gbc__Side2Panel.insets = new Insets(0, 0, 5, 5);
-		gbc__Side2Panel.fill = GridBagConstraints.BOTH;
-		gbc__Side2Panel.gridx = 0;
-		gbc__Side2Panel.gridy = 6;
-		add(_Side2Panel, gbc__Side2Panel);
+		GridBagConstraints gbcSide2Panel = new GridBagConstraints();
+		gbcSide2Panel.gridwidth = 3;
+		gbcSide2Panel.insets = new Insets(0, 0, 5, 5);
+		gbcSide2Panel.fill = GridBagConstraints.BOTH;
+		gbcSide2Panel.gridx = 0;
+		gbcSide2Panel.gridy = 6;
+		add(_Side2Panel, gbcSide2Panel);
 		_Side2Panel.setLayout(new BorderLayout(0, 0));
 		
 		JTextPane _Side2TextPane = new JTextPane();
@@ -136,13 +141,13 @@ public class RandomGamePanel extends JPanel
 		_Side2Panel.add(_Side2TextPane, BorderLayout.CENTER);
 		
 		JPanel _ButtonPanel = new JPanel();
-		GridBagConstraints gbc__ButtonPanel = new GridBagConstraints();
-		gbc__ButtonPanel.gridwidth = 3;
-		gbc__ButtonPanel.insets = new Insets(0, 0, 0, 5);
-		gbc__ButtonPanel.fill = GridBagConstraints.BOTH;
-		gbc__ButtonPanel.gridx = 0;
-		gbc__ButtonPanel.gridy = 7;
-		add(_ButtonPanel, gbc__ButtonPanel);
+		GridBagConstraints gbcButtonPanel = new GridBagConstraints();
+		gbcButtonPanel.gridwidth = 3;
+		gbcButtonPanel.insets = new Insets(0, 0, 0, 5);
+		gbcButtonPanel.fill = GridBagConstraints.BOTH;
+		gbcButtonPanel.gridx = 0;
+		gbcButtonPanel.gridy = 7;
+		add(_ButtonPanel, gbcButtonPanel);
 		_ButtonPanel.setLayout(new BoxLayout(_ButtonPanel, BoxLayout.X_AXIS));
 		
 		_ButtonPanel.add(Box.createHorizontalGlue());

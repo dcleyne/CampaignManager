@@ -521,7 +521,7 @@ public class MissionManager
 		return element;
 	}
 
-	public void printScenarioToPDF(String folder, Unit scenarioUnit, int scenarioNumber, Scenario scenario) throws Exception
+	public String printScenarioToPDF(String folder, Unit scenarioUnit, int scenarioNumber, Scenario scenario) throws Exception
 	{
 		folder += "/" + scenarioUnit.getName() + "/Scenario " + Integer.toString(scenarioNumber) + "/";
 		
@@ -529,6 +529,7 @@ public class MissionManager
 		String filename = folder + "/Scenario.pdf";
 		
 		printScenarioToPDF(folder, scenarioUnit, scenario, filename);
+		return filename;
 	}
 	
 	public void printScenarioToPDF(String folder, Unit scenarioUnit, Scenario scenario, String filename) throws Exception

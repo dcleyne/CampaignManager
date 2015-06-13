@@ -61,7 +61,7 @@ public class RandomNameManager
 	public RandomName GetRandomName()
 	{
 		checkAvailableRandomNames();
-		int index = Dice.random(_RandomNames.size());
+		int index = Dice.random(_RandomNames.size()) - 1;
 		RandomName name = _RandomNames.elementAt(index);
 		_ServedNames.add(name);
 		_RandomNames.remove(index);
@@ -152,7 +152,7 @@ public class RandomNameManager
 				System.out.println("Random name pool has dropped below threshold. Collecting more");
 	            Class<?> imClass = Class.forName(_RandomNameParser, true, ClassLoader.getSystemClassLoader());
 	            Class<?> superClass = imClass.getSuperclass();
-	            if (!superClass.getName().equals("bt.common.util.RandomNameParser"))
+	            if (!superClass.getName().equals("bt.util.RandomNameParser"))
 	            {
 	                throw new Exception("Class does not extend bt.common.util.RandomNameParser : " + _RandomNameParser);
 	            }
