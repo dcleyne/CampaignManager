@@ -539,7 +539,7 @@ public class MissionManager
 			f.mkdirs();
 
 		f = new File(filename);
-		if (f.exists())
+		while (f.exists())
 			f.delete();
 		
 		com.itextpdf.text.Document document = new com.itextpdf.text.Document(PageSize.A4, 5, 5, 5, 5);

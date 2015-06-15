@@ -74,7 +74,7 @@ public class GenerateRandomGame
 			
 			
 			String filename = MissionManager.getInstance().printScenarioToPDF(FileUtil.getTempFolder(), player1Unit, 1, s);
-			
+			System.out.println(filename);
 			Desktop.getDesktop().open(new File(filename));
 		}
 		catch (Exception ex)

@@ -61,7 +61,10 @@ public class RandomNameManager
 	public RandomName GetRandomName()
 	{
 		checkAvailableRandomNames();
-		int index = Dice.random(_RandomNames.size()) - 1;
+		int index = Dice.random(_RandomNames.size());
+		if (index == _RandomNames.size())
+			index--;
+		
 		RandomName name = _RandomNames.elementAt(index);
 		_ServedNames.add(name);
 		_RandomNames.remove(index);
