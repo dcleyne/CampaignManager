@@ -154,7 +154,7 @@ ActionListener
         {
             PropertyUtil.loadSystemProperties("bt/system.properties");
         	
-            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             WorldMapRenderingTest client = new WorldMapRenderingTest();
             client.setVisible(true);
         }

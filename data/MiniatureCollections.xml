@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MiniatureCollections>
+	<Collection Name="Plastic" Description="">
+		<Miniature Name="Wasp" Identifier="" />
+		<Miniature Name="Stinger" Identifier="" />
+		<Miniature Name="Battlemaster" Identifier="" />
+		<Miniature Name="Warhammer" Identifier="" />
+		<Miniature Name="Wolverine" Identifier="" />
+		<Miniature Name="Stinger" Identifier="" />
+		<Miniature Name="Crusader" Identifier="" />
+		<Miniature Name="Crusader" Identifier="" />
+		<Miniature Name="Warhammer" Identifier="" />
+		<Miniature Name="Thunderbolt" Identifier="" />
+		<Miniature Name="Rifleman" Identifier="" />
+		<Miniature Name="Thunderbolt" Identifier="" />
+		<Miniature Name="Archer" Identifier="" />
+		<Miniature Name="Wolverine" Identifier="" />
+		<Miniature Name="Battlemaster" Identifier="" />
+		<Miniature Name="Shadow Hawk" Identifier="" />
+		<Miniature Name="Rifleman" Identifier="" />
+		<Miniature Name="Wasp" Identifier="" />
+		<Miniature Name="Griffin" Identifier="" />
+		<Miniature Name="Phoenix Hawk" Identifier="" />
+		<Miniature Name="Griffin" Identifier="" />
+		<Miniature Name="Archer" Identifier="" />
+		<Miniature Name="Shadow Hawk" Identifier="" />
+		<Miniature Name="Marauder" Identifier="" />
+		<Miniature Name="Marauder" Identifier="" />
+		<Miniature Name="Locust" Identifier="" />
+	</Collection>
+	<Collection Name="Desert Yellow" Description="">
+		<Miniature Name="Firestarter" Identifier="" />
+		<Miniature Name="Assassin" Identifier="" />
+		<Miniature Name="Jenner" Identifier="" />
+		<Miniature Name="Crusader" Identifier="" />
+		<Miniature Name="Spider" Identifier="" />
+		<Miniature Name="Shadow Hawk" Identifier="" />
+		<Miniature Name="Valkyrie" Identifier="" />
+		<Miniature Name="Locust" Identifier="" />
+		<Miniature Name="Blackjack" Identifier="" />
+		<Miniature Name="Cicada" Identifier="" />
+		<Miniature Name="Marauder" Identifier="" />
+		<Miniature Name="Jenner" Identifier="" />
+		<Miniature Name="Atlas" Identifier="" />
+		<Miniature Name="Quickdraw" Identifier="" />
+		<Miniature Name="Stinger" Identifier="" />
+		<Miniature Name="Marauder" Identifier="" />
+		<Miniature Name="Locust" Identifier="" />
+		<Miniature Name="Wolfhound" Identifier="" />
+		<Miniature Name="Trebuchet" Identifier="" />
+		<Miniature Name="Vindicator" Identifier="" />
+		<Miniature Name="Hatchetman" Identifier="" />
+		<Miniature Name="Locust" Identifier="" />
+		<Miniature Name="Trebuchet" Identifier="" />
+		<Miniature Name="Flea" Identifier="" />
+		<Miniature Name="Axeman" Identifier="" />
+		<Miniature Name="Cyclops" Identifier="" />
+		<Miniature Name="Longbow" Identifier="" />
+		<Miniature Name="Urbanmech" Identifier="" />
+		<Miniature Name="Assassin" Identifier="" />
+		<Miniature Name="Dervish" Identifier="" />
+		<Miniature Name="Vindicator" Identifier="" />
+		<Miniature Name="Vulcan" Identifier="" />
+		<Miniature Name="Cataphract" Identifier="" />
+		<Miniature Name="Stalker" Identifier="" />
+		<Miniature Name="Longbow" Identifier="" />
+		<Miniature Name="Wasp" Identifier="" />
+		<Miniature Name="Scorpion" Identifier="" />
+		<Miniature Name="Vulcan" Identifier="" />
+		<Miniature Name="Phoenix Hawk" Identifier="" />
+		<Miniature Name="Centurion" Identifier="" />
+		<Miniature Name="Cataphract" Identifier="" />
+		<Miniature Name="Victor" Identifier="" />
+		<Miniature Name="Longbow" Identifier="" />
+		<Miniature Name="Wolverine" Identifier="" />
+		<Miniature Name="Scorpion" Identifier="" />
+		<Miniature Name="Wasp" Identifier="" />
+		<Miniature Name="Ostsol" Identifier="" />
+		<Miniature Name="Hunchback" Identifier="" />
+		<Miniature Name="Atlas" Identifier="" />
+		<Miniature Name="Victor" Identifier="" />
+		<Miniature Name="Longbow" Identifier="" />
+		<Miniature Name="Griffin" Identifier="" />
+		<Miniature Name="Jagermech" Identifier="" />
+		<Miniature Name="Mercury" Identifier="" />
+		<Miniature Name="Rifleman" Identifier="" />
+		<Miniature Name="Battlemaster" Identifier="" />
+		<Miniature Name="Axeman" Identifier="" />
+		<Miniature Name="Rifleman" Identifier="" />
+		<Miniature Name="Wolverine" Identifier="" />
+		<Miniature Name="Flea" Identifier="" />
+		<Miniature Name="Hunchback" Identifier="" />
+		<Miniature Name="Catapult" Identifier="" />
+	</Collection>
+	<Collection Name="Bright Yellow" Description="">
+		<Miniature Name="Cicada" Identifier="" />
+		<Miniature Name="Locust" Identifier="" />
+		<Miniature Name="Stinger" Identifier="" />
+		<Miniature Name="Archer" Identifier="" />
+		<Miniature Name="Clint" Identifier="" />
+		<Miniature Name="Cicada" Identifier="" />
+		<Miniature Name="Hunchback" Identifier="" />
+		<Miniature Name="Locust" Identifier="" />
+		<Miniature Name="Spider" Identifier="" />
+		<Miniature Name="Commando" Identifier="" />
+		<Miniature Name="Flea" Identifier="" />
+		<Miniature Name="Javelin" Identifier="" />
+		<Miniature Name="Spider" Identifier="" />
+		<Miniature Name="Phoenix Hawk" Identifier="" />
+		<Miniature Name="Wasp" Identifier="" />
+		<Miniature Name="Hatchetman" Identifier="" />
+		<Miniature Name="Spider" Identifier="" />
+		<Miniature Name="Raven" Identifier="" />
+		<Miniature Name="Centurion" Identifier="" />
+		<Miniature Name="Panther" Identifier="" />
+		<Miniature Name="Enforcer" Identifier="" />
+		<Miniature Name="Hoplite" Identifier="" />
+		<Miniature Name="Thunderbolt" Identifier="" />
+		<Miniature Name="Grasshopper" Identifier="" />
+		<Miniature Name="Crusader" Identifier="" />
+		<Miniature Name="Shadow Hawk" Identifier="" />
+		<Miniature Name="Panther" Identifier="" />
+		<Miniature Name="Blackjack" Identifier="" />
+		<Miniature Name="Hermes II" Identifier="" />
+		<Miniature Name="Awesome" Identifier="" />
+		<Miniature Name="Catapult" Identifier="" />
+		<Miniature Name="Whitworth" Identifier="" />
+		<Miniature Name="Whitworth" Identifier="" />
+		<Miniature Name="Jenner" Identifier="" />
+		<Miniature Name="Panther" Identifier="" />
+		<Miniature Name="Firestarter" Identifier="" />
+		<Miniature Name="Valkyrie" Identifier="" />
+		<Miniature Name="Warhammer" Identifier="" />
+		<Miniature Name="Catapult" Identifier="" />
+		<Miniature Name="Crab" Identifier="" />
+		<Miniature Name="Crab" Identifier="" />
+		<Miniature Name="Jenner" Identifier="" />
+		<Miniature Name="Panther" Identifier="" />
+		<Miniature Name="Firestarter" Identifier="" />
+		<Miniature Name="Valkyrie" Identifier="" />
+		<Miniature Name="Warhammer" Identifier="" />
+		<Miniature Name="Catapult" Identifier="" />
+		<Miniature Name="Crab" Identifier="" />
+		<Miniature Name="Crab" Identifier="" />
+		<Miniature Name="Stalker" Identifier="" />
+		<Miniature Name="Ostscout" Identifier="" />
+		<Miniature Name="Commando" Identifier="" />
+		<Miniature Name="Valkyrie" Identifier="" />
+		<Miniature Name="Battlemaster" Identifier="" />
+		<Miniature Name="Banshee" Identifier="" />
+		<Miniature Name="Marauder" Identifier="" />
+		<Miniature Name="Marauder" Identifier="" />
+		<Miniature Name="Dragon" Identifier="" />
+		<Miniature Name="Dragon" Identifier="" />
+		<Miniature Name="Dragon" Identifier="" />
+		<Miniature Name="Zeus" Identifier="" />
+		<Miniature Name="Imp" Identifier="" />
+	</Collection>
+	<Collection Name="Clan Red" Description="">
+		<Miniature Name="Daishi" Identifier="" />
+		<Miniature Name="Mad Cat" Identifier="" />
+		<Miniature Name="Thug" Identifier="" />
+		<Miniature Name="Pirahna" Identifier="" />
+		<Miniature Name="Mad Cat" Identifier="" />
+		<Miniature Name="Mad Cat" Identifier="" />
+		<Miniature Name="Mad Cat" Identifier="" />
+		<Miniature Name="Vulture" Identifier="" />
+		<Miniature Name="Vulture" Identifier="" />
+		<Miniature Name="Vulture" Identifier="" />
+		<Miniature Name="Loki" Identifier="" />
+		<Miniature Name="Gladiator" Identifier="" />
+		<Miniature Name="Man O War" Identifier="" />
+		<Miniature Name="Brawler" Identifier="" />
+		<Miniature Name="Fenris" Identifier="" />
+		<Miniature Name="Thor" Identifier="" />
+		<Miniature Name="Thor" Identifier="" />
+		<Miniature Name="Dasher" Identifier="" />
+		<Miniature Name="Uller" Identifier="" />
+		<Miniature Name="Dragonfly" Identifier="" />
+		<Miniature Name="Dragonfly" Identifier="" />
+	</Collection>
+	<Collection Name="Misc" Description="">
+		<Miniature Name="Orion" Identifier="" />
+		<Miniature Name="Orion" Identifier="" />
+		<Miniature Name="Centurion" Identifier="" />
+		<Miniature Name="Cerberus" Identifier="" />
+		<Miniature Name="Hollander" Identifier="" />
+		<Miniature Name="Lightning Bolt" Identifier="" />
+		<Miniature Name="Galahad" Identifier="" />
+		<Miniature Name="Mad Cat" Identifier="" />
+		<Miniature Name="Highlander" Identifier="" />
+		<Miniature Name="Black Hawk" Identifier="" />
+		<Miniature Name="Kraken" Identifier="" />
+		<Miniature Name="Behemoth" Identifier="" />
+	</Collection>	
+</MiniatureCollections>

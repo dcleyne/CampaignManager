@@ -29,6 +29,7 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
 import bt.ui.InternalFrameManager;
+import bt.ui.dialogs.RandomGameDialog;
 import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;
 
@@ -208,6 +209,14 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
         item.setMnemonic( (int)'M');
         item.addActionListener(this);
         menu.add(item);
+
+        item = new JMenuItem("Random Game");
+        item.setHorizontalTextPosition(SwingConstants.RIGHT);
+        item.setActionCommand("RandomGame");
+        item.setBorderPainted(false);
+        item.setMnemonic( (int)'R');
+        item.addActionListener(this);
+        menu.add(item);
         
         
         //"Setup" menu
@@ -313,6 +322,14 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
         } catch (Exception e) {
         }
     }
+    
+    private void CreateRandomGame()
+    {
+    	RandomGameDialog dlg = new RandomGameDialog(this);
+    	dlg.setLocationRelativeTo(this);
+    	dlg.setModal(true);
+    	dlg.setVisible(true);
+    }
 
     protected void ExitApplication()
     {
@@ -361,6 +378,10 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
             if (command.equals("ViewPlayers"))
             {
                 m_FrameManager.ShowPlayerListFrame();
+            }		
+            if (command.equals("RandomGame"))
+            {
+            	CreateRandomGame();
             }		
 	}
 

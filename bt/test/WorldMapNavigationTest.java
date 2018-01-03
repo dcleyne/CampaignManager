@@ -142,7 +142,7 @@ ActionListener
         try
         {
             PropertyUtil.loadSystemProperties("bt/system.properties");
-            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             WorldMapNavigationTest client = new WorldMapNavigationTest();
             client.setVisible(true);
         }
