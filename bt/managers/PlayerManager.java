@@ -63,22 +63,22 @@ public class PlayerManager
 	
 	public void removePlayer(Player p)
 	{
-		_Players.remove(p);
-	}
-	
-	public Player getPlayer(long id)
-	{
-		return _Players.get(id);
+		if (_Players.containsValue(p))
+		{
+			for (Player player : _Players.values())
+			{
+				if (player == p)
+				{
+					_Players.remove(p.getName());
+					return;
+				}
+			}
+		}
 	}
 	
 	public Player getPlayer(String name)
 	{
-		for (Player p : _Players.values())
-		{
-			if (p.getName().equalsIgnoreCase(name))
-				return p;
-		}
-		return null;
+		return _Players.get(name);
 	}
 	
 	public Vector<PlayerSummary> getPlayerSummaries()

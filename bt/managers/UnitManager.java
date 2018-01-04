@@ -741,10 +741,13 @@ public class UnitManager
 	{
 		String dataPath = PropertyUtil.getStringProperty("ExternalDataPath", "data") + "/units/";
 		String[] files = new File(dataPath).list(new ExtensionFileFilter("xml"));
-		for (String fileName : files)
+		if (files != null)
 		{
-			Unit u = loadUnit(dataPath + fileName);
-			_Units.put(u.getName(), u);
+			for (String fileName : files)
+			{
+				Unit u = loadUnit(dataPath + fileName);
+				_Units.put(u.getName(), u);
+			}
 		}
 	}
 
