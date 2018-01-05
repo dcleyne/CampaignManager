@@ -88,6 +88,7 @@ public class BattlemechManager
         {3,31,21,17,21}
     };
 
+    private int _MechIdentifier = 0;
     private HashMap<String, Integer> _InternalLocationIndexes = new HashMap<String,Integer>();
 
     HashMap<String, ItemLoadHandler> _ItemLoadHandlers;
@@ -143,6 +144,7 @@ public class BattlemechManager
         mech.setDesignName(design.getName());
         mech.setDesignVariant(design.getVariant());
         mech.setManufacturer(design.getManufacturer());
+        mech.setIdentifier(Integer.toString(_MechIdentifier++));
 
         mech.setType(design.getType().toString());
         mech.setWeight(design.getWeight());

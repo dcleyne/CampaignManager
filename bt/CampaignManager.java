@@ -44,31 +44,41 @@ import bt.util.PropertyUtil;
 
 public class CampaignManager extends JFrame implements ActionListener, WindowListener
 {
+	private static final String ABOUT = "About...";
+
+	private static final String VIEW_UNITS = "ViewUnits";
+
+	private static final String VIEW_MAP = "ViewMap";
+
+	private static final String VIEW_PLAYERS = "ViewPlayers";
+
+	private static final String CREATE_RANDOM_GAME = "CreateRandomGame";
+
 	private static final long serialVersionUID = 1;
 	
-    private JDesktopPane m_MainPane = new JDesktopPane();
-    private InternalFrameManager m_FrameManager = new InternalFrameManager(this, m_MainPane);
+    private JDesktopPane _MainPane = new JDesktopPane();
+    private InternalFrameManager _FrameManager = new InternalFrameManager(this, _MainPane);
 
     // Declarations
     //
     // Panels
-    JScrollPane scrollpane;
-    JPanel panel1;
-    JPanel panel2;
+    JScrollPane _Scrollpane;
+    JPanel _Panel1;
+    JPanel _Panel2;
     // Main menubar
-    JMenuBar menuMain;
+    JMenuBar _MainMenu;
 
     // "File" menu
 //    JMenuItem menuitemNew;
     // "Help" menu
-    JMenuItem menuitemAbout;
+    JMenuItem _AboutMenuItem;
     // Main toolbar
-    JToolBar tbMain;
-    JButton buttonAbout;
-    ImageIcon iconAbout;
+    JToolBar _MainToolbar;
+    JButton _AboutButton;
+    ImageIcon _AboutIcon;
 
 
-    protected HashMap<String, JInternalFrame> m_SolarSystemFrames = new HashMap<String,JInternalFrame>();
+    protected HashMap<String, JInternalFrame> _SolarSystemFrames = new HashMap<String,JInternalFrame>();
 
 
     public CampaignManager()
@@ -106,20 +116,20 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
 
         setVisible(false);
         // Menu
-        menuMain = new JMenuBar();
-        setJMenuBar(menuMain);
-        menuAddItems(menuMain);
+        _MainMenu = new JMenuBar();
+        setJMenuBar(_MainMenu);
+        menuAddItems(_MainMenu);
         // Panels
 
         //m_MainPane.setOpaque(false);
 
-        m_MainPane.setDesktopManager(new DefaultDesktopManager());
-        getContentPane().add(m_MainPane,BorderLayout.CENTER);
+        _MainPane.setDesktopManager(new DefaultDesktopManager());
+        getContentPane().add(_MainPane,BorderLayout.CENTER);
 
 
-        panel2 = new JPanel(new FlowLayout(FlowLayout.LEFT,0,0));
-        getContentPane().add(BorderLayout.NORTH, panel2);
-        panel2.setBounds(0,0,475,30);
+        _Panel2 = new JPanel(new FlowLayout(FlowLayout.LEFT,0,0));
+        getContentPane().add(BorderLayout.NORTH, _Panel2);
+        _Panel2.setBounds(0,0,475,30);
 
 
         // Toolbar
@@ -138,7 +148,7 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
 
     protected void LoadCommonImages()
     {
-        iconAbout = new ImageIcon("images/about.gif");
+        _AboutIcon = new ImageIcon("images/about.gif");
     }
 
     protected void tbAddButtons(JToolBar toolbar) {
@@ -153,17 +163,17 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
         Dimension buttonsize = new Dimension(bounds.width,bounds.height);
 
         // About
-        buttonAbout = new JButton(iconAbout);
-        buttonAbout.setDefaultCapable(false);
-        buttonAbout.setToolTipText("Display program information");
-        buttonAbout.setMnemonic((int)'A');
-        toolbar.add(buttonAbout);
+        _AboutButton = new JButton(_AboutIcon);
+        _AboutButton.setDefaultCapable(false);
+        _AboutButton.setToolTipText("Display program information");
+        _AboutButton.setMnemonic((int)'A');
+        toolbar.add(_AboutButton);
         bounds.x += bounds.width;
-        buttonAbout.setBounds(bounds);
-        buttonAbout.setMinimumSize(buttonsize);
-        buttonAbout.setMaximumSize(buttonsize);
-        buttonAbout.setPreferredSize(buttonsize);
-        buttonAbout.setActionCommand("About...");
+        _AboutButton.setBounds(bounds);
+        _AboutButton.setMinimumSize(buttonsize);
+        _AboutButton.setMaximumSize(buttonsize);
+        _AboutButton.setPreferredSize(buttonsize);
+        _AboutButton.setActionCommand(ABOUT);
     }
 
     protected void menuAddItems(JMenuBar hmenu) {
@@ -180,7 +190,7 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
         // "View Players" item
         item = new JMenuItem("View Players");
         item.setHorizontalTextPosition(SwingConstants.RIGHT);
-        item.setActionCommand("ViewPlayers");
+        item.setActionCommand(VIEW_PLAYERS);
         item.setBorderPainted(false);
         item.setMnemonic( (int)'P');
         item.addActionListener(this);
@@ -189,7 +199,7 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
         // "View Units" item
         item = new JMenuItem("View Units");
         item.setHorizontalTextPosition(SwingConstants.RIGHT);
-        item.setActionCommand("ViewUnits");
+        item.setActionCommand(VIEW_UNITS);
         item.setBorderPainted(false);
         item.setMnemonic( (int)'U');
         item.addActionListener(this);
@@ -201,10 +211,18 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
         menu.setBorderPainted(false);
         menu.setMnemonic( (int)'T');
         hmenu.add(menu);
+        // "Create Random Game" item
+        item = new JMenuItem("Create Random Game");
+        item.setHorizontalTextPosition(SwingConstants.RIGHT);
+        item.setActionCommand(CREATE_RANDOM_GAME);
+        item.setBorderPainted(false);
+        item.setMnemonic( (int)'C');
+        item.addActionListener(this);
+        menu.add(item);
         // "View Map" item
         item = new JMenuItem("View Map");
         item.setHorizontalTextPosition(SwingConstants.RIGHT);
-        item.setActionCommand("ViewMap");
+        item.setActionCommand(VIEW_MAP);
         item.setBorderPainted(false);
         item.setMnemonic( (int)'M');
         item.addActionListener(this);
@@ -243,14 +261,14 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
         menu.setMnemonic((int)'H');
         hmenu.add(menu);
         // "About" item
-        menuitemAbout = new JMenuItem("About...");
-        menuitemAbout.setHorizontalTextPosition(SwingConstants.RIGHT);
-        menuitemAbout.setActionCommand("About...");
-        menuitemAbout.setBorderPainted(false);
-        menuitemAbout.setMnemonic((int)'A');
-        menuitemAbout.setIcon(iconAbout);
-        menuitemAbout.addActionListener(this);
-        menu.add(menuitemAbout);
+        _AboutMenuItem = new JMenuItem(ABOUT);
+        _AboutMenuItem.setHorizontalTextPosition(SwingConstants.RIGHT);
+        _AboutMenuItem.setActionCommand(ABOUT);
+        _AboutMenuItem.setBorderPainted(false);
+        _AboutMenuItem.setMnemonic((int)'A');
+        _AboutMenuItem.setIcon(_AboutIcon);
+        _AboutMenuItem.addActionListener(this);
+        menu.add(_AboutMenuItem);
     }
 
     static public void main(String args[])
@@ -345,7 +363,7 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
                 // User answered "Yes", so cleanup and exit
                 //
                 //Close all open Internal Frames
-                m_FrameManager.CloseInternalFrames();
+                _FrameManager.CloseInternalFrames();
 
                 // Hide the frame
                 this.setVisible(false);
@@ -364,20 +382,24 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
 	{
 		// TODO Auto-generated method stub
             String command = event.getActionCommand();
-            if (command=="About...") {
+            if (command==ABOUT) {
                 AboutApplication();
             }
-            if (command.equals("ViewUnits"))
+            if (command.equals(VIEW_UNITS))
             {
-                m_FrameManager.ShowUnitListFrame();
+                _FrameManager.ShowUnitListFrame();
             }		
-            if (command.equals("ViewMap"))
+            if (command.equals(VIEW_MAP))
             {
-                m_FrameManager.ShowFlatStarMapFrame();
+                _FrameManager.ShowFlatStarMapFrame();
             }		
-            if (command.equals("ViewPlayers"))
+            if (command.equals(VIEW_PLAYERS))
             {
-                m_FrameManager.ShowPlayerListFrame();
+                _FrameManager.ShowPlayerListFrame();
+            }		
+            if (command.equals(CREATE_RANDOM_GAME))
+            {
+                _FrameManager.ShowRandomGameFrame();
             }		
             if (command.equals("RandomGame"))
             {

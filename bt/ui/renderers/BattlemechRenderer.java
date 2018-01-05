@@ -33,6 +33,7 @@ import bt.elements.ItemMount;
 import bt.elements.ItemStatus;
 import bt.elements.SectionStatus;
 import bt.elements.design.BattlemechDesign;
+import bt.elements.personnel.Mechwarrior;
 import bt.ui.filters.TransparentColorFilter;
 import bt.util.ExceptionUtil;
 import bt.util.IndexedRectangle;
@@ -64,7 +65,7 @@ public class BattlemechRenderer
     private final int mediumDot = 10;
     private final int largeDot = 11;
     private final int extraLargeDot = 13;
-    private final int superLargeDot = 20;
+    private final int superLargeDot = 18;
 
     private BattlemechRenderer()
     {
@@ -117,12 +118,12 @@ public class BattlemechRenderer
     }
 
 
-    public BufferedImage RenderBattlemech(Battlemech mech)
+    public BufferedImage RenderBattlemech(Battlemech mech, Mechwarrior warrior)
     {
-    	return RenderBattlemech(mech, 1);
+    	return RenderBattlemech(mech, warrior, 1);
     }
     
-    public BufferedImage RenderBattlemech(Battlemech mech, double scale)
+    public BufferedImage RenderBattlemech(Battlemech mech, Mechwarrior warrior, double scale)
     {
         BufferedImage RenderedImage = copyImage(_MechDiagram, scale);
         if (mech == null) return RenderedImage;
@@ -228,7 +229,8 @@ public class BattlemechRenderer
 						g.drawRect(rect.x, rect.y, rect.width, rect.height);
 						g.drawLine(rect.x, rect.y, rect.x + rect.width, rect.y + rect.height);
 						g.drawLine(rect.x + rect.width, rect.y, rect.x, rect.y + rect.height);
-						Point p = new Point(rect.x, rect.y + (rect.height / 2));
+//						Point p = new Point(rect.x, rect.y + (rect.height / 2));
+						Point p = new Point(rect.x, rect.y - 2);
 						g.setFont(_LargeInformationFont);
 
         				drawInformation(g, status.getStatus().toString(), p, null);
@@ -277,6 +279,20 @@ public class BattlemechRenderer
         {
     		Point p = _NamedPoints.get("Life Support");
     		drawDotStatus(g, p.x, p.y, superLargeDot, ItemStatus.DESTROYED);
+        }
+        
+        if (warrior != null)
+        {
+            g.setFont(_LargeInformationFont);
+    		drawInformation(g, warrior.getName(), _NamedPoints.get("PilotName"), null);
+    		drawInformation(g, Integer.toString(warrior.getGunnerySkill()), _NamedPoints.get("GunnerySkill"), null);
+    		drawInformation(g, Integer.toString(warrior.getPilotingSkill()), _NamedPoints.get("PilotingSkill"), null);
+    		
+    		for (int i = 1; i <= Math.min(warrior.getHits(), 6); i++)
+    		{
+        		Point p = _NamedPoints.get("Pilot Hit-" + Integer.toString(i));
+        		drawDotStatus(g, p.x, p.y, superLargeDot, ItemStatus.DESTROYED);
+    		}
         }
         
         return RenderedImage;

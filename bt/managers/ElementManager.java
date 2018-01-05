@@ -41,7 +41,7 @@ public class ElementManager
     public static String GetElementName(ElementType et, long ElementID)
     {
         ElementManager em = GetInstance();
-        if (!em.m_ElementMap.containsKey(et.toString()))
+        if (!em.m_ElementMap.containsKey(et))
             return "";
 
         Vector<Element> v = em.m_ElementMap.get(et);
@@ -74,7 +74,7 @@ public class ElementManager
     public static int GetElementCount(ElementType et)
     {
         ElementManager em = GetInstance();
-        if (!em.m_ElementMap.containsKey(et.toString()))
+        if (!em.m_ElementMap.containsKey(et))
             return 0;
 
         Vector<Element> v = em.m_ElementMap.get(et);
@@ -84,7 +84,7 @@ public class ElementManager
     public static Element GetElement(ElementType et, int Index)
     {
         ElementManager em = GetInstance();
-        if (!em.m_ElementMap.containsKey(et.toString()))
+        if (!em.m_ElementMap.containsKey(et))
             return null;
 
         Vector<Element> v = em.m_ElementMap.get(et);

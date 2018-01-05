@@ -1,6 +1,7 @@
 package bt.ui.dialogs;
 
 import bt.elements.Battlemech;
+import bt.elements.personnel.Mechwarrior;
 import bt.ui.panels.BattlemechStatusPanel;
 
 import java.awt.BorderLayout;
@@ -30,12 +31,13 @@ public class BattlemechStatusDialog extends javax.swing.JDialog implements Actio
 	* Auto-generated main method to display this JDialog
 	*/
 		
-	public BattlemechStatusDialog(Frame frame, Battlemech mech) {
+	public BattlemechStatusDialog(Frame frame, Battlemech mech, Mechwarrior warrior) 
+	{
 		super(frame);
-		initGUI(mech);
+		initGUI(mech, warrior);
 	}
 	
-	private void initGUI(Battlemech mech) 
+	private void initGUI(Battlemech mech, Mechwarrior warrior) 
 	{
 		try 
 		{
@@ -63,7 +65,7 @@ public class BattlemechStatusDialog extends javax.swing.JDialog implements Actio
 				}
 			}
 			{
-				_BattlemechStatusPanel = new BattlemechStatusPanel(mech, 0.8);
+				_BattlemechStatusPanel = new BattlemechStatusPanel(mech, warrior, 0.8);
 				_ScrollPane = new JScrollPane(_BattlemechStatusPanel);
 				getContentPane().add(_ScrollPane, BorderLayout.CENTER);
 				_ScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);

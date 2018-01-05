@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 import bt.elements.Battlemech;
+import bt.elements.personnel.Mechwarrior;
 
 public class BattlemechStatusPanel extends JPanel 
 {
@@ -15,7 +16,7 @@ public class BattlemechStatusPanel extends JPanel
 	private BattlemechSectionStatusesPanel _SectionStatusesPanel;
 	private BattlemechStatusDiagramPanel _DiagramPanel;
 	
-	public BattlemechStatusPanel(Battlemech mech, double scale)
+	public BattlemechStatusPanel(Battlemech mech, Mechwarrior warrior, double scale)
 	{
 		setLayout(new BorderLayout());
 		
@@ -24,7 +25,7 @@ public class BattlemechStatusPanel extends JPanel
         JTabbedPane tabbedPane = new JTabbedPane();
         
         _SectionStatusesPanel = new BattlemechSectionStatusesPanel(mech);
-        _DiagramPanel = new BattlemechStatusDiagramPanel(mech, scale);
+        _DiagramPanel = new BattlemechStatusDiagramPanel(mech, warrior, scale);
         		
         tabbedPane.addTab("Sections", _SectionStatusesPanel);
         tabbedPane.addTab("Display", _DiagramPanel);

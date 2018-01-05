@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.util.Vector;
 
 
+
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
@@ -14,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import javax.swing.event.InternalFrameEvent;
 import javax.swing.event.InternalFrameListener;
+
 import bt.elements.galaxy.InnerSpherePlanet;
 import bt.elements.galaxy.SolarSystemDetails;
 import bt.elements.unit.Player;
@@ -27,6 +29,7 @@ import bt.ui.frames.FlatStarMapInternalFrame;
 import bt.ui.frames.PlanetInternalFrame;
 import bt.ui.frames.PlayerInternalFrame;
 import bt.ui.frames.PlayerListInternalFrame;
+import bt.ui.frames.RandomGameInternalFrame;
 import bt.ui.frames.UnitInternalFrame;
 import bt.ui.frames.UnitListInternalFrame;
 import bt.ui.listeners.PlayerChangeListener;
@@ -52,6 +55,7 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
     protected UnitListInternalFrame _UnitListFrame;
     private PlayerListInternalFrame _PlayerListFrame;
     private FlatStarMapInternalFrame _FlatStarMapFrame;
+    private RandomGameInternalFrame _RandomGameFrame;
     protected Vector<UnitInternalFrame> _UnitFrames = new Vector<UnitInternalFrame>();
     protected Vector<PlanetInternalFrame> _PlanetFrames = new Vector<PlanetInternalFrame>();
     private Vector<PlayerInternalFrame> _PlayerFrames = new Vector<PlayerInternalFrame>();
@@ -110,6 +114,27 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
         }
     }
     
+    public void ShowRandomGameFrame()
+    {
+        try
+        {
+            if (_RandomGameFrame == null)
+            {
+            	_RandomGameFrame = new RandomGameInternalFrame();
+                _DesktopPane.add(_RandomGameFrame);
+                _RandomGameFrame.setBounds(10, 10, 640, 480);
+                _RandomGameFrame.setVisible(true);
+                _RandomGameFrame.addInternalFrameListener(this);
+            }
+            _RandomGameFrame.toFront();
+        }
+        catch (Exception e)
+        {
+        	System.out.println("Failed to open Random Game Internal Frame");
+        	e.printStackTrace();
+        }
+    }
+    
     public void ShowFlatStarMapFrame()
     {
     	try
@@ -163,6 +188,11 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
         if (jif.equals(_PlayerListFrame))
         {
             _PlayerListFrame = null;
+        }
+        
+        if (jif.equals(_RandomGameFrame))
+        {
+        	_RandomGameFrame = null;
         }
         
         if (_UnitFrames.contains(jif))
@@ -348,6 +378,8 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
                 _PlayerListFrame.setClosed(true);
             if (_FlatStarMapFrame != null)
             	_FlatStarMapFrame.setClosed(true);
+            if (_RandomGameFrame != null)
+            	_RandomGameFrame.setClosed(true);
             
             for (int i = 0; i < _UnitFrames.size(); i++)
             {

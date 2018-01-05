@@ -641,6 +641,15 @@
 		<Point location="Sensors-1" x="430" y="1491" />
 		<Point location="Sensors-2" x="453" y="1491" />
 		<Point location="Life Support" x="453" y="1514" />
+		<Point location="PilotName" x="890" y="849" />
+		<Point location="GunnerySkill" x="940" y="875" />
+		<Point location="PilotingSkill" x="1090" y="875" />
+		<Point location="Pilot Hit-1" x="965" y="897" />
+		<Point location="Pilot Hit-2" x="1001" y="897" />
+		<Point location="Pilot Hit-3" x="1038" y="897" />
+		<Point location="Pilot Hit-4" x="1076" y="897" />
+		<Point location="Pilot Hit-5" x="1110" y="897" />
+		<Point location="Pilot Hit-6" x="1148" y="897" />
 	</NamedLocations>
 	<WeaponLocations>
 		<Point index="1" x="840" y="305" />

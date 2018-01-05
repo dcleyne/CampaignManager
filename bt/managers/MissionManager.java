@@ -34,6 +34,7 @@ import bt.elements.mapping.MapSheet;
 import bt.elements.missions.Mission;
 import bt.elements.missions.MissionMapSet;
 import bt.elements.missions.PlayerBriefing;
+import bt.elements.personnel.Mechwarrior;
 import bt.elements.personnel.Rating;
 import bt.elements.scenario.Scenario;
 import bt.elements.scenario.Season;
@@ -520,7 +521,7 @@ public class MissionManager
 		return element;
 	}
 
-	public void printScenarioToPDF(String folder, Unit scenarioUnit, int scenarioNumber, Scenario scenario) throws Exception
+	public String printScenarioToPDF(String folder, Unit scenarioUnit, int scenarioNumber, Scenario scenario) throws Exception
 	{
 		folder += "/" + scenarioUnit.getName() + "/Scenario " + Integer.toString(scenarioNumber) + "/";
 		
@@ -528,6 +529,7 @@ public class MissionManager
 		String filename = folder + "/Scenario.pdf";
 		
 		printScenarioToPDF(folder, scenarioUnit, scenario, filename);
+		return filename;
 	}
 	
 	public void printScenarioToPDF(String folder, Unit scenarioUnit, Scenario scenario, String filename) throws Exception
@@ -537,7 +539,7 @@ public class MissionManager
 			f.mkdirs();
 
 		f = new File(filename);
-		if (f.exists())
+		while (f.exists())
 			f.delete();
 		
 		com.itextpdf.text.Document document = new com.itextpdf.text.Document(PageSize.A4, 5, 5, 5, 5);
@@ -603,7 +605,8 @@ public class MissionManager
 			int elementID = 0;
 			for (Battlemech mech : u.getBattlemechs())				
 			{
-				image = BattlemechRenderer.getInstance().RenderBattlemech(mech);
+				Mechwarrior warrior = u.getMechwarriorAssignedToMech(mech.getIdentifier());
+				image = BattlemechRenderer.getInstance().RenderBattlemech(mech, warrior);
 				String mechFilename = folder + teamName + "Element " + Integer.toString(elementID) + ".png";
 				File mechFile = new File(mechFilename);
 		        ImageIO.write(image, "PNG", mechFile);
@@ -734,7 +737,8 @@ public class MissionManager
 			int elementID = 0;
 			for (Battlemech mech : u.getBattlemechs())				
 			{
-				image = BattlemechRenderer.getInstance().RenderBattlemech(mech);
+				Mechwarrior warrior = u.getMechwarriorAssignedToMech(mech.getIdentifier()); 
+				image = BattlemechRenderer.getInstance().RenderBattlemech(mech, warrior);
 				String mechFilename = folder + teamName + "Element " + Integer.toString(elementID) + ".png";
 		        ImageIO.write(image, "PNG", new File(mechFilename));
 		        
