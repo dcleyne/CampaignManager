@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Eras>
+	<Era Name="Age of War" ID="9" StartYear="2005" EndYear="2570" />
+	<Era Name="Star League" ID="10" StartYear="2571" EndYear="2780" />
+	<Era Name="Early Succession War" ID="11" StartYear="2781" EndYear="2900" />
+	<Era Name="Late Succession War - LosTech" ID="255" StartYear="2901" EndYear="3019" />
+	<Era Name="Late Succession War - Renaissance" ID="256" StartYear="3020" EndYear="3049" />
+	<Era Name="Clan Invasion" ID="13" StartYear="3050" EndYear="3061" />
+	<Era Name="Civil War" ID="247" StartYear="3062" EndYear="3067" />
+	<Era Name="Jihad" ID="14" StartYear="3068" EndYear="3085" />
+	<Era Name="Early Republic" ID="15" StartYear="3068" EndYear="3100" />
+	<Era Name="Late Republic" ID="254" StartYear="3101" EndYear="3130" />
+	<Era Name="Dark Ages" ID="16" StartYear="3131" EndYear="3999" />
+</Eras>

@@ -90,7 +90,7 @@ public class ExtractPlanetSummaryFromISAtlas
 	        	{
 	        		searchRemaining = false;
 	        		String url = "http://isatlas.teamspam.net/planet.php?func=browsebyletter&searchvalue=" + letter + "&start=" + Integer.toString(startValue);
-		        	String html = WebFile.getWebPageContent(url,Proxy,ProxyPort);
+		        	String html = WebFile.getWebPageContentAsString(url,Proxy,ProxyPort);
 		        	
 		        	int startIndex = html.indexOf("<table ");
 		        	if (startIndex != -1)

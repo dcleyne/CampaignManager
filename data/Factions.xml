@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Factions>
+	<Faction ID="5" Group="Inner Sphere" Name="Capellan Confederation" ErasAvailable="10,11,255,256,13,247,14,15,254,16"/>
+	<Faction ID="18" Group="Inner Sphere" Name="Comstar" ErasAvailable="11,255,256,13,247,14"/>
+	<Faction ID="27" Group="Inner Sphere" Name="Draconis Combine" ErasAvailable="10,11,255,256,13,247,14,15,254,16"/>
+	<Faction ID="84" Group="Inner Sphere" Name="Federated Commonwealth" ErasAvailable="13,247"/>
+	<Faction ID="29" Group="Inner Sphere" Name="Federated Suns" ErasAvailable="10,11,255,256,13,247,14,15,254,16"/>
+	<Faction ID="28" Group="Inner Sphere" Name="Free Rasalhague Republic" ErasAvailable="256,13,247,14"/>
+	<Faction ID="30" Group="Inner Sphere" Name="Free Worlds League" ErasAvailable="10,11,255,256,13,247,14,15,254,16"/>
+	<Faction ID="59" Group="Inner Sphere" Name="Free Worlds League (Duchy of Andurien)" ErasAvailable="14,15,254,16"/>
+	<Faction ID="74" Group="Inner Sphere" Name="Free Worlds League (Marik-Stewart Commonwealth)" ErasAvailable="14,15,254,16"/>
+	<Faction ID="67" Group="Inner Sphere" Name="Free Worlds League (Oriente Protectorate)" ErasAvailable="14,15,254,16"/>
+	<Faction ID="72" Group="Inner Sphere" Name="Free Worlds League (Regulan Fiefs)" ErasAvailable="14,15,254,16"/>
+	<Faction ID="76" Group="Inner Sphere" Name="Free Worlds League (Rim Commonality)" ErasAvailable="14,15,254,16"/>
+	<Faction ID="75" Group="Inner Sphere" Name="Free Worlds League (Tamarind-Abbey District)" ErasAvailable="14,15,254,16"/>
+	<Faction ID="55" Group="Inner Sphere" Name="Inner Sphere General" ErasAvailable="10,11,255,256,13,247,14,15,254,16"/>
+	<Faction ID="32" Group="Inner Sphere" Name="Lyran Alliance" ErasAvailable="13,247,14"/>
+	<Faction ID="60" Group="Inner Sphere" Name="Lyran Commonwealth" ErasAvailable="10,11,255,256,13,15,254,16"/>
+	<Faction ID="41" Group="Inner Sphere" Name="Republic of the Sphere" ErasAvailable="14,15,254,16"/>
+	<Faction ID="83" Group="Inner Sphere" Name="St. Ives Compact" ErasAvailable="256,13,247"/>
+	<Faction ID="87" Group="Inner Sphere" Name="Terran Hegemony" ErasAvailable="10"/>
+	<Faction ID="48" Group="Inner Sphere" Name="Word of Blake" ErasAvailable="13,247,14"/>
+	
+	<Faction ID="8" Group="IS Clan" Name="Clan Diamond Shark" ErasAvailable="13,247,14,15"/>
+	<Faction ID="11" Group="IS Clan" Name="Clan Ghost Bear" ErasAvailable="13,247,14"/>
+	<Faction ID="13" Group="IS Clan" Name="Clan Hell's Horses" ErasAvailable="13,247,14,15,254,16"/>
+	<Faction ID="15" Group="IS Clan" Name="Clan Jade Falcon" ErasAvailable="13,247,14,15,254,16"/>
+	<Faction ID="17" Group="IS Clan" Name="Clan Nova Cat" ErasAvailable="13,247,14,15,254,16"/>
+	<Faction ID="82" Group="IS Clan" Name="Clan Sea Fox" ErasAvailable="254,16"/>
+	<Faction ID="20" Group="IS Clan" Name="Clan Smoke Jaguar" ErasAvailable="13"/>
+	<Faction ID="21" Group="IS Clan" Name="Clan Snow Raven" ErasAvailable="13,247,14"/>
+	<Faction ID="24" Group="IS Clan" Name="Clan Wolf" ErasAvailable="13,247,14,15,254,16"/>
+	<Faction ID="23" Group="IS Clan" Name="Clan Wolf (in Exile)" ErasAvailable="13,247,14,15,254,16"/>
+	<Faction ID="56" Group="IS Clan" Name="IS Clan General" ErasAvailable="13,247,14,15,254,16"/>
+	<Faction ID="40" Group="IS Clan" Name="Rasalhague Dominion" ErasAvailable="15,254,16"/>
+	<Faction ID="39" Group="IS Clan" Name="Raven Alliance" ErasAvailable="15,254,16"/>
+
+	<Faction ID="2" Group="HW Clan" Name="Clan Blood Spirit" ErasAvailable="13,247,14"/>
+	<Faction ID="1" Group="HW Clan" Name="Clan Burrock" ErasAvailable="13,14"/>
+	<Faction ID="6" Group="HW Clan" Name="Clan Cloud Cobra" ErasAvailable="13,247,14"/>
+	<Faction ID="7" Group="HW Clan" Name="Clan Coyote" ErasAvailable="13,247,14"/>
+	<Faction ID="10" Group="HW Clan" Name="Clan Fire Mandrill" ErasAvailable="13,247,14"/>
+	<Faction ID="12" Group="HW Clan" Name="Clan Goliath Scorpion" ErasAvailable="13,247,14"/>
+	<Faction ID="14" Group="HW Clan" Name="Clan Ice Hellion" ErasAvailable="13,247,14"/>
+	<Faction ID="16" Group="HW Clan" Name="Clan Mongoose" ErasAvailable=""/>
+	<Faction ID="19" Group="HW Clan" Name="Clan Star Adder" ErasAvailable="13,247,14"/>
+	<Faction ID="22" Group="HW Clan" Name="Clan Steel Viper" ErasAvailable="13,247,14"/>
+	<Faction ID="80" Group="HW Clan" Name="Clan Stone Lion" ErasAvailable="14"/>
+	<Faction ID="25" Group="HW Clan" Name="Clan Widowmaker" ErasAvailable=""/>
+	<Faction ID="26" Group="HW Clan" Name="Clan Wolverine" ErasAvailable=""/>
+	<Faction ID="85" Group="HW Clan" Name="HW Clan General" ErasAvailable="13,247,14"/>
+	<Faction ID="86" Group="HW Clan" Name="Society" ErasAvailable="14"/>
+	
+	<Faction ID="78" Group="Periphery" Name="Calderon Protectorate" ErasAvailable="14,15,254,16"/>
+	<Faction ID="9" Group="Periphery" Name="Circinus Federation" ErasAvailable="255,256,13,247,14"/>
+	<Faction ID="77" Group="Periphery" Name="Filtvelt Coalition" ErasAvailable="14,15,254,16"/>
+	<Faction ID="33" Group="Periphery" Name="Magistracy of Canopus" ErasAvailable="10,11,255,256,13,247,14,15,254,16"/>
+	<Faction ID="35" Group="Periphery" Name="Marian Hegemony" ErasAvailable="256,13,247,14,15,254,16"/>
+	<Faction ID="36" Group="Periphery" Name="Outworlds Alliance" ErasAvailable="10,11,255,256,13,247"/>
+	<Faction ID="57" Group="Periphery" Name="Periphery General" ErasAvailable="10,11,255,256,13,247,14,15,254,16"/>
+	<Faction ID="38" Group="Periphery" Name="Pirates" ErasAvailable="10,11,255,256,13,247,14,15,254,16"/>
+	<Faction ID="42" Group="Periphery" Name="Rim Worlds Republic - Home Guard" ErasAvailable="10,11"/>
+	<Faction ID="88" Group="Periphery" Name="Rim Worlds Republic - Terran Corps" ErasAvailable="11"/>
+	<Faction ID="47" Group="Periphery" Name="Taurian Concordat" ErasAvailable="10,11,255,256,13,247,14,15,254,16"/>
+	
+	<Faction ID="31" Group="Mercenary" Name="Kell Hounds" ErasAvailable="256,13,247,14,15,254,16"/>
+	<Faction ID="34" Group="Mercenary" Name="Mercenary" ErasAvailable="10,11,255,256,13,247,14,15,254,16"/>
+	<Faction ID="49" Group="Mercenary" Name="Wolf's Dragoons" ErasAvailable="256,13,247,14,15,254,16"/>
+		
+	<Faction ID="3" Group="Other" Name="Extinct" ErasAvailable="256,13,247,14,15,254,16"/>
+	<Faction ID="44" Group="Other" Name="Solaris 7" ErasAvailable="256,13,247,14,15,254,16"/>
+	<Faction ID="46" Group="Other" Name="Star League (Second)" ErasAvailable="13,247"/>
+	<Faction ID="45" Group="Other" Name="Star League Regular" ErasAvailable="11"/>
+	<Faction ID="43" Group="Other" Name="Star League Royal" ErasAvailable="11"/>
+	<Faction ID="4" Group="Other" Name="Unique" ErasAvailable="10,11,255,256,13,247,14,15,254,16"/>
+</Factions>

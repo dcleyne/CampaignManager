@@ -168,7 +168,7 @@ public class RandomNameManager
 				while (_RandomNames.size() < _RandomNameThreshold)
 				{
 					System.out.println("Grabbing random names from : " + _RandomNameURL);
-		        	String html = WebFile.getWebPageContent(_RandomNameURL, "", 0);
+		        	String html = WebFile.getWebPageContentAsString(_RandomNameURL, "", 0);
 		            _RandomNames.addAll(parser.parseRandomNames(html));			
 		        }
 				

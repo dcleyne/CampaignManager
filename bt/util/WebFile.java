@@ -15,7 +15,7 @@ public final class WebFile
     private String charset   = null;
     private Object content   = null;
     
-    public static String getWebPageContent(String url, String proxyAddress, int proxyPort)
+    public static String getWebPageContentAsString(String url, String proxyAddress, int proxyPort)
     {
     	try
     	{
@@ -24,7 +24,10 @@ public final class WebFile
 		    Object content = file.getContent( );
 		    if ( MIME.equals( "text/html" ))
 		    {
-		        return new String((byte[])content,"utf-8");
+		    	if (content instanceof byte[])
+		    		return new String((byte[])content,"UTF-8");
+		    	else
+		    		return (String)content;
 		    }
     	}
     	catch (Exception ex)
@@ -33,7 +36,26 @@ public final class WebFile
     	}
 	    return "";
     }
- 
+
+    public static byte[] getWebPageContentAsByteArray(String url, String proxyAddress, int proxyPort) throws Exception
+    {
+    	try
+    	{
+		    WebFile file   = new WebFile(url,proxyAddress,proxyPort);
+		    String MIME    = file.getMIMEType( );
+		    Object content = file.getContent( );
+		    if ( !MIME.equals( "text/html" ))
+		    {
+		        return (byte[])content;
+		    }
+    	}
+    	catch (Exception ex)
+    	{
+    		throw ex;    		
+    	}
+	    return null;
+    }
+
     /** Open a web file. */
     public WebFile( String urlString , String proxyAddress, int proxyPort)
         throws java.net.MalformedURLException, java.io.IOException {
