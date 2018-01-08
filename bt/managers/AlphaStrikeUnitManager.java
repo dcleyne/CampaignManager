@@ -2,7 +2,10 @@ package bt.managers;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,6 +16,7 @@ import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
 import bt.elements.AlphaStrikeFaction;
+import bt.elements.AlphaStrikeUnitSummary;
 import bt.elements.Era;
 import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;
@@ -25,6 +29,7 @@ public class AlphaStrikeUnitManager
 	private ArrayList<Era> _Eras = new ArrayList<Era>();
 	private ArrayList<AlphaStrikeFaction> _Factions = new ArrayList<AlphaStrikeFaction>();
 	private HashMap<Integer,HashMap<Integer, ArrayList<Integer>>> _FactionEraUnitLinks = new HashMap<Integer,HashMap<Integer, ArrayList<Integer>>>();
+	private HashMap<Integer, AlphaStrikeUnitSummary> _UnitSummaries = new HashMap<Integer, AlphaStrikeUnitSummary>();
 
 	
 	public AlphaStrikeUnitManager()
@@ -32,6 +37,7 @@ public class AlphaStrikeUnitManager
 		loadEras();
 		loadFactions();
 		loadFactionEraUnits();
+		loadUnitSummaries();
 	}
 	
 	public List<Era> getEras()
@@ -47,6 +53,20 @@ public class AlphaStrikeUnitManager
 	public List<Integer> getFactionEraUnits(AlphaStrikeFaction faction, Era era)
 	{
 		return _FactionEraUnitLinks.get(faction.getID()).get(new Integer(era.getID()));
+	}
+	
+	public AlphaStrikeUnitSummary getUnitSummary(int id)
+	{
+		if (!_UnitSummaries.containsKey(id))
+		{
+			AlphaStrikeUnitSummary us = loadUnitSummary(id);
+			if (us != null)
+				_UnitSummaries.put(id, us);
+		}
+		if (_UnitSummaries.containsKey(id))
+			return _UnitSummaries.get(id);
+		
+		return null;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -116,6 +136,94 @@ public class AlphaStrikeUnitManager
 		}		
 	}
 
+	@SuppressWarnings("unchecked")
+	private void loadUnitSummaries()
+	{
+		_UnitSummaries.clear();
+		try
+		{
+			String Path = PropertyUtil.getStringProperty("ExternalDataPath", "data");
+	        File f = new File(Path + "/UnitSummaries.xml");
+	        if (f.exists())
+	        {
+	            SAXBuilder b = new SAXBuilder();
+	            Document playerDoc = b.build(f);
+	            Element root = playerDoc.getRootElement();
+	            List<Element> factionElements = root.getChildren("Unit");
+	            for (Element factionElement: factionElements)
+	            {
+	            	AlphaStrikeUnitSummary summary = new AlphaStrikeUnitSummary();
+	            	summary.setID(Integer.parseInt(factionElement.getAttributeValue("ID")));
+	            	summary.setName(factionElement.getAttributeValue("Name"));
+	            	summary.setType(factionElement.getAttributeValue("Type"));
+	            	summary.setBV(Integer.parseInt(factionElement.getAttributeValue("BV")));
+	            	summary.setWeight(Integer.parseInt(factionElement.getAttributeValue("Weight")));
+	            	summary.setCost(Long.parseLong(factionElement.getAttributeValue("Cost")));
+	            	summary.setIntro(factionElement.getAttributeValue("Introduction"));
+	            	summary.setRole(factionElement.getAttributeValue("Role"));
+	            	summary.setRulesLevel(factionElement.getAttributeValue("RulesLevel"));
+	            	summary.setTechnology(factionElement.getAttributeValue("Technology"));
+	            	
+	            	String pvString = factionElement.getAttributeValue("PV").replace("[", "").replace("]", "");
+	            	String[] pvs = pvString.split(",");
+	            	int index = 0;
+	            	if (pvs != null)
+	            	{
+		            	for (String pv : pvs)
+		            	{
+		            		if (!pv.isEmpty())
+		            		{
+		            			summary.setPV(Integer.parseInt(pv.trim()), index++);
+		            		}
+		            	}
+	            	}
+	            	_UnitSummaries.put(summary.getID(), summary);            	
+	            }
+	        }
+		}
+		catch (Exception ex)
+		{
+			System.out.println(ExceptionUtil.getExceptionStackTrace(ex));
+		}		
+	}
+	
+	public void saveUnitSummaries()
+	{
+		try
+		{
+			org.jdom.Document doc = new org.jdom.Document();
+	
+			org.jdom.Element unitsNode = new org.jdom.Element("Units");
+			doc.addContent(unitsNode);
+	
+			for (AlphaStrikeUnitSummary summary : _UnitSummaries.values())
+			{
+				org.jdom.Element unitNode = new org.jdom.Element("Unit");
+				unitsNode.addContent(unitNode);
+				
+				unitNode.setAttribute("ID", Integer.toString(summary.getID()));
+				unitNode.setAttribute("Name", summary.getName());
+				unitNode.setAttribute("Type", summary.getType());				
+				unitNode.setAttribute("BV", Integer.toString(summary.getBV()));
+				unitNode.setAttribute("Weight", Integer.toString(summary.getWeight()));
+				unitNode.setAttribute("Cost", Long.toString(summary.getWeight()));
+				unitNode.setAttribute("Introduction", summary.getIntro());
+				unitNode.setAttribute("Role", summary.getRole());				
+				unitNode.setAttribute("RulesLevel", summary.getRulesLevel());				
+				unitNode.setAttribute("Technology", summary.getTechnology());				
+				unitNode.setAttribute("PV",Arrays.toString(summary.getPVs()));				
+			}
+	
+			String fileName = PropertyUtil.getStringProperty("ExternalDataPath", "data") + "/UnitSummaries.xml";
+			XMLOutputter out = new XMLOutputter(Format.getPrettyFormat());
+			out.output(doc, new FileOutputStream(fileName));
+		}
+		catch (Exception ex)
+		{
+			System.out.println(ExceptionUtil.getExceptionStackTrace(ex));
+		}
+	}
+	
 	@SuppressWarnings("unchecked")
 	private void loadFactionEraUnits()
 	{
@@ -214,14 +322,16 @@ public class AlphaStrikeUnitManager
 		}
 	}
 
-	public static void getUnitStatsImages(String outputPath, int unitId) throws Exception
+	public void getUnitStatsImages(String outputPath, int unitId) throws Exception
 	{
 		getUnitStatsImage(outputPath, unitId, 4);
 		getUnitStatsImage(outputPath, unitId, 3);
 		getUnitStatsImage(outputPath, unitId, 2);
 		getUnitStatsImage(outputPath, unitId, 5);
 		getUnitStatsImage(outputPath, unitId, 1);
+		getUnitStatsImage(outputPath, unitId, 7);
 		getUnitStatsImage(outputPath, unitId, 6);
+		getUnitStatsImage(outputPath, unitId, 0);
 	}
 
 	
@@ -243,6 +353,142 @@ public class AlphaStrikeUnitManager
 		{
 			System.out.println(ExceptionUtil.getExceptionStackTrace(ex));
 		}
+	}
+	
+
+	private int getLowerSkillDecreaseValue(int pv)
+	{
+		if (pv < 15) return 1;
+		if (pv < 25) return 2;
+		if (pv < 35) return 3;
+		if (pv < 45) return 4;
+		if (pv < 55) return 5;
+		if (pv < 65) return 6;
+		if (pv < 75) return 7;
+		if (pv < 85) return 8;
+		if (pv < 95) return 9;
+		if (pv < 105) return 10;
+		
+		return 10 + ((pv - 105) / 10);
+	}
+
+	private int getHigherSkillIncreaseValue(int pv)
+	{
+		if (pv < 8) return 1;
+		if (pv < 13) return 2;
+		if (pv < 18) return 3;
+		if (pv < 23) return 4;
+		if (pv < 28) return 5;
+		if (pv < 33) return 6;
+		if (pv < 38) return 7;
+		if (pv < 43) return 8;
+		if (pv < 48) return 9;
+		if (pv < 53) return 10;
+		
+		return 10 + ((pv - 53) / 5);
+	}
+
+	private int getAlteredPV(int pv, int skill)
+	{
+		if (skill < 4)
+		{
+			int diff = 4 - skill;
+			return pv + (diff * getHigherSkillIncreaseValue(pv));
+		}
+		else if (skill > 4)
+		{		
+			int diff = skill - 4;
+			return pv - (diff * getLowerSkillDecreaseValue(pv));
+		}
+		return pv;
+	}
+	
+	private static String cellStart = "<td";
+	private void getSummaryPointsValues(AlphaStrikeUnitSummary summary) throws Exception
+	{
+		String url = _BaseUrl + "/Unit/Filter?Name=" + URLEncoder.encode(summary.getName(),"utf-8");
+		String content = WebFile.getWebPageContentAsString(url, "", 0);
+
+		String searchStart = "<td><a href=\"/Unit/Details/" + Integer.toString(summary.getID());
+		
+		int startIndex = content.indexOf(searchStart);
+		for (int i = 0; i < 4; i++)
+			startIndex = content.indexOf(cellStart, startIndex + 1);
+		
+		startIndex = content.indexOf(">", startIndex + 1);
+		int endIndex = content.indexOf("<", startIndex);
+		String subStr = content.substring(startIndex + 1, endIndex);
+		if (!subStr.isEmpty())
+		{
+			int pv = Integer.parseInt(subStr);
+			
+			for (int i = 0; i < 8; i++)
+				summary.setPV(getAlteredPV(pv, i), i);
+		}
+	}
+	
+	
+	private static String nameStart = "<h2>";
+	private static String nameEnd = "</h2>";
+	private static String tagStart = "<dd>";
+	private static String tagEnd = "</dd>";
+	private AlphaStrikeUnitSummary loadUnitSummary(int id)
+	{
+		AlphaStrikeUnitSummary summary = new AlphaStrikeUnitSummary();
+		summary.setID(id);
+		try
+		{
+		
+			String url = _BaseUrl + "/Unit/Details/" + Integer.toString(id);
+			String content = WebFile.getWebPageContentAsString(url, "", 0);
+	
+			int startIndex = content.indexOf(nameStart);
+			int endIndex = content.indexOf(nameEnd, startIndex);
+			String name = content.substring(startIndex + nameStart.length(), endIndex).trim();
+			summary.setName(URLDecoder.decode(name, "utf-8"));
+			
+			startIndex = content.indexOf(tagStart, endIndex);
+			endIndex = content.indexOf(tagEnd, startIndex);
+			summary.setWeight(Integer.parseInt(content.substring(startIndex + tagStart.length(), endIndex).replace(",", "")));
+			
+			startIndex = content.indexOf(tagStart, endIndex);
+			endIndex = content.indexOf(tagEnd, startIndex);
+			summary.setBV(Integer.parseInt(content.substring(startIndex + tagStart.length(), endIndex).replace(",", "").replace("NA", "0")));
+			
+			startIndex = content.indexOf(tagStart, endIndex);
+			endIndex = content.indexOf(tagEnd, startIndex);
+			summary.setCost(Long.parseLong(content.substring(startIndex + tagStart.length(), endIndex).replace(",", "").replace("NA", "0")));
+	
+			startIndex = content.indexOf(tagStart, endIndex);
+			endIndex = content.indexOf(tagEnd, startIndex);
+			summary.setRulesLevel(content.substring(startIndex + tagStart.length(), endIndex));
+	
+			startIndex = content.indexOf(tagStart, endIndex);
+			endIndex = content.indexOf(tagEnd, startIndex);
+			summary.setTechnology(content.substring(startIndex + tagStart.length(), endIndex));
+	
+			startIndex = content.indexOf(tagStart, endIndex);
+			endIndex = content.indexOf(tagEnd, startIndex);
+			summary.setType(content.substring(startIndex + tagStart.length(), endIndex));
+	
+			startIndex = content.indexOf(tagStart, endIndex);
+			endIndex = content.indexOf(tagEnd, startIndex);
+			summary.setRole(content.substring(startIndex + tagStart.length(), endIndex));
+	
+			startIndex = content.indexOf(tagStart, endIndex);
+			endIndex = content.indexOf(tagEnd, startIndex);
+			summary.setIntro(content.substring(startIndex + tagStart.length(), endIndex));
+			
+			getSummaryPointsValues(summary);
+
+			return summary;
+		}
+		catch (Exception ex)
+		{
+			System.out.println("Failed to load: " + summary.toString());
+			System.out.println(ExceptionUtil.getExceptionStackTrace(ex));
+		}
+		return null;
 	}
 	
 	public void buildFactionEraUnitLinks()
@@ -295,13 +541,30 @@ public class AlphaStrikeUnitManager
 	{
 		try
 		{
-			AlphaStrikeUnitManager asum = new AlphaStrikeUnitManager();
-			
-			List<Integer> units = asum.getFactionEraUnits(asum.getFactions().get(0), asum.getEras().get(1));
-			for (Integer i : units)
-			{
-				System.out.println(i);
-			}
+	        PropertyUtil.loadSystemProperties("bt/system.properties");
+
+	        AlphaStrikeUnitManager asum = new AlphaStrikeUnitManager();
+
+	        for (AlphaStrikeFaction faction : asum.getFactions())
+	        {
+	        	System.out.println(faction);
+	        	
+	        	for (Era era : asum.getEras())
+	        	{
+	        		if (!asum._FactionEraUnitLinks.get(faction.getID()).containsKey(era.getID()))
+	        			continue;
+	        			
+		        	System.out.println(era);
+	        		
+		        	for (int unitId : asum._FactionEraUnitLinks.get(faction.getID()).get(era.getID()))
+		        	{
+		    			AlphaStrikeUnitSummary summary = asum.getUnitSummary(unitId);
+		    			if (summary != null)
+		    				System.out.println(summary);
+		        	}
+					asum.saveUnitSummaries();
+	        	}
+	        }
 		}
 		catch (Exception ex)
 		{

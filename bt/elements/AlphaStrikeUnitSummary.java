@@ -1,16 +1,20 @@
 package bt.elements;
 
+import java.util.Arrays;
+
 public class AlphaStrikeUnitSummary
 {
 	private int _ID;
-	private String _Type;
-	private String _Name;
+	private String _Type = "";
+	private String _Name = "";
 	private int _BV;
-	private int _PV;
+	private int[] _PV = new int[8];
 	private int _Weight;
-	private int _Era;
-	private int _Intro;
-	private String _Role;
+	private long _Cost;
+	private String _Intro = "";
+	private String _Role = "";
+	private String _RulesLevel = "";
+	private String _Technology = "";
 	
 	public int getID()
 	{
@@ -44,13 +48,17 @@ public class AlphaStrikeUnitSummary
 	{
 		_BV = bv;
 	}
-	public int getPV()
+	public int getPV(int skill)
+	{
+		return _PV[skill];
+	}
+	public int[] getPVs()
 	{
 		return _PV;
 	}
-	public void setPV(int pv)
+	public void setPV(int pv, int skill)
 	{
-		_PV = pv;
+		_PV[skill] = pv;
 	}
 	public int getWeight()
 	{
@@ -60,19 +68,19 @@ public class AlphaStrikeUnitSummary
 	{
 		_Weight = weight;
 	}
-	public int getEra()
+	public long getCost()
 	{
-		return _Era;
+		return _Cost;
 	}
-	public void setEra(int era)
+	public void setCost(long cost)
 	{
-		_Era = era;
+		_Cost = cost;
 	}
-	public int getIntro()
+	public String getIntro()
 	{
 		return _Intro;
 	}
-	public void setIntro(int intro)
+	public void setIntro(String intro)
 	{
 		_Intro = intro;
 	}
@@ -83,6 +91,42 @@ public class AlphaStrikeUnitSummary
 	public void setRole(String role)
 	{
 		_Role = role;
+	}
+	public String getRulesLevel()
+	{
+		return _RulesLevel;
+	}
+	public void setRulesLevel(String rulesLevel)
+	{
+		_RulesLevel = rulesLevel;
+	}
+	public String getTechnology()
+	{
+		return _Technology;
+	}
+	public void setTechnology(String technology)
+	{
+		_Technology = technology;
+	}
+	
+	@Override
+	public String toString()
+	{
+		StringBuilder sb = new StringBuilder(_Name);
+		
+		sb.append("(");
+		sb.append(_ID);
+		sb.append(") ");
+		
+		sb.append(_Role);
+		sb.append(" ");
+		
+		sb.append(_Type);
+		sb.append(" ");
+
+		sb.append(Arrays.toString(_PV));
+
+		return sb.toString();
 	}
 	
 }
