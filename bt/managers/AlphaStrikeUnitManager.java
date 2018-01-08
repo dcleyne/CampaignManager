@@ -1,9 +1,9 @@
 package bt.managers;
 
 import java.io.File;
+
 import java.io.FileOutputStream;
 import java.net.URLDecoder;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -59,6 +59,7 @@ public class AlphaStrikeUnitManager
 	{
 		if (!_UnitSummaries.containsKey(id))
 		{
+			System.out.println("Loading unit (" + Integer.toString(id) + ")");
 			AlphaStrikeUnitSummary us = loadUnitSummary(id);
 			if (us != null)
 				_UnitSummaries.put(id, us);
@@ -406,7 +407,11 @@ public class AlphaStrikeUnitManager
 	private static String cellStart = "<td";
 	private void getSummaryPointsValues(AlphaStrikeUnitSummary summary) throws Exception
 	{
-		String url = _BaseUrl + "/Unit/Filter?Name=" + URLEncoder.encode(summary.getName(),"utf-8");
+		String name = summary.getName().replace(" ", "+");
+		name = name.replace("<", "&lt;");
+		name = name.replace(">", "&gt;");
+
+		String url = _BaseUrl + "/Unit/Filter?Name=" + name;
 		String content = WebFile.getWebPageContentAsString(url, "", 0);
 
 		String searchStart = "<td><a href=\"/Unit/Details/" + Integer.toString(summary.getID());
@@ -417,7 +422,7 @@ public class AlphaStrikeUnitManager
 		
 		startIndex = content.indexOf(">", startIndex + 1);
 		int endIndex = content.indexOf("<", startIndex);
-		String subStr = content.substring(startIndex + 1, endIndex);
+		String subStr = content.substring(startIndex + 1, endIndex).replace(",", "").replace("\n", "");
 		if (!subStr.isEmpty())
 		{
 			int pv = Integer.parseInt(subStr);
@@ -445,11 +450,18 @@ public class AlphaStrikeUnitManager
 			int startIndex = content.indexOf(nameStart);
 			int endIndex = content.indexOf(nameEnd, startIndex);
 			String name = content.substring(startIndex + nameStart.length(), endIndex).trim();
-			summary.setName(URLDecoder.decode(name, "utf-8"));
+			name = URLDecoder.decode(name, "utf-8");
+			name = name.replace("&quot;", "\"");
+			name = name.replace("&#39;", "'");
+			name = name.replace("&#39;", "'");
+			name = name.replace("&lt;", "<");
+			name = name.replace("&gt;", ">");
+			name = name.replace("G&#249;", "gù");
+			summary.setName(name);
 			
 			startIndex = content.indexOf(tagStart, endIndex);
 			endIndex = content.indexOf(tagEnd, startIndex);
-			summary.setWeight(Integer.parseInt(content.substring(startIndex + tagStart.length(), endIndex).replace(",", "")));
+			summary.setWeight(Integer.parseInt(content.substring(startIndex + tagStart.length(), endIndex).replace(",", "").replace("NA", "0")));
 			
 			startIndex = content.indexOf(tagStart, endIndex);
 			endIndex = content.indexOf(tagEnd, startIndex);
@@ -554,17 +566,17 @@ public class AlphaStrikeUnitManager
 	        		if (!asum._FactionEraUnitLinks.get(faction.getID()).containsKey(era.getID()))
 	        			continue;
 	        			
-		        	System.out.println(era);
+		        	System.out.println("    " + era);
 	        		
 		        	for (int unitId : asum._FactionEraUnitLinks.get(faction.getID()).get(era.getID()))
 		        	{
-		    			AlphaStrikeUnitSummary summary = asum.getUnitSummary(unitId);
-		    			if (summary != null)
-		    				System.out.println(summary);
+		    			asum.getUnitSummary(unitId);
 		        	}
-					asum.saveUnitSummaries();
 	        	}
 	        }
+			asum.saveUnitSummaries();
+//			AlphaStrikeUnitSummary summary = asum.getUnitSummary(1674);
+//			System.out.println(summary);	        
 		}
 		catch (Exception ex)
 		{
