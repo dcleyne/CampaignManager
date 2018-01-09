@@ -432,6 +432,15 @@ public class AlphaStrikeUnitManager
 		return pv;
 	}
 	
+	public String getPVList(int pv)
+	{
+		int[] pvs = new int[8];
+		for (int i = 0; i < 8; i++)
+			pvs[i] = getAlteredPV(pv, i);
+		
+		return Arrays.toString(pvs);
+	}
+	
 	private static String cellStart = "<td";
 	private void getSummaryPointsValues(AlphaStrikeUnitSummary summary) throws Exception
 	{
@@ -575,6 +584,28 @@ public class AlphaStrikeUnitManager
 		}
 	}
 	
+	public void scrapeUnitSummaries()
+	{
+        for (AlphaStrikeFaction faction : getFactions())
+        {
+        	System.out.println(faction);
+        	
+        	for (Era era : getEras())
+        	{
+        		if (!_FactionEraUnitLinks.get(faction.getID()).containsKey(era.getID()))
+        			continue;
+        			
+	        	System.out.println("    " + era);
+        		
+	        	for (int unitId : _FactionEraUnitLinks.get(faction.getID()).get(era.getID()))
+	        	{
+	    			getUnitSummary(unitId);
+	        	}
+        	}
+        }
+		saveUnitSummaries();
+	}
+	
 	public static void main(String[] args) 
 	{
 		try
@@ -582,27 +613,10 @@ public class AlphaStrikeUnitManager
 	        PropertyUtil.loadSystemProperties("bt/system.properties");
 
 	        AlphaStrikeUnitManager asum = new AlphaStrikeUnitManager();
-
-	        
-	        for (AlphaStrikeFaction faction : asum.getFactions())
-	        {
-	        	System.out.println(faction);
-	        	
-	        	for (Era era : asum.getEras())
-	        	{
-	        		if (!asum._FactionEraUnitLinks.get(faction.getID()).containsKey(era.getID()))
-	        			continue;
-	        			
-		        	System.out.println("    " + era);
-	        		
-		        	for (int unitId : asum._FactionEraUnitLinks.get(faction.getID()).get(era.getID()))
-		        	{
-		    			asum.getUnitSummary(unitId);
-		        	}
-					asum.saveUnitSummaries();
-	        	}
-	        }
-	        
+			
+	        asum.scrapeUnitSummaries();
+	        //System.out.println(asum.getPVList(66));
+			
 //			AlphaStrikeUnitSummary summary = asum.getUnitSummary(5783);
 //			System.out.println(summary);	 			
 		}
