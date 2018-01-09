@@ -258,12 +258,17 @@ public class AlphaStrikeUnitManager
                 	}
                 	ArrayList<Integer> units = eraMap.get(eraID);
                 	
-                    List<Element> unitElements = eraElement.getChildren("Unit");
-                    for (Element unitElement: unitElements)
+                    Element unitElement = eraElement.getChild("Units");
+                    String[] unitStrings = unitElement.getValue().split(",");
+                    for (String unitString : unitStrings)
                     {
-                    	Integer unitID = Integer.parseInt(unitElement.getAttributeValue("ID"));
-                    	if (!units.contains(unitID))
-                    		units.add(unitID);
+                    	unitString = unitString.trim();
+                    	if (!unitString.isEmpty())
+                    	{
+	                    	Integer unitID = Integer.parseInt(unitString);
+	                    	if (!units.contains(unitID))
+	                    		units.add(unitID);
+                    	}
                     }
                 }
             }
@@ -282,18 +287,41 @@ public class AlphaStrikeUnitManager
 		ArrayList<Integer> units = new ArrayList<Integer>();
 
 		String url = _BaseUrl + "/Era/FactionEraDetails?FactionId=" + Integer.toString(faction) + "&EraId=" + Integer.toString(era);
-		String content = WebFile.getWebPageContentAsString(url, "", 0);
-		
-		for (String tabDiv : tabDivNames)
+
+		boolean successful = false;
+		while (!successful)
 		{
-			int startIndex = content.indexOf(tabDiv);
-			if (startIndex == -1)
-				continue;
-			int endIndex = content.indexOf(divTagString, startIndex);
-			
-			String chunk = content.substring(startIndex, endIndex);
-			processUnitChunks(chunk, units);
+			successful = true;
+
+			try
+			{
+				String content = WebFile.getWebPageContentAsString(url, "", 0);
 				
+				for (String tabDiv : tabDivNames)
+				{
+					//This is the tab declaration
+					int startIndex = content.indexOf(tabDiv);
+					if (startIndex == -1)
+						continue;
+		
+					//This is the table
+					startIndex = content.indexOf(tabDiv, startIndex + 1);
+					if (startIndex == -1)
+						continue;
+		
+					int endIndex = content.indexOf(divTagString, startIndex);
+					
+					String chunk = content.substring(startIndex, endIndex);
+					processUnitChunks(chunk, units);
+						
+				}
+			}
+			catch (Exception ex)
+			{
+				System.out.println(url + " - Failed. Trying again");
+				successful = false;
+				units.clear();
+			}
 		}
 		
 		return units;
@@ -409,13 +437,14 @@ public class AlphaStrikeUnitManager
 	{
 		String name = summary.getName().replace(" ", "+");
 		name = name.replace("<", "&lt;");
-		name = name.replace(">", "&gt;");
+		name = name.replace(">", "&gt;");		
+		if (name.indexOf("“") > -1)
+			name = name.substring(0, name.indexOf("“"));
 
 		String url = _BaseUrl + "/Unit/Filter?Name=" + name;
 		String content = WebFile.getWebPageContentAsString(url, "", 0);
 
 		String searchStart = "<td><a href=\"/Unit/Details/" + Integer.toString(summary.getID());
-		
 		int startIndex = content.indexOf(searchStart);
 		for (int i = 0; i < 4; i++)
 			startIndex = content.indexOf(cellStart, startIndex + 1);
@@ -529,12 +558,9 @@ public class AlphaStrikeUnitManager
 					factionElement.addContent(eraElement);
 					
 					ArrayList<Integer> units = scrapeFactionEraUnitLinks(faction.getID(), era);
-					for (Integer unit: units)
-					{
-						org.jdom.Element unitElement = new org.jdom.Element("Unit");
-						unitElement.setAttribute("ID",unit.toString());
-						eraElement.addContent(unitElement);					
-					}
+					org.jdom.Element unitsElement = new org.jdom.Element("Units");
+					unitsElement.setText(units.toString().replace("[", "").replace("]", ""));
+					eraElement.addContent(unitsElement);
 				}
 				System.out.println();
 			}
@@ -557,6 +583,7 @@ public class AlphaStrikeUnitManager
 
 	        AlphaStrikeUnitManager asum = new AlphaStrikeUnitManager();
 
+	        
 	        for (AlphaStrikeFaction faction : asum.getFactions())
 	        {
 	        	System.out.println(faction);
@@ -572,11 +599,12 @@ public class AlphaStrikeUnitManager
 		        	{
 		    			asum.getUnitSummary(unitId);
 		        	}
+					asum.saveUnitSummaries();
 	        	}
 	        }
-			asum.saveUnitSummaries();
-//			AlphaStrikeUnitSummary summary = asum.getUnitSummary(1674);
-//			System.out.println(summary);	        
+	        
+//			AlphaStrikeUnitSummary summary = asum.getUnitSummary(5783);
+//			System.out.println(summary);	 			
 		}
 		catch (Exception ex)
 		{
