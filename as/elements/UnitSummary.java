@@ -1,8 +1,8 @@
-package bt.elements;
+package as.elements;
 
 import java.util.Arrays;
 
-public class AlphaStrikeUnitSummary
+public class UnitSummary
 {
 	private int _ID;
 	private String _Type = "";

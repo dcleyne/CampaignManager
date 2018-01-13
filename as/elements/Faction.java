@@ -1,9 +1,9 @@
-package bt.elements;
+package as.elements;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlphaStrikeFaction
+public class Faction
 {
 	private int _ID;
 	private String _Group;

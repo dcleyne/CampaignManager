@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SquadTemplates>
+	<Battlemech>
+		<!--  Light Mech Lance -->
+		<Lance Key="L1" MinWeight="95" MaxWeight="120" HalfLrms="True" AllJump="True" />
+		<Lance Key="L2" MinWeight="0" MaxWeight="90" HalfLrms="False" AllJump="True" />
+		<Lance Key="L3" MinWeight="95" MaxWeight="120" HalfLrms="False" AllJump="True" />
+		<Lance Key="L4" MinWeight="95" MaxWeight="110" HalfLrms="False" AllJump="False" />
+		<!--  Medium Mech Lance -->
+		<Lance Key="M1" MinWeight="185" MaxWeight="200" HalfLrms="True" AllJump="True" />
+		<Lance Key="M2" MinWeight="165" MaxWeight="180" HalfLrms="False" AllJump="False" />
+		<Lance Key="M3" MinWeight="165" MaxWeight="180" HalfLrms="False" AllJump="True" />
+		<Lance Key="M4" MinWeight="150" MaxWeight="160" HalfLrms="False" AllJump="True" />
+		<Lance Key="M5" MinWeight="135" MaxWeight="145" HalfLrms="False" AllJump="True" />
+		<Lance Key="M6" MinWeight="185" MaxWeight="200" HalfLrms="False" AllJump="False" />
+		<!--  Heavy Mech Lance -->
+		<Lance Key="H1" MinWeight="205" MaxWeight="260" HalfLrms="True" AllJump="False" />
+		<Lance Key="H2" MinWeight="235" MaxWeight="250" HalfLrms="False" AllJump="False" />
+		<Lance Key="H3" MinWeight="205" MaxWeight="230" HalfLrms="False" AllJump="True" />
+		<Lance Key="H4" MinWeight="255" MaxWeight="280" HalfLrms="False" AllJump="False" />
+		<Lance Key="H5" MinWeight="235" MaxWeight="250" HalfLrms="False" AllJump="False" />
+		<!--  Assault Mech Lance -->
+		<Lance Key="A1" MinWeight=305" MaxWeight="320" HalfLrms="False" AllJump="False" />
+		<Lance Key="A2" MinWeight=325" MaxWeight="350" HalfLrms="False" AllJump="False" />
+		<Lance Key="A3" MinWeight=285" MaxWeight="300" HalfLrms="False" AllJump="False" />
+	</Battlemech>
+	<Aerospace>
+		<!--  Light Aerospace Lance -->
+		<Lance Key="L1" MinWeight=0" MaxWeight="50"/>
+		<Lance Key="L2" MinWeight=55" MaxWeight="70"/>
+		<!--  Medium Aerospace Lance -->
+		<Lance Key="M1" MinWeight=75" MaxWeight="110"/>
+		<Lance Key="M2" MinWeight=75" MaxWeight="130"/>
+		<!--  Heavy Aerospace Lance -->
+		<Lance Key="H1" MinWeight=135" MaxWeight="160"/>
+		<Lance Key="H2" MinWeight=165" MaxWeight="200"/>
+	</Aerospace>
+	<Artillery>
+		<Platoon Key="Ar1" Type="Long Tom" />
+		<Platoon Key="Ar2" Type="Sniper" />
+	</Artillery>
+	<Vehicle>
+		<Platoon Key="V1" MinWeight="0" MaxWeight="400" MovementModeRestriction="None" Unarmoured="True" Unarmed="True"/>
+		<Platoon Key="V2" MinWeight="0" MaxWeight="400" MovementModeRestriction="None" Unarmoured="True" Unarmed="True"/>
+		<Platoon Key="V3" MinWeight="300" MaxWeight="400" MovementModeRestriction="Tracked" Unarmoured="False" Unarmed="False"/>
+		<Platoon Key="V4" MinWeight="205" MaxWeight="300" MovementModeRestriction="Tracked" Unarmoured="False" Unarmed="False"/>
+		<Platoon Key="V5" MinWeight="115" MaxWeight="200" MovementModeRestriction="Tracked" Unarmoured="False" Unarmed="False"/>
+		<Platoon Key="V6" MinWeight="80" MaxWeight="200" MovementModeRestriction="Hover" Unarmoured="False" Unarmed="False"/>
+		<Platoon Key="V7" MinWeight="80" MaxWeight="150" MovementModeRestriction="Tracked" Unarmoured="False" Unarmed="False"/>
+		<Platoon Key="V8" MinWeight="80" MaxWeight="100" MovementModeRestriction="Wheeled" Unarmoured="False" Unarmed="False"/>
+	</Vehicle>
+	<Infantry>
+		<Platoon Key="I1" Types="Rifle,MG" MovementMode="Foot" />
+		<Platoon Key="I2" Types="Laser,SRM" MovementMode="Foot" />
+		<Platoon Key="I3" Types="Rifle,MG" MovementMode="Motorized" />
+		<Platoon Key="I4" Types="Rifle,MG" MovementMode="Jump" />
+	</Infantry>
+</SquadTemplates>
