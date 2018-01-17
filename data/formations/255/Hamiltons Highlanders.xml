@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Formation Name="Hamilton's Highlanders" Commander="Colonel Jasime LeSalle" Homeworld="Tikonov" Quality="Regular">
+	<Formation Name="Regimental Battlegroup" Homeworld="Tikonov" Quality="Regular">
+		<Element Type="M4" Quality="Veteran" />
+		<Element Type="H4" Quality="Veteran" />
+		<Element Type="V1" Quality="Green" />
+		<Element Type="V1" Quality="Green" />
+		<Element Type="V2" Quality="Regular" />
+		<Element Type="V2" Quality="Regular" />
+		<Element Type="Ar1" Quality="Veteran" />
+		<Element Type="Ar1" Quality="Regular" />
+		<Element Type="Ar1" Quality="Veteran" />
+	</Formation>
+	<Formation Name="Support Battalion" Quality="Veteran">
+		<Formation Name="Headquarters" Quality="Veteran" >
+			<Element Type="V8" Quality="Elite" />
+		</Formation>
+		<Formation Name="Recon Company" Quality="Veteran" >
+			<Element Type="V7" Quality="Elite" />
+			<Element Type="V8" Quality="Veteran" />
+			<Element Type="V8" Quality="Veteran" />
+		</Formation>
+		<Formation Name="Security Company" Quality="Elite" >
+			<Element Type="V6" Quality="Elite" />
+			<Element Type="I2" Quality="Elite" />
+			<Element Type="I4" Quality="Veteran" />
+		</Formation>
+		<Formation Name="Light Armour Company" Quality="Veteran" >
+			<Element Type="V6" Quality="Veteran" />
+			<Element Type="V7" Quality="Veteran" />
+			<Element Type="V7" Quality="Elite" />
+		</Formation>		
+	</Formation>
+	<Formation Name="1st Battalion" Quality="Elite">
+		<Formation Name="Headquarters" Quality="Elite" >
+			<Element Type="M6" Quality="Elite" />
+		</Formation>
+		<Formation Name="1st Company" Quality="Elite" >
+			<Element Type="M2" Quality="Elite" />
+			<Element Type="M4" Quality="Elite" />
+			<Element Type="M6" Quality="Veteran" />
+		</Formation>
+		<Formation Name="2nd Company" Quality="Regular" >
+			<Element Type="M3" Quality="Regular" />
+			<Element Type="M4" Quality="Regular" />
+			<Element Type="M6" Quality="Veteran" />
+		</Formation>
+		<Formation Name="3rd Company" Quality="Elite" >
+			<Element Type="M1" Quality="Elite" />
+			<Element Type="M4" Quality="Elite" />
+			<Element Type="M6" Quality="Elite" />
+		</Formation>		
+	</Formation>
+	<Formation Name="2nd Battalion" Quality="Veteran">
+		<Formation Name="Headquarters" Quality="Elite" >
+			<Element Type="M6" Quality="Elite" />
+		</Formation>
+		<Formation Name="1st Company" Quality="Elite" >
+			<Element Type="M2" Quality="Elite" />
+			<Element Type="M4" Quality="Veteran" />
+			<Element Type="M5" Quality="Veteran" />
+		</Formation>
+		<Formation Name="2nd Company" Quality="Veteran" >
+			<Element Type="M2" Quality="Veteran" />
+			<Element Type="M2" Quality="Veteran" />
+			<Element Type="M3" Quality="Regular" />
+		</Formation>
+		<Formation Name="3rd Company" Quality="Veteran" >
+			<Element Type="L1" Quality="Elite" />
+			<Element Type="L2" Quality="Veteran" />
+			<Element Type="L3" Quality="Veteran" />
+		</Formation>		
+	</Formation>		
+</Formation>
