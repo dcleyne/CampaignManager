@@ -55,11 +55,11 @@ public class ElementTableModel extends AbstractTableModel
             case 0:
                 return e.GetName();
             case 1:
-                return new Double(e.GetCost());
+                return e.GetCost();
             case 2:
-                return new Double(e.GetSupportRequirement());
+                return e.GetSupportRequirement();
             case 3:
-                return new Double(e.GetCrewCompliment());
+                return e.GetCrewCompliment();
             default:
                 return "Unknown Column";
         }

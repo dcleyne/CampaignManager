@@ -348,8 +348,7 @@ public class InternalFrameManager implements InternalFrameListener, SolarSystemM
     	}
     	else
     	{
-    		Long planetID = new Long(isp.getID());
-    		_PlanetRequests.add(planetID);
+    		_PlanetRequests.add(isp.getID());
     	}
 		
 	}

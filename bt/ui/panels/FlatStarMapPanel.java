@@ -160,7 +160,7 @@ public class FlatStarMapPanel extends JPanel  implements ActionListener, MouseLi
         Cursor OldCur = getCursor();
         setCursor(new Cursor(Cursor.WAIT_CURSOR));
 
-        if ((e.getModifiers() & InputEvent.BUTTON1_MASK) > 0)
+        if ((e.getModifiersEx() & InputEvent.BUTTON1_DOWN_MASK) > 0)
         {
             try
             {
@@ -184,14 +184,14 @@ public class FlatStarMapPanel extends JPanel  implements ActionListener, MouseLi
     }
     public void mouseReleased(MouseEvent e)
     {
-        if ((e.getModifiers() & InputEvent.BUTTON1_MASK) > 0)
+        if ((e.getModifiersEx() & InputEvent.BUTTON1_DOWN_MASK) > 0)
         {
             try
             {
                 int index = m_Map.GetSystemIndex(e.getPoint());
                 if (index != -1)
                 {
-                    if ((e.getModifiers() & InputEvent.CTRL_MASK) > 0)
+                    if ((e.getModifiersEx() & InputEvent.CTRL_DOWN_MASK) > 0)
                         toggleSystemSelection(e.getPoint());
                     else
                     {
@@ -214,7 +214,7 @@ public class FlatStarMapPanel extends JPanel  implements ActionListener, MouseLi
             }
         }
 
-        if ((e.getModifiers() & InputEvent.BUTTON3_MASK) > 0)
+        if ((e.getModifiersEx() & InputEvent.BUTTON3_DOWN_MASK) > 0)
         {
             int i1 = m_Map.GetCurrentSystemIndex();
             int i2 = m_Map.GetSystemIndex(e.getPoint());

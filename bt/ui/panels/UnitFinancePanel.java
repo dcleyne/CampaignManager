@@ -44,8 +44,8 @@ public class UnitFinancePanel extends JPanel implements ClosableEditPanel
 		
 		_MonthlyBaseSalaryTextField.setEditable(false);
 		
-		_CurrentBankBalanceTextField.setValue(new Double(_Unit.getCurrentBankBalance()));
-		_MonthlyBaseSalaryTextField.setValue(new Double(_Unit.getBaseMonthlySalary()));
+		_CurrentBankBalanceTextField.setValue(_Unit.getCurrentBankBalance());
+		_MonthlyBaseSalaryTextField.setValue(_Unit.getBaseMonthlySalary());
     }
 
     public boolean isClosable()

@@ -295,7 +295,7 @@ public class SolarSystemDetails implements Serializable
 				for (int i = 0; i < typeCount; i++)
 				{
 					int index = Dice.random(settlementLocations.size()) - 1;
-					Integer location = new Integer(settlementLocations.elementAt(index));
+					Integer location = settlementLocations.elementAt(index);
 					Settlement s = new Settlement(location);
 					s.setType(typeOrder[currentType]);
 					s.setName(typeOrder[currentType].toString() + " " + Integer.toString(i + 1));
@@ -358,14 +358,14 @@ public class SolarSystemDetails implements Serializable
 			for (Settlement place1: m_Settlements)
 			{
 				System.out.println("Laying roads for settlement " + place1.toString());
-				Integer key1 = new Integer(place1.getLocation());
+				Integer key1 = place1.getLocation();
 				builtRoads.put(key1,new Vector<Integer>());
 				for (Settlement place2: m_Settlements)
 				{
 					if (place1.getLocation() == place2.getLocation())
 						continue;
 					
-					Integer key2 = new Integer(place2.getLocation());
+					Integer key2 = place2.getLocation();
 					if (builtRoads.get(key2).contains(key1))
 						continue;
 					

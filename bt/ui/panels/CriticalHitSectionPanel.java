@@ -45,12 +45,12 @@ public class CriticalHitSectionPanel extends JPanel
 		super();
 		initialize();
 		
-		_FieldIndex.put(new Integer(1), _Row1TextField);
-		_FieldIndex.put(new Integer(2), _Row2TextField);
-		_FieldIndex.put(new Integer(3), _Row3TextField);
-		_FieldIndex.put(new Integer(4), _Row4TextField);
-		_FieldIndex.put(new Integer(5), _Row5TextField);
-		_FieldIndex.put(new Integer(6), _Row6TextField);
+		_FieldIndex.put(1, _Row1TextField);
+		_FieldIndex.put(2, _Row2TextField);
+		_FieldIndex.put(3, _Row3TextField);
+		_FieldIndex.put(4, _Row4TextField);
+		_FieldIndex.put(5, _Row5TextField);
+		_FieldIndex.put(6, _Row6TextField);
 	}
 	
 	public void setInternalStatuses(String locationName, int table, Vector<ItemMount> mounts)
@@ -69,8 +69,8 @@ public class CriticalHitSectionPanel extends JPanel
 						String mountText = mount.getMountedItem().toString();
 						if (iss.getRearFacing())
 							mountText += " (R)";
-						equipment.put(new Integer(iss.getSlot()), mountText);
-						statuses.put(new Integer(iss.getSlot()), iss.getStatus());
+						equipment.put(iss.getSlot(), mountText);
+						statuses.put(iss.getSlot(), iss.getStatus());
 					}
 				}
 			}

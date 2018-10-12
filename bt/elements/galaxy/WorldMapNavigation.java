@@ -485,7 +485,7 @@ public class WorldMapNavigation
         int CurrentQuadrant = GetSegmentQuadrant(CurrentHex);
         boolean CurrentSegNorthHemi = IsSegmentNorthern(CurrentSegment);
 */
-        vPath.add(new Integer(startSector));
+        vPath.add(startSector);
 
         while (CurrentHex != endSector)
         {
@@ -574,7 +574,7 @@ public class WorldMapNavigation
                     }
                 }
             }
-            vPath.add(new Integer(NextHex));
+            vPath.add(NextHex);
 
 
             CurrentHex = NextHex;
@@ -925,7 +925,7 @@ public class WorldMapNavigation
     			int[] neighbours = getHexNeighbours(sec);
     			for (int i = 0; i < 6; i++)
     				if (!core.contains(neighbours[i]) && !outerRing.contains(neighbours[i]))
-    					nextRing.add(new Integer(neighbours[i]));    			
+    					nextRing.add(neighbours[i]);    			
     		}
     		core.addAll(outerRing);
     		outerRing = new Vector<Integer>(nextRing);
@@ -947,14 +947,14 @@ public class WorldMapNavigation
     			int[] neighbours = getHexNeighbours(sec);
     			for (int i = 0; i < 6; i++)
     				if (!core.contains(neighbours[i]) && !outerRing.contains(neighbours[i]))
-    					nextRing.add(new Integer(neighbours[i]));    			
+    					nextRing.add(neighbours[i]);    			
     		}
     		core.addAll(outerRing);
     		outerRing = new Vector<Integer>(nextRing);
     	}
     	
 		core.addAll(outerRing);
-		Integer centre = new Integer(sector);
+		Integer centre = sector;
 		while (core.contains(centre))
 			core.remove(centre);
     	return core;

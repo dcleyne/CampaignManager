@@ -1,9 +1,10 @@
 package bt.managers;
 
 import java.io.UnsupportedEncodingException;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import sun.misc.BASE64Encoder;
+import java.util.Base64;
 
 public final class PasswordManager {
 	private static PasswordManager instance;
@@ -25,7 +26,7 @@ public final class PasswordManager {
 		}
 
 		byte raw[] = md.digest(); // step 4
-		String hash = (new BASE64Encoder()).encode(raw); // step 5
+		String hash = new String(Base64.getEncoder().encode(raw)); // step 5
 		return hash; // step 6
 	}
 

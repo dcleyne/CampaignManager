@@ -302,7 +302,7 @@ public class Unit implements Serializable
 	{
 		Vector<Long> missionIDs = new Vector<Long>();
 		for (CompletedMission cm : _CompletedMissions)
-			missionIDs.add(new Long(cm.getMissionIdentifier()));
+			missionIDs.add(cm.getMissionIdentifier());
 		
 		return missionIDs;
 	}

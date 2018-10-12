@@ -573,7 +573,7 @@ public class PlanetHexGrid
         	Vector<Integer> indexes = new Vector<Integer>();
         	for (int i = 0; i < 6; i++)
         	{
-        		Integer index = new Integer(m_HexNeighbours[i]);
+        		Integer index = m_HexNeighbours[i];
         		if (!indexes.contains(index))
         			indexes.add(index);
         	}

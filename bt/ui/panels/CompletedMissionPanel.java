@@ -40,12 +40,12 @@ public class CompletedMissionPanel extends JPanel
 		_MissionTitleTextField.setText(missionTitle);
 		_MissionTitleTextField.setEditable(false);
 		_MissionResultComboBox.setSelectedItem(CompletedMission.Result.WIN);
-		_PrizeMoneyTextField.setValue(new Double(0));
+		_PrizeMoneyTextField.setValue(0);
 	}
 	
 	public double getPrizeMoney()
 	{
-		return new Double((Long)_PrizeMoneyTextField.getValue());
+		return (Long)_PrizeMoneyTextField.getValue();
 	}
 	
 	public CompletedMission.Result getResult()

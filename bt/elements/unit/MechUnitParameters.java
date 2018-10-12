@@ -70,7 +70,7 @@ public class MechUnitParameters
 	{
 		_IncludedMechWeights.clear();
 		for (int i : includedMechWeights)
-			_IncludedMechWeights.add(new Integer(i));
+			_IncludedMechWeights.add(i);
 	}
     
 }

@@ -4,11 +4,10 @@ import as.elements.Era;
 import as.elements.Faction;
 import as.elements.GroundCombatFormation;
 import as.elements.GroundFormation;
-import as.managers.UnitManager;
 
 public class ForceBuilder
 {
-	private UnitManager _UnitManager = new UnitManager();
+	//private UnitManager _UnitManager = new UnitManager();
 	
 	public void generateForce(Era era, Faction faction, int PVMax)
 	{
@@ -46,7 +45,7 @@ public class ForceBuilder
 
 	public void main(String[] args)
 	{
-		ForceBuilder fb = new ForceBuilder();
+		//ForceBuilder fb = new ForceBuilder();
 		
 		
 		

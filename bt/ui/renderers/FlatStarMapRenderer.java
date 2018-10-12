@@ -283,7 +283,7 @@ public class FlatStarMapRenderer
         m_CurrentSolarSystem = GetSystemIndex(p);
         m_SelectedSystems.clear();
         if (m_CurrentSolarSystem != -1)
-            m_SelectedSystems.add(new Integer(m_CurrentSolarSystem));
+            m_SelectedSystems.add(m_CurrentSolarSystem);
     }
 
     public void toggleSolarSystem(Point p)
@@ -291,7 +291,7 @@ public class FlatStarMapRenderer
         m_CurrentSolarSystem = GetSystemIndex(p);
         if (m_CurrentSolarSystem != -1)
         {
-            Integer I = new Integer(m_CurrentSolarSystem);
+            Integer I = m_CurrentSolarSystem;
             if (m_SelectedSystems.contains(I))
                 m_SelectedSystems.remove(I);
             else
@@ -306,7 +306,7 @@ public class FlatStarMapRenderer
         {
             InnerSpherePlanet isp = SolarSystemManager.getPlanet(i);
             if (isp.getSystem().equals(SearchText))
-                m_SelectedSystems.add(new Integer(i));
+                m_SelectedSystems.add(i);
         }
     }
 

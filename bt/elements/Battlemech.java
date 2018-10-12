@@ -531,14 +531,14 @@ public class Battlemech extends Asset implements BattleValue
         for (BattlemechDamageNotation internalNotation : internalNotations)
         {
         	HashMap<Integer, ItemStatus> areaMap = _Internals.get(internalNotation.getLocation());
-        	areaMap.put(new Integer(internalNotation.getIndex()), internalNotation.getStatus());
+        	areaMap.put(internalNotation.getIndex(), internalNotation.getStatus());
         }
                 
         Vector<BattlemechDamageNotation> armourNotations = BattlemechDamageNotation.getDamageNotationsForArea("Armour", damageNotations);
         for (BattlemechDamageNotation armourNotation : armourNotations)
         {
         	HashMap<Integer, ItemStatus> areaMap = _Armour.get(armourNotation.getLocation());
-        	areaMap.put(new Integer(armourNotation.getIndex()), armourNotation.getStatus());
+        	areaMap.put(armourNotation.getIndex(), armourNotation.getStatus());
         }
         
         Vector<BattlemechDamageNotation> heatsinkNotations = BattlemechDamageNotation.getDamageNotationsForArea("HeatSinks", damageNotations);

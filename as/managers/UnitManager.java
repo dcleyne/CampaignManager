@@ -116,7 +116,7 @@ public class UnitManager
 	
 	public List<Integer> getFactionEraUnits(Faction faction, Era era)
 	{
-		return _FactionEraUnitLinks.get(faction.getID()).get(new Integer(era.getID()));
+		return _FactionEraUnitLinks.get(faction.getID()).get(era.getID());
 	}
 	
 	public List<UnitSummary> getAerospaceSummaries()

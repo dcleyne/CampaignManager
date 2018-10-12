@@ -479,30 +479,30 @@ public class PlanetDetailsPanel extends JPanel implements ClosableEditPanel, Act
         	m_StarTypeComboBox.addItem(st);
 
         m_StarMagnitudeComboBox.removeAllItems();
-        m_StarMagnitudeComboBox.addItem(new Integer(0));
-        m_StarMagnitudeComboBox.addItem(new Integer(1));
-        m_StarMagnitudeComboBox.addItem(new Integer(2));
-        m_StarMagnitudeComboBox.addItem(new Integer(3));
-        m_StarMagnitudeComboBox.addItem(new Integer(4));
-        m_StarMagnitudeComboBox.addItem(new Integer(5));
-        m_StarMagnitudeComboBox.addItem(new Integer(6));
-        m_StarMagnitudeComboBox.addItem(new Integer(7));
-        m_StarMagnitudeComboBox.addItem(new Integer(8));
-        m_StarMagnitudeComboBox.addItem(new Integer(9));
+        m_StarMagnitudeComboBox.addItem(0);
+        m_StarMagnitudeComboBox.addItem(1);
+        m_StarMagnitudeComboBox.addItem(2);
+        m_StarMagnitudeComboBox.addItem(3);
+        m_StarMagnitudeComboBox.addItem(4);
+        m_StarMagnitudeComboBox.addItem(5);
+        m_StarMagnitudeComboBox.addItem(6);
+        m_StarMagnitudeComboBox.addItem(7);
+        m_StarMagnitudeComboBox.addItem(8);
+        m_StarMagnitudeComboBox.addItem(9);
 
         m_GRatingComboBox.removeAllItems();
-        m_GRatingComboBox.addItem(new Double(0.5));
-        m_GRatingComboBox.addItem(new Double(0.6));
-        m_GRatingComboBox.addItem(new Double(0.7));
-        m_GRatingComboBox.addItem(new Double(0.8));
-        m_GRatingComboBox.addItem(new Double(0.9));
-        m_GRatingComboBox.addItem(new Double(1.0));
-        m_GRatingComboBox.addItem(new Double(1.1));
-        m_GRatingComboBox.addItem(new Double(1.2));
-        m_GRatingComboBox.addItem(new Double(1.3));
-        m_GRatingComboBox.addItem(new Double(1.4));
-        m_GRatingComboBox.addItem(new Double(1.5));
-        m_GRatingComboBox.setSelectedItem(new Double(1.0));
+        m_GRatingComboBox.addItem(0.5);
+        m_GRatingComboBox.addItem(0.6);
+        m_GRatingComboBox.addItem(0.7);
+        m_GRatingComboBox.addItem(0.8);
+        m_GRatingComboBox.addItem(0.9);
+        m_GRatingComboBox.addItem(1.0);
+        m_GRatingComboBox.addItem(1.1);
+        m_GRatingComboBox.addItem(1.2);
+        m_GRatingComboBox.addItem(1.3);
+        m_GRatingComboBox.addItem(1.4);
+        m_GRatingComboBox.addItem(1.5);
+        m_GRatingComboBox.setSelectedItem(1.0);
     }
 
     protected void SetFields()
@@ -527,7 +527,7 @@ public class PlanetDetailsPanel extends JPanel implements ClosableEditPanel, Act
         m_Owner_3062TextField.setToolTipText(Faction.getFromAbbreviation(m_Planet.getOwner(3062)).getName());
 
         m_StarTypeComboBox.setSelectedItem(m_Details.getStarType());
-        m_StarMagnitudeComboBox.setSelectedItem(new Integer(m_Details.getStarMagnitude()));
+        m_StarMagnitudeComboBox.setSelectedItem(m_Details.getStarMagnitude());
         NumberFormat formatter = new DecimalFormat("0.00");
         m_PrimaryOrbitInAUTextField.setText(formatter.format(m_Details.getPrimaryPlanetOrbitInAU()));
 

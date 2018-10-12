@@ -288,7 +288,7 @@ public class UnitManager
 			for (int i = ValidMechs.size() - 1; i >= 0; i--)
 			{
 				MechAvailability ma = ValidMechs.elementAt(i);
-				if (!mup.getIncludedMechWeights().contains(new Integer(ma.getWeight())))
+				if (!mup.getIncludedMechWeights().contains(ma.getWeight()))
 					ValidMechs.remove(ma);
 			}
 	
@@ -334,7 +334,7 @@ public class UnitManager
 
 		elementTotal++;
 		bvTotal += elements.elementAt(currentIndex).getBV();
-		currentSet.add(new Integer(currentIndex));
+		currentSet.add(currentIndex);
 		if (elementTotal == elementCount)
 		{
 			if (bvTotal >= bvMin && bvTotal <= bvMax)

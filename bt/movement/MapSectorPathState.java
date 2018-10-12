@@ -62,7 +62,7 @@ public class MapSectorPathState extends aState
 	@Override
 	public Object getKey()
 	{
-		return new Long(m_SectorNumber);
+		return m_SectorNumber;
 	}
 
 	@Override

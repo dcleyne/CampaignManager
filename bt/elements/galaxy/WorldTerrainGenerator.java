@@ -125,7 +125,7 @@ public class WorldTerrainGenerator
     		while (usedSectors.contains(segment))
     			segment = Dice.d10(1);
     		
-    		usedSectors.add(new Integer(segment));
+    		usedSectors.add(segment);
     		
     		int location = m_WorldMapNavigation.getSegmentStart(segment) + Dice.random(m_WorldMapNavigation.getSegmentSize());
     		int width = m_WorldMapNavigation.getMapFaceLength();
@@ -1294,12 +1294,12 @@ public class WorldTerrainGenerator
 			if ( ( ( ++riverLength % 16 ) == 0 ) && riverSize < 3 )
 				riverSize++;
 
-			riverRegister.add( new Integer(currentRiverCoordinate));
+			riverRegister.add(currentRiverCoordinate);
 			// delimit end of river
 			if ( !riverFlowing )
-				riverRegister.add( new Integer(0) );
+				riverRegister.add(0);
 			
-			visited.add( new Integer(currentRiverCoordinate));
+			visited.add(currentRiverCoordinate);
 			for (int i = 0; i < 6; i ++ )
 			{
 				int coord = m_WorldMapNavigation.getHexNeighbour(currentRiverCoordinate,i + 1);
