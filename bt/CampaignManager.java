@@ -282,7 +282,7 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
         try {
             // Set the "look and feel" to the native system
             try {
-                //UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                //UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
                 UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
                 //UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
             } catch (Exception e) {
