@@ -31,7 +31,6 @@ public class FlatStarMapInternalFrame extends JInternalFrame implements Closable
 
         m_DetailsPanel = new FlatStarMapPanel();
         getContentPane().add(m_DetailsPanel, BorderLayout.CENTER);
-
         m_DetailsPanel.addSolarSystemManagerListener(sspml);
     }
 

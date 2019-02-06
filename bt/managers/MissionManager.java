@@ -769,7 +769,7 @@ public class MissionManager
 		
 	}
 	
-	public void printMissionDirectly(Unit u, Long missionID) throws Exception
+	public String printMissionDirectly(Unit u, Long missionID) throws Exception
 	{
 		Mission m = _Missions.get(missionID);
         String Path = PropertyUtil.getStringProperty("ExternalDataPath", "data") + "/scenarios/";
@@ -777,7 +777,7 @@ public class MissionManager
         
         Scenario scenario = loadScenarioForUnit(u, missionID);
         printScenarioToPDF(Path,u,scenario,pdfFilename);
-
+        return pdfFilename;
 	}
 	
 	public class ForceSize

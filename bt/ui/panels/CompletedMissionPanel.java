@@ -45,7 +45,11 @@ public class CompletedMissionPanel extends JPanel
 	
 	public double getPrizeMoney()
 	{
-		return (Long)_PrizeMoneyTextField.getValue();
+		String prizeMoney = _PrizeMoneyTextField.getValue().toString();
+		if (prizeMoney != null && !prizeMoney.isEmpty())
+			return Long.parseLong(prizeMoney);			
+
+		return 0;
 	}
 	
 	public CompletedMission.Result getResult()

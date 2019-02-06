@@ -10,6 +10,8 @@ import bt.managers.MissionManager;
 import bt.managers.UnitManager;
 import bt.ui.dialogs.CompletedMissionDialog;
 import bt.ui.dialogs.GenerateNewMissionDialog;
+import bt.util.StreamGobbler;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
@@ -22,6 +24,8 @@ import java.awt.Component;
 import java.awt.Dialog.ModalityType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.concurrent.Executors;
 
 /**
  * <p>Title: Miradan Phedd</p>
@@ -243,7 +247,11 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
 		{
 			try
 			{
-				MissionManager.getInstance().printMissionDirectly(_Unit, _Unit.getAssignedMission());
+				String pdfFilename = MissionManager.getInstance().printMissionDirectly(_Unit, _Unit.getAssignedMission());
+				if (pdfFilename != null && !pdfFilename.isEmpty())
+				{
+					openPdfView(pdfFilename);
+				}
 			}
 			catch (Exception ex)
 			{
@@ -261,6 +269,34 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
 		}
 		if (actionCommand.equalsIgnoreCase("ViewCompletedMission"))
 		{
+		}
+	}
+	
+	private void openPdfView(String filename)
+	{
+		try
+		{
+			ProcessBuilder builder = new ProcessBuilder();
+			String workingDir = System.getProperty("user.dir");
+			File absFile = new File(workingDir, filename);
+			String absoluteFilename = "\"" + absFile.getCanonicalPath() + "\"";
+			boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
+			if (isWindows) {
+			    builder.command("cmd.exe", "/c", absoluteFilename);
+			} else {
+			    builder.command("sh", absoluteFilename);
+			}
+			builder.directory(new File(workingDir));
+			Process process = builder.start();
+			StreamGobbler streamGobbler = 
+			  new StreamGobbler(process.getInputStream(), System.out::println);
+			Executors.newSingleThreadExecutor().submit(streamGobbler);
+			int exitCode = process.waitFor();
+			assert exitCode == 0;
+		}
+		catch (Exception ex)
+		{
+			
 		}
 	}
 

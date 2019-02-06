@@ -26,85 +26,81 @@ public class FlatStarMapPanel extends JPanel  implements ActionListener, MouseLi
 {
 	private static final long serialVersionUID = 1;
 	
-    JToolBar m_Toolbar;
-    JButton[] m_TBButtons;
-    ButtonGroup m_TBGroup;
+    JToolBar _Toolbar;
+    JButton[] _TBButtons;
+    ButtonGroup _TBGroup;
 
 
-    FlatStarMapRenderer m_Map;
-    FlatStarMapPane m_MapPane;
-    java.awt.Rectangle m_MapBounds;
-    JScrollPane m_ScrollPane;
-    JTextArea m_StatusPane;
-    JPanel m_MapPanel;
-    JTextField m_SearchText;
+    FlatStarMapRenderer _Map;
+    FlatStarMapPane _MapPane;
+    java.awt.Rectangle _MapBounds;
+    JScrollPane _ScrollPane;
+    JTextArea _StatusPane;
+    JPanel _MapPanel;
+    JTextField _SearchText;
 
-    protected Vector<SolarSystemManagerListener> m_SolarSystemListeners = new Vector<SolarSystemManagerListener>();
+    protected Vector<SolarSystemManagerListener> _SolarSystemListeners = new Vector<SolarSystemManagerListener>();
 
     public FlatStarMapPanel()
     {
-        m_MapPanel = new JPanel(new BorderLayout());
+        _MapPanel = new JPanel(new BorderLayout());
 
-        m_Map = new FlatStarMapRenderer();
-        m_MapPane = new FlatStarMapPane(m_Map);
-        m_MapPane.addMouseListener(this);
+        _Map = new FlatStarMapRenderer();
+        _MapPane = new FlatStarMapPane(_Map);
+        _MapPane.addMouseListener(this);
 
-        m_ScrollPane = new JScrollPane(m_MapPane,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        m_ScrollPane.setAutoscrolls(true);
-        m_ScrollPane.setBackground(Color.lightGray);
+        _ScrollPane = new JScrollPane(_MapPane,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        _ScrollPane.setAutoscrolls(true);
+        _ScrollPane.setBackground(Color.lightGray);
 
-        m_StatusPane = new JTextArea();
-        m_StatusPane.setEditable(false);
-        m_StatusPane.setText("");
-        m_StatusPane.setBackground(Color.lightGray);
-        m_StatusPane.setPreferredSize(new Dimension(0,20));
+        _StatusPane = new JTextArea();
+        _StatusPane.setEditable(false);
+        _StatusPane.setText("");
+        _StatusPane.setBackground(Color.lightGray);
+        _StatusPane.setColumns(80);
+        _StatusPane.setRows(1);
 
         addToolbar();
-        m_MapPanel.add(m_Toolbar,BorderLayout.NORTH);
-        m_MapPanel.add(m_ScrollPane,BorderLayout.CENTER);
-        m_MapPanel.add(m_StatusPane,BorderLayout.SOUTH);
-        add(m_MapPanel);
+        _MapPanel.add(_Toolbar,BorderLayout.NORTH);
+        _MapPanel.add(_ScrollPane,BorderLayout.CENTER);
+        _MapPanel.add(_StatusPane,BorderLayout.SOUTH);
+        add(_MapPanel);
 
 
         setVisible(true);
     }
     protected void addToolbar()
     {
-        m_Toolbar = new JToolBar();
+        _Toolbar = new JToolBar();
         //m_TBGroup = new ButtonGroup();
-        m_TBButtons = new JButton[6];
+        _TBButtons = new JButton[6];
 
-        m_Toolbar.putClientProperty("JToolBar.isRollover",Boolean.TRUE);
+        _Toolbar.putClientProperty("JToolBar.isRollover",Boolean.TRUE);
 
-        m_TBButtons[0] = new JButton("Zoom In");
-        m_TBButtons[0].setToolTipText("Increase Zoom Level");
-        m_TBButtons[0].setActionCommand("zoom_in");
+        _TBButtons[0] = new JButton("Zoom In");
+        _TBButtons[0].setToolTipText("Increase Zoom Level");
+        _TBButtons[0].setActionCommand("zoom_in");
 
-        m_TBButtons[1] = new JButton("Zoom Out");
-        m_TBButtons[1].setToolTipText("Decrease Zoom Level");
-        m_TBButtons[1].setActionCommand("zoom_out");
+        _TBButtons[1] = new JButton("Zoom Out");
+        _TBButtons[1].setToolTipText("Decrease Zoom Level");
+        _TBButtons[1].setActionCommand("zoom_out");
 
         for (int i = 0; i < 2; i++)
         {
-            m_Toolbar.add(m_TBButtons[i]);
+            _Toolbar.add(_TBButtons[i]);
             //m_TBGroup.add(m_TBButtons[i]);
-            m_TBButtons[i].addActionListener(this);
+            _TBButtons[i].addActionListener(this);
         }
 
         JPanel SearchPanel = new JPanel(new BorderLayout());
-        m_SearchText = new JTextField();
-        m_SearchText.setPreferredSize(new Dimension(120,20));
-        SearchPanel.add(m_SearchText,BorderLayout.CENTER);
+        _SearchText = new JTextField();
+        SearchPanel.add(_SearchText,BorderLayout.CENTER);
         JButton FindButton = new JButton("Find");
-        FindButton.setPreferredSize(new Dimension(70,20));
         FindButton.setActionCommand("Find");
         FindButton.setToolTipText("Search for System(s)");
         FindButton.addActionListener(this);
         SearchPanel.add(FindButton,BorderLayout.EAST);
-        SearchPanel.setPreferredSize(new Dimension(200,24));
-        m_Toolbar.add(SearchPanel);
-
-
+        _Toolbar.add(SearchPanel);
 
     }
 
@@ -114,37 +110,37 @@ public class FlatStarMapPanel extends JPanel  implements ActionListener, MouseLi
 
         if (cmd.compareTo("zoom_in") == 0)
         {
-            m_Map.SetZoom(m_Map.GetZoom() + 1.0);
+            _Map.SetZoom(_Map.GetZoom() + 1.0);
 //            m_MapPane.setSize(m_MapPane.getPreferredSize());
 //            m_ScrollPane.scrollRectToVisible(m_MapPane.getBounds());
-            m_MapPane.revalidate();
-            m_MapPane.repaint();
+            _MapPane.revalidate();
+            _MapPane.repaint();
         }
         if (cmd.compareTo("zoom_out") == 0)
         {
-            m_Map.SetZoom(m_Map.GetZoom() - 1.0);
+            _Map.SetZoom(_Map.GetZoom() - 1.0);
 //            m_MapPane.setSize(m_MapPane.getPreferredSize());
 //            m_ScrollPane.scrollRectToVisible(m_MapPane.getBounds());
-            m_MapPane.revalidate();
-            m_MapPane.repaint();
+            _MapPane.revalidate();
+            _MapPane.repaint();
         }
         if (cmd.compareTo("Find") == 0)
         {
-            m_Map.FindSystems(m_SearchText.getText());
-            m_MapPane.repaint();
+            _Map.FindSystems(_SearchText.getText());
+            _MapPane.repaint();
         }
     }
 
     public void setCurrentSolarSystem(Point p)
     {
-        m_Map.selectSolarSystem(p);
-        m_MapPane.repaint();
+        _Map.selectSolarSystem(p);
+        _MapPane.repaint();
     }
 
     public void toggleSystemSelection(Point p)
     {
-        m_Map.toggleSolarSystem(p);
-        m_MapPane.repaint();
+        _Map.toggleSolarSystem(p);
+        _MapPane.repaint();
     }
 
     public void mouseExited(MouseEvent e)
@@ -164,7 +160,7 @@ public class FlatStarMapPanel extends JPanel  implements ActionListener, MouseLi
         {
             try
             {
-                int index = m_Map.GetSystemIndex(e.getPoint());
+                int index = _Map.GetSystemIndex(e.getPoint());
                 if (index != -1)
                 {
                     if (e.getClickCount() == 2)
@@ -184,11 +180,11 @@ public class FlatStarMapPanel extends JPanel  implements ActionListener, MouseLi
     }
     public void mouseReleased(MouseEvent e)
     {
-        if ((e.getModifiersEx() & InputEvent.BUTTON1_DOWN_MASK) > 0)
+        if (e.getButton() == MouseEvent.BUTTON1)
         {
             try
             {
-                int index = m_Map.GetSystemIndex(e.getPoint());
+                int index = _Map.GetSystemIndex(e.getPoint());
                 if (index != -1)
                 {
                     if ((e.getModifiersEx() & InputEvent.CTRL_DOWN_MASK) > 0)
@@ -202,10 +198,10 @@ public class FlatStarMapPanel extends JPanel  implements ActionListener, MouseLi
                     }
 
                     InnerSpherePlanet p1 = SolarSystemManager.getPlanet(index);
-                    m_StatusPane.setText(p1.toString());
+                    _StatusPane.setText(p1.toString());
                 }
                 else
-                    m_StatusPane.setText("");
+                    _StatusPane.setText("");
             }
             catch (Exception ex)
             {
@@ -214,18 +210,18 @@ public class FlatStarMapPanel extends JPanel  implements ActionListener, MouseLi
             }
         }
 
-        if ((e.getModifiersEx() & InputEvent.BUTTON3_DOWN_MASK) > 0)
+        if (e.getButton() == MouseEvent.BUTTON3)
         {
-            int i1 = m_Map.GetCurrentSystemIndex();
-            int i2 = m_Map.GetSystemIndex(e.getPoint());
+            int i1 = _Map.GetCurrentSystemIndex();
+            int i2 = _Map.GetSystemIndex(e.getPoint());
             if (i1 != -1 && i2 != -1)
             {
-                double dist = m_Map.CalculateDistance(i1,i2);
+                double dist = _Map.CalculateDistance(i1,i2);
                 try
                 {
                     InnerSpherePlanet p1 = SolarSystemManager.getPlanet(i1);
                     InnerSpherePlanet p2 = SolarSystemManager.getPlanet(i2);
-                    m_StatusPane.setText("Distance between " + p1.toString() + " and " + p2.toString() + " is " + String.valueOf(Math.round(dist)) + " lightyears");
+                    _StatusPane.setText("Distance between " + p1.toString() + " and " + p2.toString() + " is " + String.valueOf(Math.round(dist)) + " lightyears");
                 }
                 catch (Exception ex)
                 {
@@ -237,39 +233,39 @@ public class FlatStarMapPanel extends JPanel  implements ActionListener, MouseLi
     public void setBounds(int x, int y, int w, int h)
     {
 //        m_MapPanel.setBounds(x,y,w,h);
-        m_ScrollPane.setPreferredSize(new Dimension(w,h-50));
-        m_ScrollPane.setBounds(0,25,w,h-50);
+        _ScrollPane.setPreferredSize(new Dimension(w,h-50));
+        _ScrollPane.setBounds(0,25,w,h-50);
         super.setBounds(x,y,w,h);
     }
 
     public void setSize(Dimension d)
     {
-        m_ScrollPane.setPreferredSize(new Dimension(d.width,d.height - 50));
-        m_ScrollPane.setSize(new Dimension(d.width,d.height - 50));
+        _ScrollPane.setPreferredSize(new Dimension(d.width,d.height - 50));
+        _ScrollPane.setSize(new Dimension(d.width,d.height - 50));
         super.setSize(d);
     }
 
     public void paintComponent(Graphics comp)
     {
-        m_MapPane.repaint();
+        _MapPane.repaint();
         super.paintComponent(comp);
     }
 
     public void addSolarSystemManagerListener(SolarSystemManagerListener sspml)
     {
-        if (!m_SolarSystemListeners.contains(sspml))
-            m_SolarSystemListeners.add(sspml);
+        if (!_SolarSystemListeners.contains(sspml))
+            _SolarSystemListeners.add(sspml);
     }
 
     public void removeSolarSystemManagerListener(SolarSystemManagerListener sspml)
     {
-        if (m_SolarSystemListeners.contains(sspml))
-            m_SolarSystemListeners.remove(sspml);
+        if (_SolarSystemListeners.contains(sspml))
+            _SolarSystemListeners.remove(sspml);
     }
 
     public void clearSolarSystemManagerListener()
     {
-        m_SolarSystemListeners.clear();
+        _SolarSystemListeners.clear();
     }
 
     protected void NotifySolarSystemEditRequested(int Index)
@@ -280,9 +276,9 @@ public class FlatStarMapPanel extends JPanel  implements ActionListener, MouseLi
         InnerSpherePlanet isp = SolarSystemManager.getPlanet(Index);
         SolarSystemDetails ssd = SolarSystemManager.getSystemDetails(isp);
 
-        for (int i = 0; i < m_SolarSystemListeners.size(); i++)
+        for (int i = 0; i < _SolarSystemListeners.size(); i++)
         {
-            SolarSystemManagerListener sspml = (SolarSystemManagerListener)m_SolarSystemListeners.elementAt(i);
+            SolarSystemManagerListener sspml = (SolarSystemManagerListener)_SolarSystemListeners.elementAt(i);
             sspml.PlanetEditRequest(isp,ssd);
         }
 
