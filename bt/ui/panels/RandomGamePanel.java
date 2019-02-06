@@ -6,16 +6,28 @@ import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import javax.swing.JComboBox;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+
 import javax.swing.JButton;
 import javax.swing.border.TitledBorder;
+
+import bt.managers.MiniatureCollectionManager;
+import bt.managers.MissionManager;
+
 import javax.swing.border.EtchedBorder;
 import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
 import javax.swing.JTextPane;
 import javax.swing.Box;
 
-public class RandomGamePanel extends JPanel 
+public class RandomGamePanel extends JPanel implements ActionListener
 {
+	private static final String OPEN_SCENARIO_MANAGER = "OpenScenarioManager";
+	private static final String GENERATE = "Generate";
+	private static final String SAVE_GAME = "SaveGame";
+	private static final String EXPORT_GAME = "ExportGame";
 	private static final long serialVersionUID = 1L;
 	
 	public RandomGamePanel() 
@@ -40,7 +52,7 @@ public class RandomGamePanel extends JPanel
 		gbc_lblGameSize.gridy = 0;
 		add(lblGameSize, gbc_lblGameSize);
 		
-		JComboBox<String> _GameSizeComboBox = new JComboBox<String>();
+		JComboBox<String> _GameSizeComboBox = new JComboBox<String>(new String[]{"Small", "Medium", "Large", "Huge"});
 		GridBagConstraints gbcGameSizeComboBox = new GridBagConstraints();
 		gbcGameSizeComboBox.insets = new Insets(0, 0, 5, 5);
 		gbcGameSizeComboBox.fill = GridBagConstraints.HORIZONTAL;
@@ -56,7 +68,9 @@ public class RandomGamePanel extends JPanel
 		gbcSide1MiniatureCollection.gridy = 1;
 		add(lblSide1MiniatureCollection, gbcSide1MiniatureCollection);
 		
-		JComboBox<String> _MiniatureCollection1ComboBox = new JComboBox<String>();
+		List<String> collections = MiniatureCollectionManager.getInstance().getCollectionNames();
+		JComboBox<String> _MiniatureCollection1ComboBox = new JComboBox<String>(collections.toArray(new String[collections.size()]));
+		
 		GridBagConstraints gbcMiniatureCollection1ComboBox = new GridBagConstraints();
 		gbcMiniatureCollection1ComboBox.insets = new Insets(0, 0, 5, 5);
 		gbcMiniatureCollection1ComboBox.fill = GridBagConstraints.HORIZONTAL;
@@ -72,7 +86,7 @@ public class RandomGamePanel extends JPanel
 		gbclblSide2MiniatureCollection.gridy = 2;
 		add(lblSide2MiniatureCollection, gbclblSide2MiniatureCollection);
 		
-		JComboBox<String> _MiniatureCollection2ComboBox = new JComboBox<String>();
+		JComboBox<String> _MiniatureCollection2ComboBox = new JComboBox<String>(collections.toArray(new String[collections.size()]));
 		GridBagConstraints gbcMiniatureCollection2ComboBox = new GridBagConstraints();
 		gbcMiniatureCollection2ComboBox.insets = new Insets(0, 0, 5, 5);
 		gbcMiniatureCollection2ComboBox.fill = GridBagConstraints.HORIZONTAL;
@@ -88,7 +102,9 @@ public class RandomGamePanel extends JPanel
 		gbclblScenario.gridy = 3;
 		add(lblScenario, gbclblScenario);
 		
-		JComboBox<String> _ScenarioSelectionComboBox = new JComboBox<String>();
+		List<String> missions = MissionManager.getInstance().getMissionList();
+		JComboBox<String> _ScenarioSelectionComboBox = new JComboBox<String>(missions.toArray(new String[missions.size()]));
+		
 		GridBagConstraints gbcScenarioSelectionComboBox = new GridBagConstraints();
 		gbcScenarioSelectionComboBox.insets = new Insets(0, 0, 5, 5);
 		gbcScenarioSelectionComboBox.fill = GridBagConstraints.HORIZONTAL;
@@ -97,13 +113,17 @@ public class RandomGamePanel extends JPanel
 		add(_ScenarioSelectionComboBox, gbcScenarioSelectionComboBox);
 		
 		JButton _RandomScenarioButton = new JButton("...");
+		_RandomScenarioButton.setActionCommand(OPEN_SCENARIO_MANAGER);
+		_RandomScenarioButton.addActionListener(this);
 		GridBagConstraints gbcRandomScenarioButton = new GridBagConstraints();
 		gbcRandomScenarioButton.insets = new Insets(0, 0, 5, 0);
 		gbcRandomScenarioButton.gridx = 2;
 		gbcRandomScenarioButton.gridy = 3;
 		add(_RandomScenarioButton, gbcRandomScenarioButton);
 		
-		JButton btnGenerate = new JButton("Generate");
+		JButton btnGenerate = new JButton(GENERATE);
+		btnGenerate.setActionCommand(GENERATE);
+		btnGenerate.addActionListener(this);
 		GridBagConstraints gbc_btnGenerate = new GridBagConstraints();
 		gbc_btnGenerate.insets = new Insets(0, 0, 5, 5);
 		gbc_btnGenerate.gridx = 1;
@@ -153,12 +173,37 @@ public class RandomGamePanel extends JPanel
 		_ButtonPanel.add(Box.createHorizontalGlue());
 		
 		JButton _SaveGameButton = new JButton("Save Game");
+		_SaveGameButton.setActionCommand(SAVE_GAME);
+		_SaveGameButton.addActionListener(this);
 		_ButtonPanel.add(_SaveGameButton);
 		
 		_ButtonPanel.add(Box.createHorizontalStrut(20));
 		
 		JButton _ExportGameButton = new JButton("Export Game");
+		_ExportGameButton.setActionCommand(EXPORT_GAME);
+		_ExportGameButton.addActionListener(this);
 		_ButtonPanel.add(_ExportGameButton);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) 
+	{
+		if (e.getActionCommand().equalsIgnoreCase(OPEN_SCENARIO_MANAGER))
+		{
+			
+		}
+		if (e.getActionCommand().equalsIgnoreCase(GENERATE))
+		{
+			//TODO figure out how to do this...
+		}
+		if (e.getActionCommand().equalsIgnoreCase(SAVE_GAME))
+		{
+			
+		}
+		if (e.getActionCommand().equalsIgnoreCase(EXPORT_GAME))
+		{
+			
+		}
 	}
 
 

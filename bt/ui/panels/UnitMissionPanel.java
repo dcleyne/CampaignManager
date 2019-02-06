@@ -269,6 +269,22 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
 		}
 		if (actionCommand.equalsIgnoreCase("ViewCompletedMission"))
 		{
+			if (_CompletedMissionList.getSelectedIndex() >= 0)
+			{
+				try
+				{
+					CompletedMission mission = _Unit.getCompletedMissions().get(_CompletedMissionList.getSelectedIndex());
+					String pdfFilename = MissionManager.getInstance().printMissionDirectly(_Unit, mission.getMissionIdentifier());
+					if (pdfFilename != null && !pdfFilename.isEmpty())
+					{
+						openPdfView(pdfFilename);
+					}
+				}
+				catch (Exception ex)
+				{
+					ex.printStackTrace();
+				}
+			}
 		}
 	}
 	
