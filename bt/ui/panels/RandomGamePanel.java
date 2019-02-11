@@ -8,27 +8,52 @@ import javax.swing.JComboBox;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.border.TitledBorder;
 
+import bt.elements.collection.ItemCollection;
+import bt.elements.collection.UnlimitedCollection;
+import bt.elements.personnel.Rating;
+import bt.elements.scenario.Scenario;
+import bt.elements.unit.MechUnitParameters;
+import bt.elements.unit.Player;
+import bt.elements.unit.QualityRating;
+import bt.elements.unit.TechRating;
+import bt.elements.unit.Unit;
 import bt.managers.MiniatureCollectionManager;
 import bt.managers.MissionManager;
+import bt.managers.UnitManager;
+import bt.util.Dice;
+import bt.util.ExceptionUtil;
+import bt.util.FileUtil;
 
 import javax.swing.border.EtchedBorder;
 import java.awt.BorderLayout;
+import java.awt.Desktop;
+
 import javax.swing.BoxLayout;
 import javax.swing.JTextPane;
 import javax.swing.Box;
 
 public class RandomGamePanel extends JPanel implements ActionListener
 {
-	private static final String OPEN_SCENARIO_MANAGER = "OpenScenarioManager";
+	private static final String RANDOM_SCENARIO = "RandomScenario";
 	private static final String GENERATE = "Generate";
 	private static final String SAVE_GAME = "SaveGame";
 	private static final String EXPORT_GAME = "ExportGame";
 	private static final long serialVersionUID = 1L;
+	
+	private static int[] minBVs = {1500, 2000, 2500, 3000, 4000};
+	
+	private JComboBox<String> _GameSizeComboBox;
+	private JComboBox<String> _MiniatureCollection1ComboBox;
+	private JComboBox<String> _MiniatureCollection2ComboBox;
+	private JTextPane _ScenarioTextPane;
+	private JComboBox<String> _ScenarioSelectionComboBox;
 	
 	public RandomGamePanel() 
 	{
@@ -52,7 +77,7 @@ public class RandomGamePanel extends JPanel implements ActionListener
 		gbc_lblGameSize.gridy = 0;
 		add(lblGameSize, gbc_lblGameSize);
 		
-		JComboBox<String> _GameSizeComboBox = new JComboBox<String>(new String[]{"Small", "Medium", "Large", "Huge"});
+		_GameSizeComboBox = new JComboBox<String>(new String[]{"Small", "Medium", "Large", "Very Large", "Huge"});
 		GridBagConstraints gbcGameSizeComboBox = new GridBagConstraints();
 		gbcGameSizeComboBox.insets = new Insets(0, 0, 5, 5);
 		gbcGameSizeComboBox.fill = GridBagConstraints.HORIZONTAL;
@@ -69,7 +94,8 @@ public class RandomGamePanel extends JPanel implements ActionListener
 		add(lblSide1MiniatureCollection, gbcSide1MiniatureCollection);
 		
 		List<String> collections = MiniatureCollectionManager.getInstance().getCollectionNames();
-		JComboBox<String> _MiniatureCollection1ComboBox = new JComboBox<String>(collections.toArray(new String[collections.size()]));
+		collections.add(0, "Unlimited");
+		_MiniatureCollection1ComboBox = new JComboBox<String>(collections.toArray(new String[collections.size()]));
 		
 		GridBagConstraints gbcMiniatureCollection1ComboBox = new GridBagConstraints();
 		gbcMiniatureCollection1ComboBox.insets = new Insets(0, 0, 5, 5);
@@ -86,7 +112,7 @@ public class RandomGamePanel extends JPanel implements ActionListener
 		gbclblSide2MiniatureCollection.gridy = 2;
 		add(lblSide2MiniatureCollection, gbclblSide2MiniatureCollection);
 		
-		JComboBox<String> _MiniatureCollection2ComboBox = new JComboBox<String>(collections.toArray(new String[collections.size()]));
+		_MiniatureCollection2ComboBox = new JComboBox<String>(collections.toArray(new String[collections.size()]));
 		GridBagConstraints gbcMiniatureCollection2ComboBox = new GridBagConstraints();
 		gbcMiniatureCollection2ComboBox.insets = new Insets(0, 0, 5, 5);
 		gbcMiniatureCollection2ComboBox.fill = GridBagConstraints.HORIZONTAL;
@@ -103,7 +129,7 @@ public class RandomGamePanel extends JPanel implements ActionListener
 		add(lblScenario, gbclblScenario);
 		
 		List<String> missions = MissionManager.getInstance().getMissionList();
-		JComboBox<String> _ScenarioSelectionComboBox = new JComboBox<String>(missions.toArray(new String[missions.size()]));
+		_ScenarioSelectionComboBox = new JComboBox<String>(missions.toArray(new String[missions.size()]));
 		
 		GridBagConstraints gbcScenarioSelectionComboBox = new GridBagConstraints();
 		gbcScenarioSelectionComboBox.insets = new Insets(0, 0, 5, 5);
@@ -113,7 +139,7 @@ public class RandomGamePanel extends JPanel implements ActionListener
 		add(_ScenarioSelectionComboBox, gbcScenarioSelectionComboBox);
 		
 		JButton _RandomScenarioButton = new JButton("...");
-		_RandomScenarioButton.setActionCommand(OPEN_SCENARIO_MANAGER);
+		_RandomScenarioButton.setActionCommand(RANDOM_SCENARIO);
 		_RandomScenarioButton.addActionListener(this);
 		GridBagConstraints gbcRandomScenarioButton = new GridBagConstraints();
 		gbcRandomScenarioButton.insets = new Insets(0, 0, 5, 0);
@@ -130,35 +156,20 @@ public class RandomGamePanel extends JPanel implements ActionListener
 		gbc_btnGenerate.gridy = 4;
 		add(btnGenerate, gbc_btnGenerate);
 		
-		JPanel _Side1Panel = new JPanel();
-		_Side1Panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Side 1", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		GridBagConstraints gbcSide1Panel = new GridBagConstraints();
-		gbcSide1Panel.gridwidth = 3;
-		gbcSide1Panel.insets = new Insets(0, 0, 5, 5);
-		gbcSide1Panel.fill = GridBagConstraints.BOTH;
-		gbcSide1Panel.gridx = 0;
-		gbcSide1Panel.gridy = 5;
-		add(_Side1Panel, gbcSide1Panel);
-		_Side1Panel.setLayout(new BorderLayout(0, 0));
+		JPanel _ScenarioPanel = new JPanel();
+		_ScenarioPanel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Scenario", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		GridBagConstraints gbcScenarioPanel = new GridBagConstraints();
+		gbcScenarioPanel.gridwidth = 3;
+		gbcScenarioPanel.insets = new Insets(0, 0, 5, 5);
+		gbcScenarioPanel.fill = GridBagConstraints.BOTH;
+		gbcScenarioPanel.gridx = 0;
+		gbcScenarioPanel.gridy = 5;
+		add(_ScenarioPanel, gbcScenarioPanel);
+		_ScenarioPanel.setLayout(new BorderLayout(0, 0));
 		
-		JTextPane _Side1TextPane = new JTextPane();
-		_Side1TextPane.setEditable(false);
-		_Side1Panel.add(_Side1TextPane, BorderLayout.CENTER);
-		
-		JPanel _Side2Panel = new JPanel();
-		_Side2Panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Side 2", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		GridBagConstraints gbcSide2Panel = new GridBagConstraints();
-		gbcSide2Panel.gridwidth = 3;
-		gbcSide2Panel.insets = new Insets(0, 0, 5, 5);
-		gbcSide2Panel.fill = GridBagConstraints.BOTH;
-		gbcSide2Panel.gridx = 0;
-		gbcSide2Panel.gridy = 6;
-		add(_Side2Panel, gbcSide2Panel);
-		_Side2Panel.setLayout(new BorderLayout(0, 0));
-		
-		JTextPane _Side2TextPane = new JTextPane();
-		_Side2TextPane.setEditable(false);
-		_Side2Panel.add(_Side2TextPane, BorderLayout.CENTER);
+		_ScenarioTextPane = new JTextPane();
+		_ScenarioTextPane.setEditable(false);
+		_ScenarioPanel.add(_ScenarioTextPane, BorderLayout.CENTER);
 		
 		JPanel _ButtonPanel = new JPanel();
 		GridBagConstraints gbcButtonPanel = new GridBagConstraints();
@@ -188,13 +199,13 @@ public class RandomGamePanel extends JPanel implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		if (e.getActionCommand().equalsIgnoreCase(OPEN_SCENARIO_MANAGER))
+		if (e.getActionCommand().equalsIgnoreCase(RANDOM_SCENARIO))
 		{
-			
+			_ScenarioSelectionComboBox.setSelectedIndex(Dice.random(_ScenarioSelectionComboBox.getItemCount()) - 1);
 		}
 		if (e.getActionCommand().equalsIgnoreCase(GENERATE))
 		{
-			//TODO figure out how to do this...
+			generateGame();
 		}
 		if (e.getActionCommand().equalsIgnoreCase(SAVE_GAME))
 		{
@@ -206,7 +217,53 @@ public class RandomGamePanel extends JPanel implements ActionListener
 		}
 	}
 
+	private void generateGame()
+	{
+		int bv = minBVs[_GameSizeComboBox.getSelectedIndex()] + Dice.d100(10);
+		ArrayList<MechUnitParameters> params = UnitManager.getInstance().getMechUnitParametersForBV(bv);
+		MechUnitParameters mup = params.get(0);
+		if (params.size() > 1)
+			mup = params.get(Dice.random(params.size()));
+		
+		try
+		{		
+			Player p1 = new Player();
+			p1.setName("Player 1");
+			p1.setNickname("P1");
 
+			ItemCollection collection1 = new UnlimitedCollection();
+			if (_MiniatureCollection1ComboBox.getSelectedIndex() > 0)
+			{
+				String collectionName = _MiniatureCollection1ComboBox.getItemAt(_MiniatureCollection1ComboBox.getSelectedIndex());
+				collection1 = MiniatureCollectionManager.getInstance().getMiniatureCollection(collectionName);
+			}
+			ItemCollection collection2 = new UnlimitedCollection();
+			if (_MiniatureCollection2ComboBox.getSelectedIndex() > 0)
+			{
+				String collectionName = _MiniatureCollection2ComboBox.getItemAt(_MiniatureCollection2ComboBox.getSelectedIndex());
+				collection2 = MiniatureCollectionManager.getInstance().getMiniatureCollection(collectionName);
+			}
+			
+			Unit player1Unit = UnitManager.getInstance().generateUnit(p1, "Player 1 Unit", mup, Rating.REGULAR, QualityRating.D, TechRating.D, 0, collection1);
+			if (player1Unit == null)
+				throw new Exception("Unable to create unit for player 1");
+			
+			String missionName = _ScenarioSelectionComboBox.getSelectedItem().toString();
+			Scenario s = MissionManager.getInstance().generateScenario(player1Unit, Rating.REGULAR, QualityRating.D, TechRating.D, missionName, collection2);
+			if (s == null)
+				throw new Exception("Unable to create scenario");
+			
+			String filename = MissionManager.getInstance().printScenarioToPDF(FileUtil.getTempFolder(), player1Unit, 1, s);
+			Desktop.getDesktop().open(new File(filename));
+			
+			_ScenarioTextPane.setText("Scenario created Ok: " + filename);
+		}
+		catch (Exception ex)
+		{
+			_ScenarioTextPane.setText(ExceptionUtil.getExceptionStackTrace(ex));
+		}
+
+	}
 	
 	
 }

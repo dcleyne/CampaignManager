@@ -49,7 +49,7 @@ public class PersonnelTableModel extends AbstractTableModel implements UnitListe
 
     public Object getValueAt(int row, int col)
     {
-        Personnel p = m_Unit.getPersonnel().elementAt(row);
+        Personnel p = m_Unit.getPersonnel().get(row);
         switch (col)
         {
             case 0:

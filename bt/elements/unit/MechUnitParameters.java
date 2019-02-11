@@ -72,5 +72,11 @@ public class MechUnitParameters
 		for (int i : includedMechWeights)
 			_IncludedMechWeights.add(i);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return _Name;
+	}
     
 }

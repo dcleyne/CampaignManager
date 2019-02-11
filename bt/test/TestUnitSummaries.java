@@ -1,6 +1,6 @@
 package bt.test;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import bt.elements.unit.Unit;
 import bt.managers.UnitManager;
 import bt.util.ExceptionUtil;
@@ -18,7 +18,7 @@ public class TestUnitSummaries
 		{
 			PropertyUtil.loadSystemProperties("bt/system.properties");
 			
-            Vector<String> unitNames = UnitManager.getInstance().getUnitNames();
+			ArrayList<String> unitNames = UnitManager.getInstance().getUnitNames();
             for (String unitName : unitNames)
             {
 	            Unit u = UnitManager.getInstance().getUnit(unitName);

@@ -119,7 +119,7 @@ public class UnitPersonnelPanel extends JPanel implements ClosableEditPanel, Mou
     public void mouseClicked(MouseEvent me)
     {
         int Index = _PersonnelTable.getSelectedRow();
-        _CurrentPersonnel = _Unit.getPersonnel().elementAt(Index);
+        _CurrentPersonnel = _Unit.getPersonnel().get(Index);
         if (_CurrentPersonnel != _PreviousPersonnel)
         {
             GetFields();

@@ -1,6 +1,6 @@
 package bt.test;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import bt.elements.Battlemech;
 import bt.elements.BattlemechRepairReport;
 import bt.elements.unit.Unit;
@@ -23,7 +23,7 @@ public class TestBattlemechRepairReport
 			
 			BattlemechManager bm = new BattlemechManager();
 
-            Vector<String> unitNames = UnitManager.getInstance().getUnitNames();
+			ArrayList<String> unitNames = UnitManager.getInstance().getUnitNames();
             for (String unitName : unitNames)
             {
 	            Unit u = UnitManager.getInstance().getUnit(unitName);

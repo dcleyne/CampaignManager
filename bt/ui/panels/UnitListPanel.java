@@ -5,7 +5,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.ListSelectionEvent;
@@ -26,11 +26,11 @@ public class UnitListPanel extends JPanel implements ListSelectionListener, Mous
     protected JScrollPane m_ScrollPane = new JScrollPane();
     protected UnitTableModel m_Model = null;
     protected TableSorter m_Sorter = new TableSorter();
-    private Vector<Unit> m_Units;
+    private ArrayList<Unit> m_Units;
     
-    private Vector<UnitChangeListener> _EditRequestListeners = new Vector<UnitChangeListener>(); 
+    private ArrayList<UnitChangeListener> _EditRequestListeners = new ArrayList<UnitChangeListener>(); 
 
-    public UnitListPanel(Vector<Unit> units)
+    public UnitListPanel(ArrayList<Unit> units)
     {
     	m_Units = units;
     	m_Model = new UnitTableModel(units);
@@ -77,7 +77,7 @@ public class UnitListPanel extends JPanel implements ListSelectionListener, Mous
         }
 
         int Index = m_Sorter.modelIndex(Row);
-        return m_Units.elementAt(Index);
+        return m_Units.get(Index);
     }
 
     public void valueChanged(ListSelectionEvent lse)

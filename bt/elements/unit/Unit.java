@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import bt.elements.Ammunition;
 import bt.elements.Asset;
@@ -52,21 +52,21 @@ public class Unit implements Serializable
 	private String _Notes;
 
 	private Character _Leader;
-	private Vector<Personnel> _Personnel = new Vector<Personnel>();
+	private ArrayList<Personnel> _Personnel = new ArrayList<Personnel>();
 	private double _CurrentBankBalance = 0;
 
-	private Vector<Asset> _Assets = new Vector<Asset>();
-	private Vector<Ammunition> _SpareAmmunition = new Vector<Ammunition>();
-	private Vector<Item> _SpareParts = new Vector<Item>();
-	private Vector<Asset> _SalvagedAssets = new Vector<Asset>();
+	private ArrayList<Asset> _Assets = new ArrayList<Asset>();
+	private ArrayList<Ammunition> _SpareAmmunition = new ArrayList<Ammunition>();
+	private ArrayList<Item> _SpareParts = new ArrayList<Item>();
+	private ArrayList<Asset> _SalvagedAssets = new ArrayList<Asset>();
 	
 	private Long _AssignedMission = null;
 	private String _AssignedMissionTitle = null;
 	
-	private Vector<CompletedMission> _CompletedMissions = new Vector<CompletedMission>();
-	private Vector<Formation> _Formations = new Vector<Formation>();
+	private ArrayList<CompletedMission> _CompletedMissions = new ArrayList<CompletedMission>();
+	private ArrayList<Formation> _Formations = new ArrayList<Formation>();
 	
-	private Vector<PersonnelAssetAssignment> _PersonnelAssetAssignments = new Vector<PersonnelAssetAssignment>();
+	private ArrayList<PersonnelAssetAssignment> _PersonnelAssetAssignments = new ArrayList<PersonnelAssetAssignment>();
 
 	public String getName()
 	{
@@ -156,7 +156,7 @@ public class Unit implements Serializable
 		_Notes = notes;
 	}
 
-	public Vector<Personnel> getPersonnel()
+	public ArrayList<Personnel> getPersonnel()
 	{
 		return _Personnel;
 	}
@@ -170,7 +170,7 @@ public class Unit implements Serializable
 	{
 		if (Index < 0)
 			return null;
-		return (Formation) _Formations.elementAt(Index);
+		return (Formation) _Formations.get(Index);
 	}
 
 	public int getGroupIndex(Formation ug)
@@ -193,7 +193,7 @@ public class Unit implements Serializable
 		_Formations.remove(f);
 	}
 
-	public Vector<Asset> getAssets()
+	public ArrayList<Asset> getAssets()
 	{
 		return _Assets;
 	}
@@ -207,7 +207,7 @@ public class Unit implements Serializable
 	{
 		if (Index < 0)
 			return null;
-		return _Assets.elementAt(Index);
+		return _Assets.get(Index);
 	}
 
 	public Asset addNewAsset(ElementType et, String identifier)
@@ -224,9 +224,9 @@ public class Unit implements Serializable
 		return _Assets.indexOf(a);
 	}
 	
-	public Vector<String> getUnassignedAssetIDs()
+	public ArrayList<String> getUnassignedAssetIDs()
 	{
-		Vector<String> assetIDs = new Vector<String>();
+		ArrayList<String> assetIDs = new ArrayList<String>();
 		for (Asset a : _Assets)
 			assetIDs.add(a.getIdentifier());
 		
@@ -237,9 +237,9 @@ public class Unit implements Serializable
 		return assetIDs;
 	}
 
-	public Vector<Battlemech> getBattlemechs()
+	public ArrayList<Battlemech> getBattlemechs()
 	{
-		Vector<Battlemech> mechs = new Vector<Battlemech>();
+		ArrayList<Battlemech> mechs = new ArrayList<Battlemech>();
 		for (Asset a : _Assets)
 			if (a.getElementType() == ElementType.BATTLEMECH)
 				mechs.add((Battlemech) a);
@@ -247,24 +247,24 @@ public class Unit implements Serializable
 		return mechs;
 	}
 
-	public void addBattlemechs(Vector<Battlemech> mechs)
+	public void addBattlemechs(ArrayList<Battlemech> mechs)
 	{
 		_Assets.addAll(mechs);
 	}
 
-	public Vector<Ammunition> getSpareAmmunition()
+	public ArrayList<Ammunition> getSpareAmmunition()
 	{
 		return _SpareAmmunition;
 	}
 
-	public Vector<Item> getSpareParts()
+	public ArrayList<Item> getSpareParts()
 	{
 		return _SpareParts;
 	}
 
-	public Vector<Battlemech> getSalvagedMechs()
+	public ArrayList<Battlemech> getSalvagedMechs()
 	{
-		Vector<Battlemech> mechs = new Vector<Battlemech>();
+		ArrayList<Battlemech> mechs = new ArrayList<Battlemech>();
 		for (Asset a : _SalvagedAssets)
 			if (a.getElementType() == ElementType.BATTLEMECH)
 				mechs.add((Battlemech) a);
@@ -272,7 +272,7 @@ public class Unit implements Serializable
 		return mechs;
 	}
 
-	public Vector<Asset> getSalvagedAssets()
+	public ArrayList<Asset> getSalvagedAssets()
 	{
 		return _SalvagedAssets;
 	}
@@ -293,14 +293,14 @@ public class Unit implements Serializable
 		_AssignedMissionTitle = missionTitle;
 	}
 
-	public Vector<CompletedMission> getCompletedMissions()
+	public CompletedMission[] getCompletedMissions()
 	{
-		return new Vector<CompletedMission>(_CompletedMissions);
+		return _CompletedMissions.toArray(new CompletedMission[_CompletedMissions.size()]);
 	}
 
-	public Vector<Long> getCompletedMissionIDs()
+	public ArrayList<Long> getCompletedMissionIDs()
 	{
-		Vector<Long> missionIDs = new Vector<Long>();
+		ArrayList<Long> missionIDs = new ArrayList<Long>();
 		for (CompletedMission cm : _CompletedMissions)
 			missionIDs.add(cm.getMissionIdentifier());
 		
@@ -396,9 +396,9 @@ public class Unit implements Serializable
 		return Collections.unmodifiableList(_PersonnelAssetAssignments);
 	}
 	
-	public Vector<String> getPersonnelAssignedToAsset(String assetIdentifier)
+	public ArrayList<String> getPersonnelAssignedToAsset(String assetIdentifier)
 	{
-		Vector<String> personnel = new Vector<String>();
+		ArrayList<String> personnel = new ArrayList<String>();
 		for (PersonnelAssetAssignment ass : _PersonnelAssetAssignments)
 		{
 			if (ass.getAssetIdentifier().equalsIgnoreCase(assetIdentifier))

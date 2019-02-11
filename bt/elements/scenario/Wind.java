@@ -8,11 +8,14 @@ public class Wind
 	{
 	    NONE,
 	    LIGHT,
-	    MODERATE,
-	    HIGH,
-	    GALE;
+	    LIGHT_GAlE,
+	    MODERATE_GALE,
+	    STRONG_GALE,
+	    STORM,
+	    TORNADO_F1_F3,
+	    TORNADO_F4_F5;
 	    
-	    private static String[] _Names = {"None","Light","Moderate","High","Gale"};
+	    private static String[] _Names = {"No Effect","Light Gale","Moderate Gale","Strong Gale","Storm", "Tornado F1-F3", "Tornado F4-F5"};
 	    
 	    public String toString()
 	    { return _Names[ordinal()]; }
@@ -30,11 +33,14 @@ public class Wind
 	    
 	    public static Strength getRandomStrength()
 	    {
-	    	int d = Dice.d10(1);
-	    	if (d < 2) return GALE;
-	    	if (d < 4) return HIGH;
-	    	if (d < 6) return MODERATE;
-	    	if (d < 9) return LIGHT;
+	    	int d = Dice.d100(1);
+	    	if (d < 2) return TORNADO_F4_F5;
+	    	if (d < 3) return TORNADO_F1_F3;
+	    	if (d < 5) return STORM;
+	    	if (d < 10) return STRONG_GALE;
+	    	if (d < 25) return MODERATE_GALE;
+	    	if (d < 50) return LIGHT_GAlE;
+	    	if (d < 90) return LIGHT;
 	    	return NONE;
 	    }
 	}
@@ -69,7 +75,7 @@ public class Wind
 	@Override
 	public String toString()
 	{
-		return "Strength: " + _Strength.toString() + ",  Direction: " + Integer.toString(_Direction);
+		return "Strength: " + _Strength.toString() + (_Strength != Strength.NONE ? ",  Direction: " + Integer.toString(_Direction) : "") + " [TO-57]";
 	}
 	
 }

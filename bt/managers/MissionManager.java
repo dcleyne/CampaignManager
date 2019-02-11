@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
@@ -29,6 +30,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import bt.elements.Battlemech;
+import bt.elements.collection.ItemCollection;
 import bt.elements.mapping.MapSet;
 import bt.elements.mapping.MapSheet;
 import bt.elements.missions.Mission;
@@ -216,14 +218,24 @@ public class MissionManager
 		return ""; 
 	}
 	
-	public Mission getRandomMission(Vector<Long> completedMissions)
+	public Mission getMission(String missionName)
 	{
-		Vector<Long> eligibleMissions = new Vector<Long>(_Missions.keySet());
+		for (Mission m : _Missions.values())
+		{
+			if (m.getName().equalsIgnoreCase(missionName))
+				return m;
+		}
+		return null;
+	}
+	
+	public Mission getRandomMission(ArrayList<Long> completedMissions)
+	{
+		ArrayList<Long> eligibleMissions = new ArrayList<Long>(_Missions.keySet());
 		eligibleMissions.removeAll(completedMissions);
 		if (eligibleMissions.size() > 0)
 		{
 			int randomMission = Dice.random(eligibleMissions.size()) - 1;
-			return new Mission(_Missions.get(eligibleMissions.elementAt(randomMission)));
+			return new Mission(_Missions.get(eligibleMissions.get(randomMission)));
 		}
 		return null;
 	}
@@ -293,11 +305,11 @@ public class MissionManager
 	}
 	
 	
-	public Scenario generateScenario(Unit u, Rating opponentRating, QualityRating opponentQualityRating, TechRating opponentTechRating)
+	public Scenario generateScenario(Unit u, Rating opponentRating, QualityRating opponentQualityRating, TechRating opponentTechRating, String missionName, ItemCollection collection)
 	{
 		Scenario scenario = new Scenario();
 		
-		Mission m = getRandomMission(u.getCompletedMissionIDs());
+		Mission m = missionName != null ? getMission(missionName) : getRandomMission(u.getCompletedMissionIDs());
 		scenario.setMission(m);
 		scenario.setTimeOfDay(TimeOfDay.random());
 		scenario.setSeason(Season.getRandomSeason());
@@ -324,7 +336,7 @@ public class MissionManager
 			forceSize = Math.round((float)u.getUnitStrength() / m.getForceRatio());
 		}
 		
-		Unit opposingUnit = generateOpposingUnit(forceBV, forceSize, opponentRating, opponentQualityRating, opponentTechRating);
+		Unit opposingUnit = generateOpposingUnit(forceBV, forceSize, opponentRating, opponentQualityRating, opponentTechRating, collection);
 		
 		scenario.getSides().put(sideName, u);
 		scenario.getSides().put(oppositionName, opposingUnit);
@@ -332,7 +344,7 @@ public class MissionManager
 		return scenario;
 	}
 	
-	private Unit generateOpposingUnit(int forceBV, int unitStrength, Rating rating, QualityRating qualityRating, TechRating techRating)
+	private Unit generateOpposingUnit(int forceBV, int unitStrength, Rating rating, QualityRating qualityRating, TechRating techRating, ItemCollection collection)
 	{
 		
 		Player p = new Player();
@@ -369,7 +381,7 @@ public class MissionManager
 			
 			try
 			{
-				u = UnitManager.getInstance().GenerateUnit(p, unitName, mup, rating, qualityRating, techRating, 0);
+				u = UnitManager.getInstance().generateUnit(p, unitName, mup, rating, qualityRating, techRating, 0, collection);
 				unitBV = u.getUnitBV();
 				if (unitBV == 0)
 					System.out.println("Unit generation failed");

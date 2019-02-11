@@ -13,13 +13,14 @@ import javax.swing.BorderFactory;
 import javax.swing.border.TitledBorder;
 import java.awt.Font;
 import java.awt.Color;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JButton;
 
 import bt.elements.Battlemech;
+import bt.elements.collection.UnlimitedCollection;
 import bt.elements.personnel.Personnel;
 import bt.elements.personnel.Rating;
 import bt.elements.unit.Player;
@@ -417,7 +418,9 @@ public class GenerateNewUnitPanel extends JPanel
 					{
 		            	
 		            	// TODO fix the starting bank balance
-						_GeneratedUnit = _UnitManager.GenerateUnit(_Player, _UnitNameTextField.getText(), _UnitWeightComboBox.getSelectedItem().toString(),(Rating)_UnitRatingComboBox.getSelectedItem(), (QualityRating)_UnitQualityRatingComboBox.getSelectedItem(), (TechRating)_UnitTechRatingComboBox.getSelectedItem(),0);
+						_GeneratedUnit = _UnitManager.generateUnit(_Player, _UnitNameTextField.getText(), 
+								_UnitWeightComboBox.getSelectedItem().toString(),(Rating)_UnitRatingComboBox.getSelectedItem(), 
+								(QualityRating)_UnitQualityRatingComboBox.getSelectedItem(), (TechRating)_UnitTechRatingComboBox.getSelectedItem(),0,new UnlimitedCollection());
 					} catch (Exception e1)
 					{
 						// TODO Auto-generated catch block
@@ -472,7 +475,7 @@ public class GenerateNewUnitPanel extends JPanel
 					{
 						_UnitManager.saveUnit(_GeneratedUnit);
 
-			            Vector<RandomName> names = new Vector<RandomName>();
+			            ArrayList<RandomName> names = new ArrayList<RandomName>();
 			            for (Personnel p : _GeneratedUnit.getPersonnel())
 			                names.add(RandomName.splitName(p.getName()));
 	

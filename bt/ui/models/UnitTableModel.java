@@ -1,7 +1,7 @@
 package bt.ui.models;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.Vector;
 
 import javax.swing.table.AbstractTableModel;
 
@@ -17,11 +17,11 @@ public class UnitTableModel extends AbstractTableModel implements UnitManagerLis
     private Class<?> ColumnTypes[] =
         {String.class, Date.class, String.class};
     
-    private Vector<Unit> m_Units;
+    private ArrayList<Unit> _Units;
 
-    public UnitTableModel(Vector<Unit> units)
+    public UnitTableModel(ArrayList<Unit> units)
     {
-    	m_Units = units;
+    	_Units = units;
     }
 
     public String getColumnName(int col)
@@ -31,7 +31,7 @@ public class UnitTableModel extends AbstractTableModel implements UnitManagerLis
 
     public int getRowCount()
     {
-    	return m_Units.size();
+    	return _Units.size();
     }
 
     public int getColumnCount()
@@ -40,7 +40,7 @@ public class UnitTableModel extends AbstractTableModel implements UnitManagerLis
 
     public Object getValueAt(int row, int col)
     {
-        Unit u = m_Units.get(row);
+        Unit u = _Units.get(row);
         switch (col)
         {
             case 0:
@@ -71,14 +71,14 @@ public class UnitTableModel extends AbstractTableModel implements UnitManagerLis
 
     public void UnitRemoved(Unit u)
     {
-        int Index = m_Units.indexOf(u);
+        int Index = _Units.indexOf(u);
         this.fireTableRowsDeleted(Index, Index);
         this.fireTableDataChanged();
     }
 
     public void UnitChanged(Unit u)
     {
-        int Index = m_Units.indexOf(u);
+        int Index = _Units.indexOf(u);
         this.fireTableRowsUpdated(Index, Index);
         this.fireTableDataChanged();
     }

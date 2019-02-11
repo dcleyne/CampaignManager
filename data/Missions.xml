@@ -13,12 +13,12 @@
       </Briefing>
       <Setup>
         Attacker forces enter on turn one. Entry is from Edge 4 of Map 1. Valid entry hexes are from 0101 to 0117.        
-        This map edge also counts as the player home edge. See "Movement and Retreat - BMR103".        
+        This map edge also counts as the player home edge. See "Movement and Retreat - TW-257".        
       </Setup>
       <Objective>
       Objective is to find the cache of weapons and to get them off the home edge. In order to collect the cache
       you must have at least one unit capable of carrying cargo. 
-      See ("Battlemech Lifting Capabilities" [BMR77] and "Cargo Carriers" [BMR77-78]). 
+      See ("Battlemech Lifting Capabilities" [TW-261] and "Cargo Carriers" [TW-261]). 
       In the event you do not have a mech with this prerequisite then you cannot fulfil the mission and must retreat.
       </Objective>
       <VictoryConditions>
@@ -63,14 +63,14 @@
         The markers are placed with the number written on the marker face down.
         The attacking player should not see the numbers on the counters when they are placed. In addition, The
         defender MAY NOT examine the markers once they are placed.
-        The defending units are setup as per hidden setup (BMR83). The units may or may not be located in the same
+        The defending units are setup as per hidden setup (TW-259). The units may or may not be located in the same
         hexes as the cache markers.
       </Setup>
       <Objective>
         Your objectives are two-fold. Firstly to defend the cache against the attacking unit. Secondly once the
         attacker has been beaten off, to search the remaining caches (if any) and remove the loot for yourself.
         No cache counter can be searched while any functional attacking unts remain on the maps.
-        See ("Battlemech Lifting Capabilities" [BMR77] and "Cargo Carriers" [BMR77-78]).
+        See ("Battlemech Lifting Capabilities" [TW-261] and "Cargo Carriers" [TW-261]).
       </Objective>
       <VictoryConditions>
         The Defender loses the mission in the following cases.
@@ -97,7 +97,7 @@
       <Setup>      
       Attacker forces enter on turn one. Entry is from Edge 4 of Map 1. 
       Valid entry hexes are from 0101 to 0117.        
-      This map edge also counts as the player home edge. See "Movement and Retreat - BMR103".</Setup>
+      This map edge also counts as the player home edge. See "Movement and Retreat - TW-257".</Setup>
       <Objective>Control the battlefield. There must be no active enemy units left on the maps</Objective>
       <VictoryConditions>If the attacking player controls the maps at the end of the game, then the attacker is victorious.</VictoryConditions>
       <SpecialConditions></SpecialConditions>
@@ -109,7 +109,7 @@
       the area has the same ideas... Time to defend "your" turf...</Briefing>
       <Setup>Defender forces enter on turn one. 
       Entry is from Edge 2 of Map 2. Valid entry hexes are from 1501 to 1517.        
-      This map edge also counts as the player home edge. See "Movement and Retreat - BMR103".
+      This map edge also counts as the player home edge. See "Movement and Retreat - TW-257".
       </Setup>
       <Objective>Control the battlefield. There must be no active enemy units left on the maps</Objective>
       <VictoryConditions>If the defending player controls the maps at the end of the game, then the defender is victorious.</VictoryConditions>
@@ -128,7 +128,7 @@
       The hostage is an important local politician and must be returned alive.
       </Briefing>
       <Setup>Attacker forces enter on turn one. Entry is from Edge 4 of Map 1. Valid entry hexes are from 0101 to 0117.        
-        This map edge also counts as the player home edge. See "Movement and Retreat - BMR103".
+        This map edge also counts as the player home edge. See "Movement and Retreat - TW-257".
         </Setup>
       <Objective>The attackers must locate the hostage and extract them from the map. The unit carrying the
       hostage must exit off the player home edge.</Objective>
@@ -140,11 +140,11 @@
       <SpecialConditions>
       The hostage is a single individual hidden in a building on Map 2. The hostage will exit the building 
       of their own accord provided there are no active enemy units within 6 hexes or line of sight to the building.
-      If the unit carrying the hostage is destroyed, place the hostage as per an ejected pilot. (see - BMR79) The hostage
+      If the unit carrying the hostage is destroyed, place the hostage as per an ejected pilot. (see - TO-196) The hostage
       takes a single point of damage and must roll for consciousness.
       An unconscious hostage may be picked up by a unit with a functioning hand actuator and may be carried. If the 
       hostage is carried in this manner then the unit carrying the hostage may not Run, Jump or go Prone. In addition,
-      if the unit falls, then the hostage takes 2 points of damage and is placed as per an ejecting pilot (BMR79)
+      if the unit falls, then the hostage takes 2 points of damage and is placed as per an ejecting pilot (TO-196)
       If the building containing the hostage is destroyed, then the hostage is killed. 
       </SpecialConditions>
       <Notes></Notes>
@@ -158,7 +158,7 @@
       The defending player secretly notes which building the hostage is located in.
       If there are no defending units within 6 hexes, or line of sight of the building containing the hostage 
       then the hostage may reveal their presence to the attacking forces.
-      The defending player may setup hidden (BMR-83).
+      The defending player may setup hidden (TW-259).
       </Setup>
       <Objective>Objective is to keep the hostage secure.</Objective>
       <VictoryConditions>The scenario is a loss if the hostage is rescued and carried safely off the attacking players home edge. 
@@ -186,8 +186,8 @@
       <Setup>
       Attacker forces enter on turn one. Entry is from Edge 4 of Map 1. 
       Valid entry hexes are from 0101 to 0117.        
-      This map edge also counts as the player home edge. See "Movement and Retreat - BMR103".
-      The attacker places 6 light single story buildings (Light CF10 - See (Buildings BMR49-50) on the following hexes on Map 1 [MAPHEXES-1] 
+      This map edge also counts as the player home edge. See "Movement and Retreat - TW-257".
+      The attacker places 6 light single story buildings (Light CF10 - See (Buildings TW-167) on the following hexes on Map 1 [MAPHEXES-1] 
       </Setup>
       <Objective>The objective is to destroy as many of the 12 buildings as possible</Objective>
       <VictoryConditions>The attacker gets 25,000 CBills for each building destroyed</VictoryConditions>
@@ -202,8 +202,8 @@
       <Setup>
       Defender forces enter on turn one. 
       Entry is from Edge 2 of Map 2. Valid entry hexes are from 1501 to 1517.        
-      This map edge also counts as the player home edge. See "Movement and Retreat - BMR103".
-      The defender places 6 light single story buildings (Light CF10 - See (Buildings BMR49-50) on the following hexes on Map 2 [MAPHEXES-2] 
+      This map edge also counts as the player home edge. See "Movement and Retreat - TW-257".
+      The defender places 6 light single story buildings (Light CF10 - See (Buildings TW-167) on the following hexes on Map 2 [MAPHEXES-2] 
       </Setup>
       <Objective>The objective is to save as many of the 12 buildings as possible.</Objective>
       <VictoryConditions>The defender gets 25,000 CBills for each building not destroyed</VictoryConditions>
@@ -228,7 +228,7 @@
       </Briefing>
       <Setup>Attacker forces enter on turn one. Entry is from Edge 4 of Map 1. 
       Valid entry hexes are from 0101 to 0117.        
-      This map edge also counts as the player home edge. See "Movement and Retreat - BMR103".</Setup>
+      This map edge also counts as the player home edge. See "Movement and Retreat - TW-257".</Setup>
       <Objective>Destroy the camp, including all weapon emplacements and wall sections.</Objective>
       <VictoryConditions>
       If all enemy units are eliminated or retreated and all emplaced weapons are destroyed then the scenario is a victory.
@@ -244,7 +244,7 @@
       </Briefing>
       <Setup>
       The defending player has 6 emplaced weapons. 
-      These are placed in Medium CF-15 (See Buildings BMR49-50) buildings as turrets on the following hexes on Map 2 [MAPHEXES-2].
+      These are placed in Medium CF-15 (See Buildings TW-167) buildings as turrets on the following hexes on Map 2 [MAPHEXES-2].
       Buildings are 2 levels high and block line of sight.
       They have 360 degree fire arcs and contain a single Autocannon/5.
       Each turret contains 30 rounds of ammunition. Ammunition must be tracked during the scenario.
@@ -254,7 +254,7 @@
       Units may only enter or exit the enclosed area via the gate unless a wall segment is destroyed.
       Wall segments are 2 levels high and block line of sight.
       The walls are treated as Medium CF-10 buildings.
-      The defending units are setup as per hidden setup (BMR83).
+      The defending units are setup as per hidden setup (TW-259).
       The defending units may NOT be placed in the same hex as a building. 
       </Setup>
       <Objective>The defenders objective is to survive and be in control of the battlefield at the end of the game.</Objective>
@@ -285,7 +285,7 @@
       <Setup>
       Attacker forces enter on turn one. Entry is from Edge 4 of Map 1. 
       Valid entry hexes are from 0101 to 0117.
-      Map Edge 2 of Map 2 counts as the player home edge. Valid exit hexes are from 1501 to 1517. See "Movement and Retreat - BMR103".</Setup>
+      Map Edge 2 of Map 2 counts as the player home edge. Valid exit hexes are from 1501 to 1517. See "Movement and Retreat - TW-257".</Setup>
       <Objective>You have 30 turns to eliminate all enemy forces</Objective>
       <VictoryConditions>
       If all enemy forces are eliminated by turn 30 then it is a victory. 
@@ -304,7 +304,7 @@
       <Setup>
       Defender forces enter on turn one. 
       Entry is from Edge 2 of Map 2. Valid entry hexes are from 1501 to 1517.        
-      Map Edge 4 of Map 1 counts as the player home edge. Valid exit hexes are from 0101 to 0117. See "Movement and Retreat - BMR103".</Setup>
+      Map Edge 4 of Map 1 counts as the player home edge. Valid exit hexes are from 0101 to 0117. See "Movement and Retreat - TW-257".</Setup>
       <Objective>Stay alive for 30 turns.</Objective>
       <VictoryConditions>
       If all your forces are eliminated by turn 30 then it is a loss. 
@@ -332,7 +332,7 @@
     <PlayerBriefing Team="Attacker">
       <Briefing>You have a wanted man on the loose, go get him.</Briefing>
       <Setup>Attacker forces enter on turn one. Entry is from Edge 4 of Map 1. Valid entry hexes are from 0101 to 0117.        
-        This map edge also counts as the player home edge. See "Movement and Retreat - BMR103".</Setup>
+        This map edge also counts as the player home edge. See "Movement and Retreat - TW-257".</Setup>
       <Objective>
       Capture the fugitive, dead or alive.
       </Objective>
@@ -347,11 +347,11 @@
     <PlayerBriefing Team="Defender">
       <Briefing>Your contact wants you keep this guy alive... he won't say why, but he is talking with his wallet...</Briefing>
       <Setup>
-      A light single story building (Light CF10 - See (Buildings BMR49-50) is placed on each of the following hexes on Map 2 [MAPHEXES-2].
+      A light single story building (Light CF10 - See (Buildings TW-167) is placed on each of the following hexes on Map 2 [MAPHEXES-2].
       The defending player secretly notes which building the fugitive is located in.
       The defending PlayerBriefing sets anywhere up on Map 2 except in the buildings.
-      The defending player may NOT setup hidden (BMR-83).
-      Map Edge 2 of Map 2 counts as the player home edge. Valid exit hexes are from 1501 to 1517. See "Movement and Retreat - BMR103".
+      The defending player may NOT setup hidden (TW-259).
+      Map Edge 2 of Map 2 counts as the player home edge. Valid exit hexes are from 1501 to 1517. See "Movement and Retreat - TW-257".
       </Setup>
       <Objective>Keep the fugitive alive.</Objective>
       <VictoryConditions>
@@ -361,7 +361,7 @@
       <SpecialConditions>
       If the building the fugitive is located in is destroyed then the fugitive is killed. The fugitive may 
       leave the building they are concealed in. If this is the case treat them as an ejected pilot for movement
-      and combat purposes. (BMR79) 
+      and combat purposes. (TO-196) 
       </SpecialConditions>
       <Notes></Notes>
     </PlayerBriefing>
@@ -379,7 +379,7 @@
       <Briefing>As a prelude to a night attack a larger unit has engaged your services to scout the intended target and report what you find.</Briefing>
       <Setup>Attacker forces enter on turn one. Entry is from Edge 4 of Map 1. 
       Valid entry hexes are from 0101 to 0117.        
-      This map edge also counts as the player home edge. See "Movement and Retreat - BMR103".</Setup>
+      This map edge also counts as the player home edge. See "Movement and Retreat - TW-257".</Setup>
       <Objective>
       The attacker must stand a unit on each of the following hexes [MAPHEXES-2].
       The attacker does not tell the defender which hexes he has to scout. 
@@ -397,8 +397,8 @@
       <Briefing>Something big is brewing in your sector... you don't know what it is but you need to deny the enemy any knowledge of your force deployment.</Briefing>
       <Setup>
       The defending units are setup anywhere on Map 2.
-      The defending units are setup as per hidden setup (BMR83).
-      Map Edge 2 of Map 2 counts as the player home edge. Valid exit hexes are from 1501 to 1517. See "Movement and Retreat - BMR103".
+      The defending units are setup as per hidden setup (TW-259).
+      Map Edge 2 of Map 2 counts as the player home edge. Valid exit hexes are from 1501 to 1517. See "Movement and Retreat - TW-257".
       </Setup>
       <Objective>Deny the attacker knowledge of the local area. Attempt to ascertain which hexes the 
       attacker is attempting to scout and stop them scouting them

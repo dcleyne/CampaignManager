@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 
+import bt.elements.collection.UnlimitedCollection;
 import bt.elements.personnel.Rating;
 import bt.elements.scenario.Scenario;
 import bt.elements.unit.QualityRating;
@@ -82,7 +83,7 @@ public class GenerateNewMissionDialog extends JDialog implements ActionListener
 				QualityRating opponentQualityRating = _OpponentRatingsPanel.getSelectedQualityRating();
 				TechRating opponentTechRating = _OpponentRatingsPanel.getSelectedTechRating();
 				
-				Scenario scenario = MissionManager.getInstance().generateScenario(_Unit, opponentRating, opponentQualityRating, opponentTechRating);
+				Scenario scenario = MissionManager.getInstance().generateScenario(_Unit, opponentRating, opponentQualityRating, opponentTechRating, null, new UnlimitedCollection());
 				MissionManager.getInstance().SaveScenarioForUnit(_Unit, scenario);
 				_Unit.setAssignedMission(scenario.getMission().getID(), scenario.getMission().getName());
 				UnitManager.getInstance().saveUnit(_Unit);

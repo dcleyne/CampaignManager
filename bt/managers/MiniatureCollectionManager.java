@@ -78,4 +78,13 @@ public class MiniatureCollectionManager
 		}
 		return names;
 	}
+	
+	public MiniatureCollection getMiniatureCollection(String name)
+	{
+		for (MiniatureCollection mc : _Collections)
+			if (mc.getName().equalsIgnoreCase(name))
+				return mc;
+			
+		return null;
+	}
 }

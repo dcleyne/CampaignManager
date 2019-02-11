@@ -1,7 +1,9 @@
 package bt.test;
 
+import java.util.ArrayList;
 import java.util.Vector;
 import bt.elements.Battlemech;
+import bt.elements.collection.UnlimitedCollection;
 import bt.elements.personnel.Rating;
 import bt.elements.scenario.Scenario;
 import bt.elements.unit.QualityRating;
@@ -30,7 +32,7 @@ public class TestMissionManager
             
             System.out.println("\n"); 
             
-            Vector<String> unitNames = UnitManager.getInstance().getUnitNames();
+            ArrayList<String> unitNames = UnitManager.getInstance().getUnitNames();
             for (String unitName : unitNames)
             {
 	            Unit u = UnitManager.getInstance().getUnit(unitName);
@@ -38,7 +40,7 @@ public class TestMissionManager
 	            String filename = "/tmp/TestScenario.xml";
 	            
 	            System.out.println("Generating Scenario for unit: " + unitName + "\n"); 
-	            Scenario scenario = MissionManager.getInstance().generateScenario(u, Rating.REGULAR, QualityRating.D, TechRating.D);
+	            Scenario scenario = MissionManager.getInstance().generateScenario(u, Rating.REGULAR, QualityRating.D, TechRating.D, null, new UnlimitedCollection());
 	            System.out.println("Storing Scenario\n"); 
 	            MissionManager.getInstance().saveScenario(filename, scenario);
 	            System.out.println("Loading Scenario\n"); 

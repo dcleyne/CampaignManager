@@ -1,5 +1,6 @@
 package bt.ui.panels;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -56,7 +57,7 @@ public class PersonnelAssetAssignmentPanel extends JPanel
 		
 		assetAssignment.add("<No Assignment>");
 		
-		Vector<String> unassignedAssetIDs = u.getUnassignedAssetIDs();
+		ArrayList<String> unassignedAssetIDs = u.getUnassignedAssetIDs();
 		for (String id : unassignedAssetIDs)
 		{
 			assetAssignment.add(_AssetIDDetailMap.get(id));

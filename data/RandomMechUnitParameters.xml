@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <RandomMechUnitParameters>
-  <MechUnitParameters Name="Ultralight" MechCount="4" MinBV="1400" MaxBV="1600" MinWeight="80" MaxWeight="120">
+  <MechUnitParameters Name="Ultralight" MechCount="4" MinBV="1400" MaxBV="1800" MinWeight="80" MaxWeight="120">
     <IncludedMechWeight>20</IncludedMechWeight>
     <IncludedMechWeight>25</IncludedMechWeight>
     <IncludedMechWeight>30</IncludedMechWeight>
     <IncludedMechWeight>35</IncludedMechWeight>
   </MechUnitParameters>
-  <MechUnitParameters Name="Light" MechCount="4" MinBV="1800" MaxBV="2000" MinWeight="80" MaxWeight="160">
+  <MechUnitParameters Name="Light" MechCount="4" MinBV="1800" MaxBV="2200" MinWeight="80" MaxWeight="160">
     <IncludedMechWeight>20</IncludedMechWeight>
     <IncludedMechWeight>25</IncludedMechWeight>
     <IncludedMechWeight>30</IncludedMechWeight>
     <IncludedMechWeight>35</IncludedMechWeight>
     <IncludedMechWeight>40</IncludedMechWeight>
   </MechUnitParameters>
-  <MechUnitParameters Name="Light Medium" MechCount="4" MinBV="2400" MaxBV="2600" MinWeight="110" MaxWeight="200">
+  <MechUnitParameters Name="Light Medium" MechCount="4" MinBV="2200" MaxBV="2800" MinWeight="110" MaxWeight="200">
     <IncludedMechWeight>25</IncludedMechWeight>
     <IncludedMechWeight>30</IncludedMechWeight>
     <IncludedMechWeight>35</IncludedMechWeight>
@@ -21,7 +21,7 @@
     <IncludedMechWeight>45</IncludedMechWeight>
     <IncludedMechWeight>50</IncludedMechWeight>
   </MechUnitParameters>
-  <MechUnitParameters Name="Medium" MechCount="4" MinBV="3000" MaxBV="3200" MinWeight="140" MaxWeight="200">
+  <MechUnitParameters Name="Medium" MechCount="4" MinBV="2800" MaxBV="3400" MinWeight="140" MaxWeight="200">
     <IncludedMechWeight>35</IncludedMechWeight>
     <IncludedMechWeight>40</IncludedMechWeight>
     <IncludedMechWeight>45</IncludedMechWeight>
@@ -29,7 +29,7 @@
     <IncludedMechWeight>55</IncludedMechWeight>
     <IncludedMechWeight>60</IncludedMechWeight>
   </MechUnitParameters>
-  <MechUnitParameters Name="Medium Heavy" MechCount="4" MinBV="3400" MaxBV="3600" MinWeight="180" MaxWeight="280">
+  <MechUnitParameters Name="Medium Heavy" MechCount="4" MinBV="3400" MaxBV="3800" MinWeight="180" MaxWeight="280">
     <IncludedMechWeight>40</IncludedMechWeight>
     <IncludedMechWeight>45</IncludedMechWeight>
     <IncludedMechWeight>50</IncludedMechWeight>
@@ -37,7 +37,7 @@
     <IncludedMechWeight>60</IncludedMechWeight>
     <IncludedMechWeight>65</IncludedMechWeight>
   </MechUnitParameters>
-  <MechUnitParameters Name="Heavy" MechCount="4" MinBV="3800" MaxBV="4000" MinWeight="220" MaxWeight="320">
+  <MechUnitParameters Name="Heavy" MechCount="4" MinBV="3800" MaxBV="4200" MinWeight="220" MaxWeight="320">
     <IncludedMechWeight>55</IncludedMechWeight>
     <IncludedMechWeight>60</IncludedMechWeight>
     <IncludedMechWeight>65</IncludedMechWeight>
@@ -45,7 +45,7 @@
     <IncludedMechWeight>75</IncludedMechWeight>
     <IncludedMechWeight>80</IncludedMechWeight>
   </MechUnitParameters>
-  <MechUnitParameters Name="Light Assault" MechCount="4" MinBV="4200" MaxBV="4400" MinWeight="260" MaxWeight="360">
+  <MechUnitParameters Name="Light Assault" MechCount="4" MinBV="4200" MaxBV="4600" MinWeight="260" MaxWeight="360">
     <IncludedMechWeight>60</IncludedMechWeight>
     <IncludedMechWeight>65</IncludedMechWeight>
     <IncludedMechWeight>70</IncludedMechWeight>
@@ -54,7 +54,7 @@
     <IncludedMechWeight>85</IncludedMechWeight>
     <IncludedMechWeight>90</IncludedMechWeight>
   </MechUnitParameters>
-  <MechUnitParameters Name="Assault" MechCount="4" MinBV="4600" MaxBV="4800" MinWeight="300" MaxWeight="400">
+  <MechUnitParameters Name="Assault" MechCount="4" MinBV="4400" MaxBV="4800" MinWeight="300" MaxWeight="400">
     <IncludedMechWeight>75</IncludedMechWeight>
     <IncludedMechWeight>80</IncludedMechWeight>
     <IncludedMechWeight>85</IncludedMechWeight>

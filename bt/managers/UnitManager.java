@@ -4,10 +4,10 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Vector;
 
 import javax.imageio.ImageIO;
 
@@ -31,6 +31,7 @@ import bt.elements.BattleValue;
 import bt.elements.Battlemech;
 import bt.elements.BattlemechRepairReport;
 import bt.elements.ItemRepairDetail;
+import bt.elements.collection.ItemCollection;
 import bt.elements.design.BattlemechDesign;
 import bt.elements.personnel.Administrator;
 import bt.elements.personnel.Astech;
@@ -93,8 +94,8 @@ public class UnitManager
 	private static UnitManager theInstance = new UnitManager();
 
 	private HashMap<String, MechUnitParameters> _Parameters = new HashMap<String, MechUnitParameters>();
-	private Vector<MechAvailability> _MechAvailability = new Vector<MechAvailability>();
-	private Vector<RandomName> _RandomNames = new Vector<RandomName>();
+	private ArrayList<MechAvailability> _MechAvailability = new ArrayList<MechAvailability>();
+	private ArrayList<RandomName> _RandomNames = new ArrayList<RandomName>();
 	private int _LastServedName = -1;
 	
 	private HashMap<String, Unit> _Units = new HashMap<String, Unit>();
@@ -124,14 +125,30 @@ public class UnitManager
 		return theInstance;
 	}
 	
-	public Vector<Unit> getUnits()
+	public ArrayList<Unit> getUnits()
 	{
-		return new Vector<Unit>(_Units.values()); 
+		return new ArrayList<Unit>(_Units.values()); 
 	}
 	
 	public HashMap<String, MechUnitParameters> getMechUnitParameters()
 	{
 		return _Parameters;
+	}
+	
+	public ArrayList<MechUnitParameters> getMechUnitParametersForBV(int bv)
+	{
+		ArrayList<MechUnitParameters> mups = new ArrayList<MechUnitParameters>();
+		
+		for (String key : _Parameters.keySet())
+		{
+			MechUnitParameters mup = _Parameters.get(key);
+			if (bv >= mup.getMinBV() && bv <= mup.getMaxBV())
+			{
+				mups.add(mup);
+			}
+		}
+		
+		return mups;
 	}
 
 	private void loadMechUnitParameters() throws Exception
@@ -186,8 +203,45 @@ public class UnitManager
 		}
 	}
 
-	public Unit GenerateUnit(Player p, String unitName, MechUnitParameters mup, Rating rating, QualityRating qualityRating, TechRating techRating, double startingBankBalance) throws Exception
+	private ArrayList<Battlemech> getBestMechList(MechUnitParameters mup, ArrayList<ArrayList<Battlemech>> mechLists)
 	{
+		ArrayList<Battlemech> bestList = null;
+		int bestBVDifference = Integer.MAX_VALUE;
+
+		int goalBV = mup.getMinBV() + ((mup.getMaxBV() - mup.getMinBV()) / 2);
+		
+		for (ArrayList<Battlemech> list : mechLists)
+		{
+	        int totalBV = 0;
+	        for (Battlemech mech : list)
+	        {
+	            totalBV += mech.getBV();
+	        }
+	        if (totalBV > 0)
+	        {
+	        	int diff = Math.abs(goalBV - totalBV);
+	        	if (diff < bestBVDifference)
+	        	{
+	        		bestBVDifference = diff;
+	        		bestList = list;
+	        	}
+	        }
+		}
+		
+		return bestList;
+	}
+	
+	public Unit generateUnit(Player p, String unitName, MechUnitParameters mup, Rating rating, QualityRating qualityRating, TechRating techRating, double startingBankBalance, 
+			ItemCollection collection) throws Exception
+	{
+		ArrayList<ArrayList<Battlemech>> mechLists = new ArrayList<ArrayList<Battlemech>>();
+		for (int i = 0; i < 10; i++)
+			mechLists.add(generateLance(mup, collection));
+		
+		ArrayList<Battlemech> bestList = getBestMechList(mup, mechLists);
+		if (bestList == null)
+			throw new Exception("Unable to build list with Params(" + mup + ") from collection (" + collection + ")");
+		
 		Unit u = new Unit();
 		u.setPlayer(p);
 		u.setName(unitName);
@@ -195,7 +249,7 @@ public class UnitManager
 		u.setTechRating(techRating);
 		u.setCurrentBankBalance(startingBankBalance);
 
-		u.addBattlemechs(generateLance(mup));
+		u.addBattlemechs(bestList);
 		int supportReq = 0;
 
 		for (Battlemech mech : u.getBattlemechs())
@@ -262,20 +316,20 @@ public class UnitManager
 		return u;
 	}
 
-	public Unit GenerateUnit(Player p, String unitName, String lanceWeight, Rating rating, QualityRating qualityRating, TechRating techRating, double startingBankBalance) throws Exception
+	public Unit generateUnit(Player p, String unitName, String lanceWeight, Rating rating, QualityRating qualityRating, TechRating techRating, double startingBankBalance, ItemCollection collection) throws Exception
 	{
 		if (!_Parameters.containsKey(lanceWeight))
 			throw new IllegalArgumentException("Unable to determine lance parameters from Lance Weight : " + lanceWeight);
 
 		MechUnitParameters mup = _Parameters.get(lanceWeight);
 
-		return GenerateUnit(p, unitName, mup, rating, qualityRating, techRating, startingBankBalance);
+		return generateUnit(p, unitName, mup, rating, qualityRating, techRating, startingBankBalance, collection);
 
 	}
 
-	private Vector<Battlemech> generateLance(MechUnitParameters mup) throws Exception
+	private ArrayList<Battlemech> generateLance(MechUnitParameters mup, ItemCollection collection) throws Exception
 	{
-		Vector<Battlemech> mechs = new Vector<Battlemech>();
+		ArrayList<Battlemech> mechs = new ArrayList<Battlemech>();
 
 		DesignManager dm = DesignManager.getInstance();
 		BattlemechManager bm = new BattlemechManager();
@@ -284,37 +338,47 @@ public class UnitManager
 		while (mechs.size() == 0 && attempts < 10)
 		{
 			attempts++;
-			Vector<MechAvailability> ValidMechs = new Vector<MechAvailability>(_MechAvailability);
-			for (int i = ValidMechs.size() - 1; i >= 0; i--)
+			ArrayList<MechAvailability> validMechs = new ArrayList<MechAvailability>(_MechAvailability);
+			for (int i = validMechs.size() - 1; i >= 0; i--)
 			{
-				MechAvailability ma = ValidMechs.elementAt(i);
+				MechAvailability ma = validMechs.get(i);
 				if (!mup.getIncludedMechWeights().contains(ma.getWeight()))
-					ValidMechs.remove(ma);
+					validMechs.remove(ma);
 			}
 	
-			Vector<BattleValue> elements = new Vector<BattleValue>();
-			while (elements.size() < mup.getMechCount())
+			collection.resetCollection();
+			ArrayList<BattleValue> elements = new ArrayList<BattleValue>();
+			int findMechAttempts = 0;
+			while (elements.size() < mup.getMechCount() && findMechAttempts < 10)
 			{
+				findMechAttempts++;
 				for (int mechDup = 0; mechDup < mup.getMechCount() - 1; mechDup++)
 				{
-					for (MechAvailability ma : ValidMechs)
+					for (MechAvailability ma : validMechs)
 					{
 						if (Dice.d6(2) >= ma.getAvailability())
-							elements.add(ma);
+						{
+							if (collection.isItemAvailable(ma.getName()))
+							{
+								elements.add(ma);
+								collection.moveToPending(ma.getName());
+							}
+						}
 					}
 				}
 			}
+			collection.consumePending();
 	
-			Vector<Vector<Integer>> validSets = getValidSubsetSums(elements, mup.getMechCount(), mup.getMaxBV(), mup.getMinBV());
+			ArrayList<ArrayList<Integer>> validSets = getValidSubsetSums(elements, mup.getMechCount(), mup.getMaxBV(), mup.getMinBV());
 			if (validSets.size() > 0)
 			{
-				Vector<Integer> selectedSet = validSets.elementAt(0);
+				ArrayList<Integer> selectedSet = validSets.get(0);
 				if (validSets.size() > 1)
-					selectedSet = validSets.elementAt(Dice.random(validSets.size()) - 1);
+					selectedSet = validSets.get(Dice.random(validSets.size()) - 1);
 	
 				for (int i = 0; i < selectedSet.size(); i++)
 				{
-					MechAvailability ma = (MechAvailability)elements.elementAt(selectedSet.elementAt(i));
+					MechAvailability ma = (MechAvailability)elements.get(selectedSet.get(i));
 					BattlemechDesign bd = dm.Design(ma.getVariant() + " " + ma.getName());
 					if (bd == null)
 						throw new Exception("Unable to load Design " + ma.getVariant() + " " + ma.getName());
@@ -327,13 +391,13 @@ public class UnitManager
 		return mechs;
 	}
 
-	private void getValidSubsetSums(Vector<BattleValue> elements, int elementCount, int bvMax, int bvMin, int currentIndex, int bvTotal, int elementTotal, Vector<Integer> currentSet, Vector<Vector<Integer>> validSets)
+	private void getValidSubsetSums(ArrayList<BattleValue> elements, int elementCount, int bvMax, int bvMin, int currentIndex, int bvTotal, int elementTotal, ArrayList<Integer> currentSet, ArrayList<ArrayList<Integer>> validSets)
 	{
 		if (currentIndex >= elements.size())
 			return;
 
 		elementTotal++;
-		bvTotal += elements.elementAt(currentIndex).getBV();
+		bvTotal += elements.get(currentIndex).getBV();
 		currentSet.add(currentIndex);
 		if (elementTotal == elementCount)
 		{
@@ -349,22 +413,22 @@ public class UnitManager
 
 	}
 
-	private Vector<Vector<Integer>> getValidSubsetSums(Vector<BattleValue> elements, int elementCount, int bvMax, int bvMin)
+	private ArrayList<ArrayList<Integer>> getValidSubsetSums(ArrayList<BattleValue> elements, int elementCount, int bvMax, int bvMin)
 	{
-		Vector<Vector<Integer>> validSets = new Vector<Vector<Integer>>();
+		ArrayList<ArrayList<Integer>> validSets = new ArrayList<ArrayList<Integer>>();
 		
 		for (int skip = 0; skip < elements.size(); skip++)
 		{
 			for (int index = skip; index < elements.size(); index++)
 			{
-				getValidSubsetSums(elements, elementCount, bvMax, bvMin, index, 0, 0, new Vector<Integer>(), validSets);
+				getValidSubsetSums(elements, elementCount, bvMax, bvMin, index, 0, 0, new ArrayList<Integer>(), validSets);
 			}
 		}
 		
 		return validSets;
 	}
 
-	public void saveUnitSummaries(Vector<Unit> units) throws Exception
+	public void saveUnitSummaries(ArrayList<Unit> units) throws Exception
 	{
 		org.jdom.Document doc = new org.jdom.Document();
 
@@ -751,9 +815,9 @@ public class UnitManager
 		}
 	}
 
-	public Vector<String> getUnitNames()
+	public ArrayList<String> getUnitNames()
 	{
-		return new Vector<String>(_Units.keySet());
+		return new ArrayList<String>(_Units.keySet());
 	}
 
 	public Unit getUnit(String unitName)
@@ -823,7 +887,7 @@ public class UnitManager
 		out.output(doc, new FileOutputStream(fileName));
 	}
 
-	public void purgeRandomNames(Vector<RandomName> names) throws Exception
+	public void purgeRandomNames(ArrayList<RandomName> names) throws Exception
 	{
 		for (RandomName rn : names)
 		{
@@ -839,7 +903,7 @@ public class UnitManager
 
 	public RandomName GetRandomName()
 	{
-		return _RandomNames.elementAt(++_LastServedName);
+		return _RandomNames.get(++_LastServedName);
 	}
 	
 	private com.itextpdf.text.pdf.PdfPCell createHeaderCell(String content, BaseColor foreColor, BaseColor background) throws Exception
@@ -864,7 +928,7 @@ public class UnitManager
 		return cell;
 	}
 	
-	private com.itextpdf.text.pdf.PdfPTable getRepairDetailTable(String col1Header, Vector<ItemRepairDetail> details, int modifiedSkillTarget) throws Exception
+	private com.itextpdf.text.pdf.PdfPTable getRepairDetailTable(String col1Header, ArrayList<ItemRepairDetail> details, int modifiedSkillTarget) throws Exception
 	{
 		com.itextpdf.text.pdf.PdfPTable table = new com.itextpdf.text.pdf.PdfPTable(8);
 		table.setWidthPercentage(100);

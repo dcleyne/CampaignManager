@@ -6,7 +6,7 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -26,48 +26,48 @@ public class UnitListInternalFrame extends JInternalFrame implements ActionListe
 {
 	private static final long serialVersionUID = 1;
 	
-    protected UnitListPanel m_UnitListPanel = null;
-    protected JPanel m_ButtonPanel = new JPanel();
+    protected UnitListPanel _UnitListPanel = null;
+    protected JPanel _ButtonPanel = new JPanel();
 
-    protected JButton m_NewButton = new JButton("New Unit");
-    protected JButton m_RemoveButton = new JButton("Remove Unit");
-    protected JButton m_EditButton = new JButton("Edit Unit");
+    protected JButton _NewButton = new JButton("New Unit");
+    protected JButton _RemoveButton = new JButton("Remove Unit");
+    protected JButton _EditButton = new JButton("Edit Unit");
 
-    public UnitListInternalFrame(String Title, Vector<Unit> units, UnitChangeListener ucl)
+    public UnitListInternalFrame(String Title, ArrayList<Unit> units, UnitChangeListener ucl)
     {
         super(Title, true, true, true, true);
 
-        m_UnitListPanel = new UnitListPanel(units);
-        m_UnitListPanel.addUnitChangeListener(ucl);
+        _UnitListPanel = new UnitListPanel(units);
+        _UnitListPanel.addUnitChangeListener(ucl);
         
         getContentPane().setLayout(new BorderLayout());
 
         //m_UnitListPanel.setFocusable(false);
-        getContentPane().add(m_UnitListPanel, BorderLayout.CENTER);
+        getContentPane().add(_UnitListPanel, BorderLayout.CENTER);
 
-        m_ButtonPanel.setBorder(BorderFactory.createEtchedBorder());
-        m_ButtonPanel.setLayout(new BoxLayout(m_ButtonPanel, BoxLayout.X_AXIS));
+        _ButtonPanel.setBorder(BorderFactory.createEtchedBorder());
+        _ButtonPanel.setLayout(new BoxLayout(_ButtonPanel, BoxLayout.X_AXIS));
 
-        m_NewButton.setAlignmentY(Component.CENTER_ALIGNMENT);
-        m_NewButton.setActionCommand("New");
-        m_NewButton.addActionListener(this);
+        _NewButton.setAlignmentY(Component.CENTER_ALIGNMENT);
+        _NewButton.setActionCommand("New");
+        _NewButton.addActionListener(this);
 
-        m_RemoveButton.setAlignmentY(Component.CENTER_ALIGNMENT);
-        m_RemoveButton.setActionCommand("Remove");
-        m_RemoveButton.addActionListener(this);
+        _RemoveButton.setAlignmentY(Component.CENTER_ALIGNMENT);
+        _RemoveButton.setActionCommand("Remove");
+        _RemoveButton.addActionListener(this);
 
-        m_EditButton.setAlignmentY(Component.CENTER_ALIGNMENT);
-        m_EditButton.setActionCommand("Edit");
-        m_EditButton.addActionListener(this);
+        _EditButton.setAlignmentY(Component.CENTER_ALIGNMENT);
+        _EditButton.setActionCommand("Edit");
+        _EditButton.addActionListener(this);
 
 
-        m_ButtonPanel.add(m_NewButton);
-        m_ButtonPanel.add(m_EditButton);
-        m_ButtonPanel.add(Box.createHorizontalBox());
-        m_ButtonPanel.add(m_RemoveButton);
-        m_ButtonPanel.add(Box.createHorizontalGlue());
+        _ButtonPanel.add(_NewButton);
+        _ButtonPanel.add(_EditButton);
+        _ButtonPanel.add(Box.createHorizontalBox());
+        _ButtonPanel.add(_RemoveButton);
+        _ButtonPanel.add(Box.createHorizontalGlue());
 
-        getContentPane().add(m_ButtonPanel, BorderLayout.SOUTH);
+        getContentPane().add(_ButtonPanel, BorderLayout.SOUTH);
     }
 
     public void actionPerformed(ActionEvent e)
@@ -80,7 +80,7 @@ public class UnitListInternalFrame extends JInternalFrame implements ActionListe
         }
         if (e.getActionCommand() == "Remove")
         {
-            Unit a = m_UnitListPanel.GetSelectedUnit();
+            Unit a = _UnitListPanel.GetSelectedUnit();
             if (a != null)
             {
                 int Result = JOptionPane.showInternalConfirmDialog(this, "Are you sure you wish to delete this Unit?", "Remove Unit", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
@@ -92,7 +92,7 @@ public class UnitListInternalFrame extends JInternalFrame implements ActionListe
         }
         if (e.getActionCommand() == "Edit")
         {
-            Unit a = m_UnitListPanel.GetSelectedUnit();
+            Unit a = _UnitListPanel.GetSelectedUnit();
             if (a != null)
             {
 //                UnitManager.RequestEdit(a);

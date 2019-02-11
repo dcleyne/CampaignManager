@@ -1,6 +1,6 @@
 package bt.elements;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 public class BattlemechRepairReport
 {
@@ -12,13 +12,13 @@ public class BattlemechRepairReport
 	private int _BV;
 	private int _AdjustedBV;
 
-	private Vector<ItemRepairDetail> _SectionReplacementDetails = new Vector<ItemRepairDetail>();
-	private Vector<ItemRepairDetail> _ArmourReplacementDetails = new Vector<ItemRepairDetail>();
-	private Vector<ItemRepairDetail> _ItemReplacementDetails = new Vector<ItemRepairDetail>();
+	private ArrayList<ItemRepairDetail> _SectionReplacementDetails = new ArrayList<ItemRepairDetail>();
+	private ArrayList<ItemRepairDetail> _ArmourReplacementDetails = new ArrayList<ItemRepairDetail>();
+	private ArrayList<ItemRepairDetail> _ItemReplacementDetails = new ArrayList<ItemRepairDetail>();
 
-	private Vector<ItemRepairDetail> _InternalRepairDetails = new Vector<ItemRepairDetail>();
-	private Vector<ItemRepairDetail> _SectionRepairDetails = new Vector<ItemRepairDetail>();
-	private Vector<ItemRepairDetail> _ItemRepairDetails = new Vector<ItemRepairDetail>();
+	private ArrayList<ItemRepairDetail> _InternalRepairDetails = new ArrayList<ItemRepairDetail>();
+	private ArrayList<ItemRepairDetail> _SectionRepairDetails = new ArrayList<ItemRepairDetail>();
+	private ArrayList<ItemRepairDetail> _ItemRepairDetails = new ArrayList<ItemRepairDetail>();
 	
 	private int _Indent = 0;
 	
@@ -75,9 +75,9 @@ public class BattlemechRepairReport
 		return _SectionReplacementDetails.size() > 0;
 	}
 	
-	public Vector<ItemRepairDetail> getSectionReplacementDetails()
+	public ArrayList<ItemRepairDetail> getSectionReplacementDetails()
 	{
-		return new Vector<ItemRepairDetail>(_SectionReplacementDetails);
+		return new ArrayList<ItemRepairDetail>(_SectionReplacementDetails);
 	}
 	
 	public boolean hasArmourReplacementDetails()
@@ -85,9 +85,9 @@ public class BattlemechRepairReport
 		return _ArmourReplacementDetails.size() > 0;
 	}
 
-	public Vector<ItemRepairDetail> getArmourReplacementDetails()
+	public ArrayList<ItemRepairDetail> getArmourReplacementDetails()
 	{
-		return new Vector<ItemRepairDetail>(_ArmourReplacementDetails);
+		return new ArrayList<ItemRepairDetail>(_ArmourReplacementDetails);
 	}
 	
 	public boolean hasItemReplacementDetails()
@@ -95,9 +95,9 @@ public class BattlemechRepairReport
 		return _ItemReplacementDetails.size() > 0;
 	}
 
-	public Vector<ItemRepairDetail> getItemReplacementDetails()
+	public ArrayList<ItemRepairDetail> getItemReplacementDetails()
 	{
-		return new Vector<ItemRepairDetail>(_ItemReplacementDetails);
+		return new ArrayList<ItemRepairDetail>(_ItemReplacementDetails);
 	}
 	
 	public boolean hasRepairDetails()
@@ -112,9 +112,9 @@ public class BattlemechRepairReport
 		return _SectionRepairDetails.size() > 0;
 	}
 	
-	public Vector<ItemRepairDetail> getSectionRepairDetails()
+	public ArrayList<ItemRepairDetail> getSectionRepairDetails()
 	{
-		return new Vector<ItemRepairDetail>(_SectionRepairDetails);
+		return new ArrayList<ItemRepairDetail>(_SectionRepairDetails);
 	}
 	
 	public boolean hasInternalRepairDetails()
@@ -122,9 +122,9 @@ public class BattlemechRepairReport
 		return _InternalRepairDetails.size() > 0;
 	}
 	
-	public Vector<ItemRepairDetail> getInternalRepairDetails()
+	public ArrayList<ItemRepairDetail> getInternalRepairDetails()
 	{
-		return new Vector<ItemRepairDetail>(_InternalRepairDetails);
+		return new ArrayList<ItemRepairDetail>(_InternalRepairDetails);
 	}
 	
 	public boolean hasItemRepairDetails()
@@ -132,9 +132,9 @@ public class BattlemechRepairReport
 		return _ItemRepairDetails.size() > 0;
 	}
 
-	public Vector<ItemRepairDetail> getItemRepairDetails()
+	public ArrayList<ItemRepairDetail> getItemRepairDetails()
 	{
-		return new Vector<ItemRepairDetail>(_ItemRepairDetails);
+		return new ArrayList<ItemRepairDetail>(_ItemRepairDetails);
 	}
 
 	public void addSectionReplacementDetail(ItemRepairDetail ird)

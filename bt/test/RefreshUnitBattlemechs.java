@@ -1,5 +1,6 @@
 package bt.test;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 import bt.elements.Battlemech;
@@ -26,7 +27,7 @@ public class RefreshUnitBattlemechs
 	        DesignManager dm = DesignManager.getInstance();
 	        BattlemechManager bm = new BattlemechManager();
 	        
-	        Vector<String> unitNames = UnitManager.getInstance().getUnitNames();
+	        ArrayList<String> unitNames = UnitManager.getInstance().getUnitNames();
 	        for (String unitName : unitNames)
 	        {
 	        	System.out.println("Rebuilding mechs for " + unitName);
