@@ -231,7 +231,7 @@ public class UnitAssetPanel extends JPanel implements ClosableEditPanel, MouseLi
             return;
         }
         
-        m_ElementNameTextField.setText(RandomNameManager.getInstance().GetRandomName().toString());
+        m_ElementNameTextField.setText(RandomNameManager.getInstance().getRandomName().toString());
     }
 
     protected void ShowAssetCondition()

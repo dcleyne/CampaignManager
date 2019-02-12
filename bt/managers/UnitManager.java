@@ -259,7 +259,7 @@ public class UnitManager
 			mw.setPilotingSkill(rating.getPilotingValue());
 			mw.setGunnerySkill(rating.getGunneryValue());
 
-			RandomName rn = RandomNameManager.getInstance().GetRandomName();
+			RandomName rn = RandomNameManager.getInstance().getRandomName();
 			mw.setName(rn.toString());
 			u.getPersonnel().add(mw);
 			u.addPersonnelAssignment(mw.getName(), mech.getIdentifier(), Role.PILOT);
@@ -284,7 +284,7 @@ public class UnitManager
 		{
 			Technician tech = new Technician();
 			tech.setRating(rating);
-			RandomName rn = RandomNameManager.getInstance().GetRandomName();
+			RandomName rn = RandomNameManager.getInstance().getRandomName();
 			tech.setName(rn.toString());
 			u.getPersonnel().add(tech);
 		}
@@ -292,7 +292,7 @@ public class UnitManager
 		{
 			Astech tech = new Astech();
 			tech.setRating(rating);
-			RandomName rn = RandomNameManager.getInstance().GetRandomName();
+			RandomName rn = RandomNameManager.getInstance().getRandomName();
 			tech.setName(rn.toString());
 			u.getPersonnel().add(tech);
 		}
@@ -300,7 +300,7 @@ public class UnitManager
 		{
 			Medic tech = new Medic();
 			tech.setRating(rating);
-			RandomName rn = RandomNameManager.getInstance().GetRandomName();
+			RandomName rn = RandomNameManager.getInstance().getRandomName();
 			tech.setName(rn.toString());
 			u.getPersonnel().add(tech);
 		}
@@ -308,7 +308,7 @@ public class UnitManager
 		{
 			Administrator admin = new Administrator();
 			admin.setRating(rating);
-			RandomName rn = RandomNameManager.getInstance().GetRandomName();
+			RandomName rn = RandomNameManager.getInstance().getRandomName();
 			admin.setName(rn.toString());
 			u.getPersonnel().add(admin);
 		}

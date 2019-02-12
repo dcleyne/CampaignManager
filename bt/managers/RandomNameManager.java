@@ -5,7 +5,7 @@ import java.io.File;
 
 import java.io.FileOutputStream;
 import java.util.Iterator;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import org.jdom.Document;
 import org.jdom.input.SAXBuilder;
@@ -20,20 +20,31 @@ import bt.util.WebFile;
 
 public class RandomNameManager 
 {
+	private static final String RANDOM_NAME = "RandomName";
+
+	private static final String NAME = "Name";
+
+	private static final String SURNAME = "Surname";
+
+	private static final String GIVEN_NAME = "GivenName";
+
 	private static RandomNameManager theInstance;
 	
 	private final String _FileName = PropertyUtil.getStringProperty("DataPath", "data") + "/RandomNames.xml";
-	private Vector<RandomName> _RandomNames = new Vector<RandomName>();
-	private Vector<RandomName> _ServedNames = new Vector<RandomName>();
+
+	private ArrayList<String> _Surnames = new ArrayList<String>();
+	private ArrayList<String> _GivenNames = new ArrayList<String>();
+	
+	private ArrayList<RandomName> _ServedNames = new ArrayList<RandomName>();
 	
 	private String _RandomNameURL = PropertyUtil.getStringProperty("RandomNameSource","");
 	private String _RandomNameParser = PropertyUtil.getStringProperty("RandomNameParser","");
-	private int _RandomNameThreshold = PropertyUtil.getIntProperty("RandomNameThreshold",100);	
+	private int _RandomNameThreshold = PropertyUtil.getIntProperty("RandomNameThreshold",10000);	
 	
 	private RandomNameManager()
 	{
 		loadRandomNames();
-		checkAvailableRandomNames();
+		seedAvailableRandomNames();
 	}
 	
 	
@@ -52,22 +63,26 @@ public class RandomNameManager
 		saveRandomNames();
 	}
 
-	public void ResetRandomNames()
+	public void resetRandomNames()
 	{
-		_RandomNames.addAll(_ServedNames);
 		_ServedNames.clear();
 	}
 
-	public RandomName GetRandomName()
+	public RandomName getRandomName()
 	{
-		checkAvailableRandomNames();
-		int index = Dice.random(_RandomNames.size());
-		if (index == _RandomNames.size())
-			index--;
+		String givenName = _GivenNames.get(Dice.random(_GivenNames.size()) - 1);
+		String surname = _Surnames.get(Dice.random(_Surnames.size()) - 1);
 		
-		RandomName name = _RandomNames.elementAt(index);
+		RandomName name = new RandomName(givenName, surname);
+		while (givenName.equalsIgnoreCase(surname) || _ServedNames.contains(name))
+		{
+			givenName = _GivenNames.get(Dice.random(_GivenNames.size()) - 1);
+			surname = _Surnames.get(Dice.random(_Surnames.size()) - 1);
+			
+			name = new RandomName(givenName, surname);
+		}
 		_ServedNames.add(name);
-		_RandomNames.remove(index);
+		
 		return name;
 	}
 
@@ -82,25 +97,35 @@ public class RandomNameManager
 				Document doc = b.build(f);
 		
 				org.jdom.Element rootElement = doc.getRootElement();
-		
-				Iterator<?> iter = rootElement.getChildren().iterator();
+
+				Iterator<?> iter = rootElement.getChildren(RANDOM_NAME).iterator();
 				while (iter.hasNext())
 				{
-					org.jdom.Element randomNameElement = (org.jdom.Element) iter.next();
-					String n = "";
-					String sn = "";
-					if (randomNameElement.getAttribute("Name") != null)
-						n = randomNameElement.getAttributeValue("Name");
-					else if (randomNameElement.getChild("Name") != null)
-						n = randomNameElement.getChild("Name").getValue();
-						
+					org.jdom.Element nameElement = (org.jdom.Element) iter.next();
+					String surname = nameElement.getAttributeValue(SURNAME);
+					if (!_Surnames.contains(surname))
+						_Surnames.add(surname);
 					
-					if (randomNameElement.getAttribute("Surname") != null)
-						sn = randomNameElement.getAttributeValue("Surname");
-					else if (randomNameElement.getChild("Surname") != null)
-						sn = randomNameElement.getChild("Surname").getValue();				
-					
-					_RandomNames.add(new RandomName(n, sn));
+					String givenName = nameElement.getAttributeValue(NAME);
+					if (!_GivenNames.contains(givenName))
+					_GivenNames.add(givenName);
+				}
+
+				iter = rootElement.getChildren(GIVEN_NAME).iterator();
+				while (iter.hasNext())
+				{
+					org.jdom.Element givenNameElement = (org.jdom.Element) iter.next();
+					String givenName = givenNameElement.getValue();
+					if (!_GivenNames.contains(givenName))
+						_GivenNames.add(givenName);
+				}
+				iter = rootElement.getChildren(SURNAME).iterator();
+				while (iter.hasNext())
+				{
+					org.jdom.Element surameElement = (org.jdom.Element) iter.next();
+					String surname = surameElement.getValue();
+					if (!_Surnames.contains(surname))
+						_Surnames.add(surname);
 				}
 			}
 		}
@@ -119,14 +144,19 @@ public class RandomNameManager
 		org.jdom.Element rootElement = new org.jdom.Element("RandomNames");
 		doc.addContent(rootElement);
 
-		for (RandomName rn : _RandomNames)
+		for (String name : _GivenNames)
 		{
-			org.jdom.Element nameElement = new org.jdom.Element("RandomName");
-			nameElement.setAttribute("Name", rn.getName());
-			nameElement.setAttribute("Surname", rn.getSurname());
+			org.jdom.Element nameElement = new org.jdom.Element(GIVEN_NAME);
+			nameElement.addContent(name);
 			rootElement.addContent(nameElement);
 		}
-
+		for (String name : _Surnames)
+		{
+			org.jdom.Element nameElement = new org.jdom.Element(SURNAME);
+			nameElement.addContent(name);
+			rootElement.addContent(nameElement);
+		}
+		
 		XMLOutputter out = new XMLOutputter(Format.getPrettyFormat());
 		out.output(doc, new FileOutputStream(_FileName));
 	}
@@ -135,8 +165,9 @@ public class RandomNameManager
 	{
 		StringBuilder result = new StringBuilder();
 		
-		for (RandomName rn : _RandomNames)
+		for (int i = 0; i < _RandomNameThreshold; i++)
 		{
+			RandomName rn = getRandomName();
 			result.append(rn.getName());
 			result.append(" ");
 			result.append(rn.getSurname());
@@ -146,13 +177,13 @@ public class RandomNameManager
 		return result.toString();
 	}
 	
-	private void checkAvailableRandomNames()
+	private void seedAvailableRandomNames()
 	{
 		try
 		{
-			if (_RandomNames.size() < _RandomNameThreshold)
+			while (_Surnames.size() < _RandomNameThreshold)
 			{
-				System.out.println("Random name pool has dropped below threshold. Collecting more");
+				System.out.println("Random name pool below threshold. Collecting " + (_RandomNameThreshold - _Surnames.size()) + " more");
 	            Class<?> imClass = Class.forName(_RandomNameParser, true, ClassLoader.getSystemClassLoader());
 	            Class<?> superClass = imClass.getSuperclass();
 	            if (!superClass.getName().equals("bt.util.RandomNameParser"))
@@ -165,16 +196,22 @@ public class RandomNameManager
 	            java.lang.reflect.Constructor<?> parserConstructor = imClass.getConstructor(argDefs);
 	            RandomNameParser parser =  (RandomNameParser)parserConstructor.newInstance(args);
 	            
-				while (_RandomNames.size() < _RandomNameThreshold)
-				{
-					System.out.println("Grabbing random names from : " + _RandomNameURL);
-		        	String html = WebFile.getWebPageContentAsString(_RandomNameURL, "", 0);
-		            _RandomNames.addAll(parser.parseRandomNames(html));			
-		        }
+				System.out.println("Grabbing random names from : " + _RandomNameURL);
+	        	String html = WebFile.getWebPageContentAsString(_RandomNameURL, "", 0);
+	            ArrayList<RandomName> randomNames = parser.parseRandomNames(html);
+	            for (RandomName rn : randomNames)
+	            {
+	            	if (!_Surnames.contains(rn.getSurname()))
+	            		_Surnames.add(rn.getSurname());
+
+	            	if (!_GivenNames.contains(rn.getName()))
+	            		_GivenNames.add(rn.getName());
+	            }
+	            Thread.sleep(500 + Dice.random(500));
 				
-				System.out.println("Random name pool topped up.");
 				saveRandomNames();
 			}
+			System.out.println("Random name pool seeded.");
 		}
 		catch (Exception ex)
 		{

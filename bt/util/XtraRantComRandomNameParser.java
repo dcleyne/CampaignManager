@@ -1,6 +1,6 @@
 package bt.util;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 import bt.elements.unit.RandomName;
 
@@ -8,9 +8,9 @@ public class XtraRantComRandomNameParser extends RandomNameParser
 {
 
 	@Override
-	public Vector<RandomName> parseRandomNames(String nameStream)
+	public ArrayList<RandomName> parseRandomNames(String nameStream)
 	{
-		Vector<RandomName> result = new Vector<RandomName>();
+		ArrayList<RandomName> result = new ArrayList<RandomName>();
 		
 		String firstName = "";
 		String lastName = "";
