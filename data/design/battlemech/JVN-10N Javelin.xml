@@ -22,66 +22,66 @@
   </Armour>
   <Items>
 		<Item Type="Life Support" Manufacturer="Stormvanger Assemblies, Light Division"
-			Model="JVN-10N Javelin">
+			Model="JVN-10">
 			<SlotReference Location="Head" Table="1" Slot="1" />
 			<SlotReference Location="Head" Table="1" Slot="6" />
 		</Item>
 		<Item Type="Cockpit" Manufacturer="Stormvanger Assemblies, Light Division"
-			Model="JVN-10N Javelin">
+			Model="JVN-10">
 			<SlotReference Location="Head" Table="1" Slot="3" />
 		</Item>
-    <Item Type="Gyro" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+    <Item Type="Gyro" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10">
       <SlotReference Location="Centre Torso" Table="1" Slot="4" />
       <SlotReference Location="Centre Torso" Table="1" Slot="5" />
       <SlotReference Location="Centre Torso" Table="1" Slot="6" />
       <SlotReference Location="Centre Torso" Table="2" Slot="1" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+    <Item Type="Shoulder" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10">
       <SlotReference Location="Left Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+    <Item Type="Upper Arm Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10">
       <SlotReference Location="Left Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+    <Item Type="Lower Arm Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10">
       <SlotReference Location="Left Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hand Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+    <Item Type="Hand Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10">
       <SlotReference Location="Left Arm" Table="1" Slot="4" />
     </Item>
-    <Item Type="Hip" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+    <Item Type="Hip" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10">
       <SlotReference Location="Left Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+    <Item Type="Upper Leg Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10">
       <SlotReference Location="Left Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+    <Item Type="Lower Leg Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10">
       <SlotReference Location="Left Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+    <Item Type="Foot Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10">
       <SlotReference Location="Left Leg" Table="1" Slot="4" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+    <Item Type="Shoulder" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10">
       <SlotReference Location="Right Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+    <Item Type="Upper Arm Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10">
       <SlotReference Location="Right Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+    <Item Type="Lower Arm Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10">
       <SlotReference Location="Right Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hand Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+    <Item Type="Hand Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10">
       <SlotReference Location="Right Arm" Table="1" Slot="4" />
     </Item>
-    <Item Type="Hip" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+    <Item Type="Hip" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10">
       <SlotReference Location="Right Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+    <Item Type="Upper Leg Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10">
       <SlotReference Location="Right Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+    <Item Type="Lower Leg Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10">
       <SlotReference Location="Right Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10N Javelin">
+    <Item Type="Foot Actuator" Manufacturer="Stormvanger Assemblies, Light Division" Model="JVN-10">
       <SlotReference Location="Right Leg" Table="1" Slot="4" />
     </Item>
     <Item Type="Sensors" Manufacturer="Dynatec" Model="128C">

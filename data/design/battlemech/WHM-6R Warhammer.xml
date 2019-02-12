@@ -21,59 +21,59 @@
     <Location Name="Right Leg" Points="15" />
   </Armour>
   <Items>
-  	<Item Type="Life Support" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+  	<Item Type="Life Support" Manufacturer="StarCorp Industries" Model="WHM-6">
 		<SlotReference Location="Head" Table="1" Slot="1" />
 		<SlotReference Location="Head" Table="1" Slot="6" />
 	</Item>
-	<Item Type="Cockpit" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+	<Item Type="Cockpit" Manufacturer="StarCorp Industries" Model="WHM-6">
 		<SlotReference Location="Head" Table="1" Slot="3" />
 	</Item>
-    <Item Type="Gyro" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+    <Item Type="Gyro" Manufacturer="StarCorp Industries" Model="WHM-6">
       <SlotReference Location="Centre Torso" Table="1" Slot="4" />
       <SlotReference Location="Centre Torso" Table="1" Slot="5" />
       <SlotReference Location="Centre Torso" Table="1" Slot="6" />
       <SlotReference Location="Centre Torso" Table="2" Slot="1" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+    <Item Type="Shoulder" Manufacturer="StarCorp Industries" Model="WHM-6">
       <SlotReference Location="Left Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+    <Item Type="Upper Arm Actuator" Manufacturer="StarCorp Industries" Model="WHM-6">
       <SlotReference Location="Left Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+    <Item Type="Lower Arm Actuator" Manufacturer="StarCorp Industries" Model="WHM-6">
       <SlotReference Location="Left Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hip" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+    <Item Type="Hip" Manufacturer="StarCorp Industries" Model="WHM-6">
       <SlotReference Location="Left Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+    <Item Type="Upper Leg Actuator" Manufacturer="StarCorp Industries" Model="WHM-6">
       <SlotReference Location="Left Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+    <Item Type="Lower Leg Actuator" Manufacturer="StarCorp Industries" Model="WHM-6">
       <SlotReference Location="Left Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+    <Item Type="Foot Actuator" Manufacturer="StarCorp Industries" Model="WHM-6">
       <SlotReference Location="Left Leg" Table="1" Slot="4" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+    <Item Type="Shoulder" Manufacturer="StarCorp Industries" Model="WHM-6">
       <SlotReference Location="Right Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+    <Item Type="Upper Arm Actuator" Manufacturer="StarCorp Industries" Model="WHM-6">
       <SlotReference Location="Right Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+    <Item Type="Lower Arm Actuator" Manufacturer="StarCorp Industries" Model="WHM-6">
       <SlotReference Location="Right Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hip" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+    <Item Type="Hip" Manufacturer="StarCorp Industries" Model="WHM-6">
       <SlotReference Location="Right Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+    <Item Type="Upper Leg Actuator" Manufacturer="StarCorp Industries" Model="WHM-6">
       <SlotReference Location="Right Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+    <Item Type="Lower Leg Actuator" Manufacturer="StarCorp Industries" Model="WHM-6">
       <SlotReference Location="Right Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="StarCorp Industries" Model="WHM-6R Warhammer">
+    <Item Type="Foot Actuator" Manufacturer="StarCorp Industries" Model="WHM-6">
       <SlotReference Location="Right Leg" Table="1" Slot="4" />
     </Item>
     <Item Type="Sensors" Manufacturer="O/P" Model="1500 ARB">

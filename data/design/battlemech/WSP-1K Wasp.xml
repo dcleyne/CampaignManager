@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <BattlemechDesign>
   <Name>Wasp</Name>
-  <Variant>WSP-1A</Variant>
+  <Variant>WSP-1K</Variant>
   <Manufacturer>General Mechanics, Incorporated</Manufacturer>
   <Type>Biped</Type>
   <Weight>20</Weight>
-  <Cost>1646640</Cost>
-  <BV>336</BV>
+  <Cost>1614240</Cost>
+  <BV>376</BV>
   <Armour>
-    <Location Name="Head" Points="4" />
-    <Location Name="Centre Torso" Points="6" />
+    <Location Name="Head" Points="5" />
+    <Location Name="Centre Torso" Points="7" />
     <Location Name="Centre Torso Rear" Points="4" />
-    <Location Name="Left Torso" Points="6" />
+    <Location Name="Left Torso" Points="7" />
     <Location Name="Left Torso Rear" Points="2" />
     <Location Name="Right Torso" Points="6" />
     <Location Name="Right Torso Rear" Points="2" />
-    <Location Name="Left Arm" Points="4" />
-    <Location Name="Right Arm" Points="4" />
-    <Location Name="Left Leg" Points="5" />
-    <Location Name="Right Leg" Points="5" />
+    <Location Name="Left Arm" Points="5" />
+    <Location Name="Right Arm" Points="5" />
+    <Location Name="Left Leg" Points="6" />
+    <Location Name="Right Leg" Points="6" />
   </Armour>
 
   <Items>
@@ -138,14 +138,14 @@
     <Item Type="Heat Sink" Weight="0.5" Manufacturer="GM" Model="" HeatSinkType="Single">
       <SlotReference Location="Right Torso" Table="1" Slot="3" />
     </Item>
-    <Item Type="Weapon" WeaponType="SRM 2" Manufacturer="Bical" Model="SRM Twin-Rack">
-      <SlotReference Location="Left Leg" Table="1" Slot="5" />
-    </Item>
     <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Diverse Optics" Model="Type 2">
       <SlotReference Location="Right Arm" Table="1" Slot="5" />
     </Item>
-    <Item Type="Ammunition" WeaponType="SRM 2" Manufacturer="" Model="" Shots="50">
-      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="SperryBrowning" Model="">
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="Machine Gun" Manufacturer="" Model="" Shots="200">
+      <SlotReference Location="Left Torso" Table="1" Slot="5" />
     </Item>
 
   </Items>

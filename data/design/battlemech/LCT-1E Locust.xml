@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <BattlemechDesign>
   <Name>Locust</Name>
-  <Variant>LCT-1V</Variant>
+  <Variant>LCT-1E</Variant>
   <Manufacturer>Bergan Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>20</Weight>
-  <Cost>1512400</Cost>
-  <BV>356</BV>
+  <Cost>1574200</Cost>
+  <BV>553</BV>
   <Armour>
     <Location Name="Head" Points="8" />
     <Location Name="Centre Torso" Points="10" />
@@ -96,16 +96,16 @@
       <SlotReference Location="Centre Torso" Table="2" Slot="1" />
     </Item>
     <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Martell" Model="">
-      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
-    </Item>
-    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="SperryBrowning" Model="">
       <SlotReference Location="Left Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="SperryBrowning" Model="">
+    <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Harmon" Model="">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Martell" Model="">
       <SlotReference Location="Right Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Ammunition" WeaponType="Machine Gun" Manufacturer="" Model="" Shots="200">
-      <SlotReference Location="Centre Torso" Table="2" Slot="6" />
+    <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Harmon" Model="">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
     </Item>
 
   </Items>

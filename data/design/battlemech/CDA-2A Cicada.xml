@@ -21,53 +21,53 @@
     <Location Name="Right Leg" Points="6" />
   </Armour>
   <Items>
-  	<Item Type="Life Support" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+  	<Item Type="Life Support" Manufacturer="Hartford Co" Model="CDA-2">
 		<SlotReference Location="Head" Table="1" Slot="1" />
 		<SlotReference Location="Head" Table="1" Slot="6" />
 	</Item>
-	<Item Type="Cockpit" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+	<Item Type="Cockpit" Manufacturer="Hartford Co" Model="CDA-2">
 		<SlotReference Location="Head" Table="1" Slot="3" />
 	</Item>
-    <Item Type="Gyro" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+    <Item Type="Gyro" Manufacturer="Hartford Co" Model="CDA-2">
       <SlotReference Location="Centre Torso" Table="1" Slot="4" />
       <SlotReference Location="Centre Torso" Table="1" Slot="5" />
       <SlotReference Location="Centre Torso" Table="1" Slot="6" />
       <SlotReference Location="Centre Torso" Table="2" Slot="1" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+    <Item Type="Shoulder" Manufacturer="Hartford Co" Model="CDA-2">
       <SlotReference Location="Left Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+    <Item Type="Upper Arm Actuator" Manufacturer="Hartford Co" Model="CDA-2">
       <SlotReference Location="Left Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Hip" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+    <Item Type="Hip" Manufacturer="Hartford Co" Model="CDA-2">
       <SlotReference Location="Left Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+    <Item Type="Upper Leg Actuator" Manufacturer="Hartford Co" Model="CDA-2">
       <SlotReference Location="Left Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+    <Item Type="Lower Leg Actuator" Manufacturer="Hartford Co" Model="CDA-2">
       <SlotReference Location="Left Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+    <Item Type="Foot Actuator" Manufacturer="Hartford Co" Model="CDA-2">
       <SlotReference Location="Left Leg" Table="1" Slot="4" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+    <Item Type="Shoulder" Manufacturer="Hartford Co" Model="CDA-2">
       <SlotReference Location="Right Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+    <Item Type="Upper Arm Actuator" Manufacturer="Hartford Co" Model="CDA-2">
       <SlotReference Location="Right Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Hip" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+    <Item Type="Hip" Manufacturer="Hartford Co" Model="CDA-2">
       <SlotReference Location="Right Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+    <Item Type="Upper Leg Actuator" Manufacturer="Hartford Co" Model="CDA-2">
       <SlotReference Location="Right Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+    <Item Type="Lower Leg Actuator" Manufacturer="Hartford Co" Model="CDA-2">
       <SlotReference Location="Right Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Hartford Co" Model="CDA-2A Cicada">
+    <Item Type="Foot Actuator" Manufacturer="Hartford Co" Model="CDA-2">
       <SlotReference Location="Right Leg" Table="1" Slot="4" />
     </Item>
     <Item Type="Sensors" Manufacturer="Hartford" Model="J15 B">

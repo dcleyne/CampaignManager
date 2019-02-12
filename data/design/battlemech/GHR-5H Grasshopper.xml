@@ -21,65 +21,65 @@
     <Location Name="Right Leg" Points="25" />
   </Armour>
   <Items>
-  	<Item Type="Life Support" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+  	<Item Type="Life Support" Manufacturer="Lantren Corporation" Model="GHR-5">
 		<SlotReference Location="Head" Table="1" Slot="1" />
 		<SlotReference Location="Head" Table="1" Slot="6" />
 	</Item>
-	<Item Type="Cockpit" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+	<Item Type="Cockpit" Manufacturer="Lantren Corporation" Model="GHR-5">
 		<SlotReference Location="Head" Table="1" Slot="3" />
 	</Item>
-    <Item Type="Gyro" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+    <Item Type="Gyro" Manufacturer="Lantren Corporation" Model="GHR-5">
       <SlotReference Location="Centre Torso" Table="1" Slot="4" />
       <SlotReference Location="Centre Torso" Table="1" Slot="5" />
       <SlotReference Location="Centre Torso" Table="1" Slot="6" />
       <SlotReference Location="Centre Torso" Table="2" Slot="1" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+    <Item Type="Shoulder" Manufacturer="Lantren Corporation" Model="GHR-5">
       <SlotReference Location="Left Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+    <Item Type="Upper Arm Actuator" Manufacturer="Lantren Corporation" Model="GHR-5">
       <SlotReference Location="Left Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+    <Item Type="Lower Arm Actuator" Manufacturer="Lantren Corporation" Model="GHR-5">
       <SlotReference Location="Left Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hand Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+    <Item Type="Hand Actuator" Manufacturer="Lantren Corporation" Model="GHR-5">
       <SlotReference Location="Left Arm" Table="1" Slot="4" />
     </Item>
-    <Item Type="Hip" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+    <Item Type="Hip" Manufacturer="Lantren Corporation" Model="GHR-5">
       <SlotReference Location="Left Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+    <Item Type="Upper Leg Actuator" Manufacturer="Lantren Corporation" Model="GHR-5">
       <SlotReference Location="Left Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+    <Item Type="Lower Leg Actuator" Manufacturer="Lantren Corporation" Model="GHR-5">
       <SlotReference Location="Left Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+    <Item Type="Foot Actuator" Manufacturer="Lantren Corporation" Model="GHR-5">
       <SlotReference Location="Left Leg" Table="1" Slot="4" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+    <Item Type="Shoulder" Manufacturer="Lantren Corporation" Model="GHR-5">
       <SlotReference Location="Right Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+    <Item Type="Upper Arm Actuator" Manufacturer="Lantren Corporation" Model="GHR-5">
       <SlotReference Location="Right Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+    <Item Type="Lower Arm Actuator" Manufacturer="Lantren Corporation" Model="GHR-5">
       <SlotReference Location="Right Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hand Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+    <Item Type="Hand Actuator" Manufacturer="Lantren Corporation" Model="GHR-5">
       <SlotReference Location="Right Arm" Table="1" Slot="4" />
     </Item>
-    <Item Type="Hip" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+    <Item Type="Hip" Manufacturer="Lantren Corporation" Model="GHR-5">
       <SlotReference Location="Right Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+    <Item Type="Upper Leg Actuator" Manufacturer="Lantren Corporation" Model="GHR-5">
       <SlotReference Location="Right Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+    <Item Type="Lower Leg Actuator" Manufacturer="Lantren Corporation" Model="GHR-5">
       <SlotReference Location="Right Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Lantren Corporation" Model="GHR-5H Grasshopper">
+    <Item Type="Foot Actuator" Manufacturer="Lantren Corporation" Model="GHR-5">
       <SlotReference Location="Right Leg" Table="1" Slot="4" />
     </Item>
     <Item Type="Sensors" Manufacturer="Allet" Model="T11">

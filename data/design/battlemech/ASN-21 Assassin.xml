@@ -21,62 +21,62 @@
     <Location Name="Right Leg" Points="6" />
   </Armour>
   <Items>
-  	<Item Type="Life Support" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+  	<Item Type="Life Support" Manufacturer="Maltex Corporation" Model="ASN">
 		<SlotReference Location="Head" Table="1" Slot="1" />
 		<SlotReference Location="Head" Table="1" Slot="6" />
 	</Item>
-	<Item Type="Cockpit" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+	<Item Type="Cockpit" Manufacturer="Maltex Corporation" Model="ASN">
 		<SlotReference Location="Head" Table="1" Slot="3" />
 	</Item>
-    <Item Type="Gyro" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+    <Item Type="Gyro" Manufacturer="Maltex Corporation" Model="ASN">
       <SlotReference Location="Centre Torso" Table="1" Slot="4" />
       <SlotReference Location="Centre Torso" Table="1" Slot="5" />
       <SlotReference Location="Centre Torso" Table="1" Slot="6" />
       <SlotReference Location="Centre Torso" Table="2" Slot="1" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+    <Item Type="Shoulder" Manufacturer="Maltex Corporation" Model="ASN">
       <SlotReference Location="Left Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+    <Item Type="Upper Arm Actuator" Manufacturer="Maltex Corporation" Model="ASN">
       <SlotReference Location="Left Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+    <Item Type="Lower Arm Actuator" Manufacturer="Maltex Corporation" Model="ASN">
       <SlotReference Location="Left Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hand Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+    <Item Type="Hand Actuator" Manufacturer="Maltex Corporation" Model="ASN">
       <SlotReference Location="Left Arm" Table="1" Slot="4" />
     </Item>
-    <Item Type="Hip" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+    <Item Type="Hip" Manufacturer="Maltex Corporation" Model="ASN">
       <SlotReference Location="Left Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+    <Item Type="Upper Leg Actuator" Manufacturer="Maltex Corporation" Model="ASN">
       <SlotReference Location="Left Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+    <Item Type="Lower Leg Actuator" Manufacturer="Maltex Corporation" Model="ASN">
       <SlotReference Location="Left Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+    <Item Type="Foot Actuator" Manufacturer="Maltex Corporation" Model="ASN">
       <SlotReference Location="Left Leg" Table="1" Slot="4" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+    <Item Type="Shoulder" Manufacturer="Maltex Corporation" Model="ASN">
       <SlotReference Location="Right Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+    <Item Type="Upper Arm Actuator" Manufacturer="Maltex Corporation" Model="ASN">
       <SlotReference Location="Right Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+    <Item Type="Lower Arm Actuator" Manufacturer="Maltex Corporation" Model="ASN">
       <SlotReference Location="Right Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hip" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+    <Item Type="Hip" Manufacturer="Maltex Corporation" Model="ASN">
       <SlotReference Location="Right Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+    <Item Type="Upper Leg Actuator" Manufacturer="Maltex Corporation" Model="ASN">
       <SlotReference Location="Right Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+    <Item Type="Lower Leg Actuator" Manufacturer="Maltex Corporation" Model="ASN">
       <SlotReference Location="Right Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Maltex Corporation" Model="ASN-21 Assassin">
+    <Item Type="Foot Actuator" Manufacturer="Maltex Corporation" Model="ASN">
       <SlotReference Location="Right Leg" Table="1" Slot="4" />
     </Item>
     <Item Type="Sensors" Manufacturer="Garret" Model="500S">

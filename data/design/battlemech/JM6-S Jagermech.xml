@@ -21,59 +21,59 @@
     <Location Name="Right Leg" Points="11" />
   </Armour>
   <Items>
-  	<Item Type="Life Support" Manufacturer="Kallon Industries" Model="JM6-S Jagermech">
+  	<Item Type="Life Support" Manufacturer="Kallon Industries" Model="JM6">
 		<SlotReference Location="Head" Table="1" Slot="1" />
 		<SlotReference Location="Head" Table="1" Slot="6" />
 	</Item>
-	<Item Type="Cockpit" Manufacturer="Kallon Industries" Model="JM6-S Jagermech">
+	<Item Type="Cockpit" Manufacturer="Kallon Industries" Model="JM6">
 		<SlotReference Location="Head" Table="1" Slot="3" />
 	</Item>
-    <Item Type="Gyro" Manufacturer="Kallon Industries" Model="JM6-S Jagermech">
+    <Item Type="Gyro" Manufacturer="Kallon Industries" Model="JM6">
       <SlotReference Location="Centre Torso" Table="1" Slot="4" />
       <SlotReference Location="Centre Torso" Table="1" Slot="5" />
       <SlotReference Location="Centre Torso" Table="1" Slot="6" />
       <SlotReference Location="Centre Torso" Table="2" Slot="1" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Kallon Industries" Model="JM6-S Jagermech">
+    <Item Type="Shoulder" Manufacturer="Kallon Industries" Model="JM6">
       <SlotReference Location="Left Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Kallon Industries" Model="JM6-S Jagermech">
+    <Item Type="Upper Arm Actuator" Manufacturer="Kallon Industries" Model="JM6">
       <SlotReference Location="Left Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Kallon Industries" Model="JM6-S Jagermech">
+    <Item Type="Lower Arm Actuator" Manufacturer="Kallon Industries" Model="JM6">
       <SlotReference Location="Left Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hip" Manufacturer="Kallon Industries" Model="JM6-S Jagermech">
+    <Item Type="Hip" Manufacturer="Kallon Industries" Model="JM6">
       <SlotReference Location="Left Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Kallon Industries" Model="JM6-S Jagermech">
+    <Item Type="Upper Leg Actuator" Manufacturer="Kallon Industries" Model="JM6">
       <SlotReference Location="Left Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Kallon Industries" Model="JM6-S Jagermech">
+    <Item Type="Lower Leg Actuator" Manufacturer="Kallon Industries" Model="JM6">
       <SlotReference Location="Left Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Kallon Industries" Model="JM6-S Jagermech">
+    <Item Type="Foot Actuator" Manufacturer="Kallon Industries" Model="JM6">
       <SlotReference Location="Left Leg" Table="1" Slot="4" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Kallon Industries" Model="JM6-S Jagermech">
+    <Item Type="Shoulder" Manufacturer="Kallon Industries" Model="JM6">
       <SlotReference Location="Right Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Kallon Industries" Model="JM6-S Jagermech">
+    <Item Type="Upper Arm Actuator" Manufacturer="Kallon Industries" Model="JM6">
       <SlotReference Location="Right Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Kallon Industries" Model="JM6-S Jagermech">
+    <Item Type="Lower Arm Actuator" Manufacturer="Kallon Industries" Model="JM6">
       <SlotReference Location="Right Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hip" Manufacturer="Kallon Industries" Model="JM6-S Jagermech">
+    <Item Type="Hip" Manufacturer="Kallon Industries" Model="JM6">
       <SlotReference Location="Right Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Kallon Industries" Model="JM6-S Jagermech">
+    <Item Type="Upper Leg Actuator" Manufacturer="Kallon Industries" Model="JM6">
       <SlotReference Location="Right Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Kallon Industries" Model="JM6-S Jagermech">
+    <Item Type="Lower Leg Actuator" Manufacturer="Kallon Industries" Model="JM6">
       <SlotReference Location="Right Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Kallon Industries" Model="JM6-S Jagermech">
+    <Item Type="Foot Actuator" Manufacturer="Kallon Industries" Model="JM6">
       <SlotReference Location="Right Leg" Table="1" Slot="4" />
     </Item>
     <Item Type="Sensors" Manufacturer="Garret" Model="D2j">

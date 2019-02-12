@@ -21,59 +21,59 @@
     <Location Name="Right Leg" Points="20" />
   </Armour>
   <Items>
-  	<Item Type="Life Support" Manufacturer="HildCo Interplanetary" Model="VTR 9B Victor">
+  	<Item Type="Life Support" Manufacturer="HildCo Interplanetary" Model="VTR 9">
 		<SlotReference Location="Head" Table="1" Slot="1" />
 		<SlotReference Location="Head" Table="1" Slot="6" />
 	</Item>
-	<Item Type="Cockpit" Manufacturer="HildCo Interplanetary" Model="VTR 9B Victor">
+	<Item Type="Cockpit" Manufacturer="HildCo Interplanetary" Model="VTR 9">
 		<SlotReference Location="Head" Table="1" Slot="3" />
 	</Item>
-    <Item Type="Gyro" Manufacturer="HildCo Interplanetary" Model="VTR 9B Victor">
+    <Item Type="Gyro" Manufacturer="HildCo Interplanetary" Model="VTR 9">
       <SlotReference Location="Centre Torso" Table="1" Slot="4" />
       <SlotReference Location="Centre Torso" Table="1" Slot="5" />
       <SlotReference Location="Centre Torso" Table="1" Slot="6" />
       <SlotReference Location="Centre Torso" Table="2" Slot="1" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="HildCo Interplanetary" Model="VTR 9B Victor">
+    <Item Type="Shoulder" Manufacturer="HildCo Interplanetary" Model="VTR 9">
       <SlotReference Location="Left Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="HildCo Interplanetary" Model="VTR 9B Victor">
+    <Item Type="Upper Arm Actuator" Manufacturer="HildCo Interplanetary" Model="VTR 9">
       <SlotReference Location="Left Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="HildCo Interplanetary" Model="VTR 9B Victor">
+    <Item Type="Lower Arm Actuator" Manufacturer="HildCo Interplanetary" Model="VTR 9">
       <SlotReference Location="Left Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hand Actuator" Manufacturer="HildCo Interplanetary" Model="VTR 9B Victor">
+    <Item Type="Hand Actuator" Manufacturer="HildCo Interplanetary" Model="VTR 9">
       <SlotReference Location="Left Arm" Table="1" Slot="4" />
     </Item>
-    <Item Type="Hip" Manufacturer="HildCo Interplanetary" Model="VTR 9B Victor">
+    <Item Type="Hip" Manufacturer="HildCo Interplanetary" Model="VTR 9">
       <SlotReference Location="Left Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="HildCo Interplanetary" Model="VTR 9B Victor">
+    <Item Type="Upper Leg Actuator" Manufacturer="HildCo Interplanetary" Model="VTR 9">
       <SlotReference Location="Left Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="HildCo Interplanetary" Model="VTR 9B Victor">
+    <Item Type="Lower Leg Actuator" Manufacturer="HildCo Interplanetary" Model="VTR 9">
       <SlotReference Location="Left Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="HildCo Interplanetary" Model="VTR 9B Victor">
+    <Item Type="Foot Actuator" Manufacturer="HildCo Interplanetary" Model="VTR 9">
       <SlotReference Location="Left Leg" Table="1" Slot="4" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="HildCo Interplanetary" Model="VTR 9B Victor">
+    <Item Type="Shoulder" Manufacturer="HildCo Interplanetary" Model="VTR 9">
       <SlotReference Location="Right Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="HildCo Interplanetary" Model="VTR 9B Victor">
+    <Item Type="Upper Arm Actuator" Manufacturer="HildCo Interplanetary" Model="VTR 9">
       <SlotReference Location="Right Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Hip" Manufacturer="HildCo Interplanetary" Model="VTR 9B Victor">
+    <Item Type="Hip" Manufacturer="HildCo Interplanetary" Model="VTR 9">
       <SlotReference Location="Right Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="HildCo Interplanetary" Model="VTR 9B Victor">
+    <Item Type="Upper Leg Actuator" Manufacturer="HildCo Interplanetary" Model="VTR 9">
       <SlotReference Location="Right Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="HildCo Interplanetary" Model="VTR 9B Victor">
+    <Item Type="Lower Leg Actuator" Manufacturer="HildCo Interplanetary" Model="VTR 9">
       <SlotReference Location="Right Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="HildCo Interplanetary" Model="VTR 9B Victor">
+    <Item Type="Foot Actuator" Manufacturer="HildCo Interplanetary" Model="VTR 9">
       <SlotReference Location="Right Leg" Table="1" Slot="4" />
     </Item>
     <Item Type="Sensors" Manufacturer="MaLandry" Model="34">

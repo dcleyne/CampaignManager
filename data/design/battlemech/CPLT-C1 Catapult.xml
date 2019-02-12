@@ -21,53 +21,53 @@
     <Location Name="Right Leg" Points="18" />
   </Armour>
   <Items>
-  	<Item Type="Life Support" Manufacturer="Hollis Incorporated" Model="CPLT-C1 Catapult">
+  	<Item Type="Life Support" Manufacturer="Hollis Incorporated" Model="CPLT">
 		<SlotReference Location="Head" Table="1" Slot="1" />
 		<SlotReference Location="Head" Table="1" Slot="6" />
 	</Item>
-	<Item Type="Cockpit" Manufacturer="Hollis Incorporated" Model="CPLT-C1 Catapult">
+	<Item Type="Cockpit" Manufacturer="Hollis Incorporated" Model="CPLT">
 		<SlotReference Location="Head" Table="1" Slot="3" />
 	</Item>
-    <Item Type="Gyro" Manufacturer="Hollis Incorporated" Model="CPLT-C1 Catapult">
+    <Item Type="Gyro" Manufacturer="Hollis Incorporated" Model="CPLT">
       <SlotReference Location="Centre Torso" Table="1" Slot="4" />
       <SlotReference Location="Centre Torso" Table="1" Slot="5" />
       <SlotReference Location="Centre Torso" Table="1" Slot="6" />
       <SlotReference Location="Centre Torso" Table="2" Slot="1" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Hollis Incorporated" Model="CPLT-C1 Catapult">
+    <Item Type="Shoulder" Manufacturer="Hollis Incorporated" Model="CPLT">
       <SlotReference Location="Left Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Hollis Incorporated" Model="CPLT-C1 Catapult">
+    <Item Type="Upper Arm Actuator" Manufacturer="Hollis Incorporated" Model="CPLT">
       <SlotReference Location="Left Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Hip" Manufacturer="Hollis Incorporated" Model="CPLT-C1 Catapult">
+    <Item Type="Hip" Manufacturer="Hollis Incorporated" Model="CPLT">
       <SlotReference Location="Left Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Hollis Incorporated" Model="CPLT-C1 Catapult">
+    <Item Type="Upper Leg Actuator" Manufacturer="Hollis Incorporated" Model="CPLT">
       <SlotReference Location="Left Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Hollis Incorporated" Model="CPLT-C1 Catapult">
+    <Item Type="Lower Leg Actuator" Manufacturer="Hollis Incorporated" Model="CPLT">
       <SlotReference Location="Left Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Hollis Incorporated" Model="CPLT-C1 Catapult">
+    <Item Type="Foot Actuator" Manufacturer="Hollis Incorporated" Model="CPLT">
       <SlotReference Location="Left Leg" Table="1" Slot="4" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Hollis Incorporated" Model="CPLT-C1 Catapult">
+    <Item Type="Shoulder" Manufacturer="Hollis Incorporated" Model="CPLT">
       <SlotReference Location="Right Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Hollis Incorporated" Model="CPLT-C1 Catapult">
+    <Item Type="Upper Arm Actuator" Manufacturer="Hollis Incorporated" Model="CPLT">
       <SlotReference Location="Right Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Hip" Manufacturer="Hollis Incorporated" Model="CPLT-C1 Catapult">
+    <Item Type="Hip" Manufacturer="Hollis Incorporated" Model="CPLT">
       <SlotReference Location="Right Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Hollis Incorporated" Model="CPLT-C1 Catapult">
+    <Item Type="Upper Leg Actuator" Manufacturer="Hollis Incorporated" Model="CPLT">
       <SlotReference Location="Right Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Hollis Incorporated" Model="CPLT-C1 Catapult">
+    <Item Type="Lower Leg Actuator" Manufacturer="Hollis Incorporated" Model="CPLT">
       <SlotReference Location="Right Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Hollis Incorporated" Model="CPLT-C1 Catapult">
+    <Item Type="Foot Actuator" Manufacturer="Hollis Incorporated" Model="CPLT">
       <SlotReference Location="Right Leg" Table="1" Slot="4" />
     </Item>
     <Item Type="Sensors" Manufacturer="O/P" Model="1078">

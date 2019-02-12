@@ -21,59 +21,59 @@
     <Location Name="Right Leg" Points="6" />
   </Armour>
   <Items>
-  	<Item Type="Life Support" Manufacturer="Argile Technologies of Skye" Model="FS9-H Firestarter">
+  	<Item Type="Life Support" Manufacturer="Argile Technologies of Skye" Model="FS9">
 		<SlotReference Location="Head" Table="1" Slot="1" />
 		<SlotReference Location="Head" Table="1" Slot="6" />
 	</Item>
-	<Item Type="Cockpit" Manufacturer="Argile Technologies of Skye" Model="FS9-H Firestarter">
+	<Item Type="Cockpit" Manufacturer="Argile Technologies of Skye" Model="FS9">
 		<SlotReference Location="Head" Table="1" Slot="3" />
 	</Item>
-    <Item Type="Gyro" Manufacturer="Argile Technologies of Skye" Model="FS9-H Firestarter">
+    <Item Type="Gyro" Manufacturer="Argile Technologies of Skye" Model="FS9">
       <SlotReference Location="Centre Torso" Table="1" Slot="4" />
       <SlotReference Location="Centre Torso" Table="1" Slot="5" />
       <SlotReference Location="Centre Torso" Table="1" Slot="6" />
       <SlotReference Location="Centre Torso" Table="2" Slot="1" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Argile Technologies of Skye" Model="FS9-H Firestarter">
+    <Item Type="Shoulder" Manufacturer="Argile Technologies of Skye" Model="FS9">
       <SlotReference Location="Left Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9-H Firestarter">
+    <Item Type="Upper Arm Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9">
       <SlotReference Location="Left Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9-H Firestarter">
+    <Item Type="Lower Arm Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9">
       <SlotReference Location="Left Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hip" Manufacturer="Argile Technologies of Skye" Model="FS9-H Firestarter">
+    <Item Type="Hip" Manufacturer="Argile Technologies of Skye" Model="FS9">
       <SlotReference Location="Left Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9-H Firestarter">
+    <Item Type="Upper Leg Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9">
       <SlotReference Location="Left Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9-H Firestarter">
+    <Item Type="Lower Leg Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9">
       <SlotReference Location="Left Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9-H Firestarter">
+    <Item Type="Foot Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9">
       <SlotReference Location="Left Leg" Table="1" Slot="4" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Argile Technologies of Skye" Model="FS9-H Firestarter">
+    <Item Type="Shoulder" Manufacturer="Argile Technologies of Skye" Model="FS9">
       <SlotReference Location="Right Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9-H Firestarter">
+    <Item Type="Upper Arm Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9">
       <SlotReference Location="Right Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9-H Firestarter">
+    <Item Type="Lower Arm Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9">
       <SlotReference Location="Right Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hip" Manufacturer="Argile Technologies of Skye" Model="FS9-H Firestarter">
+    <Item Type="Hip" Manufacturer="Argile Technologies of Skye" Model="FS9">
       <SlotReference Location="Right Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9-H Firestarter">
+    <Item Type="Upper Leg Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9">
       <SlotReference Location="Right Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9-H Firestarter">
+    <Item Type="Lower Leg Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9">
       <SlotReference Location="Right Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9-H Firestarter">
+    <Item Type="Foot Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9">
       <SlotReference Location="Right Leg" Table="1" Slot="4" />
     </Item>
     <Item Type="Sensors" Manufacturer="Tansech" Model="Omni-7">

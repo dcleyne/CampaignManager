@@ -21,65 +21,65 @@
     <Location Name="Right Leg" Points="26" />
   </Armour>
   <Items>
-  	<Item Type="Life Support" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+  	<Item Type="Life Support" Manufacturer="Star League Weapons Research" Model="BNC-3">
 		<SlotReference Location="Head" Table="1" Slot="1" />
 		<SlotReference Location="Head" Table="1" Slot="6" />
 	</Item>
-	<Item Type="Cockpit" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+	<Item Type="Cockpit" Manufacturer="Star League Weapons Research" Model="BNC-3">
 		<SlotReference Location="Head" Table="1" Slot="3" />
 	</Item>
-    <Item Type="Gyro" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+    <Item Type="Gyro" Manufacturer="Star League Weapons Research" Model="BNC-3">
       <SlotReference Location="Centre Torso" Table="1" Slot="4" />
       <SlotReference Location="Centre Torso" Table="1" Slot="5" />
       <SlotReference Location="Centre Torso" Table="1" Slot="6" />
       <SlotReference Location="Centre Torso" Table="2" Slot="1" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+    <Item Type="Shoulder" Manufacturer="Star League Weapons Research" Model="BNC-3">
       <SlotReference Location="Left Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+    <Item Type="Upper Arm Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3">
       <SlotReference Location="Left Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+    <Item Type="Lower Arm Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3">
       <SlotReference Location="Left Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hand Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+    <Item Type="Hand Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3">
       <SlotReference Location="Left Arm" Table="1" Slot="4" />
     </Item>
-    <Item Type="Hip" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+    <Item Type="Hip" Manufacturer="Star League Weapons Research" Model="BNC-3">
       <SlotReference Location="Left Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+    <Item Type="Upper Leg Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3">
       <SlotReference Location="Left Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+    <Item Type="Lower Leg Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3">
       <SlotReference Location="Left Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+    <Item Type="Foot Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3">
       <SlotReference Location="Left Leg" Table="1" Slot="4" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+    <Item Type="Shoulder" Manufacturer="Star League Weapons Research" Model="BNC-3">
       <SlotReference Location="Right Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+    <Item Type="Upper Arm Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3">
       <SlotReference Location="Right Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+    <Item Type="Lower Arm Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3">
       <SlotReference Location="Right Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hand Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+    <Item Type="Hand Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3">
       <SlotReference Location="Right Arm" Table="1" Slot="4" />
     </Item>
-    <Item Type="Hip" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+    <Item Type="Hip" Manufacturer="Star League Weapons Research" Model="BNC-3">
       <SlotReference Location="Right Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+    <Item Type="Upper Leg Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3">
       <SlotReference Location="Right Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+    <Item Type="Lower Leg Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3">
       <SlotReference Location="Right Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3E Banshee">
+    <Item Type="Foot Actuator" Manufacturer="Star League Weapons Research" Model="BNC-3">
       <SlotReference Location="Right Leg" Table="1" Slot="4" />
     </Item>
     <Item Type="Sensors" Manufacturer="Dalban" Model="HiRez-B">

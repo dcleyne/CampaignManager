@@ -21,65 +21,65 @@
     <Location Name="Right Leg" Points="26" />
   </Armour>
   <Items>
-  	<Item Type="Life Support" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+  	<Item Type="Life Support" Manufacturer="Hollis Industries" Model="BLR-1">
 		<SlotReference Location="Head" Table="1" Slot="1" />
 		<SlotReference Location="Head" Table="1" Slot="6" />
 	</Item>
-	<Item Type="Cockpit" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+	<Item Type="Cockpit" Manufacturer="Hollis Industries" Model="BLR-1">
 		<SlotReference Location="Head" Table="1" Slot="3" />
 	</Item>
-    <Item Type="Gyro" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+    <Item Type="Gyro" Manufacturer="Hollis Industries" Model="BLR-1">
       <SlotReference Location="Centre Torso" Table="1" Slot="4" />
       <SlotReference Location="Centre Torso" Table="1" Slot="5" />
       <SlotReference Location="Centre Torso" Table="1" Slot="6" />
       <SlotReference Location="Centre Torso" Table="2" Slot="1" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+    <Item Type="Shoulder" Manufacturer="Hollis Industries" Model="BLR-1">
       <SlotReference Location="Left Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+    <Item Type="Upper Arm Actuator" Manufacturer="Hollis Industries" Model="BLR-1">
       <SlotReference Location="Left Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+    <Item Type="Lower Arm Actuator" Manufacturer="Hollis Industries" Model="BLR-1">
       <SlotReference Location="Left Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hand Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+    <Item Type="Hand Actuator" Manufacturer="Hollis Industries" Model="BLR-1">
       <SlotReference Location="Left Arm" Table="1" Slot="4" />
     </Item>
-    <Item Type="Hip" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+    <Item Type="Hip" Manufacturer="Hollis Industries" Model="BLR-1">
       <SlotReference Location="Left Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+    <Item Type="Upper Leg Actuator" Manufacturer="Hollis Industries" Model="BLR-1">
       <SlotReference Location="Left Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+    <Item Type="Lower Leg Actuator" Manufacturer="Hollis Industries" Model="BLR-1">
       <SlotReference Location="Left Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+    <Item Type="Foot Actuator" Manufacturer="Hollis Industries" Model="BLR-1">
       <SlotReference Location="Left Leg" Table="1" Slot="4" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+    <Item Type="Shoulder" Manufacturer="Hollis Industries" Model="BLR-1">
       <SlotReference Location="Right Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+    <Item Type="Upper Arm Actuator" Manufacturer="Hollis Industries" Model="BLR-1">
       <SlotReference Location="Right Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+    <Item Type="Lower Arm Actuator" Manufacturer="Hollis Industries" Model="BLR-1">
       <SlotReference Location="Right Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hand Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+    <Item Type="Hand Actuator" Manufacturer="Hollis Industries" Model="BLR-1">
       <SlotReference Location="Right Arm" Table="1" Slot="4" />
     </Item>
-    <Item Type="Hip" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+    <Item Type="Hip" Manufacturer="Hollis Industries" Model="BLR-1">
       <SlotReference Location="Right Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+    <Item Type="Upper Leg Actuator" Manufacturer="Hollis Industries" Model="BLR-1">
       <SlotReference Location="Right Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+    <Item Type="Lower Leg Actuator" Manufacturer="Hollis Industries" Model="BLR-1">
       <SlotReference Location="Right Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Hollis Industries" Model="BLR-1G Battlemaster">
+    <Item Type="Foot Actuator" Manufacturer="Hollis Industries" Model="BLR-1">
       <SlotReference Location="Right Leg" Table="1" Slot="4" />
     </Item>
     <Item Type="Sensors" Manufacturer="Hartford Co" Model="XKZ 1">

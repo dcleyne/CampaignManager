@@ -21,65 +21,65 @@
     <Location Name="Right Leg" Points="20" />
   </Armour>
   <Items>
-  	<Item Type="Life Support" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+  	<Item Type="Life Support" Manufacturer="Kong Interstellar Corp" Model="OTL-4">
 		<SlotReference Location="Head" Table="1" Slot="1" />
 		<SlotReference Location="Head" Table="1" Slot="6" />
 	</Item>
-	<Item Type="Cockpit" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+	<Item Type="Cockpit" Manufacturer="Kong Interstellar Corp" Model="OTL-4">
 		<SlotReference Location="Head" Table="1" Slot="3" />
 	</Item>
-    <Item Type="Gyro" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+    <Item Type="Gyro" Manufacturer="Kong Interstellar Corp" Model="OTL-4">
       <SlotReference Location="Centre Torso" Table="1" Slot="4" />
       <SlotReference Location="Centre Torso" Table="1" Slot="5" />
       <SlotReference Location="Centre Torso" Table="1" Slot="6" />
       <SlotReference Location="Centre Torso" Table="2" Slot="1" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+    <Item Type="Shoulder" Manufacturer="Kong Interstellar Corp" Model="OTL-4">
       <SlotReference Location="Left Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+    <Item Type="Upper Arm Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4">
       <SlotReference Location="Left Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+    <Item Type="Lower Arm Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4">
       <SlotReference Location="Left Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hand Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+    <Item Type="Hand Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4">
       <SlotReference Location="Left Arm" Table="1" Slot="4" />
     </Item>
-    <Item Type="Hip" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+    <Item Type="Hip" Manufacturer="Kong Interstellar Corp" Model="OTL-4">
       <SlotReference Location="Left Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+    <Item Type="Upper Leg Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4">
       <SlotReference Location="Left Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+    <Item Type="Lower Leg Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4">
       <SlotReference Location="Left Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+    <Item Type="Foot Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4">
       <SlotReference Location="Left Leg" Table="1" Slot="4" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+    <Item Type="Shoulder" Manufacturer="Kong Interstellar Corp" Model="OTL-4">
       <SlotReference Location="Right Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+    <Item Type="Upper Arm Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4">
       <SlotReference Location="Right Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+    <Item Type="Lower Arm Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4">
       <SlotReference Location="Right Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hand Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+    <Item Type="Hand Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4">
       <SlotReference Location="Right Arm" Table="1" Slot="4" />
     </Item>
-    <Item Type="Hip" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+    <Item Type="Hip" Manufacturer="Kong Interstellar Corp" Model="OTL-4">
       <SlotReference Location="Right Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+    <Item Type="Upper Leg Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4">
       <SlotReference Location="Right Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+    <Item Type="Lower Leg Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4">
       <SlotReference Location="Right Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4D Ostsol">
+    <Item Type="Foot Actuator" Manufacturer="Kong Interstellar Corp" Model="OTL-4">
       <SlotReference Location="Right Leg" Table="1" Slot="4" />
     </Item>
     <Item Type="Sensors" Manufacturer="TRSS" Model="2L3">

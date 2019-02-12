@@ -21,62 +21,62 @@
     <Location Name="Right Leg" Points="8" />
   </Armour>
   <Items>
-  	<Item Type="Life Support" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+  	<Item Type="Life Support" Manufacturer="Andoran Industries Ltd" Model="CLNT-2">
 		<SlotReference Location="Head" Table="1" Slot="1" />
 		<SlotReference Location="Head" Table="1" Slot="6" />
 	</Item>
-	<Item Type="Cockpit" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+	<Item Type="Cockpit" Manufacturer="Andoran Industries Ltd" Model="CLNT-2">
 		<SlotReference Location="Head" Table="1" Slot="3" />
 	</Item>
-    <Item Type="Gyro" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+    <Item Type="Gyro" Manufacturer="Andoran Industries Ltd" Model="CLNT-2">
       <SlotReference Location="Centre Torso" Table="1" Slot="4" />
       <SlotReference Location="Centre Torso" Table="1" Slot="5" />
       <SlotReference Location="Centre Torso" Table="1" Slot="6" />
       <SlotReference Location="Centre Torso" Table="2" Slot="1" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+    <Item Type="Shoulder" Manufacturer="Andoran Industries Ltd" Model="CLNT-2">
       <SlotReference Location="Left Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+    <Item Type="Upper Arm Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2">
       <SlotReference Location="Left Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+    <Item Type="Lower Arm Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2">
       <SlotReference Location="Left Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hand Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+    <Item Type="Hand Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2">
       <SlotReference Location="Left Arm" Table="1" Slot="4" />
     </Item>
-    <Item Type="Hip" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+    <Item Type="Hip" Manufacturer="Andoran Industries Ltd" Model="CLNT-2">
       <SlotReference Location="Left Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+    <Item Type="Upper Leg Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2">
       <SlotReference Location="Left Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+    <Item Type="Lower Leg Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2">
       <SlotReference Location="Left Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+    <Item Type="Foot Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2">
       <SlotReference Location="Left Leg" Table="1" Slot="4" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+    <Item Type="Shoulder" Manufacturer="Andoran Industries Ltd" Model="CLNT-2">
       <SlotReference Location="Right Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+    <Item Type="Upper Arm Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2">
       <SlotReference Location="Right Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+    <Item Type="Lower Arm Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2">
       <SlotReference Location="Right Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hip" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+    <Item Type="Hip" Manufacturer="Andoran Industries Ltd" Model="CLNT-2">
       <SlotReference Location="Right Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+    <Item Type="Upper Leg Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2">
       <SlotReference Location="Right Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+    <Item Type="Lower Leg Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2">
       <SlotReference Location="Right Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2-3T Clint">
+    <Item Type="Foot Actuator" Manufacturer="Andoran Industries Ltd" Model="CLNT-2">
       <SlotReference Location="Right Leg" Table="1" Slot="4" />
     </Item>
     <Item Type="Sensors" Manufacturer="Sloane" Model="220 Lockover System">

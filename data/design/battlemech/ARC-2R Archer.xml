@@ -21,65 +21,65 @@
     <Location Name="Right Leg" Points="26" />
   </Armour>
   <Items>
-  	<Item Type="Life Support" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+  	<Item Type="Life Support" Manufacturer="Earthwerks Incorporated" Model="ARC-2">
 		<SlotReference Location="Head" Table="1" Slot="1" />
 		<SlotReference Location="Head" Table="1" Slot="6" />
 	</Item>
-	<Item Type="Cockpit" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+	<Item Type="Cockpit" Manufacturer="Earthwerks Incorporated" Model="ARC-2">
 		<SlotReference Location="Head" Table="1" Slot="3" />
 	</Item>
-    <Item Type="Gyro" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+    <Item Type="Gyro" Manufacturer="Earthwerks Incorporated" Model="ARC-2">
       <SlotReference Location="Centre Torso" Table="1" Slot="4" />
       <SlotReference Location="Centre Torso" Table="1" Slot="5" />
       <SlotReference Location="Centre Torso" Table="1" Slot="6" />
       <SlotReference Location="Centre Torso" Table="2" Slot="1" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+    <Item Type="Shoulder" Manufacturer="Earthwerks Incorporated" Model="ARC-2">
       <SlotReference Location="Left Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+    <Item Type="Upper Arm Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2">
       <SlotReference Location="Left Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+    <Item Type="Lower Arm Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2">
       <SlotReference Location="Left Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hand Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+    <Item Type="Hand Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2">
       <SlotReference Location="Left Arm" Table="1" Slot="4" />
     </Item>
-    <Item Type="Hip" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+    <Item Type="Hip" Manufacturer="Earthwerks Incorporated" Model="ARC-2">
       <SlotReference Location="Left Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+    <Item Type="Upper Leg Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2">
       <SlotReference Location="Left Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+    <Item Type="Lower Leg Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2">
       <SlotReference Location="Left Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+    <Item Type="Foot Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2">
       <SlotReference Location="Left Leg" Table="1" Slot="4" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+    <Item Type="Shoulder" Manufacturer="Earthwerks Incorporated" Model="ARC-2">
       <SlotReference Location="Right Arm" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+    <Item Type="Upper Arm Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2">
       <SlotReference Location="Right Arm" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+    <Item Type="Lower Arm Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2">
       <SlotReference Location="Right Arm" Table="1" Slot="3" />
     </Item>
-    <Item Type="Hand Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+    <Item Type="Hand Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2">
       <SlotReference Location="Right Arm" Table="1" Slot="4" />
     </Item>
-    <Item Type="Hip" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+    <Item Type="Hip" Manufacturer="Earthwerks Incorporated" Model="ARC-2">
       <SlotReference Location="Right Leg" Table="1" Slot="1" />
     </Item>
-    <Item Type="Upper Leg Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+    <Item Type="Upper Leg Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2">
       <SlotReference Location="Right Leg" Table="1" Slot="2" />
     </Item>
-    <Item Type="Lower Leg Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+    <Item Type="Lower Leg Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2">
       <SlotReference Location="Right Leg" Table="1" Slot="3" />
     </Item>
-    <Item Type="Foot Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2R Archer">
+    <Item Type="Foot Actuator" Manufacturer="Earthwerks Incorporated" Model="ARC-2">
       <SlotReference Location="Right Leg" Table="1" Slot="4" />
     </Item>
     <Item Type="Sensors" Manufacturer="RCA Instatrac" Model="Mark XII">
