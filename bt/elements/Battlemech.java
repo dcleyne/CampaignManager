@@ -430,38 +430,52 @@ public class Battlemech extends Asset implements BattleValue
 
 	public int getWalkRating()
 	{
-		ItemMount leftHip = getItemMount("Hip","Left Leg");
-		ItemMount rightHip = getItemMount("Hip","Right Leg");
-		
-		if (leftHip.isDamaged() && rightHip.isDamaged())
+		int walk = 0;
+		HashMap<String, ItemMount> hips = new HashMap<String, ItemMount>();
+		if (_Type.equalsIgnoreCase("Quad"))
+		{
+			hips.put("Left Front Leg", getItemMount("Hip","Left Front Leg"));
+			hips.put("Right Front Leg", getItemMount("Hip","Right Front Leg"));
+			hips.put("Left Rear Leg", getItemMount("Hip","Left Rear Leg"));
+			hips.put("Right Rear Leg", getItemMount("Hip","Right Rear Leg"));
+		}
+		else
+		{
+			hips.put("Left Leg", getItemMount("Hip","Left Leg"));
+			hips.put("Right Leg", getItemMount("Hip","Right Leg"));
+		}
+
+		int hipsDamaged = 0;
+		for (ItemMount hip : hips.values())
+		{
+			if (hip.isDamaged())
+				hipsDamaged++;
+		}
+		if (hipsDamaged > 1)
 			return 0;
 
 		ItemMount engine = getItemMount("Engine","Centre Torso");
-		int walk = ((Engine)engine.getMountedItem()).getRating() / getWeight();
+		walk = ((Engine)engine.getMountedItem()).getRating() / getWeight();
 		
 		Vector<ItemMount> legBits = new Vector<ItemMount>();
-		if (!leftHip.isDamaged())
-		{
-			legBits.add(getItemMount("Upper Leg Actuator","Left Leg"));
-			legBits.add(getItemMount("Lower Leg Actuator","Left Leg"));
-			legBits.add(getItemMount("Foot Actuator","Left Leg"));
-		}
-		else
-			walk = Math.round((walk / 2.0f) + 0.49f);
-		
-		if (!rightHip.isDamaged())
-		{
-			legBits.add(getItemMount("Upper Leg Actuator","Right Leg"));
-			legBits.add(getItemMount("Lower Leg Actuator","Right Leg"));
-			legBits.add(getItemMount("Foot Actuator","Right Leg"));
-		}
-		else
-			walk = Math.round((walk / 2.0f) + 0.49f);
 
+		for (String legLocation : hips.keySet())
+		{
+			ItemMount hip = hips.get(legLocation);
+			if (!hip.isDamaged())
+			{
+				legBits.add(getItemMount("Upper Leg Actuator", legLocation));
+				legBits.add(getItemMount("Lower Leg Actuator", legLocation));
+				legBits.add(getItemMount("Foot Actuator", legLocation));
+			}
+			else
+				walk = Math.round((walk / 2.0f) + 0.49f);
+		}
+		
 		for (ItemMount legPart : legBits)
 			if (legPart.isDamaged())
 				walk -= 1;
-		
+
 		if (walk < 0)
 			walk = 0;
 		

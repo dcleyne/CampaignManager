@@ -1,10 +1,16 @@
 package bt.test;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.Vector;
+
+import javax.imageio.ImageIO;
+
 import bt.elements.Battlemech;
 import bt.elements.design.BattlemechDesign;
 import bt.managers.BattlemechManager;
 import bt.managers.DesignManager;
+import bt.ui.renderers.BattlemechRenderer;
 import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;
 
@@ -42,6 +48,10 @@ public class TestBattlemechDesign
                     mech = bm.loadBattlemech(saveName);
 
                     System.out.println("Loaded Ok " + mech.getDesignName() + " " + mech.getDesignVariant());
+                    
+	                String filename = path + "/battlemechs/" + mech.getDesignVariant() + " " + mech.getDesignName() + ".png";
+	                BufferedImage mechImage = BattlemechRenderer.getInstance().RenderBattlemech(mech, null);
+	                ImageIO.write(mechImage, "PNG", new File(filename));
                 }
                 catch (Exception ex)
                 {

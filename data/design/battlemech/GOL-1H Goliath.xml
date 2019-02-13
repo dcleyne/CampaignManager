@@ -34,53 +34,53 @@
       <SlotReference Location="Centre Torso" Table="1" Slot="6" />
       <SlotReference Location="Centre Torso" Table="2" Slot="1" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Brigaidier Corporation" Model="GOL-1">
-      <SlotReference Location="Left Arm" Table="1" Slot="1" />
-    </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1">
-      <SlotReference Location="Left Arm" Table="1" Slot="2" />
-    </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1">
-      <SlotReference Location="Left Arm" Table="1" Slot="3" />
-    </Item>
-    <Item Type="Hand Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1">
-      <SlotReference Location="Left Arm" Table="1" Slot="4" />
-    </Item>
     <Item Type="Hip" Manufacturer="Brigaidier Corporation" Model="GOL-1">
-      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+      <SlotReference Location="Left Front Leg" Table="1" Slot="1" />
     </Item>
     <Item Type="Upper Leg Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1">
-      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+      <SlotReference Location="Left Front Leg" Table="1" Slot="2" />
     </Item>
     <Item Type="Lower Leg Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1">
-      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+      <SlotReference Location="Left Front Leg" Table="1" Slot="3" />
     </Item>
     <Item Type="Foot Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1">
-      <SlotReference Location="Left Leg" Table="1" Slot="4" />
-    </Item>
-    <Item Type="Shoulder" Manufacturer="Brigaidier Corporation" Model="GOL-1">
-      <SlotReference Location="Right Arm" Table="1" Slot="1" />
-    </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1">
-      <SlotReference Location="Right Arm" Table="1" Slot="2" />
-    </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1">
-      <SlotReference Location="Right Arm" Table="1" Slot="3" />
-    </Item>
-    <Item Type="Hand Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1">
-      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+      <SlotReference Location="Left Front Leg" Table="1" Slot="4" />
     </Item>
     <Item Type="Hip" Manufacturer="Brigaidier Corporation" Model="GOL-1">
-      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+      <SlotReference Location="Left Rear Leg" Table="1" Slot="1" />
     </Item>
     <Item Type="Upper Leg Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1">
-      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+      <SlotReference Location="Left Rear Leg" Table="1" Slot="2" />
     </Item>
     <Item Type="Lower Leg Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1">
-      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+      <SlotReference Location="Left Rear Leg" Table="1" Slot="3" />
     </Item>
     <Item Type="Foot Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1">
-      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+      <SlotReference Location="Left Rear Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Brigaidier Corporation" Model="GOL-1">
+      <SlotReference Location="Right Front Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1">
+      <SlotReference Location="Right Front Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1">
+      <SlotReference Location="Right Front Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1">
+      <SlotReference Location="Right Front Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Brigaidier Corporation" Model="GOL-1">
+      <SlotReference Location="Right Rear Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1">
+      <SlotReference Location="Right Rear Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1">
+      <SlotReference Location="Right Rear Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Brigaidier Corporation" Model="GOL-1">
+      <SlotReference Location="Right Rear Leg" Table="1" Slot="4" />
     </Item>
     <Item Type="Sensors" Manufacturer="Garret" Model="GRNDTRAK 15">
       <SlotReference Location="Head" Table="1" Slot="2" />
@@ -123,25 +123,25 @@
       <SlotReference Location="Left Torso" Table="1" Slot="4" />
     </Item>
     <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Brigaidier Corporation">
-      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+      <SlotReference Location="Left Front Leg" Table="1" Slot="5" />
     </Item>
     <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Brigaidier Corporation">
-      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+      <SlotReference Location="Right Front Leg" Table="1" Slot="5" />
     </Item>
     <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Brigaidier Corporation">
       <SlotReference Location="Head" Table="1" Slot="4" />
     </Item>
     <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Brigaidier Corporation">
-      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+      <SlotReference Location="Left Rear Leg" Table="1" Slot="5" />
     </Item>
     <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Brigaidier Corporation">
-      <SlotReference Location="Left Leg" Table="1" Slot="6" />
+      <SlotReference Location="Left Rear Leg" Table="1" Slot="6" />
     </Item>
     <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Brigaidier Corporation">
-      <SlotReference Location="Right Leg" Table="1" Slot="5" />
+      <SlotReference Location="Right Rear Leg" Table="1" Slot="5" />
     </Item>
     <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Brigaidier Corporation">
-      <SlotReference Location="Right Leg" Table="1" Slot="6" />
+      <SlotReference Location="Right Rear Leg" Table="1" Slot="6" />
     </Item>
   </Items>
 </BattlemechDesign>

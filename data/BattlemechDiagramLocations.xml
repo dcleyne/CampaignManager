@@ -35,6 +35,42 @@
 		<Dot location="Right Arm" index="15" x="767" y="631" />
 		<Dot location="Right Arm" index="16" x="769" y="641" />
 		<Dot location="Right Arm" index="17" x="759" y="644" />
+
+		<Dot location="Left Front Leg" index="1" x="619" y="504" />
+		<Dot location="Left Front Leg" index="2" x="609" y="509" />
+		<Dot location="Left Front Leg" index="3" x="602" y="516" />
+		<Dot location="Left Front Leg" index="4" x="593" y="522" />
+		<Dot location="Left Front Leg" index="5" x="595" y="532" />
+		<Dot location="Left Front Leg" index="6" x="591" y="542" />
+		<Dot location="Left Front Leg" index="7" x="585" y="552" />
+		<Dot location="Left Front Leg" index="8" x="582" y="560" />
+		<Dot location="Left Front Leg" index="9" x="579" y="570" />
+		<Dot location="Left Front Leg" index="10" x="577" y="581" />
+		<Dot location="Left Front Leg" index="11" x="575" y="591" />
+		<Dot location="Left Front Leg" index="12" x="573" y="600" />
+		<Dot location="Left Front Leg" index="13" x="571" y="611" />
+		<Dot location="Left Front Leg" index="14" x="569" y="620" />
+		<Dot location="Left Front Leg" index="15" x="567" y="631" />
+		<Dot location="Left Front Leg" index="16" x="565" y="641" />
+		<Dot location="Left Front Leg" index="17" x="575" y="644" />
+		<Dot location="Right Front Leg" index="1" x="715" y="504" />
+		<Dot location="Right Front Leg" index="2" x="725" y="509" />
+		<Dot location="Right Front Leg" index="3" x="732" y="516" />
+		<Dot location="Right Front Leg" index="4" x="741" y="522" />
+		<Dot location="Right Front Leg" index="5" x="739" y="532" />
+		<Dot location="Right Front Leg" index="6" x="743" y="542" />
+		<Dot location="Right Front Leg" index="7" x="749" y="552" />
+		<Dot location="Right Front Leg" index="8" x="752" y="560" />
+		<Dot location="Right Front Leg" index="9" x="755" y="570" />
+		<Dot location="Right Front Leg" index="10" x="757" y="581" />
+		<Dot location="Right Front Leg" index="11" x="759" y="591" />
+		<Dot location="Right Front Leg" index="12" x="761" y="600" />
+		<Dot location="Right Front Leg" index="13" x="763" y="611" />
+		<Dot location="Right Front Leg" index="14" x="765" y="620" />
+		<Dot location="Right Front Leg" index="15" x="767" y="631" />
+		<Dot location="Right Front Leg" index="16" x="769" y="641" />
+		<Dot location="Right Front Leg" index="17" x="759" y="644" />
+		
 		<Dot location="Left Torso" index="1" x="648" y="494" />
 		<Dot location="Left Torso" index="2" x="641" y="497" />
 		<Dot location="Left Torso" index="3" x="634" y="500" />
@@ -119,6 +155,50 @@
 		<Dot location="Right Leg" index="19" x="746" y="784" />
 		<Dot location="Right Leg" index="20" x="748" y="796" />
 		<Dot location="Right Leg" index="21" x="759" y="801" />
+
+		<Dot location="Left Rear Leg" index="1" x="625" y="598" />
+		<Dot location="Left Rear Leg" index="2" x="622" y="609" />
+		<Dot location="Left Rear Leg" index="3" x="632" y="608" />
+		<Dot location="Left Rear Leg" index="4" x="627" y="620" />
+		<Dot location="Left Rear Leg" index="5" x="623" y="630" />
+		<Dot location="Left Rear Leg" index="6" x="622" y="641" />
+		<Dot location="Left Rear Leg" index="7" x="619" y="651" />
+		<Dot location="Left Rear Leg" index="8" x="617" y="664" />
+		<Dot location="Left Rear Leg" index="9" x="613" y="674" />
+		<Dot location="Left Rear Leg" index="10" x="612" y="685" />
+		<Dot location="Left Rear Leg" index="11" x="609" y="696" />
+		<Dot location="Left Rear Leg" index="12" x="607" y="707" />
+		<Dot location="Left Rear Leg" index="13" x="603" y="717" />
+		<Dot location="Left Rear Leg" index="14" x="602" y="729" />
+		<Dot location="Left Rear Leg" index="15" x="599" y="740" />
+		<Dot location="Left Rear Leg" index="16" x="596" y="750" />
+		<Dot location="Left Rear Leg" index="17" x="593" y="762" />
+		<Dot location="Left Rear Leg" index="18" x="591" y="774" />
+		<Dot location="Left Rear Leg" index="19" x="589" y="784" />
+		<Dot location="Left Rear Leg" index="20" x="587" y="796" />
+		<Dot location="Left Rear Leg" index="21" x="576" y="801" />
+		<Dot location="Right Rear Leg" index="1" x="710" y="598" />
+		<Dot location="Right Rear Leg" index="2" x="713" y="609" />
+		<Dot location="Right Rear Leg" index="3" x="703" y="608" />
+		<Dot location="Right Rear Leg" index="4" x="708" y="620" />
+		<Dot location="Right Rear Leg" index="5" x="712" y="630" />
+		<Dot location="Right Rear Leg" index="6" x="713" y="641" />
+		<Dot location="Right Rear Leg" index="7" x="716" y="651" />
+		<Dot location="Right Rear Leg" index="8" x="718" y="664" />
+		<Dot location="Right Rear Leg" index="9" x="722" y="674" />
+		<Dot location="Right Rear Leg" index="10" x="723" y="685" />
+		<Dot location="Right Rear Leg" index="11" x="726" y="696" />
+		<Dot location="Right Rear Leg" index="12" x="728" y="707" />
+		<Dot location="Right Rear Leg" index="13" x="732" y="717" />
+		<Dot location="Right Rear Leg" index="14" x="733" y="729" />
+		<Dot location="Right Rear Leg" index="15" x="736" y="740" />
+		<Dot location="Right Rear Leg" index="16" x="739" y="750" />
+		<Dot location="Right Rear Leg" index="17" x="742" y="762" />
+		<Dot location="Right Rear Leg" index="18" x="744" y="774" />
+		<Dot location="Right Rear Leg" index="19" x="746" y="784" />
+		<Dot location="Right Rear Leg" index="20" x="748" y="796" />
+		<Dot location="Right Rear Leg" index="21" x="759" y="801" />
+
 		<Dot location="Head" index="1" x="662" y="497" />
 		<Dot location="Head" index="2" x="672" y="497" />
 		<Dot location="Head" index="3" x="667" y="506" />
@@ -225,6 +305,75 @@
 		<Dot location="Right Arm" index="32" x="376" y="511" />
 		<Dot location="Right Arm" index="33" x="362" y="517" />
 		<Dot location="Right Arm" index="34" x="348" y="523" />
+
+		<Dot location="Left Front Leg" index="1" x="140" y="353" />
+		<Dot location="Left Front Leg" index="2" x="106" y="354" />
+		<Dot location="Left Front Leg" index="3" x="119" y="360" />
+		<Dot location="Left Front Leg" index="4" x="134" y="367" />
+		<Dot location="Left Front Leg" index="5" x="101" y="368" />
+		<Dot location="Left Front Leg" index="6" x="114" y="375" />
+		<Dot location="Left Front Leg" index="7" x="129" y="380" />
+		<Dot location="Left Front Leg" index="8" x="95" y="382" />
+		<Dot location="Left Front Leg" index="9" x="108" y="389" />
+		<Dot location="Left Front Leg" index="10" x="122" y="395" />
+		<Dot location="Left Front Leg" index="11" x="110" y="405" />
+		<Dot location="Left Front Leg" index="12" x="103" y="418" />
+		<Dot location="Left Front Leg" index="13" x="91" y="426" />
+		<Dot location="Left Front Leg" index="14" x="105" y="433" />
+		<Dot location="Left Front Leg" index="15" x="85" y="440" />
+		<Dot location="Left Front Leg" index="16" x="99" y="446" />
+		<Dot location="Left Front Leg" index="17" x="79" y="452" />
+		<Dot location="Left Front Leg" index="18" x="93" y="460" />
+		<Dot location="Left Front Leg" index="19" x="72" y="467" />
+		<Dot location="Left Front Leg" index="20" x="58" y="461" />
+		<Dot location="Left Front Leg" index="21" x="86" y="473" />
+		<Dot location="Left Front Leg" index="22" x="101" y="480" />
+		<Dot location="Left Front Leg" index="23" x="51" y="476" />
+		<Dot location="Left Front Leg" index="24" x="66" y="482" />
+		<Dot location="Left Front Leg" index="25" x="79" y="488" />
+		<Dot location="Left Front Leg" index="26" x="94" y="495" />
+		<Dot location="Left Front Leg" index="27" x="45" y="490" />
+		<Dot location="Left Front Leg" index="28" x="59" y="496" />
+		<Dot location="Left Front Leg" index="29" x="73" y="502" />
+		<Dot location="Left Front Leg" index="30" x="87" y="508" />
+		<Dot location="Left Front Leg" index="31" x="39" y="504" />
+		<Dot location="Left Front Leg" index="32" x="53" y="511" />
+		<Dot location="Left Front Leg" index="33" x="67" y="517" />
+		<Dot location="Left Front Leg" index="34" x="81" y="523" />
+		<Dot location="Right Front Leg" index="1" x="289" y="353" />
+		<Dot location="Right Front Leg" index="2" x="323" y="354" />
+		<Dot location="Right Front Leg" index="3" x="310" y="360" />
+		<Dot location="Right Front Leg" index="4" x="295" y="367" />
+		<Dot location="Right Front Leg" index="5" x="328" y="368" />
+		<Dot location="Right Front Leg" index="6" x="315" y="375" />
+		<Dot location="Right Front Leg" index="7" x="300" y="380" />
+		<Dot location="Right Front Leg" index="8" x="334" y="382" />
+		<Dot location="Right Front Leg" index="9" x="321" y="389" />
+		<Dot location="Right Front Leg" index="10" x="307" y="395" />
+		<Dot location="Right Front Leg" index="11" x="319" y="405" />
+		<Dot location="Right Front Leg" index="12" x="326" y="418" />
+		<Dot location="Right Front Leg" index="13" x="338" y="426" />
+		<Dot location="Right Front Leg" index="14" x="324" y="433" />
+		<Dot location="Right Front Leg" index="15" x="344" y="440" />
+		<Dot location="Right Front Leg" index="16" x="330" y="446" />
+		<Dot location="Right Front Leg" index="17" x="350" y="452" />
+		<Dot location="Right Front Leg" index="18" x="336" y="460" />
+		<Dot location="Right Front Leg" index="19" x="357" y="467" />
+		<Dot location="Right Front Leg" index="20" x="371" y="461" />
+		<Dot location="Right Front Leg" index="21" x="343" y="473" />
+		<Dot location="Right Front Leg" index="22" x="328" y="480" />
+		<Dot location="Right Front Leg" index="23" x="378" y="476" />
+		<Dot location="Right Front Leg" index="24" x="363" y="482" />
+		<Dot location="Right Front Leg" index="25" x="350" y="488" />
+		<Dot location="Right Front Leg" index="26" x="335" y="495" />
+		<Dot location="Right Front Leg" index="27" x="384" y="490" />
+		<Dot location="Right Front Leg" index="28" x="370" y="496" />
+		<Dot location="Right Front Leg" index="29" x="356" y="502" />
+		<Dot location="Right Front Leg" index="30" x="342" y="508" />
+		<Dot location="Right Front Leg" index="31" x="390" y="504" />
+		<Dot location="Right Front Leg" index="32" x="376" y="511" />
+		<Dot location="Right Front Leg" index="33" x="362" y="517" />
+		<Dot location="Right Front Leg" index="34" x="348" y="523" />
 
 		<Dot location="Left Torso" index="1" x="156" y="342" />
 		<Dot location="Left Torso" index="2" x="165" y="342" />
@@ -398,6 +547,92 @@
 		<Dot location="Right Leg" index="40" x="365" y="786" />
 		<Dot location="Right Leg" index="41" x="349" y="788" />
 		<Dot location="Right Leg" index="42" x="366" y="801" />
+
+		<Dot location="Left Rear Leg" index="1" x="150" y="490" />
+		<Dot location="Left Rear Leg" index="2" x="148" y="504" />
+		<Dot location="Left Rear Leg" index="3" x="164" y="507" />
+		<Dot location="Left Rear Leg" index="4" x="146" y="520" />
+		<Dot location="Left Rear Leg" index="5" x="162" y="522" />
+		<Dot location="Left Rear Leg" index="6" x="144" y="535" />
+		<Dot location="Left Rear Leg" index="7" x="160" y="537" />
+		<Dot location="Left Rear Leg" index="8" x="142" y="551" />
+		<Dot location="Left Rear Leg" index="9" x="158" y="553" />
+		<Dot location="Left Rear Leg" index="10" x="140" y="566" />
+		<Dot location="Left Rear Leg" index="11" x="156" y="568" />
+		<Dot location="Left Rear Leg" index="12" x="138" y="581" />
+		<Dot location="Left Rear Leg" index="13" x="154" y="583" />
+		<Dot location="Left Rear Leg" index="14" x="136" y="596" />
+		<Dot location="Left Rear Leg" index="15" x="152" y="598" />
+		<Dot location="Left Rear Leg" index="16" x="134" y="611" />
+		<Dot location="Left Rear Leg" index="17" x="150" y="613" />
+		<Dot location="Left Rear Leg" index="18" x="132" y="626" />
+		<Dot location="Left Rear Leg" index="19" x="148" y="628" />
+		<Dot location="Left Rear Leg" index="20" x="130" y="641" />
+		<Dot location="Left Rear Leg" index="21" x="146" y="643" />
+		<Dot location="Left Rear Leg" index="22" x="128" y="656" />
+		<Dot location="Left Rear Leg" index="23" x="144" y="658" />
+		<Dot location="Left Rear Leg" index="24" x="126" y="671" />
+		<Dot location="Left Rear Leg" index="25" x="142" y="673" />
+		<Dot location="Left Rear Leg" index="26" x="124" y="686" />
+		<Dot location="Left Rear Leg" index="27" x="140" y="688" />
+		<Dot location="Left Rear Leg" index="28" x="122" y="701" />
+		<Dot location="Left Rear Leg" index="29" x="138" y="703" />
+		<Dot location="Left Rear Leg" index="30" x="120" y="716" />
+		<Dot location="Left Rear Leg" index="31" x="136" y="718" />
+		<Dot location="Left Rear Leg" index="32" x="118" y="731" />
+		<Dot location="Left Rear Leg" index="33" x="134" y="733" />
+		<Dot location="Left Rear Leg" index="34" x="102" y="744" />
+		<Dot location="Left Rear Leg" index="35" x="117" y="746" />
+		<Dot location="Left Rear Leg" index="36" x="100" y="759" />
+		<Dot location="Left Rear Leg" index="37" x="116" y="761" />
+		<Dot location="Left Rear Leg" index="38" x="84" y="772" />
+		<Dot location="Left Rear Leg" index="39" x="99" y="774" />
+		<Dot location="Left Rear Leg" index="40" x="66" y="786" />
+		<Dot location="Left Rear Leg" index="41" x="82" y="788" />
+		<Dot location="Left Rear Leg" index="42" x="65" y="801" />
+		<Dot location="Right Rear Leg" index="1" x="281" y="490" />
+		<Dot location="Right Rear Leg" index="2" x="283" y="504" />
+		<Dot location="Right Rear Leg" index="3" x="267" y="507" />
+		<Dot location="Right Rear Leg" index="4" x="285" y="520" />
+		<Dot location="Right Rear Leg" index="5" x="269" y="522" />
+		<Dot location="Right Rear Leg" index="6" x="287" y="535" />
+		<Dot location="Right Rear Leg" index="7" x="271" y="537" />
+		<Dot location="Right Rear Leg" index="8" x="289" y="551" />
+		<Dot location="Right Rear Leg" index="9" x="273" y="553" />
+		<Dot location="Right Rear Leg" index="10" x="291" y="566" />
+		<Dot location="Right Rear Leg" index="11" x="275" y="568" />
+		<Dot location="Right Rear Leg" index="12" x="293" y="581" />
+		<Dot location="Right Rear Leg" index="13" x="277" y="583" />
+		<Dot location="Right Rear Leg" index="14" x="295" y="596" />
+		<Dot location="Right Rear Leg" index="15" x="279" y="598" />
+		<Dot location="Right Rear Leg" index="16" x="297" y="611" />
+		<Dot location="Right Rear Leg" index="17" x="281" y="613" />
+		<Dot location="Right Rear Leg" index="18" x="299" y="626" />
+		<Dot location="Right Rear Leg" index="19" x="283" y="628" />
+		<Dot location="Right Rear Leg" index="20" x="301" y="641" />
+		<Dot location="Right Rear Leg" index="21" x="285" y="643" />
+		<Dot location="Right Rear Leg" index="22" x="303" y="656" />
+		<Dot location="Right Rear Leg" index="23" x="287" y="658" />
+		<Dot location="Right Rear Leg" index="24" x="305" y="671" />
+		<Dot location="Right Rear Leg" index="25" x="289" y="673" />
+		<Dot location="Right Rear Leg" index="26" x="307" y="686" />
+		<Dot location="Right Rear Leg" index="27" x="291" y="688" />
+		<Dot location="Right Rear Leg" index="28" x="309" y="701" />
+		<Dot location="Right Rear Leg" index="29" x="293" y="703" />
+		<Dot location="Right Rear Leg" index="30" x="311" y="716" />
+		<Dot location="Right Rear Leg" index="31" x="295" y="718" />
+		<Dot location="Right Rear Leg" index="32" x="313" y="731" />
+		<Dot location="Right Rear Leg" index="33" x="297" y="733" />
+		<Dot location="Right Rear Leg" index="34" x="329" y="744" />
+		<Dot location="Right Rear Leg" index="35" x="314" y="746" />
+		<Dot location="Right Rear Leg" index="36" x="331" y="759" />
+		<Dot location="Right Rear Leg" index="37" x="315" y="761" />
+		<Dot location="Right Rear Leg" index="38" x="347" y="772" />
+		<Dot location="Right Rear Leg" index="39" x="332" y="774" />
+		<Dot location="Right Rear Leg" index="40" x="365" y="786" />
+		<Dot location="Right Rear Leg" index="41" x="349" y="788" />
+		<Dot location="Right Rear Leg" index="42" x="366" y="801" />
+
 		<Dot location="Head" index="1" x="204" y="362" />
 		<Dot location="Head" index="2" x="215" y="362" />
 		<Dot location="Head" index="3" x="226" y="362" />
@@ -569,6 +804,20 @@
 		<Point location="Right Arm" table="2" slot="4" x="620" y="1098" />
 		<Point location="Right Arm" table="2" slot="5" x="620" y="1116" />
 		<Point location="Right Arm" table="2" slot="6" x="620" y="1136" />
+
+		<Point location="Left Front Leg" table="1" slot="1" x="138" y="921" />
+		<Point location="Left Front Leg" table="1" slot="2" x="138" y="940" />
+		<Point location="Left Front Leg" table="1" slot="3" x="138" y="958" />
+		<Point location="Left Front Leg" table="1" slot="4" x="138" y="976" />
+		<Point location="Left Front Leg" table="1" slot="5" x="138" y="995" />
+		<Point location="Left Front Leg" table="1" slot="6" x="138" y="1012" />
+		<Point location="Right Front Leg" table="1" slot="1" x="620" y="921" />
+		<Point location="Right Front Leg" table="1" slot="2" x="620" y="940" />
+		<Point location="Right Front Leg" table="1" slot="3" x="620" y="958" />
+		<Point location="Right Front Leg" table="1" slot="4" x="620" y="976" />
+		<Point location="Right Front Leg" table="1" slot="5" x="620" y="995" />
+		<Point location="Right Front Leg" table="1" slot="6" x="620" y="1012" />
+
 		<Point location="Left Torso" table="1" slot="1" x="138" y="1207" />
 		<Point location="Left Torso" table="1" slot="2" x="138" y="1226" />
 		<Point location="Left Torso" table="1" slot="3" x="138" y="1244" />
@@ -605,6 +854,20 @@
 		<Point location="Right Leg" table="1" slot="4" x="620" y="1550" />
 		<Point location="Right Leg" table="1" slot="5" x="620" y="1569" />
 		<Point location="Right Leg" table="1" slot="6" x="620" y="1588" />
+
+		<Point location="Left Rear Leg" table="1" slot="1" x="138" y="1494" />
+		<Point location="Left Rear Leg" table="1" slot="2" x="138" y="1514" />
+		<Point location="Left Rear Leg" table="1" slot="3" x="138" y="1532" />
+		<Point location="Left Rear Leg" table="1" slot="4" x="138" y="1550" />
+		<Point location="Left Rear Leg" table="1" slot="5" x="138" y="1569" />
+		<Point location="Left Rear Leg" table="1" slot="6" x="138" y="1588" />	
+		<Point location="Right Rear Leg" table="1" slot="1" x="620" y="1494" />
+		<Point location="Right Rear Leg" table="1" slot="2" x="620" y="1514" />
+		<Point location="Right Rear Leg" table="1" slot="3" x="620" y="1532" />
+		<Point location="Right Rear Leg" table="1" slot="4" x="620" y="1550" />
+		<Point location="Right Rear Leg" table="1" slot="5" x="620" y="1569" />
+		<Point location="Right Rear Leg" table="1" slot="6" x="620" y="1588" />
+
 		<Point location="Head" table="1" slot="1" x="380" y="999" />
 		<Point location="Head" table="1" slot="2" x="380" y="1018" />
 		<Point location="Head" table="1" slot="3" x="380" y="1036" />
@@ -722,10 +985,14 @@
 	<CriticalTableAreas>
 		<Area location="Left Arm" x="138" y="910" width="122" height="226" />
 		<Area location="Right Arm" x="620" y="910" width="122" height="226" />
+		<Area location="Left Front Leg" x="138" y="910" width="122" height="226" />
+		<Area location="Right Front Leg" x="620" y="910" width="122" height="226" />
 		<Area location="Left Torso" x="138" y="1196" width="122" height="226" />
 		<Area location="Right Torso" x="620" y="1196" width="122" height="226" />
 		<Area location="Left Leg" x="138" y="1483" width="122" height="105" />
 		<Area location="Right Leg" x="620" y="1483" width="122" height="105" />
+		<Area location="Left Rear Leg" x="138" y="1483" width="122" height="105" />
+		<Area location="Right Rear Leg" x="620" y="1483" width="122" height="105" />
 		<Area location="Head" x="380" y="988" width="122" height="105" />
 		<Area location="Centre Torso" x="380" y="1160" width="122" height="226" />
 	</CriticalTableAreas>

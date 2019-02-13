@@ -356,7 +356,7 @@ public class UnitManager
 				{
 					for (MechAvailability ma : validMechs)
 					{
-						if (Dice.d6(2) >= ma.getAvailability())
+						if (Dice.d10(1) <= ma.getAvailability())
 						{
 							if (collection.isItemAvailable(ma.getName()))
 							{

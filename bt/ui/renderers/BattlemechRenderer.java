@@ -691,6 +691,10 @@ public class BattlemechRenderer
         _DotSizes.get("Internals").put("Right Arm", smallDot);
         _DotSizes.get("Internals").put("Left Leg", smallDot);
         _DotSizes.get("Internals").put("Right Leg", smallDot);
+        _DotSizes.get("Internals").put("Left Front Leg", smallDot);
+        _DotSizes.get("Internals").put("Right Front Leg", smallDot);
+        _DotSizes.get("Internals").put("Left Rear Leg", smallDot);
+        _DotSizes.get("Internals").put("Right Rear Leg", smallDot);
         _DotSizes.get("Internals").put("Left Torso", extraSmallDot);
         _DotSizes.get("Internals").put("Right Torso", extraSmallDot);
         _DotSizes.get("Internals").put("Centre Torso", smallDot);
@@ -700,6 +704,10 @@ public class BattlemechRenderer
         _DotSizes.get("Armour").put("Right Arm", extraLargeDot);
         _DotSizes.get("Armour").put("Left Leg", extraLargeDot);
         _DotSizes.get("Armour").put("Right Leg", extraLargeDot);
+        _DotSizes.get("Armour").put("Left Front Leg", extraLargeDot);
+        _DotSizes.get("Armour").put("Right Front Leg", extraLargeDot);
+        _DotSizes.get("Armour").put("Left Rear Leg", extraLargeDot);
+        _DotSizes.get("Armour").put("Right Rear Leg", extraLargeDot);
         _DotSizes.get("Armour").put("Left Torso", extraSmallDot);
         _DotSizes.get("Armour").put("Right Torso", extraSmallDot);
         _DotSizes.get("Armour").put("Centre Torso", largeDot);

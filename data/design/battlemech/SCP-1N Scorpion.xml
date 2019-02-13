@@ -15,10 +15,10 @@
     <Location Name="Left Torso Rear" Points="5" />
     <Location Name="Right Torso" Points="11" />
     <Location Name="Right Torso Rear" Points="5" />
-    <Location Name="Left Arm" Points="10" />
-    <Location Name="Right Arm" Points="10" />
-    <Location Name="Left Leg" Points="10" />
-    <Location Name="Right Leg" Points="10" />
+    <Location Name="Left Front Leg" Points="10" />
+    <Location Name="Right Front Leg" Points="10" />
+    <Location Name="Left Rear Leg" Points="10" />
+    <Location Name="Right Rear Leg" Points="10" />
   </Armour>
   <Items>
   	<Item Type="Life Support" Manufacturer="Brigaidier Corporation" Model="SCP-1">
@@ -34,53 +34,53 @@
       <SlotReference Location="Centre Torso" Table="1" Slot="6" />
       <SlotReference Location="Centre Torso" Table="2" Slot="1" />
     </Item>
-    <Item Type="Shoulder" Manufacturer="Brigaidier Corporation" Model="SCP-1">
-      <SlotReference Location="Left Arm" Table="1" Slot="1" />
-    </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1">
-      <SlotReference Location="Left Arm" Table="1" Slot="2" />
-    </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1">
-      <SlotReference Location="Left Arm" Table="1" Slot="3" />
-    </Item>
-    <Item Type="Hand Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1">
-      <SlotReference Location="Left Arm" Table="1" Slot="4" />
-    </Item>
     <Item Type="Hip" Manufacturer="Brigaidier Corporation" Model="SCP-1">
-      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+      <SlotReference Location="Left Front Leg" Table="1" Slot="1" />
     </Item>
     <Item Type="Upper Leg Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1">
-      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+      <SlotReference Location="Left Front Leg" Table="1" Slot="2" />
     </Item>
     <Item Type="Lower Leg Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1">
-      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+      <SlotReference Location="Left Front Leg" Table="1" Slot="3" />
     </Item>
     <Item Type="Foot Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1">
-      <SlotReference Location="Left Leg" Table="1" Slot="4" />
-    </Item>
-    <Item Type="Shoulder" Manufacturer="Brigaidier Corporation" Model="SCP-1">
-      <SlotReference Location="Right Arm" Table="1" Slot="1" />
-    </Item>
-    <Item Type="Upper Arm Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1">
-      <SlotReference Location="Right Arm" Table="1" Slot="2" />
-    </Item>
-    <Item Type="Lower Arm Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1">
-      <SlotReference Location="Right Arm" Table="1" Slot="3" />
-    </Item>
-    <Item Type="Hand Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1">
-      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+      <SlotReference Location="Left Front Leg" Table="1" Slot="4" />
     </Item>
     <Item Type="Hip" Manufacturer="Brigaidier Corporation" Model="SCP-1">
-      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+      <SlotReference Location="Left Rear Leg" Table="1" Slot="1" />
     </Item>
     <Item Type="Upper Leg Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1">
-      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+      <SlotReference Location="Left Rear Leg" Table="1" Slot="2" />
     </Item>
     <Item Type="Lower Leg Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1">
-      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+      <SlotReference Location="Left Rear Leg" Table="1" Slot="3" />
     </Item>
     <Item Type="Foot Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1">
-      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+      <SlotReference Location="Left Rear Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Brigaidier Corporation" Model="SCP-1">
+      <SlotReference Location="Right Front Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1">
+      <SlotReference Location="Right Front Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1">
+      <SlotReference Location="Right Front Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1">
+      <SlotReference Location="Right Front Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Brigaidier Corporation" Model="SCP-1">
+      <SlotReference Location="Right Rear Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1">
+      <SlotReference Location="Right Rear Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1">
+      <SlotReference Location="Right Rear Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Brigaidier Corporation" Model="SCP-1">
+      <SlotReference Location="Right Rear Leg" Table="1" Slot="4" />
     </Item>
     <Item Type="Sensors" Manufacturer="Garret" Model="GRNDTRAK 9">
       <SlotReference Location="Head" Table="1" Slot="2" />
