@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Bombardier</Name>
+  <Variant>BMB-10D</Variant>
+  <Manufacturer>Earthwerks Incorporated</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>65</Weight>
+  <Cost>5491310</Cost>
+  <BV>1340</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="24" />
+    <Location Name="Centre Torso Rear" Points="15" />
+    <Location Name="Left Torso" Points="20" />
+    <Location Name="Left Torso Rear" Points="10" />
+    <Location Name="Right Torso" Points="20" />
+    <Location Name="Right Torso Rear" Points="10" />
+    <Location Name="Left Arm" Points="20" />
+    <Location Name="Right Arm" Points="20" />
+    <Location Name="Left Leg" Points="26" />
+    <Location Name="Right Leg" Points="26" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Earthwerks Incorporated" Model="BMB-10">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Earthwerks Incorporated" Model="BMB-10">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Earthwerks Incorporated" Model="BMB-10">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Earthwerks Incorporated" Model="BMB-10">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Earthwerks Incorporated" Model="BMB-10">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Earthwerks Incorporated" Model="BMB-10">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Earthwerks Incorporated" Model="BMB-10">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Earthwerks Incorporated" Model="BMB-10">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Earthwerks Incorporated" Model="BMB-10">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Earthwerks Incorporated" Model="BMB-10">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Earthwerks Incorporated" Model="BMB-10">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Earthwerks Incorporated" Model="BMB-10">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Earthwerks Incorporated" Model="BMB-10">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Earthwerks Incorporated" Model="BMB-10">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Earthwerks Incorporated" Model="BMB-10">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Earthwerks Incorporated" Model="BMB-10">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Earthwerks Incorporated" Model="BMB-10">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Earthwerks Incorporated" Model="BMB-10">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Earthwerks Incorporated" Model="BMB-10">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="RCA" Model="Instatrac Mark XII">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="260" Weight="13.5" Manufacturer="Magna" Model="260">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 20" Manufacturer="Doombud" Model="Long-Range Missile 20 Rack">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+      <SlotReference Location="Left Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 20" Manufacturer="Doombud" Model="Long-Range Missile 20 Rack">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+      <SlotReference Location="Right Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 20" Manufacturer="" Model="" Shots="6">
+      <SlotReference Location="Right Torso" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 20" Manufacturer="" Model="" Shots="6">
+      <SlotReference Location="Right Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="SRM 4" Manufacturer="Hovertech" Model="Short-Range Missile Quad">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 4" Manufacturer="" Model="" Shots="25">
+      <SlotReference Location="Right Arm" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="Voelkers" Model="200">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="Machine Gun" Manufacturer="" Model="" Shots="200">
+      <SlotReference Location="Centre Torso" Table="2" Slot="6" />
+    </Item>
+  </Items>
+</BattlemechDesign>

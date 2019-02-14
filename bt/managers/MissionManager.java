@@ -30,6 +30,8 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import bt.elements.Battlemech;
+import bt.elements.Era;
+import bt.elements.Faction;
 import bt.elements.collection.ItemCollection;
 import bt.elements.mapping.MapSet;
 import bt.elements.mapping.MapSheet;
@@ -305,7 +307,7 @@ public class MissionManager
 	}
 	
 	
-	public Scenario generateScenario(Unit u, Rating opponentRating, QualityRating opponentQualityRating, TechRating opponentTechRating, String missionName, ItemCollection collection)
+	public Scenario generateScenario(Era era, Faction opposingFaction, Unit u, Rating opponentRating, QualityRating opponentQualityRating, TechRating opponentTechRating, String missionName, ItemCollection collection)
 	{
 		Scenario scenario = new Scenario();
 		
@@ -336,7 +338,7 @@ public class MissionManager
 			forceSize = Math.round((float)u.getUnitStrength() / m.getForceRatio());
 		}
 		
-		Unit opposingUnit = generateOpposingUnit(forceBV, forceSize, opponentRating, opponentQualityRating, opponentTechRating, collection);
+		Unit opposingUnit = generateOpposingUnit(era, opposingFaction, forceBV, forceSize, opponentRating, opponentQualityRating, opponentTechRating, collection);
 		
 		scenario.getSides().put(sideName, u);
 		scenario.getSides().put(oppositionName, opposingUnit);
@@ -344,7 +346,7 @@ public class MissionManager
 		return scenario;
 	}
 	
-	private Unit generateOpposingUnit(int forceBV, int unitStrength, Rating rating, QualityRating qualityRating, TechRating techRating, ItemCollection collection)
+	private Unit generateOpposingUnit(Era era, Faction faction, int forceBV, int unitStrength, Rating rating, QualityRating qualityRating, TechRating techRating, ItemCollection collection)
 	{
 		
 		Player p = new Player();
@@ -381,13 +383,13 @@ public class MissionManager
 			
 			try
 			{
-				u = UnitManager.getInstance().generateUnit(p, unitName, mup, rating, qualityRating, techRating, 0, collection);
+				u = UnitManager.getInstance().generateUnit(era, faction, p, unitName, mup, rating, qualityRating, techRating, 0, collection);
 				unitBV = u.getUnitBV();
 				if (unitBV == 0)
 					System.out.println("Unit generation failed");
 			} catch (Exception ex)
 			{
-				ex.printStackTrace();
+				// Have another go...
 			}
 		}
 		if (unitBV == 0)

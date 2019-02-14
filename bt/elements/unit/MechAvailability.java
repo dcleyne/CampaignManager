@@ -1,13 +1,9 @@
 package bt.elements.unit;
 
-import bt.elements.BattleValue;
-
-public class MechAvailability implements BattleValue
+public class MechAvailability
 {
     private String _Name;
     private String _Variant;
-    private int _Weight;
-    private int _BV;
     private int _Availability;
 	public String getName()
 	{
@@ -25,22 +21,6 @@ public class MechAvailability implements BattleValue
 	{
 		_Variant = variant;
 	}
-	public int getWeight()
-	{
-		return _Weight;
-	}
-	public void setWeight(int weight)
-	{
-		_Weight = weight;
-	}
-	public int getBV()
-	{
-		return _BV;
-	}
-	public void setBV(int bV)
-	{
-		_BV = bV;
-	}
 	public int getAvailability()
 	{
 		return _Availability;
@@ -50,4 +30,9 @@ public class MechAvailability implements BattleValue
 		_Availability = availability;
 	}
     
+    public String getVariantName()
+    {
+        return _Variant + " " + _Name; 
+    }	
+
 }

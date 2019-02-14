@@ -5,7 +5,7 @@ import java.awt.Rectangle;
 
 import bt.elements.galaxy.InnerSpherePlanet;
 import bt.elements.galaxy.SolarSystemRoute;
-import bt.elements.unit.Faction;
+import bt.elements.Faction;
 import bt.managers.SolarSystemManager;
 
 import java.awt.*;

@@ -1,9 +1,9 @@
 package as;
 
-import as.elements.Era;
 import as.elements.Faction;
 import as.elements.GroundCombatFormation;
 import as.elements.GroundFormation;
+import bt.elements.Era;
 
 public class ForceBuilder
 {

@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Awesome</Name>
+  <Variant>AWS-8V</Variant>
+  <Manufacturer>Technicron Manufacturing</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>80</Weight>
+  <Cost>6373170</Cost>
+  <BV>1510</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="30" />
+    <Location Name="Centre Torso Rear" Points="19" />
+    <Location Name="Left Torso" Points="24" />
+    <Location Name="Left Torso Rear" Points="10" />
+    <Location Name="Right Torso" Points="24" />
+    <Location Name="Right Torso Rear" Points="10" />
+    <Location Name="Left Arm" Points="24" />
+    <Location Name="Right Arm" Points="24" />
+    <Location Name="Left Leg" Points="33" />
+    <Location Name="Right Leg" Points="33" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Technicron Manufacturing" Model="AWS-8">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Technicron Manufacturing" Model="AWS-8">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Technicron Manufacturing" Model="AWS-8">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Technicron Manufacturing" Model="AWS-8">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Technicron Manufacturing" Model="AWS-8">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Technicron Manufacturing" Model="AWS-8">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Technicron Manufacturing" Model="AWS-8">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Technicron Manufacturing" Model="AWS-8">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Technicron Manufacturing" Model="AWS-8">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Technicron Manufacturing" Model="AWS-8">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Technicron Manufacturing" Model="AWS-8">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Technicron Manufacturing" Model="AWS-8">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Technicron Manufacturing" Model="AWS-8">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Technicron Manufacturing" Model="AWS-8">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Technicron Manufacturing" Model="AWS-8">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Technicron Manufacturing" Model="AWS-8">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Technicron Manufacturing" Model="AWS-8">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Technicron Manufacturing" Model="AWS-8">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Dynatec" Model="2780">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="240" Weight="11.5" Manufacturer="Pitban" Model="240">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="PPC" Manufacturer="Kreuss" Model="">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+      <SlotReference Location="Right Arm" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 15" Manufacturer="Magna" Model="Longbow 15">
+      <SlotReference Location="Right Torso" Table="2" Slot="1" />
+      <SlotReference Location="Right Torso" Table="2" Slot="2" />
+      <SlotReference Location="Right Torso" Table="2" Slot="3" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 15" Manufacturer="" Model="" Shots="8">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 15" Manufacturer="" Model="" Shots="8">
+      <SlotReference Location="Centre Torso" Table="2" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Large Laser" Manufacturer="Diverse Optics" Model="Type 30">
+      <SlotReference Location="Left Torso" Table="2" Slot="2" />
+      <SlotReference Location="Left Torso" Table="2" Slot="3" />
+    </Item>
+    
+   <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Diverse Optics" Model="Type 10">
+      <SlotReference Location="Head" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Right Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Left Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Left Torso" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Left Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Right Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Right Torso" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Technicron Manufacturing">
+      <SlotReference Location="Left Arm" Table="1" Slot="6" />
+    </Item>
+  </Items>
+</BattlemechDesign>

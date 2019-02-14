@@ -172,7 +172,7 @@ public class BattlemechRenderer
         drawInformation(g,Integer.toString(mech.getWalkRating()), _NamedPoints.get("Walking"), null);
         drawInformation(g,Integer.toString(mech.getRunRating()), _NamedPoints.get("Running"), null);
         drawInformation(g,Integer.toString(mech.getJumpRating()), _NamedPoints.get("Jumping"), null);
-        drawInformation(g,Integer.toString(mech.getAdjustedBV()), _NamedPoints.get("BattleValue"), null);
+        drawInformation(g,Integer.toString(mech.getAdjustedBV()) + " [" + Integer.toString(mech.getBV()) + "]", _NamedPoints.get("BattleValue"), null);
         drawInformation(g,Integer.toString(mech.getTotalHeatSinks()), _NamedPoints.get("HeatSinkTotal"), null);
         
         g.setFont(_SmallInformationFont);

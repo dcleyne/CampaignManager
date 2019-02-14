@@ -12,7 +12,7 @@ import java.awt.event.*;
 import bt.elements.galaxy.InnerSpherePlanet;
 import bt.elements.galaxy.SolarSystemDetails;
 import bt.elements.galaxy.StarType;
-import bt.elements.unit.Faction;
+import bt.elements.Faction;
 import bt.managers.SolarSystemManager;
 
 import java.awt.Dimension;

@@ -69,64 +69,110 @@
     <IncludedMechWeight>95</IncludedMechWeight>
     <IncludedMechWeight>100</IncludedMechWeight>
   </MechUnitParameters>
-  <MechAvailability>
-    <AvailableMech Name="Locust" Variant="LCT-1V" Weight="20" BV="356" Availability="9" />
-    <AvailableMech Name="Wasp" Variant="WSP-1A" Weight="20" BV="336" Availability="10" />
-    <AvailableMech Name="Stinger" Variant="STG-3R" Weight="20" BV="320" Availability="5" />
-    <AvailableMech Name="Commando" Variant="COM-2D" Weight="25" BV="432" Availability="0" />
-    <AvailableMech Name="Javelin" Variant="JVN-10N" Weight="25" BV="487" Availability="4" />
-    <AvailableMech Name="Spider" Variant="SDR-5V" Weight="30" BV="514" Availability="2" />
-    <AvailableMech Name="Urbanmech" Variant="UM-R60" Weight="30" BV="454" Availability="7" />
-    <AvailableMech Name="Valkyrie" Variant="VLK-QA" Weight="30" BV="640" Availability="3" />
-    <AvailableMech Name="Firestarter" Variant="FS9-H" Weight="35" BV="500" Availability="7" />
-    <AvailableMech Name="Jenner" Variant="JR7-D" Weight="35" BV="669" Availability="0" />
-    <AvailableMech Name="Ostscout" Variant="OTT-7J" Weight="35" BV="497" Availability="2" />
-    <AvailableMech Name="Panther" Variant="PNT-9R" Weight="35" BV="664" Availability="0" />
-    <AvailableMech Name="Assassin" Variant="ASN-21" Weight="40" BV="596" Availability="1" />
-    <AvailableMech Name="Cicada" Variant="CDA-2A" Weight="40" BV="567" Availability="2" />
-    <AvailableMech Name="Clint" Variant="CLNT-2-3T" Weight="40" BV="672" Availability="1" />
-    <AvailableMech Name="Hermes II" Variant="HER-2S" Weight="40" BV="665" Availability="2" />
-    <AvailableMech Name="Vulcan" Variant="VL 2T" Weight="40" BV="523" Availability="5" />
-    <AvailableMech Name="Whitworth" Variant="WTH-1" Weight="40" BV="771" Availability="1" />
-    <AvailableMech Name="Blackjack" Variant="BJ-1" Weight="45" BV="795" Availability="5" />
-    <AvailableMech Name="Hatchetman" Variant="HCT-3F" Weight="45" BV="769" Availability="0" />
-    <AvailableMech Name="Phoenix Hawk" Variant="PXH-1" Weight="45" BV="838" Availability="9" />
-    <AvailableMech Name="Vindicator" Variant="VND-1R" Weight="45" BV="900" Availability="0" />
-    <AvailableMech Name="Centurion" Variant="CN9-A" Weight="50" BV="772" Availability="5" />
-    <AvailableMech Name="Enforcer" Variant="ENF-4R" Weight="50" BV="895" Availability="0" />
-    <AvailableMech Name="Hunchback" Variant="HBK-4G" Weight="50" BV="851" Availability="5" />
-    <AvailableMech Name="Trebuchet" Variant="TBT-5N" Weight="50" BV="864" Availability="5" />
-    <AvailableMech Name="Dervish" Variant="DV-6M" Weight="55" BV="868" Availability="4" />
-    <AvailableMech Name="Griffin" Variant="GRF-1N" Weight="55" BV="1021" Availability="7" />
-    <AvailableMech Name="Shadow Hawk" Variant="SHD-2H" Weight="55" BV="918" Availability="7" />
-    <AvailableMech Name="Scorpion" Variant="SCP-1N" Weight="55" BV="786" Availability="2" />
-    <AvailableMech Name="Wolverine" Variant="WVR-6R" Weight="55" BV="957" Availability="7" />
-    <AvailableMech Name="Dragon" Variant="DRG-1N" Weight="60" BV="917" Availability="5" />
-    <AvailableMech Name="Ostroc" Variant="OSR-2C" Weight="60" BV="951" Availability="5" />
-    <AvailableMech Name="Ostsol" Variant="OTL-4D" Weight="60" BV="1034" Availability="7" />
-    <AvailableMech Name="Quickdraw" Variant="QKD-4G" Weight="60" BV="1012" Availability="4" />
-    <AvailableMech Name="Rifleman" Variant="RFL-3N" Weight="60" BV="797" Availability="8" />
-    <AvailableMech Name="Catapult" Variant="CPLT-C1" Weight="65" BV="1165" Availability="0" />
-    <AvailableMech Name="Crusader" Variant="CRD-3R" Weight="65" BV="948" Availability="9" />
-    <AvailableMech Name="Jagermech" Variant="JM6-S" Weight="65" BV="749" Availability="0" />
-    <AvailableMech Name="Thunderbolt" Variant="TDR-5S" Weight="65" BV="1015" Availability="8" />
-    <AvailableMech Name="Archer" Variant="ARC-2R" Weight="70" BV="1117" Availability="8" />
-    <AvailableMech Name="Grasshopper" Variant="GHR-5H" Weight="70" BV="1268" Availability="6" />
-    <AvailableMech Name="Warhammer" Variant="WHM-6R" Weight="70" BV="978" Availability="8" />
-    <AvailableMech Name="Marauder" Variant="MAD-3R" Weight="75" BV="1089" Availability="2" />
-    <AvailableMech Name="Orion" Variant="ON1-K" Weight="75" BV="1069" Availability="5" />
-    <AvailableMech Name="Awesome" Variant="AWS-8Q" Weight="80" BV="1358" Availability="8" />
-    <AvailableMech Name="Awesome" Variant="AWS-8R" Weight="80" BV="1470" Availability="1" />
-    <AvailableMech Name="Awesome" Variant="AWS-8T" Weight="80" BV="1593" Availability="1" />
-    <AvailableMech Name="Charger" Variant="CGR-1A1" Weight="80" BV="820" Availability="0" />
-    <AvailableMech Name="Goliath" Variant="GOL-1H" Weight="80" BV="1200" Availability="1" />
-    <AvailableMech Name="Victor" Variant="VTR 9B" Weight="80" BV="1165" Availability="4" />
-    <AvailableMech Name="Zeus" Variant="ZEU-6S" Weight="80" BV="1148" Availability="5" />
-    <AvailableMech Name="Battlemaster" Variant="BLR-1G" Weight="85" BV="1212" Availability="4" />
-    <AvailableMech Name="Stalker" Variant="STK-3F" Weight="85" BV="1152" Availability="10" />
-    <AvailableMech Name="Cyclops" Variant="CP 10-Z" Weight="90" BV="965" Availability="2" />
-    <AvailableMech Name="Banshee" Variant="BNC-3E" Weight="95" BV="1223" Availability="9" />
-    <AvailableMech Name="Atlas" Variant="AS7-D" Weight="100" BV="1557" Availability="1" />
+  <MechAvailability Era="256" Factions="34,57" >
+    <AvailableMech Name="Archer" Variant="ARC-2R" Availability="8" />
+    <AvailableMech Name="Assassin" Variant="ASN-21" Availability="1" />
+    <AvailableMech Name="Atlas" Variant="AS7-D" Availability="1" />
+    <AvailableMech Name="Awesome" Variant="AWS-8Q" Availability="8" />
+    <AvailableMech Name="Awesome" Variant="AWS-8R" Availability="1" />
+    <AvailableMech Name="Awesome" Variant="AWS-8T" Availability="1" />
+    <AvailableMech Name="Awesome" Variant="AWS-8V" Availability="1" />
+    <AvailableMech Name="Banshee" Variant="BNC-3E" Availability="9" />
+    <AvailableMech Name="Battlemaster" Variant="BLR-1G" Availability="4" />
+    <AvailableMech Name="Blackjack" Variant="BJ-1" Availability="5" />
+    <AvailableMech Name="Bombardier" Variant="BMB-10D" Availability="2" />
+    <AvailableMech Name="Centurion" Variant="CN9-A" Availability="5" />
+<!--  <AvailableMech Name="Champion" Variant="CHP-2N" Availability="1" /> -->    
+    <AvailableMech Name="Cicada" Variant="CDA-2A" Availability="2" />
+    <AvailableMech Name="Clint" Variant="CLNT-2-3T" Availability="1" />
+<!--  <AvailableMech Name="Crab" Variant="CRB-20" Availability="1" /> -->
+    <AvailableMech Name="Crusader" Variant="CRD-3R" Availability="9" />
+<!-- <AvailableMech Name="Cyclops" Variant="CP 10-Q" Availability="1" /> -->
+    <AvailableMech Name="Cyclops" Variant="CP 10-Z" Availability="2" />
+    <AvailableMech Name="Dervish" Variant="DV-6M" Availability="4" />
+<!-- <AvailableMech Name="Dragon" Variant="DRG-1C" Availability="2" /> -->
+    <AvailableMech Name="Dragon" Variant="DRG-1N" Availability="5" />
+<!-- <AvailableMech Name="Falcon" Variant="FLC-4N" Availability="1" /> -->
+    <AvailableMech Name="Firestarter" Variant="FS9-H" Availability="7" />
+<!-- <AvailableMech Name="Firestarter" Variant="FS9-K" Availability="1" /> -->
+<!-- <AvailableMech Name="Flea" Variant="FLE-14" Availability="1" /> -->
+<!-- <AvailableMech Name="Gladiator" Variant="GLD-3R" Availability="1" /> -->
+<!-- <AvailableMech Name="Gladiator" Variant="GLD-4R" Availability="1" /> -->
+    <AvailableMech Name="Goliath" Variant="GOL-1H" Availability="1" />
+    <AvailableMech Name="Grasshopper" Variant="GHR-5H" Availability="6" />
+    <AvailableMech Name="Griffin" Variant="GRF-1N" Availability="7" />
+<!-- <AvailableMech Name="Guillotine" Variant="GLT-4L" Availability="2" /> -->
+<!-- <AvailableMech Name="Guillotine" Variant="GLT-4P" Availability="1" /> -->
+<!-- <AvailableMech Name="Hermes" Variant="HER-1A" Availability="1" /> -->    
+<!-- <AvailableMech Name="Hermes" Variant="HER-1B" Availability="1" /> -->    
+    <AvailableMech Name="Hermes II" Variant="HER-2S" Availability="2" />
+<!-- <AvailableMech Name="Hornet" Variant="HNT-151" Availability="2" /> -->    
+<!-- <AvailableMech Name="Hornet" Variant="HNT-152" Availability="1" /> -->    
+    <AvailableMech Name="Hunchback" Variant="HBK-4G" Availability="5" />
+<!-- <AvailableMech Name="Hunchback" Variant="HBK-4H" Availability="1" /> -->
+<!-- <AvailableMech Name="Hunchback" Variant="HBK-4J" Availability="1" /> -->
+<!-- <AvailableMech Name="Hunchback" Variant="HBK-4N" Availability="1" /> -->
+<!-- <AvailableMech Name="Hunchback" Variant="HBK-4P" Availability="1" /> -->
+<!-- <AvailableMech Name="Javelin" Variant="JVN-10F" Availability="1" /> -->
+    <AvailableMech Name="Javelin" Variant="JVN-10N" Availability="4" />
+    <AvailableMech Name="Locust" Variant="LCT-1E" Availability="3" />
+    <AvailableMech Name="Locust" Variant="LCT-1V" Availability="9" />
+<!-- <AvailableMech Name="Locust" Variant="LCT-3V" Availability="2" /> -->
+<!-- <AvailableMech Name="Longbow" Variant="LGB-0W" Availability="7" /> -->
+<!-- <AvailableMech Name="Longbow" Variant="LGB-7Q" Availability="5" /> -->
+    <AvailableMech Name="Marauder" Variant="MAD-3R" Availability="2" />
+<!-- <AvailableMech Name="Merlin" Variant="MLN-1A" Availability="2" /> -->
+<!-- <AvailableMech Name="Mongoose" Variant="MON-67" Availability="1" /> -->
+    <AvailableMech Name="Orion" Variant="ON1-K" Availability="5" />
+<!-- <AvailableMech Name="Orion" Variant="ON1-V" Availability="1" /> -->
+<!-- <AvailableMech Name="Orion" Variant="ON1-VA" Availability="1" /> -->
+    <AvailableMech Name="Ostroc" Variant="OSR-2C" Availability="5" />
+<!-- <AvailableMech Name="Ostroc" Variant="OSR-2L" Availability="1" /> -->
+<!-- <AvailableMech Name="Ostroc" Variant="OSR-3C" Availability="1" /> -->
+    <AvailableMech Name="Ostscout" Variant="OTT-7J" Availability="2" />
+    <AvailableMech Name="Ostsol" Variant="OTL-4D" Availability="7" />
+    <AvailableMech Name="Phoenix Hawk" Variant="PXH-1" Availability="9" />
+    <AvailableMech Name="Quickdraw" Variant="QKD-4G" Availability="4" />
+<!-- <AvailableMech Name="Quickdraw" Variant="QKD-4H" Availability="1" /> -->
+<!-- <AvailableMech Name="Quickdraw" Variant="QKD-5A" Availability="1" /> -->
+    <AvailableMech Name="Rifleman" Variant="RFL-3N" Availability="8" />
+    <AvailableMech Name="Scorpion" Variant="SCP-1N" Availability="2" />
+    <AvailableMech Name="Shadow Hawk" Variant="SHD-2H" Availability="7" />
+    <AvailableMech Name="Spider" Variant="SDR-5V" Availability="2" />
+    <AvailableMech Name="Stalker" Variant="STK-3F" Availability="10" />
+<!-- <AvailableMech Name="Stalker" Variant="STK-3H" Availability="5" /> -->
+<!-- <AvailableMech Name="Stalker" Variant="STK-4N" Availability="5" /> -->
+<!-- <AvailableMech Name="Stalker" Variant="STK-4P" Availability="3" /> -->
+<!-- <AvailableMech Name="Stinger" Variant="STG-3G" Availability="5" /> -->
+    <AvailableMech Name="Stinger" Variant="STG-3R" Availability="9" />
+<!-- <AvailableMech Name="Striker" Variant="STC-2C" Availability="4" /> -->
+    <AvailableMech Name="Thunderbolt" Variant="TDR-5S" Availability="8" />
+    <AvailableMech Name="Trebuchet" Variant="TBT-5N" Availability="5" />
+<!-- <AvailableMech Name="Trebuchet" Variant="TBT-5S" Availability="1" /> -->
+    <AvailableMech Name="Urbanmech" Variant="UM-R60" Availability="7" />
+    <AvailableMech Name="Valkyrie" Variant="VLK-QA" Availability="3" />
+<!-- <AvailableMech Name="Valkyrie" Variant="VLK-QF" Availability="1" /> -->
+    <AvailableMech Name="Victor" Variant="VTR 9B" Availability="4" />
+    <AvailableMech Name="Vulcan" Variant="VL 2T" Availability="5" />
+<!-- <AvailableMech Name="Vulcan" Variant="VL 5T" Availability="1" /> -->
+    <AvailableMech Name="Warhammer" Variant="WHM-6R" Availability="8" />
+    <AvailableMech Name="Wasp" Variant="WSP-1A" Availability="10" />
+    <AvailableMech Name="Whitworth" Variant="WTH-1" Availability="1" />
+    <AvailableMech Name="Wolverine" Variant="WVR-6R" Availability="7" />
+<!-- <AvailableMech Name="Wyvern" Variant="WVE-6N" Availability="2" /> -->
+    <AvailableMech Name="Zeus" Variant="ZEU-6S" Availability="5" />
+  </MechAvailability>
+    
+  <MechAvailability Era="256" Factions="" >
+    <AvailableMech Name="Commando" Variant="COM-2D" Availability="0" />
+    <AvailableMech Name="Jenner" Variant="JR7-D" Availability="0" />
+    <AvailableMech Name="Panther" Variant="PNT-9R" Availability="0" />
+    <AvailableMech Name="Hatchetman" Variant="HCT-3F" Availability="0" />
+    <AvailableMech Name="Vindicator" Variant="VND-1R" Availability="0" />
+    <AvailableMech Name="Enforcer" Variant="ENF-4R" Availability="0" />
+    <AvailableMech Name="Catapult" Variant="CPLT-C1" Availability="0" />
+    <AvailableMech Name="Jagermech" Variant="JM6-S" Availability="0" />
+    <AvailableMech Name="Charger" Variant="CGR-1A1" Availability="0" />
   </MechAvailability>
 </RandomMechUnitParameters>
 

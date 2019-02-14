@@ -30,6 +30,8 @@ import com.itextpdf.text.pdf.PdfWriter;
 import bt.elements.BattleValue;
 import bt.elements.Battlemech;
 import bt.elements.BattlemechRepairReport;
+import bt.elements.Era;
+import bt.elements.Faction;
 import bt.elements.ItemRepairDetail;
 import bt.elements.collection.ItemCollection;
 import bt.elements.design.BattlemechDesign;
@@ -94,7 +96,7 @@ public class UnitManager
 	private static UnitManager theInstance = new UnitManager();
 
 	private HashMap<String, MechUnitParameters> _Parameters = new HashMap<String, MechUnitParameters>();
-	private ArrayList<MechAvailability> _MechAvailability = new ArrayList<MechAvailability>();
+	private HashMap<Era, HashMap<Faction, ArrayList<MechAvailability>>> _MechAvailability = new HashMap<Era, HashMap<Faction, ArrayList<MechAvailability>>>();
 	private ArrayList<RandomName> _RandomNames = new ArrayList<RandomName>();
 	private int _LastServedName = -1;
 	
@@ -186,6 +188,11 @@ public class UnitManager
 		while (iter.hasNext())
 		{
 			org.jdom.Element paramElement = (org.jdom.Element) iter.next();
+			
+			Era era = Era.fromID(Integer.parseInt(paramElement.getAttributeValue("Era")));
+			ArrayList<Faction> factions = getFactions(paramElement.getAttributeValue("Factions"));
+			
+			ArrayList<MechAvailability> mechAvailability = new ArrayList<MechAvailability>();
 			Iterator<?> availIter = paramElement.getChildren().iterator();
 			while (availIter.hasNext())
 			{
@@ -194,13 +201,41 @@ public class UnitManager
 				MechAvailability avail = new MechAvailability();
 				avail.setName(availElement.getAttributeValue("Name"));
 				avail.setVariant(availElement.getAttributeValue("Variant"));
-				avail.setWeight(Integer.parseInt(availElement.getAttributeValue("Weight")));
-				avail.setBV(Integer.parseInt(availElement.getAttributeValue("BV")));
 				avail.setAvailability(Integer.parseInt(availElement.getAttributeValue("Availability")));
 
-				_MechAvailability.add(avail);
+				mechAvailability.add(avail);
+			}
+			
+			if (!_MechAvailability.containsKey(era))
+			{
+				_MechAvailability.put(era, new HashMap<Faction, ArrayList<MechAvailability>>());
+			}
+			HashMap<Faction, ArrayList<MechAvailability>> factionMechAvailability = _MechAvailability.get(era);
+			for (Faction f : factions)
+			{
+				factionMechAvailability.put(f, new ArrayList<MechAvailability>(mechAvailability));
 			}
 		}
+	}
+	
+	private ArrayList<Faction> getFactions(String factionList)
+	{
+		ArrayList<Faction> factions = new ArrayList<Faction>();
+		
+		try
+		{
+			String[] fs = factionList.split(",");
+			for (String f : fs)
+			{
+				if (!f.trim().isEmpty())
+					factions.add(Faction.fromAlphaStrikeID(Integer.parseInt(f.trim())));
+			}
+		}
+		catch (Exception ex)
+		{
+			System.out.println(ExceptionUtil.getExceptionStackTrace(ex));
+		}
+		return factions;
 	}
 
 	private ArrayList<Battlemech> getBestMechList(MechUnitParameters mup, ArrayList<ArrayList<Battlemech>> mechLists)
@@ -231,12 +266,12 @@ public class UnitManager
 		return bestList;
 	}
 	
-	public Unit generateUnit(Player p, String unitName, MechUnitParameters mup, Rating rating, QualityRating qualityRating, TechRating techRating, double startingBankBalance, 
+	public Unit generateUnit(Era era, Faction faction, Player p, String unitName, MechUnitParameters mup, Rating rating, QualityRating qualityRating, TechRating techRating, double startingBankBalance, 
 			ItemCollection collection) throws Exception
 	{
 		ArrayList<ArrayList<Battlemech>> mechLists = new ArrayList<ArrayList<Battlemech>>();
 		for (int i = 0; i < 10; i++)
-			mechLists.add(generateLance(mup, collection));
+			mechLists.add(generateLance(era, faction, mup, collection));
 		
 		ArrayList<Battlemech> bestList = getBestMechList(mup, mechLists);
 		if (bestList == null)
@@ -316,18 +351,18 @@ public class UnitManager
 		return u;
 	}
 
-	public Unit generateUnit(Player p, String unitName, String lanceWeight, Rating rating, QualityRating qualityRating, TechRating techRating, double startingBankBalance, ItemCollection collection) throws Exception
+	public Unit generateUnit(Era era, Faction faction, Player p, String unitName, String lanceWeight, Rating rating, QualityRating qualityRating, TechRating techRating, double startingBankBalance, ItemCollection collection) throws Exception
 	{
 		if (!_Parameters.containsKey(lanceWeight))
 			throw new IllegalArgumentException("Unable to determine lance parameters from Lance Weight : " + lanceWeight);
 
 		MechUnitParameters mup = _Parameters.get(lanceWeight);
 
-		return generateUnit(p, unitName, mup, rating, qualityRating, techRating, startingBankBalance, collection);
+		return generateUnit(era, faction, p, unitName, mup, rating, qualityRating, techRating, startingBankBalance, collection);
 
 	}
 
-	private ArrayList<Battlemech> generateLance(MechUnitParameters mup, ItemCollection collection) throws Exception
+	private ArrayList<Battlemech> generateLance(Era era, Faction faction, MechUnitParameters mup, ItemCollection collection) throws Exception
 	{
 		ArrayList<Battlemech> mechs = new ArrayList<Battlemech>();
 
@@ -338,11 +373,12 @@ public class UnitManager
 		while (mechs.size() == 0 && attempts < 10)
 		{
 			attempts++;
-			ArrayList<MechAvailability> validMechs = new ArrayList<MechAvailability>(_MechAvailability);
+			ArrayList<MechAvailability> validMechs = new ArrayList<MechAvailability>(_MechAvailability.get(era).get(faction));
 			for (int i = validMechs.size() - 1; i >= 0; i--)
 			{
 				MechAvailability ma = validMechs.get(i);
-				if (!mup.getIncludedMechWeights().contains(ma.getWeight()))
+				BattlemechDesign design = dm.Design(ma.getVariantName());
+				if (!mup.getIncludedMechWeights().contains(design.getWeight()))
 					validMechs.remove(ma);
 			}
 	
@@ -360,7 +396,8 @@ public class UnitManager
 						{
 							if (collection.isItemAvailable(ma.getName()))
 							{
-								elements.add(ma);
+								BattlemechDesign design = dm.Design(ma.getVariantName());
+								elements.add(design);
 								collection.moveToPending(ma.getName());
 							}
 						}
@@ -378,11 +415,7 @@ public class UnitManager
 	
 				for (int i = 0; i < selectedSet.size(); i++)
 				{
-					MechAvailability ma = (MechAvailability)elements.get(selectedSet.get(i));
-					BattlemechDesign bd = dm.Design(ma.getVariant() + " " + ma.getName());
-					if (bd == null)
-						throw new Exception("Unable to load Design " + ma.getVariant() + " " + ma.getName());
-					
+					BattlemechDesign bd = (BattlemechDesign)elements.get(selectedSet.get(i));
 					Battlemech b = bm.createBattlemechFromDesign(bd);
 					mechs.add(b);
 				}
@@ -1151,4 +1184,5 @@ public class UnitManager
 		
 		document.close();
 	}
+	
 }

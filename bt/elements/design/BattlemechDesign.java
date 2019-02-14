@@ -4,9 +4,10 @@ import java.util.Vector;
 
 import java.util.HashMap;
 
+import bt.elements.BattleValue;
 import bt.elements.BattlemechSection;
 
-public class BattlemechDesign
+public class BattlemechDesign implements BattleValue
 {
 	public enum Type
 	{
@@ -138,6 +139,7 @@ public class BattlemechDesign
 	{
 		_Cost = cost;
 	}
+	
 	public int getBV()
 	{
 		return _BV;

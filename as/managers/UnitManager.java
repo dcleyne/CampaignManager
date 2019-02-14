@@ -19,7 +19,7 @@ import org.jdom.output.XMLOutputter;
 
 import as.elements.Faction;
 import as.elements.UnitSummary;
-import as.elements.Era;
+import bt.elements.Era;
 import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;
 import bt.util.WebFile;
@@ -188,12 +188,7 @@ public class UnitManager
             List<Element> eraElements = root.getChildren("Era");
             for (Element eraElement: eraElements)
             {
-            	Era e = new Era();
-            	e.setID(Integer.parseInt(eraElement.getAttributeValue("ID")));
-            	e.setName(eraElement.getAttributeValue("Name"));
-            	e.setStartYear(Integer.parseInt(eraElement.getAttributeValue("StartYear")));
-            	e.setEndYear(Integer.parseInt(eraElement.getAttributeValue("EndYear")));
-            	_Eras.add(e);            	
+            	_Eras.add(Era.fromID(Integer.parseInt(eraElement.getAttributeValue("ID"))));            	
             }
 		}
 		catch (Exception ex)

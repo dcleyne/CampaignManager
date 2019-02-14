@@ -3,6 +3,8 @@ package bt.test;
 import java.util.ArrayList;
 
 import bt.elements.Battlemech;
+import bt.elements.Era;
+import bt.elements.Faction;
 import bt.elements.collection.ItemCollection;
 import bt.elements.personnel.Rating;
 import bt.elements.unit.MechUnitParameters;
@@ -41,7 +43,7 @@ public class TestLanceGeneration
 		        unitDisplay += "Min BV: " + Integer.toString(mup.getMinBV()) + ", ";
 		        unitDisplay += "Max BV: " + Integer.toString(mup.getMaxBV()) + "\r\n";
 		        
-		        Unit u = UnitManager.getInstance().generateUnit(p, "Generated Unit", mup, Rating.REGULAR, QualityRating.D, TechRating.D, 0, ic);
+		        Unit u = UnitManager.getInstance().generateUnit(Era.LATE_SUCCESSION_WAR_RENAISSANCE, Faction.MERCENARY, p, "Generated Unit", mup, Rating.REGULAR, QualityRating.D, TechRating.D, 0, ic);
 		
 		        int totalBV = 0;
 		        int totalWeight = 0;

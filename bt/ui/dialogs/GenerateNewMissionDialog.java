@@ -14,6 +14,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 
+import bt.elements.Era;
+import bt.elements.Faction;
 import bt.elements.collection.UnlimitedCollection;
 import bt.elements.personnel.Rating;
 import bt.elements.scenario.Scenario;
@@ -30,6 +32,8 @@ public class GenerateNewMissionDialog extends JDialog implements ActionListener
 	private JButton _OkButton;
 	private JButton _CancelButton;
 	
+	private Era _Era = Era.LATE_SUCCESSION_WAR_RENAISSANCE;
+	private Faction _Faction = Faction.MERCENARY;
 	private Unit _Unit;
 	
 	private boolean _MissionGenerated = false;
@@ -83,7 +87,7 @@ public class GenerateNewMissionDialog extends JDialog implements ActionListener
 				QualityRating opponentQualityRating = _OpponentRatingsPanel.getSelectedQualityRating();
 				TechRating opponentTechRating = _OpponentRatingsPanel.getSelectedTechRating();
 				
-				Scenario scenario = MissionManager.getInstance().generateScenario(_Unit, opponentRating, opponentQualityRating, opponentTechRating, null, new UnlimitedCollection());
+				Scenario scenario = MissionManager.getInstance().generateScenario(_Era, _Faction, _Unit, opponentRating, opponentQualityRating, opponentTechRating, null, new UnlimitedCollection());
 				MissionManager.getInstance().SaveScenarioForUnit(_Unit, scenario);
 				_Unit.setAssignedMission(scenario.getMission().getID(), scenario.getMission().getName());
 				UnitManager.getInstance().saveUnit(_Unit);

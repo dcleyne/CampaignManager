@@ -20,6 +20,8 @@ import javax.swing.JList;
 import javax.swing.JButton;
 
 import bt.elements.Battlemech;
+import bt.elements.Era;
+import bt.elements.Faction;
 import bt.elements.collection.UnlimitedCollection;
 import bt.elements.personnel.Personnel;
 import bt.elements.personnel.Rating;
@@ -418,7 +420,7 @@ public class GenerateNewUnitPanel extends JPanel
 					{
 		            	
 		            	// TODO fix the starting bank balance
-						_GeneratedUnit = _UnitManager.generateUnit(_Player, _UnitNameTextField.getText(), 
+						_GeneratedUnit = _UnitManager.generateUnit(Era.LATE_SUCCESSION_WAR_RENAISSANCE, Faction.MERCENARY, _Player, _UnitNameTextField.getText(), 
 								_UnitWeightComboBox.getSelectedItem().toString(),(Rating)_UnitRatingComboBox.getSelectedItem(), 
 								(QualityRating)_UnitQualityRatingComboBox.getSelectedItem(), (TechRating)_UnitTechRatingComboBox.getSelectedItem(),0,new UnlimitedCollection());
 					} catch (Exception e1)

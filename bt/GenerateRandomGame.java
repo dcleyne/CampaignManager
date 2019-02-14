@@ -5,6 +5,8 @@ import java.io.File;
 import java.util.ArrayList;
 
 import bt.elements.Battlemech;
+import bt.elements.Era;
+import bt.elements.Faction;
 import bt.elements.collection.UnlimitedCollection;
 import bt.elements.personnel.Rating;
 import bt.elements.scenario.Scenario;
@@ -33,7 +35,7 @@ public class GenerateRandomGame
 		try {
 			for (int i = 0; i < 1000; i++)
 			{
-		        Unit u = UnitManager.getInstance().generateUnit(p, unitName, mup, Rating.REGULAR, QualityRating.D, TechRating.D, 0, new UnlimitedCollection());
+		        Unit u = UnitManager.getInstance().generateUnit(Era.LATE_SUCCESSION_WAR_RENAISSANCE, Faction.MERCENARY, p, unitName, mup, Rating.REGULAR, QualityRating.D, TechRating.D, 0, new UnlimitedCollection());
 		        int totalBV = 0;
 		        for (Battlemech mech : u.getBattlemechs())
 		        {
@@ -69,7 +71,7 @@ public class GenerateRandomGame
 			if (player1Unit == null)
 				throw new Exception("Unable to create unit for player 1");
 			
-			Scenario s = MissionManager.getInstance().generateScenario(player1Unit, Rating.REGULAR, QualityRating.D, TechRating.D, null, new UnlimitedCollection());
+			Scenario s = MissionManager.getInstance().generateScenario(Era.LATE_SUCCESSION_WAR_RENAISSANCE, Faction.MERCENARY, player1Unit, Rating.REGULAR, QualityRating.D, TechRating.D, null, new UnlimitedCollection());
 			if (s == null)
 				throw new Exception("Unable to create scenario");
 			

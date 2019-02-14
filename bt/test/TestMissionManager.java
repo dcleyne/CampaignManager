@@ -3,6 +3,8 @@ package bt.test;
 import java.util.ArrayList;
 import java.util.Vector;
 import bt.elements.Battlemech;
+import bt.elements.Era;
+import bt.elements.Faction;
 import bt.elements.collection.UnlimitedCollection;
 import bt.elements.personnel.Rating;
 import bt.elements.scenario.Scenario;
@@ -40,7 +42,7 @@ public class TestMissionManager
 	            String filename = "/tmp/TestScenario.xml";
 	            
 	            System.out.println("Generating Scenario for unit: " + unitName + "\n"); 
-	            Scenario scenario = MissionManager.getInstance().generateScenario(u, Rating.REGULAR, QualityRating.D, TechRating.D, null, new UnlimitedCollection());
+	            Scenario scenario = MissionManager.getInstance().generateScenario(Era.LATE_SUCCESSION_WAR_RENAISSANCE, Faction.MERCENARY, u, Rating.REGULAR, QualityRating.D, TechRating.D, null, new UnlimitedCollection());
 	            System.out.println("Storing Scenario\n"); 
 	            MissionManager.getInstance().saveScenario(filename, scenario);
 	            System.out.println("Loading Scenario\n"); 

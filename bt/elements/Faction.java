@@ -45,7 +45,8 @@ public enum Faction
 	TORTUGA_DOMINIONS,
 	TIKONOV_FREE_REPUBLIC,
 	TERRAN_HEGEMONY,
-	WORD_OF_BLAKE;
+	WORD_OF_BLAKE,
+	MERCENARY;
 
 	private static final String[] _Names = {
 		"Arc Royal Defense Cordon",
@@ -100,7 +101,8 @@ public enum Faction
 		"Terran Hegemony",
 		"Tikonov Free Republic",
 		"Tortuga Dominions",
-		"Word of Blake"
+		"Word of Blake",
+		"Mercenary"
 	};
 	
 	private static final String[] _Abbreviations = {
@@ -156,7 +158,8 @@ public enum Faction
 		"TH",
 		"TFR",
 		"TD",
-		"WOB"
+		"WOB",
+		"MERC"
 	};
 
 	private static final String[] _Colours = {
@@ -212,10 +215,48 @@ public enum Faction
 		"0x00FE01",
 		"0x88C60F",
 		"0x888888",
-		"0xFEFF01"
+		"0xFEFF01",
+		"0x535353"
 	};
 	
-	
+	public static Faction fromAlphaStrikeID(int id) throws Exception
+	{
+		switch (id)
+		{
+			case 5: return Faction.CAPELLAN_CONFEDERATION;
+			case 18: return Faction.COMSTAR;
+			case 27: return Faction.DRACONIS_COMBINE;
+			case 84: return Faction.FEDERATED_COMMONWEALTH;
+			case 29: return Faction.FEDERATED_SUNS;
+			case 28: return Faction.FREE_RASALHAGUE_REPUBLIC;
+			case 30: 
+			case 59: 
+			case 74: 
+			case 67: 
+			case 72: 
+			case 76: 
+			case 75: return Faction.FREE_WORLDS_LEAGUE;
+			case 55: return Faction.NOT_OWNED;
+			case 32: return Faction.LYRAN_ALLIANCE;
+			case 60: return Faction.LYRAN_COMMONWEALTH;
+			case 83: return Faction.ST_IVES_COMPACT;
+			case 87: return Faction.TERRAN_HEGEMONY;
+			case 48: return Faction.WORD_OF_BLAKE;
+			
+			case 9: return Faction.CIRCINUS_FEDERATION;
+			case 33: return Faction.MAGISTRACY_OF_CANOPUS;
+			case 35: return Faction.MARIAN_HEGEMONY;
+			case 36: return Faction.OUTWORLDS_ALLIANCE;
+			case 57: return Faction.PERIPHERY_OTHER;
+			case 42: 
+			case 88: return Faction.RIM_WORLDS_REPUBLIC;
+			case 47: return Faction.TAURIAN_CONCORDAT;
+			
+			case 34: return Faction.MERCENARY;
+		}
+		
+		throw new Exception("Unable to find faction from AlphaStrike faction ID (" + id + ")");
+	}
 	
 	public String toString()
 	{ return _Names[ordinal()]; }

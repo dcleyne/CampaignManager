@@ -15,6 +15,8 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.border.TitledBorder;
 
+import bt.elements.Era;
+import bt.elements.Faction;
 import bt.elements.collection.ItemCollection;
 import bt.elements.collection.UnlimitedCollection;
 import bt.elements.personnel.Rating;
@@ -244,12 +246,14 @@ public class RandomGamePanel extends JPanel implements ActionListener
 				collection2 = MiniatureCollectionManager.getInstance().getMiniatureCollection(collectionName);
 			}
 			
-			Unit player1Unit = UnitManager.getInstance().generateUnit(p1, "Player 1 Unit", mup, Rating.REGULAR, QualityRating.D, TechRating.D, 0, collection1);
+			Era era = Era.LATE_SUCCESSION_WAR_RENAISSANCE;
+			Faction f = Faction.MERCENARY;
+			Unit player1Unit = UnitManager.getInstance().generateUnit(era, f, p1, "Player 1 Unit", mup, Rating.REGULAR, QualityRating.D, TechRating.D, 0, collection1);
 			if (player1Unit == null)
 				throw new Exception("Unable to create unit for player 1");
 			
 			String missionName = _ScenarioSelectionComboBox.getSelectedItem().toString();
-			Scenario s = MissionManager.getInstance().generateScenario(player1Unit, Rating.REGULAR, QualityRating.D, TechRating.D, missionName, collection2);
+			Scenario s = MissionManager.getInstance().generateScenario(era, f, player1Unit, Rating.REGULAR, QualityRating.D, TechRating.D, missionName, collection2);
 			if (s == null)
 				throw new Exception("Unable to create scenario");
 			
