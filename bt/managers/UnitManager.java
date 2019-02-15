@@ -189,7 +189,7 @@ public class UnitManager
 		{
 			org.jdom.Element paramElement = (org.jdom.Element) iter.next();
 			
-			Era era = Era.fromID(Integer.parseInt(paramElement.getAttributeValue("Era")));
+			Era era = Era.fromString(paramElement.getAttributeValue("Era"));
 			ArrayList<Faction> factions = getFactions(paramElement.getAttributeValue("Factions"));
 			
 			ArrayList<MechAvailability> mechAvailability = new ArrayList<MechAvailability>();
@@ -218,7 +218,7 @@ public class UnitManager
 		}
 	}
 	
-	private ArrayList<Faction> getFactions(String factionList)
+	private ArrayList<Faction> getFactions(String factionList) throws Exception
 	{
 		ArrayList<Faction> factions = new ArrayList<Faction>();
 		
@@ -228,7 +228,7 @@ public class UnitManager
 			for (String f : fs)
 			{
 				if (!f.trim().isEmpty())
-					factions.add(Faction.fromAlphaStrikeID(Integer.parseInt(f.trim())));
+					factions.add(Faction.fromString(f.trim()));
 			}
 		}
 		catch (Exception ex)

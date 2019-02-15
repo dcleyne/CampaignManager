@@ -69,7 +69,7 @@
     <IncludedMechWeight>95</IncludedMechWeight>
     <IncludedMechWeight>100</IncludedMechWeight>
   </MechUnitParameters>
-  <MechAvailability Era="256" Factions="34,57" >
+  <MechAvailability Era="Late Succession War - Renaissance" Factions="Mercenary,Periphery (Other)" >
     <AvailableMech Name="Archer" Variant="ARC-2R" Availability="8" />
     <AvailableMech Name="Assassin" Variant="ASN-21" Availability="1" />
     <AvailableMech Name="Atlas" Variant="AS7-D" Availability="1" />
@@ -163,7 +163,8 @@
     <AvailableMech Name="Zeus" Variant="ZEU-6S" Availability="5" />
   </MechAvailability>
     
-  <MechAvailability Era="256" Factions="" >
+    <!-- 
+  <MechAvailability Era="Late Succession War - Renaissance" Factions="" >
     <AvailableMech Name="Commando" Variant="COM-2D" Availability="0" />
     <AvailableMech Name="Jenner" Variant="JR7-D" Availability="0" />
     <AvailableMech Name="Panther" Variant="PNT-9R" Availability="0" />
@@ -174,6 +175,7 @@
     <AvailableMech Name="Jagermech" Variant="JM6-S" Availability="0" />
     <AvailableMech Name="Charger" Variant="CGR-1A1" Availability="0" />
   </MechAvailability>
+   -->
 </RandomMechUnitParameters>
 
 
