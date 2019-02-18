@@ -501,9 +501,10 @@ public class Battlemech extends Asset implements BattleValue
 	public int getIntegralHeatSinks()
 	{
 		ItemMount engine = getItemMount("Engine","Centre Torso");
+		int purchasedEngineHeatsinks = ((Engine)engine.getMountedItem()).getHeatSinks();
 		int integralHeatSinks = (int)(((Engine)engine.getMountedItem()).getRating() / 25);
-		if (integralHeatSinks > 10) integralHeatSinks = 10;
-		return integralHeatSinks;
+		if (purchasedEngineHeatsinks > integralHeatSinks) purchasedEngineHeatsinks = integralHeatSinks;
+		return purchasedEngineHeatsinks;
 	}
 	
 	public int getTotalHeatSinks()

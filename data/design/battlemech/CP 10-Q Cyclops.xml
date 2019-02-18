@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <BattlemechDesign>
   <Name>Cyclops</Name>
-  <Variant>CP 10-Z</Variant>
+  <Variant>CP 10-Q</Variant>
   <Manufacturer>Stormvanger Assemblies Unlimited</Manufacturer>
   <Type>Biped</Type>
   <Weight>90</Weight>
-  <Cost>9217660</Cost>
-  <BV>965</BV>
+  <Cost>8869960</Cost>
+  <BV>1584</BV>
   <Armour>
     <Location Name="Head" Points="9" />
-    <Location Name="Centre Torso" Points="30" />
+    <Location Name="Centre Torso" Points="46" />
     <Location Name="Centre Torso Rear" Points="11" />
-    <Location Name="Left Torso" Points="20" />
+    <Location Name="Left Torso" Points="29" />
     <Location Name="Left Torso Rear" Points="8" />
-    <Location Name="Right Torso" Points="20" />
+    <Location Name="Right Torso" Points="29" />
     <Location Name="Right Torso Rear" Points="8" />
-    <Location Name="Left Arm" Points="10" />
-    <Location Name="Right Arm" Points="10" />
-    <Location Name="Left Leg" Points="17" />
-    <Location Name="Right Leg" Points="17" />
+    <Location Name="Left Arm" Points="29" />
+    <Location Name="Right Arm" Points="29" />
+    <Location Name="Left Leg" Points="37" />
+    <Location Name="Right Leg" Points="37" />
   </Armour>
   <Items>
   	<Item Type="Life Support" Manufacturer="Stormvanger Assemblies Unlimited" Model="CP 10">
@@ -86,7 +86,7 @@
       <SlotReference Location="Head" Table="1" Slot="2" />
       <SlotReference Location="Head" Table="1" Slot="5" />
     </Item>
-    <Item Type="Engine" Rating="360" Weight="33" Manufacturer="Hermes" Model="360" HeatSinks="12">
+    <Item Type="Engine" Rating="360" Weight="33" Manufacturer="Hermes" Model="360" HeatSinks="14">
       <SlotReference Location="Centre Torso" Table="1" Slot="1" />
       <SlotReference Location="Centre Torso" Table="1" Slot="2" />
       <SlotReference Location="Centre Torso" Table="1" Slot="3" />
@@ -94,36 +94,25 @@
       <SlotReference Location="Centre Torso" Table="2" Slot="3" />
       <SlotReference Location="Centre Torso" Table="2" Slot="4" />
     </Item>
-    <Item Type="Weapon" WeaponType="Autocannon 20" Manufacturer="Zeus-63" Model="MkIII">
-      <SlotReference Location="Right Torso" Table="1" Slot="1" />
-      <SlotReference Location="Right Torso" Table="1" Slot="2" />
-      <SlotReference Location="Right Torso" Table="1" Slot="3" />
-      <SlotReference Location="Right Torso" Table="1" Slot="4" />
-      <SlotReference Location="Right Torso" Table="1" Slot="5" />
-      <SlotReference Location="Right Torso" Table="1" Slot="6" />
-      <SlotReference Location="Right Torso" Table="2" Slot="1" />
-      <SlotReference Location="Right Torso" Table="2" Slot="2" />
-      <SlotReference Location="Right Torso" Table="2" Slot="3" />
-      <SlotReference Location="Right Torso" Table="2" Slot="4" />
-    </Item>
-    <Item Type="Ammunition" WeaponType="Autocannon 20" Manufacturer="" Model="" Shots="5">
-      <SlotReference Location="Right Torso" Table="2" Slot="5" />
-    </Item> 
-    <Item Type="Ammunition" WeaponType="Autocannon 20" Manufacturer="" Model="" Shots="5">
-      <SlotReference Location="Right Torso" Table="2" Slot="6" />
-    </Item> 
-    <Item Type="Ammunition" WeaponType="Autocannon 20" Manufacturer="" Model="" Shots="5">
-      <SlotReference Location="Left Torso" Table="1" Slot="1" />
-    </Item> 
-    <Item Type="Ammunition" WeaponType="Autocannon 20" Manufacturer="" Model="" Shots="5">
-      <SlotReference Location="Left Torso" Table="1" Slot="2" />
-    </Item> 
     <Item Type="Weapon" WeaponType="LRM 10" Manufacturer="Delta Dart" Model="10-Rack">
-      <SlotReference Location="Left Torso" Table="1" Slot="3" />
-      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
     </Item>
     <Item Type="Ammunition" WeaponType="LRM 10" Manufacturer="" Model="" Shots="12">
-      <SlotReference Location="Left Torso" Table="1" Slot="5" />
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 10" Manufacturer="" Model="" Shots="12">
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 10" Manufacturer="Delta Dart" Model="10-Rack">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 10" Manufacturer="" Model="" Shots="12">
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 10" Manufacturer="" Model="" Shots="12">
+      <SlotReference Location="Right Torso" Table="1" Slot="5" />
     </Item>
     <Item Type="Weapon" WeaponType="SRM 4" Manufacturer="Hovertec" Model="Quad">
       <SlotReference Location="Centre Torso" Table="2" Slot="5" />
@@ -136,6 +125,9 @@
     </Item>
     <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Diverse Optics" Model="Type 20">
       <SlotReference Location="Right Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Diverse Optics" Model="Type 20">
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
     </Item>
   </Items>
 </BattlemechDesign>

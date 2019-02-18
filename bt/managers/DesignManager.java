@@ -182,6 +182,8 @@ public class DesignManager
         EngineDesign ed = new EngineDesign();
         ed.setRating(Integer.parseInt(element.getAttributeValue("Rating")));
         ed.setWeight(Double.parseDouble(element.getAttributeValue("Weight")));
+        if (element.getAttribute("HeatSinks") != null)
+        	ed.setHeatSinks(Integer.parseInt(element.getAttributeValue("HeatSinks")));
 
         return ed;
     }
@@ -308,6 +310,8 @@ public class DesignManager
         EngineDesign ed = (EngineDesign)di;
         element.setAttribute("Rating", Integer.toString(ed.getRating()));
         element.setAttribute("Weight", Double.toString(ed.getWeight()));
+        if (ed.getHeatSinks() != 10)
+        	element.setAttribute("HeatSinks", Integer.toString(ed.getHeatSinks()));
     }
 
     private void saveJumpJet(DesignItem di, Element element)

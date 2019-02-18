@@ -17,6 +17,8 @@ import java.awt.image.BufferedImage;
 import java.awt.image.FilteredImageSource;
 import java.awt.image.ImageProducer;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
@@ -32,6 +34,7 @@ import bt.elements.InternalSlotStatus;
 import bt.elements.ItemMount;
 import bt.elements.ItemStatus;
 import bt.elements.SectionStatus;
+import bt.elements.Weapon;
 import bt.elements.design.BattlemechDesign;
 import bt.elements.personnel.Mechwarrior;
 import bt.ui.filters.TransparentColorFilter;
@@ -156,14 +159,29 @@ public class BattlemechRenderer
         g.setFont(_CriticalSlotFont);
         for (ItemMount im : mech.getItems())
         {
+        	ArrayList<Point> points = new ArrayList<Point>();
         	for (InternalSlotStatus iss : im.getSlotReferences())
         	{
-				String mountText = im.getMountedItem().toString();
+    			String mountText = im.getMountedItem().toString();
 				if (iss.getRearFacing())
 					mountText += " (R)";
 				
 				Point p = _CriticalTablePoints.get(iss.getInternalLocation()).get(iss.getTable()).get(iss.getSlot());
 				drawCriticalSlotItem(g, p.x, p.y, mountText, iss.getStatus());
+				points.add(new Point(p.x - 10, p.y));
+        	}
+        	if (im.getMountedItem() instanceof Weapon && points.size() > 1)
+        	{
+        		java.util.Collections.sort(points, new SortPoint());
+        		g.setColor(Color.BLACK);
+        		g.setStroke(new BasicStroke(3F));
+        		Point p = points.get(0);
+    			String mountText = im.getMountedItem().toString();
+    			int verticalAdjust = (int)_CriticalSlotFont.getLineMetrics(mountText, g.getFontRenderContext()).getAscent();
+        		g.drawLine(p.x, p.y - verticalAdjust , p.x+ 5, p.y - verticalAdjust);
+        		Point p2 = points.get(points.size() - 1);
+        		g.drawLine(p.x, p.y - verticalAdjust, p2.x, p2.y);
+        		g.drawLine(p2.x, p2.y, p2.x+ 5, p2.y);        		
         	}
         }
         g.setFont(_InformationFont);
@@ -717,5 +735,14 @@ public class BattlemechRenderer
 
 
     }
-
+    
+    class SortPoint implements Comparator<Point>
+    {
+		@Override
+		public int compare(Point o1, Point o2) 
+		{
+			return Integer.compare(o1.y, o2.y);
+		}
+    	
+    }
 }

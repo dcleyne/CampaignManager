@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Firestarter</Name>
+  <Variant>FS9-K</Variant>
+  <Manufacturer>Argile Technologies of Skye</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>35</Weight>
+  <Cost>3069225</Cost>
+  <BV>763</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="13" />
+    <Location Name="Centre Torso Rear" Points="6" />
+    <Location Name="Left Torso" Points="11" />
+    <Location Name="Left Torso Rear" Points="5" />
+    <Location Name="Right Torso" Points="11" />
+    <Location Name="Right Torso Rear" Points="5" />
+    <Location Name="Left Arm" Points="6" />
+    <Location Name="Right Arm" Points="6" />
+    <Location Name="Left Leg" Points="8" />
+    <Location Name="Right Leg" Points="8" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Argile Technologies of Skye" Model="FS9">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Argile Technologies of Skye" Model="FS9">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Argile Technologies of Skye" Model="FS9">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Argile Technologies of Skye" Model="FS9">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Argile Technologies of Skye" Model="FS9">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Argile Technologies of Skye" Model="FS9">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Argile Technologies of Skye" Model="FS9">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Argile Technologies of Skye" Model="FS9">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Tansech" Model="Omni-7">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="210" Weight="9" Manufacturer="GM" Model="210">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Argile Technologies of Skye">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Argile Technologies of Skye">
+      <SlotReference Location="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Firestone" Model="Radial 6S">
+      <SlotReference Location ="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Firestone" Model="Radial 6S">
+      <SlotReference Location ="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Firestone" Model="Radial 6S">
+      <SlotReference Location ="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Firestone" Model="Radial 6S">
+      <SlotReference Location ="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Firestone" Model="Radial 6S">
+      <SlotReference Location ="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Firestone" Model="Radial 6S">
+      <SlotReference Location ="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Flamer" Manufacturer="Purity" Model="L-Series">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Flamer" Manufacturer="Purity" Model="L-Series">
+      <SlotReference Location="Centre Torso" Table="2" Slot="6" RearFacing="True"/>
+    </Item>
+    <Item Type="Weapon" WeaponType="Large Laser" Manufacturer="Magna" Model="III">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Magna" Model="Starglow">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Magna" Model="Starglow">
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+    </Item>
+  </Items>
+</BattlemechDesign>

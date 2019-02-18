@@ -4,6 +4,7 @@ public class EngineDesign extends DesignItem
 {
     private int _Rating;
     private double _Weight;
+    private int _HeatSinks = 10;
     
 	public int getRating()
 	{
@@ -29,6 +30,16 @@ public class EngineDesign extends DesignItem
 	public String getType()
 	{
 		return "Engine";
+	}
+
+	public int getHeatSinks()
+	{
+		return _HeatSinks;
+	}
+
+	public void setHeatSinks(int heatSinks)
+	{
+		_HeatSinks = heatSinks;
 	}
 
 }

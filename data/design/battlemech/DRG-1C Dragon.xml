@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Dragon</Name>
+  <Variant>DRG-1C</Variant>
+  <Manufacturer>Luthien Armor Works</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>60</Weight>
+  <Cost>4894400</Cost>
+  <BV>1215</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="28" />
+    <Location Name="Centre Torso Rear" Points="12" />
+    <Location Name="Left Torso" Points="18" />
+    <Location Name="Left Torso Rear" Points="10" />
+    <Location Name="Right Torso" Points="18" />
+    <Location Name="Right Torso Rear" Points="10" />
+    <Location Name="Left Arm" Points="20" />
+    <Location Name="Right Arm" Points="20" />
+    <Location Name="Left Leg" Points="28" />
+    <Location Name="Right Leg" Points="28" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Luthien Armor Works" Model="DRG-1">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Luthien Armor Works" Model="DRG-1">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Luthien Armor Works" Model="DRG-1">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Luthien Armor Works" Model="DRG-1">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Luthien Armor Works" Model="DRG-1">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Luthien Armor Works" Model="DRG-1">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Luthien Armor Works" Model="DRG-1">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Luthien Armor Works" Model="DRG-1">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Luthien Armor Works" Model="DRG-1">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Luthien Armor Works" Model="DRG-1">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Luthien Armor Works" Model="DRG-1">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Luthien Armor Works" Model="DRG-1">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Luthien Armor Works" Model="DRG-1">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Luthien Armor Works" Model="DRG-1">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Luthien Armor Works" Model="DRG-1">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Luthien Armor Works" Model="DRG-1">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Luthien Armor Works" Model="DRG-1">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Eagle Eye" Model="SY10-10">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="300" Weight="19" Manufacturer="Vlar" Model="300">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 10" Manufacturer="Telos" Model="DecaCluster">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="6" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 10" Manufacturer="" Model="" Shots="12">
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 10" Manufacturer="" Model="" Shots="12">
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Autocannon 2" Manufacturer="Imperator" Model="Smoothie-2">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="Autocannon 2" Manufacturer="" Model="" Shots="20">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>    
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Victory" Model="23R">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Victory" Model="23R">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" RearFacing="true"/>
+    </Item>
+  </Items>
+</BattlemechDesign>

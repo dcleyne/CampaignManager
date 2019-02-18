@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Crab</Name>
+  <Variant>CRB-20</Variant>
+  <Manufacturer>Cosara Weaponries</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>50</Weight>
+  <Cost>3921875</Cost>
+  <BV>1143</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="18" />
+    <Location Name="Centre Torso Rear" Points="7" />
+    <Location Name="Left Torso" Points="14" />
+    <Location Name="Left Torso Rear" Points="5" />
+    <Location Name="Right Torso" Points="14" />
+    <Location Name="Right Torso Rear" Points="5" />
+    <Location Name="Left Arm" Points="14" />
+    <Location Name="Right Arm" Points="14" />
+    <Location Name="Left Leg" Points="22" />
+    <Location Name="Right Leg" Points="22" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Cosara Weaponries" Model="CRB">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Cosara Weaponries" Model="CRB">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Cosara Weaponries" Model="CRB">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Cosara Weaponries" Model="CRB">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Cosara Weaponries" Model="CRB">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Cosara Weaponries" Model="CRB">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Cosara Weaponries" Model="CRB">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Cosara Weaponries" Model="CRB">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Cosara Weaponries" Model="CRB">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Cosara Weaponries" Model="CRB">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Cosara Weaponries" Model="CRB">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Cosara Weaponries" Model="CRB">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Cosara Weaponries" Model="CRB">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Cosara Weaponries" Model="CRB">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Cosara Weaponries" Model="CRB">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Cosara Weaponries" Model="CRB">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Cosara Weaponries" Model="CRB">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Cosara Weaponries" Model="CRB">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Cosara Weaponries" Model="CRB">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Garret" Model="D2j">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="250" Weight="12.5" Manufacturer="Magna" Model="250">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Large Laser" Manufacturer="RAMTech" Model="1200">
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+      <SlotReference Location="Left Arm" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Large Laser" Manufacturer="RAMTech" Model="1200">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+      <SlotReference Location="Right Arm" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Ceres Arms" Model="Medium Laser">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Exostar" Model="Small Laser">
+      <SlotReference Location="Head" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Cosara Weaponries">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Cosara Weaponries">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Cosara Weaponries">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Cosara Weaponries">
+      <SlotReference Location="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Cosara Weaponries">
+      <SlotReference Location="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Cosara Weaponries">
+      <SlotReference Location="Right Leg" Table="1" Slot="6" />
+    </Item>
+  </Items>
+</BattlemechDesign>

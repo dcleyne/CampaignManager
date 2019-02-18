@@ -524,7 +524,9 @@ public class BattlemechManager
         Engine ed = new Engine();
         ed.setRating(Integer.parseInt(element.getAttributeValue("Rating")));
         ed.setWeight(Double.parseDouble(element.getAttributeValue("Weight")));
-
+        if (element.getAttribute("HeatSinks") != null)
+        	ed.setHeatSinks(Integer.parseInt(element.getAttributeValue("HeatSinks")));
+        
         return ed;
     }
 
@@ -564,6 +566,8 @@ public class BattlemechManager
         Engine e = (Engine)i;
         element.setAttribute("Rating", Integer.toString(e.getRating()));
         element.setAttribute("Weight", Double.toString(e.getWeight()));
+        if (e.getHeatSinks() != 10)
+        	element.setAttribute("HeatSinks", Integer.toString(e.getHeatSinks()));
     }
 
     private void saveJumpJet(Item i, org.jdom.Element element)
@@ -913,18 +917,13 @@ public class BattlemechManager
         return new Sensors();
     }
 
-
-
-
-
-
-
     private Item createEngine(DesignItem di)
     {
         EngineDesign ed = (EngineDesign)di;
         Engine e = new Engine();
         e.setRating(ed.getRating());
         e.setWeight(ed.getWeight());
+        e.setHeatSinks(ed.getHeatSinks());
 
         return e;
     }

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Falcon</Name>
+  <Variant>FLC-4N</Variant>
+  <Manufacturer>Stormvanger Assemblies</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>30</Weight>
+  <Cost>2248090</Cost>
+  <BV>610</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="14" />
+    <Location Name="Centre Torso Rear" Points="3" />
+    <Location Name="Left Torso" Points="12" />
+    <Location Name="Left Torso Rear" Points="2" />
+    <Location Name="Right Torso" Points="12" />
+    <Location Name="Right Torso Rear" Points="2" />
+    <Location Name="Left Arm" Points="8" />
+    <Location Name="Right Arm" Points="8" />
+    <Location Name="Left Leg" Points="13" />
+    <Location Name="Right Leg" Points="13" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Stormvanger Assemblies" Model="FLC-4">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Stormvanger Assemblies" Model="FLC-4">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Stormvanger Assemblies" Model="FLC-4">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Stormvanger Assemblies" Model="FLC-4">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Stormvanger Assemblies" Model="FLC-4">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Stormvanger Assemblies" Model="FLC-4">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Stormvanger Assemblies" Model="FLC-4">
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Stormvanger Assemblies" Model="FLC-4">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Stormvanger Assemblies" Model="FLC-4">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Stormvanger Assemblies" Model="FLC-4">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Stormvanger Assemblies" Model="FLC-4">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Stormvanger Assemblies" Model="FLC-4">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Stormvanger Assemblies" Model="FLC-4">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Stormvanger Assemblies" Model="FLC-4">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hand Actuator" Manufacturer="Stormvanger Assemblies" Model="FLC-4">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Stormvanger Assemblies" Model="FLC-4">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Stormvanger Assemblies" Model="FLC-4">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Stormvanger Assemblies" Model="FLC-4">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Stormvanger Assemblies" Model="FLC-4">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Sync" Model="Tracker (39-42071)">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="180" Weight="7" Manufacturer="GM" Model="180">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Stormvanger Assemblies">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Stormvanger Assemblies">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Stormvanger Assemblies">
+      <SlotReference Location="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Stormvanger Assemblies">
+      <SlotReference Location="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Stormvanger Assemblies">
+      <SlotReference Location="Right Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="PRS" Model="60">
+      <SlotReference Location ="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="PRS" Model="60">
+      <SlotReference Location ="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="PRS" Model="60">
+      <SlotReference Location ="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="PRS" Model="60">
+      <SlotReference Location ="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="PRS" Model="60">
+      <SlotReference Location ="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Jump Jet" Weight="0.5" Manufacturer="PRS" Model="60">
+      <SlotReference Location ="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Sunglow" Model="Type 1">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Omicron" Model="1000">
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Omicron" Model="1000">
+      <SlotReference Location="Right Arm" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="Reginald" Model="Mark VI">
+      <SlotReference Location="Left Torso" Table="1" Slot="4" RearFacing="true"/>
+    </Item>
+    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="Reginald" Model="Mark VI">
+      <SlotReference Location="Right Torso" Table="1" Slot="4" RearFacing="true"/>
+    </Item>
+    <Item Type="Ammunition" WeaponType="Machine Gun" Manufacturer="" Model="" Shots="200">
+      <SlotReference Location="Centre Torso" Table="2" Slot="6" />
+    </Item>
+    
+  </Items>
+</BattlemechDesign>

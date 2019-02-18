@@ -12,6 +12,7 @@ public class Engine extends Item
 	private Engine.Type _Type = Engine.Type.FUSION;
     private int _Rating;
     private double _Weight;
+    private int _HeatSinks = 10;
     
     @Override
     public String getType()
@@ -40,6 +41,14 @@ public class Engine extends Item
 	public void setWeight(double weight)
 	{
 		_Weight = weight;
+	}
+	public int getHeatSinks()
+	{
+		return _HeatSinks;
+	}
+	public void setHeatSinks(int heatSinks)
+	{
+		_HeatSinks = heatSinks;
 	}
     
 	public double getCost()
