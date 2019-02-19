@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Longbow</Name>
+  <Variant>LGB-7Q</Variant>
+  <Manufacturer>StarCorps Industries</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>85</Weight>
+  <Cost>7130825</Cost>
+  <BV>1618</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="37" />
+    <Location Name="Centre Torso Rear" Points="12" />
+    <Location Name="Left Torso" Points="26" />
+    <Location Name="Left Torso Rear" Points="10" />
+    <Location Name="Right Torso" Points="26" />
+    <Location Name="Right Torso Rear" Points="10" />
+    <Location Name="Left Arm" Points="23" />
+    <Location Name="Right Arm" Points="23" />
+    <Location Name="Left Leg" Points="28" />
+    <Location Name="Right Leg" Points="28" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="StarCorps Industries" Model="LGB-7">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="StarCorps Industries" Model="LGB-7">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="StarCorps Industries" Model="LGB-7">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="StarCorps Industries" Model="LGB-7">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="StarCorps Industries" Model="LGB-7">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Hip" Manufacturer="StarCorps Industries" Model="LGB-7">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="StarCorps Industries" Model="LGB-7">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="StarCorps Industries" Model="LGB-7">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="StarCorps Industries" Model="LGB-7">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="StarCorps Industries" Model="LGB-7">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="StarCorps Industries" Model="LGB-7">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Hip" Manufacturer="StarCorps Industries" Model="LGB-7">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="StarCorps Industries" Model="LGB-7">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="StarCorps Industries" Model="LGB-7">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="StarCorps Industries" Model="LGB-7">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="AntiAir Flak Systems-1" Model="Octagon Tartrac System C">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="255" Weight="13" Manufacturer="Strand" Model="255" >
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="StarCorps Industries">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="StarCorps Industries">
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="StarCorps Industries">
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="StarCorps Industries">
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="StarCorps Industries">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="StarCorps Industries">
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="StarCorps Industries">
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="StarCorps Industries">
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="StarCorps Industries">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="StarCorps Industries">
+      <SlotReference Location="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="StarCorps Industries">
+      <SlotReference Location="Right Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="StarCorps Industries">
+      <SlotReference Location="Right Leg" Table="1" Slot="6" />
+    </Item>
+
+    <Item Type="Weapon" WeaponType="LRM 20" Manufacturer="Holly" Model="LRM 20">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+      <SlotReference Location="Left Arm" Table="1" Slot="5" />
+      <SlotReference Location="Left Arm" Table="1" Slot="6" />
+      <SlotReference Location="Left Arm" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 20" Manufacturer="" Model="" Shots="6">
+      <SlotReference Location="Left Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 20" Manufacturer="" Model="" Shots="6">
+      <SlotReference Location="Left Torso" Table="2" Slot="2" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 20" Manufacturer="Holly" Model="LRM 20">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+      <SlotReference Location="Right Arm" Table="1" Slot="6" />
+      <SlotReference Location="Right Arm" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 20" Manufacturer="" Model="" Shots="6">
+      <SlotReference Location="Right Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 20" Manufacturer="" Model="" Shots="6">
+      <SlotReference Location="Right Torso" Table="2" Slot="2" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 5" Manufacturer="Delta" Model="Dart">
+      <SlotReference Location="Left Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="LRM 5" Manufacturer="Delta" Model="Dart">
+      <SlotReference Location="Right Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="LRM 5" Manufacturer="" Model="" Shots="24">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Ceres Arms" Model="Medium">
+      <SlotReference Location="Left Torso" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Ceres Arms" Model="Medium">
+      <SlotReference Location="Right Torso" Table="1" Slot="6" />
+    </Item>
+  </Items>
+</BattlemechDesign>

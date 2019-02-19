@@ -116,8 +116,8 @@
     <AvailableMech Name="Locust" Variant="LCT-1E" Availability="3" />
     <AvailableMech Name="Locust" Variant="LCT-1V" Availability="9" />
 <!-- <AvailableMech Name="Locust" Variant="LCT-3V" Availability="2" /> -->
-<!-- <AvailableMech Name="Longbow" Variant="LGB-0W" Availability="7" /> -->
-<!-- <AvailableMech Name="Longbow" Variant="LGB-7Q" Availability="5" /> -->
+    <AvailableMech Name="Longbow" Variant="LGB-0W" Availability="7" />
+    <AvailableMech Name="Longbow" Variant="LGB-7Q" Availability="5" />
     <AvailableMech Name="Marauder" Variant="MAD-3R" Availability="2" />
 <!-- <AvailableMech Name="Merlin" Variant="MLN-1A" Availability="2" /> -->
 <!-- <AvailableMech Name="Mongoose" Variant="MON-67" Availability="1" /> -->
@@ -138,7 +138,7 @@
     <AvailableMech Name="Shadow Hawk" Variant="SHD-2H" Availability="7" />
     <AvailableMech Name="Spider" Variant="SDR-5V" Availability="2" />
     <AvailableMech Name="Stalker" Variant="STK-3F" Availability="10" />
-<!-- <AvailableMech Name="Stalker" Variant="STK-3H" Availability="5" /> -->
+    <AvailableMech Name="Stalker" Variant="STK-3H" Availability="5" />
 <!-- <AvailableMech Name="Stalker" Variant="STK-4N" Availability="5" /> -->
 <!-- <AvailableMech Name="Stalker" Variant="STK-4P" Availability="3" /> -->
 <!-- <AvailableMech Name="Stinger" Variant="STG-3G" Availability="5" /> -->
@@ -228,8 +228,8 @@
 <!-- <AvailableMech Name="Locust" Variant="LCT-1M" Availability="7" /> -->
     <AvailableMech Name="Locust" Variant="LCT-1V" Availability="8" />
 <!-- <AvailableMech Name="Locust" Variant="LCT-3V" Availability="2" /> -->
-<!-- <AvailableMech Name="Longbow" Variant="LGB-0W" Availability="7" /> -->
-<!-- <AvailableMech Name="Longbow" Variant="LGB-7Q" Availability="5" /> -->
+    <AvailableMech Name="Longbow" Variant="LGB-0W" Availability="7" />
+    <AvailableMech Name="Longbow" Variant="LGB-7Q" Availability="5" />
 <!-- <AvailableMech Name="Marauder" Variant="MAD-3D" Availability="6" /> -->
     <AvailableMech Name="Marauder" Variant="MAD-3R" Availability="5" />
 <!-- <AvailableMech Name="Merlin" Variant="MLN-1A" Availability="2" /> -->
@@ -259,7 +259,7 @@
 <!-- <AvailableMech Name="Spider" Variant="SDR-5D" Availability="1" /> -->
     <AvailableMech Name="Spider" Variant="SDR-5V" Availability="5" />
     <AvailableMech Name="Stalker" Variant="STK-3F" Availability="7" />
-<!-- <AvailableMech Name="Stalker" Variant="STK-3H" Availability="1" /> -->
+	<AvailableMech Name="Stalker" Variant="STK-3H" Availability="1" />
 <!-- <AvailableMech Name="Stalker" Variant="STK-4N" Availability="1" /> -->
 <!-- <AvailableMech Name="Stalker" Variant="STK-4P" Availability="2" /> -->
 <!-- <AvailableMech Name="Stinger" Variant="STG-3G" Availability="6" /> -->

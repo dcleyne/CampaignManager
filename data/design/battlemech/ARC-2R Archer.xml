@@ -101,10 +101,10 @@
       <SlotReference Location="Left Torso" Table="1" Slot="4" />
       <SlotReference Location="Left Torso" Table="1" Slot="5" />
     </Item>
-    <Item Type="Ammunition" WeaponType="LRM 20" Manufacturer="" Model="" Shots="8">
+    <Item Type="Ammunition" WeaponType="LRM 20" Manufacturer="" Model="" Shots="6">
       <SlotReference Location="Left Torso" Table="1" Slot="6" />
     </Item>
-    <Item Type="Ammunition" WeaponType="LRM 20" Manufacturer="" Model="" Shots="8">
+    <Item Type="Ammunition" WeaponType="LRM 20" Manufacturer="" Model="" Shots="6">
       <SlotReference Location="Left Torso" Table="2" Slot="1" />
     </Item>
     <Item Type="Weapon" WeaponType="LRM 20" Manufacturer="Doombud" Model="20-Rack">
@@ -114,10 +114,10 @@
       <SlotReference Location="Right Torso" Table="1" Slot="4" />
       <SlotReference Location="Right Torso" Table="1" Slot="5" />
     </Item>
-    <Item Type="Ammunition" WeaponType="LRM 20" Manufacturer="" Model="" Shots="8">
+    <Item Type="Ammunition" WeaponType="LRM 20" Manufacturer="" Model="" Shots="6">
       <SlotReference Location="Right Torso" Table="1" Slot="6" />
     </Item>
-    <Item Type="Ammunition" WeaponType="LRM 20" Manufacturer="" Model="" Shots="8">
+    <Item Type="Ammunition" WeaponType="LRM 20" Manufacturer="" Model="" Shots="6">
       <SlotReference Location="Right Torso" Table="2" Slot="1" />
     </Item>
     <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Diverse Optics" Model="Type 18">
