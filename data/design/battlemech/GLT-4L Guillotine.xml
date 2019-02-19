@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BattlemechDesign>
+  <Name>Guillotine</Name>
+  <Variant>GLT-4L</Variant>
+  <Manufacturer>Newhart Industries</Manufacturer>
+  <Type>Biped</Type>
+  <Weight>70</Weight>
+  <Cost>6016584</Cost>
+  <BV>1400</BV>
+  <Armour>
+    <Location Name="Head" Points="9" />
+    <Location Name="Centre Torso" Points="27" />
+    <Location Name="Centre Torso Rear" Points="12" />
+    <Location Name="Left Torso" Points="22" />
+    <Location Name="Left Torso Rear" Points="8" />
+    <Location Name="Right Torso" Points="22" />
+    <Location Name="Right Torso Rear" Points="8" />
+    <Location Name="Left Arm" Points="20" />
+    <Location Name="Right Arm" Points="20" />
+    <Location Name="Left Leg" Points="22" />
+    <Location Name="Right Leg" Points="22" />
+  </Armour>
+  <Items>
+  	<Item Type="Life Support" Manufacturer="Newhart Industries" Model="GLT-4">
+		<SlotReference Location="Head" Table="1" Slot="1" />
+		<SlotReference Location="Head" Table="1" Slot="6" />
+	</Item>
+	<Item Type="Cockpit" Manufacturer="Newhart Industries" Model="GLT-4">
+		<SlotReference Location="Head" Table="1" Slot="3" />
+	</Item>
+    <Item Type="Gyro" Manufacturer="Newhart Industries" Model="GLT-4">
+      <SlotReference Location="Centre Torso" Table="1" Slot="4" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="6" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Newhart Industries" Model="GLT-4">
+      <SlotReference Location="Left Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Newhart Industries" Model="GLT-4">
+      <SlotReference Location="Left Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Newhart Industries" Model="GLT-4">
+      <SlotReference Location="Left Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Newhart Industries" Model="GLT-4">
+      <SlotReference Location="Left Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Newhart Industries" Model="GLT-4">
+      <SlotReference Location="Left Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Newhart Industries" Model="GLT-4">
+      <SlotReference Location="Left Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Shoulder" Manufacturer="Newhart Industries" Model="GLT-4">
+      <SlotReference Location="Right Arm" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Arm Actuator" Manufacturer="Newhart Industries" Model="GLT-4">
+      <SlotReference Location="Right Arm" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Arm Actuator" Manufacturer="Newhart Industries" Model="GLT-4">
+      <SlotReference Location="Right Arm" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Hip" Manufacturer="Newhart Industries" Model="GLT-4">
+      <SlotReference Location="Right Leg" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Upper Leg Actuator" Manufacturer="Newhart Industries" Model="GLT-4">
+      <SlotReference Location="Right Leg" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Lower Leg Actuator" Manufacturer="Newhart Industries" Model="GLT-4">
+      <SlotReference Location="Right Leg" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Foot Actuator" Manufacturer="Newhart Industries" Model="GLT-4">
+      <SlotReference Location="Right Leg" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Sensors" Manufacturer="Pulsar" Model="Tri-X">
+      <SlotReference Location="Head" Table="1" Slot="2" />
+      <SlotReference Location="Head" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Engine" Rating="280" Weight="16" Manufacturer="Vox" Model="280" HeatSinks="11">
+      <SlotReference Location="Centre Torso" Table="1" Slot="1" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="1" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="2" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="3" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="4" />
+    </Item>
+    <Item Type="Jump Jet" Weight="1" Manufacturer="Anderson" Model="398">
+      <SlotReference Location="Left Torso" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Jump Jet" Weight="1" Manufacturer="Anderson" Model="398">
+      <SlotReference Location="Right Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Jump Jet" Weight="1" Manufacturer="Anderson" Model="398">
+      <SlotReference Location="Left Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Jump Jet" Weight="1" Manufacturer="Anderson" Model="398">
+      <SlotReference Location="Right Leg" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Newhart Industries">
+      <SlotReference Location="Left Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Newhart Industries">
+      <SlotReference Location="Left Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Newhart Industries">
+      <SlotReference Location="Left Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Newhart Industries">
+      <SlotReference Location="Left Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Newhart Industries">
+      <SlotReference Location="Left Torso" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Newhart Industries">
+      <SlotReference Location="Right Torso" Table="1" Slot="1" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Newhart Industries">
+      <SlotReference Location="Right Torso" Table="1" Slot="2" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Newhart Industries">
+      <SlotReference Location="Right Torso" Table="1" Slot="3" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Newhart Industries">
+      <SlotReference Location="Right Torso" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Newhart Industries">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Newhart Industries">
+      <SlotReference Location="Right Leg" Table="1" Slot="5" />
+    </Item>
+    
+    <Item Type="Weapon" WeaponType="Large Laser" Manufacturer="Sunglow" Model="Type 2">
+      <SlotReference Location="Left Arm" Table="1" Slot="3" />
+      <SlotReference Location="Left Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Exostar" Model="II">
+      <SlotReference Location="Right Arm" Table="1" Slot="4" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Exostar" Model="II">
+      <SlotReference Location="Right Arm" Table="1" Slot="5" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Exostar" Model="II">
+      <SlotReference Location="Left Torso" Table="2" Slot="1" />
+    </Item>
+    <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Exostar" Model="II">
+      <SlotReference Location="Right Torso" Table="1" Slot="6" />
+    </Item>
+    <Item Type="Weapon" WeaponType="SRM 6" Manufacturer="Coventry" Model="6">
+      <SlotReference Location="Centre Torso" Table="2" Slot="5" />
+      <SlotReference Location="Centre Torso" Table="2" Slot="6" />
+    </Item>
+    <Item Type="Ammunition" WeaponType="SRM 6" Manufacturer="" Model="" Shots="15">
+      <SlotReference Location="Right Torso" Table="2" Slot="1" />
+    </Item>
+  </Items>
+</BattlemechDesign>

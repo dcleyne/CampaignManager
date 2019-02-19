@@ -96,13 +96,11 @@
     <AvailableMech Name="Firestarter" Variant="FS9-H" Availability="7" />
     <AvailableMech Name="Firestarter" Variant="FS9-K" Availability="1" />
     <AvailableMech Name="Flea" Variant="FLE-14" Availability="1" />
-<!-- <AvailableMech Name="Gladiator" Variant="GLD-3R" Availability="1" /> -->
-<!-- <AvailableMech Name="Gladiator" Variant="GLD-4R" Availability="1" /> -->
     <AvailableMech Name="Goliath" Variant="GOL-1H" Availability="1" />
     <AvailableMech Name="Grasshopper" Variant="GHR-5H" Availability="6" />
     <AvailableMech Name="Griffin" Variant="GRF-1N" Availability="7" />
-<!-- <AvailableMech Name="Guillotine" Variant="GLT-4L" Availability="2" /> -->
-<!-- <AvailableMech Name="Guillotine" Variant="GLT-4P" Availability="1" /> -->
+    <AvailableMech Name="Guillotine" Variant="GLT-4L" Availability="2" />
+    <AvailableMech Name="Guillotine" Variant="GLT-4P" Availability="1" />
 <!-- <AvailableMech Name="Hermes" Variant="HER-1A" Availability="1" /> -->    
 <!-- <AvailableMech Name="Hermes" Variant="HER-1B" Availability="1" /> -->    
     <AvailableMech Name="Hermes II" Variant="HER-2S" Availability="2" />
@@ -205,13 +203,11 @@
     <AvailableMech Name="Falcon" Variant="FLC-4N" Availability="1" />
     <AvailableMech Name="Firestarter" Variant="FS9-H" Availability="7" />
     <AvailableMech Name="Firestarter" Variant="FS9-K" Availability="1" />
-<!-- <AvailableMech Name="Gladiator" Variant="GLD-3R" Availability="1" /> -->
-<!-- <AvailableMech Name="Gladiator" Variant="GLD-4R" Availability="1" /> -->
     <AvailableMech Name="Goliath" Variant="GOL-1H" Availability="1" />
     <AvailableMech Name="Grasshopper" Variant="GHR-5H" Availability="6" />
     <AvailableMech Name="Griffin" Variant="GRF-1N" Availability="9" />
-<!-- <AvailableMech Name="Guillotine" Variant="GLT-4L" Availability="4" /> -->
-<!-- <AvailableMech Name="Guillotine" Variant="GLT-4P" Availability="1" /> -->
+    <AvailableMech Name="Guillotine" Variant="GLT-4L" Availability="4" />
+    <AvailableMech Name="Guillotine" Variant="GLT-4P" Availability="1" />
 <!-- <AvailableMech Name="Hermes" Variant="HER-1A" Availability="2" /> -->    
 <!-- <AvailableMech Name="Hermes" Variant="HER-1B" Availability="1" /> -->    
 <!-- <AvailableMech Name="Hornet" Variant="HNT-151" Availability="5" /> -->    
