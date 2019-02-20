@@ -37,7 +37,13 @@ import bt.elements.mapping.MapSet;
 import bt.elements.mapping.MapSheet;
 import bt.elements.missions.Mission;
 import bt.elements.missions.MissionMapSet;
+import bt.elements.missions.Objective;
+import bt.elements.missions.OpponentBriefing;
 import bt.elements.missions.PlayerBriefing;
+import bt.elements.missions.PreviousSuccessfulPlayerMission;
+import bt.elements.missions.SpecialRule;
+import bt.elements.missions.Warchest;
+import bt.elements.missions.WarchestOption;
 import bt.elements.personnel.Mechwarrior;
 import bt.elements.personnel.Rating;
 import bt.elements.scenario.Scenario;
@@ -109,48 +115,171 @@ public class MissionManager
 		
 		m.setID(Long.parseLong(element.getAttributeValue("ID")));
 		m.setName(element.getAttributeValue("Name"));
+		m.setDescription(element.getAttributeValue("Description"));
 		
-		if (element.getChild("Description") != null)
-			m.setDescription(element.getChildText("Description"));
-		if (element.getChild("ForceRatio") != null)
-			if (!element.getChildText("ForceRatio").isEmpty())
-				m.setForceRatio(Float.parseFloat(element.getChildText("ForceRatio")));
 		if (element.getChild("Notes") != null)
 			m.setNotes(element.getChildText("Notes"));
 		
+		if (element.getChild("GameSetup") != null)
+		{
+			org.jdom.Element gameSetupElement = element.getChild("GameSetup");
+			m.setGameSetup(gameSetupElement.getText());
+		}
 		if (element.getChild("MapSet") != null)
 		{
 			org.jdom.Element mapSetElement = element.getChild("MapSet");
-			MissionMapSet mms = new MissionMapSet();
-			mms.setMaps(Integer.parseInt(mapSetElement.getAttributeValue("Maps")));
-			mms.setRows(Integer.parseInt(mapSetElement.getAttributeValue("Rows")));
-			mms.setColumns(Integer.parseInt(mapSetElement.getAttributeValue("Columns")));
-			
-			m.setMapSet(mms);
+			m.setMapSetTerrain(mapSetElement.getAttributeValue("Terrain"));
 		}
 		
-		Iterator<?> iter = element.getChildren("PlayerBriefing").iterator();
-		while(iter.hasNext())
+		if (element.getChild("PlayerBriefing") != null)
 		{
-			org.jdom.Element briefingElement = (org.jdom.Element)iter.next();
+			org.jdom.Element briefingElement = element.getChild("PlayerBriefing");
 			PlayerBriefing pb = new PlayerBriefing();
 			
 			pb.setTeam(briefingElement.getAttributeValue("Team"));
 			pb.setBriefing(briefingElement.getChildText("Briefing"));
-			if (briefingElement.getChild("Setup") != null)
-				pb.setSetup(briefingElement.getChildText("Setup"));
-			if (briefingElement.getChild("Objective") != null)
-				pb.setObjective(briefingElement.getChildText("Objective"));
-			if (briefingElement.getChild("VictoryConditions") != null)
-				pb.setVictoryConditions(briefingElement.getChildText("VictoryConditions"));
-			if (briefingElement.getChild("SpecialConditions") != null)
-				pb.setSpecialConditions(briefingElement.getChildText("SpecialConditions"));
-			if (briefingElement.getChild("Notes") != null)
-				pb.setNotes(briefingElement.getChildText("Notes"));
+			m.setPlayerBriefing(pb);
+		}
+		if (element.getChild("OpponentBriefing") != null)
+		{
+			org.jdom.Element briefingElement = element.getChild("OpponentBriefing");
+			OpponentBriefing ob = new OpponentBriefing();
 			
-			m.getBriefings().add(pb);
+			ob.setTeam(briefingElement.getAttributeValue("Team"));
+			ob.setBriefing(briefingElement.getChildText("Briefing"));
+			
+			org.jdom.Element previousMissionElement = element.getChild("PreviousSuccessfulPlayerMission");
+			PreviousSuccessfulPlayerMission pspm = new PreviousSuccessfulPlayerMission();
+			pspm.setModifier(Integer.parseInt(previousMissionElement.getAttributeValue("Modifier")));
+			String missionList = "";
+			if (previousMissionElement.getAttribute("Excludes") != null)
+			{
+				pspm.setExclusive();
+				missionList = previousMissionElement.getAttributeValue("Excludes");
+			}
+			else
+			{
+				pspm.setInclusive();
+				missionList = previousMissionElement.getAttributeValue("Includes");
+			}
+			for (String s: missionList.split(","))
+			{
+				if (!s.trim().isEmpty())
+				{
+					pspm.addMission(s.trim());
+				}
+			}
+			ob.setPreviousSuccessfulPlayerMission(pspm);
+			
+			org.jdom.Element techRatingTableElement = element.getChild("TechRatingTable");
+			{
+				Iterator<?> iter = techRatingTableElement.getChildren("Option").iterator();
+				while (iter.hasNext())
+				{
+					org.jdom.Element optionElement = (org.jdom.Element)iter.next();
+					int roll = Integer.parseInt(optionElement.getAttributeValue("Roll"));
+					TechRating tr = TechRating.fromString(optionElement.getAttributeValue("Tech"));
+					ob.setTechRating(roll, tr);
+				}
+			}
+			
+			org.jdom.Element forceRatioTableElement = element.getChild("ForceRatioTable");
+			{
+				Iterator<?> iter = forceRatioTableElement.getChildren("Option").iterator();
+				while (iter.hasNext())
+				{
+					org.jdom.Element optionElement = (org.jdom.Element)iter.next();
+					int roll = Integer.parseInt(optionElement.getAttributeValue("Roll"));
+					float ratio = Float.parseFloat(optionElement.getAttributeValue("Ratio"));
+					ob.setForceRatio(roll, ratio);
+				}
+			}
+			
+			org.jdom.Element unitCompositionTableElement = element.getChild("UnitCompositionTable");
+			{
+				Iterator<?> iter = unitCompositionTableElement.getChildren("Option").iterator();
+				while (iter.hasNext())
+				{
+					org.jdom.Element optionElement = (org.jdom.Element)iter.next();
+					int roll = Integer.parseInt(optionElement.getAttributeValue("Roll"));
+					String composition = optionElement.getAttributeValue("Composition");
+					ob.setUnitComposition(roll, composition);
+				}
+			}
+
+			org.jdom.Element randomAllocationTableElement = element.getChild("RandomAllocationTable");
+			{
+				Iterator<?> iter = randomAllocationTableElement.getChildren("Option").iterator();
+				while (iter.hasNext())
+				{
+					org.jdom.Element optionElement = (org.jdom.Element)iter.next();
+					int roll = Integer.parseInt(optionElement.getAttributeValue("Roll"));
+					String rat = optionElement.getAttributeValue("RAT");
+					ob.setUnitComposition(roll, rat);
+				}
+			}
+
+			org.jdom.Element skillLevelTableElement = element.getChild("SkillLevelTable");
+			{
+				Iterator<?> iter = skillLevelTableElement.getChildren("Option").iterator();
+				while (iter.hasNext())
+				{
+					org.jdom.Element optionElement = (org.jdom.Element)iter.next();
+					int roll = Integer.parseInt(optionElement.getAttributeValue("Roll"));
+					String level = optionElement.getAttributeValue("Level");
+					ob.setUnitComposition(roll, level);
+				}
+			}
+
+			m.setOpponentBriefing(ob);
 		}
 		
+		if (element.getChild("Warchest") != null)
+		{
+			org.jdom.Element warchestElement = element.getChild("Warchest");
+			
+			Warchest w = new Warchest();
+			w.setMissionCost(Integer.parseInt(warchestElement.getAttributeValue("MissionCost")));
+			
+			Iterator<?> iter = warchestElement.getChildren("Option").iterator();
+			while (iter.hasNext())
+			{
+				org.jdom.Element optionElement = (org.jdom.Element)iter.next();
+				WarchestOption wo = new WarchestOption();
+				wo.setName(optionElement.getAttributeValue("Name"));
+				wo.setBonus(Integer.parseInt(optionElement.getAttributeValue("Bonus")));
+				wo.setNotes(optionElement.getAttributeValue("Notes"));
+				w.addOption(wo);
+			}
+			
+			m.setWarchest(w);
+		}
+
+		Iterator<?> iter = element.getChildren("Objective").iterator();
+		while (iter.hasNext())
+		{
+			org.jdom.Element objectiveElement = (org.jdom.Element)iter.next();
+			Objective o = new Objective();
+			
+			o.setName(objectiveElement.getAttributeValue("Name"));
+			o.setDescription(objectiveElement.getAttributeValue("Description"));
+			o.setPointsAwarded(Integer.parseInt(objectiveElement.getAttributeValue("PointsAwarded")));
+			
+			m.addObjective(o);
+		}
+
+		iter = element.getChildren("SpecialRule").iterator();
+		while (iter.hasNext())
+		{
+			org.jdom.Element specialRuleElement = (org.jdom.Element)iter.next();
+			SpecialRule sr = new SpecialRule();
+			
+			sr.setName(specialRuleElement.getAttributeValue("Name"));
+			sr.setDescription(specialRuleElement.getAttributeValue("Description"));
+			
+			m.addSpecialRule(sr);
+		}
+
 		return m;
 	}
 	
@@ -160,32 +289,108 @@ public class MissionManager
 		
 		missionElement.setAttribute("ID", Long.toString(mission.getID()));
 		missionElement.setAttribute("Name",mission.getName());
+		missionElement.setAttribute("Description",mission.getDescription());
 		
-		missionElement.addContent(new org.jdom.Element("Description").setText(mission.getDescription()));
-		missionElement.addContent(new org.jdom.Element("ForceRatio").setText(Float.toString(mission.getForceRatio())));
+		missionElement.addContent(new org.jdom.Element("GameSetup").setText(mission.getDescription()));
 		missionElement.addContent(new org.jdom.Element("Notes").setText(mission.getNotes()));
+
+		org.jdom.Element mapSetElement = new org.jdom.Element("MapSet");
+		mapSetElement.setAttribute("Terrain", mission.getMapSetTerrain());
+		missionElement.addContent(mapSetElement);
+
+		PlayerBriefing playerBriefing = mission.getPlayerBriefing();
+		org.jdom.Element playerBriefingElement = new Element("PlayerBriefing");
+		playerBriefingElement.setAttribute("Team", playerBriefing.getTeam());
+		playerBriefingElement.addContent(new Element("Briefing").setText(playerBriefing.getBriefing()));
+		playerBriefingElement.addContent(new Element("Notes").setText(playerBriefing.getNotes()));
+		missionElement.addContent(playerBriefingElement);
 		
-		MissionMapSet mms = mission.getMapSet(); 
-		if (mms != null)
+		OpponentBriefing opponentBriefing = mission.getOpponentBriefing();
+		org.jdom.Element opponentBriefingElement = new Element("OpponentBriefing");
+		opponentBriefingElement.setAttribute("Team", opponentBriefing.getTeam());
+		opponentBriefingElement.addContent(new Element("Briefing").setText(opponentBriefing.getBriefing()));
+		opponentBriefingElement.addContent(new Element("Notes").setText(opponentBriefing.getNotes()));
+		
+		PreviousSuccessfulPlayerMission pspm = opponentBriefing.getPreviousSuccessfulPlayerMission();
+		org.jdom.Element previousSuccessfulPlayerMissionElement = new Element("PreviousSuccessfulPlayerMission");
+		previousSuccessfulPlayerMissionElement.setAttribute("Modifiers", Integer.toString(pspm.getModifier()));
+		if (pspm.isInclusive())
+			previousSuccessfulPlayerMissionElement.setAttribute("Includes",pspm.getList());
+		else
+			previousSuccessfulPlayerMissionElement.setAttribute("Excludes",pspm.getList());
+		
+		opponentBriefingElement.setContent(previousSuccessfulPlayerMissionElement);
+		
+		org.jdom.Element techRatingTableElement = new Element("TechRatingTable");
+		for (int i = 1; i < 9; i++)
 		{
-			org.jdom.Element mapSetElement = new Element("MapSet");
-			mapSetElement.setAttribute("Maps", Integer.toString(mms.getMaps()));
-			mapSetElement.setAttribute("Rows", Integer.toString(mms.getRows()));
-			mapSetElement.setAttribute("Columns", Integer.toString(mms.getColumns()));
-			missionElement.addContent(mapSetElement);
+			techRatingTableElement.setAttribute("Roll", Integer.toString(i));
+			techRatingTableElement.setAttribute("Tech", opponentBriefing.getTechRating(i).toString());
+		}
+		opponentBriefingElement.setContent(techRatingTableElement);
+
+		org.jdom.Element forceRatioTableElement = new Element("ForceRatioTable");
+		for (int i = 1; i < 9; i++)
+		{
+			forceRatioTableElement.setAttribute("Roll", Integer.toString(i));
+			forceRatioTableElement.setAttribute("Ratio", Float.toString(opponentBriefing.getForceRatio(i)));
+		}
+		opponentBriefingElement.setContent(forceRatioTableElement);
+
+		org.jdom.Element unitCompositionTableElement = new Element("UnitCompositionTable");
+		for (int i = 1; i < 9; i++)
+		{
+			unitCompositionTableElement.setAttribute("Roll", Integer.toString(i));
+			unitCompositionTableElement.setAttribute("Composition", opponentBriefing.getUnitComposition(i));
+		}
+		opponentBriefingElement.setContent(unitCompositionTableElement);
+
+		org.jdom.Element randomAllocationTableElement = new Element("RandomAllocationTable");
+		for (int i = 1; i < 9; i++)
+		{
+			randomAllocationTableElement.setAttribute("Roll", Integer.toString(i));
+			randomAllocationTableElement.setAttribute("RAT", opponentBriefing.getUnitComposition(i));
+		}
+		opponentBriefingElement.setContent(randomAllocationTableElement);
+
+		org.jdom.Element skillLevelTableElement = new Element("SkillLevelTable");
+		for (int i = 1; i < 9; i++)
+		{
+			skillLevelTableElement.setAttribute("Roll", Integer.toString(i));
+			skillLevelTableElement.setAttribute("Level", opponentBriefing.getUnitComposition(i));
+		}
+		opponentBriefingElement.setContent(skillLevelTableElement);
+		missionElement.addContent(opponentBriefingElement);
+		
+		Warchest warchest = mission.getWarchest();
+		org.jdom.Element warchestElement = new Element("Warchest");
+		warchestElement.setAttribute("MissionCost", Integer.toString(warchest.getMissionCost()));
+		
+		for (WarchestOption wo: warchest.getOptions())
+		{
+			org.jdom.Element optionElement = new Element("Option");
+			optionElement.setAttribute("Name", wo.getName());
+			optionElement.setAttribute("Bonus", Integer.toString(wo.getBonus()));
+			optionElement.setAttribute("Notes", wo.getNotes());
+			warchestElement.addContent(optionElement);
+		}		
+		missionElement.addContent(warchestElement);
+		
+		for (Objective o : mission.getObjectives())
+		{
+			org.jdom.Element objectiveElement = new Element("Objective");
+			objectiveElement.setAttribute("Name", o.getName());
+			objectiveElement.setAttribute("PointsAwarded", Integer.toString(o.getPointsAwarded()));
+			objectiveElement.setAttribute("Description", o.getDescription());
+			missionElement.addContent(objectiveElement);			
 		}
 		
-		for (PlayerBriefing briefing : mission.getBriefings())
+		for (SpecialRule sr: mission.getSpecialRules())
 		{
-			org.jdom.Element briefingElement = new Element("PlayerBriefing");
-			briefingElement.setAttribute("Team", briefing.getTeam());
-			briefingElement.addContent(new Element("Briefing").setText(briefing.getBriefing()));
-			briefingElement.addContent(new Element("Setup").setText(briefing.getSetup()));
-			briefingElement.addContent(new Element("Objective").setText(briefing.getObjective()));
-			briefingElement.addContent(new Element("VictoryConditions").setText(briefing.getVictoryConditions()));
-			briefingElement.addContent(new Element("SpecialConditions").setText(briefing.getSpecialConditions()));
-			briefingElement.addContent(new Element("Notes").setText(briefing.getNotes()));
-			missionElement.addContent(briefingElement);
+			org.jdom.Element specialRuleElement = new Element("SpecialRule");
+			specialRuleElement.setAttribute("Name", sr.getName());
+			specialRuleElement.setAttribute("Description", sr.getDescription());
+			missionElement.addContent(specialRuleElement);			
 		}
 		
 		return missionElement;
@@ -296,21 +501,20 @@ public class MissionManager
 	
 	private void completeSetup(Scenario s, Mission m)
 	{
-		MapSet mapSet = s.getMapSet();
-		for (PlayerBriefing briefing : m.getBriefings())
-		{			
-			briefing.setSetup(substituteMapLocations(briefing.getSetup(), mapSet));
-			briefing.setObjective(substituteMapLocations(briefing.getObjective(), mapSet));
-			briefing.setVictoryConditions(substituteMapLocations(briefing.getVictoryConditions(), mapSet));
-			briefing.setSpecialConditions(substituteMapLocations(briefing.getSpecialConditions(), mapSet));
-		}
+		/*
+		PlayerBriefing briefing = m.getPlayerBriefing();
+		briefing.setSetup(substituteMapLocations(briefing.getSetup(), mapSet));
+		briefing.setObjective(substituteMapLocations(briefing.getObjective(), mapSet));
+		briefing.setVictoryConditions(substituteMapLocations(briefing.getVictoryConditions(), mapSet));
+		briefing.setSpecialConditions(substituteMapLocations(briefing.getSpecialConditions(), mapSet));
+		*/
 	}
 	
 	
 	public Scenario generateScenario(Era era, Faction opposingFaction, Unit u, Rating opponentRating, QualityRating opponentQualityRating, TechRating opponentTechRating, String missionName, ItemCollection collection)
 	{
 		Scenario scenario = new Scenario();
-		
+		/*
 		Mission m = missionName != null ? getMission(missionName) : getRandomMission(u.getCompletedMissionIDs());
 		scenario.setMission(m);
 		scenario.setTimeOfDay(TimeOfDay.random());
@@ -342,7 +546,7 @@ public class MissionManager
 		
 		scenario.getSides().put(sideName, u);
 		scenario.getSides().put(oppositionName, opposingUnit);
-		
+		*/
 		return scenario;
 	}
 	
@@ -587,6 +791,7 @@ public class MissionManager
 		
 		document.add(chapter1);
 
+		/*
 		int ChapterNumber = 2;
 		for (String teamName : scenario.getSides().keySet())
 		{
@@ -635,7 +840,7 @@ public class MissionManager
 			
 			document.add(chapter);
 		}
-		
+		*/
 
 		document.close();
 	}
@@ -702,6 +907,7 @@ public class MissionManager
 		// add line break (no closing tag) after table
 		body.add(new Tag("hr", false));
 
+		/*
 		for (String teamName : scenario.getSides().keySet())
 		{
 			Unit u = scenario.getSides().get(teamName);
@@ -764,7 +970,7 @@ public class MissionManager
 			
 			body.add(new Tag("hr", false));
 		}
-		
+		*/
 		// simple string
 
 

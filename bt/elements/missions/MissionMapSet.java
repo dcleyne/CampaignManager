@@ -2,34 +2,16 @@ package bt.elements.missions;
 
 public class MissionMapSet
 {
-	private int _Maps;
-	private int _Rows;
-	private int _Columns;
-	
-	public int getMaps()
+	private String _Terrain;
+
+	public String getTerrain() 
 	{
-		return _Maps;
+		return _Terrain;
 	}
-	public void setMaps(int maps)
+
+	public void setTerrain(String terrain) 
 	{
-		_Maps = maps;
+		_Terrain = terrain;
 	}
-	public int getRows()
-	{
-		return _Rows;
-	}
-	public void setRows(int rows)
-	{
-		_Rows = rows;
-	}
-	public int getColumns()
-	{
-		return _Columns;
-	}
-	public void setColumns(int columns)
-	{
-		_Columns = columns;
-	}
-	
 	
 }

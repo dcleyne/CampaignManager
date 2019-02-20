@@ -1,5 +1,418 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Missions>
+  <Mission ID="1" Name="There's gold in them there hills">
+    <Description>There is a rumour going around about a cache of equipment stashed away in a remote area. Your unit
+    is in dire need of extra supplies and ammunition. So while the information may be just another red herring, the
+    opportunity is just too good to pass up.
+    </Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing>
+        Seems you're not the only one to believe... There is a lot of activity in the surrounding areas
+        of the area indicated by the rumours... Better get in and get out as quick as you can. Things might get ugly.
+      </Briefing>
+      <Setup>
+        Attacker forces enter on turn one. Entry is from Edge 4 of Map 1. Valid entry hexes are from 0101 to 0117.        
+        This map edge also counts as the player home edge. See "Movement and Retreat - TW-257".        
+      </Setup>
+      <Objective>
+      Objective is to find the cache of weapons and to get them off the home edge. In order to collect the cache
+      you must have at least one unit capable of carrying cargo. 
+      See ("Battlemech Lifting Capabilities" [TW-261] and "Cargo Carriers" [TW-261]). 
+      In the event you do not have a mech with this prerequisite then you cannot fulfil the mission and must retreat.
+      </Objective>
+      <VictoryConditions>
+        Locate the cache, extract the cache and exit off the home map edge. The cache represents a significant financial
+        boost to your unit, but isn't worth the world. 
+        The attacker loses the mission in the event:
+          Two or more attacking units are disabled/destroyed.
+          20 turns are completed without the cache being removed from the board. (If all cache markers are searched and
+          there is no cache found then the attacker must exit the home edge before the end of turn 30.)
+          If the cache is not found and there are cache markers unsearched remaining on the map.
+      </VictoryConditions>
+      <SpecialConditions>
+        Any of your units the exit any map edge other than the home edge specified in the Setup section are considered 
+        destroyed. As there are a significant number of other units in the area they will be ambushed and wiped out. 
+      </SpecialConditions>
+      <Notes>
+        When the attacking player moves a unit into the hex containing a cache marker he may spend a firing phase searching
+        the hiding spot for the loot. During this firing phase the searching unit must not fire weapons or make any physical
+        attacks.
+        Additionally, the searching unit is interrupted by the following:
+        A successful physical attack against the searching unit.
+        A critical hit that destroys a critical location on the searching unit.
+
+        The number on the marker represents the target number for a roll to determine if that marker represents the
+        cache. When a cache marker is successfully searched, a single D6 is rolled. If the number is greater than
+        or equal to the number on the cache marker then the cache has been discovered. As soon as the cache is
+        discovered, all other markers are removed.
+      </Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing>Someone has been talking too much... A rumour mill has started up about your weapons cache.
+      Now the hills for miles around are crawling with opportunists and treasure hunters... Maybe if you're lucky
+      they might just all pass you by... Maybe... then again, your luck hasn't been that great of late. If only your
+      Commander had told you where the crate is concealed then you might have been able to defend it properly... Then again,
+      perhaps he figured you might just carry it off yourself...
+      </Briefing>
+      <Setup>
+        The defending player places each(6) of the cache markers in a location on Map 2.
+        The markers must not be placed in the open unless it is not possible to place them otherwise.
+        The markers must not be placed in terrain prohibited to Battlemech movement.
+        There must be at least two intervening hexes between markers.
+        The markers are placed with the number written on the marker face down.
+        The attacking player should not see the numbers on the counters when they are placed. In addition, The
+        defender MAY NOT examine the markers once they are placed.
+        The defending units are setup as per hidden setup (TW-259). The units may or may not be located in the same
+        hexes as the cache markers.
+      </Setup>
+      <Objective>
+        Your objectives are two-fold. Firstly to defend the cache against the attacking unit. Secondly once the
+        attacker has been beaten off, to search the remaining caches (if any) and remove the loot for yourself.
+        No cache counter can be searched while any functional attacking unts remain on the maps.
+        See ("Battlemech Lifting Capabilities" [TW-261] and "Cargo Carriers" [TW-261]).
+      </Objective>
+      <VictoryConditions>
+        The Defender loses the mission in the following cases.
+          If the attacker successfully removes the cache.
+          If 50% or more of the defending units are disabled or destroyed.
+      </VictoryConditions>
+      <SpecialConditions>
+        Defending Units may retreat off Map 2 Edge 2. These units are counted as retreated and not destroyed but may 
+        not return for the duration of the game. They are also counted as losses for victory condition purposes.
+      </SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio>1.25</ForceRatio>
+    <Notes>The cache contains 250,000 CBills</Notes>
+  </Mission>
+  <Mission ID="2" Name="Street Fight">
+    <Description>You have gained a reputation as a street fighter... well, someone is calling you out...</Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing>The local area has a lot going for it in the way of businesses willing to support your unit
+      with employment opportunities... You are keen to take advantage of that but it seems someone else in
+      the area has the same ideas... Time to defend "your" turf...
+      </Briefing>
+      <Setup>      
+      Attacker forces enter on turn one. Entry is from Edge 4 of Map 1. 
+      Valid entry hexes are from 0101 to 0117.        
+      This map edge also counts as the player home edge. See "Movement and Retreat - TW-257".</Setup>
+      <Objective>Control the battlefield. There must be no active enemy units left on the maps</Objective>
+      <VictoryConditions>If the attacking player controls the maps at the end of the game, then the attacker is victorious.</VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing>The local area has a lot going for it in the way of businesses willing to support your unit
+      with employment opportunities... You are keen to take advantage of that but it seems someone else in
+      the area has the same ideas... Time to defend "your" turf...</Briefing>
+      <Setup>Defender forces enter on turn one. 
+      Entry is from Edge 2 of Map 2. Valid entry hexes are from 1501 to 1517.        
+      This map edge also counts as the player home edge. See "Movement and Retreat - TW-257".
+      </Setup>
+      <Objective>Control the battlefield. There must be no active enemy units left on the maps</Objective>
+      <VictoryConditions>If the defending player controls the maps at the end of the game, then the defender is victorious.</VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio>1</ForceRatio>
+    <Notes>By establishing itself as the dominant force in the area, the winner receives 300,000 CBills as a contract retainer from the local businesses.</Notes>
+  </Mission>
+  <Mission ID="3" Name="A Ransom is offered...">
+    <Description>Militia forces have captured a local politician and are asking a ransom for his return. You have been engaged to return the politician safely, and eliminate the militia unit.</Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing>
+      You have been hired by the planetary government to extract a hostage from militia forces holding them hostage.
+      The hostage is an important local politician and must be returned alive.
+      </Briefing>
+      <Setup>Attacker forces enter on turn one. Entry is from Edge 4 of Map 1. Valid entry hexes are from 0101 to 0117.        
+        This map edge also counts as the player home edge. See "Movement and Retreat - TW-257".
+        </Setup>
+      <Objective>The attackers must locate the hostage and extract them from the map. The unit carrying the
+      hostage must exit off the player home edge.</Objective>
+      <VictoryConditions>
+      The scenario is a victory if the hostage is rescued and carried safely off the attacking players home edge. 
+      Any other result is a loss.
+      If the hostage is returned safely, the attacker receives 300,000 CBills as payment.
+      </VictoryConditions>
+      <SpecialConditions>
+      The hostage is a single individual hidden in a building on Map 2. The hostage will exit the building 
+      of their own accord provided there are no active enemy units within 6 hexes or line of sight to the building.
+      If the unit carrying the hostage is destroyed, place the hostage as per an ejected pilot. (see - TO-196) The hostage
+      takes a single point of damage and must roll for consciousness.
+      An unconscious hostage may be picked up by a unit with a functioning hand actuator and may be carried. If the 
+      hostage is carried in this manner then the unit carrying the hostage may not Run, Jump or go Prone. In addition,
+      if the unit falls, then the hostage takes 2 points of damage and is placed as per an ejecting pilot (TO-196)
+      If the building containing the hostage is destroyed, then the hostage is killed. 
+      </SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing>Looks like the simple grab and run job isn't going to be so simple after all. Seems
+      the person you're "looking after" is fairly important and their presence is missed more than
+      you were lead to believe it would be...</Briefing>
+      <Setup>
+      A light single story building is placed on each of the following hexes on Map 2 [MAPHEXES-2]. 
+      The defending player secretly notes which building the hostage is located in.
+      If there are no defending units within 6 hexes, or line of sight of the building containing the hostage 
+      then the hostage may reveal their presence to the attacking forces.
+      The defending player may setup hidden (TW-259).
+      </Setup>
+      <Objective>Objective is to keep the hostage secure.</Objective>
+      <VictoryConditions>The scenario is a loss if the hostage is rescued and carried safely off the attacking players home edge. 
+      The scenario is also a loss if the hostage is killed. 
+      Any other result is a victory.
+      If the scenario is a victory, the defending player receives 500,000 CBills as payment.
+      </VictoryConditions>
+      <SpecialConditions>
+      If the building containing the hostage is destroyed, then the hostage is killed.
+      </SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio>1.25</ForceRatio>
+    <Notes>
+    </Notes>
+  </Mission>
+  <Mission ID="4" Name="Things that go bump in the night">
+    <Description>Folks are getting jittery... someone is making trouble in the local area and no one seems
+    to be able to stop them....</Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing>You've been contracted to disrupt the local law enforcement agencies. So far you've been
+      very successful at routing out beat cops and hired muscle and sending them packing... the anti has just been upped however...
+      If you can make merry for one more day, your benefactor has promised much in the way of rewards...</Briefing>
+      <Setup>
+      Attacker forces enter on turn one. Entry is from Edge 4 of Map 1. 
+      Valid entry hexes are from 0101 to 0117.        
+      This map edge also counts as the player home edge. See "Movement and Retreat - TW-257".
+      The attacker places 6 light single story buildings (Light CF10 - See (Buildings TW-167) on the following hexes on Map 1 [MAPHEXES-1] 
+      </Setup>
+      <Objective>The objective is to destroy as many of the 12 buildings as possible</Objective>
+      <VictoryConditions>The attacker gets 25,000 CBills for each building destroyed</VictoryConditions>
+      <SpecialConditions>
+      </SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing>The local authority has had enough of a rebel force in the area disrupting local forces.
+      The population is frightened and someone needs to come in to exercise some control. They've hired you
+      to seek out the troublemakers and send them packing.</Briefing>
+      <Setup>
+      Defender forces enter on turn one. 
+      Entry is from Edge 2 of Map 2. Valid entry hexes are from 1501 to 1517.        
+      This map edge also counts as the player home edge. See "Movement and Retreat - TW-257".
+      The defender places 6 light single story buildings (Light CF10 - See (Buildings TW-167) on the following hexes on Map 2 [MAPHEXES-2] 
+      </Setup>
+      <Objective>The objective is to save as many of the 12 buildings as possible.</Objective>
+      <VictoryConditions>The defender gets 25,000 CBills for each building not destroyed</VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio>1</ForceRatio>
+    <Notes>
+      If the combined BV of the attacking units is greater than 2500 and less than 3000 then the Buildings all become Light - BF15
+      If the combined BV of the attacking units is greater than 3000 and less than 4000 then the Buildings all become Medium - BF20
+      If the combined BV of the attacking units is greater than 4000 then the Buildings all become Heavy - BF30
+    </Notes>
+  </Mission>
+  <Mission ID="5" Name="Where angels fear to tread">
+    <Description>A militia group has set up camp in the area. They've managed to fortify their camp
+    so that all the local authorities have failed to move them...</Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing>You've been contracted to remove a militia group from the local area. They have
+      setup a fortified camp defended by emplaced weapons and ringed with a fence. Your job is to destroy
+      the fortified camp and eliminate or drive off all the militia units...
+      </Briefing>
+      <Setup>Attacker forces enter on turn one. Entry is from Edge 4 of Map 1. 
+      Valid entry hexes are from 0101 to 0117.        
+      This map edge also counts as the player home edge. See "Movement and Retreat - TW-257".</Setup>
+      <Objective>Destroy the camp, including all weapon emplacements and wall sections.</Objective>
+      <VictoryConditions>
+      If all enemy units are eliminated or retreated and all emplaced weapons are destroyed then the scenario is a victory.
+      Any other result is a loss.
+      The attacking unit gets 250,000 CBills for a victory.
+      </VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing>"Hold tight...". Those were the words your commanding officer left you with. So far the locals
+      have done everything they can to move you on. Somehow though, you think the worst is far from over.
+      </Briefing>
+      <Setup>
+      The defending player has 6 emplaced weapons. 
+      These are placed in Medium CF-15 (See Buildings TW-167) buildings as turrets on the following hexes on Map 2 [MAPHEXES-2].
+      Buildings are 2 levels high and block line of sight.
+      They have 360 degree fire arcs and contain a single Autocannon/5.
+      Each turret contains 30 rounds of ammunition. Ammunition must be tracked during the scenario.
+      Walls are placed between each of the 6 buildings to form a perimeter. 
+      The walls must be placed in such a way that they form a single enclosed area.
+      One section of wall must be designated as a gate. 
+      Units may only enter or exit the enclosed area via the gate unless a wall segment is destroyed.
+      Wall segments are 2 levels high and block line of sight.
+      The walls are treated as Medium CF-10 buildings.
+      The defending units are setup as per hidden setup (TW-259).
+      The defending units may NOT be placed in the same hex as a building. 
+      </Setup>
+      <Objective>The defenders objective is to survive and be in control of the battlefield at the end of the game.</Objective>
+      <VictoryConditions>
+      The defender must have an active unit remaining on the board at the end of the game. 
+      Any other result is a loss. 
+      The emplaced weapons do not count as active units.
+      The defending unit gets 300,000 CBills for a victory.
+      </VictoryConditions>
+      <SpecialConditions>Defending Units may retreat off Map 2 Edge 2. These units are counted as retreated and not destroyed but may 
+        not return for the duration of the game. They are also counted as losses for victory condition purposes.
+      </SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio>1.5</ForceRatio>
+    <Notes>
+      If the combined BV of the attacking units is greater than 2500 and less than 3000 then the emplaced Weapons are upgraded to LRM 10s with 30 rounds of ammunition.
+      If the combined BV of the attacking units is greater than 3000 and less than 4000 then the emplaced Weapons are upgraded to LRM 15s with 25 rounds of ammunition.
+      If the combined BV of the attacking units is greater than 4000 then the emplaced Weapons are upgraded to PPCs with no heat buildup.
+    </Notes>
+  </Mission>
+  <Mission ID="6" Name="I swear I put that down just over there...">
+    <Description>Uh oh... the box you were transporting has just gone missing...</Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing>300 grand! That's what you were promised on safe delivery of the 'product'. Now its gone missing but you've tracked the thieves down... Better get a move on... 
+      Damned thing is due for delivery today and no show, no cash...</Briefing>
+      <Setup>
+      Attacker forces enter on turn one. Entry is from Edge 4 of Map 1. 
+      Valid entry hexes are from 0101 to 0117.
+      Map Edge 2 of Map 2 counts as the player home edge. Valid exit hexes are from 1501 to 1517. See "Movement and Retreat - TW-257".</Setup>
+      <Objective>You have 30 turns to eliminate all enemy forces</Objective>
+      <VictoryConditions>
+      If all enemy forces are eliminated by turn 30 then it is a victory. 
+      If any enemy units are alive at the end of Turn 30, you lose.
+      The attacker receives 300,000 CBills for a Victory.
+      </VictoryConditions>
+      <SpecialConditions>
+      </SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing>
+      Looks like your intel was on the money this time... Right place, right box... Now you just have to get it to the fence and collect the cash.... 
+      Ah crap... looks like you've been made... run!
+      </Briefing>
+      <Setup>
+      Defender forces enter on turn one. 
+      Entry is from Edge 2 of Map 2. Valid entry hexes are from 1501 to 1517.        
+      Map Edge 4 of Map 1 counts as the player home edge. Valid exit hexes are from 0101 to 0117. See "Movement and Retreat - TW-257".</Setup>
+      <Objective>Stay alive for 30 turns.</Objective>
+      <VictoryConditions>
+      If all your forces are eliminated by turn 30 then it is a loss. 
+      If any of your units are alive at the end of Turn 30, you win.
+      The defender receives 200,000 CBills for a Victory. 
+      </VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio>1.1</ForceRatio>
+    <Notes>Forces may not leave the map from any other edge than their home edge.</Notes>
+  </Mission>
+  <Mission ID="7" Name="Serial number, serial killer">
+    <Description>
+    Alright, listen up, people. 
+    Our fugitive has been on the run for ninety minutes. 
+    Average foot speed over uneven ground barring injuries is 4 miles-per-hour. 
+    That gives us a radius of six miles. 
+    What I want from each and every one of you is a hard-target search of every gas station, residence, warehouse, farmhouse, henhouse, outhouse and doghouse in that area. 
+    Checkpoints go up at fifteen miles. 
+    Your fugitive's name is Aristotle Jones. 
+    Go get him.    
+    </Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing>You have a wanted man on the loose, go get him.</Briefing>
+      <Setup>Attacker forces enter on turn one. Entry is from Edge 4 of Map 1. Valid entry hexes are from 0101 to 0117.        
+        This map edge also counts as the player home edge. See "Movement and Retreat - TW-257".</Setup>
+      <Objective>
+      Capture the fugitive, dead or alive.
+      </Objective>
+      <VictoryConditions>If the fugitive is dead or captured by the end of the game, the attacker wins.
+      Any other result is a loss.
+      The attacker gets 200,000 CBills for a victory.
+      </VictoryConditions>
+      <SpecialConditions>
+      </SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing>Your contact wants you keep this guy alive... he won't say why, but he is talking with his wallet...</Briefing>
+      <Setup>
+      A light single story building (Light CF10 - See (Buildings TW-167) is placed on each of the following hexes on Map 2 [MAPHEXES-2].
+      The defending player secretly notes which building the fugitive is located in.
+      The defending PlayerBriefing sets anywhere up on Map 2 except in the buildings.
+      The defending player may NOT setup hidden (TW-259).
+      Map Edge 2 of Map 2 counts as the player home edge. Valid exit hexes are from 1501 to 1517. See "Movement and Retreat - TW-257".
+      </Setup>
+      <Objective>Keep the fugitive alive.</Objective>
+      <VictoryConditions>
+      The fugitive must be alive and not captured by an enemy unit at the end of the game for a defender victory.
+      The defender gets 300,000 CBills for a victory.
+      </VictoryConditions>
+      <SpecialConditions>
+      If the building the fugitive is located in is destroyed then the fugitive is killed. The fugitive may 
+      leave the building they are concealed in. If this is the case treat them as an ejected pilot for movement
+      and combat purposes. (TO-196) 
+      </SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio>1.1</ForceRatio>
+    <Notes>
+      If the combined BV of the attacking units is greater than 2500 and less than 3000 then the Buildings all become Light - BF15
+      If the combined BV of the attacking units is greater than 3000 and less than 4000 then the Buildings all become Medium - BF20
+      If the combined BV of the attacking units is greater than 4000 then the Buildings all become Heavy - BF30
+    </Notes>
+  </Mission>
+  <Mission ID="8" Name="Look what I found.">
+    <Description>We attack the target tomorrow... accurate intel is of paramount importance... Don't come back till you know what we face...</Description>
+    <MapSet Maps="2" Rows="1" Columns="2" />
+    <PlayerBriefing Team="Attacker">
+      <Briefing>As a prelude to a night attack a larger unit has engaged your services to scout the intended target and report what you find.</Briefing>
+      <Setup>Attacker forces enter on turn one. Entry is from Edge 4 of Map 1. 
+      Valid entry hexes are from 0101 to 0117.        
+      This map edge also counts as the player home edge. See "Movement and Retreat - TW-257".</Setup>
+      <Objective>
+      The attacker must stand a unit on each of the following hexes [MAPHEXES-2].
+      The attacker does not tell the defender which hexes he has to scout. 
+      The unit must end its movement on one of the target hexes in order for the hex to count as 'scouted'
+      The scenario ends at the end of 16 turns.
+      As a hex is 'scouted' the attacker announces to the defender and reveals which hex is it.
+      </Objective>
+      <VictoryConditions>
+      For each successfully 'scouted' hex, the attacker receives 50,000 CBills
+      </VictoryConditions>
+      <SpecialConditions></SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <PlayerBriefing Team="Defender">
+      <Briefing>Something big is brewing in your sector... you don't know what it is but you need to deny the enemy any knowledge of your force deployment.</Briefing>
+      <Setup>
+      The defending units are setup anywhere on Map 2.
+      The defending units are setup as per hidden setup (TW-259).
+      Map Edge 2 of Map 2 counts as the player home edge. Valid exit hexes are from 1501 to 1517. See "Movement and Retreat - TW-257".
+      </Setup>
+      <Objective>Deny the attacker knowledge of the local area. Attempt to ascertain which hexes the 
+      attacker is attempting to scout and stop them scouting them
+      </Objective>
+      <VictoryConditions>
+      For each hex not 'scouted', the defender receives 50,000 CBills
+      </VictoryConditions>
+      <SpecialConditions>
+      </SpecialConditions>
+      <Notes></Notes>
+    </PlayerBriefing>
+    <ForceRatio>1.2</ForceRatio>
+    <Notes></Notes>
+  </Mission>
   <Mission ID="9" Name="And you thought it couldn't smell worse than this">
     <Description></Description>
     <MapSet Maps="2" Rows="1" Columns="2" />

@@ -50,7 +50,6 @@ public class TestMissionManager
 	            System.out.println("Scenario Generation Ok\n");
 	            
 	            System.out.println("Scenario : " + scenario.getMission().getName());
-	            System.out.println("Force Ratio : " + scenario.getMission().getForceRatio());
 	            System.out.println("\n"); 
 	            System.out.println("Season : " + scenario.getSeason());
 	            System.out.println("Wind : " + scenario.getWind());
