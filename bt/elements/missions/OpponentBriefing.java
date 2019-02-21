@@ -15,14 +15,7 @@ public class OpponentBriefing
     private String[] _UnitCompositionTable = new String[8];
     private String[] _RandomAllocationTable = new String[8];
     private String[] _SkillLevelTable = new String[8];
-    
-    private boolean _Generated = false;
-    private TechRating _TechRating;
-    private float _ForceRatio;
-    private String _UnitComposition;
-    private String _RandomAllocation;
-    private String _SkillLevel;
-    
+        
     private String _Notes;
     
 	public String getTeam()
@@ -124,65 +117,32 @@ public class OpponentBriefing
 	    _RandomAllocationTable = Arrays.copyOf(briefing._RandomAllocationTable, 8);
 	    _SkillLevelTable = Arrays.copyOf(briefing._SkillLevelTable, 8);
 
-	    _Generated = briefing._Generated;
-	    if (_Generated)
-	    {
-	    	_TechRating = briefing._TechRating;
-	    	_ForceRatio = briefing._ForceRatio;
-	    	_UnitComposition = briefing._UnitComposition;
-	    	_RandomAllocation = briefing._RandomAllocation;
-	    	_SkillLevel = briefing._SkillLevel;
-	    }
-	    
 	    _Notes = briefing._Notes;
 	}
 	
-	public void clearGeneration()
-	{
-		_Generated = false;
-	}
-	
-	private void generate(String previousSuccessfulMission)
-	{
-		if (_Generated)
-			return;
-		
-		_TechRating = _TechRatingTable[Dice.d6(1) - 1 + _PreviousSuccessfulPlayerMission.getModifier(previousSuccessfulMission)];
-		_ForceRatio = _ForceRatioTable[Dice.d6(1) - 1 + _PreviousSuccessfulPlayerMission.getModifier(previousSuccessfulMission)];
-		_UnitComposition = _UnitCompositionTable[Dice.d6(1) - 1 + _PreviousSuccessfulPlayerMission.getModifier(previousSuccessfulMission)];
-		_RandomAllocation = _RandomAllocationTable[Dice.d6(1) - 1 + _PreviousSuccessfulPlayerMission.getModifier(previousSuccessfulMission)];
-		_SkillLevel = _SkillLevelTable[Dice.d6(1) - 1 + _PreviousSuccessfulPlayerMission.getModifier(previousSuccessfulMission)];
-		
-		_Generated = true;
-	}
 	
 	public TechRating getTechRating(String previousSuccessfulMission)
 	{
-		generate(previousSuccessfulMission);
-		return _TechRating;
+		return _TechRatingTable[Dice.d6(1) - 1 + _PreviousSuccessfulPlayerMission.getModifier(previousSuccessfulMission)];
 	}
 
 	public float getForceRatio(String previousSuccessfulMission)
 	{
-		generate(previousSuccessfulMission);
-		return _ForceRatio;
+		return _ForceRatioTable[Dice.d6(1) - 1 + _PreviousSuccessfulPlayerMission.getModifier(previousSuccessfulMission)];
 	}
 
 	public String getUnitComposition(String previousSuccessfulMission)
 	{
-		generate(previousSuccessfulMission);
-		return _UnitComposition;
+		return _UnitCompositionTable[Dice.d6(1) - 1 + _PreviousSuccessfulPlayerMission.getModifier(previousSuccessfulMission)];
 	}
 
 	public String getRandomAllocation(String previousSuccessfulMission)
 	{
-		generate(previousSuccessfulMission);
-		return _RandomAllocation;
+		return _RandomAllocationTable[Dice.d6(1) - 1 + _PreviousSuccessfulPlayerMission.getModifier(previousSuccessfulMission)];
 	}
 
 	public String getSkillLevel(String previousSuccessfulMission)
 	{
-		generate(previousSuccessfulMission);
-		return _SkillLevel;
+		return _SkillLevelTable[Dice.d6(1) - 1 + _PreviousSuccessfulPlayerMission.getModifier(previousSuccessfulMission)];
 	}
 }

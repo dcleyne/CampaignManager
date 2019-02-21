@@ -19,36 +19,36 @@ public class Formation implements Serializable
 {
 	private static final long serialVersionUID = 1;
 	
-    protected String m_Name = "";
-    protected UnitDesignation m_UnitDesignation;
-    protected long m_Commander;
-    protected String m_Notes = "";
+    protected String _Name = "";
+    protected UnitDesignation _UnitDesignation;
+    protected long _Commander;
+    protected String _Notes = "";
 
     public String getName()
-    { return m_Name; }
+    { return _Name; }
 
     public void setName(String name)
-    { m_Name = name; }
+    { _Name = name; }
 
     public UnitDesignation getUnitDesignation()
-    { return m_UnitDesignation; }
+    { return _UnitDesignation; }
 
     public void setUnitDesignation(UnitDesignation ud)
-    { m_UnitDesignation = ud; }
+    { _UnitDesignation = ud; }
 
     public long getCommander()
-    { return m_Commander; }
+    { return _Commander; }
 
     public void setCommander(long commander)
     {
-        m_Commander = commander;
+        _Commander = commander;
     }
 
     public String getNotes()
-    { return m_Notes; }
+    { return _Notes; }
 
     public void setNotes(String notes)
-    { m_Notes = notes;}
+    { _Notes = notes;}
 
 
     public Formation()
@@ -57,7 +57,7 @@ public class Formation implements Serializable
 
     public String toString()
     {
-        return m_Name;
+        return _Name;
     }
 
     public void saveToElement(org.jdom.Element e)
