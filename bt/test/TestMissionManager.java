@@ -76,7 +76,7 @@ public class TestMissionManager
 					MissionManager.getInstance().printScenarioToPDF(unitName, 1, scenario);
 				} catch (Exception ex)
 				{
-
+					System.out.println(ExceptionUtil.getExceptionStackTrace(ex));
 				}
 			}
 		} catch (Exception ex)
