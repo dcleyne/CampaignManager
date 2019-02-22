@@ -54,7 +54,7 @@ public class TestMissionManager
 					playerForce.setTechRating(u.getTechRating());
 
 					Opponent opponent = new Opponent(Faction.MERCENARY, Rating.REGULAR, QualityRating.D, TechRating.D);
-					Mission m = MissionManager.getInstance().getMission("Assault");
+					Mission m = MissionManager.getInstance().getMission("Beachhead (Attacker)");
 
 					String filename = u.getName() + "-TestScenario.xml";
 

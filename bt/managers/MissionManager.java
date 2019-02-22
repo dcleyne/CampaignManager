@@ -290,7 +290,7 @@ public class MissionManager
 		missionElement.setAttribute("Name", mission.getName());
 		missionElement.setAttribute("Description", mission.getDescription());
 
-		missionElement.addContent(new org.jdom.Element("GameSetup").setText(mission.getDescription()));
+		missionElement.addContent(new org.jdom.Element("GameSetup").setText(mission.getGameSetup()));
 		missionElement.addContent(new org.jdom.Element("Notes").setText(mission.getNotes()));
 
 		org.jdom.Element mapSetElement = new org.jdom.Element("MapSet");
