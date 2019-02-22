@@ -212,11 +212,23 @@ public class Unit implements Serializable
 
 	public Asset addNewAsset(ElementType et, String identifier)
 	{
-		Asset NewAsset = new Asset();
+		Asset NewAsset = createAsset(et);
 		NewAsset.setElementType(et);
 		NewAsset.setIdentifier(identifier);
 		_Assets.add(NewAsset);
 		return NewAsset;
+	}
+	
+	private Asset createAsset(ElementType et)
+	{
+		switch (et)
+		{
+			case BATTLEMECH:
+				return new Battlemech();
+			default:
+				break;
+		}
+		return null;
 	}
 
 	public int getAssetIndex(Asset a)
@@ -435,17 +447,17 @@ public class Unit implements Serializable
 	
 	public void addPersonnelAssignment(String name, String assetIdentifier, Role role)
 	{
-		PersonnelAssetAssignment paa = new PersonnelAssetAssignment(name, assetIdentifier, role);
+		PersonnelAssetAssignment paa = getPersonnelAssetAssignment(name);
 		if (_PersonnelAssetAssignments.contains(paa))
 			_PersonnelAssetAssignments.remove(paa);
 		
-		_PersonnelAssetAssignments.add(paa);
+		_PersonnelAssetAssignments.add(new PersonnelAssetAssignment(name, assetIdentifier, role));
 	}
 	
-	public void removePersonnelAssignment(String name, String assetIdentifier, Role role)
+	public void removePersonnelAssignment(String name)
 	{
-		PersonnelAssetAssignment paa = new PersonnelAssetAssignment(name, assetIdentifier, role);
-		if (_PersonnelAssetAssignments.contains(paa))
+		PersonnelAssetAssignment paa = getPersonnelAssetAssignment(name);
+		if (paa != null)
 			_PersonnelAssetAssignments.remove(paa);
 	}
 	

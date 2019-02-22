@@ -95,7 +95,7 @@
     <AvailableMech Name="Falcon" Variant="FLC-4N" Availability="1" />
     <AvailableMech Name="Firestarter" Variant="FS9-H" Availability="7" />
     <AvailableMech Name="Firestarter" Variant="FS9-K" Availability="1" />
-    <AvailableMech Name="Flea" Variant="FLE-14" Availability="1" />
+    <AvailableMech Name="Flea" Variant="FLE-4" Availability="1" />
     <AvailableMech Name="Goliath" Variant="GOL-1H" Availability="1" />
     <AvailableMech Name="Grasshopper" Variant="GHR-5H" Availability="6" />
     <AvailableMech Name="Griffin" Variant="GRF-1N" Availability="7" />

@@ -92,7 +92,7 @@ public class PersonnelAssetAssignmentPanel extends JPanel
 			if (_AvailableAssetsComboBox.getSelectedIndex() > 1)
 			{
 				// New asset assignment
-				_Unit.removePersonnelAssignment(_Name, _AssignedAsset, _AssignedRole);
+				_Unit.removePersonnelAssignment(_Name);
 				
 				String newAssetIdentifier = _AssetDetailIDMap.get((String)_AvailableAssetsComboBox.getSelectedItem());
 				Role newRole = (Role)_RoleComboBox.getSelectedItem();
@@ -101,7 +101,7 @@ public class PersonnelAssetAssignmentPanel extends JPanel
 			else if (_AvailableAssetsComboBox.getSelectedIndex() == 1)
 			{
 				// Remove assignment
-				_Unit.removePersonnelAssignment(_Name, _AssignedAsset, _AssignedRole);
+				_Unit.removePersonnelAssignment(_Name);
 			}
 		}
 		else

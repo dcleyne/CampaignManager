@@ -3,13 +3,17 @@ package bt;
 import java.awt.Desktop;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 
 import bt.elements.Battlemech;
 import bt.elements.Era;
 import bt.elements.Faction;
 import bt.elements.collection.UnlimitedCollection;
+import bt.elements.missions.Mission;
 import bt.elements.personnel.Rating;
+import bt.elements.scenario.Opponent;
 import bt.elements.scenario.Scenario;
+import bt.elements.unit.Force;
 import bt.elements.unit.MechUnitParameters;
 import bt.elements.unit.Player;
 import bt.elements.unit.QualityRating;
@@ -19,7 +23,6 @@ import bt.managers.MissionManager;
 import bt.managers.UnitManager;
 import bt.util.Dice;
 import bt.util.ExceptionUtil;
-import bt.util.FileUtil;
 import bt.util.PropertyUtil;
 
 public class GenerateRandomGame 
@@ -70,13 +73,17 @@ public class GenerateRandomGame
 			Unit player1Unit = buildUnit(p1, "Player 1 Unit", mup);
 			if (player1Unit == null)
 				throw new Exception("Unable to create unit for player 1");
+			Force playerForce = new Force();
+			Opponent opponent = new Opponent(Faction.MERCENARY, Rating.REGULAR, QualityRating.D, TechRating.D);
+			Mission m = MissionManager.getInstance().getMission("Assault");
+
 			
-			Scenario s = MissionManager.getInstance().generateScenario(Era.LATE_SUCCESSION_WAR_RENAISSANCE, Faction.MERCENARY, player1Unit, Rating.REGULAR, QualityRating.D, TechRating.D, null, new UnlimitedCollection());
+			Scenario s = MissionManager.getInstance().generateScenario(Era.LATE_SUCCESSION_WAR_RENAISSANCE, m, new Date(), playerForce, opponent, new UnlimitedCollection());
 			if (s == null)
 				throw new Exception("Unable to create scenario");
 			
 			
-			String filename = MissionManager.getInstance().printScenarioToPDF(FileUtil.getTempFolder(), player1Unit, 1, s);
+			String filename = MissionManager.getInstance().printScenarioToPDF(player1Unit.getName(), 1, s);
 			System.out.println(filename);
 			Desktop.getDesktop().open(new File(filename));
 		}

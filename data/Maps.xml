@@ -81,10 +81,10 @@
     <Map Name="City Street Grid/Park #2" Set="Compilation #1" >
     	<Locations>0202,0402,0206,0212,0608.0905,0911,1204,1110,1115,1407,1413</Locations>
    	</Map>
-    <Map Name="City (Hills/Residential> #1" Set="Compilation #1" >
+    <Map Name="City (Hills/Residential) #1" Set="Compilation #1" >
     	<Locations>0205,0202,1002,1203,1308,1312,0914,0716,0515,0314,0410</Locations>
    	</Map>
-    <Map Name="City (Hills/Residential> #2" Set="Compilation #1" >
+    <Map Name="City (Hills/Residential) #2" Set="Compilation #1" >
     	<Locations>0402,0804,0507,1209,0513,0515,1113,1313,1502</Locations>
    	</Map>
     <Map Name="Large Lakes #1" Set="Compilation #1" >

@@ -4,7 +4,7 @@ public class PlayerBriefing
 {
     private String _Team;
     private String _Briefing;
-    private String _Notes;
+    private float _ForceRestriction;
     
 	public String getTeam()
 	{
@@ -22,15 +22,15 @@ public class PlayerBriefing
 	{
 		_Briefing = briefing;
 	}
-	public String getNotes()
-	{
-		return _Notes;
-	}
-	public void setNotes(String notes)
-	{
-		_Notes = notes;
-	}
 	
+	public float getForceRestriction()
+	{
+		return _ForceRestriction;
+	}
+	public void setForceRestriction(float forceRestriction)
+	{
+		_ForceRestriction = forceRestriction;
+	}
 	public PlayerBriefing()
 	{
 	}
@@ -39,6 +39,6 @@ public class PlayerBriefing
 	{
 	    _Team = briefing._Team;
 	    _Briefing = briefing._Briefing;
-	    _Notes = briefing._Notes;
+	    _ForceRestriction = briefing._ForceRestriction;
 	}
 }

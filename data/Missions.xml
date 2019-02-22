@@ -11,6 +11,7 @@
       The Attacker selects 75% of its deployed force to enter from one of the two map edges selected as a part of game setup.
       The remaining portion of the Attacker's force enters from the other map edge between turns 4 and 12 as long as one attacking unit remains operational on the battlefield.
       </Briefing>
+      <ForceRestriction>0.75</ForceRestriction>
     </PlayerBriefing>
     <OpponentBriefing Team="Defender">
     	<Briefing>
@@ -70,7 +71,7 @@
     	
     </OpponentBriefing>
     <Warchest MissionCost="400">
-    	<Option Name="Complicated Weather" Bonus="100" Notes="Roll once on the General Weather Table (TO-pg 69) and aply the result to the battlefield" />
+    	<Option Name="Complicated Weather" Bonus="100" Notes="Roll once on the General Weather Table (TO-pg 69) and apply the result to the battlefield" />
     </Warchest>
     <Objective Name="Hammer" PointsAwarded="400" Description="Cripple/Destroy at least 65% of the Defender's force." />
     <Objective Name="Cut off the head" PointsAwarded="150" Description="Cripple/Destroy the enemy commander's unit." />

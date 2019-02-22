@@ -139,6 +139,7 @@ public class Mission
 		_MapSetTerrain = mission._MapSetTerrain;
 		_PlayerBriefing = new PlayerBriefing(mission._PlayerBriefing);
 		_OpponentBriefing = new OpponentBriefing(mission._OpponentBriefing);
+		_Warchest = new Warchest(mission._Warchest); 
 		for (Objective o : mission._Objectives)
 		{
 			_Objectives.add(new Objective(o));
@@ -147,7 +148,6 @@ public class Mission
 		{
 			_SpecialRules.add(new SpecialRule(sr));
 		}
-		
 		_Notes = mission._Notes;
 		
 	}

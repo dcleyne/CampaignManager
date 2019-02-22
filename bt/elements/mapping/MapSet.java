@@ -126,5 +126,17 @@ public class MapSet
 			_MapNumber = mapNumber;
 		}
 		
+		public MapCell()
+		{
+			
+		}
+		
+		public MapCell(String name, int number, int row, int col)
+		{
+			_MapName = name;
+			_Row = row;
+			_Column = col;
+			_MapNumber = number;
+		}
 	}
 }

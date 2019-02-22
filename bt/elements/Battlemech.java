@@ -244,6 +244,8 @@ public class Battlemech extends Asset implements BattleValue
 	@Override
 	public int getAdjustedBV()
 	{
+		 //TODO fix get adjusted BV
+		
 		double defensiveBV = 0;
 		int armourFactors = 0;
 		for (String location : _Armour.keySet())

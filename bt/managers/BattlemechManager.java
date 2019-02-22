@@ -88,7 +88,7 @@ public class BattlemechManager
         {3,31,21,17,21}
     };
 
-    private int _MechIdentifier = 0;
+    private int _MechIdentifier = 10000;
     private HashMap<String, Integer> _InternalLocationIndexes = new HashMap<String,Integer>();
 
     HashMap<String, ItemLoadHandler> _ItemLoadHandlers;

@@ -93,10 +93,12 @@ public class Asset
   
   public void saveToElement(org.jdom.Element e)
   {
+	  
   }
   
   public void loadFromElement(org.jdom.Element e)
   {
+	  
   }
 
 }

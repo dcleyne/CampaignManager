@@ -1,26 +1,36 @@
 package bt.ui.panels;
 
-import javax.swing.JPanel;
-import java.awt.GridBagLayout;
-import javax.swing.JLabel;
+import java.awt.BorderLayout;
+import java.awt.Desktop;
 import java.awt.GridBagConstraints;
-import javax.swing.JComboBox;
+import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextPane;
+import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 import bt.elements.Era;
 import bt.elements.Faction;
 import bt.elements.collection.ItemCollection;
 import bt.elements.collection.UnlimitedCollection;
+import bt.elements.missions.Mission;
 import bt.elements.personnel.Rating;
+import bt.elements.scenario.Opponent;
 import bt.elements.scenario.Scenario;
+import bt.elements.unit.Force;
 import bt.elements.unit.MechUnitParameters;
 import bt.elements.unit.Player;
 import bt.elements.unit.QualityRating;
@@ -31,15 +41,6 @@ import bt.managers.MissionManager;
 import bt.managers.UnitManager;
 import bt.util.Dice;
 import bt.util.ExceptionUtil;
-import bt.util.FileUtil;
-
-import javax.swing.border.EtchedBorder;
-import java.awt.BorderLayout;
-import java.awt.Desktop;
-
-import javax.swing.BoxLayout;
-import javax.swing.JTextPane;
-import javax.swing.Box;
 
 public class RandomGamePanel extends JPanel implements ActionListener
 {
@@ -253,11 +254,16 @@ public class RandomGamePanel extends JPanel implements ActionListener
 				throw new Exception("Unable to create unit for player 1");
 			
 			String missionName = _ScenarioSelectionComboBox.getSelectedItem().toString();
-			Scenario s = MissionManager.getInstance().generateScenario(era, f, player1Unit, Rating.REGULAR, QualityRating.D, TechRating.D, missionName, collection2);
+			Force playerForce = new Force();
+			Opponent opponent = new Opponent(Faction.MERCENARY, Rating.REGULAR, QualityRating.D, TechRating.D);
+			Mission m = MissionManager.getInstance().getMission(missionName);
+
+			
+			Scenario s = MissionManager.getInstance().generateScenario(era, m, new Date(), playerForce, opponent, collection2);
 			if (s == null)
 				throw new Exception("Unable to create scenario");
 			
-			String filename = MissionManager.getInstance().printScenarioToPDF(FileUtil.getTempFolder(), player1Unit, 1, s);
+			String filename = MissionManager.getInstance().printScenarioToPDF(player1Unit.getName(), 1, s);
 			Desktop.getDesktop().open(new File(filename));
 			
 			_ScenarioTextPane.setText("Scenario created Ok: " + filename);

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import bt.elements.Asset;
+import bt.elements.Battlemech;
+import bt.elements.personnel.Mechwarrior;
 import bt.elements.personnel.Personnel;
 
 public class Force
@@ -77,4 +79,102 @@ public class Force
 		_PersonnelAssetAssignments.add(new PersonnelAssetAssignment(personnel.getName(), asset.getIdentifier(), role));
 	}
 
+	public ArrayList<Asset> getAssets()
+	{
+		return _AssignedAssets;
+	}
+	
+	public ArrayList<Personnel> getPersonnel()
+	{
+		return _AssignedPersonnel;
+	}
+	
+	public ArrayList<PersonnelAssetAssignment> getPersonnelAssetAssignments()
+	{
+		return _PersonnelAssetAssignments;
+	}
+	
+	public int getAssetCount()
+	{
+		return _PersonnelAssetAssignments.size();
+	}
+	
+	public int getAssetBV()
+	{
+		int BV = 0;
+		
+		for (Asset asset : _AssignedAssets)
+		{
+			if (asset instanceof Battlemech)
+			{
+				Battlemech bm = (Battlemech)asset;
+				BV += bm.getAdjustedBV();
+			}
+		}
+		
+		return BV;
+	}
+	
+	public Personnel getPersonnelByName(String name)
+	{
+		for (Personnel p: _AssignedPersonnel)
+		{
+			if (p.getName().equalsIgnoreCase(name))
+				return p;
+		}
+		
+		return null;
+	}
+	
+	public Mechwarrior getMechwarriorAssignedToMech(String assetIdentifier)
+	{
+		for (PersonnelAssetAssignment ass : _PersonnelAssetAssignments)
+		{
+			if (ass.getAssetIdentifier().equalsIgnoreCase(assetIdentifier))
+			{
+				if (ass.getRole() == Role.PILOT)
+					return (Mechwarrior)getPersonnelByName(ass.getName());
+			}
+		}
+		
+		return null;
+	}
+
+	public PersonnelAssetAssignment getPersonnelAssetAssignment(String name)
+	{
+		for (PersonnelAssetAssignment ass : _PersonnelAssetAssignments)
+		{
+			if (ass.getName().equalsIgnoreCase(name))
+				return ass;
+		}
+		
+		return null;
+	}
+
+	public void addPersonnelAssignment(String name, String assetIdentifier, Role role)
+	{
+		PersonnelAssetAssignment paa = getPersonnelAssetAssignment(name);
+		if (_PersonnelAssetAssignments.contains(paa))
+			_PersonnelAssetAssignments.remove(paa);
+		
+		_PersonnelAssetAssignments.add(new PersonnelAssetAssignment(name, assetIdentifier, role));
+	}
+	
+
+	public void mergeForce(Force f)
+	{
+		_AssignedAssets.addAll(f._AssignedAssets);
+		_AssignedPersonnel.addAll(f._AssignedPersonnel);
+		_PersonnelAssetAssignments.addAll(f._PersonnelAssetAssignments);
+	}
+
+	public void mergeUnit(Unit u)
+	{
+		for (PersonnelAssetAssignment paa : u.getPersonnelAssetAssignments())
+		{
+			Personnel p = u.getPersonnelByName(paa.getName());
+			Asset a = u.getAssetFromID(u.getAssetAssignedToPersonnel(p.getName()));
+			assignAssetToForce(a, p, paa.getRole());
+		}
+	}
 }

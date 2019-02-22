@@ -27,6 +27,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import bt.elements.Asset;
 import bt.elements.BattleValue;
 import bt.elements.Battlemech;
 import bt.elements.BattlemechRepairReport;
@@ -45,6 +46,7 @@ import bt.elements.personnel.Rank;
 import bt.elements.personnel.Rating;
 import bt.elements.personnel.Technician;
 import bt.elements.unit.CompletedMission;
+import bt.elements.unit.Force;
 import bt.elements.unit.MechAvailability;
 import bt.elements.unit.MechUnitParameters;
 import bt.elements.unit.PersonnelAssetAssignment;
@@ -94,6 +96,9 @@ public class UnitManager
 	}
 
 	private static UnitManager theInstance = new UnitManager();
+	
+	BattlemechManager _BattlemechManager = new BattlemechManager();
+
 
 	private HashMap<String, MechUnitParameters> _Parameters = new HashMap<String, MechUnitParameters>();
 	private HashMap<Era, HashMap<Faction, ArrayList<MechAvailability>>> _MechAvailability = new HashMap<Era, HashMap<Faction, ArrayList<MechAvailability>>>();
@@ -367,7 +372,6 @@ public class UnitManager
 		ArrayList<Battlemech> mechs = new ArrayList<Battlemech>();
 
 		DesignManager dm = DesignManager.getInstance();
-		BattlemechManager bm = new BattlemechManager();
 
 		int attempts = 0;
 		while (mechs.size() == 0 && attempts < 10)
@@ -378,8 +382,16 @@ public class UnitManager
 			{
 				MechAvailability ma = validMechs.get(i);
 				BattlemechDesign design = dm.Design(ma.getVariantName());
-				if (!mup.getIncludedMechWeights().contains(design.getWeight()))
+				if (design != null)
+				{
+					if (!mup.getIncludedMechWeights().contains(design.getWeight()))
+						validMechs.remove(ma);
+				}
+				else
+				{
+					System.out.println("Unable to located design:" + ma.getVariantName());
 					validMechs.remove(ma);
+				}
 			}
 	
 			collection.resetCollection();
@@ -416,7 +428,7 @@ public class UnitManager
 				for (int i = 0; i < selectedSet.size(); i++)
 				{
 					BattlemechDesign bd = (BattlemechDesign)elements.get(selectedSet.get(i));
-					Battlemech b = bm.createBattlemechFromDesign(bd);
+					Battlemech b = _BattlemechManager.createBattlemechFromDesign(bd);
 					mechs.add(b);
 				}
 			}
@@ -573,6 +585,49 @@ public class UnitManager
 		}
 		unitNode.addContent(assetAssignmentsNode);
 		
+		return unitNode;
+
+	}
+
+	public org.jdom.Element saveForceToElement(Force f, String name)
+	{
+		org.jdom.Element unitNode = new org.jdom.Element(name);
+		if (f != null)
+		{
+			BattlemechManager bm = new BattlemechManager();
+	
+	
+			unitNode.addContent(new org.jdom.Element("ParentUnit").setText(f.getParentUnit()));
+			unitNode.addContent(new org.jdom.Element("CurrentDate").setText(SwingHelper.FormatDate(f.getCurrentDate())));
+			unitNode.addContent(new org.jdom.Element("QualityRating").setText(f.getQualityRating().toString()));
+			unitNode.addContent(new org.jdom.Element("TechRating").setText(f.getTechRating().toString()));
+	
+			org.jdom.Element mechsNode = new org.jdom.Element("Assets");
+			for (Asset asset : f.getAssets())
+			{
+				if (asset instanceof Battlemech)
+					mechsNode.addContent(bm.saveBattlemech((Battlemech)asset));
+			}
+			unitNode.addContent(mechsNode);
+	
+			org.jdom.Element personnelNode = new org.jdom.Element("Personnel");
+			for (Personnel p : f.getPersonnel())
+			{
+				personnelNode.addContent(savePersonnel(p));
+			}
+			unitNode.addContent(personnelNode);
+	
+			org.jdom.Element assetAssignmentsNode = new org.jdom.Element("AssetAssignments");
+			for (PersonnelAssetAssignment ass : f.getPersonnelAssetAssignments())
+			{
+				org.jdom.Element assignedAssetNode = new org.jdom.Element("AssetAssignment");
+				assignedAssetNode.setAttribute("Name", ass.getName());
+				assignedAssetNode.setAttribute("AssetIdentifier", ass.getAssetIdentifier());
+				assignedAssetNode.setAttribute("Role", ass.getRole().toString());
+				assetAssignmentsNode.addContent(assignedAssetNode);
+			}
+			unitNode.addContent(assetAssignmentsNode);
+		}
 		return unitNode;
 
 	}
@@ -832,6 +887,75 @@ public class UnitManager
 			}
 		}
 		return u;
+	}
+
+	public Force loadForceFromElement(org.jdom.Element unitNode)
+	{
+		Force f = new Force();
+
+		BattlemechManager bm = new BattlemechManager();
+
+		f.setParentUnit(unitNode.getChildTextTrim("ParentUnit"));
+		if (unitNode.getChild("CurrentDate") != null)
+		{
+			try
+			{
+				f.setCurrentDate(SwingHelper.GetDateFromString(unitNode.getChildTextTrim("CurrentDate")));
+			}
+			catch (Exception e) {}
+		}
+		if (unitNode.getChild("QualityRating") != null)
+		{
+			f.setQualityRating(QualityRating.fromString(unitNode.getChildTextTrim("QualityRating")));
+		}
+		else
+		{
+			f.setQualityRating(QualityRating.D);
+		}
+		if (unitNode.getChild("TechRating") != null)
+		{
+			f.setTechRating(TechRating.fromString(unitNode.getChildTextTrim("TechRating")));
+		}
+		else
+		{
+			f.setTechRating(TechRating.D);
+		}
+		
+		org.jdom.Element assetsElement = unitNode.getChild("Assets");
+		if (assetsElement != null)
+		{
+			Iterator<?> iter = assetsElement.getChildren().iterator();
+			while (iter.hasNext())
+			{
+				org.jdom.Element assetElement = (org.jdom.Element) iter.next();
+				if (assetElement.getName().equalsIgnoreCase("Battlemech"))
+					f.getAssets().add(bm.loadBattlemech(assetElement));
+			}
+		}
+		org.jdom.Element personnelElement = unitNode.getChild("Personnel");
+		if (personnelElement != null)
+		{
+			Iterator<?> iter = personnelElement.getChildren().iterator();
+			while (iter.hasNext())
+			{
+				org.jdom.Element pe = (org.jdom.Element) iter.next();
+				f.getPersonnel().add(loadPersonnel(pe));
+			}
+		}
+		org.jdom.Element assetAssignmentsElement = unitNode.getChild("AssetAssignments");
+		if (assetAssignmentsElement != null)
+		{
+			Iterator<?> iter = assetAssignmentsElement.getChildren("AssetAssignment").iterator();
+			while (iter.hasNext())
+			{
+				org.jdom.Element me = (org.jdom.Element)iter.next();
+				String name = me.getAttributeValue("Name");
+				String assetIdentifier = me.getAttributeValue("AssetIdentifier");
+				Role role = Role.fromString(me.getAttributeValue("Role"));
+				f.addPersonnelAssignment(name, assetIdentifier, role);
+			}
+		}
+		return f;
 	}
 
 	private void loadUnits() throws Exception

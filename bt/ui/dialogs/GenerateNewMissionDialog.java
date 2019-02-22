@@ -1,29 +1,21 @@
 package bt.ui.dialogs;
 
-import javax.swing.JDialog;
-
 import java.awt.BorderLayout;
-import javax.swing.JPanel;
-import javax.swing.border.TitledBorder;
-import javax.swing.border.EtchedBorder;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 
 import bt.elements.Era;
 import bt.elements.Faction;
-import bt.elements.collection.UnlimitedCollection;
-import bt.elements.personnel.Rating;
-import bt.elements.scenario.Scenario;
-import bt.elements.unit.QualityRating;
-import bt.elements.unit.TechRating;
 import bt.elements.unit.Unit;
-import bt.managers.MissionManager;
-import bt.managers.UnitManager;
 import bt.ui.panels.NewOpponentPanel;
 
 public class GenerateNewMissionDialog extends JDialog implements ActionListener
@@ -32,8 +24,11 @@ public class GenerateNewMissionDialog extends JDialog implements ActionListener
 	private JButton _OkButton;
 	private JButton _CancelButton;
 	
+	@SuppressWarnings("unused")
 	private Era _Era = Era.LATE_SUCCESSION_WAR_RENAISSANCE;
+	@SuppressWarnings("unused")
 	private Faction _Faction = Faction.MERCENARY;
+	@SuppressWarnings("unused")
 	private Unit _Unit;
 	
 	private boolean _MissionGenerated = false;
@@ -81,6 +76,7 @@ public class GenerateNewMissionDialog extends JDialog implements ActionListener
 		
 		if (cmd.equalsIgnoreCase("Ok"))
 		{
+			/*
 			try 
 			{
 				Rating opponentRating = _OpponentRatingsPanel.getSelectedRating();
@@ -100,6 +96,7 @@ public class GenerateNewMissionDialog extends JDialog implements ActionListener
 			{
 				e1.printStackTrace();
 			}
+			*/
 		}
 		if (cmd.equalsIgnoreCase("Cancel"))
 		{

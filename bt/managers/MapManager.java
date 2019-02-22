@@ -1,7 +1,7 @@
 package bt.managers;
 
 import java.io.File;
-
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -21,6 +21,56 @@ public class MapManager
 {
 	private static MapManager theInstance;
     
+	public enum Terrain
+	{
+		RANDOM,
+		HILLS,
+		BADLANDS,
+		WETLANDS,
+		LIGHT_URBAN,
+		FLATLANDS,
+		WOODED,
+		HEAVY_URBAN,
+		COASTAL,
+		MOUNTAINS;
+		
+		private static String[] Names = {"Random","Hills","Badlands","Wetlands","Light Urban","Flatlands","Wooded","Heavy Urban","Coastal","Mountains"};
+		
+		private static String[][] Tables = {
+				{"Desert Hills","Rolling Hills #1","Rolling Hills #2","Woodland","Box Canyon","Battleforce"},
+				{"Desert Sinkhole #1","Desert Sinkhole #2","Moonscape #1","Moonscape #2","Desert Mountain #1","Desert Mountain #2"},
+				{"Wide River","Lake Area","Large Lakes #1","Large Lakes #2","River Delta/Drainage Basin #1","River Delta/Drainage Basin #2"},
+				{"City (Residential)","City (Suburbs)","City (Hills/Residential) #1","City (Hills/Residential) #2","City Street Grid/Park #1","City Street Grid/Park #2"},
+				{"Open Terrain #1","Open Terrain #2","Desert Hills","City Ruins","CityTech Map","Scattered Woods"},
+				{"Scattered Woods","Battletech","Woodland","Rolling Hills #1","Heavy Forest #1","Heavy Forest #2"},
+				{"Military Base #1","Military Base #2","Drop Port #1","Drop Port #2","City (Skyscraper)","City (Downtown"},
+				{"Archipelago #1","Archipelago #2","Coast #1","Coast #2","Seaport","River Delta/Drainage Basin #1"},
+				{"Mountain Lake","River Valley","Desert Mountain #1","Desert Mountain #2","Large Mountain #1","Large Mountain #2"}
+		};
+		
+		
+		public static Terrain fromString(String string) throws Exception
+		{
+			for (Terrain terrain: values())
+			{
+				if (Names[terrain.ordinal()].equalsIgnoreCase(string))
+					return terrain;
+			}
+			throw new Exception("Unable to get Terrain from String: " + string);
+		}
+		
+		public String getRandomMapName()
+		{
+			return Tables[ordinal()-1][Dice.d6(1) - 1];
+		}
+		
+		@Override
+		public String toString()
+		{
+			return Names[ordinal()];
+		}
+	}
+	
     private HashMap<String, MapSheet> _MapSheets = new HashMap<String, MapSheet>();
     private Vector<MapSet> _MapSets = new Vector<MapSet>();
 
@@ -177,7 +227,7 @@ public class MapManager
 		return _MapSets;
 	}
 	
-	public MapSet getRandomMapSet(int maps, int rows, int columns)
+	public MapSet getRandomMapSet(int maps, int rows, int columns) throws Exception
 	{
 		Vector<MapSet> mapSets = new Vector<MapSet>(_MapSets);
 		for (int i = mapSets.size() - 1; i >= 0; i--)
@@ -189,7 +239,80 @@ public class MapManager
 		if (mapSets.size() > 0)
 			return mapSets.elementAt(Dice.random(mapSets.size()) - 1);
 		else
-			throw new RuntimeException("Cannot find MapSet for Maps:" + maps + " Rows:" + rows + " Cols:" + columns);
+			throw new Exception("Cannot find MapSet for Maps:" + maps + " Rows:" + rows + " Cols:" + columns);
 	}
 	
+	public MapSet generateRandomMapSet(String terrainName, int maps) throws Exception
+	{
+		if (maps < 2)
+			maps = 2;
+		
+		if (maps % 2 != 0)
+			maps++;
+		if (maps > 6)
+			maps = 6;
+		
+		int rows = maps == 2 ? 1 : 2;
+		int columns = maps / rows;
+		
+		Terrain terrain = Terrain.fromString(terrainName);
+		if (terrain == Terrain.RANDOM)
+			terrain = generateRandomTerrain();
+		
+		ArrayList<String> selectedMaps = new ArrayList<String>();
+		for (int i = 0; i < maps; i++)
+		{
+			String selectedMap = terrain.getRandomMapName();
+			while (selectedMaps.contains(selectedMap))
+				selectedMap = terrain.getRandomMapName();
+			selectedMaps.add(selectedMap);
+		}
+		MapSet mapSet = new MapSet();
+		mapSet.setName(terrain.toString());
+		mapSet.setRowCount(rows);
+		mapSet.setColumnCount(columns);
+		mapSet.setMapCount(maps);
+		
+		int mapNumber = 0;
+		for (int col = 1; col <= columns; col++)
+		{
+			for (int row = 1; row <= rows; row++)
+			{
+				String mapName = selectedMaps.get(mapNumber);
+				mapSet.getCells().addElement(mapSet.new MapCell(mapName, ++mapNumber, row, col));
+			}
+		}
+		return mapSet;
+	}
+	
+	private Terrain generateRandomTerrain()
+	{
+		switch (Dice.d6(2))
+		{
+			case 2:
+				return Terrain.HILLS;
+			case 3:
+				return Terrain.BADLANDS;
+			case 4:
+				return Terrain.WETLANDS;
+			case 5:
+				return Terrain.LIGHT_URBAN;
+			case 6:
+				return Terrain.HILLS;
+			case 7:
+				return Terrain.FLATLANDS;
+			case 8:
+				return Terrain.WOODED;
+			case 9:
+				return Terrain.HEAVY_URBAN;
+			case 10:
+				return Terrain.COASTAL;
+			case 11:
+				return Terrain.WOODED;
+			case 12:
+				return Terrain.MOUNTAINS;
+			default:
+				return Terrain.FLATLANDS;
+		}
+	}
 }
