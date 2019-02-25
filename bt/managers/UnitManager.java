@@ -2,7 +2,6 @@ package bt.managers;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
-
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
@@ -85,6 +84,71 @@ import bt.util.SwingHelper;
  */
 public class UnitManager
 {
+	private static final String MODEL = "Model";
+	private static final String MANUFACTURER = "Manufacturer";
+	private static final String PARTIAL_REPAIR_EFFECT = "Partial Repair Effect";
+	private static final String PARTIAL_REPAIR_NUMBER = "Partial Repair#";
+	private static final String TARGET_NUMBER = "Target#";
+	private static final String COST = "Cost";
+	private static final String TIME = "Time";
+	private static final String SURNAME = "Surname";
+	private static final String RANDOM_NAME = "RandomName";
+	private static final String RANDOM_NAMES = "RandomNames";
+	private static final String MISSIONS = "Missions";
+	private static final String HITS = "Hits";
+	private static final String GUNNERY_SKILL = "GunnerySkill";
+	private static final String PILOTING_SKILL = "PilotingSkill";
+	private static final String RATING = "Rating";
+	private static final String RANK = "Rank";
+	private static final String JOB_TYPE = "JobType";
+	private static final String ROLE = "Role";
+	private static final String ASSET_IDENTIFIER = "AssetIdentifier";
+	private static final String ASSET_ASSIGNMENT = "AssetAssignment";
+	private static final String ASSET_ASSIGNMENTS = "AssetAssignments";
+	private static final String MISSION_DATE = "MissionDate";
+	private static final String WARCHEST_POINTS = "WarchestPoints";
+	private static final String RESULT = "Result";
+	private static final String MISSION_TITLE = "MissionTitle";
+	private static final String MISSION_ID = "MissionID";
+	private static final String COMPLETED_MISSION = "CompletedMission";
+	private static final String COMPLETED_MISSIONS = "CompletedMissions";
+	private static final String TITLE = "Title";
+	private static final String ID = "ID";
+	private static final String ASSIGNED_MISSION = "AssignedMission";
+	private static final String EXTERNAL_DATA_PATH = "ExternalDataPath";
+	private static final String TOTAL_BV = "TotalBV";
+	private static final String TOTAL_WEIGHT = "TotalWeight";
+	private static final String BV = "BV";
+	private static final String WEIGHT = "Weight";
+	private static final String BATTLEMECH = "Battlemech";
+	private static final String AVAILABILITY = "Availability";
+	private static final String VARIANT = "Variant";
+	private static final String FACTIONS = "Factions";
+	private static final String ERA = "Era";
+	private static final String MECH_AVAILABILITY = "MechAvailability";
+	private static final String INCLUDED_MECH_WEIGHT = "IncludedMechWeight";
+	private static final String MAX_WEIGHT = "MaxWeight";
+	private static final String MIN_WEIGHT = "MinWeight";
+	private static final String MAX_BV = "MaxBV";
+	private static final String MIN_BV = "MinBV";
+	private static final String MECH_COUNT = "MechCount";
+	private static final String MECH_UNIT_PARAMETERS = "MechUnitParameters";
+	private static final String DATA_PATH = "DataPath";
+	private static final String UNITS = "Units";
+	private static final String BATTLEMECHS = "Battlemechs";
+	private static final String PLAYER = "Player";
+	private static final String NOTES = "Notes";
+	private static final String ESTABLISH_DATE = "EstablishDate";
+	private static final String NAME = "Name";
+	private static final String UNIT = "Unit";
+	private static final String PERSONNEL = "Personnel";
+	private static final String ASSETS = "Assets";
+	private static final String MINIATURE_COLLECTION = "MiniatureCollection";
+	private static final String TECH_RATING = "TechRating";
+	private static final String QUALITY_RATING = "QualityRating";
+	private static final String CURRENT_DATE = "CurrentDate";
+	private static final String PARENT_UNIT = "ParentUnit";
+
 	public interface PersonnelSaveHandler
 	{
 		public void savePersonnel(org.jdom.Element e, Personnel p);
@@ -160,28 +224,28 @@ public class UnitManager
 
 	private void loadMechUnitParameters() throws Exception
 	{
-		String fileName = PropertyUtil.getStringProperty("DataPath", "data") + "/RandomMechUnitParameters.xml";
+		String fileName = PropertyUtil.getStringProperty(DATA_PATH, "data") + "/RandomMechUnitParameters.xml";
 
 		SAXBuilder b = new SAXBuilder();
 		Document doc = b.build(new File(fileName));
 
 		org.jdom.Element rootElement = doc.getRootElement();
 
-		Iterator<?> iter = rootElement.getChildren("MechUnitParameters").iterator();
+		Iterator<?> iter = rootElement.getChildren(MECH_UNIT_PARAMETERS).iterator();
 		while (iter.hasNext())
 		{
 			org.jdom.Element paramElement = (org.jdom.Element) iter.next();
 
 			MechUnitParameters mup = new MechUnitParameters();
 
-			mup.setName(paramElement.getAttributeValue("Name"));
-			mup.setMechCount(Integer.parseInt(paramElement.getAttributeValue("MechCount")));
-			mup.setMinBV(Integer.parseInt(paramElement.getAttributeValue("MinBV")));
-			mup.setMaxBV(Integer.parseInt(paramElement.getAttributeValue("MaxBV")));
-			mup.setMinWeight(Integer.parseInt(paramElement.getAttributeValue("MinWeight")));
-			mup.setMaxWeight(Integer.parseInt(paramElement.getAttributeValue("MaxWeight")));
+			mup.setName(paramElement.getAttributeValue(NAME));
+			mup.setMechCount(Integer.parseInt(paramElement.getAttributeValue(MECH_COUNT)));
+			mup.setMinBV(Integer.parseInt(paramElement.getAttributeValue(MIN_BV)));
+			mup.setMaxBV(Integer.parseInt(paramElement.getAttributeValue(MAX_BV)));
+			mup.setMinWeight(Integer.parseInt(paramElement.getAttributeValue(MIN_WEIGHT)));
+			mup.setMaxWeight(Integer.parseInt(paramElement.getAttributeValue(MAX_WEIGHT)));
 
-			Iterator<?> weightIter = paramElement.getChildren("IncludedMechWeight").iterator();
+			Iterator<?> weightIter = paramElement.getChildren(INCLUDED_MECH_WEIGHT).iterator();
 			while (weightIter.hasNext())
 			{
 				org.jdom.Element incWeightElement = (org.jdom.Element) weightIter.next();
@@ -189,13 +253,13 @@ public class UnitManager
 			}
 			_Parameters.put(mup.getName(), mup);
 		}
-		iter = rootElement.getChildren("MechAvailability").iterator();
+		iter = rootElement.getChildren(MECH_AVAILABILITY).iterator();
 		while (iter.hasNext())
 		{
 			org.jdom.Element paramElement = (org.jdom.Element) iter.next();
 			
-			Era era = Era.fromString(paramElement.getAttributeValue("Era"));
-			ArrayList<Faction> factions = getFactions(paramElement.getAttributeValue("Factions"));
+			Era era = Era.fromString(paramElement.getAttributeValue(ERA));
+			ArrayList<Faction> factions = getFactions(paramElement.getAttributeValue(FACTIONS));
 			
 			ArrayList<MechAvailability> mechAvailability = new ArrayList<MechAvailability>();
 			Iterator<?> availIter = paramElement.getChildren().iterator();
@@ -204,9 +268,9 @@ public class UnitManager
 				org.jdom.Element availElement = (org.jdom.Element) availIter.next();
 
 				MechAvailability avail = new MechAvailability();
-				avail.setName(availElement.getAttributeValue("Name"));
-				avail.setVariant(availElement.getAttributeValue("Variant"));
-				avail.setAvailability(Integer.parseInt(availElement.getAttributeValue("Availability")));
+				avail.setName(availElement.getAttributeValue(NAME));
+				avail.setVariant(availElement.getAttributeValue(VARIANT));
+				avail.setAvailability(Integer.parseInt(availElement.getAttributeValue(AVAILABILITY)));
 
 				mechAvailability.add(avail);
 			}
@@ -271,7 +335,7 @@ public class UnitManager
 		return bestList;
 	}
 	
-	public Unit generateUnit(Era era, Faction faction, Player p, String unitName, MechUnitParameters mup, Rating rating, QualityRating qualityRating, TechRating techRating, double startingBankBalance, 
+	public Unit generateUnit(Era era, Faction faction, Player p, String unitName, MechUnitParameters mup, Rating rating, QualityRating qualityRating, TechRating techRating, 
 			ItemCollection collection) throws Exception
 	{
 		ArrayList<ArrayList<Battlemech>> mechLists = new ArrayList<ArrayList<Battlemech>>();
@@ -287,7 +351,7 @@ public class UnitManager
 		u.setName(unitName);
 		u.setQualityRating(qualityRating);
 		u.setTechRating(techRating);
-		u.setCurrentBankBalance(startingBankBalance);
+		u.setWarchestPoints(1000);
 
 		u.addBattlemechs(bestList);
 		int supportReq = 0;
@@ -356,14 +420,14 @@ public class UnitManager
 		return u;
 	}
 
-	public Unit generateUnit(Era era, Faction faction, Player p, String unitName, String lanceWeight, Rating rating, QualityRating qualityRating, TechRating techRating, double startingBankBalance, ItemCollection collection) throws Exception
+	public Unit generateUnit(Era era, Faction faction, Player p, String unitName, String lanceWeight, Rating rating, QualityRating qualityRating, TechRating techRating, ItemCollection collection) throws Exception
 	{
 		if (!_Parameters.containsKey(lanceWeight))
 			throw new IllegalArgumentException("Unable to determine lance parameters from Lance Weight : " + lanceWeight);
 
 		MechUnitParameters mup = _Parameters.get(lanceWeight);
 
-		return generateUnit(era, faction, p, unitName, mup, rating, qualityRating, techRating, startingBankBalance, collection);
+		return generateUnit(era, faction, p, unitName, mup, rating, qualityRating, techRating, collection);
 
 	}
 
@@ -376,6 +440,8 @@ public class UnitManager
 		int attempts = 0;
 		while (mechs.size() == 0 && attempts < 10)
 		{
+			collection.resetPending();
+
 			attempts++;
 			ArrayList<MechAvailability> validMechs = new ArrayList<MechAvailability>(_MechAvailability.get(era).get(faction));
 			for (int i = validMechs.size() - 1; i >= 0; i--)
@@ -394,7 +460,6 @@ public class UnitManager
 				}
 			}
 	
-			collection.resetCollection();
 			ArrayList<BattleValue> elements = new ArrayList<BattleValue>();
 			int findMechAttempts = 0;
 			while (elements.size() < mup.getMechCount() && findMechAttempts < 10)
@@ -416,11 +481,12 @@ public class UnitManager
 					}
 				}
 			}
-			collection.consumePending();
 	
 			ArrayList<ArrayList<Integer>> validSets = getValidSubsetSums(elements, mup.getMechCount(), mup.getMaxBV(), mup.getMinBV());
 			if (validSets.size() > 0)
 			{
+				collection.consumePending();
+
 				ArrayList<Integer> selectedSet = validSets.get(0);
 				if (validSets.size() > 1)
 					selectedSet = validSets.get(Dice.random(validSets.size()) - 1);
@@ -477,42 +543,42 @@ public class UnitManager
 	{
 		org.jdom.Document doc = new org.jdom.Document();
 
-		org.jdom.Element unitsNode = new org.jdom.Element("Units");
+		org.jdom.Element unitsNode = new org.jdom.Element(UNITS);
 		doc.addContent(unitsNode);
 
 		for (Unit u : units)
 		{
-			org.jdom.Element unitElement = new org.jdom.Element("Unit");
+			org.jdom.Element unitElement = new org.jdom.Element(UNIT);
 			int totalBV = 0;
 			int totalWeight = 0;
-			unitElement.setAttribute("Name", u.getName());
+			unitElement.setAttribute(NAME, u.getName());
 			
 			for (Battlemech b : u.getBattlemechs())
 			{
 				totalBV += b.getBV();
 				totalWeight += b.getWeight();
 
-				org.jdom.Element mechElement = new org.jdom.Element("Battlemech");
-				mechElement.setAttribute("Name", b.getDesignName());
-				mechElement.setAttribute("Variant", b.getDesignVariant());
-				mechElement.setAttribute("Weight", Integer.toString(b.getWeight()));
-				mechElement.setAttribute("BV", Integer.toString(b.getBV()));
+				org.jdom.Element mechElement = new org.jdom.Element(BATTLEMECH);
+				mechElement.setAttribute(NAME, b.getDesignName());
+				mechElement.setAttribute(VARIANT, b.getDesignVariant());
+				mechElement.setAttribute(WEIGHT, Integer.toString(b.getWeight()));
+				mechElement.setAttribute(BV, Integer.toString(b.getBV()));
 
 				unitElement.addContent(mechElement);
 			}
-			unitElement.setAttribute("TotalWeight", Integer.toString(totalWeight));
-			unitElement.setAttribute("TotalBV", Integer.toString(totalBV));
+			unitElement.setAttribute(TOTAL_WEIGHT, Integer.toString(totalWeight));
+			unitElement.setAttribute(TOTAL_BV, Integer.toString(totalBV));
 
 			unitsNode.addContent(unitElement);
 		}
-		String fileName = PropertyUtil.getStringProperty("ExternalDataPath", "data") + "/units/UnitSummaries.xml";
+		String fileName = PropertyUtil.getStringProperty(EXTERNAL_DATA_PATH, "data") + "/units/UnitSummaries.xml";
 		XMLOutputter out = new XMLOutputter(Format.getPrettyFormat());
 		out.output(doc, new FileOutputStream(fileName));
 	}
 
 	public void saveUnit(Unit u) throws Exception
 	{
-		String fileName = PropertyUtil.getStringProperty("ExternalDataPath", "data") + "/units/" + u.getName() + ".xml";
+		String fileName = PropertyUtil.getStringProperty(EXTERNAL_DATA_PATH, "data") + "/units/" + u.getName() + ".xml";
 
 		org.jdom.Document doc = new org.jdom.Document();
 		doc.setRootElement(saveUnitToElement(u));
@@ -525,27 +591,27 @@ public class UnitManager
 	{
 		BattlemechManager bm = new BattlemechManager();
 
-		org.jdom.Element unitNode = new org.jdom.Element("Unit");
+		org.jdom.Element unitNode = new org.jdom.Element(UNIT);
 
-		unitNode.addContent(new org.jdom.Element("Name").setText(u.getName()));
-		unitNode.addContent(new org.jdom.Element("EstablishDate").setText(SwingHelper.FormatDate(u.getEstablishDate())));
-		unitNode.addContent(new org.jdom.Element("CurrentDate").setText(SwingHelper.FormatDate(u.getCurrentDate())));
-		unitNode.addContent(new org.jdom.Element("QualityRating").setText(u.getQualityRating().toString()));
-		unitNode.addContent(new org.jdom.Element("TechRating").setText(u.getTechRating().toString()));
-		unitNode.addContent(new org.jdom.Element("CurrentBankBalance").setText(Double.toString(u.getCurrentBankBalance())));
-		unitNode.addContent(new org.jdom.Element("Notes").setText(u.getNotes()));
+		unitNode.addContent(new org.jdom.Element(NAME).setText(u.getName()));
+		unitNode.addContent(new org.jdom.Element(ESTABLISH_DATE).setText(SwingHelper.FormatDate(u.getEstablishDate())));
+		unitNode.addContent(new org.jdom.Element(CURRENT_DATE).setText(SwingHelper.FormatDate(u.getCurrentDate())));
+		unitNode.addContent(new org.jdom.Element(QUALITY_RATING).setText(u.getQualityRating().toString()));
+		unitNode.addContent(new org.jdom.Element(TECH_RATING).setText(u.getTechRating().toString()));
+		unitNode.addContent(new org.jdom.Element(WARCHEST_POINTS).setText(Integer.toString(u.getWarchestPoints())));
+		unitNode.addContent(new org.jdom.Element(NOTES).setText(u.getNotes()));
 
 		if (u.getPlayer() != null)
-			unitNode.addContent(new org.jdom.Element("Player").setText(u.getPlayer().getName()));
+			unitNode.addContent(new org.jdom.Element(PLAYER).setText(u.getPlayer().getName()));
 
-		org.jdom.Element mechsNode = new org.jdom.Element("Battlemechs");
+		org.jdom.Element mechsNode = new org.jdom.Element(BATTLEMECHS);
 		for (Battlemech mech : u.getBattlemechs())
 		{
 			mechsNode.addContent(bm.saveBattlemech(mech));
 		}
 		unitNode.addContent(mechsNode);
 
-		org.jdom.Element personnelNode = new org.jdom.Element("Personnel");
+		org.jdom.Element personnelNode = new org.jdom.Element(PERSONNEL);
 		for (Personnel p : u.getPersonnel())
 		{
 			personnelNode.addContent(savePersonnel(p));
@@ -554,33 +620,33 @@ public class UnitManager
 
 		if (u.getAssignedMission() != null)
 		{
-			org.jdom.Element assignedMissionNode = new org.jdom.Element("AssignedMission");
-			assignedMissionNode.setAttribute("ID", Long.toString(u.getAssignedMission()));
-			assignedMissionNode.setAttribute("Title", u.getAssignedMissionTitle());
+			org.jdom.Element assignedMissionNode = new org.jdom.Element(ASSIGNED_MISSION);
+			assignedMissionNode.setAttribute(ID, Long.toString(u.getAssignedMission()));
+			assignedMissionNode.setAttribute(TITLE, u.getAssignedMissionTitle());
 			unitNode.addContent(assignedMissionNode);
 		}
 		
-		org.jdom.Element completedMissionsNode = new org.jdom.Element("CompletedMissions");
+		org.jdom.Element completedMissionsNode = new org.jdom.Element(COMPLETED_MISSIONS);
 		for (CompletedMission mission : u.getCompletedMissions())
 		{
-			org.jdom.Element completedMissionElement = new org.jdom.Element("CompletedMission");
-			completedMissionElement.setAttribute("MissionID", Long.toString(mission.getMissionIdentifier()));
-			completedMissionElement.setAttribute("MissionTitle", mission.getMissionTitle());
-			completedMissionElement.setAttribute("Result", mission.getResult().toString());
-			completedMissionElement.setAttribute("PrizeMoney", Double.toString(mission.getPrizeMoney()));
-			completedMissionElement.setAttribute("MissionDate", SwingHelper.FormatDate(mission.getMissionDate()));
+			org.jdom.Element completedMissionElement = new org.jdom.Element(COMPLETED_MISSION);
+			completedMissionElement.setAttribute(MISSION_ID, Long.toString(mission.getMissionIdentifier()));
+			completedMissionElement.setAttribute(MISSION_TITLE, mission.getMissionTitle());
+			completedMissionElement.setAttribute(RESULT, mission.getResult().toString());
+			completedMissionElement.setAttribute(WARCHEST_POINTS, Integer.toString(mission.getWarchestPoints()));
+			completedMissionElement.setAttribute(MISSION_DATE, SwingHelper.FormatDate(mission.getMissionDate()));
 			
 			completedMissionsNode.addContent(completedMissionElement);
 		}
 		unitNode.addContent(completedMissionsNode);
 
-		org.jdom.Element assetAssignmentsNode = new org.jdom.Element("AssetAssignments");
+		org.jdom.Element assetAssignmentsNode = new org.jdom.Element(ASSET_ASSIGNMENTS);
 		for (PersonnelAssetAssignment ass : u.getPersonnelAssetAssignments())
 		{
-			org.jdom.Element assignedAssetNode = new org.jdom.Element("AssetAssignment");
-			assignedAssetNode.setAttribute("Name", ass.getName());
-			assignedAssetNode.setAttribute("AssetIdentifier", ass.getAssetIdentifier());
-			assignedAssetNode.setAttribute("Role", ass.getRole().toString());
+			org.jdom.Element assignedAssetNode = new org.jdom.Element(ASSET_ASSIGNMENT);
+			assignedAssetNode.setAttribute(NAME, ass.getName());
+			assignedAssetNode.setAttribute(ASSET_IDENTIFIER, ass.getAssetIdentifier());
+			assignedAssetNode.setAttribute(ROLE, ass.getRole().toString());
 			assetAssignmentsNode.addContent(assignedAssetNode);
 		}
 		unitNode.addContent(assetAssignmentsNode);
@@ -597,12 +663,13 @@ public class UnitManager
 			BattlemechManager bm = new BattlemechManager();
 	
 	
-			unitNode.addContent(new org.jdom.Element("ParentUnit").setText(f.getParentUnit()));
-			unitNode.addContent(new org.jdom.Element("CurrentDate").setText(SwingHelper.FormatDate(f.getCurrentDate())));
-			unitNode.addContent(new org.jdom.Element("QualityRating").setText(f.getQualityRating().toString()));
-			unitNode.addContent(new org.jdom.Element("TechRating").setText(f.getTechRating().toString()));
+			unitNode.addContent(new org.jdom.Element(PARENT_UNIT).setText(f.getParentUnit()));
+			unitNode.addContent(new org.jdom.Element(CURRENT_DATE).setText(SwingHelper.FormatDate(f.getCurrentDate())));
+			unitNode.addContent(new org.jdom.Element(QUALITY_RATING).setText(f.getQualityRating().toString()));
+			unitNode.addContent(new org.jdom.Element(TECH_RATING).setText(f.getTechRating().toString()));
+			unitNode.addContent(new org.jdom.Element(MINIATURE_COLLECTION).setText(f.getItemCollectionName()));
 	
-			org.jdom.Element mechsNode = new org.jdom.Element("Assets");
+			org.jdom.Element mechsNode = new org.jdom.Element(ASSETS);
 			for (Asset asset : f.getAssets())
 			{
 				if (asset instanceof Battlemech)
@@ -610,20 +677,20 @@ public class UnitManager
 			}
 			unitNode.addContent(mechsNode);
 	
-			org.jdom.Element personnelNode = new org.jdom.Element("Personnel");
+			org.jdom.Element personnelNode = new org.jdom.Element(PERSONNEL);
 			for (Personnel p : f.getPersonnel())
 			{
 				personnelNode.addContent(savePersonnel(p));
 			}
 			unitNode.addContent(personnelNode);
 	
-			org.jdom.Element assetAssignmentsNode = new org.jdom.Element("AssetAssignments");
+			org.jdom.Element assetAssignmentsNode = new org.jdom.Element(ASSET_ASSIGNMENTS);
 			for (PersonnelAssetAssignment ass : f.getPersonnelAssetAssignments())
 			{
-				org.jdom.Element assignedAssetNode = new org.jdom.Element("AssetAssignment");
-				assignedAssetNode.setAttribute("Name", ass.getName());
-				assignedAssetNode.setAttribute("AssetIdentifier", ass.getAssetIdentifier());
-				assignedAssetNode.setAttribute("Role", ass.getRole().toString());
+				org.jdom.Element assignedAssetNode = new org.jdom.Element(ASSET_ASSIGNMENT);
+				assignedAssetNode.setAttribute(NAME, ass.getName());
+				assignedAssetNode.setAttribute(ASSET_IDENTIFIER, ass.getAssetIdentifier());
+				assignedAssetNode.setAttribute(ROLE, ass.getRole().toString());
 				assetAssignmentsNode.addContent(assignedAssetNode);
 			}
 			unitNode.addContent(assetAssignmentsNode);
@@ -634,12 +701,12 @@ public class UnitManager
 
 	private org.jdom.Element savePersonnel(Personnel p)
 	{
-		org.jdom.Element pElement = new org.jdom.Element("Personnel");
-		pElement.setAttribute("JobType", p.getJobType().toString());
-		pElement.setAttribute("Name", p.getName());
-		pElement.setAttribute("Rank", p.getRank().toString());
-		pElement.setAttribute("Rating", p.getRating().toString());
-		pElement.setAttribute("Notes", p.getNotes());
+		org.jdom.Element pElement = new org.jdom.Element(PERSONNEL);
+		pElement.setAttribute(JOB_TYPE, p.getJobType().toString());
+		pElement.setAttribute(NAME, p.getName());
+		pElement.setAttribute(RANK, p.getRank().toString());
+		pElement.setAttribute(RATING, p.getRating().toString());
+		pElement.setAttribute(NOTES, p.getNotes());
 
 		if (_PersonnelSaveHandlers.containsKey(p.getJobType()))
 			_PersonnelSaveHandlers.get(p.getJobType()).savePersonnel(pElement, p);
@@ -649,14 +716,13 @@ public class UnitManager
 
 	private Personnel loadPersonnel(org.jdom.Element e)
 	{
-		JobType jobType = JobType.fromString(e.getAttributeValue("JobType"));
-		System.out.println("Loading JobType ->" + jobType.toString() + "<-");
+		JobType jobType = JobType.fromString(e.getAttributeValue(JOB_TYPE));
 		Personnel p = _PersonnelLoadHandlers.get(jobType).loadPersonnel(e);
 
-		p.setName(e.getAttributeValue("Name"));
-		p.setRank(Rank.fromString(e.getAttributeValue("Rank")));
-		p.setRating(Rating.fromString(e.getAttributeValue("Rating")));
-		p.setNotes(e.getAttributeValue("Notes"));
+		p.setName(e.getAttributeValue(NAME));
+		p.setRank(Rank.fromString(e.getAttributeValue(RANK)));
+		p.setRating(Rating.fromString(e.getAttributeValue(RATING)));
+		p.setNotes(e.getAttributeValue(NOTES));
 		return p;
 	}
 
@@ -713,37 +779,23 @@ public class UnitManager
 	private void saveMechwarrior(org.jdom.Element e, Personnel p)
 	{
 		Mechwarrior mw = (Mechwarrior) p;
-		e.setAttribute("PilotingSkill", Integer.toString(mw.getPilotingSkill()));
-		e.setAttribute("GunnerySkill", Integer.toString(mw.getGunnerySkill()));
-		e.setAttribute("Hits", Integer.toString(mw.getHits()));
+		e.setAttribute(PILOTING_SKILL, Integer.toString(mw.getPilotingSkill()));
+		e.setAttribute(GUNNERY_SKILL, Integer.toString(mw.getGunnerySkill()));
+		e.setAttribute(HITS, Integer.toString(mw.getHits()));
 
-		e.setAttribute("SuccessfulFiringAttempts", Integer.toString(mw.getSuccessfulFiringAttempts()));
-		e.setAttribute("FailedFiringAttempts", Integer.toString(mw.getFailedFiringAttempts()));
-		e.setAttribute("SuccessfulPilotingRolls", Integer.toString(mw.getSuccessfulPilotingRolls()));
-		e.setAttribute("FailedPilotingRolls", Integer.toString(mw.getFailedPilotingRolls()));
-
-		e.setAttribute("Missions", Integer.toString(mw.getMissions()));
+		e.setAttribute(MISSIONS, Integer.toString(mw.getMissions()));
 	}
 
 	private Personnel loadMechwarrior(org.jdom.Element e)
 	{
 		Mechwarrior mw = new Mechwarrior();
 
-		mw.setPilotingSkill(Integer.parseInt(e.getAttributeValue("PilotingSkill")));
-		mw.setGunnerySkill(Integer.parseInt(e.getAttributeValue("GunnerySkill")));
-		mw.setHits(Integer.parseInt(e.getAttributeValue("Hits")));
+		mw.setPilotingSkill(Integer.parseInt(e.getAttributeValue(PILOTING_SKILL)));
+		mw.setGunnerySkill(Integer.parseInt(e.getAttributeValue(GUNNERY_SKILL)));
+		mw.setHits(Integer.parseInt(e.getAttributeValue(HITS)));
 
-		if (e.getAttribute("SuccessfulFiringAttempts") != null)
-			mw.setSuccessfulFiringAttempts(Integer.parseInt(e.getAttributeValue("SuccessfulFiringAttempts")));
-		if (e.getAttribute("FailedFiringAttempts") != null)
-			mw.setFailedFiringAttempts(Integer.parseInt(e.getAttributeValue("FailedFiringAttempts")));
-		if (e.getAttribute("SuccessfulPilotingRolls") != null)
-			mw.setSuccessfulPilotingRolls(Integer.parseInt(e.getAttributeValue("SuccessfulPilotingRolls")));
-		if (e.getAttribute("FailedPilotingRolls") != null)
-			mw.setFailedPilotingRolls(Integer.parseInt(e.getAttributeValue("FailedPilotingRolls")));
-
-		if (e.getAttribute("Missions") != null)
-			mw.setMissions(Integer.parseInt(e.getAttributeValue("Missions")));
+		if (e.getAttribute(MISSIONS) != null)
+			mw.setMissions(Integer.parseInt(e.getAttributeValue(MISSIONS)));
 
 		return mw;
 	}
@@ -783,88 +835,88 @@ public class UnitManager
 
 		BattlemechManager bm = new BattlemechManager();
 
-		u.setName(unitNode.getChildTextTrim("Name"));
-		if (unitNode.getChild("EstablishDate") != null)
+		u.setName(unitNode.getChildTextTrim(NAME));
+		if (unitNode.getChild(ESTABLISH_DATE) != null)
 		{
 			try
 			{
-				u.setEstablishDate(SwingHelper.GetDateFromString(unitNode.getChildTextTrim("EstablishDate")));
+				u.setEstablishDate(SwingHelper.GetDateFromString(unitNode.getChildTextTrim(ESTABLISH_DATE)));
 			}
 			catch (Exception e) {}
 		}
-		if (unitNode.getChild("CurrentDate") != null)
+		if (unitNode.getChild(CURRENT_DATE) != null)
 		{
 			try
 			{
-				u.setCurrentDate(SwingHelper.GetDateFromString(unitNode.getChildTextTrim("CurrentDate")));
+				u.setCurrentDate(SwingHelper.GetDateFromString(unitNode.getChildTextTrim(CURRENT_DATE)));
 			}
 			catch (Exception e) {}
 		}
-		if (unitNode.getChild("QualityRating") != null)
+		if (unitNode.getChild(QUALITY_RATING) != null)
 		{
-			u.setQualityRating(QualityRating.fromString(unitNode.getChildTextTrim("QualityRating")));
+			u.setQualityRating(QualityRating.fromString(unitNode.getChildTextTrim(QUALITY_RATING)));
 		}
 		else
 		{
 			u.setQualityRating(QualityRating.D);
 		}
-		if (unitNode.getChild("TechRating") != null)
+		if (unitNode.getChild(TECH_RATING) != null)
 		{
-			u.setTechRating(TechRating.fromString(unitNode.getChildTextTrim("TechRating")));
+			u.setTechRating(TechRating.fromString(unitNode.getChildTextTrim(TECH_RATING)));
 		}
 		else
 		{
 			u.setTechRating(TechRating.D);
 		}
-		if (unitNode.getChild("Notes") != null)
+		if (unitNode.getChild(NOTES) != null)
 		{
-			u.setNotes(unitNode.getChildTextTrim("Notes"));
+			u.setNotes(unitNode.getChildTextTrim(NOTES));
 		}
 		
-		if (unitNode.getChild("Player") != null)
-			u.setPlayer(PlayerManager.getInstance().getPlayer(unitNode.getChildTextTrim("Player")));
+		if (unitNode.getChild(PLAYER) != null)
+			u.setPlayer(PlayerManager.getInstance().getPlayer(unitNode.getChildTextTrim(PLAYER)));
 		
-		if (unitNode.getChild("CurrentBankBalance") != null)
-			u.setCurrentBankBalance(Double.parseDouble(unitNode.getChildTextTrim("CurrentBankBalance")));
+		if (unitNode.getChild(WARCHEST_POINTS) != null)
+			u.setWarchestPoints(Integer.parseInt(unitNode.getChildTextTrim(WARCHEST_POINTS)));
 
-		org.jdom.Element mechsElement = unitNode.getChild("Battlemechs");
+		org.jdom.Element mechsElement = unitNode.getChild(BATTLEMECHS);
 		Iterator<?> iter = mechsElement.getChildren().iterator();
 		while (iter.hasNext())
 		{
 			org.jdom.Element mechElement = (org.jdom.Element) iter.next();
 			u.getAssets().add(bm.loadBattlemech(mechElement));
 		}
-		org.jdom.Element personnelElement = unitNode.getChild("Personnel");
+		org.jdom.Element personnelElement = unitNode.getChild(PERSONNEL);
 		iter = personnelElement.getChildren().iterator();
 		while (iter.hasNext())
 		{
 			org.jdom.Element pe = (org.jdom.Element) iter.next();
 			u.getPersonnel().add(loadPersonnel(pe));
 		}
-		org.jdom.Element assignedMissionsElement = unitNode.getChild("AssignedMission");
+		org.jdom.Element assignedMissionsElement = unitNode.getChild(ASSIGNED_MISSION);
 		if (assignedMissionsElement != null)
 		{
-			Long missionID = Long.parseLong(assignedMissionsElement.getAttributeValue("ID"));
-			String missionTitle = assignedMissionsElement.getAttributeValue("Title");
+			Long missionID = Long.parseLong(assignedMissionsElement.getAttributeValue(ID));
+			String missionTitle = assignedMissionsElement.getAttributeValue(TITLE);
 			u.setAssignedMission(missionID, missionTitle);
 		}
 
-		org.jdom.Element completedMissionsElement = unitNode.getChild("CompletedMissions");
+		org.jdom.Element completedMissionsElement = unitNode.getChild(COMPLETED_MISSIONS);
 		if (completedMissionsElement != null)
 		{
-			iter = completedMissionsElement.getChildren("CompletedMission").iterator();
+			iter = completedMissionsElement.getChildren(COMPLETED_MISSION).iterator();
 			while (iter.hasNext())
 			{
 				try
 				{
 					org.jdom.Element me = (org.jdom.Element)iter.next();
-					long missionID = Long.parseLong(me.getAttributeValue("MissionID"));
-					String missionTitle = me.getAttributeValue("MissionTitle");
-					CompletedMission.Result missionResult = CompletedMission.Result.fromString(me.getAttributeValue("Result"));
-					double prizeMoney = Double.parseDouble(me.getAttributeValue("PrizeMoney"));
-					Date missionDate = SwingHelper.GetDateFromString(me.getAttributeValue("MissionDate"));
+					long missionID = Long.parseLong(me.getAttributeValue(MISSION_ID));
+					String missionTitle = me.getAttributeValue(MISSION_TITLE);
+					CompletedMission.Result missionResult = CompletedMission.Result.fromString(me.getAttributeValue(RESULT));
+					int warchestPoints = Integer.parseInt(me.getAttributeValue(WARCHEST_POINTS));
+					Date missionDate = SwingHelper.GetDateFromString(me.getAttributeValue(MISSION_DATE));
 					
-					u.addCompletedMission(new CompletedMission(missionID,missionTitle,missionResult,prizeMoney,missionDate));
+					u.addCompletedMission(new CompletedMission(missionID,missionTitle,missionResult,warchestPoints,missionDate));
 				}
 				catch (Exception ex)
 				{
@@ -873,16 +925,16 @@ public class UnitManager
 			}
 		}
 
-		org.jdom.Element assetAssignmentsElement = unitNode.getChild("AssetAssignments");
+		org.jdom.Element assetAssignmentsElement = unitNode.getChild(ASSET_ASSIGNMENTS);
 		if (assetAssignmentsElement != null)
 		{
-			iter = assetAssignmentsElement.getChildren("AssetAssignment").iterator();
+			iter = assetAssignmentsElement.getChildren(ASSET_ASSIGNMENT).iterator();
 			while (iter.hasNext())
 			{
 				org.jdom.Element me = (org.jdom.Element)iter.next();
-				String name = me.getAttributeValue("Name");
-				String assetIdentifier = me.getAttributeValue("AssetIdentifier");
-				Role role = Role.fromString(me.getAttributeValue("Role"));
+				String name = me.getAttributeValue(NAME);
+				String assetIdentifier = me.getAttributeValue(ASSET_IDENTIFIER);
+				Role role = Role.fromString(me.getAttributeValue(ROLE));
 				u.addPersonnelAssignment(name, assetIdentifier, role);
 			}
 		}
@@ -895,44 +947,52 @@ public class UnitManager
 
 		BattlemechManager bm = new BattlemechManager();
 
-		f.setParentUnit(unitNode.getChildTextTrim("ParentUnit"));
-		if (unitNode.getChild("CurrentDate") != null)
+		f.setParentUnit(unitNode.getChildTextTrim(PARENT_UNIT));
+		if (unitNode.getChild(CURRENT_DATE) != null)
 		{
 			try
 			{
-				f.setCurrentDate(SwingHelper.GetDateFromString(unitNode.getChildTextTrim("CurrentDate")));
+				f.setCurrentDate(SwingHelper.GetDateFromString(unitNode.getChildTextTrim(CURRENT_DATE)));
 			}
 			catch (Exception e) {}
 		}
-		if (unitNode.getChild("QualityRating") != null)
+		if (unitNode.getChild(QUALITY_RATING) != null)
 		{
-			f.setQualityRating(QualityRating.fromString(unitNode.getChildTextTrim("QualityRating")));
+			f.setQualityRating(QualityRating.fromString(unitNode.getChildTextTrim(QUALITY_RATING)));
 		}
 		else
 		{
 			f.setQualityRating(QualityRating.D);
 		}
-		if (unitNode.getChild("TechRating") != null)
+		if (unitNode.getChild(TECH_RATING) != null)
 		{
-			f.setTechRating(TechRating.fromString(unitNode.getChildTextTrim("TechRating")));
+			f.setTechRating(TechRating.fromString(unitNode.getChildTextTrim(TECH_RATING)));
 		}
 		else
 		{
 			f.setTechRating(TechRating.D);
 		}
+		if (unitNode.getChild(MINIATURE_COLLECTION) != null)
+		{
+			f.setItemCollectionName(unitNode.getChildTextTrim(MINIATURE_COLLECTION));
+		}
+		else
+		{
+			f.setItemCollectionName("");
+		}
 		
-		org.jdom.Element assetsElement = unitNode.getChild("Assets");
+		org.jdom.Element assetsElement = unitNode.getChild(ASSETS);
 		if (assetsElement != null)
 		{
 			Iterator<?> iter = assetsElement.getChildren().iterator();
 			while (iter.hasNext())
 			{
 				org.jdom.Element assetElement = (org.jdom.Element) iter.next();
-				if (assetElement.getName().equalsIgnoreCase("Battlemech"))
+				if (assetElement.getName().equalsIgnoreCase(BATTLEMECH))
 					f.getAssets().add(bm.loadBattlemech(assetElement));
 			}
 		}
-		org.jdom.Element personnelElement = unitNode.getChild("Personnel");
+		org.jdom.Element personnelElement = unitNode.getChild(PERSONNEL);
 		if (personnelElement != null)
 		{
 			Iterator<?> iter = personnelElement.getChildren().iterator();
@@ -942,16 +1002,16 @@ public class UnitManager
 				f.getPersonnel().add(loadPersonnel(pe));
 			}
 		}
-		org.jdom.Element assetAssignmentsElement = unitNode.getChild("AssetAssignments");
+		org.jdom.Element assetAssignmentsElement = unitNode.getChild(ASSET_ASSIGNMENTS);
 		if (assetAssignmentsElement != null)
 		{
-			Iterator<?> iter = assetAssignmentsElement.getChildren("AssetAssignment").iterator();
+			Iterator<?> iter = assetAssignmentsElement.getChildren(ASSET_ASSIGNMENT).iterator();
 			while (iter.hasNext())
 			{
 				org.jdom.Element me = (org.jdom.Element)iter.next();
-				String name = me.getAttributeValue("Name");
-				String assetIdentifier = me.getAttributeValue("AssetIdentifier");
-				Role role = Role.fromString(me.getAttributeValue("Role"));
+				String name = me.getAttributeValue(NAME);
+				String assetIdentifier = me.getAttributeValue(ASSET_IDENTIFIER);
+				Role role = Role.fromString(me.getAttributeValue(ROLE));
 				f.addPersonnelAssignment(name, assetIdentifier, role);
 			}
 		}
@@ -960,7 +1020,7 @@ public class UnitManager
 
 	private void loadUnits() throws Exception
 	{
-		String dataPath = PropertyUtil.getStringProperty("ExternalDataPath", "data") + "/units/";
+		String dataPath = PropertyUtil.getStringProperty(EXTERNAL_DATA_PATH, "data") + "/units/";
 		String[] files = new File(dataPath).list(new ExtensionFileFilter("xml"));
 		if (files != null)
 		{
@@ -990,7 +1050,7 @@ public class UnitManager
 
 	public void deleteUnit(String unitName)
 	{
-		String filename = PropertyUtil.getStringProperty("ExternalDataPath", "data") + "/units/" + unitName + ".xml";
+		String filename = PropertyUtil.getStringProperty(EXTERNAL_DATA_PATH, "data") + "/units/" + unitName + ".xml";
 		try
 		{
 			new File(filename).delete();
@@ -1003,7 +1063,7 @@ public class UnitManager
 
 	private void loadRandomNames() throws Exception
 	{
-		String fileName = PropertyUtil.getStringProperty("DataPath", "data") + "/RandomNames.xml";
+		String fileName = PropertyUtil.getStringProperty(DATA_PATH, "data") + "/RandomNames.xml";
 
 		SAXBuilder b = new SAXBuilder();
 		File f = new File(fileName);
@@ -1017,8 +1077,8 @@ public class UnitManager
 			while (iter.hasNext())
 			{
 				org.jdom.Element randomNameElement = (org.jdom.Element) iter.next();
-				String n = randomNameElement.getAttributeValue("Name");
-				String sn = randomNameElement.getAttributeValue("Surname");
+				String n = randomNameElement.getAttributeValue(NAME);
+				String sn = randomNameElement.getAttributeValue(SURNAME);
 				_RandomNames.add(new RandomName(n, sn));
 			}
 		}
@@ -1028,18 +1088,18 @@ public class UnitManager
 	{
 		org.jdom.Document doc = new org.jdom.Document();
 
-		org.jdom.Element rootElement = new org.jdom.Element("RandomNames");
+		org.jdom.Element rootElement = new org.jdom.Element(RANDOM_NAMES);
 		doc.addContent(rootElement);
 
 		for (RandomName rn : _RandomNames)
 		{
-			org.jdom.Element nameElement = new org.jdom.Element("RandomName");
-			nameElement.setAttribute("Name", rn.getName());
-			nameElement.setAttribute("Surname", rn.getSurname());
+			org.jdom.Element nameElement = new org.jdom.Element(RANDOM_NAME);
+			nameElement.setAttribute(NAME, rn.getName());
+			nameElement.setAttribute(SURNAME, rn.getSurname());
 			rootElement.addContent(nameElement);
 		}
 
-		String fileName = PropertyUtil.getStringProperty("DataPath", "data") + "/RandomNames.xml";
+		String fileName = PropertyUtil.getStringProperty(DATA_PATH, "data") + "/RandomNames.xml";
 		XMLOutputter out = new XMLOutputter(Format.getPrettyFormat());
 		out.output(doc, new FileOutputStream(fileName));
 	}
@@ -1091,13 +1151,13 @@ public class UnitManager
 		table.setWidthPercentage(100);
 		
 		table.addCell(createHeaderCell(col1Header, BaseColor.WHITE, BaseColor.GRAY));
-		table.addCell(createHeaderCell("Time", BaseColor.WHITE, BaseColor.GRAY));
-		table.addCell(createHeaderCell("Cost", BaseColor.WHITE, BaseColor.GRAY));
-		table.addCell(createHeaderCell("Target#", BaseColor.WHITE, BaseColor.GRAY));
-		table.addCell(createHeaderCell("Partial Repair#", BaseColor.WHITE, BaseColor.GRAY));
-		table.addCell(createHeaderCell("Partial Repair Effect", BaseColor.WHITE, BaseColor.GRAY));
-		table.addCell(createHeaderCell("Manufacturer", BaseColor.WHITE, BaseColor.GRAY));
-		table.addCell(createHeaderCell("Model", BaseColor.WHITE, BaseColor.GRAY));
+		table.addCell(createHeaderCell(TIME, BaseColor.WHITE, BaseColor.GRAY));
+		table.addCell(createHeaderCell(COST, BaseColor.WHITE, BaseColor.GRAY));
+		table.addCell(createHeaderCell(TARGET_NUMBER, BaseColor.WHITE, BaseColor.GRAY));
+		table.addCell(createHeaderCell(PARTIAL_REPAIR_NUMBER, BaseColor.WHITE, BaseColor.GRAY));
+		table.addCell(createHeaderCell(PARTIAL_REPAIR_EFFECT, BaseColor.WHITE, BaseColor.GRAY));
+		table.addCell(createHeaderCell(MANUFACTURER, BaseColor.WHITE, BaseColor.GRAY));
+		table.addCell(createHeaderCell(MODEL, BaseColor.WHITE, BaseColor.GRAY));
 		table.setHeaderRows(1);
 		
 		for (ItemRepairDetail ird : details)
@@ -1198,7 +1258,7 @@ public class UnitManager
 	
 	public void printUnitSummaryToPDF(Unit unit) throws Exception
 	{
-		String path = PropertyUtil.getStringProperty("ExternalDataPath", "data");
+		String path = PropertyUtil.getStringProperty(EXTERNAL_DATA_PATH, "data");
 		String filename = path + "/units/" + unit.getName() + " - Summary.pdf";
 
 		File f = new File(filename);
@@ -1215,21 +1275,21 @@ public class UnitManager
 		
 		chapter1.add(new Paragraph("Current Date: " + SwingHelper.FormatDate(unit.getCurrentDate()),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
 		chapter1.add(new Paragraph("Establish Date: " + SwingHelper.FormatDate(unit.getEstablishDate()),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
-		chapter1.add(new Paragraph("Current Bank Balance: " + Double.toString(unit.getCurrentBankBalance()),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
+		chapter1.add(new Paragraph("Warchest Points: " + Double.toString(unit.getWarchestPoints()),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
 		chapter1.add(new Paragraph("Base Monthly Salary: " + Double.toString(unit.getBaseMonthlySalary()),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
 
-		chapter1.add(new Paragraph("Personnel",FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL)));
+		chapter1.add(new Paragraph(PERSONNEL,FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL)));
 		chapter1.add(new Paragraph(" ",FontFactory.getFont(FontFactory.HELVETICA, 4, Font.NORMAL)));
 		
 		com.itextpdf.text.pdf.PdfPTable table = new com.itextpdf.text.pdf.PdfPTable(7);
 		table.setWidthPercentage(98);
-		table.addCell(createHeaderCell("Name", BaseColor.WHITE, BaseColor.BLACK));
+		table.addCell(createHeaderCell(NAME, BaseColor.WHITE, BaseColor.BLACK));
 		table.addCell(createHeaderCell("Callsign", BaseColor.WHITE, BaseColor.BLACK));
-		table.addCell(createHeaderCell("Rank", BaseColor.WHITE, BaseColor.BLACK));
+		table.addCell(createHeaderCell(RANK, BaseColor.WHITE, BaseColor.BLACK));
 		table.addCell(createHeaderCell("Job Type", BaseColor.WHITE, BaseColor.BLACK));
-		table.addCell(createHeaderCell("Rating", BaseColor.WHITE, BaseColor.BLACK));
+		table.addCell(createHeaderCell(RATING, BaseColor.WHITE, BaseColor.BLACK));
 		table.addCell(createHeaderCell("Base Monthly Salary", BaseColor.WHITE, BaseColor.BLACK));
-		table.addCell(createHeaderCell("Notes", BaseColor.WHITE, BaseColor.BLACK));
+		table.addCell(createHeaderCell(NOTES, BaseColor.WHITE, BaseColor.BLACK));
 		table.setHeaderRows(1);
 		
 		for (Personnel p : unit.getPersonnel())
@@ -1249,10 +1309,10 @@ public class UnitManager
 		chapter1.add(new Paragraph(" ",FontFactory.getFont(FontFactory.HELVETICA, 4, Font.NORMAL)));
 		com.itextpdf.text.pdf.PdfPTable missionTable = new com.itextpdf.text.pdf.PdfPTable(5);
 		missionTable.setWidthPercentage(98);
-		missionTable.addCell(createHeaderCell("ID", BaseColor.WHITE, BaseColor.BLACK));
-		missionTable.addCell(createHeaderCell("Title", BaseColor.WHITE, BaseColor.BLACK));
+		missionTable.addCell(createHeaderCell(ID, BaseColor.WHITE, BaseColor.BLACK));
+		missionTable.addCell(createHeaderCell(TITLE, BaseColor.WHITE, BaseColor.BLACK));
 		missionTable.addCell(createHeaderCell("Date", BaseColor.WHITE, BaseColor.BLACK));
-		missionTable.addCell(createHeaderCell("Result", BaseColor.WHITE, BaseColor.BLACK));
+		missionTable.addCell(createHeaderCell(RESULT, BaseColor.WHITE, BaseColor.BLACK));
 		missionTable.addCell(createHeaderCell("Prize Money", BaseColor.WHITE, BaseColor.BLACK));
 		missionTable.setHeaderRows(1);
 		
@@ -1262,7 +1322,7 @@ public class UnitManager
 			missionTable.addCell(cm.getMissionTitle());
 			missionTable.addCell(SwingHelper.FormatDate(cm.getMissionDate()));
 			missionTable.addCell(cm.getResult().toString());
-			missionTable.addCell(Double.toString(cm.getPrizeMoney()));			
+			missionTable.addCell(Integer.toString(cm.getWarchestPoints()));			
 		}
 		chapter1.add(missionTable);
 		document.add(chapter1);

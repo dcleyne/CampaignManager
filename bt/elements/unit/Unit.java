@@ -48,12 +48,13 @@ public class Unit implements Serializable
 
 	private QualityRating _QualityRating;
 	private TechRating _TechRating;
+	private int _BaseUnitSize = 4;
+	private int _WarchestPoints = 0;
 
 	private String _Notes;
 
 	private Character _Leader;
 	private ArrayList<Personnel> _Personnel = new ArrayList<Personnel>();
-	private double _CurrentBankBalance = 0;
 
 	private ArrayList<Asset> _Assets = new ArrayList<Asset>();
 	private ArrayList<Ammunition> _SpareAmmunition = new ArrayList<Ammunition>();
@@ -128,6 +129,26 @@ public class Unit implements Serializable
 		_TechRating = techRating;
 	}
 
+	public int getBaseUnitSize()
+	{
+		return _BaseUnitSize;
+	}
+
+	public void setBaseUnitSize(int baseUnitSize)
+	{
+		_BaseUnitSize = baseUnitSize;
+	}
+
+	public int getWarchestPoints()
+	{
+		return _WarchestPoints;
+	}
+
+	public void setWarchestPoints(int warchestPoints)
+	{
+		_WarchestPoints = warchestPoints;
+	}
+
 	public Date getEstablishDate()
 	{
 		return _EstablishDate;
@@ -136,14 +157,6 @@ public class Unit implements Serializable
 	public void setEstablishDate(Date establishDate)
 	{
 		_EstablishDate = establishDate;
-	}
-
-	public double getCurrentBankBalance() {
-		return _CurrentBankBalance;
-	}
-
-	public void setCurrentBankBalance(double currentBankBalance) {
-		_CurrentBankBalance = currentBankBalance;
 	}
 
 	public String getNotes()
@@ -213,7 +226,6 @@ public class Unit implements Serializable
 	public Asset addNewAsset(ElementType et, String identifier)
 	{
 		Asset NewAsset = createAsset(et);
-		NewAsset.setElementType(et);
 		NewAsset.setIdentifier(identifier);
 		_Assets.add(NewAsset);
 		return NewAsset;
@@ -324,12 +336,12 @@ public class Unit implements Serializable
 		_CompletedMissions.add(cm);
 	}
 	
-	public void assignedMissionCompleted(CompletedMission.Result result, double prizeMoney)
+	public void assignedMissionCompleted(CompletedMission.Result result, int warchestPoints)
 	{
 		if (_AssignedMission != null)
 		{
-			_CompletedMissions.add(new CompletedMission(_AssignedMission, _AssignedMissionTitle, result, prizeMoney, _CurrentDate));
-			_CurrentBankBalance += prizeMoney;
+			_CompletedMissions.add(new CompletedMission(_AssignedMission, _AssignedMissionTitle, result, warchestPoints, _CurrentDate));
+			_WarchestPoints += warchestPoints;
 			_AssignedMission = null;
 			_AssignedMissionTitle = null;
 		}

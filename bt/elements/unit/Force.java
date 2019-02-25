@@ -5,6 +5,7 @@ import java.util.Date;
 
 import bt.elements.Asset;
 import bt.elements.Battlemech;
+import bt.elements.collection.ItemCollection;
 import bt.elements.personnel.Mechwarrior;
 import bt.elements.personnel.Personnel;
 
@@ -14,11 +15,26 @@ public class Force
 	private Date _CurrentDate;
 	private QualityRating _QualityRating;
 	private TechRating _TechRating;
+	private String _ItemCollectionName;
 
 	private ArrayList<Personnel> _AssignedPersonnel = new ArrayList<Personnel>();
 	private ArrayList<Asset> _AssignedAssets = new ArrayList<Asset>();
 
 	private ArrayList<PersonnelAssetAssignment> _PersonnelAssetAssignments = new ArrayList<PersonnelAssetAssignment>();
+	
+	public Force()
+	{
+		
+	}
+	
+	public Force(Unit u, ItemCollection collection)
+	{
+		_ParentUnit = u.getName();
+		_QualityRating = u.getQualityRating();
+		_TechRating = u.getTechRating();
+		_ItemCollectionName = collection.getName();
+		mergeUnit(u);
+	}
 	
 	public String getParentUnit()
 	{
@@ -58,6 +74,16 @@ public class Force
 	public void setTechRating(TechRating techRating)
 	{
 		_TechRating = techRating;
+	}
+
+	public String getItemCollectionName()
+	{
+		return _ItemCollectionName;
+	}
+
+	public void setItemCollectionName(String itemCollectionName)
+	{
+		_ItemCollectionName = itemCollectionName;
 	}
 
 	public void assignAssetToForce(Asset asset, Personnel personnel, Role role)

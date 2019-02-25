@@ -2,6 +2,7 @@ package bt.elements.collection;
 
 public interface ItemCollection
 {
+	public String getName();
 	public boolean isItemAvailable(String itemName);
 	
 	public void resetCollection();

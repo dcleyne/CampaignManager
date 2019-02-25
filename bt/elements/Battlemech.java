@@ -524,19 +524,12 @@ public class Battlemech extends Asset implements BattleValue
 	}
 	
 	@Override
-	public String getStatus()
+	public Asset.Status getStatus()
 	{
-		// TODO Auto-generated method stub
-		return "Functional";
+		// TODO add this calculation.
+		return Asset.Status.OK;
 	}
-	
-	@Override
-	public String getCondition() 
-	{
-		// TODO Auto-generated method stub
-		return "Add Condition Calc";
-	}
-	
+		
 	public String getModelInformation() 
 	{
 		return _DesignVariant + " " + _DesignName;

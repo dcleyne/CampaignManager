@@ -508,6 +508,7 @@ public class MissionManager
 			ItemCollection collection) throws Exception
 	{
 		Scenario scenario = new Scenario();
+		collection.resetCollection();
 
 		scenario.setMission(mission);
 		int numMaps = playerForce.getAssetCount() * 2 / 4;
@@ -520,6 +521,7 @@ public class MissionManager
 		opponentForce.setParentUnit(opponent.getFaction().toString());
 		opponentForce.setTechRating(opponent.getTechRating());
 		opponentForce.setQualityRating(opponent.getQualityRating());
+		opponentForce.setItemCollectionName(collection.getName());
 
 		int opponentBV = (int) (scenario.getOpponentForceRatio() * playerForce.getAssetBV());
 		if (opponentBV == 0 || playerForce.getAssetCount() == 0)
@@ -590,7 +592,7 @@ public class MissionManager
 			try
 			{
 				u = UnitManager.getInstance().generateUnit(era, faction, p, unitName, mup, rating, qualityRating,
-						techRating, 0, collection);
+						techRating, collection);
 				unitBV = u.getUnitBV();
 				if (unitBV == 0) System.out.println("Unit generation failed");
 			} catch (Exception ex)
@@ -784,6 +786,9 @@ public class MissionManager
 		chapter2.add(new Paragraph("Briefing", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD)));
 		chapter2.add(new Paragraph(mission.getPlayerBriefing().getBriefing(),
 				FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
+		chapter2.add(new Paragraph("Miniature Collection", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD)));
+		chapter2.add(new Paragraph(playerForce.getItemCollectionName(),
+				FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
 
 		int elementID = 0;
 		for (Asset asset : playerForce.getAssets())
@@ -806,9 +811,10 @@ public class MissionManager
 				elementID++;
 			}
 		}
-
 		document.add(chapter2);
 
+		
+		
 		Force opponentForce = mission.getOpponentBriefing().getTeam().equalsIgnoreCase("Attacker") ? scenario.getAttacker()
 				: scenario.getDefender();
 		Chapter chapter3 = new Chapter(
@@ -817,6 +823,9 @@ public class MissionManager
 
 		chapter3.add(new Paragraph("Briefing", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD)));
 		chapter3.add(new Paragraph(mission.getOpponentBriefing().getBriefing(),
+				FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
+		chapter3.add(new Paragraph("Miniature Collection", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD)));
+		chapter3.add(new Paragraph(opponentForce.getItemCollectionName(),
 				FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
 
 		elementID = 0;

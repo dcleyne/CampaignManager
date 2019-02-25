@@ -249,7 +249,7 @@ public class RandomGamePanel extends JPanel implements ActionListener
 			
 			Era era = Era.LATE_SUCCESSION_WAR_RENAISSANCE;
 			Faction f = Faction.MERCENARY;
-			Unit player1Unit = UnitManager.getInstance().generateUnit(era, f, p1, "Player 1 Unit", mup, Rating.REGULAR, QualityRating.D, TechRating.D, 0, collection1);
+			Unit player1Unit = UnitManager.getInstance().generateUnit(era, f, p1, "Player 1 Unit", mup, Rating.REGULAR, QualityRating.D, TechRating.D, collection1);
 			if (player1Unit == null)
 				throw new Exception("Unable to create unit for player 1");
 			

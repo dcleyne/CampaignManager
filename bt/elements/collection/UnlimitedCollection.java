@@ -2,6 +2,11 @@ package bt.elements.collection;
 
 public class UnlimitedCollection implements ItemCollection 
 {
+	public String getName()
+	{
+		return "Unlimited Collection";
+	}
+
 	public boolean isItemAvailable(String itemName) 
 	{
 		return true;
@@ -30,7 +35,7 @@ public class UnlimitedCollection implements ItemCollection
 	@Override
 	public String toString()
 	{
-		return "Unlimited Collection";
+		return getName();
 	}
 
 }

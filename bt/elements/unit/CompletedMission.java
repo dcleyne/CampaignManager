@@ -33,7 +33,7 @@ public class CompletedMission
 	private String _MissionTitle;
 	private Date _MissionDate;
 	private Result _Result;
-	private double _PrizeMoney;
+	private int _WarchestPoints;
 	
 	public long getMissionIdentifier() {
 		return _MissionIdentifier;
@@ -61,23 +61,23 @@ public class CompletedMission
 	public void setResult(Result result) {
 		_Result = result;
 	}
-	public double getPrizeMoney() {
-		return _PrizeMoney;
+	public int getWarchestPoints() {
+		return _WarchestPoints;
 	}
-	public void setPrizeMoney(double prizeMoney) {
-		_PrizeMoney = prizeMoney;
+	public void setWarchestPoints(int warchestPoints) {
+		_WarchestPoints = warchestPoints;
 	}
 	
 	public CompletedMission()
 	{
 	}
 
-	public CompletedMission(long missionIdentifier, String missionTitle, Result result, double prizeMoney, Date missionDate)
+	public CompletedMission(long missionIdentifier, String missionTitle, Result result, int warchestPoints, Date missionDate)
 	{
 		_MissionIdentifier = missionIdentifier;
 		_MissionTitle = missionTitle;
 		_Result = result;
-		_PrizeMoney = prizeMoney;
+		_WarchestPoints = warchestPoints;
 		_MissionDate = missionDate;
 	}
 	

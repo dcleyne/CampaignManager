@@ -18,7 +18,7 @@ public class CompletedMissionPanel extends JPanel
 
 	JTextField _MissionIdTextField;
 	JTextField _MissionTitleTextField;
-	JFormattedTextField _PrizeMoneyTextField;
+	JFormattedTextField _WarchestPointsTextField;
 	JComboBox<CompletedMission.Result> _MissionResultComboBox;
 	
 	public CompletedMissionPanel(String missionID, String missionTitle)
@@ -26,28 +26,28 @@ public class CompletedMissionPanel extends JPanel
 		_MissionIdTextField = new JTextField(missionID);
 		_MissionTitleTextField = new JTextField(missionTitle);
 		_MissionResultComboBox = new JComboBox<CompletedMission.Result>(CompletedMission.Result.values());
-		_PrizeMoneyTextField = new JFormattedTextField(NumberFormat.getCurrencyInstance());
+		_WarchestPointsTextField = new JFormattedTextField(NumberFormat.getCurrencyInstance());
 		
 		setBorder(BorderFactory.createEtchedBorder());
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		add(SwingHelper.GetTextField(_MissionIdTextField, "Mission ID", "The identifier of the mission", true));
 		add(SwingHelper.GetTextField(_MissionTitleTextField, "Mission Title", "The title of the mission", true));
 		add(SwingHelper.GetComboBox(_MissionResultComboBox, "Result", "The outcome of the Mission", true));
-		add(SwingHelper.GetTextField(_PrizeMoneyTextField, "Prize Money", "Enter the prize money for the completion of this mission", true));
+		add(SwingHelper.GetTextField(_WarchestPointsTextField, "Warchest Points", "Enter the warchest points money for the completion of this mission", true));
 		
 		_MissionIdTextField.setText(missionID);
 		_MissionIdTextField.setEditable(false);
 		_MissionTitleTextField.setText(missionTitle);
 		_MissionTitleTextField.setEditable(false);
 		_MissionResultComboBox.setSelectedItem(CompletedMission.Result.WIN);
-		_PrizeMoneyTextField.setValue(0);
+		_WarchestPointsTextField.setValue(0);
 	}
 	
-	public double getPrizeMoney()
+	public int getWarchestPoints()
 	{
-		String prizeMoney = _PrizeMoneyTextField.getValue().toString();
-		if (prizeMoney != null && !prizeMoney.isEmpty())
-			return Long.parseLong(prizeMoney);			
+		String warchestPoints = _WarchestPointsTextField.getValue().toString();
+		if (warchestPoints != null && !warchestPoints.isEmpty())
+			return Integer.parseInt(warchestPoints);			
 
 		return 0;
 	}

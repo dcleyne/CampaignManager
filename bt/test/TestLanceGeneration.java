@@ -43,7 +43,7 @@ public class TestLanceGeneration
 		        unitDisplay += "Min BV: " + Integer.toString(mup.getMinBV()) + ", ";
 		        unitDisplay += "Max BV: " + Integer.toString(mup.getMaxBV()) + "\r\n";
 		        
-		        Unit u = UnitManager.getInstance().generateUnit(Era.LATE_SUCCESSION_WAR_RENAISSANCE, Faction.MERCENARY, p, "Generated Unit", mup, Rating.REGULAR, QualityRating.D, TechRating.D, 0, ic);
+		        Unit u = UnitManager.getInstance().generateUnit(Era.LATE_SUCCESSION_WAR_RENAISSANCE, Faction.MERCENARY, p, "Generated Unit", mup, Rating.REGULAR, QualityRating.D, TechRating.D, ic);
 		
 		        int totalBV = 0;
 		        int totalWeight = 0;

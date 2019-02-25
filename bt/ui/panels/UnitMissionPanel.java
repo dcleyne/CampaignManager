@@ -213,7 +213,7 @@ public class UnitMissionPanel extends JPanel implements ClosableEditPanel, ListS
 			{
 				try
 				{
-					_Unit.assignedMissionCompleted(dlg.getMissionResult(), dlg.getPrizeMoney());
+					_Unit.assignedMissionCompleted(dlg.getMissionResult(), dlg.getWarchestPoints());
 					UnitManager.getInstance().saveUnit(_Unit);
 				} 
 				catch (Exception e1) 

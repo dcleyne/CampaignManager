@@ -25,9 +25,9 @@ public class AssetTableModel extends AbstractTableModel implements UnitListener
 	private static final long serialVersionUID = 1;
 	
     private String ColumnNames[] =
-        {"ID", "Type", "Name", "Model","Status","Condition","Notes"};
+        {"ID", "Type", "Name", "Model","Status","Notes"};
     private Class<?> ColumnTypes[] =
-        {Long.class,String.class,String.class,Long.class,String.class,String.class,String.class};
+        {Long.class,String.class,String.class,Long.class,String.class,String.class};
     protected Unit m_Unit;
 
     public AssetTableModel(Unit u)
@@ -65,8 +65,6 @@ public class AssetTableModel extends AbstractTableModel implements UnitListener
             case 4:
                 return a.getStatus();
             case 5:
-                return a.getCondition();
-            case 6:
                 return a.getNotes();
 
             default:

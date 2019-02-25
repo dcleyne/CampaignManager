@@ -131,33 +131,33 @@ public class GenerateNewUnitPanel extends JPanel
         _UnitNameLabel = new JLabel();
         _UnitNameLabel.setBounds(new Rectangle(15, 152, 76, 16));
         _UnitNameLabel.setText("Unit Name");
-        this.setLayout(null);
-        this.setSize(new Dimension(623, 644));
-        this.add(get_PlayerPanel(), null);
-        this.add(_UnitNameLabel, null);
-        this.add(get_UnitNameTextField(), null);
-        this.add(_UnitWeightLabel, null);
-        this.add(get_UnitWeightComboBox(), null);
-        this.add(_UnitRatingLabel, null);
-        this.add(get_UnitRatingComboBox(), null);
-        this.add(_UnitQualityRatingLabel, null);
-        this.add(get_UnitQualityRatingComboBox(), null);
-        this.add(_UnitTechRatingLabel, null);
-        this.add(get_UnitTechRatingComboBox(), null);
-        this.add(_MechListLabel, null);
-        this.add(get_MechList(), null);
-        this.add(_PersonnelListLabel, null);
-        this.add(get_PersonnelList(), null);
-        this.add(_MechBVLabel, null);
-        this.add(_MechWeightLabel, null);
-        this.add(_AnnualSalaryLabel, null);
-        this.add(_BiWeeklySalaryLabel, null);
-        this.add(get_MechBVTextField(), null);
-        this.add(get_MechWeightTextField(), null);
-        this.add(get_AnnualSalaryTextField(), null);
-        this.add(get_BiWeeklySalaryTextField(), null);
-        this.add(get_GenerateButton(), null);
-        this.add(get_SaveButton(), null);
+        setLayout(null);
+        setSize(new Dimension(623, 644));
+        add(get_PlayerPanel(), null);
+        add(_UnitNameLabel, null);
+        add(get_UnitNameTextField(), null);
+        add(_UnitWeightLabel, null);
+        add(get_UnitWeightComboBox(), null);
+        add(_UnitRatingLabel, null);
+        add(get_UnitRatingComboBox(), null);
+        add(_UnitQualityRatingLabel, null);
+        add(get_UnitQualityRatingComboBox(), null);
+        add(_UnitTechRatingLabel, null);
+        add(get_UnitTechRatingComboBox(), null);
+        add(_MechListLabel, null);
+        add(get_MechList(), null);
+        add(_PersonnelListLabel, null);
+        add(get_PersonnelList(), null);
+        add(_MechBVLabel, null);
+        add(_MechWeightLabel, null);
+        add(_AnnualSalaryLabel, null);
+        add(_BiWeeklySalaryLabel, null);
+        add(get_MechBVTextField(), null);
+        add(get_MechWeightTextField(), null);
+        add(get_AnnualSalaryTextField(), null);
+        add(get_BiWeeklySalaryTextField(), null);
+        add(get_GenerateButton(), null);
+        add(get_SaveButton(), null);
         JList<String> list = new JList<String>(_PersonnelListModel);
         list.setBounds(15, 412, 584, 119);
         add(list);
@@ -417,15 +417,12 @@ public class GenerateNewUnitPanel extends JPanel
 		            _Player.setEmailAddress(_PlayerEmailAddressTextField.getText());
 
 		            try
-					{
-		            	
-		            	// TODO fix the starting bank balance
+					{		            	
 						_GeneratedUnit = _UnitManager.generateUnit(Era.LATE_SUCCESSION_WAR_RENAISSANCE, Faction.MERCENARY, _Player, _UnitNameTextField.getText(), 
 								_UnitWeightComboBox.getSelectedItem().toString(),(Rating)_UnitRatingComboBox.getSelectedItem(), 
-								(QualityRating)_UnitQualityRatingComboBox.getSelectedItem(), (TechRating)_UnitTechRatingComboBox.getSelectedItem(),0,new UnlimitedCollection());
+								(QualityRating)_UnitQualityRatingComboBox.getSelectedItem(), (TechRating)_UnitTechRatingComboBox.getSelectedItem(),new UnlimitedCollection());
 					} catch (Exception e1)
 					{
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 

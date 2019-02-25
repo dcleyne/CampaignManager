@@ -13,80 +13,70 @@ package bt.elements;
  * @author Daniel Cleyne
  * @version 0.1
  */
-public class Asset
+public abstract class Asset
 {
-//  private static Log log = LogFactory.getLog(Asset.class);
-    
-  protected ElementType m_ElementType;
-  protected String m_Identifier = "";
-  protected String m_Status = "";
-  protected String m_Condition = "";
-  protected String m_Notes = "";
+	public enum Status
+	{
+		OK,
+		DAMAGED,
+		CRIPPLED,
+		DESTROYED;
+		
+		private static String[] Names = {"Ok", "Damaged", "Crippled", "Destroyed"};
+		
+		public static Status fromString(String string) throws Exception
+		{
+			for (int i = 0; i < values().length; i++)
+			{
+				if (Names[i].equalsIgnoreCase(string))
+					return values()[i];
+			}
+			throw new Exception("Unable to determine Status from String: " + string);
+		}
+		
+		@Override
+		public String toString()
+		{
+			return Names[ordinal()];
+		}
+	}
+	
+  protected String _Identifier = "";
+  protected String _Notes = "";
 
-  public ElementType getElementType()
-  { return m_ElementType; }
-
-  public void setElementType(ElementType et)
-  {
-      m_ElementType = et;
-  }
+  public abstract ElementType getElementType();
 
   public String getIdentifier()
-  { return m_Identifier; }
+  { return _Identifier; }
 
   public void setIdentifier(String Identifier)
   {
-      m_Identifier = Identifier;
+      _Identifier = Identifier;
   }
 
-  public String getStatus()
-  { return m_Status; }
-
-  public void setStatus(String Status)
-  {
-      m_Status = Status;
-  }
-
-  public String getCondition()
-  { return m_Condition; }
-
-  public void setCondition(String Condition)
-  {
-      m_Condition = Condition;
-  }
+  public abstract Status getStatus();
 
   public String getNotes()
-  { return m_Notes; }
+  { return _Notes; }
 
   public void setNotes(String Notes)
   {
-      m_Notes = Notes;
+      _Notes = Notes;
   }
   
   public void setName(String Name)
   {
   }
-  
-  public String getName()
-  {
-	  return "";
-  }
-  
-  public String getModelInformation()
-  {
-	  return "";
-  }
-  
+    
   public String getDetails()
   {
 	  return "(" + getIdentifier() + ") " + getModelInformation() + " - '" + getName() + "'";
   }
 
-  public int getAdjustedBV()
-  {
-	  return 0;
-  }
-  
+  public abstract int getAdjustedBV();
+  public abstract String getModelInformation();
+  public abstract String getName();
+
   public Asset()
   {
   }

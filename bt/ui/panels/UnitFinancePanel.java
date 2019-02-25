@@ -24,7 +24,7 @@ public class UnitFinancePanel extends JPanel implements ClosableEditPanel
 	private static final long serialVersionUID = 1;
     protected Unit _Unit;
     
-	private JFormattedTextField _CurrentBankBalanceTextField;
+	private JFormattedTextField _WarchestPointBalanceTextField;
 	private JFormattedTextField _MonthlyBaseSalaryTextField;
 
 
@@ -33,18 +33,18 @@ public class UnitFinancePanel extends JPanel implements ClosableEditPanel
     	System.out.println("UnitFinancePanel constructor called");
         _Unit = u;
         
-		_CurrentBankBalanceTextField = new JFormattedTextField(NumberFormat.getCurrencyInstance());
+		_WarchestPointBalanceTextField = new JFormattedTextField(NumberFormat.getCurrencyInstance());
 		_MonthlyBaseSalaryTextField = new JFormattedTextField(NumberFormat.getCurrencyInstance());;
 		
 		setBorder(BorderFactory.createEtchedBorder());
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		add(SwingHelper.GetTextField(_CurrentBankBalanceTextField, "Current Bank Balance", "The current bank balance of the unit", true));
+		add(SwingHelper.GetTextField(_WarchestPointBalanceTextField, "Warchest Point Balance", "The current warchest balance of the unit", true));
 		add(SwingHelper.GetTextField(_MonthlyBaseSalaryTextField, "Monthly Base Salary", "The monthly base salary of the unit", true));
 
 		
 		_MonthlyBaseSalaryTextField.setEditable(false);
 		
-		_CurrentBankBalanceTextField.setValue(_Unit.getCurrentBankBalance());
+		_WarchestPointBalanceTextField.setValue(_Unit.getWarchestPoints());
 		_MonthlyBaseSalaryTextField.setValue(_Unit.getBaseMonthlySalary());
     }
 

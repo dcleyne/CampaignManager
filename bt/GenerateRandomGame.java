@@ -38,7 +38,7 @@ public class GenerateRandomGame
 		try {
 			for (int i = 0; i < 1000; i++)
 			{
-		        Unit u = UnitManager.getInstance().generateUnit(Era.LATE_SUCCESSION_WAR_RENAISSANCE, Faction.MERCENARY, p, unitName, mup, Rating.REGULAR, QualityRating.D, TechRating.D, 0, new UnlimitedCollection());
+		        Unit u = UnitManager.getInstance().generateUnit(Era.LATE_SUCCESSION_WAR_RENAISSANCE, Faction.MERCENARY, p, unitName, mup, Rating.REGULAR, QualityRating.D, TechRating.D, new UnlimitedCollection());
 		        int totalBV = 0;
 		        for (Battlemech mech : u.getBattlemechs())
 		        {

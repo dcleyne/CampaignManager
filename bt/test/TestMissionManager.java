@@ -8,7 +8,6 @@ import bt.elements.Asset;
 import bt.elements.Battlemech;
 import bt.elements.Era;
 import bt.elements.Faction;
-import bt.elements.collection.UnlimitedCollection;
 import bt.elements.missions.Mission;
 import bt.elements.personnel.Rating;
 import bt.elements.scenario.Opponent;
@@ -17,6 +16,7 @@ import bt.elements.unit.Force;
 import bt.elements.unit.QualityRating;
 import bt.elements.unit.TechRating;
 import bt.elements.unit.Unit;
+import bt.managers.MiniatureCollectionManager;
 import bt.managers.MissionManager;
 import bt.managers.UnitManager;
 import bt.util.ExceptionUtil;
@@ -40,6 +40,7 @@ public class TestMissionManager
 
 			System.out.println("\n");
 
+			Date missionDate = new Date();
 			ArrayList<String> unitNames = UnitManager.getInstance().getUnitNames();
 			for (String unitName : unitNames)
 			{
@@ -47,11 +48,8 @@ public class TestMissionManager
 				{
 					Unit u = UnitManager.getInstance().getUnit(unitName);
 
-					Force playerForce = new Force();
-					playerForce.setParentUnit(u.getName());
-					playerForce.mergeUnit(u);
-					playerForce.setQualityRating(u.getQualityRating());
-					playerForce.setTechRating(u.getTechRating());
+					Force playerForce = new Force(u, MiniatureCollectionManager.getInstance().getMiniatureCollection("Desert Yellow"));
+					playerForce.setCurrentDate(missionDate);
 
 					Opponent opponent = new Opponent(Faction.MERCENARY, Rating.REGULAR, QualityRating.D, TechRating.D);
 					Mission m = MissionManager.getInstance().getMission("Beachhead (Attacker)");
@@ -60,7 +58,7 @@ public class TestMissionManager
 
 					System.out.println("Generating Scenario for unit: " + unitName + System.lineSeparator());
 					Scenario scenario = MissionManager.getInstance().generateScenario(
-							Era.LATE_SUCCESSION_WAR_RENAISSANCE, m, new Date(), playerForce, opponent, new UnlimitedCollection());
+							Era.LATE_SUCCESSION_WAR_RENAISSANCE, m, missionDate, playerForce, opponent, MiniatureCollectionManager.getInstance().getMiniatureCollection("Plastic"));
 					System.out.println("Storing Scenario" + System.lineSeparator());
 					MissionManager.getInstance().saveScenario(filename, scenario);
 					System.out.println("Loading Scenario" + System.lineSeparator());

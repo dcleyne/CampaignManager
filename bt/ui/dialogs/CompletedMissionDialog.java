@@ -60,9 +60,9 @@ public class CompletedMissionDialog extends JDialog implements ActionListener
 		return _MissionCompleted;
 	}
 	
-	public double getPrizeMoney()
+	public int getWarchestPoints()
 	{
-		return _CompletedMissionPanel.getPrizeMoney();
+		return _CompletedMissionPanel.getWarchestPoints();
 	}
 	
 	public CompletedMission.Result getMissionResult()
