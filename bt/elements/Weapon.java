@@ -25,6 +25,8 @@ public abstract class Weapon extends Item
     public abstract String getWeaponType();
     public abstract int getBV();
     public abstract int getHeat();
+    public abstract int getMaxRange();
+    public abstract int getMaxDamagePoints();
     
     @Override
     public String toString()

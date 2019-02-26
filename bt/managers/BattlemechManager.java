@@ -143,12 +143,10 @@ public class BattlemechManager
 
         mech.setDesignName(design.getName());
         mech.setDesignVariant(design.getVariant());
-        mech.setManufacturer(design.getManufacturer());
         mech.setIdentifier(Integer.toString(_MechIdentifier++));
 
         mech.setType(design.getType().toString());
         mech.setWeight(design.getWeight());
-        mech.setBV(design.getBV());
 
         mech.setSectionStatuses(buildMechSections(design.getSections()));
         mech.setInternals(buildMechInternals(mech.getWeight(), design.getInternalLocations()));
@@ -256,11 +254,9 @@ public class BattlemechManager
         mech.setName(mechElement.getChildTextTrim("Name"));
         mech.setDesignName(mechElement.getChildTextTrim("DesignName"));
         mech.setDesignVariant(mechElement.getChildTextTrim("DesignVariant"));
-        mech.setManufacturer(mechElement.getChildTextTrim("Manufacturer"));
 
         mech.setType(mechElement.getChildTextTrim("Type"));
         mech.setWeight(Integer.parseInt(mechElement.getChildTextTrim("Weight")));
-        mech.setBV(Integer.parseInt(mechElement.getChildTextTrim("BV")));
 
         if (mechElement.getChild("Sections") != null)
         {
@@ -1006,11 +1002,9 @@ public class BattlemechManager
         battlemechNode.addContent(new org.jdom.Element("Name").setText(mech.getName()));
         battlemechNode.addContent(new org.jdom.Element("DesignName").setText(mech.getDesignName()));
         battlemechNode.addContent(new org.jdom.Element("DesignVariant").setText(mech.getDesignVariant()));
-        battlemechNode.addContent(new org.jdom.Element("Manufacturer").setText(mech.getManufacturer()));
 
         battlemechNode.addContent(new org.jdom.Element("Type").setText(mech.getType().toString()));
         battlemechNode.addContent(new org.jdom.Element("Weight").setText(Integer.toString(mech.getWeight())));
-        battlemechNode.addContent(new org.jdom.Element("BV").setText(Integer.toString(mech.getBV())));
 
         org.jdom.Element sectionsNode = new org.jdom.Element("Sections");
         for (BattlemechSection section : mech.getSectionStatuses().keySet())

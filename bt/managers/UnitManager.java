@@ -118,7 +118,6 @@ public class UnitManager
 	private static final String EXTERNAL_DATA_PATH = "ExternalDataPath";
 	private static final String TOTAL_BV = "TotalBV";
 	private static final String TOTAL_WEIGHT = "TotalWeight";
-	private static final String BV = "BV";
 	private static final String WEIGHT = "Weight";
 	private static final String BATTLEMECH = "Battlemech";
 	private static final String AVAILABILITY = "Availability";
@@ -583,6 +582,7 @@ public class UnitManager
 
 	public void saveUnitSummaries(ArrayList<Unit> units) throws Exception
 	{
+		DesignManager dm = DesignManager.getInstance();
 		org.jdom.Document doc = new org.jdom.Document();
 
 		org.jdom.Element unitsNode = new org.jdom.Element(UNITS);
@@ -597,14 +597,13 @@ public class UnitManager
 			
 			for (Battlemech b : u.getBattlemechs())
 			{
-				totalBV += b.getBV();
+				totalBV += dm.Design(b.getVariantName()).getBV();
 				totalWeight += b.getWeight();
 
 				org.jdom.Element mechElement = new org.jdom.Element(BATTLEMECH);
 				mechElement.setAttribute(NAME, b.getDesignName());
 				mechElement.setAttribute(VARIANT, b.getDesignVariant());
 				mechElement.setAttribute(WEIGHT, Integer.toString(b.getWeight()));
-				mechElement.setAttribute(BV, Integer.toString(b.getBV()));
 
 				unitElement.addContent(mechElement);
 			}
@@ -1241,9 +1240,12 @@ public class UnitManager
 		table.addCell(header1Cell);
 		//table.setHeaderRows(1);
 		
-		com.itextpdf.text.pdf.PdfPCell mechBVCell = createDataCell("Battle Value: " + Integer.toString(mech.getBV()), BaseColor.BLACK, BaseColor.WHITE);
+		com.itextpdf.text.pdf.PdfPCell mechBVCell = createDataCell("Battle Value: " + Integer.toString(DesignManager.getInstance().Design(mech.getVariantName()).getBV()), BaseColor.BLACK, BaseColor.WHITE);
 		mechBVCell.setColspan(2);
 		table.addCell(mechBVCell);
+		com.itextpdf.text.pdf.PdfPCell mechStatusCell = createDataCell("Status: " + mech.getStatus().toString(), BaseColor.BLACK, BaseColor.WHITE);
+		mechStatusCell.setColspan(2);
+		table.addCell(mechStatusCell);
 		
 		if (report.hasReplacementDetails())
 		{

@@ -15,6 +15,7 @@ import bt.elements.ElementType;
 import bt.elements.Item;
 import bt.elements.personnel.Mechwarrior;
 import bt.elements.personnel.Personnel;
+import bt.managers.DesignManager;
 
 /**
  * <p>
@@ -376,9 +377,11 @@ public class Unit implements Serializable
 	public int getUnitBV()
 	{
 		// TODO This will have to be expanded to include other unit types.
+		DesignManager dm = DesignManager.getInstance();
+		
 		int totalBV = 0;
 		for (Asset bm : _Assets)
-			totalBV += bm.getBV();
+			totalBV += dm.Design(bm.getVariantName()).getBV();
 
 		return totalBV;
 	}

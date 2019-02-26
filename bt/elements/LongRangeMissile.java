@@ -71,4 +71,14 @@ public class LongRangeMissile extends Weapon
 		
 		return Integer.MAX_VALUE;
 	}
+
+	public int getMaxRange()
+	{
+		return 21;
+	}
+
+	public int getMaxDamagePoints()
+	{
+		return _Size;
+	}
 }

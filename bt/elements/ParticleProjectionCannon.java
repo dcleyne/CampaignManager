@@ -23,4 +23,14 @@ public class ParticleProjectionCannon extends Weapon
 	{
 		return 10;
 	}
+
+	public int getMaxRange()
+	{
+		return 18;
+	}
+
+	public int getMaxDamagePoints()
+	{
+		return 10;
+	}
 }

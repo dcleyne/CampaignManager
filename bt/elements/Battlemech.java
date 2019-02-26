@@ -3,8 +3,10 @@ package bt.elements;
 import java.util.HashMap;
 import java.util.Vector;
 
-public class Battlemech extends Asset implements BattleValue
+public class Battlemech extends Asset
 {
+	private static final String QUAD = "Quad";
+
 	public static String[] HeatScale = {
 		"_[30] Shutdown",
 		"_[29] ",
@@ -42,11 +44,9 @@ public class Battlemech extends Asset implements BattleValue
 	private String _Name;
     private String _DesignName;
     private String _DesignVariant;
-    private String _Manufacturer;
 
     private String _Type;
     private int _Weight;
-    private int _BV;
 
     private HashMap<BattlemechSection, SectionStatus> _SectionStatuses = new HashMap<BattlemechSection, SectionStatus>();
     private HashMap<String, HashMap<Integer, ItemStatus>> _Internals = new HashMap<String, HashMap<Integer, ItemStatus>>();
@@ -77,14 +77,6 @@ public class Battlemech extends Asset implements BattleValue
 	{
 		_DesignVariant = designVariant;
 	}
-	public String getManufacturer()
-	{
-		return _Manufacturer;
-	}
-	public void setManufacturer(String manufacturer)
-	{
-		_Manufacturer = manufacturer;
-	}
 	public String getType()
 	{
 		return _Type;
@@ -100,14 +92,6 @@ public class Battlemech extends Asset implements BattleValue
 	public void setWeight(int weight)
 	{
 		_Weight = weight;
-	}
-	public int getBV()
-	{
-		return _BV;
-	}
-	public void setBV(int bV)
-	{
-		_BV = bV;
 	}
 	public HashMap<String, HashMap<Integer, ItemStatus>> getInternals()
 	{
@@ -249,7 +233,7 @@ public class Battlemech extends Asset implements BattleValue
 	{
 		int walk = 0;
 		HashMap<String, ItemMount> hips = new HashMap<String, ItemMount>();
-		if (_Type.equalsIgnoreCase("Quad"))
+		if (_Type.equalsIgnoreCase(QUAD))
 		{
 			hips.put("Left Front Leg", getItemMount("Hip","Left Front Leg"));
 			hips.put("Right Front Leg", getItemMount("Hip","Right Front Leg"));
@@ -341,8 +325,76 @@ public class Battlemech extends Asset implements BattleValue
 	@Override
 	public Asset.Status getStatus()
 	{
-		// TODO add this calculation.
-		return Asset.Status.OK;
+		Asset.Status status = Asset.Status.OK;
+		
+		for (BattlemechSection section: _SectionStatuses.keySet())
+		{
+			if (_SectionStatuses.get(section).getStatus() != SectionStatus.Status.OK)
+			{
+				status = getWorstStatus(status, Asset.Status.DAMAGED);
+			}
+		}		
+		
+		if (_SectionStatuses.get(BattlemechSection.LEFT_TORSO).getStatus() == SectionStatus.Status.DESTROYED || 
+				_SectionStatuses.get(BattlemechSection.RIGHT_TORSO).getStatus() == SectionStatus.Status.DESTROYED)
+		{
+			status = getWorstStatus(status, Asset.Status.CRIPPLED);
+		}
+
+		if (getEngineHits() == 2 || (getEngineHits() == 1 && getGyroHits() == 1) || getSensorHits() == 2)
+			status = getWorstStatus(status, Asset.Status.CRIPPLED);
+
+		int limbInternalDamageCount = 0;
+		if (_Type.equalsIgnoreCase(QUAD))
+		{
+			limbInternalDamageCount += _SectionStatuses.get(BattlemechSection.LEFT_FRONT_LEG).getStatus() != SectionStatus.Status.OK ? 1 : 0;
+			limbInternalDamageCount += _SectionStatuses.get(BattlemechSection.RIGHT_FRONT_LEG).getStatus() != SectionStatus.Status.OK ? 1 : 0;
+			limbInternalDamageCount += _SectionStatuses.get(BattlemechSection.LEFT_REAR_LEG).getStatus() != SectionStatus.Status.OK ? 1 : 0;
+			limbInternalDamageCount += _SectionStatuses.get(BattlemechSection.RIGHT_REAR_LEG).getStatus() != SectionStatus.Status.OK ? 1 : 0;			
+		}
+		else
+		{
+			limbInternalDamageCount += _SectionStatuses.get(BattlemechSection.LEFT_LEG).getStatus() != SectionStatus.Status.OK ? 1 : 0;
+			limbInternalDamageCount += _SectionStatuses.get(BattlemechSection.RIGHT_LEG).getStatus() != SectionStatus.Status.OK ? 1 : 0;
+			limbInternalDamageCount += _SectionStatuses.get(BattlemechSection.LEFT_ARM).getStatus() != SectionStatus.Status.OK ? 1 : 0;
+			limbInternalDamageCount += _SectionStatuses.get(BattlemechSection.RIGHT_ARM).getStatus() != SectionStatus.Status.OK ? 1 : 0;
+		}
+		if (limbInternalDamageCount >= 3)
+		{
+			status = getWorstStatus(status, Asset.Status.CRIPPLED);			
+		}
+		
+		int undamagedWeaponsWithRangeOfFive = 0;
+		int undamagedWeaponsDamagePoints = 0;
+		Vector<ItemMount> weaponMounts = getAllWeaponMounts();
+		for (ItemMount im : weaponMounts)
+		{
+			if (im.getWorstStatus().isUsable())
+			{
+				Weapon w = (Weapon)im.getMountedItem();
+				if (w.getMaxRange() > 5)
+				{
+					undamagedWeaponsWithRangeOfFive++;
+				}
+				undamagedWeaponsDamagePoints += w.getMaxDamagePoints();
+			}
+		}
+		
+		if (undamagedWeaponsWithRangeOfFive == 0 || undamagedWeaponsDamagePoints < 5)
+			status = getWorstStatus(status, Asset.Status.CRIPPLED);			
+		
+		if (_SectionStatuses.get(BattlemechSection.CENTER_TORSO).getStatus() == SectionStatus.Status.DESTROYED)
+			status = getWorstStatus(status, Asset.Status.DESTROYED);
+		
+		// TODO add calc for armour and internal damage 
+		
+		return status;
+	}
+	
+	private Asset.Status getWorstStatus(Asset.Status s1, Asset.Status s2)
+	{
+		int maxOrd = Math.max(s1.ordinal(), s2.ordinal());
+		return Asset.Status.values()[maxOrd];
 	}
 		
 	public String getModelInformation() 

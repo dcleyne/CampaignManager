@@ -16,6 +16,7 @@ import bt.elements.unit.Force;
 import bt.elements.unit.QualityRating;
 import bt.elements.unit.TechRating;
 import bt.elements.unit.Unit;
+import bt.managers.DesignManager;
 import bt.managers.MiniatureCollectionManager;
 import bt.managers.MissionManager;
 import bt.managers.UnitManager;
@@ -85,6 +86,7 @@ public class TestMissionManager
 
 	private static void printForce(Force f, String name)
 	{
+		DesignManager dm = DesignManager.getInstance();
 		System.out.println("Side : " + name);
 		System.out.println("Parent Unit : " + f.getParentUnit());
 
@@ -96,7 +98,7 @@ public class TestMissionManager
 			if (asset instanceof Battlemech)
 			{
 				Battlemech mech = (Battlemech) asset;
-				totalBV += mech.getBV();
+				totalBV += dm.Design(mech.getVariantName()).getBV();
 				totalWeight += mech.getWeight();
 				unitDisplay += mech.getDesignVariant() + " " + mech.getDesignName() + System.lineSeparator();
 			}

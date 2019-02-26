@@ -9,7 +9,6 @@ public class BattlemechRepairReport
 	private String _DesignName;
 	private String _DesignVariant;
 	private int _ModifiedSkillTarget;
-	private int _BV;
 
 	private ArrayList<ItemRepairDetail> _SectionReplacementDetails = new ArrayList<ItemRepairDetail>();
 	private ArrayList<ItemRepairDetail> _ArmourReplacementDetails = new ArrayList<ItemRepairDetail>();
@@ -41,11 +40,6 @@ public class BattlemechRepairReport
 		return _DesignVariant;
 	}
 	
-	public int getBV()
-	{
-		return _BV;
-	}
-	
 	public BattlemechRepairReport(Battlemech mech, int modifiedSkillTarget)
 	{
 		_ID = mech.getIdentifier();
@@ -53,7 +47,6 @@ public class BattlemechRepairReport
 		_DesignName = mech.getDesignName();
 		_DesignVariant = mech.getDesignVariant();
 		_ModifiedSkillTarget = modifiedSkillTarget;
-		_BV = mech.getBV();
 	}
 	
 	public boolean hasReplacementDetails()
@@ -233,8 +226,6 @@ public class BattlemechRepairReport
 		sb.append(System.lineSeparator());
 		sb.append(_Name + "(" + _ID + ") - " + _DesignVariant + " " + _DesignName);
 		sb.append(System.lineSeparator());
-		sb.append(System.lineSeparator());
-		sb.append("Battle Value         :" + Integer.toString(_BV) + System.lineSeparator());
 		sb.append(System.lineSeparator());		
 
 		sb.append("Replacements" + System.lineSeparator());

@@ -30,6 +30,7 @@ import bt.elements.unit.QualityRating;
 import bt.elements.unit.RandomName;
 import bt.elements.unit.TechRating;
 import bt.elements.unit.Unit;
+import bt.managers.DesignManager;
 import bt.managers.UnitManager;
 
 public class GenerateNewUnitPanel extends JPanel
@@ -437,11 +438,12 @@ public class GenerateNewUnitPanel extends JPanel
 
 					if (_GeneratedUnit != null)
 					{
+						DesignManager dm = DesignManager.getInstance();
 			            int totalBV = 0;
 			            int totalWeight = 0;
 			            for (Battlemech mech : _GeneratedUnit.getBattlemechs())
 			            {
-			                totalBV += mech.getBV();
+			                totalBV += dm.Design(mech.getVariantName()).getBV();
 			                totalWeight += mech.getWeight();
 	
 			                _MechListModel.addElement(mech.getDesignVariant() + " " + mech.getDesignName());

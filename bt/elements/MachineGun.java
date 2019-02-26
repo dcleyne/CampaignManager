@@ -23,4 +23,14 @@ public class MachineGun extends Weapon
 	{
 		return 0;
 	}
+
+	public int getMaxRange()
+	{
+		return 3;
+	}
+
+	public int getMaxDamagePoints()
+	{
+		return 2;
+	}
 }

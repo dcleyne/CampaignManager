@@ -12,6 +12,7 @@ import bt.elements.unit.Player;
 import bt.elements.unit.QualityRating;
 import bt.elements.unit.TechRating;
 import bt.elements.unit.Unit;
+import bt.managers.DesignManager;
 import bt.managers.MiniatureCollectionManager;
 import bt.managers.UnitManager;
 import bt.util.ExceptionUtil;
@@ -33,7 +34,8 @@ public class TestLanceGeneration
 	        Player p = new Player();
 	        ArrayList<String> collectionNames = MiniatureCollectionManager.getInstance().getCollectionNames();	        
 	        ItemCollection ic = MiniatureCollectionManager.getInstance().getMiniatureCollection(collectionNames.get(1));
-	
+			DesignManager dm = DesignManager.getInstance();
+
 	        for (String unitSize : UnitManager.getInstance().getMechUnitParameters().keySet())
 	        {
 		        String unitDisplay = "";
@@ -49,7 +51,7 @@ public class TestLanceGeneration
 		        int totalWeight = 0;
 		        for (Battlemech mech : u.getBattlemechs())
 		        {
-		            totalBV += mech.getBV();
+		            totalBV += dm.Design(mech.getVariantName()).getBV();
 		            totalWeight += mech.getWeight();
 		            unitDisplay += mech.getDesignVariant() + " " + mech.getDesignName() + "\r\n";
 		        }

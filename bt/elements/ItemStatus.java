@@ -16,6 +16,11 @@ public enum ItemStatus
     public String toString()
     { return _Names[ordinal()]; }
     
+    public boolean isUsable()
+    {
+    	return this != DAMAGED && this != DESTROYED; 
+    }
+    
     public static ItemStatus fromString(String s)
     {
     	for (int i = 0; i < _Names.length; i++)
@@ -25,4 +30,5 @@ public enum ItemStatus
     	}
     	return null;
     }
+    
 }

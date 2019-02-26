@@ -8,6 +8,7 @@ import bt.elements.Battlemech;
 import bt.elements.collection.ItemCollection;
 import bt.elements.personnel.Mechwarrior;
 import bt.elements.personnel.Personnel;
+import bt.managers.DesignManager;
 
 public class Force
 {
@@ -127,6 +128,7 @@ public class Force
 	
 	public int getAssetBV()
 	{
+		DesignManager dm = DesignManager.getInstance();
 		int BV = 0;
 		
 		for (Asset asset : _AssignedAssets)
@@ -134,7 +136,7 @@ public class Force
 			if (asset instanceof Battlemech)
 			{
 				Battlemech bm = (Battlemech)asset;
-				BV += bm.getBV();
+				BV += dm.Design(bm.getVariantName()).getBV();
 			}
 		}
 		

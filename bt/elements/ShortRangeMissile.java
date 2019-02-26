@@ -64,4 +64,14 @@ public class ShortRangeMissile extends Weapon
 		
 		return Integer.MAX_VALUE;
 	}
+
+	public int getMaxRange()
+	{
+		return 9;
+	}
+
+	public int getMaxDamagePoints()
+	{
+		return _Size;
+	}
 }

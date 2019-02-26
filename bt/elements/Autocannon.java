@@ -68,4 +68,26 @@ public class Autocannon extends Weapon
 		
 		return Integer.MAX_VALUE;	
 	}
+	
+	public int getMaxRange()
+	{		
+		switch (_Size)
+		{
+		case 2:
+			return 24;
+		case 5:
+			return 18;
+		case 10:
+			return 15;
+		case 20:
+			return 9;
+		}
+		
+		return Integer.MAX_VALUE;
+	}
+
+	public int getMaxDamagePoints()
+	{		
+		return _Size;
+	}
 }

@@ -23,4 +23,15 @@ public class Flamer extends Weapon
 	{
 		return 3;
 	}
+
+	public int getMaxRange()
+	{
+		return 3;
+	}
+
+	public int getMaxDamagePoints()
+	{		
+		return 2;
+	}
+
 }

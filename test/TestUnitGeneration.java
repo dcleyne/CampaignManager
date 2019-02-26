@@ -12,6 +12,7 @@ import bt.elements.unit.Player;
 import bt.elements.unit.QualityRating;
 import bt.elements.unit.TechRating;
 import bt.elements.unit.Unit;
+import bt.managers.DesignManager;
 import bt.managers.MiniatureCollectionManager;
 import bt.managers.UnitManager;
 import bt.util.ExceptionUtil;
@@ -55,7 +56,7 @@ public class TestUnitGeneration
 	        int tries = 0;
 	        while (u == null && tries < 10)
 	        {
-	        	u = UnitManager.getInstance().generateUnitWithElements(Era.LATE_SUCCESSION_WAR_RENAISSANCE, Faction.MERCENARY, p, "Generated Unit", mechDesigns, Rating.REGULAR, QualityRating.D, TechRating.D, ic);
+	        	u = UnitManager.getInstance().generateUnitWithElements(Era.LATE_SUCCESSION_WAR_RENAISSANCE, Faction.MERCENARY, p, "Generated Unit	", mechDesigns, Rating.REGULAR, QualityRating.D, TechRating.D, ic);
 	        	tries++;
 	        }
         	if (u == null)
@@ -65,9 +66,10 @@ public class TestUnitGeneration
 	        
 	        int totalBV = 0;
 	        int totalWeight = 0;
+	        DesignManager dm = DesignManager.getInstance();
 	        for (Battlemech mech : u.getBattlemechs())
 	        {
-	            totalBV += mech.getBV();
+	            totalBV += dm.Design(mech.getVariantName()).getBV();
 	            totalWeight += mech.getWeight();
 	            unitDisplay += mech.getDesignVariant() + " " + mech.getDesignName() + "\r\n";
 	        }

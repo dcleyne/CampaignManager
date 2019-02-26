@@ -19,6 +19,7 @@ import bt.elements.unit.Player;
 import bt.elements.unit.QualityRating;
 import bt.elements.unit.TechRating;
 import bt.elements.unit.Unit;
+import bt.managers.DesignManager;
 import bt.managers.MissionManager;
 import bt.managers.UnitManager;
 import bt.util.Dice;
@@ -35,6 +36,7 @@ public class GenerateRandomGame
 	
 	private Unit buildUnit(Player p, String unitName, MechUnitParameters mup)
 	{
+		DesignManager dm = DesignManager.getInstance();
 		try {
 			for (int i = 0; i < 1000; i++)
 			{
@@ -42,7 +44,7 @@ public class GenerateRandomGame
 		        int totalBV = 0;
 		        for (Battlemech mech : u.getBattlemechs())
 		        {
-		            totalBV += mech.getBV();
+		            totalBV += dm.Design(mech.getVariantName()).getBV();
 		        }
 		        
 		        if (totalBV >= mup.getMinBV() && totalBV <= mup.getMaxBV())

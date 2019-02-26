@@ -73,9 +73,15 @@ public abstract class Asset
 	  return "(" + getIdentifier() + ") " + getModelInformation() + " - '" + getName() + "'";
   }
 
-  public abstract int getBV();
   public abstract String getModelInformation();
   public abstract String getName();
+  public abstract String getDesignName();
+  public abstract String getDesignVariant();
+  
+  public String getVariantName()
+  {
+	  return getDesignVariant() + " " + getDesignName();
+  }
 
   public Asset()
   {

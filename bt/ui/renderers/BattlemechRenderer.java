@@ -37,6 +37,7 @@ import bt.elements.SectionStatus;
 import bt.elements.Weapon;
 import bt.elements.design.BattlemechDesign;
 import bt.elements.personnel.Mechwarrior;
+import bt.managers.DesignManager;
 import bt.ui.filters.TransparentColorFilter;
 import bt.util.ExceptionUtil;
 import bt.util.IndexedRectangle;
@@ -190,7 +191,7 @@ public class BattlemechRenderer
         drawInformation(g,Integer.toString(mech.getWalkRating()), _NamedPoints.get("Walking"), null);
         drawInformation(g,Integer.toString(mech.getRunRating()), _NamedPoints.get("Running"), null);
         drawInformation(g,Integer.toString(mech.getJumpRating()), _NamedPoints.get("Jumping"), null);
-        drawInformation(g,Integer.toString(mech.getBV()), _NamedPoints.get("BattleValue"), null);
+        drawInformation(g,Integer.toString(DesignManager.getInstance().Design(mech.getVariantName()).getBV()), _NamedPoints.get("BattleValue"), null);
         drawInformation(g,Integer.toString(mech.getTotalHeatSinks()), _NamedPoints.get("HeatSinkTotal"), null);
         
         g.setFont(_SmallInformationFont);
