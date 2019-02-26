@@ -5,8 +5,8 @@
   <Manufacturer>Diplan Mechyards</Manufacturer>
   <Type>Biped</Type>
   <Weight>35</Weight>
-  <Cost>3198375</Cost>
-  <BV>669</BV>
+  <Cost>3161925</Cost>
+  <BV>875</BV>
   <Armour>
     <Location Name="Head" Points="7" />
     <Location Name="Centre Torso" Points="10" />

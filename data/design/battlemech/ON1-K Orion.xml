@@ -5,8 +5,8 @@
   <Manufacturer>KaliYama Weapons Industries of Kalidasa</Manufacturer>
   <Type>Biped</Type>
   <Weight>75</Weight>
-  <Cost>6674500</Cost>
-  <BV>1052</BV>
+  <Cost>6501250</Cost>
+  <BV>1429</BV>
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="36" />

@@ -5,8 +5,8 @@
   <Manufacturer>HildCo Interplanetary</Manufacturer>
   <Type>Biped</Type>
   <Weight>80</Weight>
-  <Cost>8044321</Cost>
-  <BV>1165</BV>
+  <Cost>7941720</Cost>
+  <BV>1378</BV>
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="30" />

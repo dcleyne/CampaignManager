@@ -5,8 +5,8 @@
   <Manufacturer>Star League Weapons Research</Manufacturer>
   <Type>Biped</Type>
   <Weight>95</Weight>
-  <Cost>9530853</Cost>
-  <BV>1223</BV>
+  <Cost>9522078</Cost>
+  <BV>1422</BV>
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="40" />

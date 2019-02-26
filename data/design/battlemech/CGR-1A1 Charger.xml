@@ -5,8 +5,8 @@
   <Manufacturer>Wells technologies</Manufacturer>
   <Type>Biped</Type>
   <Weight>80</Weight>
-  <Cost>7520369</Cost>
-  <BV>820</BV>
+  <Cost>7520370</Cost>
+  <BV>981</BV>
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="25" />

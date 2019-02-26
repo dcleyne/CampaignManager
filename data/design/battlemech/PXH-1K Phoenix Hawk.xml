@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <BattlemechDesign>
   <Name>Phoenix Hawk</Name>
-  <Variant>PXH-1</Variant>
+  <Variant>PXH-1K</Variant>
   <Manufacturer>Orguss Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>45</Weight>
-  <Cost>4066090</Cost>
-  <BV>1041</BV>
+  <Cost>3628553</Cost>
+  <BV>1073</BV>
   <Armour>
-    <Location Name="Head" Points="6" />
+    <Location Name="Head" Points="8" />
     <Location Name="Centre Torso" Points="23" />
     <Location Name="Centre Torso Rear" Points="5" />
     <Location Name="Left Torso" Points="18" />
     <Location Name="Left Torso Rear" Points="4" />
     <Location Name="Right Torso" Points="18" />
     <Location Name="Right Torso Rear" Points="4" />
-    <Location Name="Left Arm" Points="10" />
-    <Location Name="Right Arm" Points="10" />
-    <Location Name="Left Leg" Points="15" />
-    <Location Name="Right Leg" Points="15" />
+    <Location Name="Left Arm" Points="14" />
+    <Location Name="Right Arm" Points="14" />
+    <Location Name="Left Leg" Points="22" />
+    <Location Name="Right Leg" Points="22" />
   </Armour>
   <Items>
   	<Item Type="Life Support" Manufacturer="Orguss Industries" Model="PXH-1">
@@ -104,32 +104,18 @@
     <Item Type="Weapon" WeaponType="Medium Laser" Manufacturer="Harmon" Model="Medium Laser">
       <SlotReference Location="Left Arm" Table="1" Slot="5" />
     </Item>
-    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="M" Model="100">
-      <SlotReference Location="Left Arm" Table="1" Slot="6" />
+    <Item Type="Weapon" WeaponType="Small Laser" Manufacturer="Harmon" Model="Small Laser">
+      <SlotReference Location="Centre Torso" Table="2" Slot="6" />
     </Item>
-    <Item Type="Weapon" WeaponType="Machine Gun" Manufacturer="M" Model="100">
-      <SlotReference Location="Right Arm" Table="2" Slot="2" />
-    </Item>
-    <Item Type="Ammunition" WeaponType="Machine Gun" Manufacturer="" Model="" Shots="200">
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Orguss Industries">
       <SlotReference Location="Centre Torso" Table="2" Slot="5" />
     </Item>
-    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="9000">
-      <SlotReference Location ="Left Torso" Table="1" Slot="1" />
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Orguss Industries">
+      <SlotReference Location="Left Leg" Table="1" Slot="5" />
     </Item>
-    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="9000">
-      <SlotReference Location ="Left Torso" Table="1" Slot="2" />
+    <Item Type="Heat Sink" HeatSinkType="Single" Manufacturer="Orguss Industries">
+      <SlotReference Location="Right Leg" Table="1" Slot="5" />
     </Item>
-    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="9000">
-      <SlotReference Location ="Left Torso" Table="1" Slot="3" />
-    </Item>
-    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="9000">
-      <SlotReference Location ="Right Torso" Table="1" Slot="1" />
-    </Item>
-    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="9000">
-      <SlotReference Location ="Right Torso" Table="1" Slot="2" />
-    </Item>
-    <Item Type="Jump Jet" Weight="0.5" Manufacturer="Pitban" Model="9000">
-      <SlotReference Location ="Right Torso" Table="1" Slot="3" />
-    </Item>
+    
       </Items>
 </BattlemechDesign>

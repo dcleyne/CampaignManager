@@ -5,8 +5,8 @@
   <Manufacturer>Brigaidier Corporation</Manufacturer>
   <Type>Quad</Type>
   <Weight>55</Weight>
-  <Cost>5181340</Cost>
-  <BV>786</BV>
+  <Cost>5159950</Cost>
+  <BV>1019</BV>
   <Armour>
     <Location Name="Head" Points="8" />
     <Location Name="Centre Torso" Points="24" />

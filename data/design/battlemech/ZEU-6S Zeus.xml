@@ -5,8 +5,8 @@
   <Manufacturer>Defiance Industries of Hesperus II</Manufacturer>
   <Type>Biped</Type>
   <Weight>80</Weight>
-  <Cost>7617901</Cost>
-  <BV>1148</BV>
+  <Cost>7555800</Cost>
+  <BV>1348</BV>
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="26" />

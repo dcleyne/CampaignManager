@@ -17,14 +17,13 @@
  * @author Daniel Cleyne
  * @version 0.1
  */
-package bt.test;
+package test;
 
-import bt.managers.MissionManager;
 import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;
 
 
-public class TestBattleValueCalculations
+public class TestPersonnelGeneration
 {
     
 	/**
@@ -35,16 +34,20 @@ public class TestBattleValueCalculations
 		try
 		{
 	        PropertyUtil.loadSystemProperties("bt/system.properties");
-
-	        int numUnits = 4;
-	        int battleValue = 2500;
 	        
-	        System.out.println("Calculating opposing force size for force of " + Integer.toString(numUnits) + " mechs at " + Integer.toString(battleValue) + " BV total");
-	        for (int i = numUnits - 1; i < numUnits + 5; i++)
-	        {
-	        	int BV = MissionManager.getInstance().getFinalBattleValue(numUnits, battleValue, i);
-	        	System.out.println(Integer.toString(i) + " Mechs -> " + Integer.toString(BV) + " BV total");
-	        }
+	        System.out.println("Starting Personnel Generation Test");
+/*
+	        Vector<Character> availableCharacters = UnitManager.getInstance().getAvailableCharacters(JobType.MECHWARRIOR);
+	        for (Character c: availableCharacters)
+	        	System.out.println(c.toString());
+	        
+	        Vector<Personnel> availablePersonnel = UnitManager.getInstance().getAvailablePersonnel(JobType.MECHWARRIOR);
+	        for (Personnel p: availablePersonnel)
+	        	System.out.println(p.toString());
+	        
+	        UnitManager.storeData();
+*/	        
+	        System.out.println("Personnel Generation Test Complete");
 		}
 		catch (Exception ex)
 		{

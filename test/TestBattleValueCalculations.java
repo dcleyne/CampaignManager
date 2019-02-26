@@ -17,63 +17,40 @@
  * @author Daniel Cleyne
  * @version 0.1
  */
-package bt.test;
+package test;
 
-import bt.managers.RandomNameManager;
+import bt.managers.MissionManager;
 import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;
 
-public class TestRandomNameExtraction
+
+public class TestBattleValueCalculations
 {
     
 	/**
 	 * @param args
 	 */
-    
-    public TestRandomNameExtraction()
-    {
-    	
-    }
-    
-    public void runTest()
-    {
+	public static void main(String[] args)
+	{
 		try
 		{
 	        PropertyUtil.loadSystemProperties("bt/system.properties");
+
+	        int numUnits = 4;
+	        int battleValue = 2500;
 	        
-	        System.out.println("Random Name Extraction Started");
-	        
-	        System.out.println(RandomNameManager.getInstance().dumpRandomNames());
-	        
-	        System.out.println("Random Name Extraction Complete");
+	        System.out.println("Calculating opposing force size for force of " + Integer.toString(numUnits) + " mechs at " + Integer.toString(battleValue) + " BV total");
+	        for (int i = numUnits - 1; i < numUnits + 5; i++)
+	        {
+	        	int BV = MissionManager.getInstance().getFinalBattleValue(numUnits, battleValue, i);
+	        	System.out.println(Integer.toString(i) + " Mechs -> " + Integer.toString(BV) + " BV total");
+	        }
 		}
 		catch (Exception ex)
 		{
 			System.out.print(ExceptionUtil.getExceptionStackTrace(ex));
 		}
-    }
-    
-    
-	public static void main(String[] args)
-	{
-		TestRandomNameExtraction tpde = new TestRandomNameExtraction();
-		tpde.runTest();
+
 	}
 
-	public class PlanetDetails
-	{
-	
-		public String m_Name;
-		public String m_ID;
-		public boolean m_HasDescription;
-		public boolean m_HasFactory;
-		public String m_Description;
-		public String m_Factory;
-		
-		public PlanetDetails(String name)
-		{
-			m_Name = name;
-		}
-	}
-	
 }

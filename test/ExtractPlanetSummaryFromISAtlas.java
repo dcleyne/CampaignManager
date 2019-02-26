@@ -17,13 +17,14 @@
  * @author Daniel Cleyne
  * @version 0.1
  */
-package bt.test;
+package test;
 
 
 import java.io.File;
 
 import java.io.FileOutputStream;
 import java.util.HashMap;
+
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.output.Format;
@@ -36,7 +37,7 @@ import bt.util.PropertyUtil;
 import bt.util.WebFile;
 
 
-public class TestPlanetDetailExtraction
+public class ExtractPlanetSummaryFromISAtlas
 {
     public static String Proxy = "auproxy";
     public static int ProxyPort = 3128;
@@ -45,7 +46,7 @@ public class TestPlanetDetailExtraction
 	 * @param args
 	 */
     
-    public TestPlanetDetailExtraction()
+    public ExtractPlanetSummaryFromISAtlas()
     {
     	
     }
@@ -130,9 +131,7 @@ public class TestPlanetDetailExtraction
 		        	startValue += 25;		        	
 	        	}
 	        }
-	        
-	        
-	        
+	        	        	   
 	        for (int i = 0; i < planetCount; i++)
 	        {
             	org.jdom.Element e = new org.jdom.Element("Planet");
@@ -141,25 +140,6 @@ public class TestPlanetDetailExtraction
     			PlanetDetails pd = hashDetails.get(isp.getSystem());
     			if (pd != null)
     			{
-    				if (pd.m_HasDescription)
-    				{
-        				System.out.println("Grabbing description for : " + pd.m_Name);
-    	        		String url = "http://isatlas.teamspam.net/planet-detail.php?planet=" + pd.m_ID;
-    		        	String html = WebFile.getWebPageContentAsString(url,Proxy,ProxyPort);
-    		        	int startIndex = html.indexOf("<h2>Description:</h2>");
-    		        	int endIndex = html.indexOf("</blockquote>");
-    		        	if (startIndex != -1 && endIndex > startIndex)
-    		        	{
-	    		        	pd.m_Description = html.substring(startIndex + 22, endIndex);
-	    		        	pd.m_Description = pd.m_Description.replace("\n", "");
-	    		        	pd.m_Description = pd.m_Description.replace("<p>", " ");
-	    		        	pd.m_Description = pd.m_Description.replace("</p>", "");    					
-	    		        	pd.m_Description = pd.m_Description.replace("<blockquote>", "");
-    		        	}
-    		        	else
-    		        		System.out.println(html);
-    				}
-    				
     				
 		        	e.addContent(new org.jdom.Element("Index").setText(Integer.toString(i+1)));
 		        	e.addContent(new org.jdom.Element("Name").setText(pd.m_Name ));
@@ -176,7 +156,7 @@ public class TestPlanetDetailExtraction
             XMLOutputter out = new XMLOutputter(Format.getPrettyFormat());            
             out.output(planetDoc, new FileOutputStream(f));
             
-            System.out.println("Planet Detail Extraction Complete");
+            System.out.println("Planet Summary Extraction Complete");
 		}
 		catch (Exception ex)
 		{
@@ -187,7 +167,7 @@ public class TestPlanetDetailExtraction
     
 	public static void main(String[] args)
 	{
-		TestPlanetDetailExtraction tpde = new TestPlanetDetailExtraction();
+		ExtractPlanetSummaryFromISAtlas tpde = new ExtractPlanetSummaryFromISAtlas();
 		tpde.runTest();
 	}
 

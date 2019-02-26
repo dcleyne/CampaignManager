@@ -17,7 +17,7 @@
  * @author Daniel Cleyne
  * @version 0.1
  */
-package bt.test;
+package test;
 
 
 import bt.managers.PasswordManager;

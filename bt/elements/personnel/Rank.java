@@ -30,6 +30,7 @@ public enum Rank
 	MAJOR,
 	CAPTAIN,
 	COMMANDER,
+	LIEUTENANT,
 	CHIEFPETTYOFFICER,
 	FIRSTLIEUTENANT,
 	LIEUTENANTSG,
@@ -58,7 +59,8 @@ public enum Rank
 	ASTECH3,
 	ASTECH2,
 	ASTECH1,
-	RECRUIT;	
+	RECRUIT,
+	MECH_WARRIOR;	
 	
 	private static final String[] _Names = {
 		"None",
@@ -76,6 +78,7 @@ public enum Rank
 		"Major",
 		"Captain",
 		"Commander",
+		"Lieutenant",
 		"Chief Petty Officer",
 		"1st Lieutenant",
 		"Lieutenant SG",
@@ -104,7 +107,8 @@ public enum Rank
 		"Astech 3",
 		"Astech 2",
 		"Astech 1",
-		"Recruit"		
+		"Recruit",
+		"MechWarrior"
 	};
 
 	private static final double[] _SalaryMultiplier = {

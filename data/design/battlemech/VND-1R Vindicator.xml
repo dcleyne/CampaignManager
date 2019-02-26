@@ -5,8 +5,8 @@
   <Manufacturer>Ceres Metal Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>45</Weight>
-  <Cost>3181082</Cost>
-  <BV>900</BV>
+  <Cost>3137583</Cost>
+  <BV>1024</BV>
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="18" />

@@ -5,8 +5,8 @@
   <Manufacturer>Triad Technologies</Manufacturer>
   <Type>Biped</Type>
   <Weight>85</Weight>
-  <Cost>7463825</Cost>
-  <BV>1152</BV>
+  <Cost>7252925</Cost>
+  <BV>1559</BV>
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="36" />

@@ -5,8 +5,8 @@
   <Manufacturer>Orguss Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>30</Weight>
-  <Cost>1471925</Cost>
-  <BV>454</BV>
+  <Cost>1464125</Cost>
+  <BV>504</BV>
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="11" />

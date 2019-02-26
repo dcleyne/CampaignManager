@@ -5,8 +5,8 @@
   <Manufacturer>Bergan Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>20</Weight>
-  <Cost>1512400</Cost>
-  <BV>356</BV>
+  <Cost>1511200</Cost>
+  <BV>432</BV>
   <Armour>
     <Location Name="Head" Points="8" />
     <Location Name="Centre Torso" Points="10" />

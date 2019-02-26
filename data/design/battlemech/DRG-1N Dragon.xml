@@ -5,8 +5,8 @@
   <Manufacturer>Luthien Armor Works</Manufacturer>
   <Type>Biped</Type>
   <Weight>60</Weight>
-  <Cost>5046080</Cost>
-  <BV>952</BV>
+  <Cost>4926400</Cost>
+  <BV>1125</BV>
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="27" />

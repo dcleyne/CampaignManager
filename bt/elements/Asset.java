@@ -73,7 +73,7 @@ public abstract class Asset
 	  return "(" + getIdentifier() + ") " + getModelInformation() + " - '" + getName() + "'";
   }
 
-  public abstract int getAdjustedBV();
+  public abstract int getBV();
   public abstract String getModelInformation();
   public abstract String getName();
 

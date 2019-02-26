@@ -5,8 +5,8 @@
   <Manufacturer>Hartford Co</Manufacturer>
   <Type>Biped</Type>
   <Weight>40</Weight>
-  <Cost>3705216</Cost>
-  <BV>567</BV>
+  <Cost>3705217</Cost>
+  <BV>659</BV>
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="11" />

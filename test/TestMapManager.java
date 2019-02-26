@@ -1,4 +1,4 @@
-package bt.test;
+package test;
 
 import java.util.Vector;
 import bt.managers.MapManager;

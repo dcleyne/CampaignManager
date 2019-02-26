@@ -307,19 +307,20 @@ public class UnitManager
 		return factions;
 	}
 
-	private ArrayList<Battlemech> getBestMechList(MechUnitParameters mup, ArrayList<ArrayList<Battlemech>> mechLists)
+	private ArrayList<String> getBestMechList(MechUnitParameters mup, ArrayList<ArrayList<String>> mechLists)
 	{
-		ArrayList<Battlemech> bestList = null;
+		ArrayList<String> bestList = null;
 		int bestBVDifference = Integer.MAX_VALUE;
 
 		int goalBV = mup.getMinBV() + ((mup.getMaxBV() - mup.getMinBV()) / 2);
 		
-		for (ArrayList<Battlemech> list : mechLists)
+		for (ArrayList<String> list : mechLists)
 		{
 	        int totalBV = 0;
-	        for (Battlemech mech : list)
+	        for (String mech : list)
 	        {
-	            totalBV += mech.getBV();
+	        	BattlemechDesign bd = DesignManager.getInstance().Design(mech);
+	            totalBV += bd.getBV();
 	        }
 	        if (totalBV > 0)
 	        {
@@ -334,17 +335,70 @@ public class UnitManager
 		
 		return bestList;
 	}
-	
+
 	public Unit generateUnit(Era era, Faction faction, Player p, String unitName, MechUnitParameters mup, Rating rating, QualityRating qualityRating, TechRating techRating, 
 			ItemCollection collection) throws Exception
 	{
-		ArrayList<ArrayList<Battlemech>> mechLists = new ArrayList<ArrayList<Battlemech>>();
-		for (int i = 0; i < 10; i++)
-			mechLists.add(generateLance(era, faction, mup, collection));
-		
-		ArrayList<Battlemech> bestList = getBestMechList(mup, mechLists);
-		if (bestList == null)
-			throw new Exception("Unable to build list with Params(" + mup + ") from collection (" + collection + ")");
+		ArrayList<MechUnitParameters> mups = new ArrayList<MechUnitParameters>();
+		mups.add(mup);
+		return generateUnit(era, faction, p, unitName, mups, rating, qualityRating, techRating, collection);
+	}
+	
+	public Unit generateUnit(Era era, Faction faction, Player p, String unitName, String lanceWeight, Rating rating, QualityRating qualityRating, TechRating techRating, ItemCollection collection) throws Exception
+	{
+		String[] lanceWeights = new String[] {lanceWeight};
+
+		return generateUnit(era,faction,p,unitName, lanceWeights, rating, qualityRating, techRating, collection);
+	}
+
+	public Unit generateUnit(Era era, Faction faction, Player p, String unitName, String[] lanceWeights, Rating rating, QualityRating qualityRating, TechRating techRating, ItemCollection collection) throws Exception
+	{
+		ArrayList<MechUnitParameters> mups = new ArrayList<MechUnitParameters>();
+		for (String lanceWeight : lanceWeights)
+		{
+			if (!_Parameters.containsKey(lanceWeight))
+				throw new IllegalArgumentException("Unable to determine lance parameters from Lance Weight : " + lanceWeight);
+	
+			mups.add(_Parameters.get(lanceWeight));
+		}
+
+		return generateUnit(era, faction, p, unitName, mups, rating, qualityRating, techRating, collection);
+
+	}
+
+
+
+	public Unit generateUnit(Era era, Faction faction, Player p, String unitName, ArrayList<MechUnitParameters> mups, Rating rating, QualityRating qualityRating, TechRating techRating, 
+			ItemCollection collection) throws Exception
+	{
+		ArrayList<String> mechList = new ArrayList<String>();
+	
+		for (MechUnitParameters mup : mups)
+		{
+			ArrayList<ArrayList<String>> mechLists = new ArrayList<ArrayList<String>>();
+			for (int i = 0; i < 10; i++)
+				mechLists.add(generateLance(era, faction, mup, collection));
+			
+			ArrayList<String> bestList = getBestMechList(mup, mechLists);
+			if (bestList == null)
+				throw new Exception("Unable to build list with Params(" + mup + ") from collection (" + collection + ")");
+			
+			mechList.addAll(bestList);
+		}
+
+		return generateUnitWithElements(era, faction, p, unitName, mechList, rating, qualityRating, techRating, collection);
+	}
+	
+	public Unit generateUnitWithElements(Era era, Faction faction, Player p, String unitName, ArrayList<String> mechDesigns, Rating rating, QualityRating qualityRating, TechRating techRating, 
+			ItemCollection collection) throws Exception
+	{
+		DesignManager dm = DesignManager.getInstance();
+		ArrayList<Battlemech> mechList = new ArrayList<Battlemech>();
+		for (String mechDesign: mechDesigns)
+		{
+			BattlemechDesign bd = dm.Design(mechDesign);
+			mechList.add(_BattlemechManager.createBattlemechFromDesign(bd));			
+		}
 		
 		Unit u = new Unit();
 		u.setPlayer(p);
@@ -353,7 +407,7 @@ public class UnitManager
 		u.setTechRating(techRating);
 		u.setWarchestPoints(1000);
 
-		u.addBattlemechs(bestList);
+		u.addBattlemechs(mechList);
 		int supportReq = 0;
 
 		for (Battlemech mech : u.getBattlemechs())
@@ -420,25 +474,14 @@ public class UnitManager
 		return u;
 	}
 
-	public Unit generateUnit(Era era, Faction faction, Player p, String unitName, String lanceWeight, Rating rating, QualityRating qualityRating, TechRating techRating, ItemCollection collection) throws Exception
+	private ArrayList<String> generateLance(Era era, Faction faction, MechUnitParameters mup, ItemCollection collection) throws Exception
 	{
-		if (!_Parameters.containsKey(lanceWeight))
-			throw new IllegalArgumentException("Unable to determine lance parameters from Lance Weight : " + lanceWeight);
-
-		MechUnitParameters mup = _Parameters.get(lanceWeight);
-
-		return generateUnit(era, faction, p, unitName, mup, rating, qualityRating, techRating, collection);
-
-	}
-
-	private ArrayList<Battlemech> generateLance(Era era, Faction faction, MechUnitParameters mup, ItemCollection collection) throws Exception
-	{
-		ArrayList<Battlemech> mechs = new ArrayList<Battlemech>();
+		ArrayList<String> mechDesigns = new ArrayList<String>();
 
 		DesignManager dm = DesignManager.getInstance();
 
 		int attempts = 0;
-		while (mechs.size() == 0 && attempts < 10)
+		while (mechDesigns.size() == 0 && attempts < 10)
 		{
 			collection.resetPending();
 
@@ -494,12 +537,11 @@ public class UnitManager
 				for (int i = 0; i < selectedSet.size(); i++)
 				{
 					BattlemechDesign bd = (BattlemechDesign)elements.get(selectedSet.get(i));
-					Battlemech b = _BattlemechManager.createBattlemechFromDesign(bd);
-					mechs.add(b);
+					mechDesigns.add(bd.getVariantName());
 				}
 			}
 		}
-		return mechs;
+		return mechDesigns;
 	}
 
 	private void getValidSubsetSums(ArrayList<BattleValue> elements, int elementCount, int bvMax, int bvMin, int currentIndex, int bvTotal, int elementTotal, ArrayList<Integer> currentSet, ArrayList<ArrayList<Integer>> validSets)
@@ -1203,10 +1245,6 @@ public class UnitManager
 		mechBVCell.setColspan(2);
 		table.addCell(mechBVCell);
 		
-		com.itextpdf.text.pdf.PdfPCell mechAdjBVCell = createDataCell("Adjusted Battle Value: " + Integer.toString(mech.getAdjustedBV()), BaseColor.BLACK, BaseColor.WHITE);
-		mechAdjBVCell.setColspan(2);
-		table.addCell(mechAdjBVCell);
-
 		if (report.hasReplacementDetails())
 		{
 			com.itextpdf.text.pdf.PdfPCell replacementHeaderCell = createHeaderCell("Replacements", BaseColor.WHITE, BaseColor.BLACK);
@@ -1276,19 +1314,17 @@ public class UnitManager
 		chapter1.add(new Paragraph("Current Date: " + SwingHelper.FormatDate(unit.getCurrentDate()),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
 		chapter1.add(new Paragraph("Establish Date: " + SwingHelper.FormatDate(unit.getEstablishDate()),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
 		chapter1.add(new Paragraph("Warchest Points: " + Double.toString(unit.getWarchestPoints()),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
-		chapter1.add(new Paragraph("Base Monthly Salary: " + Double.toString(unit.getBaseMonthlySalary()),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
 
 		chapter1.add(new Paragraph(PERSONNEL,FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL)));
 		chapter1.add(new Paragraph(" ",FontFactory.getFont(FontFactory.HELVETICA, 4, Font.NORMAL)));
 		
-		com.itextpdf.text.pdf.PdfPTable table = new com.itextpdf.text.pdf.PdfPTable(7);
+		com.itextpdf.text.pdf.PdfPTable table = new com.itextpdf.text.pdf.PdfPTable(6);
 		table.setWidthPercentage(98);
 		table.addCell(createHeaderCell(NAME, BaseColor.WHITE, BaseColor.BLACK));
 		table.addCell(createHeaderCell("Callsign", BaseColor.WHITE, BaseColor.BLACK));
 		table.addCell(createHeaderCell(RANK, BaseColor.WHITE, BaseColor.BLACK));
 		table.addCell(createHeaderCell("Job Type", BaseColor.WHITE, BaseColor.BLACK));
 		table.addCell(createHeaderCell(RATING, BaseColor.WHITE, BaseColor.BLACK));
-		table.addCell(createHeaderCell("Base Monthly Salary", BaseColor.WHITE, BaseColor.BLACK));
 		table.addCell(createHeaderCell(NOTES, BaseColor.WHITE, BaseColor.BLACK));
 		table.setHeaderRows(1);
 		
@@ -1299,7 +1335,6 @@ public class UnitManager
 			table.addCell(p.getRank().toString());
 			table.addCell(p.getJobType().toString());
 			table.addCell(p.getRating().toString());
-			table.addCell(Double.toString(p.getJobType().GetBaseMonthlySalary()));
 			table.addCell(p.getNotes());
 			
 		}

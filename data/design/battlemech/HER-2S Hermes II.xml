@@ -5,8 +5,8 @@
   <Manufacturer>Irian Battlemechs Unlimited</Manufacturer>
   <Type>Biped</Type>
   <Weight>40</Weight>
-  <Cost>3165680</Cost>
-  <BV>665</BV>
+  <Cost>3159380</Cost>
+  <BV>784</BV>
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="17" />

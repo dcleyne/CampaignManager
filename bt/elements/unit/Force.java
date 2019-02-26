@@ -134,7 +134,7 @@ public class Force
 			if (asset instanceof Battlemech)
 			{
 				Battlemech bm = (Battlemech)asset;
-				BV += bm.getAdjustedBV();
+				BV += bm.getBV();
 			}
 		}
 		

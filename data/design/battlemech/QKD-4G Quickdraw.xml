@@ -5,8 +5,8 @@
   <Manufacturer>Technicron Manufacturing</Manufacturer>
   <Type>Biped</Type>
   <Weight>60</Weight>
-  <Cost>5514560</Cost>
-  <BV>1012</BV>
+  <Cost>5423360</Cost>
+  <BV>1192</BV>
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="17" />

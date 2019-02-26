@@ -5,8 +5,8 @@
   <Manufacturer>Argile Technologies of Skye</Manufacturer>
   <Type>Biped</Type>
   <Weight>35</Weight>
-  <Cost>3046950</Cost>
-  <BV>500</BV>
+  <Cost>3045600</Cost>
+  <BV>694</BV>
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="13" />

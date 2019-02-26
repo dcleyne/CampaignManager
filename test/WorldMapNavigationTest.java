@@ -17,11 +17,10 @@
  * @author Daniel Cleyne
  * @version 0.1
  */
-package bt.test;
+package test;
 
 
 import java.awt.BorderLayout;
-
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -43,7 +42,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
-import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
@@ -54,24 +52,22 @@ import bt.elements.galaxy.SolarSystemDetails;
 import bt.managers.PlanetManager;
 import bt.managers.SolarSystemManager;
 import bt.ui.panels.PlanetPanel;
-import bt.ui.renderers.WorldMapRenderer;
 import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;
 
 
-public class WorldMapRenderingTest extends JFrame implements
+public class WorldMapNavigationTest extends JFrame implements
 ActionListener
 {
     private static final long serialVersionUID = 1;
     
     private PlanetPanel m_PlanetPanel = null;
     private JScrollPane m_ScrollPane = null;
-    private JTabbedPane m_TabPane = null;
     private int m_PlanetSize = 30;
     
     private JMenuBar menuMain;
     
-	public WorldMapRenderingTest()
+	public WorldMapNavigationTest()
 	{
         try
         {
@@ -83,24 +79,17 @@ ActionListener
 	        setJMenuBar(menuMain);
 	        menuAddItems(menuMain);
 	        
-	        InnerSpherePlanet isp = PlanetManager.getPlanetFromID(2);
+	        InnerSpherePlanet isp = PlanetManager.getPlanetFromID(5);
 	        SolarSystemDetails ssd = SolarSystemManager.getSystemDetails(isp);
 	        
-	        m_PlanetPanel = new PlanetPanel(ssd,24);
+	        m_PlanetPanel = new PlanetPanel(ssd,16);
 	        //m_PlanetPanel = new PlanetPanel(m_PlanetSize,wtg.getPlanetMap(),32);
             
             m_ScrollPane = new JScrollPane(m_PlanetPanel);
             m_ScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
             m_ScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             
-            m_TabPane = new JTabbedPane();
-            m_TabPane.add("Map",m_ScrollPane);
-            JScrollPane elevPane = new JScrollPane(new PlanetPanel(ssd,24,WorldMapRenderer.DrawMode.ELEVATION));
-            elevPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-            elevPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-            m_TabPane.add("Elevation",elevPane);
-
-            setContentPane(m_TabPane);
+            setContentPane(m_ScrollPane);
             
             setSize(1280,960);
             setVisible(true);
@@ -153,14 +142,13 @@ ActionListener
         try
         {
             PropertyUtil.loadSystemProperties("bt/system.properties");
-        	
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-            WorldMapRenderingTest client = new WorldMapRenderingTest();
+            WorldMapNavigationTest client = new WorldMapNavigationTest();
             client.setVisible(true);
         }
         catch (Exception e)
         {
-            System.out.println(ExceptionUtil.getExceptionStackTrace(e));
+        	System.out.println(ExceptionUtil.getExceptionStackTrace(e));
         }
 
 	}

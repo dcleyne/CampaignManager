@@ -17,43 +17,63 @@
  * @author Daniel Cleyne
  * @version 0.1
  */
-package bt.test;
+package test;
 
+import bt.managers.RandomNameManager;
 import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;
 
-
-public class TestPersonnelGeneration
+public class TestRandomNameExtraction
 {
     
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+    
+    public TestRandomNameExtraction()
+    {
+    	
+    }
+    
+    public void runTest()
+    {
 		try
 		{
 	        PropertyUtil.loadSystemProperties("bt/system.properties");
 	        
-	        System.out.println("Starting Personnel Generation Test");
-/*
-	        Vector<Character> availableCharacters = UnitManager.getInstance().getAvailableCharacters(JobType.MECHWARRIOR);
-	        for (Character c: availableCharacters)
-	        	System.out.println(c.toString());
+	        System.out.println("Random Name Extraction Started");
 	        
-	        Vector<Personnel> availablePersonnel = UnitManager.getInstance().getAvailablePersonnel(JobType.MECHWARRIOR);
-	        for (Personnel p: availablePersonnel)
-	        	System.out.println(p.toString());
+	        System.out.println(RandomNameManager.getInstance().dumpRandomNames());
 	        
-	        UnitManager.storeData();
-*/	        
-	        System.out.println("Personnel Generation Test Complete");
+	        System.out.println("Random Name Extraction Complete");
 		}
 		catch (Exception ex)
 		{
 			System.out.print(ExceptionUtil.getExceptionStackTrace(ex));
 		}
-
+    }
+    
+    
+	public static void main(String[] args)
+	{
+		TestRandomNameExtraction tpde = new TestRandomNameExtraction();
+		tpde.runTest();
 	}
 
+	public class PlanetDetails
+	{
+	
+		public String m_Name;
+		public String m_ID;
+		public boolean m_HasDescription;
+		public boolean m_HasFactory;
+		public String m_Description;
+		public String m_Factory;
+		
+		public PlanetDetails(String name)
+		{
+			m_Name = name;
+		}
+	}
+	
 }

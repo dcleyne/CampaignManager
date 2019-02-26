@@ -5,8 +5,8 @@
   <Manufacturer>Ostmann Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>60</Weight>
-  <Cost>5025600</Cost>
-  <BV>951</BV>
+  <Cost>4982400</Cost>
+  <BV>1228</BV>
   <Armour>
     <Location Name="Head" Points="8" />
     <Location Name="Centre Torso" Points="22" />

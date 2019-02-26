@@ -5,8 +5,8 @@
   <Manufacturer>Stormvanger Assemblies Unlimited</Manufacturer>
   <Type>Biped</Type>
   <Weight>90</Weight>
-  <Cost>9217660</Cost>
-  <BV>965</BV>
+  <Cost>9033360</Cost>
+  <BV>1317</BV>
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="30" />

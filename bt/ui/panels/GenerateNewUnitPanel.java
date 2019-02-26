@@ -248,7 +248,10 @@ public class GenerateNewUnitPanel extends JPanel
 	{
 		if (_UnitWeightComboBox == null)
 		{
-			_UnitWeightComboBox = new JComboBox<String>(_UnitWeights);
+			_UnitWeightComboBox = new JComboBox<String>();
+			for (String item: _UnitWeights)
+				_UnitWeightComboBox.addItem(item);
+			
 			_UnitWeightComboBox.setBounds(new Rectangle(15, 223, 143, 23));
 		}
 		return _UnitWeightComboBox;
@@ -263,7 +266,9 @@ public class GenerateNewUnitPanel extends JPanel
 	{
 		if (_UnitRatingComboBox == null)
 		{
-			_UnitRatingComboBox = new JComboBox<Rating>(Rating.values());
+			_UnitRatingComboBox = new JComboBox<Rating>();
+			for (Rating rating: Rating.values())
+				_UnitRatingComboBox.addItem(rating);
 			_UnitRatingComboBox.setBounds(new Rectangle(168, 223, 133, 23));
 		}
 		return _UnitRatingComboBox;
@@ -278,7 +283,9 @@ public class GenerateNewUnitPanel extends JPanel
 	{
 		if (_UnitQualityRatingComboBox == null)
 		{
-			_UnitQualityRatingComboBox = new JComboBox<QualityRating>(QualityRating.values());
+			_UnitQualityRatingComboBox = new JComboBox<QualityRating>();
+			for (QualityRating qr: QualityRating.values())
+				_UnitQualityRatingComboBox.addItem(qr);
 			_UnitQualityRatingComboBox.setBounds(new Rectangle(326, 223, 123, 23));
 		}
 		return _UnitQualityRatingComboBox;
@@ -293,7 +300,9 @@ public class GenerateNewUnitPanel extends JPanel
 	{
 		if (_UnitTechRatingComboBox == null)
 		{
-			_UnitTechRatingComboBox = new JComboBox<TechRating>(TechRating.values());
+			_UnitTechRatingComboBox = new JComboBox<TechRating>();
+			for (TechRating tr: TechRating.values())
+				_UnitTechRatingComboBox.addItem(tr);
 			_UnitTechRatingComboBox.setBounds(new Rectangle(459, 223, 141, 23));
 		}
 		return _UnitTechRatingComboBox;

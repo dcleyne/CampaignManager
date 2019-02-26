@@ -378,7 +378,7 @@ public class Unit implements Serializable
 		// TODO This will have to be expanded to include other unit types.
 		int totalBV = 0;
 		for (Asset bm : _Assets)
-			totalBV += bm.getAdjustedBV();
+			totalBV += bm.getBV();
 
 		return totalBV;
 	}
@@ -473,13 +473,4 @@ public class Unit implements Serializable
 			_PersonnelAssetAssignments.remove(paa);
 	}
 	
-	public double getBaseMonthlySalary()
-	{
-		double salary = 0;
-		for (Personnel p : _Personnel)
-			salary += p.getJobType().GetBaseMonthlySalary();
-		
-		return salary;
-	}
-
 }

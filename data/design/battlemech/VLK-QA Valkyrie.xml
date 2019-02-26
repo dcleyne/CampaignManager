@@ -5,8 +5,8 @@
   <Manufacturer>Corean Enterprises</Manufacturer>
   <Type>Biped</Type>
   <Weight>30</Weight>
-  <Cost>2205320</Cost>
-  <BV>640</BV>
+  <Cost>2166320</Cost>
+  <BV>723</BV>
   <Armour>
     <Location Name="Head" Points="8" />
     <Location Name="Centre Torso" Points="14" />

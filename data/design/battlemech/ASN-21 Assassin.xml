@@ -5,8 +5,8 @@
   <Manufacturer>Maltex Corporation</Manufacturer>
   <Type>Biped</Type>
   <Weight>40</Weight>
-  <Cost>3765814</Cost>
-  <BV>596</BV>
+  <Cost>3686014</Cost>
+  <BV>749</BV>
   <Armour>
     <Location Name="Head" Points="8" />
     <Location Name="Centre Torso" Points="12" />

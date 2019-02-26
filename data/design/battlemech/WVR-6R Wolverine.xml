@@ -5,8 +5,8 @@
   <Manufacturer>Kallon Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>55</Weight>
-  <Cost>4827681</Cost>
-  <BV>957</BV>
+  <Cost>4778857</Cost>
+  <BV>1101</BV>
   <Armour>
     <Location Name="Head" Points="8" />
     <Location Name="Centre Torso" Points="20" />

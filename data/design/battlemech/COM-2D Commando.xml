@@ -5,8 +5,8 @@
 	<Manufacturer>Coventry Defense Conglomerate</Manufacturer>
 	<Type>Biped</Type>
 	<Weight>25</Weight>
-	<Cost>1891250</Cost>
-	<BV>432</BV>
+	<Cost>1823750</Cost>
+	<BV>541</BV>
 	<Armour>
 		<Location Name="Head" Points="6" />
 		<Location Name="Centre Torso" Points="8" />

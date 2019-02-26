@@ -5,8 +5,8 @@
   <Manufacturer>MatherTechno Incorporated</Manufacturer>
   <Type>Biped</Type>
   <Weight>40</Weight>
-  <Cost>3462900</Cost>
-  <BV>523</BV>
+  <Cost>3460100</Cost>
+  <BV>642</BV>
   <Armour>
     <Location Name="Head" Points="8" />
     <Location Name="Centre Torso" Points="10" />

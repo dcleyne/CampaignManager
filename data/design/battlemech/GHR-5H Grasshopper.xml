@@ -5,8 +5,8 @@
   <Manufacturer>Lantren Corporation</Manufacturer>
   <Type>Biped</Type>
   <Weight>70</Weight>
-  <Cost>6024574</Cost>
-  <BV>1268</BV>
+  <Cost>5973574</Cost>
+  <BV>1427</BV>
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="30" />

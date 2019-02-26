@@ -5,8 +5,8 @@
   <Manufacturer>Hollis Incorporated</Manufacturer>
   <Type>Biped</Type>
   <Weight>65</Weight>
-  <Cost>5790126</Cost>
-  <BV>1165</BV>
+  <Cost>5691125</Cost>
+  <BV>1399</BV>
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="24" />

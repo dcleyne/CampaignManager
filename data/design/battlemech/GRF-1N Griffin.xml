@@ -5,8 +5,8 @@
   <Manufacturer>Earthwerks Incorporated</Manufacturer>
   <Type>Biped</Type>
   <Weight>55</Weight>
-  <Cost>4957106</Cost>
-  <BV>1021</BV>
+  <Cost>4864107</Cost>
+  <BV>1272</BV>
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="20" />

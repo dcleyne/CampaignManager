@@ -5,8 +5,8 @@
   <Manufacturer>General Mechanics, Incorporated</Manufacturer>
   <Type>Biped</Type>
   <Weight>20</Weight>
-  <Cost>1646640</Cost>
-  <BV>336</BV>
+  <Cost>1614240</Cost>
+  <BV>384</BV>
   <Armour>
     <Location Name="Head" Points="4" />
     <Location Name="Centre Torso" Points="6" />

@@ -5,8 +5,8 @@
   <Manufacturer>Kong Interstellar Corp</Manufacturer>
   <Type>Biped</Type>
   <Weight>60</Weight>
-  <Cost>5032960</Cost>
-  <BV>1034</BV>
+  <Cost>5017600</Cost>
+  <BV>1277</BV>
   <Armour>
     <Location Name="Head" Points="8" />
     <Location Name="Centre Torso" Points="22" />

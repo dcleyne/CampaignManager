@@ -5,8 +5,8 @@
   <Manufacturer>Stormvanger Assemblies, Light Division</Manufacturer>
   <Type>Biped</Type>
   <Weight>30</Weight>
-  <Cost>2400840</Cost>
-  <BV>487</BV>
+  <Cost>2330640</Cost>
+  <BV>594</BV>
   <Armour>
     <Location Name="Head" Points="6" />
     <Location Name="Centre Torso" Points="8" />

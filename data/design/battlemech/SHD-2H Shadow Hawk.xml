@@ -5,8 +5,8 @@
   <Manufacturer>Lang Industries Inc.</Manufacturer>
   <Type>Biped</Type>
   <Weight>55</Weight>
-  <Cost>4539381</Cost>
-  <BV>918</BV>
+  <Cost>4444057</Cost>
+  <BV>1064</BV>
   <Armour>
     <Location Name="Head" Points="9" />
     <Location Name="Centre Torso" Points="23" />
