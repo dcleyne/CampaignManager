@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Stalker</Name>
   <Variant>STK-3F</Variant>
+  <Role>Juggernaut</Role>
   <Manufacturer>Triad Technologies</Manufacturer>
   <Type>Biped</Type>
   <Weight>85</Weight>

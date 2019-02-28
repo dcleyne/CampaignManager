@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Hatchetman</Name>
   <Variant>HCT-3F</Variant>
+  <Role>Brawler</Role>
   <Manufacturer>Defiance Industries of Hesperus II</Manufacturer>
   <Type>Biped</Type>
   <Weight>45</Weight>

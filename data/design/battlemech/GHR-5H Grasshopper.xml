@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Grasshopper</Name>
   <Variant>GHR-5H</Variant>
+  <Role>Skirmisher</Role>
   <Manufacturer>Lantren Corporation</Manufacturer>
   <Type>Biped</Type>
   <Weight>70</Weight>

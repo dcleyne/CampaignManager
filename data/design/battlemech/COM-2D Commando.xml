@@ -2,6 +2,7 @@
 <BattlemechDesign>
 	<Name>Commando</Name>
 	<Variant>COM-2D</Variant>
+	<Role>Striker</Role>
 	<Manufacturer>Coventry Defense Conglomerate</Manufacturer>
 	<Type>Biped</Type>
 	<Weight>25</Weight>

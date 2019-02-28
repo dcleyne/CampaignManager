@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Wasp</Name>
   <Variant>WSP-1K</Variant>
+  <Role>Scout</Role>
   <Manufacturer>General Mechanics, Incorporated</Manufacturer>
   <Type>Biped</Type>
   <Weight>20</Weight>

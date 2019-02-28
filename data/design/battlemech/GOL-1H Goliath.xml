@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Goliath</Name>
   <Variant>GOL-1H</Variant>
+  <Role>Sniper</Role>
   <Manufacturer>Brigaidier Corporation</Manufacturer>
   <Type>Quad</Type>
   <Weight>80</Weight>

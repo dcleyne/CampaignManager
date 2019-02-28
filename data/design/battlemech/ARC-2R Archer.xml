@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Archer</Name>
   <Variant>ARC-2R</Variant>
+  <Role>Missile Boat</Role>
   <Manufacturer>Earthwerks Incorporated</Manufacturer>
   <Type>Biped</Type>
   <Weight>70</Weight>

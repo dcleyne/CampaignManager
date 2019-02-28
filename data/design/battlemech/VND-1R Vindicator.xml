@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Vindicator</Name>
   <Variant>VND-1R</Variant>
+  <Role>Brawler</Role>
   <Manufacturer>Ceres Metal Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>45</Weight>

@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Longbow</Name>
   <Variant>LGB-7Q</Variant>
+  <Role>Missile Boat</Role>
   <Manufacturer>StarCorps Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>85</Weight>

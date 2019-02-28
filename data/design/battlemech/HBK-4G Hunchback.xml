@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Hunchback</Name>
   <Variant>HBK-4G</Variant>
+  <Role>Juggernaut</Role>
   <Manufacturer>Komiyaba/Nissan General Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>50</Weight>

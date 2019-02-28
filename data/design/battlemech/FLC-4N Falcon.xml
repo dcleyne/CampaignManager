@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Falcon</Name>
   <Variant>FLC-4N</Variant>
+  <Role>Scout</Role>
   <Manufacturer>Stormvanger Assemblies</Manufacturer>
   <Type>Biped</Type>
   <Weight>30</Weight>

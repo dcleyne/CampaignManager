@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Griffin</Name>
   <Variant>GRF-1N</Variant>
+  <Role>Sniper</Role>
   <Manufacturer>Earthwerks Incorporated</Manufacturer>
   <Type>Biped</Type>
   <Weight>55</Weight>

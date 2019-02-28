@@ -51,6 +51,7 @@ public class BattlemechDesign implements BattleValue
 
     private String _Name;
     private String _Variant;
+    private String _Role;
     private String _Manufacturer;
     private BattlemechDesign.Type _Type = BattlemechDesign.Type.BIPED;
     private int _Weight;
@@ -79,6 +80,14 @@ public class BattlemechDesign implements BattleValue
 	public void setVariant(String variant)
 	{
 		_Variant = variant;
+	}
+	public String getRole()
+	{
+		return _Role;
+	}
+	public void setRole(String role)
+	{
+		_Role = role;
 	}
 	public String getManufacturer()
 	{

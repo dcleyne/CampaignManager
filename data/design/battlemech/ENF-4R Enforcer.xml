@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Enforcer</Name>
   <Variant>ENF-4R</Variant>
+  <Role>Skirmisher</Role>
   <Manufacturer>Achernar Battlemechs</Manufacturer>
   <Type>Biped</Type>
   <Weight>50</Weight>

@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Marauder</Name>
   <Variant>MAD-3R</Variant>
+  <Role>Sniper</Role>
   <Manufacturer>General Motors</Manufacturer>
   <Type>Biped</Type>
   <Weight>75</Weight>

@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Locust</Name>
   <Variant>LCT-1V</Variant>
+  <Role>Scout</Role>
   <Manufacturer>Bergan Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>20</Weight>

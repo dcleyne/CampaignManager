@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Champion</Name>
   <Variant>CHP-2N</Variant>
+  <Role>Skirmisher</Role>
   <Manufacturer>Bergen Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>60</Weight>

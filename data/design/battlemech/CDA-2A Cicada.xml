@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Cicada</Name>
   <Variant>CDA-2A</Variant>
+  <Role>Scout</Role>
   <Manufacturer>Hartford Co</Manufacturer>
   <Type>Biped</Type>
   <Weight>40</Weight>

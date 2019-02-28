@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Ostsol</Name>
   <Variant>OTL-4D</Variant>
+  <Role>Skirmisher</Role>
   <Manufacturer>Kong Interstellar Corp</Manufacturer>
   <Type>Biped</Type>
   <Weight>60</Weight>

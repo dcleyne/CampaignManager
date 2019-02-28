@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Thunderbolt</Name>
   <Variant>TDR-5S</Variant>
+  <Role>Brawler</Role>
   <Manufacturer>Earthwerks Incorporated</Manufacturer>
   <Type>Biped</Type>
   <Weight>65</Weight>

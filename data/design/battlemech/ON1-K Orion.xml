@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Orion</Name>
   <Variant>ON1-K</Variant>
+  <Role>Brawler</Role>
   <Manufacturer>KaliYama Weapons Industries of Kalidasa</Manufacturer>
   <Type>Biped</Type>
   <Weight>75</Weight>

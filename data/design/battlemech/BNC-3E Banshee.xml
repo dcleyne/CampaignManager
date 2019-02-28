@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Banshee</Name>
   <Variant>BNC-3E</Variant>
+  <Role>Sniper</Role>
   <Manufacturer>Star League Weapons Research</Manufacturer>
   <Type>Biped</Type>
   <Weight>95</Weight>

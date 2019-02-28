@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Stinger</Name>
   <Variant>STG-3R</Variant>
+  <Role>Scout</Role>
   <Manufacturer>Earthwerks Incorporated</Manufacturer>
   <Type>Biped</Type>
   <Weight>20</Weight>

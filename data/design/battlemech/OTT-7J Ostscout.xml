@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Ostscout</Name>
   <Variant>OTT-7J</Variant>
+  <Role>Scout</Role>
   <Manufacturer>Kong Interstellar Corp</Manufacturer>
   <Type>Biped</Type>
   <Weight>35</Weight>

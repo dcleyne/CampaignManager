@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Jagermech</Name>
   <Variant>JM6-S</Variant>
+  <Role>Sniper</Role>
   <Manufacturer>Kallon Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>65</Weight>

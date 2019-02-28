@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Crusader</Name>
   <Variant>CRD-3R</Variant>
+  <Role>Missile Boat</Role>
   <Manufacturer>Kallon Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>65</Weight>

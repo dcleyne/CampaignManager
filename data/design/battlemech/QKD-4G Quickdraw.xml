@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Quickdraw</Name>
   <Variant>QKD-4G</Variant>
+  <Role>Skirmisher</Role>
   <Manufacturer>Technicron Manufacturing</Manufacturer>
   <Type>Biped</Type>
   <Weight>60</Weight>

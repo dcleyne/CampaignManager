@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Vulcan</Name>
   <Variant>VL 2T</Variant>
+  <Role>Scout</Role>
   <Manufacturer>MatherTechno Incorporated</Manufacturer>
   <Type>Biped</Type>
   <Weight>40</Weight>

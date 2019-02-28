@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Panther</Name>
   <Variant>PNT-9R</Variant>
+  <Role>Brawler</Role>
   <Manufacturer>Alshain Weapons</Manufacturer>
   <Type>Biped</Type>
   <Weight>35</Weight>

@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Charger</Name>
   <Variant>CGR-1A1</Variant>
+  <Role>Scout</Role>
   <Manufacturer>Wells technologies</Manufacturer>
   <Type>Biped</Type>
   <Weight>80</Weight>

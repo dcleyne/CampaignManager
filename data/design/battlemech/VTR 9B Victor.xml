@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Victor</Name>
   <Variant>VTR 9B</Variant>
+  <Role>Skirmisher</Role>
   <Manufacturer>HildCo Interplanetary</Manufacturer>
   <Type>Biped</Type>
   <Weight>80</Weight>

@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Spider</Name>
   <Variant>SDR-5V</Variant>
+  <Role>Scout</Role>
   <Manufacturer>Newhart Interstellar Industries Ltd</Manufacturer>
   <Type>Biped</Type>
   <Weight>30</Weight>

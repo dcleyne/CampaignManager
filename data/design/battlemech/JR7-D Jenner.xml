@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Jenner</Name>
   <Variant>JR7-D</Variant>
+  <Role>Striker</Role>
   <Manufacturer>Diplan Mechyards</Manufacturer>
   <Type>Biped</Type>
   <Weight>35</Weight>

@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Zeus</Name>
   <Variant>ZEU-6S</Variant>
+  <Role>Sniper</Role>
   <Manufacturer>Defiance Industries of Hesperus II</Manufacturer>
   <Type>Biped</Type>
   <Weight>80</Weight>

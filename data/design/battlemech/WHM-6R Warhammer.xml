@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Warhammer</Name>
   <Variant>WHM-6R</Variant>
+  <Role>Brawler</Role>
   <Manufacturer>StarCorp Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>70</Weight>

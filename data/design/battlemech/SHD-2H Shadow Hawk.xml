@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Shadow Hawk</Name>
   <Variant>SHD-2H</Variant>
+  <Role>Skirmisher</Role>
   <Manufacturer>Lang Industries Inc.</Manufacturer>
   <Type>Biped</Type>
   <Weight>55</Weight>

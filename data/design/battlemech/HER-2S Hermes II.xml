@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Hermes II</Name>
   <Variant>HER-2S</Variant>
+  <Role>Scout</Role>
   <Manufacturer>Irian Battlemechs Unlimited</Manufacturer>
   <Type>Biped</Type>
   <Weight>40</Weight>

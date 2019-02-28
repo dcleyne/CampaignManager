@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Crab</Name>
   <Variant>CRB-20</Variant>
+  <Role>Skirmisher</Role>
   <Manufacturer>Cosara Weaponries</Manufacturer>
   <Type>Biped</Type>
   <Weight>50</Weight>

@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Whitworth</Name>
   <Variant>WTH-1</Variant>
+  <Role>Missile Boat</Role>
   <Manufacturer>Whitworth Company</Manufacturer>
   <Type>Biped</Type>
   <Weight>40</Weight>

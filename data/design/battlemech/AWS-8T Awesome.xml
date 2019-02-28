@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Awesome</Name>
   <Variant>AWS-8T</Variant>
+  <Role>Missile Boat</Role>
   <Manufacturer>Technicron Manufacturing</Manufacturer>
   <Type>Biped</Type>
   <Weight>80</Weight>

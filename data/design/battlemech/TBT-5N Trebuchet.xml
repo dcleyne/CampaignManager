@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Trebuchet</Name>
   <Variant>TBT-5N</Variant>
+  <Role>Missile Boat</Role>
   <Manufacturer>Corean Enterprises</Manufacturer>
   <Type>Biped</Type>
   <Weight>50</Weight>

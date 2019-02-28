@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Battlemaster</Name>
   <Variant>BLR-1G</Variant>
+  <Role>Brawler</Role>
   <Manufacturer>Hollis Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>85</Weight>

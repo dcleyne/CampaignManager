@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Ostroc</Name>
   <Variant>OSR-2C</Variant>
+  <Role>Skirmisher</Role>
   <Manufacturer>Ostmann Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>60</Weight>

@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Phoenix Hawk</Name>
   <Variant>PXH-1K</Variant>
+  <Role>Skirmisher</Role>
   <Manufacturer>Orguss Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>45</Weight>

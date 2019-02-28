@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Assassin</Name>
   <Variant>ASN-21</Variant>
+  <Role>Scout</Role>
   <Manufacturer>Maltex Corporation</Manufacturer>
   <Type>Biped</Type>
   <Weight>40</Weight>

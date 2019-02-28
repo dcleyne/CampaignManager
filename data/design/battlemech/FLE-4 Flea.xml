@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Flea</Name>
   <Variant>FLE-4</Variant>
+  <Role>Scout</Role>
   <Manufacturer>Earthwerks Incorporated</Manufacturer>
   <Type>Biped</Type>
   <Weight>20</Weight>

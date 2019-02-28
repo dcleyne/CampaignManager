@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Cyclops</Name>
   <Variant>CP 10-Q</Variant>
+  <Role>Missile Boat</Role>
   <Manufacturer>Stormvanger Assemblies Unlimited</Manufacturer>
   <Type>Biped</Type>
   <Weight>90</Weight>

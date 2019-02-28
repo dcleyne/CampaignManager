@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Wolverine</Name>
   <Variant>WVR-6R</Variant>
+  <Role>Skirmisher</Role>
   <Manufacturer>Kallon Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>55</Weight>

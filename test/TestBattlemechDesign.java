@@ -43,11 +43,9 @@ public class TestBattlemechDesign
                                         
                     bm.saveBattlemech(mech, saveName);
 
-                    System.out.println(design.getName());
-
                     mech = bm.loadBattlemech(saveName);
 
-                    System.out.println("Loaded Ok " + mech.getDesignName() + " " + mech.getDesignVariant());
+                    System.out.println(design.getVariantName() + " :- " + design.getRole());
                     
 	                String filename = path + "/battlemechs/" + mech.getDesignVariant() + " " + mech.getDesignName() + ".png";
 	                BufferedImage mechImage = BattlemechRenderer.getInstance().RenderBattlemech(mech, null);

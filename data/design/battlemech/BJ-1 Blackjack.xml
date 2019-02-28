@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Blackjack</Name>
   <Variant>BJ-1</Variant>
+  <Role>Sniper</Role>
   <Manufacturer>General Motors</Manufacturer>
   <Type>Biped</Type>
   <Weight>45</Weight>

@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Dragon</Name>
   <Variant>DRG-1C</Variant>
+  <Role>Skirmisher</Role>
   <Manufacturer>Luthien Armor Works</Manufacturer>
   <Type>Biped</Type>
   <Weight>60</Weight>

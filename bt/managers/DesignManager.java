@@ -96,6 +96,7 @@ public class DesignManager
 
         design.setName(designElement.getChild("Name").getTextTrim());
         design.setVariant(designElement.getChild("Variant").getTextTrim());
+        design.setRole(designElement.getChild("Role").getTextTrim());
         design.setManufacturer(designElement.getChild("Manufacturer").getTextTrim());
         design.setType(BattlemechDesign.Type.fromString(designElement.getChild("Type").getTextTrim()));
         design.setWeight(Integer.parseInt(designElement.getChild("Weight").getTextTrim()));

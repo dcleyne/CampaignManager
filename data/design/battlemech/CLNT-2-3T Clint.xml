@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Clint</Name>
   <Variant>CLNT-2-3T</Variant>
+  <Role>Striker</Role>
   <Manufacturer>Andoran Industries Ltd</Manufacturer>
   <Type>Biped</Type>
   <Weight>40</Weight>

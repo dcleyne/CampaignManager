@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Javelin</Name>
   <Variant>JVN-10N</Variant>
+  <Role>Striker</Role>
   <Manufacturer>Stormvanger Assemblies, Light Division</Manufacturer>
   <Type>Biped</Type>
   <Weight>30</Weight>

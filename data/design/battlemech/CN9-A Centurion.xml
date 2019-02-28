@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Centurion</Name>
   <Variant>CN9-A</Variant>
+  <Role>Brawler</Role>
   <Manufacturer>Corean Enterprises</Manufacturer>
   <Type>Biped</Type>
   <Weight>50</Weight>

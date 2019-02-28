@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Scorpion</Name>
   <Variant>SCP-1N</Variant>
+  <Role>Skirmisher</Role>
   <Manufacturer>Brigaidier Corporation</Manufacturer>
   <Type>Quad</Type>
   <Weight>55</Weight>

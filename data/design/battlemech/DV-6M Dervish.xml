@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Dervish</Name>
   <Variant>DV-6M</Variant>
+  <Role>Missile Boat</Role>
   <Manufacturer>Achernar Battlemechs</Manufacturer>
   <Type>Biped</Type>
   <Weight>55</Weight>

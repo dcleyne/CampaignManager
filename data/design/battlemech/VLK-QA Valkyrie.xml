@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Valkyrie</Name>
   <Variant>VLK-QA</Variant>
+  <Role>Missile Boat</Role>
   <Manufacturer>Corean Enterprises</Manufacturer>
   <Type>Biped</Type>
   <Weight>30</Weight>

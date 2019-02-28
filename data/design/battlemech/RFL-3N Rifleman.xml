@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Rifleman</Name>
   <Variant>RFL-3N</Variant>
+  <Role>Sniper</Role>
   <Manufacturer>Kallon Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>60</Weight>

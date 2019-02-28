@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Bombardier</Name>
   <Variant>BMB-10D</Variant>
+  <Role>Missile Boat</Role>
   <Manufacturer>Earthwerks Incorporated</Manufacturer>
   <Type>Biped</Type>
   <Weight>65</Weight>

@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Urbanmech</Name>
   <Variant>UM-R60</Variant>
+  <Role>Ambusher</Role>
   <Manufacturer>Orguss Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>30</Weight>

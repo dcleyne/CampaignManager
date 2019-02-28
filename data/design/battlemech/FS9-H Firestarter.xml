@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Firestarter</Name>
   <Variant>FS9-H</Variant>
+  <Role>Scout</Role>
   <Manufacturer>Argile Technologies of Skye</Manufacturer>
   <Type>Biped</Type>
   <Weight>35</Weight>

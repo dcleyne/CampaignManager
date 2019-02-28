@@ -2,6 +2,7 @@
 <BattlemechDesign>
 	<Name>Atlas</Name>
 	<Variant>AS7-D</Variant>
+	<Role>Juggernaut</Role>
 	<Manufacturer>Na'ir, Hesperus, Quentin</Manufacturer>
 	<Type>Biped</Type>
 	<Weight>100</Weight>

@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Guillotine</Name>
   <Variant>GLT-4P</Variant>
+  <Role>Skirmisher</Role>
   <Manufacturer>Newhart Industries</Manufacturer>
   <Type>Biped</Type>
   <Weight>70</Weight>

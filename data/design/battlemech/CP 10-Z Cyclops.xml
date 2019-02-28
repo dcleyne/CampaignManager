@@ -2,6 +2,7 @@
 <BattlemechDesign>
   <Name>Cyclops</Name>
   <Variant>CP 10-Z</Variant>
+  <Role>Juggernaut</Role>
   <Manufacturer>Stormvanger Assemblies Unlimited</Manufacturer>
   <Type>Biped</Type>
   <Weight>90</Weight>
