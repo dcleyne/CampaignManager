@@ -56,7 +56,7 @@ public class TestUnitGeneration
 	        int tries = 0;
 	        while (u == null && tries < 10)
 	        {
-	        	u = UnitManager.getInstance().generateUnitWithElements(Era.LATE_SUCCESSION_WAR_RENAISSANCE, Faction.MERCENARY, p, "Generated Unit	", mechDesigns, Rating.REGULAR, QualityRating.D, TechRating.D, ic);
+	        	u = UnitManager.getInstance().generateUnitWithElements(Era.LATE_SUCCESSION_WAR_RENAISSANCE, Faction.DRACONIS_COMBINE, p, "Generated Unit", mechDesigns, Rating.REGULAR, QualityRating.D, TechRating.D, ic);
 	        	tries++;
 	        }
         	if (u == null)
