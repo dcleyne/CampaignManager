@@ -98,7 +98,88 @@
     	<Briefing>
     	The Defender begins the track with all units in the playing area and can be no further than 4 hexes from their designated home edge.
     	</Briefing>
-    	<PreviousSuccessfulPlayerMission Modifier="1" Excludes="Probe,Recon-In-Force,Beachhead (Attacker)" />
+    	<PreviousSuccessfulPlayerMission Modifier="1" Excludes="Probe (Attacker),Recon-In-Force (Attacker)" />
+    	<TechRatingTable>
+    		<Option Roll="1" Tech="D" />
+    		<Option Roll="2" Tech="C" />
+    		<Option Roll="3" Tech="C" />
+    		<Option Roll="4" Tech="B" />
+    		<Option Roll="5" Tech="B" />
+    		<Option Roll="6" Tech="B" />
+    		<Option Roll="7" Tech="A" />
+    		<Option Roll="8" Tech="A" />
+    	</TechRatingTable>
+    	<ForceRatioTable>
+    		<Option Roll="1" Ratio="1.5" />
+    		<Option Roll="2" Ratio="1.5" />
+    		<Option Roll="3" Ratio="1.5" />
+    		<Option Roll="4" Ratio="1.5" />
+    		<Option Roll="5" Ratio="1.5" />
+    		<Option Roll="6" Ratio="1.5" />
+    		<Option Roll="7" Ratio="1.5" />
+    		<Option Roll="8" Ratio="1.5" />
+    	</ForceRatioTable>
+    	<UnitCompositionTable>
+    		<Option Roll="1" Composition="Light" />
+    		<Option Roll="2" Composition="Light Medium" />
+    		<Option Roll="3" Composition="Medium" />
+    		<Option Roll="4" Composition="Medium Heavy" />
+    		<Option Roll="5" Composition="Heavy" />
+    		<Option Roll="6" Composition="Light Assault" />
+    		<Option Roll="7" Composition="Assault" />
+    		<Option Roll="8" Composition="Assault" />
+    	</UnitCompositionTable>
+    	<RandomAllocationTable>
+    		<Option Roll="1" RAT="Mercenary" />
+    		<Option Roll="2" RAT="Faction" />
+    		<Option Roll="3" RAT="Faction" />
+    		<Option Roll="4" RAT="Faction" />
+    		<Option Roll="5" RAT="Mercenary" />
+    		<Option Roll="6" RAT="Mercenary" />
+    		<Option Roll="7" RAT="Faction" />
+    		<Option Roll="8" RAT="Faction" />
+    	</RandomAllocationTable>
+    	<SkillLevelTable>
+    		<Option Roll="1" Level="Green" />
+    		<Option Roll="2" Level="Regular" />
+    		<Option Roll="3" Level="Green" />
+    		<Option Roll="4" Level="Veteran" />
+    		<Option Roll="5" Level="Regular" />
+    		<Option Roll="6" Level="Veteran" />
+    		<Option Roll="7" Level="Elite" />
+    		<Option Roll="8" Level="Elite" />
+    	</SkillLevelTable>
+      </OpponentBriefing>
+    <Warchest MissionCost="400">
+    	<Option Name="Complicated Weather" Bonus="100" Notes="Roll once on the General Weather Table (TO-pg 69) and apply the result to the battlefield" />
+    	<Option Name="Sensor Interference" Bonus="100" Notes="Use the electromagnetic interference rules (see pg.55, TO)" />
+    </Warchest>
+    <Objective Name="Hammer" PointsAwarded="300" Description="Cripple/Destroy at least 65% of the Defender's force." />
+    <Objective Name="Breakthrough" PointsAwarded="200" Description="The player exits at least 25% of their force off the opponent's home edge." />
+    <SpecialRule Name="Forced Withdrawal" Description="The defender follows the 'Forced Withdrawal' rules (see pg.258, TW)." />
+    <SpecialRule Name="Salvage" Description="The 'Salvage' rule only applies if the 'Hammer' objective is achieved." />
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="3" Name="Beachhead (Defender)" Description="Beachhead mission where the player is the Defender">
+    <GameSetup>
+    The Defender designate one map edge as their home edge. The Attacker's home edge is then the opposite edge. 
+    </GameSetup>
+    <MapSet Terrain="Random" />
+    <PlayerBriefing Team="Defender">
+      <Briefing>
+		Defender may use up to 50% of the player's total force.
+		The Defender begins the track with all units in the playing area and can be no further than 4 hexes from their designated home edge.
+      </Briefing>
+      <ForceRestriction>0.5</ForceRestriction>
+    </PlayerBriefing>
+    <OpponentBriefing Team="Attacker">
+    	<Briefing>
+	      The Attacker divides their force in half. One portion enters the track from the designated home edge at the start of the battle. The remaining portion
+	      enters from the same edge any turn between turns 5 and 10, as long as at least one operational Attacker unit remains on the battlefield. The Attacker must declare 
+	      when their remaining force is entering during an End Phase. The force arrives in the Initiative Phase of the following turn (i.e. one full turn must pass between the
+	      declaration and the arrival).   
+    	</Briefing>
+    	<PreviousSuccessfulPlayerMission Modifier="1" Excludes="Probe (Defender),Recon-In-Force (Defender)" />
     	<TechRatingTable>
     		<Option Roll="1" Tech="D" />
     		<Option Roll="2" Tech="C" />
@@ -159,6 +240,85 @@
     <Objective Name="Breakthrough" PointsAwarded="200" Description="The player exits at least 25% of their force off the opponent's home edge." />
     <SpecialRule Name="Forced Withdrawal" Description="The defender follows the 'Forced Withdrawal' rules (see pg.258, TW)." />
     <SpecialRule Name="Salvage" Description="The 'Salvage' rule only applies if the 'Hammer' objective is achieved." />
+    <Notes></Notes>
+  </Mission>
+  <Mission ID="4" Name="Defend" Description="Defend mission">
+    <GameSetup>
+    The Defender designate two map edges as their home edge. The Attacker's one of the remaining edges as their home edge. 
+    </GameSetup>
+    <MapSet Terrain="Random" />
+    <PlayerBriefing Team="Defender">
+      <Briefing>
+		Defender may use up to 75% of the player's total force.
+		The Defender sets up 75% of its deployed force on the battlefield. The remaining portion of the Defender's force sets up using 'Hidden Unit' rules (see TW-259).
+      </Briefing>
+      <ForceRestriction>0.75</ForceRestriction>
+    </PlayerBriefing>
+    <OpponentBriefing Team="Attacker">
+    	<Briefing>
+    	</Briefing>
+    	<PreviousSuccessfulPlayerMission Modifier="1" Excludes="Recon (Attacker),Probe (Atacker),Recon-In-Force (Attacker)" />
+    	<TechRatingTable>
+    		<Option Roll="1" Tech="F" />
+    		<Option Roll="2" Tech="D" />
+    		<Option Roll="3" Tech="D" />
+    		<Option Roll="4" Tech="C" />
+    		<Option Roll="5" Tech="C" />
+    		<Option Roll="6" Tech="B" />
+    		<Option Roll="7" Tech="B" />
+    		<Option Roll="8" Tech="A" />
+    	</TechRatingTable>
+    	<ForceRatioTable>
+    		<Option Roll="1" Ratio="0.75" />
+    		<Option Roll="2" Ratio="0.75" />
+    		<Option Roll="3" Ratio="0.75" />
+    		<Option Roll="4" Ratio="1" />
+    		<Option Roll="5" Ratio="1" />
+    		<Option Roll="6" Ratio="1.25" />
+    		<Option Roll="7" Ratio="1.25" />
+    		<Option Roll="8" Ratio="1.5" />
+    	</ForceRatioTable>
+    	<UnitCompositionTable>
+    		<Option Roll="1" Composition="Light" />
+    		<Option Roll="2" Composition="Light Medium" />
+    		<Option Roll="3" Composition="Medium" />
+    		<Option Roll="4" Composition="Medium Heavy" />
+    		<Option Roll="5" Composition="Heavy" />
+    		<Option Roll="6" Composition="Heavy" />
+    		<Option Roll="7" Composition="Light Assault" />
+    		<Option Roll="8" Composition="Assault" />
+    	</UnitCompositionTable>
+    	<RandomAllocationTable>
+    		<Option Roll="1" RAT="Mercenary" />
+    		<Option Roll="2" RAT="Mercenary" />
+    		<Option Roll="3" RAT="Faction" />
+    		<Option Roll="4" RAT="Faction" />
+    		<Option Roll="5" RAT="Faction" />
+    		<Option Roll="6" RAT="Mercenary" />
+    		<Option Roll="7" RAT="Faction" />
+    		<Option Roll="8" RAT="Faction" />
+    	</RandomAllocationTable>
+    	<SkillLevelTable>
+    		<Option Roll="1" Level="Green" />
+    		<Option Roll="2" Level="Regular" />
+    		<Option Roll="3" Level="Green" />
+    		<Option Roll="4" Level="Regular" />
+    		<Option Roll="5" Level="Veteran" />
+    		<Option Roll="6" Level="Veteran" />
+    		<Option Roll="7" Level="Elite" />
+    		<Option Roll="8" Level="Elite" />
+    	</SkillLevelTable>
+    	
+    </OpponentBriefing>
+    <Warchest MissionCost="400">
+    	<Option Name="Under a Full Moon" Bonus="150" Notes="Use the Full Moon rules (see pg58. TO)" />
+    	<Option Name="Suprised!" Bonus="100" Notes="The defender rolls initiative with a -4 mofifier for the first 5 turns." />
+    </Warchest>
+    <Objective Name="Turn the tide" PointsAwarded="400" Description="Cripple/Destroy at least 75% of the Defender's force." />
+    <Objective Name="Cut off the head" PointsAwarded="150" Description="Cripple/Destroy the enemy commander's unit" />
+    <SpecialRule Name="Commander" Description="Use the 'Commander' rules for the Attacker" />
+    <SpecialRule Name="Forced Withdrawal" Description="The defender follows the 'Forced Withdrawal' rules (see pg.258, TW)." />
+    <SpecialRule Name="Salvage" Description="The 'Salvage' rule only applies if the 'Turn the tide' objective is achieved." />
     <Notes></Notes>
   </Mission>
 
