@@ -195,6 +195,34 @@ public class UnitManager
 		return theInstance;
 	}
 	
+	public ArrayList<String> getAvailableEras()
+	{
+		ArrayList<String> eras = new ArrayList<String>();
+		for (Era era : _MechAvailability.keySet())
+			eras.add(era.toString());
+		
+		return eras;
+	}
+	
+	public ArrayList<String> getAvailableFactionsInEra(String eraName)
+	{
+		ArrayList<String> factions = new ArrayList<String>();
+		
+		try
+		{
+			Era era = Era.fromString(eraName);
+			for (Faction f: _MechAvailability.get(era).keySet())
+			{
+				factions.add(f.toString());
+			}
+		}
+		catch (Exception ex)
+		{
+		}
+		
+		return factions;
+	}
+	
 	public ArrayList<Unit> getUnits()
 	{
 		return new ArrayList<Unit>(_Units.values()); 
