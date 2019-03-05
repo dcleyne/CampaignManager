@@ -53,22 +53,11 @@ import bt.util.ExceptionUtil;
 public class GenerateNewUnitPanel extends JPanel implements ItemListener, MouseListener, ActionListener
 {
 	private static final String SAVE_UNIT = "Save Unit";
-
-
 	private static final String OPEN_IN_PDF = "Open in PDF";
-
-
 	private static final String REMOVE = "Remove";
-
-
 	private static final String ADD = "Add";
-
-
 	private static final String GENERATE_UNIT = "Generate Unit";
-
-
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 1L;	
 	
 	private Unit _GeneratedUnit = new Unit();
 	private Player _Player = new Player();
@@ -93,6 +82,10 @@ public class GenerateNewUnitPanel extends JPanel implements ItemListener, MouseL
     private JTextField _UnitCostTextField;
     private JTextField _UnitCountTextField;
     private JTextArea _UnitDetailsTextArea;
+    
+    private JComboBox<QualityRating> _UnitQualityComboBox;
+    private JComboBox<Rating> _UnitRatingComboBox;
+    private JComboBox<TechRating> _UnitTechRatingComboBox;
 
 	/**
 	 * This method initializes 
@@ -183,12 +176,12 @@ public class GenerateNewUnitPanel extends JPanel implements ItemListener, MouseL
 		
 		_FactionComboBox = new JComboBox<String>();
 		_FactionComboBox.setAlignmentX(1.0f);
-		GridBagConstraints gbc_comboBox = new GridBagConstraints();
-		gbc_comboBox.insets = new Insets(0, 0, 5, 0);
-		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox.gridx = 1;
-		gbc_comboBox.gridy = 3;
-		_PlayerPanel.add(_FactionComboBox, gbc_comboBox);
+		GridBagConstraints gbc_FactionComboBox = new GridBagConstraints();
+		gbc_FactionComboBox.insets = new Insets(0, 0, 5, 0);
+		gbc_FactionComboBox.fill = GridBagConstraints.HORIZONTAL;
+		gbc_FactionComboBox.gridx = 1;
+		gbc_FactionComboBox.gridy = 3;
+		_PlayerPanel.add(_FactionComboBox, gbc_FactionComboBox);
 		_FactionComboBox.addItemListener(this);
 
 		JLabel label_1 = new JLabel("Collection");
@@ -297,11 +290,12 @@ public class GenerateNewUnitPanel extends JPanel implements ItemListener, MouseL
 		add(_UnitDetails, gbc_UnitDetails);
 		GridBagLayout gbl_UnitDetails = new GridBagLayout();
 		gbl_UnitDetails.columnWeights = new double[]{1.0};
-		gbl_UnitDetails.rowWeights = new double[]{0.0, 0.0, 1.0};
+		gbl_UnitDetails.rowWeights = new double[]{0.0, 1.0, 0.0, 0.0, 1.0};
 		_UnitDetails.setLayout(gbl_UnitDetails);
 		
 		JPanel _UnitNamePanel = new JPanel();
 		GridBagConstraints gbc_UnitNamePanel = new GridBagConstraints();
+		gbc_UnitNamePanel.insets = new Insets(0, 0, 5, 0);
 		gbc_UnitNamePanel.weighty = 1.0;
 		gbc_UnitNamePanel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_UnitNamePanel.gridx = 0;
@@ -319,6 +313,67 @@ public class GenerateNewUnitPanel extends JPanel implements ItemListener, MouseL
 		_UnitNamePanel.add(_UnitNameTextField);
 		_UnitNameTextField.setColumns(10);
 		
+		JPanel _UnitQualityPanel = new JPanel();
+		GridBagConstraints gbc_UnitQualityPanel = new GridBagConstraints();
+		gbc_UnitQualityPanel.insets = new Insets(0, 0, 5, 0);
+		gbc_UnitQualityPanel.fill = GridBagConstraints.BOTH;
+		gbc_UnitQualityPanel.gridx = 0;
+		gbc_UnitQualityPanel.gridy = 1;
+		_UnitDetails.add(_UnitQualityPanel, gbc_UnitQualityPanel);
+		GridBagLayout gbl_UnitQualityPanel = new GridBagLayout();
+		gbl_UnitQualityPanel.columnWidths = new int[]{0, 0, 0};
+		gbl_UnitQualityPanel.rowHeights = new int[]{0, 0, 0, 0};
+		gbl_UnitQualityPanel.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
+		gbl_UnitQualityPanel.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+		_UnitQualityPanel.setLayout(gbl_UnitQualityPanel);
+		
+		JLabel lblNewLabel = new JLabel("Rating");
+		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
+		gbc_lblNewLabel.anchor = GridBagConstraints.NORTHEAST;
+		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel.gridx = 0;
+		gbc_lblNewLabel.gridy = 0;
+		_UnitQualityPanel.add(lblNewLabel, gbc_lblNewLabel);
+		
+		_UnitRatingComboBox = new JComboBox<Rating>(Rating.values());
+		GridBagConstraints gbc_UnitRatingComboBox = new GridBagConstraints();
+		gbc_UnitRatingComboBox.insets = new Insets(0, 0, 5, 0);
+		gbc_UnitRatingComboBox.fill = GridBagConstraints.HORIZONTAL;
+		gbc_UnitRatingComboBox.gridx = 1;
+		gbc_UnitRatingComboBox.gridy = 0;
+		_UnitQualityPanel.add(_UnitRatingComboBox, gbc_UnitRatingComboBox);
+		
+		JLabel lblQuality = new JLabel("Quality");
+		GridBagConstraints gbc_lblQuality = new GridBagConstraints();
+		gbc_lblQuality.insets = new Insets(0, 0, 5, 5);
+		gbc_lblQuality.anchor = GridBagConstraints.EAST;
+		gbc_lblQuality.gridx = 0;
+		gbc_lblQuality.gridy = 1;
+		_UnitQualityPanel.add(lblQuality, gbc_lblQuality);
+		
+		_UnitQualityComboBox = new JComboBox<QualityRating>(QualityRating.values());
+		GridBagConstraints gbc_UnitQualityComboBox = new GridBagConstraints();
+		gbc_UnitQualityComboBox.insets = new Insets(0, 0, 5, 0);
+		gbc_UnitQualityComboBox.fill = GridBagConstraints.HORIZONTAL;
+		gbc_UnitQualityComboBox.gridx = 1;
+		gbc_UnitQualityComboBox.gridy = 1;
+		_UnitQualityPanel.add(_UnitQualityComboBox, gbc_UnitQualityComboBox);
+		
+		JLabel lblTechRating = new JLabel("Tech Rating");
+		GridBagConstraints gbc_lblTechRating = new GridBagConstraints();
+		gbc_lblTechRating.anchor = GridBagConstraints.EAST;
+		gbc_lblTechRating.insets = new Insets(0, 0, 0, 5);
+		gbc_lblTechRating.gridx = 0;
+		gbc_lblTechRating.gridy = 2;
+		_UnitQualityPanel.add(lblTechRating, gbc_lblTechRating);
+		
+		_UnitTechRatingComboBox = new JComboBox<TechRating>(TechRating.values());
+		GridBagConstraints gbc_TechRatingComboBox = new GridBagConstraints();
+		gbc_TechRatingComboBox.fill = GridBagConstraints.HORIZONTAL;
+		gbc_TechRatingComboBox.gridx = 1;
+		gbc_TechRatingComboBox.gridy = 2;
+		_UnitQualityPanel.add(_UnitTechRatingComboBox, gbc_TechRatingComboBox);
+		
 		_SelectedDesignList = new JList<String>();
 		_SelectedDesignList.setModel(_SelectedDesignListModel);
 		_SelectedDesignList.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -327,7 +382,7 @@ public class GenerateNewUnitPanel extends JPanel implements ItemListener, MouseL
 		gbc_SelectedDesignList.insets = new Insets(0, 0, 5, 0);
 		gbc_SelectedDesignList.weighty = 100.0;
 		gbc_SelectedDesignList.gridx = 0;
-		gbc_SelectedDesignList.gridy = 1;
+		gbc_SelectedDesignList.gridy = 3;
 		_UnitDetails.add(_SelectedDesignList, gbc_SelectedDesignList);
 		_SelectedDesignList.addMouseListener(this);
 		
@@ -336,7 +391,7 @@ public class GenerateNewUnitPanel extends JPanel implements ItemListener, MouseL
 		GridBagConstraints gbc_UnitSummaryPanel = new GridBagConstraints();
 		gbc_UnitSummaryPanel.fill = GridBagConstraints.BOTH;
 		gbc_UnitSummaryPanel.gridx = 0;
-		gbc_UnitSummaryPanel.gridy = 2;
+		gbc_UnitSummaryPanel.gridy = 4;
 		_UnitDetails.add(_UnitSummaryPanel, gbc_UnitSummaryPanel);
 		GridBagLayout gbl_UnitSummaryPanel = new GridBagLayout();
 		gbl_UnitSummaryPanel.columnWidths = new int[]{0, 0, 0, 0, 0};
@@ -490,6 +545,9 @@ public class GenerateNewUnitPanel extends JPanel implements ItemListener, MouseL
 			public void run()
 			{
 				_EraComboBox.setSelectedIndex(0);
+				_UnitRatingComboBox.setSelectedItem(Rating.REGULAR);
+				_UnitQualityComboBox.setSelectedItem(QualityRating.D);
+				_UnitTechRatingComboBox.setSelectedItem(TechRating.D);
 			}
 		}
 		);
@@ -684,18 +742,22 @@ public class GenerateNewUnitPanel extends JPanel implements ItemListener, MouseL
 		if (_PlayerNameTextField.getText().isEmpty())			
 		{
 			JOptionPane.showMessageDialog(this, "You must specify a player name", "Player Name empty", JOptionPane.WARNING_MESSAGE);
+			return;
 		}
 		if (_PlayerEmailAddressTextField.getText().isEmpty())			
 		{
 			JOptionPane.showMessageDialog(this, "You must specify a player email addesss", "Player Email Address empty", JOptionPane.WARNING_MESSAGE);
+			return;
 		}
 		if (_SelectedDesignListModel.getSize() == 0)
 		{
 			JOptionPane.showMessageDialog(this, "Select some mechs to add to the unit", "Unit empty", JOptionPane.WARNING_MESSAGE);
+			return;
 		}
 		if (_UnitNameTextField.getText().isEmpty())
 		{
 			JOptionPane.showMessageDialog(this, "The unit must have a valid name", "Unit name empty", JOptionPane.WARNING_MESSAGE);
+			return;
 		}
 		
 		ArrayList<String> designNames = new ArrayList<String>();
@@ -710,13 +772,18 @@ public class GenerateNewUnitPanel extends JPanel implements ItemListener, MouseL
 			Faction faction = Faction.fromString((String)_FactionComboBox.getSelectedItem());
 			MiniatureCollection ic = new MiniatureCollection(_MiniatureCollectionManager.getMiniatureCollection((String)_CollectionComboBox.getSelectedItem()));
 			_Player = new Player();
+			_Player.setName(_PlayerNameTextField.getText());
+			_Player.setEmailAddress(_PlayerEmailAddressTextField.getText());
 			
+			Rating rating = (Rating)_UnitRatingComboBox.getSelectedItem();
+			QualityRating qualityRating = (QualityRating)_UnitQualityComboBox.getSelectedItem();
+			TechRating techRating = (TechRating)_UnitTechRatingComboBox.getSelectedItem();
 			
 			_GeneratedUnit = null;
 	        int tries = 0;
 	        while (_GeneratedUnit == null && tries < 10)
 	        {
-	        	_GeneratedUnit = _UnitManager.generateUnitWithElements(era, faction, _Player, _UnitNameTextField.getText(), designNames, Rating.REGULAR, QualityRating.D, TechRating.D, ic);
+	        	_GeneratedUnit = _UnitManager.generateUnitWithElements(era, faction, _Player, _UnitNameTextField.getText(), designNames, rating, qualityRating, techRating, ic);
 	        	tries++;
 	        }
         	if (_GeneratedUnit == null)
