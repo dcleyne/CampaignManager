@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class SwingHelper
@@ -166,7 +167,7 @@ public class SwingHelper
         return Panel;
     }
 
-    public static String FormatDate(Date d)
+    public static String FormatDate(LocalDate d)
     {
     	if (d == null) 
     		return "";
@@ -184,13 +185,12 @@ public class SwingHelper
         return formatter.format(d);
     }
 
-    public static Date GetDateFromString(String Value) throws java.text.ParseException
+    public static LocalDate GetDateFromString(String Value) throws java.text.ParseException
     {
     	if (Value.isEmpty())
     		return null;
     	
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        return formatter.parse(Value);
+        return LocalDate.parse(Value);
     }
 
     public static Date GetDateTimeFromString(String Value) throws java.text.ParseException

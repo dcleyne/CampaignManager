@@ -8,8 +8,8 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.swing.Box;
@@ -259,7 +259,7 @@ public class RandomGamePanel extends JPanel implements ActionListener
 			Mission m = MissionManager.getInstance().getMission(missionName);
 
 			
-			Scenario s = MissionManager.getInstance().generateScenario(era, m, new Date(), playerForce, opponent, collection2);
+			Scenario s = MissionManager.getInstance().generateScenario(era, m, LocalDate.now(), playerForce, opponent, collection2);
 			if (s == null)
 				throw new Exception("Unable to create scenario");
 			

@@ -1,6 +1,6 @@
 package bt.elements.unit;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import bt.util.SwingHelper;
 
@@ -31,7 +31,7 @@ public class CompletedMission
 
 	private long _MissionIdentifier;
 	private String _MissionTitle;
-	private Date _MissionDate;
+	private LocalDate _MissionDate;
 	private Result _Result;
 	private int _WarchestPoints;
 	
@@ -47,11 +47,11 @@ public class CompletedMission
 	public void setMissionTitle(String missionTitle) {
 		_MissionTitle = missionTitle;
 	}
-	public Date getMissionDate()
+	public LocalDate getMissionDate()
 	{
 		return _MissionDate;
 	}
-	public void setMissionDate(Date missionDate)
+	public void setMissionDate(LocalDate missionDate)
 	{
 		_MissionDate = missionDate;
 	}
@@ -72,7 +72,7 @@ public class CompletedMission
 	{
 	}
 
-	public CompletedMission(long missionIdentifier, String missionTitle, Result result, int warchestPoints, Date missionDate)
+	public CompletedMission(long missionIdentifier, String missionTitle, Result result, int warchestPoints, LocalDate missionDate)
 	{
 		_MissionIdentifier = missionIdentifier;
 		_MissionTitle = missionTitle;

@@ -5,6 +5,16 @@ public class MiniatureCollectionItem
 	private String _Name;
 	private String _Notes;
 	
+	public MiniatureCollectionItem()
+	{
+	}
+	
+	public MiniatureCollectionItem(MiniatureCollectionItem mci)
+	{
+		_Name = mci._Name;
+		_Notes = mci._Notes;
+	}
+	
 	public String getName() 
 	{
 		return _Name;

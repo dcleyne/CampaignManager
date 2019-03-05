@@ -2,8 +2,8 @@ package bt;
 
 import java.awt.Desktop;
 import java.io.File;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 import bt.elements.Battlemech;
 import bt.elements.Era;
@@ -80,7 +80,7 @@ public class GenerateRandomGame
 			Mission m = MissionManager.getInstance().getMission("Assault");
 
 			
-			Scenario s = MissionManager.getInstance().generateScenario(Era.LATE_SUCCESSION_WAR_RENAISSANCE, m, new Date(), playerForce, opponent, new UnlimitedCollection());
+			Scenario s = MissionManager.getInstance().generateScenario(Era.LATE_SUCCESSION_WAR_RENAISSANCE, m, LocalDate.now(), playerForce, opponent, new UnlimitedCollection());
 			if (s == null)
 				throw new Exception("Unable to create scenario");
 			

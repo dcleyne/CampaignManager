@@ -1,7 +1,7 @@
 package test;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Vector;
 
 import bt.elements.Asset;
@@ -41,7 +41,7 @@ public class TestMissionManager
 
 			System.out.println("\n");
 
-			Date missionDate = new Date();
+			LocalDate missionDate = LocalDate.now();
 			ArrayList<String> unitNames = UnitManager.getInstance().getUnitNames();
 			for (String unitName : unitNames)
 			{

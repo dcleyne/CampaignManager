@@ -70,7 +70,12 @@ public abstract class Asset
     
   public String getDetails()
   {
-	  return "(" + getIdentifier() + ") " + getModelInformation() + " - '" + getName() + "'";
+	  return toString() + "'" + getName() + "'";
+  }
+  
+  public String toString()
+  {
+	  return "(" + getIdentifier() + ") " + getModelInformation();	  
   }
 
   public abstract String getModelInformation();

@@ -3,8 +3,8 @@ package bt.managers;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
@@ -504,7 +504,7 @@ public class MissionManager
 		return setupText;
 	}
 
-	public Scenario generateScenario(Era era, Mission mission, Date missionDate, Force playerForce, Opponent opponent,
+	public Scenario generateScenario(Era era, Mission mission, LocalDate missionDate, Force playerForce, Opponent opponent,
 			ItemCollection collection) throws Exception
 	{
 		Scenario scenario = new Scenario();

@@ -1,7 +1,7 @@
 package bt.elements.unit;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class UnitSummary implements Serializable 
 {
@@ -9,7 +9,7 @@ public class UnitSummary implements Serializable
 	
 	private String _UnitName;
 	private String _UnitPlayer;
-	private Date _EstablishDate;
+	private LocalDate _EstablishDate;
 	private String _Notes;
 	
 	public UnitSummary()
@@ -37,10 +37,10 @@ public class UnitSummary implements Serializable
 	public String getUnitPlayer() {
 		return _UnitPlayer;
 	}
-	public void setEstablishDate(Date establishDate) {
+	public void setEstablishDate(LocalDate establishDate) {
 		this._EstablishDate = establishDate;
 	}
-	public Date getEstablishDate() {
+	public LocalDate getEstablishDate() {
 		return _EstablishDate;
 	}
 	public void setNotes(String notes) {

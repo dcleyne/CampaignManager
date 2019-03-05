@@ -31,7 +31,7 @@ public class TestUnitGenerationPanel
 	
 			//4. Size the frame.
 			frame.pack();
-			frame.setSize(650, 720);
+			frame.setSize(900, 720);
 	
 			//5. Show it.
 			frame.setVisible(true);

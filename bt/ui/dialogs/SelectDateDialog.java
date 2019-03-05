@@ -4,6 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 
 import javax.swing.JButton;
@@ -27,7 +30,7 @@ public class SelectDateDialog extends JDialog implements ActionListener
 		return _ValueSelected;
 	}
 	
-	public SelectDateDialog(Date chosenDate)
+	public SelectDateDialog(LocalDate chosenDate)
 	{
 		BorderLayout thisLayout = new BorderLayout();
 		getContentPane().setLayout(thisLayout);
@@ -53,7 +56,9 @@ public class SelectDateDialog extends JDialog implements ActionListener
 			}			
 		}
 		
-		_Calendar = new JCalendar(chosenDate);
+		Instant instant = chosenDate.atStartOfDay(ZoneId.systemDefault()).toInstant();
+        Date cd = Date.from(instant);
+		_Calendar = new JCalendar(cd);
 		getContentPane().add(_Calendar, BorderLayout.CENTER);
 		
 		setSize(250,250);
@@ -74,11 +79,11 @@ public class SelectDateDialog extends JDialog implements ActionListener
 		}		
 	}
 	
-	public Date getValueSelected()
+	public LocalDate getValueSelected()
 	{
 		if (_ValueSelected)
 		{
-			return _Calendar.getDate();
+			return _Calendar.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 		}
 		return null;
 	}

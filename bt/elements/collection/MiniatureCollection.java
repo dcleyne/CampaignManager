@@ -12,6 +12,25 @@ public class MiniatureCollection implements ItemCollection
 	private ArrayList<MiniatureCollectionItem> _PendingItems = new ArrayList<MiniatureCollectionItem>();
 	private ArrayList<MiniatureCollectionItem> _ConsumedItems = new ArrayList<MiniatureCollectionItem>();
 
+	public MiniatureCollection()
+	{
+	}
+	
+	public MiniatureCollection(MiniatureCollection mc)
+	{
+		_Name = mc._Name;
+		_Description = mc._Description;
+		
+		for (MiniatureCollectionItem item: mc._Items)
+			_Items.add(new MiniatureCollectionItem(item));
+
+		for (MiniatureCollectionItem item: mc._PendingItems)
+			_PendingItems.add(new MiniatureCollectionItem(item));
+
+		for (MiniatureCollectionItem item: mc._ConsumedItems)
+			_ConsumedItems.add(new MiniatureCollectionItem(item));
+	}
+	
 	public String getName() 
 	{
 		return _Name;
@@ -55,15 +74,25 @@ public class MiniatureCollection implements ItemCollection
 		_ConsumedItems.clear();
 	}
 	
-	private MiniatureCollectionItem findItem(String itemName)
+	private MiniatureCollectionItem findItem(ArrayList<MiniatureCollectionItem> collection, String itemName)
 	{
-		for (MiniatureCollectionItem item: _Items)
+		for (MiniatureCollectionItem item: collection)
 			if (item.getName().equalsIgnoreCase(itemName))
 				return item;
 		
 		return null;
 	}
-	
+
+	private MiniatureCollectionItem findItem(String itemName)
+	{
+		return findItem(_Items, itemName);
+	}
+
+	private MiniatureCollectionItem findPendingItem(String itemName)
+	{
+		return findItem(_PendingItems, itemName);
+	}
+
 	public void moveToPending(String itemName)
 	{
 		MiniatureCollectionItem item = findItem(itemName);
@@ -73,7 +102,17 @@ public class MiniatureCollection implements ItemCollection
 			_Items.remove(item);
 		}
 	}
-	
+
+	public void removeFromPending(String itemName)
+	{
+		MiniatureCollectionItem item = findPendingItem(itemName);
+		if (item != null)
+		{
+			_PendingItems.remove(item);
+			_Items.add(item);
+		}
+	}
+
 	public void resetPending()
 	{
 		_Items.addAll (_PendingItems);

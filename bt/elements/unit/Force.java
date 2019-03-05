@@ -1,7 +1,7 @@
 package bt.elements.unit;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 import bt.elements.Asset;
 import bt.elements.Battlemech;
@@ -13,7 +13,7 @@ import bt.managers.DesignManager;
 public class Force
 {
 	private String _ParentUnit;	
-	private Date _CurrentDate;
+	private LocalDate _CurrentDate;
 	private QualityRating _QualityRating;
 	private TechRating _TechRating;
 	private String _ItemCollectionName;
@@ -47,12 +47,12 @@ public class Force
 		_ParentUnit = parentUnit;
 	}
 
-	public Date getCurrentDate()
+	public LocalDate getCurrentDate()
 	{
 		return _CurrentDate;
 	}
 
-	public void setCurrentDate(Date currentDate)
+	public void setCurrentDate(LocalDate currentDate)
 	{
 		_CurrentDate = currentDate;
 	}

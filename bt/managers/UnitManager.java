@@ -3,8 +3,8 @@ package bt.managers;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -222,7 +222,22 @@ public class UnitManager
 		
 		return factions;
 	}
-	
+
+	public ArrayList<MechAvailability> getMechAvailability(String eraName, String factionName)
+	{
+		ArrayList<MechAvailability> availability = new ArrayList<MechAvailability>();
+		
+		try
+		{
+			availability.addAll(_MechAvailability.get(Era.fromString(eraName)).get(Faction.fromString(factionName)));
+		}
+		catch (Exception ex)
+		{
+		}
+		
+		return availability;
+	}
+
 	public ArrayList<Unit> getUnits()
 	{
 		return new ArrayList<Unit>(_Units.values()); 
@@ -983,7 +998,7 @@ public class UnitManager
 					String missionTitle = me.getAttributeValue(MISSION_TITLE);
 					CompletedMission.Result missionResult = CompletedMission.Result.fromString(me.getAttributeValue(RESULT));
 					int warchestPoints = Integer.parseInt(me.getAttributeValue(WARCHEST_POINTS));
-					Date missionDate = SwingHelper.GetDateFromString(me.getAttributeValue(MISSION_DATE));
+					LocalDate missionDate = SwingHelper.GetDateFromString(me.getAttributeValue(MISSION_DATE));
 					
 					u.addCompletedMission(new CompletedMission(missionID,missionTitle,missionResult,warchestPoints,missionDate));
 				}

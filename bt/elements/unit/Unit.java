@@ -1,11 +1,10 @@
 package bt.elements.unit;
 
 import java.io.Serializable;
-
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import bt.elements.Ammunition;
 import bt.elements.Asset;
@@ -44,15 +43,15 @@ public class Unit implements Serializable
 	private String _Name;
 	private Player _Player;
 
-	private Date _EstablishDate;
-	private Date _CurrentDate;
+	private LocalDate _EstablishDate;
+	private LocalDate _CurrentDate;
 
 	private QualityRating _QualityRating;
 	private TechRating _TechRating;
 	private int _BaseUnitSize = 4;
 	private int _WarchestPoints = 0;
 
-	private String _Notes;
+	private String _Notes = "";
 
 	private Character _Leader;
 	private ArrayList<Personnel> _Personnel = new ArrayList<Personnel>();
@@ -100,12 +99,12 @@ public class Unit implements Serializable
 		_Leader = leader;
 	}
 
-	public Date getCurrentDate()
+	public LocalDate getCurrentDate()
 	{
 		return _CurrentDate;
 	}
 
-	public void setCurrentDate(Date currentDate)
+	public void setCurrentDate(LocalDate currentDate)
 	{
 		_CurrentDate = currentDate;
 	}
@@ -150,12 +149,12 @@ public class Unit implements Serializable
 		_WarchestPoints = warchestPoints;
 	}
 
-	public Date getEstablishDate()
+	public LocalDate getEstablishDate()
 	{
 		return _EstablishDate;
 	}
 
-	public void setEstablishDate(Date establishDate)
+	public void setEstablishDate(LocalDate establishDate)
 	{
 		_EstablishDate = establishDate;
 	}
@@ -474,6 +473,39 @@ public class Unit implements Serializable
 		PersonnelAssetAssignment paa = getPersonnelAssetAssignment(name);
 		if (paa != null)
 			_PersonnelAssetAssignments.remove(paa);
+	}
+	
+	@Override
+	public String toString()
+	{
+		StringBuilder sb = new StringBuilder();
+		
+		
+		sb.append("Name: " + _Name + System.lineSeparator());
+		sb.append("Player: " + _Player.toString() + System.lineSeparator());
+
+		sb.append("Establish Date: " + _EstablishDate + System.lineSeparator());
+
+		sb.append("Quality Rating: " + _QualityRating + System.lineSeparator());
+		sb.append("Tech Rating: " + _TechRating + System.lineSeparator());
+		sb.append("Warchest Points: " + _WarchestPoints + System.lineSeparator());
+
+		sb.append(System.lineSeparator());
+		sb.append("Notes: " + _Notes + System.lineSeparator());
+		sb.append(System.lineSeparator());
+
+		sb.append("Leader: " + _Leader + System.lineSeparator());
+		sb.append("Personnel: " + System.lineSeparator());
+		for (Personnel p : _Personnel)
+			sb.append("    " + p.getSummary() + System.lineSeparator());
+		sb.append(System.lineSeparator());
+			
+		sb.append("Assets: " + System.lineSeparator());
+		for (Asset a : _Assets)
+			sb.append("    " + a.toString() + System.lineSeparator());
+		sb.append(System.lineSeparator());
+		
+		return sb.toString();
 	}
 	
 }
