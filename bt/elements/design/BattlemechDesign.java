@@ -53,7 +53,7 @@ public class BattlemechDesign implements BattleValue
     private String _Variant;
     private String _Role;
     private String _Manufacturer;
-    private BattlemechDesign.Type _Type = BattlemechDesign.Type.BIPED;
+    private BattlemechDesign.Type _Type;
     private int _Weight;
     private int _Cost;
     private int _BV;
@@ -61,10 +61,6 @@ public class BattlemechDesign implements BattleValue
 
     private Vector<DesignItem> _Items = new Vector<DesignItem>();
 
-    private static BattlemechSection[] _Sections;
-    private String[] _InternalLocations = _InternalLocationsBiped;
-    private String[] _ArmourLocations = _ArmourLocationsBiped;
-    
 	public String getName()
 	{
 		return _Name;
@@ -107,30 +103,6 @@ public class BattlemechDesign implements BattleValue
             throw new IllegalArgumentException("Cannot set type other than Biped, Quad, LAM or Omni - " + type);
 
         _Type = type;
-        if (_Type == Type.BIPED)
-        {
-        	_Sections = _SectionsBiped;
-            _InternalLocations = _InternalLocationsBiped;
-            _ArmourLocations = _ArmourLocationsBiped;
-        }
-        if (_Type == Type.QUAD)
-        {
-        	_Sections = _SectionsQuad;
-            _InternalLocations = _InternalLocationsQuad;
-            _ArmourLocations = _ArmourLocationsQuad;
-        }
-        if (_Type == Type.LAM)
-        {
-        	_Sections = _SectionsLAM;
-            _InternalLocations = _InternalLocationsLAM;
-            _ArmourLocations = _ArmourLocationsLAM;
-        }
-        if (_Type == Type.OMNI)
-        {
-        	_Sections = _SectionsOmni;
-            _InternalLocations = _InternalLocationsOmni;
-            _ArmourLocations = _ArmourLocationsOmni;
-        }
 	}
 	public int getWeight()
 	{
@@ -175,23 +147,50 @@ public class BattlemechDesign implements BattleValue
 	}
 	public BattlemechSection[] getSections()
 	{
-		return _Sections;
+		switch (_Type)
+		{
+			case BIPED:
+				return _SectionsBiped;
+			case QUAD:
+				return _SectionsQuad;
+			case LAM:
+				return _SectionsLAM;
+			case OMNI:
+				return _SectionsOmni;
+		}
+		return null;
 	}
+	
 	public String[] getInternalLocations()
 	{
-		return _InternalLocations;
+		switch (_Type)
+		{
+			case BIPED:
+				return _InternalLocationsBiped;
+			case QUAD:
+				return _InternalLocationsQuad;
+			case LAM:
+				return _InternalLocationsLAM;
+			case OMNI:
+				return _InternalLocationsOmni;
+		}
+		return null;
 	}
-	public void setInternalLocations(String[] internalLocations)
-	{
-		_InternalLocations = internalLocations;
-	}
+
 	public String[] getArmourLocations()
 	{
-		return _ArmourLocations;
-	}
-	public void setArmourLocations(String[] armourLocations)
-	{
-		_ArmourLocations = armourLocations;
+		switch (_Type)
+		{
+			case BIPED:
+				return _ArmourLocationsBiped;
+			case QUAD:
+				return _ArmourLocationsQuad;
+			case LAM:
+				return _ArmourLocationsLAM;
+			case OMNI:
+				return _ArmourLocationsOmni;
+		}
+		return null;
 	}
 
     public String getVariantName()

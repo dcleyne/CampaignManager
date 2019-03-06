@@ -3,10 +3,19 @@ package bt.util;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
-import javax.swing.*;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
+
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JEditorPane;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class SwingHelper
 {
@@ -172,34 +181,7 @@ public class SwingHelper
     	if (d == null) 
     		return "";
     	
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        return formatter.format(d);
-    }
-
-    public static String FormatDateTime(Date d)
-    {
-    	if (d == null) 
-    		return "";
-    	
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return formatter.format(d);
-    }
-
-    public static LocalDate GetDateFromString(String Value) throws java.text.ParseException
-    {
-    	if (Value.isEmpty())
-    		return null;
-    	
-        return LocalDate.parse(Value);
-    }
-
-    public static Date GetDateTimeFromString(String Value) throws java.text.ParseException
-    {
-    	if (Value.isEmpty())
-    		return null;
-    	
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return formatter.parse(Value);
+    	return d.toString();
     }
 
 }

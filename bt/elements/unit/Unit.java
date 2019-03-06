@@ -482,7 +482,7 @@ public class Unit implements Serializable
 		
 		
 		sb.append("Name: " + _Name + System.lineSeparator());
-		sb.append("Player: " + _Player.toString() + System.lineSeparator());
+		sb.append("Player: " + _Player + System.lineSeparator());
 
 		sb.append("Establish Date: " + _EstablishDate + System.lineSeparator());
 

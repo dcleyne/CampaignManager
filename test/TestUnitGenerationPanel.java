@@ -4,7 +4,7 @@ import java.awt.BorderLayout;
 
 
 import javax.swing.JFrame;
-import bt.ui.panels.GenerateNewUnitPanel;
+import bt.ui.panels.CreateNewUnitPanel;
 import bt.util.PropertyUtil;
 
 public class TestUnitGenerationPanel
@@ -27,7 +27,7 @@ public class TestUnitGenerationPanel
 	
 			//3. Create components and put them in the frame.
 			//...create emptyLabel...
-			frame.getContentPane().add(new GenerateNewUnitPanel(), BorderLayout.CENTER);
+			frame.getContentPane().add(new CreateNewUnitPanel(), BorderLayout.CENTER);
 	
 			//4. Size the frame.
 			frame.pack();

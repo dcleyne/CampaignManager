@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import bt.elements.unit.Unit;
 import bt.managers.UnitManager;
 import bt.ui.dialogs.SelectDateDialog;
+import bt.util.DateHelper;
 import bt.util.SwingHelper;
 
 public class UnitDetailsPanel extends JPanel implements ClosableEditPanel, ActionListener
@@ -136,8 +137,8 @@ public class UnitDetailsPanel extends JPanel implements ClosableEditPanel, Actio
         try
         {
             _Unit.setName(_NameTextField.getText());
-            _Unit.setEstablishDate(SwingHelper.GetDateFromString(_DateEstablishedTextField.getText()));
-            _Unit.setCurrentDate(SwingHelper.GetDateFromString(_CurrentDateTextField.getText()));
+            _Unit.setEstablishDate(DateHelper.longDateFromString(_DateEstablishedTextField.getText()));
+            _Unit.setCurrentDate(DateHelper.longDateFromString(_CurrentDateTextField.getText()));
             _Unit.setNotes(_NotesTextArea.getText());
         }
         catch (Exception e)

@@ -56,6 +56,9 @@ public class SelectDateDialog extends JDialog implements ActionListener
 			}			
 		}
 		
+		if (chosenDate == null)
+			chosenDate = LocalDate.now();
+		
 		Instant instant = chosenDate.atStartOfDay(ZoneId.systemDefault()).toInstant();
         Date cd = Date.from(instant);
 		_Calendar = new JCalendar(cd);

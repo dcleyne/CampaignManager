@@ -2,6 +2,7 @@ package bt.ui.panels;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Desktop;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -11,6 +12,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -50,7 +52,7 @@ import bt.ui.models.MechDesignTableModel;
 import bt.ui.models.TableSorter;
 import bt.util.ExceptionUtil;
 
-public class GenerateNewUnitPanel extends JPanel implements ItemListener, MouseListener, ActionListener
+public class CreateNewUnitPanel extends JPanel implements ItemListener, MouseListener, ActionListener
 {
 	private static final String SAVE_UNIT = "Save Unit";
 	private static final String OPEN_IN_PDF = "Open in PDF";
@@ -59,7 +61,7 @@ public class GenerateNewUnitPanel extends JPanel implements ItemListener, MouseL
 	private static final String GENERATE_UNIT = "Generate Unit";
 	private static final long serialVersionUID = 1L;	
 	
-	private Unit _GeneratedUnit = new Unit();
+	private Unit _CreatedUnit = new Unit();
 	private Player _Player = new Player();
 	private UnitManager _UnitManager = UnitManager.getInstance();
 	private DesignManager _DesignManager = DesignManager.getInstance();
@@ -91,7 +93,7 @@ public class GenerateNewUnitPanel extends JPanel implements ItemListener, MouseL
 	 * This method initializes 
 	 * 
 	 */
-	public GenerateNewUnitPanel() {
+	public CreateNewUnitPanel() {
 		super();
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0};
@@ -383,7 +385,8 @@ public class GenerateNewUnitPanel extends JPanel implements ItemListener, MouseL
 		gbc_SelectedDesignList.weighty = 100.0;
 		gbc_SelectedDesignList.gridx = 0;
 		gbc_SelectedDesignList.gridy = 3;
-		_UnitDetails.add(_SelectedDesignList, gbc_SelectedDesignList);
+		JScrollPane listScrollPane = new JScrollPane(_SelectedDesignList, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		_UnitDetails.add(listScrollPane, gbc_SelectedDesignList);
 		_SelectedDesignList.addMouseListener(this);
 		
 		JPanel _UnitSummaryPanel = new JPanel();
@@ -474,7 +477,7 @@ public class GenerateNewUnitPanel extends JPanel implements ItemListener, MouseL
 		gbc_UnitDetailsPanel.fill = GridBagConstraints.BOTH;
 		gbc_UnitDetailsPanel.gridx = 0;
 		gbc_UnitDetailsPanel.gridy = 3;
-		gbc_UnitDetailsPanel.weighty = 10;
+		gbc_UnitDetailsPanel.weighty = 20;
 		add(_UnitDetailsPanel, gbc_UnitDetailsPanel);
 		
 		_UnitDetailsTextArea = new JTextArea();
@@ -509,7 +512,12 @@ public class GenerateNewUnitPanel extends JPanel implements ItemListener, MouseL
 		initialize();
 	}
 	
-	public void resizeColumnWidth(JTable table) 
+	public Unit getCreatedUnit()
+	{
+		return _CreatedUnit;
+	}
+	
+	private void resizeColumnWidth(JTable table) 
 	{
 	    final TableColumnModel columnModel = table.getColumnModel();
 	    for (int column = 0; column < table.getColumnCount(); column++) 
@@ -733,6 +741,7 @@ public class GenerateNewUnitPanel extends JPanel implements ItemListener, MouseL
 		if (e.getActionCommand().equals(SAVE_UNIT))
 		{
 			saveUnit();
+			JOptionPane.showMessageDialog(this, "Unit Saved!", "Unit Saved", JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 	}
@@ -779,19 +788,19 @@ public class GenerateNewUnitPanel extends JPanel implements ItemListener, MouseL
 			QualityRating qualityRating = (QualityRating)_UnitQualityComboBox.getSelectedItem();
 			TechRating techRating = (TechRating)_UnitTechRatingComboBox.getSelectedItem();
 			
-			_GeneratedUnit = null;
+			_CreatedUnit = null;
 	        int tries = 0;
-	        while (_GeneratedUnit == null && tries < 10)
+	        while (_CreatedUnit == null && tries < 10)
 	        {
-	        	_GeneratedUnit = _UnitManager.generateUnitWithElements(era, faction, _Player, _UnitNameTextField.getText(), designNames, rating, qualityRating, techRating, ic);
+	        	_CreatedUnit = _UnitManager.generateUnitWithElements(era, faction, _Player, _UnitNameTextField.getText(), designNames, rating, qualityRating, techRating, ic);
 	        	tries++;
 	        }
-        	if (_GeneratedUnit == null)
+        	if (_CreatedUnit == null)
         		throw new Exception("Failed :(");
         	
         	LocalDate date = LocalDate.of(3015, 1, 1);
-        	_GeneratedUnit.setEstablishDate(date);
-        	_UnitDetailsTextArea.setText(_GeneratedUnit.toString());
+        	_CreatedUnit.setEstablishDate(date);
+        	_UnitDetailsTextArea.setText(_CreatedUnit.toString());
 		}
 		catch (Exception ex)
 		{
@@ -801,12 +810,32 @@ public class GenerateNewUnitPanel extends JPanel implements ItemListener, MouseL
 	
 	private void openUnitInPDF()
 	{
-		
+		if (_CreatedUnit != null)
+		{
+			try
+			{
+				String filename = _UnitManager.printUnitSummaryToPDF(_CreatedUnit);
+				Desktop.getDesktop().open(new File(filename));
+			}
+			catch (Exception ex)
+			{
+				System.out.println(ExceptionUtil.getExceptionStackTrace(ex));
+			}
+		}
 	}
 	
-	private void saveUnit()
+	public void saveUnit()
 	{
-		
+		try
+		{
+			_UnitManager.saveUnit(_CreatedUnit);
+			_UnitManager.refreshUnitList();
+		}
+		catch (Exception ex)
+		{
+			System.out.println(ExceptionUtil.getExceptionStackTrace(ex));
+		}
 	}
+	
 	
 }  //  @jve:decl-index=0:visual-constraint="10,10"

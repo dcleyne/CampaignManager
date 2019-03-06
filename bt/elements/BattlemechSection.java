@@ -16,11 +16,10 @@ public enum BattlemechSection
     RIGHT_REAR_LEG;
     
     private static String[] _Names = {"Head","Center Torso","Left Torso","Right Torso","Left Arm", "Right Arm", "Left Leg", "Right Leg","Left Front Leg","Right Front Leg","Left Rear Leg", "Right Rear Leg"};
-    private static boolean[] _CanBeBlownOff = {true,false,false,false,true,true,true,true,true,true,true};
+    private static boolean[] _CanBeBlownOff = {true,false,false,false,true,true,true,true,true,true,true,true};
    
     private static SectionStatus.Status[] _BlowOffableStatuses = SectionStatus.Status.values();
     private static SectionStatus.Status[] _NotBlowOffableStatuses = { SectionStatus.Status.OK, SectionStatus.Status.DAMAGED,SectionStatus.Status.DESTROYED, SectionStatus.Status.JURYRIGGED };
-    
     
     public String GetName()
     { return _Names[ordinal()]; }
@@ -50,4 +49,5 @@ public enum BattlemechSection
     	
     	return _NotBlowOffableStatuses;
     }
+    
 }

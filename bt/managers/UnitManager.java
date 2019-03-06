@@ -56,6 +56,7 @@ import bt.elements.unit.Role;
 import bt.elements.unit.TechRating;
 import bt.elements.unit.Unit;
 import bt.ui.renderers.BattlemechRenderer;
+import bt.util.DateHelper;
 import bt.util.Dice;
 import bt.util.ExceptionUtil;
 import bt.util.ExtensionFileFilter;
@@ -924,7 +925,7 @@ public class UnitManager
 		{
 			try
 			{
-				u.setEstablishDate(SwingHelper.GetDateFromString(unitNode.getChildTextTrim(ESTABLISH_DATE)));
+				u.setEstablishDate(DateHelper.longDateFromString(unitNode.getChildTextTrim(ESTABLISH_DATE)));
 			}
 			catch (Exception e) {}
 		}
@@ -932,7 +933,7 @@ public class UnitManager
 		{
 			try
 			{
-				u.setCurrentDate(SwingHelper.GetDateFromString(unitNode.getChildTextTrim(CURRENT_DATE)));
+				u.setCurrentDate(DateHelper.longDateFromString(unitNode.getChildTextTrim(CURRENT_DATE)));
 			}
 			catch (Exception e) {}
 		}
@@ -998,7 +999,7 @@ public class UnitManager
 					String missionTitle = me.getAttributeValue(MISSION_TITLE);
 					CompletedMission.Result missionResult = CompletedMission.Result.fromString(me.getAttributeValue(RESULT));
 					int warchestPoints = Integer.parseInt(me.getAttributeValue(WARCHEST_POINTS));
-					LocalDate missionDate = SwingHelper.GetDateFromString(me.getAttributeValue(MISSION_DATE));
+					LocalDate missionDate = DateHelper.longDateFromString(me.getAttributeValue(MISSION_DATE));
 					
 					u.addCompletedMission(new CompletedMission(missionID,missionTitle,missionResult,warchestPoints,missionDate));
 				}
@@ -1036,7 +1037,7 @@ public class UnitManager
 		{
 			try
 			{
-				f.setCurrentDate(SwingHelper.GetDateFromString(unitNode.getChildTextTrim(CURRENT_DATE)));
+				f.setCurrentDate(DateHelper.longDateFromString(unitNode.getChildTextTrim(CURRENT_DATE)));
 			}
 			catch (Exception e) {}
 		}
@@ -1339,7 +1340,7 @@ public class UnitManager
 		return table;
 	}
 	
-	public void printUnitSummaryToPDF(Unit unit) throws Exception
+	public String printUnitSummaryToPDF(Unit unit) throws Exception
 	{
 		String path = PropertyUtil.getStringProperty(EXTERNAL_DATA_PATH, "data");
 		String filename = path + "/units/" + unit.getName() + " - Summary.pdf";
@@ -1447,6 +1448,8 @@ public class UnitManager
 		document.add(chapter3);
 		
 		document.close();
+		
+		return filename;
 	}
 	
 }

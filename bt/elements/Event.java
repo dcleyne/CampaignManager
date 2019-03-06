@@ -1,35 +1,35 @@
 package bt.elements;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import bt.util.DateHelper;
 
 public abstract class Event implements Comparable<Event>
 {
-	private Date m_EventTime;
+	private LocalDate _EventTime;
 
 		
-	public Event(Date eventTime)
+	public Event(LocalDate eventTime)
 	{
-		m_EventTime = eventTime;	
+		_EventTime = eventTime;	
 	}
 	
-	public Date getEventTime()
-	{ return m_EventTime; }
+	public LocalDate getEventTime()
+	{ return _EventTime; }
 	
 	public int compareTo(Event e)
 	{
-		return this.m_EventTime.compareTo(e.m_EventTime);
+		return this._EventTime.compareTo(e._EventTime);
 	}
 	
 	public void saveToElement(org.jdom.Element e)
 	{
-		e.addContent(new org.jdom.Element("EventTime").setText(DateHelper.longDateAsString(m_EventTime)));
+		e.addContent(new org.jdom.Element("EventTime").setText(DateHelper.longDateAsString(_EventTime)));
 	}
 	
 	public void loadFromElement(org.jdom.Element e)
 	{
-		m_EventTime = DateHelper.longDateFromString(e.getChildText("EventTime"));
+		_EventTime = DateHelper.longDateFromString(e.getChildText("EventTime"));
 	}
 
 

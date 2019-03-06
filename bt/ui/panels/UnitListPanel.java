@@ -62,7 +62,7 @@ public class UnitListPanel extends JPanel implements ListSelectionListener, Mous
     		_EditRequestListeners.remove(l);
     }
     
-    private void requestUnitEdit(Unit u)
+    public void requestUnitEdit(Unit u)
     {
     	for (UnitChangeListener l : _EditRequestListeners)
     		l.requestUnitEdit(u.getName());

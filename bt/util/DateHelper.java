@@ -1,24 +1,23 @@
 package bt.util;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class DateHelper 
 {
-	private static DateFormat m_LongDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+	private static DateTimeFormatter m_LongDateFormat = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 
 	
-	public static String longDateAsString(Date aDate)
+	public static String longDateAsString(LocalDate aDate)
 	{
 		return m_LongDateFormat.format(aDate);
 	}
 	
-	public static Date longDateFromString(String dateString)
+	public static LocalDate longDateFromString(String dateString)
 	{
 		try
 		{
-			return m_LongDateFormat.parse(dateString);
+			return LocalDate.parse(dateString, m_LongDateFormat);
 		}
 		catch (Exception ex)
 		{

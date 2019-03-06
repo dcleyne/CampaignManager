@@ -1,7 +1,7 @@
 package bt.ui.models;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 import javax.swing.table.AbstractTableModel;
 
@@ -15,7 +15,7 @@ public class UnitTableModel extends AbstractTableModel implements UnitManagerLis
     private String ColumnNames[] =
         {"Name", "Establish Date", "Notes"};
     private Class<?> ColumnTypes[] =
-        {String.class, Date.class, String.class};
+        {String.class, LocalDate.class, String.class};
     
     private ArrayList<Unit> _Units;
 

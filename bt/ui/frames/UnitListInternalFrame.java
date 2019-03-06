@@ -15,10 +15,12 @@ import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import bt.elements.unit.Unit;
 import bt.managers.UnitManager;
 import bt.managers.listeners.UnitManagerListener;
+import bt.ui.dialogs.CreateNewUnitDialog;
 import bt.ui.listeners.UnitChangeListener;
 import bt.ui.panels.UnitListPanel;
 
@@ -42,7 +44,6 @@ public class UnitListInternalFrame extends JInternalFrame implements ActionListe
         
         getContentPane().setLayout(new BorderLayout());
 
-        //m_UnitListPanel.setFocusable(false);
         getContentPane().add(_UnitListPanel, BorderLayout.CENTER);
 
         _ButtonPanel.setBorder(BorderFactory.createEtchedBorder());
@@ -60,7 +61,6 @@ public class UnitListInternalFrame extends JInternalFrame implements ActionListe
         _EditButton.setActionCommand("Edit");
         _EditButton.addActionListener(this);
 
-
         _ButtonPanel.add(_NewButton);
         _ButtonPanel.add(_EditButton);
         _ButtonPanel.add(Box.createHorizontalBox());
@@ -74,9 +74,20 @@ public class UnitListInternalFrame extends JInternalFrame implements ActionListe
     {
         if (e.getActionCommand() == "New")
         {
-//            Unit a = UnitManager.getInstance().GenerateUnit((Player)null, "Fixme!!!", (MechUnitParameters)null, Rating.GREEN);
-//            UnitManager.RequestEdit(a);
-//            SwingUtilities.invokeLater(new factorymanager.database.data.managers.UnitEditRequestor(a));
+        	final CreateNewUnitDialog dlg = new CreateNewUnitDialog();
+        	dlg.setModal(true);
+        	dlg.setVisible(true);
+        	if (dlg.getCreatedUnit() != null)
+        	{
+        		SwingUtilities.invokeLater(new Runnable()
+				{					
+					@Override
+					public void run()
+					{
+		        		_UnitListPanel.requestUnitEdit(dlg.getCreatedUnit());
+					}
+				});
+        	}
         }
         if (e.getActionCommand() == "Remove")
         {
@@ -95,7 +106,14 @@ public class UnitListInternalFrame extends JInternalFrame implements ActionListe
             Unit a = _UnitListPanel.GetSelectedUnit();
             if (a != null)
             {
-//                UnitManager.RequestEdit(a);
+        		SwingUtilities.invokeLater(new Runnable()
+				{					
+					@Override
+					public void run()
+					{
+		        		_UnitListPanel.requestUnitEdit(a);
+					}
+				});
             }
         }
     }

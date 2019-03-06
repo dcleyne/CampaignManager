@@ -13,8 +13,8 @@
  */
 package bt.elements;
 
-import java.io.*;
-import java.util.Date;
+import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Iterator;
 import java.util.Vector;
 
@@ -25,86 +25,86 @@ public class Player implements Serializable
 {
     static final long serialVersionUID = 1;
 
-    private long m_ID = -1;
-    private String m_Name = "";
-    private String m_Password = "";
-    private String m_Nickname = "";
-    private String m_EmailAddress = "";
-    private Date m_LastLogin = new Date();
-    private Vector<String> m_Units = new Vector<String>();
+    private long _ID = -1;
+    private String _Name = "";
+    private String _Password = "";
+    private String _Nickname = "";
+    private String _EmailAddress = "";
+    private LocalDate _LastLogin = LocalDate.now();
+    private Vector<String> _Units = new Vector<String>();
     
-    private long m_ConnectionID;
+    private long _ConnectionID;
     
     public Player(long id)
     {
-    	m_ID = id;
+    	_ID = id;
     }
     
     public long getID()
-    { return m_ID; }
+    { return _ID; }
     
     public void setName(String Name)
-    { m_Name = Name; }
+    { _Name = Name; }
     
     public void setPassword(String Password)
-    { m_Password = Password; }
+    { _Password = Password; }
 
     public void setNickName(String Name)
-    { m_Nickname = Name; }
+    { _Nickname = Name; }
     
     public void setEmailAddress(String Address)
-    { m_EmailAddress = Address; }
+    { _EmailAddress = Address; }
     
     public void setConnectionID(long ID)
-    { m_ConnectionID = ID; }
+    { _ConnectionID = ID; }
     
-    public void setLastLogin(Date lastLogin)
-    { m_LastLogin = lastLogin; }
+    public void setLastLogin(LocalDate lastLogin)
+    { _LastLogin = lastLogin; }
     
     public String getName()
-    { return m_Name; }
+    { return _Name; }
     
     public String getPassword()
-    { return m_Password; }
+    { return _Password; }
     
     public String getNickname()
-    { return m_Nickname; }
+    { return _Nickname; }
     
     public String getEmailAddress()
-    { return m_EmailAddress; }
+    { return _EmailAddress; }
     
     public long getConnectionID()
-    { return m_ConnectionID; }
+    { return _ConnectionID; }
     
-    public Date getLastLogin()
-    { return m_LastLogin; }
+    public LocalDate getLastLogin()
+    { return _LastLogin; }
     
     public void addUnit(String unitName)
-    { m_Units.add(unitName); }
+    { _Units.add(unitName); }
     
     public void removeUnit(String unitName)
-    { m_Units.remove(unitName); }
+    { _Units.remove(unitName); }
     
     public Vector<String> getUnits()
-    { return m_Units; }
+    { return _Units; }
     
     public boolean equals(Object o)
     {
     	if (this.getClass().equals(o.getClass()))
     	{
-    		return ((Player)o).m_ConnectionID == this.m_ConnectionID;
+    		return ((Player)o)._ConnectionID == this._ConnectionID;
     	} 
         else
         {
             if (o.getClass().getSuperclass().equals(this.getClass()))
-                return ((Player)o).m_ConnectionID == this.m_ConnectionID;            
+                return ((Player)o)._ConnectionID == this._ConnectionID;            
         }
     	return false;
     }
     
     public String toString()
     {
-    	return "(" + Long.toString(m_ConnectionID) + ") " + m_Name;
+    	return "(" + Long.toString(_ConnectionID) + ") " + _Name;
     }
     
     @SuppressWarnings("unchecked")
@@ -112,13 +112,13 @@ public class Player implements Serializable
     {
     	try
     	{
-    		m_ID = Long.parseLong(e.getChildText("ID"));
-	        m_Name = e.getChildText("Name");
-	        m_Password = e.getChildText("Password");
-	        m_Nickname = e.getChildText("Nickname");
-	        m_EmailAddress = e.getChildText("EmailAddress");
-	        m_LastLogin = DateHelper.longDateFromString(e.getChildText("LastLogin"));
-	        m_Units.clear();
+    		_ID = Long.parseLong(e.getChildText("ID"));
+	        _Name = e.getChildText("Name");
+	        _Password = e.getChildText("Password");
+	        _Nickname = e.getChildText("Nickname");
+	        _EmailAddress = e.getChildText("EmailAddress");
+	        _LastLogin = DateHelper.longDateFromString(e.getChildText("LastLogin"));
+	        _Units.clear();
 	        
 	        if (e.getChild("Units") != null)
 	        {
@@ -126,7 +126,7 @@ public class Player implements Serializable
 	        	while (iter.hasNext())
 	        	{
 	        		org.jdom.Element unitElement = (org.jdom.Element)iter.next();
-	        		m_Units.add(unitElement.getText());
+	        		_Units.add(unitElement.getText());
 	        	}
 	        }
         
@@ -138,15 +138,15 @@ public class Player implements Serializable
     
     public void saveToElement(org.jdom.Element e)
     {
-    	e.addContent(new org.jdom.Element("ID").setText(Long.toString(m_ID)));
-    	e.addContent(new org.jdom.Element("Name").setText(m_Name));
-    	e.addContent(new org.jdom.Element("Password").setText(m_Password));
-    	e.addContent(new org.jdom.Element("Nickname").setText(m_Nickname));
-    	e.addContent(new org.jdom.Element("EmailAddress").setText(m_EmailAddress));
-    	e.addContent(new org.jdom.Element("LastLogin").setText(DateHelper.longDateAsString(m_LastLogin)));
+    	e.addContent(new org.jdom.Element("ID").setText(Long.toString(_ID)));
+    	e.addContent(new org.jdom.Element("Name").setText(_Name));
+    	e.addContent(new org.jdom.Element("Password").setText(_Password));
+    	e.addContent(new org.jdom.Element("Nickname").setText(_Nickname));
+    	e.addContent(new org.jdom.Element("EmailAddress").setText(_EmailAddress));
+    	e.addContent(new org.jdom.Element("LastLogin").setText(DateHelper.longDateAsString(_LastLogin)));
     	
     	org.jdom.Element unitsElement = new org.jdom.Element("Units");
-    	for (String unitName: m_Units)
+    	for (String unitName: _Units)
         	unitsElement.addContent(new org.jdom.Element("Unit").setText(unitName));    		
 
     	e.addContent(unitsElement);
