@@ -22,8 +22,8 @@ public class MapLayoutRenderer
 
 	private final int _MapDesiredWidth = 600;
 	private final Hexagon _Hex = new Hexagon(0, 0, (int) (2 * (_MapDesiredWidth / 16) / (3 * Hexagon.Tan30)), false);
-	private final int _MapWidth = (int) _Hex.GetXIncrement() * 16;
-	private final int _MapHeight = _Hex.GetHeight() * 17;
+	private final int _MapWidth = (int) _Hex.getXIncrement() * 16;
+	private final int _MapHeight = _Hex.getHeight() * 17;
 	private final Font _SmallFont = new Font("SansSerif",Font.BOLD,24);
 	private final Font _LargeFont = new Font("SansSerif",Font.BOLD,72);
 
@@ -123,8 +123,8 @@ public class MapLayoutRenderer
 
 	private void renderHexGrid(Graphics2D g, int xCoord, int yCoord)
 	{
-		int xOffset = xCoord - (_Hex.GetWidth() / 2);
-		int yOffset = yCoord - (_Hex.GetHeight() / 2);
+		int xOffset = xCoord - (_Hex.getWidth() / 2);
+		int yOffset = yCoord - (_Hex.getHeight() / 2);
 
 		int y = yOffset;
 		for (int row = 0; row < 18; row++)
@@ -134,13 +134,13 @@ public class MapLayoutRenderer
 			{
 				int yOff = 0;
 				if ((col % 2) == 0)
-					yOff += _Hex.GetYIncrement();
+					yOff += _Hex.getYIncrement();
 
-				Hexagon drawHex = new Hexagon(x, y + yOff, _Hex.GetHeight(), false);
+				Hexagon drawHex = new Hexagon(x, y + yOff, _Hex.getHeight(), false);
 				drawHex.draw(g);
-				x += _Hex.GetXIncrement();
+				x += _Hex.getXIncrement();
 			}
-			y += _Hex.GetHeight();
+			y += _Hex.getHeight();
 		}
 	}
 

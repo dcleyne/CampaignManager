@@ -18,15 +18,19 @@
 
 package bt.ui.renderers;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.Stroke;
 import java.awt.image.ImageObserver;
 
-import bt.mapping.Hexagon;
 import bt.mapping.TerrainFactory;
+import bt.mapping.TerrainType;
 import bt.mapping.campaign.CampaignMapHex;
+import bt.util.Hexagon;
 
 public class CampaignBoardHex extends HexBoardHex
 {
@@ -73,7 +77,6 @@ public class CampaignBoardHex extends HexBoardHex
         g.setColor(curCol);
 	}
 
-	/*
     public void drawRivers(Graphics2D comp)
     {
         Color curCol = comp.getColor();
@@ -81,15 +84,16 @@ public class CampaignBoardHex extends HexBoardHex
         //Draw Rivers
         if (getMapHex().hasRiver())
         {
+        	bt.util.Hexagon h = _Renderer.getHex(_BoardCoordinate);
             Stroke currentStroke = comp.getStroke();
 			comp.setColor(TerrainFactory.INSTANCE.getTerrainBackground(TerrainType.LAKE));
         	for (int river = 0; river < 6; river++)
         	{
-        		int riverSize = m_Details.getRiver(river);
+        		int riverSize = getMapHex().getRiver(river);
         		if (riverSize > 0)
         		{
-        			Point startPoint = super.getHexsideStartPoint(river + 1);
-        			Point endPoint = super.getHexsideEndPoint(river + 1);
+        			Point startPoint = h.getHexsideStartPoint(river + 1);
+        			Point endPoint = h.getHexsideEndPoint(river + 1);
         			comp.setStroke(new BasicStroke(riverSize + 1));
         			
         			comp.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y);
@@ -97,34 +101,10 @@ public class CampaignBoardHex extends HexBoardHex
         	}
             comp.setStroke(currentStroke);
         }
-		for (int i = 0; i < m_Offsets.size(); i++)
-		{
-            Hexagon aHex = GetOffsetHex(i);
-
-            //Draw Rivers
-            if (m_Details.hasRiver())
-            {
-                Stroke currentStroke = comp.getStroke();
-            	for (int river = 0; river < 6; river++)
-            	{
-            		int riverSize = m_Details.getRiver(river);
-            		if (riverSize > 0)
-            		{
-            			comp.setColor(TerrainFactory.INSTANCE.getTerrainBackground(TerrainType.LAKE));
-            			Point startPoint = aHex.getHexsideStartPoint(river + 1);
-            			Point endPoint = aHex.getHexsideEndPoint(river + 1);
-            			comp.setStroke(new BasicStroke(riverSize));
-            			
-            			comp.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y);
-            		}
-            	}
-                comp.setStroke(currentStroke);
-            }
-            
-        }
         comp.setColor(curCol);
     }
 
+    /*
     public void drawRoads(Graphics2D comp)
     {
         Color curCol = comp.getColor();

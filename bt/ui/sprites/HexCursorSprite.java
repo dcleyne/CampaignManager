@@ -35,9 +35,9 @@ import java.awt.image.FilteredImageSource;
 
 import bt.mapping.Coordinate;
 import bt.mapping.HexGrid;
-import bt.mapping.Hexagon;
 import bt.ui.filters.TintFilter;
 import bt.ui.renderers.HexBoardRenderer;
+import bt.util.Hexagon;
 import bt.util.ImageUtil;
 
 /**
@@ -124,7 +124,7 @@ public class HexCursorSprite extends Sprite
 
 	private Area createArea(int xOffset, int yOffset)
 	{
-		Area area = new Area(new Hexagon(xOffset, yOffset));
+		Area area = new Area(new Hexagon(xOffset, yOffset, _Hex.getMainDimension(), _Hex.isVertical()));
 		area.subtract(new Area(getInnerHex(xOffset, yOffset)));
 
 		return area;

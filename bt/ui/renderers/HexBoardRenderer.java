@@ -33,10 +33,10 @@ import bt.mapping.Board;
 import bt.mapping.Coordinate;
 import bt.mapping.HexBoard;
 import bt.mapping.HexGrid;
-import bt.mapping.Hexagon;
 import bt.mapping.MapHex;
 import bt.ui.sprites.HexCursorSprite;
 import bt.util.ExceptionUtil;
+import bt.util.Hexagon;
 
 public abstract class HexBoardRenderer extends BoardRenderer
 {
@@ -107,8 +107,13 @@ public abstract class HexBoardRenderer extends BoardRenderer
 			System.out.println(ExceptionUtil.getExceptionStackTrace(ex));
 		}
 	}
-	
-	private HexBoardHex getMapHexByCoordinate(Coordinate coord)
+
+	public HexBoardHex getBoardHex(int index)
+	{
+		return _BoardHexes.get(index);
+	}
+
+	private HexBoardHex getBoardHexByCoordinate(Coordinate coord)
 	{
 		for (HexBoardHex bh : _BoardHexes)
 			if (bh._BoardCoordinate.equals(coord))
@@ -119,7 +124,7 @@ public abstract class HexBoardRenderer extends BoardRenderer
 	
 	public void updateMapHex(Coordinate location, MapHex mapHex)
 	{
-		HexBoardHex bh = getMapHexByCoordinate(location);
+		HexBoardHex bh = getBoardHexByCoordinate(location);
 		bh.updateMapHex(mapHex);
 		repaint();
 	}

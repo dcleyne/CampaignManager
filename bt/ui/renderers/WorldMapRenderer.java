@@ -194,15 +194,15 @@ public class WorldMapRenderer
     protected int GetHexHeight(int HexPixelWidth)
     {
         Hexagon aHex = new Hexagon(0,0,HexPixelWidth,true);
-        return aHex.GetHeight();
+        return aHex.getHeight();
     }
 
     protected void InitialiseMap( int Size, int HexWidth )
     {
 
 		Hexagon aHex = new Hexagon(0,0,HexWidth,true);
-		int HexX = aHex.GetXIncrement();
-		int HexY = aHex.GetYIncrement();
+		int HexX = aHex.getXIncrement();
+		int HexY = aHex.getYIncrement();
 	
 		m_HexMap.initialiseMap(Size);
 	
@@ -218,7 +218,7 @@ public class WorldMapRenderer
 		{
 	            Offset.x += Size * HexX * 2;
 	            Point addOff = new Point(Offset);
-	            m_WorldSectors[CurHex-1].AddOffset(addOff);
+	            m_WorldSectors[CurHex-1].addOffset(addOff);
 		}
 		CurHex++;
 		for (int Segment = 0; Segment < 10; Segment++)
@@ -245,19 +245,19 @@ public class WorldMapRenderer
 	                            NewOff = 0 - (((Size - Row) * 2) * HexX);
 	                            if (Segment == 0)
 	                                NewOff += 10 * Size * HexX;
-	                            m_WorldSectors[CurHex-1].AddOffset(NewOff,0);
+	                            m_WorldSectors[CurHex-1].addOffset(NewOff,0);
 	                        }
 	                        if ((Segment==0) && (Cur==Start) && (Row >= Size))
 	                        {
 	                            NewOff = Size * 10 * HexX;
-	                            m_WorldSectors[CurHex-1].AddOffset(NewOff,0);
+	                            m_WorldSectors[CurHex-1].addOffset(NewOff,0);
 	                        }
 	                        if ((!TopSeg) && (Cur==Start) && (Row >= Size))
 	                        {
 	                            NewOff = 0 - (((Row - Size) * 2) * HexX);
 	                            if (Segment == 1)
 	                                NewOff += 10 * Size * HexX;
-	                            m_WorldSectors[CurHex-1].AddOffset(NewOff,0);
+	                            m_WorldSectors[CurHex-1].addOffset(NewOff,0);
 	                        }
 	
 	                        HexOff.x += HexX * 2;
@@ -284,7 +284,7 @@ public class WorldMapRenderer
 		{
 	            Offset.x += Size * HexX * 2;
 	            Point addOff = new Point(Offset);
-	            m_WorldSectors[CurHex-1].AddOffset(addOff);
+	            m_WorldSectors[CurHex-1].addOffset(addOff);
 		}
 	
 	        m_SegmentBoundaries = new Polygon[10];
@@ -307,30 +307,30 @@ public class WorldMapRenderer
 	{	//TopSegment
             Hexes[0] = 1;
             if (Segment == 0)
-                Points[0] = m_WorldSectors[Hexes[0]-1].GetCenter();
+                Points[0] = m_WorldSectors[Hexes[0]-1].getCenter();
             else
-                Points[0] = m_WorldSectors[Hexes[0]-1].GetOffsetHex((Segment / 2)-1).GetCenter();
+                Points[0] = m_WorldSectors[Hexes[0]-1].getOffsetHex((Segment / 2)-1).getCenter();
 
             Hexes[1] = m_HexMap.getRowStarts(WorldSize) + ((Segment + 2) * SegmentSize);
             if (Hexes[1] > m_WorldSectors.length)
             {
                 Hexes[1] -= SegmentSize * 10;
-                Points[1] = m_WorldSectors[Hexes[1]-1].GetOffsetHex(0).GetCenter();
+                Points[1] = m_WorldSectors[Hexes[1]-1].getOffsetHex(0).getCenter();
             }
             else
-                Points[1] = m_WorldSectors[Hexes[1]-1].GetCenter();
+                Points[1] = m_WorldSectors[Hexes[1]-1].getCenter();
 
             Hexes[2] = m_HexMap.getRowStarts(WorldSize) + ((Segment + 1) * SegmentSize);
             if (Hexes[2] > m_WorldSectors.length)
             {
                 Hexes[2] -= SegmentSize * 10;
-                Points[2] = m_WorldSectors[Hexes[2]-1].GetOffsetHex(0).GetCenter();
+                Points[2] = m_WorldSectors[Hexes[2]-1].getOffsetHex(0).getCenter();
             }
             else
-                Points[2] = m_WorldSectors[Hexes[2]-1].GetCenter();
+                Points[2] = m_WorldSectors[Hexes[2]-1].getCenter();
 
             Hexes[3] = m_HexMap.getRowStarts(WorldSize) + (Segment * SegmentSize);
-            Points[3] = m_WorldSectors[Hexes[3]-1].GetCenter();
+            Points[3] = m_WorldSectors[Hexes[3]-1].getCenter();
 
             Points[4] = Points[0];
 	}
@@ -340,28 +340,28 @@ public class WorldMapRenderer
             if (Hexes[0] > m_WorldSectors.length)
             {
                 Hexes[0] -= SegmentSize * 10;
-                Points[0] = m_WorldSectors[Hexes[0]-1].GetOffsetHex(0).GetCenter();
+                Points[0] = m_WorldSectors[Hexes[0]-1].getOffsetHex(0).getCenter();
             }
             else
-                Points[0] = m_WorldSectors[Hexes[0]-1].GetCenter();
+                Points[0] = m_WorldSectors[Hexes[0]-1].getCenter();
 
             Hexes[1] = m_HexMap.getRowStarts(WorldSize) + ((Segment + 2) * SegmentSize);
             if (Hexes[1] > m_WorldSectors.length)
             {
                 Hexes[1] -= SegmentSize * 10;
-                Points[1] = m_WorldSectors[Hexes[1]-1].GetOffsetHex(0).GetCenter();
+                Points[1] = m_WorldSectors[Hexes[1]-1].getOffsetHex(0).getCenter();
             }
             else
-                Points[1] = m_WorldSectors[Hexes[1]-1].GetCenter();
+                Points[1] = m_WorldSectors[Hexes[1]-1].getCenter();
 
             Hexes[2] = m_WorldSectors.length;
             if (Segment == 1)
-                Points[2] = m_WorldSectors[Hexes[2]-1].GetCenter();
+                Points[2] = m_WorldSectors[Hexes[2]-1].getCenter();
             else
-                Points[2] = m_WorldSectors[Hexes[2]-1].GetOffsetHex(((Segment-1) / 2)-1).GetCenter();
+                Points[2] = m_WorldSectors[Hexes[2]-1].getOffsetHex(((Segment-1) / 2)-1).getCenter();
 
             Hexes[3] = m_HexMap.getRowStarts(WorldSize) + (Segment * SegmentSize);
-            Points[3] = m_WorldSectors[Hexes[3]-1].GetCenter();
+            Points[3] = m_WorldSectors[Hexes[3]-1].getCenter();
 
             Points[4] = Points[0];
 	}

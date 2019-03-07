@@ -19,10 +19,14 @@
 package bt.ui.renderers;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
 import java.util.ArrayList;
 
 import bt.mapping.Board;
+import bt.mapping.HexGrid;
 import bt.mapping.MapHex;
 import bt.mapping.TerrainFactory;
 import bt.mapping.campaign.CampaignBoard;
@@ -85,6 +89,26 @@ public class CampaignBoardRenderer extends HexBoardRenderer
 	public Color getHexBorderColour()
 	{
 		return Color.BLACK;
+	}
+
+	@Override
+	public void draw(Graphics2D g, ImageObserver obs)
+	{
+		super.draw(g, obs);
+
+		Rectangle2D clipRect = g.getClipBounds();
+
+		HexGrid grid = _Board.getHexGrid();
+		for (int i = 0; i < grid.getSize(); i++)
+		{
+			CampaignBoardHex bh = (CampaignBoardHex)getBoardHex(i);
+			if (bh.intersects(clipRect))
+			{
+				bh.drawRivers(g);
+			}
+		}
+
+		getSpriteManager().drawSprites(g, obs, clipRect.getBounds());
 	}
 
 }

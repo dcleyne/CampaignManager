@@ -98,6 +98,27 @@ public class CampaignMapHex extends MapHex
 
 		return output;
 	}
+	
+    public boolean hasRoad()
+    {
+    	for (int i = 0; i < 6; i++)
+    	{
+    		if (getRoad(i) > 0)
+    			return true;
+    	}
+    	return false;
+    }
+
+    public boolean hasRiver()
+    {
+    	for (int i = 0; i < 6; i++)
+    	{
+    		if (getRiver(i) > 0)
+    			return true;
+    	}
+    	return false;
+    }
+
 
 	public int getRoad(int HexSide)
 	{

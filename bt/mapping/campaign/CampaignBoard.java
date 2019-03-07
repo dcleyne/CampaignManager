@@ -45,6 +45,11 @@ public class CampaignBoard extends HexBoard
 		return _Version;
 	}
 	
+	public CampaignBoard(int hexDimension)
+	{
+		super(hexDimension);
+	}
+	
 	@Override
 	public void loadFromDataElement(Element e) throws Exception
 	{

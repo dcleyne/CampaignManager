@@ -30,6 +30,7 @@ import bt.mapping.Coordinate;
 import bt.mapping.TerrainType;
 import bt.mapping.campaign.CampaignBoard;
 import bt.mapping.campaign.CampaignMap;
+import bt.mapping.campaign.CampaignMapHex;
 import bt.ui.controls.ZoomSlider;
 import bt.ui.panels.BoardPanel;
 import bt.ui.renderers.CampaignBoardRenderer;
@@ -88,7 +89,7 @@ public class CampaignMapRenderTest extends JFrame
 	
 	private CampaignBoard constructBoard() throws Exception
 	{
-		CampaignBoard board = new CampaignBoard();
+		CampaignBoard board = new CampaignBoard(82);
 		board.setName("Example");
 		board.addMap(constructMap(), new Coordinate(1,1));
 		board.completedAddingMaps();
@@ -99,6 +100,12 @@ public class CampaignMapRenderTest extends JFrame
 	{
 		CampaignMap map = new CampaignMap(7,11);
 		map.createBlankMap(TerrainType.DESERT);
+		
+		CampaignMapHex mapHex = (CampaignMapHex)map.getHex(5,0);
+		mapHex.setTerrainType(TerrainType.MOUNTAINS);
+		mapHex.setRiver(5,3);
+		mapHex.setRiver(0,3);
+		mapHex.setRiver(1,3);
 		
 		return map;
 	}

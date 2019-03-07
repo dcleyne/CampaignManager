@@ -16,142 +16,157 @@ import java.awt.*;
 public class Hexagon extends Polygon
 {
 	private static final long serialVersionUID = 1;
+	// used for turns()
+	private static final int LEFT = 1;
+	private static final int STRAIGHT = 0;
+	private static final int RIGHT = -1;
+
 	
     public static final double Tan30 = Math.tan(Math.PI / 6.0);
 
-    protected boolean m_Vertical;
-    protected int m_MainDimension;
-    protected Vector<Point> m_Offsets;
+    protected boolean _Vertical;
+    protected int _MainDimension;
+    protected Vector<Point> _Offsets;
 
     public Hexagon()
     {
-        m_Vertical = false;
-        m_MainDimension = 0;
+        _Vertical = false;
+        _MainDimension = 0;
         for (int Count = 0; Count < 6; Count++)
         {
             addPoint(0, 0);
         }
 
-        m_Offsets = new Vector<Point>();
+        _Offsets = new Vector<Point>();
     }
 
     public Hexagon(int XOffset, int YOffset, int MainDimension, boolean Vertical)
     {
-        m_Vertical = Vertical;
-        m_MainDimension = MainDimension;
+        _Vertical = Vertical;
+        _MainDimension = MainDimension;
         for (int Count = 0; Count < 6; Count++)
         {
             Point aPoint;
             if (Vertical)
             {
-                aPoint = GetVertPolyPoint(Count + 1);
+                aPoint = getVertPolyPoint(Count + 1);
             }
             else
             {
-                aPoint = GetHorzPolyPoint(Count + 1);
+                aPoint = getHorzPolyPoint(Count + 1);
             }
 
             addPoint(aPoint.x + XOffset, aPoint.y + YOffset);
         }
-        m_Offsets = new Vector<Point>();
+        _Offsets = new Vector<Point>();
     }
 
     public Hexagon(Rectangle aRect, boolean Vertical)
     {
-        m_Vertical = Vertical;
+        _Vertical = Vertical;
         int Width = aRect.width;
         int Height = aRect.height;
         int XOffset = 0;
         int YOffset = 0;
 
-        if (m_Vertical)
+        if (_Vertical)
         {
-            m_MainDimension = Width;
-            while (GetVertHexHeight() > Height)
+            _MainDimension = Width;
+            while (getVertHexHeight() > Height)
             {
-                m_MainDimension--;
+                _MainDimension--;
             }
 
-            XOffset = aRect.x + ( (aRect.width - GetVertHexWidth()) / 2);
-            YOffset = aRect.y + ( (aRect.height - GetVertHexHeight()) / 2);
+            XOffset = aRect.x + ( (aRect.width - getVertHexWidth()) / 2);
+            YOffset = aRect.y + ( (aRect.height - getVertHexHeight()) / 2);
         }
         else
         {
-            m_MainDimension = Height;
-            while (GetHorzHexWidth() > Width)
+            _MainDimension = Height;
+            while (getHorzHexWidth() > Width)
             {
-                m_MainDimension--;
+                _MainDimension--;
             }
 
-            XOffset = aRect.x + ( (aRect.width - GetHorzHexWidth()) / 2);
-            YOffset = aRect.y + ( (aRect.height - GetHorzHexHeight()) / 2);
+            XOffset = aRect.x + ( (aRect.width - getHorzHexWidth()) / 2);
+            YOffset = aRect.y + ( (aRect.height - getHorzHexHeight()) / 2);
         }
         for (int Count = 0; Count < 6; Count++)
         {
             Point aPoint;
             if (Vertical)
             {
-                aPoint = GetVertPolyPoint(Count + 1);
+                aPoint = getVertPolyPoint(Count + 1);
             }
             else
             {
-                aPoint = GetHorzPolyPoint(Count + 1);
+                aPoint = getHorzPolyPoint(Count + 1);
             }
 
             addPoint(aPoint.x + XOffset, aPoint.y + YOffset);
         }
-        m_Offsets = new Vector<Point>();
+        _Offsets = new Vector<Point>();
+    }
+    
+    public int getMainDimension()
+    {
+    	return _MainDimension;
+    }
+    
+    public boolean isVertical()
+    {
+    	return _Vertical;
     }
 
-    public int GetWidth()
+    public int getWidth()
     {
-        if (m_Vertical)
+        if (_Vertical)
         {
-            return GetVertHexWidth();
+            return getVertHexWidth();
         }
         else
         {
-            return GetHorzHexWidth();
+            return getHorzHexWidth();
         }
     }
 
-    public int GetHeight()
+    public int getHeight()
     {
-        if (m_Vertical)
+        if (_Vertical)
         {
-            return GetVertHexHeight();
+            return getVertHexHeight();
         }
         else
         {
-            return GetHorzHexHeight();
+            return getHorzHexHeight();
         }
     }
 
-    public int GetXIncrement()
+    public int getXIncrement()
     {
-        if (m_Vertical)
+        if (_Vertical)
         {
-            return GetVertXIncrement();
+            return getVertXIncrement();
         }
         else
         {
-            return GetHorzXIncrement();
+            return getHorzXIncrement();
         }
     }
 
-    public int GetYIncrement()
+    public int getYIncrement()
     {
-        if (m_Vertical)
+        if (_Vertical)
         {
-            return GetVertYIncrement();
+            return getVertYIncrement();
         }
         else
         {
-            return GetHorzYIncrement();
+            return getHorzYIncrement();
         }
     }
 
-    void Offset(Point aPoint)
+    void offset(Point aPoint)
     {
         for (int Count = 0; Count < 7; Count++)
         {
@@ -160,7 +175,7 @@ public class Hexagon extends Polygon
         }
     }
 
-    void Offset(int XOffset, int YOffset)
+    void offset(int XOffset, int YOffset)
     {
         for (int Count = 0; Count < 7; Count++)
         {
@@ -168,8 +183,73 @@ public class Hexagon extends Polygon
             ypoints[Count] += YOffset;
         }
     }
+    
+	/**
+	 * Returns true if this hex is intersected by the line
+	 * 
+	 * Changed arguments to int : DC
+	 * @param x0
+	 * 	The x value of the line start
+	 * @param y0
+	 * 	The y value of the line start
+	 * @param x1
+	 * 	The x value of the line end
+	 * @param y1
+	 * 	The y value of the line end
+	 * @return true if the line intersects 
+	 */
+	public boolean isIntersectedBy(int x0, int y0, int x1, int y1)
+	{
+		int side1 = turns(x0, y0, x1, y1, xpoints[0], ypoints[0]);
+		if (side1 == STRAIGHT)
+		{
+			return true;
+		}
+		for (int i = 1; i < 8; i++)
+		{
+			int j = turns(x0, y0, x1, y1, xpoints[i], ypoints[i]);
+			if (j == STRAIGHT || j != side1)
+			{
+				return true;
+			}
+		}
+		if (y0 == y1)
+		{
+			if (ypoints[4] + 1 == y0 && ypoints[5] + 1 == y1)
+			{
+				return true; // if we do then return true
+			}
+		}
+		return false;
+	}
 
-    public Point GetCenter()
+	/**
+	 * From Megamek class IdealHex Tests whether a line intersects a point or
+	 * the point passes to the left or right of the line.
+	 * 
+	 * Changed arguments to int : DC
+	 * @param x0
+	 * 	The x0 value
+	 * @param y0
+	 * 	The y0 value
+	 * @param x1
+	 * 	The x1 value
+	 * @param y1
+	 * 	The y1 value
+	 * @param x2
+	 * 	The x2 value
+	 * @param y2
+	 * 	The y2 value
+	 * @return turns
+	 */
+	public static int turns(int x0, int y0, int x1, int y1, int x2, int y2)
+	{
+		final double cross = (x1 - x0) * (y2 - y0) - (x2 - x0) * (y1 - y0);
+		return cross > 0 ? LEFT : cross < 0 ? RIGHT : STRAIGHT;
+	}
+
+
+    public Point getCenter()
     {
         Rectangle aRect = getBounds();
         Point aPoint = new Point(0, 0);
@@ -188,10 +268,10 @@ public class Hexagon extends Polygon
     {
         Rectangle aRect = getBounds();
     	Point retVal = null;
-    	if (m_Vertical)
-    		retVal = GetVertHexsideMidPoint(side);
+    	if (_Vertical)
+    		retVal = getVertHexsideMidPoint(side);
     	else
-    		retVal = GetHorzHexsideMidPoint(side);
+    		retVal = getHorzHexsideMidPoint(side);
     	retVal.x += aRect.x;
     	retVal.y += aRect.y;
     	return retVal;
@@ -204,10 +284,10 @@ public class Hexagon extends Polygon
     	
         Rectangle aRect = getBounds();
     	Point retVal = null;
-    	if (m_Vertical)
-    		retVal = GetVertPolyPoint(side);
+    	if (_Vertical)
+    		retVal = getVertPolyPoint(side);
     	else
-    		retVal = GetHorzPolyPoint(side);
+    		retVal = getHorzPolyPoint(side);
     	retVal.x += aRect.x;
     	retVal.y += aRect.y;
     	return retVal;
@@ -219,10 +299,10 @@ public class Hexagon extends Polygon
     		side = 0;
         Rectangle aRect = getBounds();
     	Point retVal = null;
-    	if (m_Vertical)
-    		retVal = GetVertPolyPoint(side + 1);
+    	if (_Vertical)
+    		retVal = getVertPolyPoint(side + 1);
     	else
-    		retVal = GetHorzPolyPoint(side + 1);
+    		retVal = getHorzPolyPoint(side + 1);
     	retVal.x += aRect.x;
     	retVal.y += aRect.y;
     	return retVal;
@@ -231,33 +311,33 @@ public class Hexagon extends Polygon
 ///////////////////////////////////////////////////////////////////////////////////////
 // Horizontal Hex Routines
 
-    private int GetHorzHexWidth()
+    private int getHorzHexWidth()
     {
-        return (int) (2 * ( (double) m_MainDimension) * Tan30);
+        return (int) (2 * ( (double) _MainDimension) * Tan30);
     }
 
-    private int GetHorzHexHeight()
+    private int getHorzHexHeight()
     {
-        return m_MainDimension;
+        return _MainDimension;
     }
 
-    private int GetHorzYIncrement()
+    private int getHorzYIncrement()
     {
-        return m_MainDimension / 2;
+        return _MainDimension / 2;
     }
 
-    private int GetHorzXIncrement()
+    private int getHorzXIncrement()
     {
-        return (int) (3.0 * ( (double) m_MainDimension) / 2.0 * Tan30);
+        return (int) (3.0 * ( (double) _MainDimension) / 2.0 * Tan30);
     }
 
-    private Point GetHorzPolyPoint(int PolyPoint)
+    private Point getHorzPolyPoint(int PolyPoint)
     {
-        Point aPoint = new Point(GetHorzXPolyPoint(PolyPoint), GetHorzYPolyPoint(PolyPoint));
+        Point aPoint = new Point(getHorzXPolyPoint(PolyPoint), getHorzYPolyPoint(PolyPoint));
         return aPoint;
     }
 
-    private int GetHorzYPolyPoint(int PolyPoint)
+    private int getHorzYPolyPoint(int PolyPoint)
     {
         int YPoint = 0;
         if (PolyPoint >= 0 && PolyPoint < 13)
@@ -265,17 +345,17 @@ public class Hexagon extends Polygon
             switch (PolyPoint)
             {
                 case 0:
-                    YPoint = m_MainDimension / 2;
+                    YPoint = _MainDimension / 2;
                     break;
                 case 1:
                 case 4:
                 case 7:
                 case 10:
-                    YPoint = GetHorzYIncrement();
+                    YPoint = getHorzYIncrement();
                     break;
                 case 2:
                 case 3:
-                    YPoint = m_MainDimension;
+                    YPoint = _MainDimension;
                     break;
                 case 5:
                 case 6:
@@ -283,18 +363,18 @@ public class Hexagon extends Polygon
                     break;
                 case 8:
                 case 9:
-                    YPoint = (int) ( ( (double) m_MainDimension) * 3.0 / 4.0);
+                    YPoint = (int) ( ( (double) _MainDimension) * 3.0 / 4.0);
                     break;
                 case 11:
                 case 12:
-                    YPoint = (int) ( ( (double) m_MainDimension) / 4.0);
+                    YPoint = (int) ( ( (double) _MainDimension) / 4.0);
                     break;
             }
         }
         return YPoint;
     }
 
-    private int GetHorzXPolyPoint(int PolyPoint)
+    private int getHorzXPolyPoint(int PolyPoint)
     {
         int XPoint = 0;
         if (PolyPoint >= 0 && PolyPoint < 13)
@@ -302,8 +382,8 @@ public class Hexagon extends Polygon
             switch (PolyPoint)
             {
                 case 0:
-                    XPoint = GetHorzHexWidth() / 2;
-                    if ( (GetHorzHexWidth() % 2) != 0)
+                    XPoint = getHorzHexWidth() / 2;
+                    if ( (getHorzHexWidth() % 2) != 0)
                     {
                         XPoint--;
                     }
@@ -314,32 +394,32 @@ public class Hexagon extends Polygon
                 case 2:
                 case 6:
                 case 7:
-                    XPoint = (int) ( ( (double) m_MainDimension) / 2 * Tan30);
+                    XPoint = (int) ( ( (double) _MainDimension) / 2 * Tan30);
                     break;
                 case 3:
                 case 5:
                 case 10:
-                    XPoint = (int) (3.0 * ( (double) m_MainDimension) / 2.0 * Tan30);
+                    XPoint = (int) (3.0 * ( (double) _MainDimension) / 2.0 * Tan30);
                     break;
                 case 4:
-                    XPoint = GetHorzHexWidth();
+                    XPoint = getHorzHexWidth();
                     break;
                 case 8:
                 case 12:
-                    XPoint = (int) ( ( (double) m_MainDimension) / 2 * Tan30);
-                    XPoint += (int) ( ( ( (double) m_MainDimension) / 2.0) / 2 * Tan30);
+                    XPoint = (int) ( ( (double) _MainDimension) / 2 * Tan30);
+                    XPoint += (int) ( ( ( (double) _MainDimension) / 2.0) / 2 * Tan30);
                     break;
                 case 9:
                 case 11:
-                    XPoint = (int) ( ( (double) m_MainDimension) / 2 * Tan30);
-                    XPoint += (int) (3.0 * ( ( (double) m_MainDimension) / 2.0) / 2.0 * Tan30);
+                    XPoint = (int) ( ( (double) _MainDimension) / 2 * Tan30);
+                    XPoint += (int) (3.0 * ( ( (double) _MainDimension) / 2.0) / 2.0 * Tan30);
                     break;
             }
         }
         return XPoint;
     }
 
-    private Point GetHorzHexsideMidPoint(int Hexside)
+    private Point getHorzHexsideMidPoint(int Hexside)
     {
         Point retPoint = new Point();
         double grad = 0.0;
@@ -351,41 +431,41 @@ public class Hexagon extends Polygon
         switch (Hexside)
         {
             case 1:
-                p1 = GetHorzPolyPoint(6);
-                p2 = GetHorzPolyPoint(5);
+                p1 = getHorzPolyPoint(6);
+                p2 = getHorzPolyPoint(5);
                 angle = 0;
                 break;
             case 2:
-                p1 = GetHorzPolyPoint(5);
-                p2 = GetHorzPolyPoint(4);
+                p1 = getHorzPolyPoint(5);
+                p2 = getHorzPolyPoint(4);
                 angle = Math.PI / 3.0;
                 break;
             case 3:
-                p1 = GetHorzPolyPoint(3);
-                p2 = GetHorzPolyPoint(4);
+                p1 = getHorzPolyPoint(3);
+                p2 = getHorzPolyPoint(4);
                 angle = Math.PI / 3.0;
                 break;
             case 4:
-                p1 = GetHorzPolyPoint(2);
-                p2 = GetHorzPolyPoint(3);
+                p1 = getHorzPolyPoint(2);
+                p2 = getHorzPolyPoint(3);
                 angle = 0;
                 break;
             case 5:
-                p1 = GetHorzPolyPoint(1);
-                p2 = GetHorzPolyPoint(2);
+                p1 = getHorzPolyPoint(1);
+                p2 = getHorzPolyPoint(2);
                 angle = Math.PI / 3.0;
                 break;
             case 6:
-                p1 = GetHorzPolyPoint(1);
-                p2 = GetHorzPolyPoint(6);
+                p1 = getHorzPolyPoint(1);
+                p2 = getHorzPolyPoint(6);
                 angle = Math.PI / 3.0;
                 break;
             default:
                 // bad bad bad bad bad
         }
-        grad = GetGradient(p1, p2);
-        yInt = GetYIntercept(p1, p2);
-        int LineLength = GetLineLength(p1, p2);
+        grad = getGradient(p1, p2);
+        yInt = getYIntercept(p1, p2);
+        int LineLength = getLineLength(p1, p2);
         if (LineLength % 2 > 0)
         	LineLength = (LineLength / 2) + 1;
         else
@@ -398,33 +478,33 @@ public class Hexagon extends Polygon
 ///////////////////////////////////////////////////////////////////////////////////////
 // Vertical Hex Routines
 
-    private int GetVertHexWidth()
+    private int getVertHexWidth()
     {
-        return m_MainDimension;
+        return _MainDimension;
     }
 
-    private int GetVertHexHeight()
+    private int getVertHexHeight()
     {
-        return (int) (2 * ( (double) m_MainDimension) * Tan30);
+        return (int) (2 * ( (double) _MainDimension) * Tan30);
     }
 
-    private int GetVertYIncrement()
+    private int getVertYIncrement()
     {
-        return (int) (3.0 * ( (double) m_MainDimension) / 2.0 * Tan30);
+        return (int) (3.0 * ( (double) _MainDimension) / 2.0 * Tan30);
     }
 
-    private int GetVertXIncrement()
+    private int getVertXIncrement()
     {
-        return m_MainDimension / 2;
+        return _MainDimension / 2;
     }
 
-    private Point GetVertPolyPoint(int PolyPoint)
+    private Point getVertPolyPoint(int PolyPoint)
     {
-        Point aPoint = new Point(GetVertXPolyPoint(PolyPoint), GetVertYPolyPoint(PolyPoint));
+        Point aPoint = new Point(getVertXPolyPoint(PolyPoint), getVertYPolyPoint(PolyPoint));
         return aPoint;
     }
 
-    private int GetVertYPolyPoint(int PolyPoint)
+    private int getVertYPolyPoint(int PolyPoint)
     {
         int YPoint = 0;
         if (PolyPoint >= 0 && PolyPoint < 13)
@@ -432,8 +512,8 @@ public class Hexagon extends Polygon
             switch (PolyPoint)
             {
                 case 0:
-                    YPoint = GetVertHexHeight() / 2;
-                    if ( (GetVertHexHeight() % 2) != 0)
+                    YPoint = getVertHexHeight() / 2;
+                    if ( (getVertHexHeight() % 2) != 0)
                     {
                         YPoint--;
                     }
@@ -444,32 +524,32 @@ public class Hexagon extends Polygon
                 case 2:
                 case 6:
                 case 7:
-                    YPoint = (int) ( ( (double) m_MainDimension) / 2 * Tan30);
+                    YPoint = (int) ( ( (double) _MainDimension) / 2 * Tan30);
                     break;
                 case 3:
                 case 5:
                 case 10:
-                    YPoint = (int) (3.0 * ( (double) m_MainDimension) / 2.0 * Tan30);
+                    YPoint = (int) (3.0 * ( (double) _MainDimension) / 2.0 * Tan30);
                     break;
                 case 4:
-                    YPoint = GetVertHexHeight();
+                    YPoint = getVertHexHeight();
                     break;
                 case 8:
                 case 12:
-                    YPoint = (int) ( ( (double) m_MainDimension) / 2 * Tan30);
-                    YPoint += (int) ( ( ( (double) m_MainDimension) / 2.0) / 2 * Tan30);
+                    YPoint = (int) ( ( (double) _MainDimension) / 2 * Tan30);
+                    YPoint += (int) ( ( ( (double) _MainDimension) / 2.0) / 2 * Tan30);
                     break;
                 case 9:
                 case 11:
-                    YPoint = (int) ( ( (double) m_MainDimension) / 2 * Tan30);
-                    YPoint += (int) (3.0 * ( ( (double) m_MainDimension) / 2.0) / 2.0 * Tan30);
+                    YPoint = (int) ( ( (double) _MainDimension) / 2 * Tan30);
+                    YPoint += (int) (3.0 * ( ( (double) _MainDimension) / 2.0) / 2.0 * Tan30);
                     break;
             }
         }
         return YPoint;
     }
 
-    private int GetVertXPolyPoint(int PolyPoint)
+    private int getVertXPolyPoint(int PolyPoint)
     {
         int XPoint = 0;
         if (PolyPoint >= 0 && PolyPoint < 13)
@@ -477,17 +557,17 @@ public class Hexagon extends Polygon
             switch (PolyPoint)
             {
                 case 0:
-                    XPoint = m_MainDimension / 2;
+                    XPoint = _MainDimension / 2;
                     break;
                 case 1:
                 case 4:
                 case 7:
                 case 10:
-                    XPoint = GetVertXIncrement();
+                    XPoint = getVertXIncrement();
                     break;
                 case 2:
                 case 3:
-                    XPoint = m_MainDimension;
+                    XPoint = _MainDimension;
                     break;
                 case 5:
                 case 6:
@@ -495,18 +575,18 @@ public class Hexagon extends Polygon
                     break;
                 case 8:
                 case 9:
-                    XPoint = (int) ( ( (double) m_MainDimension) * 3.0 / 4.0);
+                    XPoint = (int) ( ( (double) _MainDimension) * 3.0 / 4.0);
                     break;
                 case 11:
                 case 12:
-                    XPoint = (int) ( ( (double) m_MainDimension) / 4.0);
+                    XPoint = (int) ( ( (double) _MainDimension) / 4.0);
                     break;
             }
         }
         return XPoint;
     }
 
-    private Point GetVertHexsideMidPoint(int Hexside)
+    private Point getVertHexsideMidPoint(int Hexside)
     {
         Point retPoint = new Point(0, 0);
         double grad = 0.0;
@@ -518,40 +598,40 @@ public class Hexagon extends Polygon
         switch (Hexside)
         {
             case 1:
-                p1 = GetVertPolyPoint(1);
-                p2 = GetVertPolyPoint(2);
+                p1 = getVertPolyPoint(1);
+                p2 = getVertPolyPoint(2);
                 angle = Math.PI / 6.0;
                 break;
             case 2:
-                p1 = GetVertPolyPoint(2);
-                p2 = GetVertPolyPoint(3);
+                p1 = getVertPolyPoint(2);
+                p2 = getVertPolyPoint(3);
                 angle = Math.PI / 2.0;
                 break;
             case 3:
-                p1 = GetVertPolyPoint(4);
-                p2 = GetVertPolyPoint(3);
+                p1 = getVertPolyPoint(4);
+                p2 = getVertPolyPoint(3);
                 angle = Math.PI / 6.0;
                 break;
             case 4:
-                p1 = GetVertPolyPoint(5);
-                p2 = GetVertPolyPoint(4);
+                p1 = getVertPolyPoint(5);
+                p2 = getVertPolyPoint(4);
                 angle = Math.PI / 6.0;
                 break;
             case 5:
-                p1 = GetVertPolyPoint(6);
-                p2 = GetVertPolyPoint(5);
+                p1 = getVertPolyPoint(6);
+                p2 = getVertPolyPoint(5);
                 angle = Math.PI / 2.0;
                 break;
             case 6:
-                p1 = GetVertPolyPoint(6);
-                p2 = GetVertPolyPoint(1);
+                p1 = getVertPolyPoint(6);
+                p2 = getVertPolyPoint(1);
                 angle = Math.PI / 6.0;
                 break;
             default:
         }
-        grad = GetGradient(p1, p2);
-        yInt = GetYIntercept(p1,p2);
-        int LineLength = GetLineLength(p1, p2);
+        grad = getGradient(p1, p2);
+        yInt = getYIntercept(p1,p2);
+        int LineLength = getLineLength(p1, p2);
         if (LineLength % 2 > 0)
         	LineLength = (LineLength / 2) + 1;
         else
@@ -564,60 +644,60 @@ public class Hexagon extends Polygon
         return retPoint;
     }
 
-    private double GetGradient(Point p1, Point p2)
+    private double getGradient(Point p1, Point p2)
     {
         return (double) (p2.y - p1.y) / (double) (p2.x - p1.x);
     }
 
-    private double GetYIntercept(Point p1, Point p2)
+    private double getYIntercept(Point p1, Point p2)
     {
-        return (double) p1.y - (p1.x * GetGradient(p1,p2));
+        return (double) p1.y - (p1.x * getGradient(p1,p2));
     }
     
-    private int GetLineLength(Point p1, Point p2)
+    private int getLineLength(Point p1, Point p2)
     {
         int x = p2.x - p1.x;
         int y = p2.y - p1.y;
         return (int) Math.sqrt(x * x + y * y);
     }
 
-    public void AddOffset(Point Offset)
+    public void addOffset(Point Offset)
     {
-        m_Offsets.add(Offset);
+        _Offsets.add(Offset);
     }
 
-    public void AddOffset(int XOffset, int YOffset)
+    public void addOffset(int XOffset, int YOffset)
     {
         Point Offset = new Point(XOffset, YOffset);
-        m_Offsets.add(Offset);
+        _Offsets.add(Offset);
     }
 
-    public void RemoveOffset(int Index)
+    public void removeOffset(int Index)
     {
-        if (Index < m_Offsets.size())
+        if (Index < _Offsets.size())
         {
-            m_Offsets.remove(Index);
+            _Offsets.remove(Index);
         }
     }
 
-    public Point GetOffset(int Index)
+    public Point getOffset(int Index)
     {
-        if (Index < m_Offsets.size())
+        if (Index < _Offsets.size())
         {
-            return (Point) m_Offsets.get(Index);
+            return (Point) _Offsets.get(Index);
         }
 
         return new Point();
     }
 
-    public Hexagon GetOffsetHex(int Index)
+    public Hexagon getOffsetHex(int Index)
     {
-        if (Index < m_Offsets.size())
+        if (Index < _Offsets.size())
         {
             Hexagon OffsetHex = new Hexagon();
             OffsetHex = copy();
 
-            OffsetHex.Offset( (Point) m_Offsets.get(Index));
+            OffsetHex.offset( (Point) _Offsets.get(Index));
             return OffsetHex;
         }
         return this;
@@ -632,8 +712,8 @@ public class Hexagon extends Polygon
     {
         Hexagon aHex = new Hexagon();
 
-        aHex.m_Vertical = m_Vertical;
-        aHex.m_MainDimension = m_MainDimension;
+        aHex._Vertical = _Vertical;
+        aHex._MainDimension = _MainDimension;
 
         for (int i = 0; i < npoints; i++)
         {

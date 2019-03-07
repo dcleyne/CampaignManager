@@ -46,7 +46,7 @@ public class WorldSectorRenderer extends Hexagon
 
     public void SetHexWidth(int Width)
     {
-	m_MainDimension = Width;
+	_MainDimension = Width;
     }
 
     public void drawMain(Graphics2D comp)
@@ -86,9 +86,9 @@ public class WorldSectorRenderer extends Hexagon
         
         comp.setColor(curCol);
 
-		for (int i = 0; i < m_Offsets.size(); i++)
+		for (int i = 0; i < _Offsets.size(); i++)
 		{
-            Hexagon aHex = GetOffsetHex(i);
+            Hexagon aHex = getOffsetHex(i);
 
         	comp.setColor(bakCol);            
             comp.fillPolygon(aHex);
@@ -129,9 +129,9 @@ public class WorldSectorRenderer extends Hexagon
         	}
             comp.setStroke(currentStroke);
         }
-		for (int i = 0; i < m_Offsets.size(); i++)
+		for (int i = 0; i < _Offsets.size(); i++)
 		{
-            Hexagon aHex = GetOffsetHex(i);
+            Hexagon aHex = getOffsetHex(i);
 
             //Draw Rivers
             if (m_Details.hasRiver())
@@ -171,7 +171,7 @@ public class WorldSectorRenderer extends Hexagon
         		int roadSize = m_Details.getRoad(road);
         		if (roadSize > 0)
         		{
-        			Point startPoint = super.GetCenter();
+        			Point startPoint = super.getCenter();
         			Point endPoint = super.getHexsideMidPoint(road + 1);
         			comp.setStroke(new BasicStroke(roadSize + 1));
         			
@@ -180,9 +180,9 @@ public class WorldSectorRenderer extends Hexagon
         	}
             comp.setStroke(currentStroke);
         }
-		for (int i = 0; i < m_Offsets.size(); i++)
+		for (int i = 0; i < _Offsets.size(); i++)
 		{
-            Hexagon aHex = GetOffsetHex(i);
+            Hexagon aHex = getOffsetHex(i);
 
             //Draw Roads
             if (m_Details.hasRoad())
@@ -232,7 +232,7 @@ public class WorldSectorRenderer extends Hexagon
             			else
             				offset++;
             			
-            			Point startPoint = aHex.GetCenter();
+            			Point startPoint = aHex.getCenter();
             			Point endPoint = aHex.getHexsideMidPoint(road + offset);
             			comp.setStroke(new BasicStroke(roadSize + 1));
             			
@@ -266,9 +266,9 @@ public class WorldSectorRenderer extends Hexagon
         } else
         	System.out.println("Failed to draw Settlement of type " + st.toString() + " at " + m_Details.getSectorNumber());
         
-		for (int i = 0; i < m_Offsets.size(); i++)
+		for (int i = 0; i < _Offsets.size(); i++)
 		{
-            Hexagon aHex = GetOffsetHex(i);
+            Hexagon aHex = getOffsetHex(i);
 
             if (img != null)
             {
@@ -301,9 +301,9 @@ public class WorldSectorRenderer extends Hexagon
 		comp.setColor(backCol);
         comp.fillPolygon(this);
 
-		for (int i = 0; i < m_Offsets.size(); i++)
+		for (int i = 0; i < _Offsets.size(); i++)
 		{
-            Hexagon aHex = GetOffsetHex(i);
+            Hexagon aHex = getOffsetHex(i);
             comp.fillPolygon(aHex);
 		}
 		
@@ -332,9 +332,9 @@ public class WorldSectorRenderer extends Hexagon
 		comp.setColor(backCol);
         comp.fillPolygon(this);
 
-		for (int i = 0; i < m_Offsets.size(); i++)
+		for (int i = 0; i < _Offsets.size(); i++)
 		{
-            Hexagon aHex = GetOffsetHex(i);
+            Hexagon aHex = getOffsetHex(i);
             comp.fillPolygon(aHex);
 		}
 		
@@ -347,9 +347,9 @@ public class WorldSectorRenderer extends Hexagon
         if (super.contains(x,y))
             return true;
 
-        for (int i = 0; i < m_Offsets.size(); i++)
+        for (int i = 0; i < _Offsets.size(); i++)
         {
-            Hexagon aHex = GetOffsetHex(i);
+            Hexagon aHex = getOffsetHex(i);
             if (aHex.contains(x,y))
                 return true;
         }

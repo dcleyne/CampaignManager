@@ -96,7 +96,7 @@ public abstract class HexMap extends Map
 	public void setSize(int width, int height) throws Exception
 	{
 		_Hexes = new MapHex[width * height];
-		_HexGrid = new HexGrid(getWidth(), getHeight(), 1, 1);
+		_HexGrid = new HexGrid(getWidth(), getHeight(), 1, 1, 10);
 	}
 
 	public final HexGrid getHexGrid()

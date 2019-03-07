@@ -3,8 +3,8 @@ package bt.ui.renderers;
 import java.awt.Graphics2D;
 
 import bt.mapping.Coordinate;
-import bt.mapping.Hexagon;
 import bt.mapping.MapHex;
+import bt.util.Hexagon;
 
 public class HexBoardHex extends BoardHex
 {

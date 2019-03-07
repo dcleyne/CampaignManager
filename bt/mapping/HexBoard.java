@@ -56,6 +56,7 @@ public abstract class HexBoard extends Board
 	private int _MapHeight;
 	private String _MapType;
 	private ArrayList<HexMap> _Maps = new ArrayList<HexMap>();
+	private int _HexDimension;
 	
 	private HashMap<Coordinate, HexMap> _MapReferences; // These are the
 															// locations of the
@@ -69,8 +70,9 @@ public abstract class HexBoard extends Board
 	private HexGrid _HexGrid = null;
 	
 	
-	public HexBoard()
+	public HexBoard(int hexDimension)
 	{
+		_HexDimension = hexDimension;
 		clear();
 	}
 	
@@ -171,7 +173,7 @@ public abstract class HexBoard extends Board
 	@Override
 	public void completedAddingMaps()
 	{
-		_HexGrid = new HexGrid(getWidth(), getHeight(), 1, 1);
+		_HexGrid = new HexGrid(getWidth(), getHeight(), 1, 1, _HexDimension);
 	}
 
 	public final HexGrid getHexGrid()

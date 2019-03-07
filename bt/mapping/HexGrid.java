@@ -4,6 +4,9 @@ import java.awt.*;
 
 import java.io.Serializable;
 import java.util.HashMap;
+
+import bt.util.Hexagon;
+
 import java.util.ArrayList;
 
 /**
@@ -45,6 +48,7 @@ public class HexGrid extends Object implements Serializable
     private int m_YOffset;
     private int m_GridWidth;
     private int m_GridHeight;
+    private Hexagon _Hexagon;
     
     private HashMap <Hexagon,Coordinate> m_CoordMappings = new HashMap<Hexagon,Coordinate>();
     
@@ -52,14 +56,14 @@ public class HexGrid extends Object implements Serializable
     {
     }
 
-    public HexGrid(int gridWidth, int gridHeight, int xOffset,int yOffset)
+    public HexGrid(int gridWidth, int gridHeight, int xOffset,int yOffset, int mainDimension)
     {
     	System.out.println("Creating hexGrid Width(" + Integer.toString(gridWidth) + ") Height(" + Integer.toString(gridHeight) + ")");
     	m_GridWidth = gridWidth;
     	m_GridHeight = gridHeight;
     	m_XOffset = xOffset;
     	m_YOffset = yOffset;
-    	
+    	_Hexagon = new Hexagon(0,0,mainDimension,false);
 		buildHexGrid(xOffset,yOffset, gridWidth,gridHeight);
 	}
        
@@ -92,16 +96,16 @@ public class HexGrid extends Object implements Serializable
     
     public Dimension getGridDimension()
     {
-        int HexWidth = Hexagon.getXIncrement();
-        int HexHeight = Hexagon.getHeight();
-        int XRem = Hexagon.getWidth() - HexWidth;
+        int HexWidth = _Hexagon.getXIncrement();
+        int HexHeight = _Hexagon.getHeight();
+        int XRem = _Hexagon.getWidth() - HexWidth;
         int YRem = HexHeight;// - Hexagon.getYIncrement();
         return new Dimension(HexWidth * m_GridWidth + XRem,HexHeight * m_GridHeight + YRem);    	
     }
     
     public Dimension getHexSize()
     {
-    	return new Dimension(Hexagon.getWidth(),Hexagon.getHeight());
+    	return new Dimension(_Hexagon.getWidth(),_Hexagon.getHeight());
     }
     
     
@@ -111,8 +115,8 @@ public class HexGrid extends Object implements Serializable
 	  m_NumHexes = GridWidth * GridHeight;
 	  m_HexList = new Hexagon[m_NumHexes];
 
-      int HexXInc = Hexagon.getXIncrement();
-      int HexYInc = Hexagon.getYIncrement();
+      int HexXInc = _Hexagon.getXIncrement();
+      int HexYInc = _Hexagon.getYIncrement();
 
       int XOffset = xOff;
       int YOffset = yOff;
@@ -122,7 +126,7 @@ public class HexGrid extends Object implements Serializable
       {
     	  for (int y = 0; y < GridHeight; y++)
           {
-          	  Hexagon newHex = new Hexagon(XOffset , YOffset + (y * HexYInc * 2));
+          	  Hexagon newHex = new Hexagon(XOffset , YOffset + (y * HexYInc * 2), _Hexagon.getMainDimension(), _Hexagon.isVertical());
               m_HexList[(y*GridWidth + x)] = newHex;
               m_CoordMappings.put(newHex,new Coordinate(x,y));
           }

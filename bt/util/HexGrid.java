@@ -26,8 +26,8 @@ public class HexGrid extends Object
     public HexGrid(int NumHexes, int GridWidth, Rectangle BoundBox, boolean Vertical, boolean Square)
     {
         Hexagon aHex = new Hexagon(BoundBox, Vertical);
-        int HexWidth = aHex.GetWidth();
-        int HexHeight = aHex.GetHeight();
+        int HexWidth = aHex.getWidth();
+        int HexHeight = aHex.getHeight();
 
         if (Vertical)
         {
@@ -81,9 +81,9 @@ public class HexGrid extends Object
         m_HexList = new Hexagon[NumHexes];
 
         Hexagon aHex = new Hexagon(0, 0, Width, true);
-        int HexHeight = aHex.GetHeight();
-        int HexXInc = aHex.GetXIncrement();
-        int HexYInc = aHex.GetYIncrement();
+        int HexHeight = aHex.getHeight();
+        int HexXInc = aHex.getXIncrement();
+        int HexYInc = aHex.getYIncrement();
 
         int XOffset = BoundBox.x + ( (GridWidth / 2) * HexXInc);
         XOffset += ( (BoundBox.width - (HexXInc * 2 * GridWidth)) / 2);
