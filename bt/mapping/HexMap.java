@@ -20,19 +20,30 @@ package bt.mapping;
 
 import java.util.StringTokenizer;
 
+import bt.util.ExceptionUtil;
+
 public abstract class HexMap extends Map
 {
 	static final long serialVersionUID = 1;
 
 	private MapHex[] _Hexes;
+	private HexGrid _HexGrid;
 
 	public HexMap()
 	{
 		_Hexes = new MapHex[0];
 	}
 
-	protected HexMap(int Width, int Height)
+	protected HexMap(int width, int height)
 	{
+		try
+		{
+			setSize(width, height);
+		}
+		catch (Exception ex)
+		{
+			System.out.println(ExceptionUtil.getExceptionStackTrace(ex));
+		}
 	}
 
 	public MapHex getHex(int Index)
@@ -84,7 +95,13 @@ public abstract class HexMap extends Map
 	
 	public void setSize(int width, int height) throws Exception
 	{
-		_Hexes = new MapHex[width * height];		
+		_Hexes = new MapHex[width * height];
+		_HexGrid = new HexGrid(getWidth(), getHeight(), 1, 1);
+	}
+
+	public final HexGrid getHexGrid()
+	{
+		return _HexGrid;
 	}
 
 	@Override

@@ -27,7 +27,7 @@ import bt.util.Hexagon;
  * @version 1.0
  */
 
-public class WorldMapRenderer extends Object
+public class WorldMapRenderer
 {
     private WorldSectorRenderer[] m_WorldSectors;
     private WorldMapNavigation m_HexMap;

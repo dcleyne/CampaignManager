@@ -4,7 +4,7 @@ import java.awt.*;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  * <p>Title: Legatus</p>
@@ -268,14 +268,14 @@ public class HexGrid extends Object implements Serializable
      * Based off of some of the formulas at Amit's game programming site.
      * (http://www-cs-students.stanford.edu/~amitp/gameprog.html)
      */
-    public Vector<Coordinate> intervening(Coordinate src, Coordinate dest) 
+    public ArrayList<Coordinate> intervening(Coordinate src, Coordinate dest) 
     {
         return intervening(src,dest,false);
     }
 
-    public Vector<Coordinate> intervening(Coordinate src, Coordinate dest, boolean split) 
+    public ArrayList<Coordinate> intervening(Coordinate src, Coordinate dest, boolean split) 
     {
-        Vector<Coordinate> hexes = new Vector<Coordinate>();
+        ArrayList<Coordinate> hexes = new ArrayList<Coordinate>();
 
         Hexagon iSrc = getHex(src);
         Hexagon iDest = getHex(dest);
@@ -294,11 +294,11 @@ public class HexGrid extends Object implements Serializable
     
         Coordinate current = src;
     
-        hexes.addElement(current);
+        hexes.add(current);
         while(!dest.equals(current)) {
             current = nextHex(current, iSrc, iDest, directions);
             if (current != null) //Add the next hex into the list
-            	hexes.addElement(current);
+            	hexes.add(current);
             else //We couldn't find the next hex so we must be trying to reach offboard
             	break;
         }

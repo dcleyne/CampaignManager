@@ -68,6 +68,25 @@ public class Coordinate implements Serializable
         this(c.x, c.y);
     }
     
+	public static int distance(Coordinate src, Coordinate dst)
+	{
+		int xd, ym, ymin, ymax, yo;
+		xd = Math.abs(src.x - dst.x);
+		yo = xd / 2 + (!src.isXOdd() && dst.isXOdd() ? 1 : 0);
+		ymin = src.y - yo;
+		ymax = ymin + xd;
+		ym = 0;
+		if (dst.y < ymin)
+		{
+			ym = ymin - dst.y;
+		}
+		if (dst.y > ymax)
+		{
+			ym = dst.y - ymax;
+		}
+		return xd + ym;
+	}
+
     /**
      * Add by Daniel Cleyne. Allows the Coordinate object to be used as a reliable key in HashMap.
      */
