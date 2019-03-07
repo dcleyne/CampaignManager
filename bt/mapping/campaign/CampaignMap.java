@@ -192,9 +192,9 @@ public class CampaignMap extends HexMap
 
 	}
 	
-	public void createBlankMap()
+	public void createBlankMap(TerrainType defaultTerrainType)
 	{
-		setDefaultHex(TerrainType.NONE);
+		setDefaultHex(defaultTerrainType);
 	}
 
 	private void updateMapHexes(List<?> mapHexes, TerrainType defaultTerrain) throws Exception

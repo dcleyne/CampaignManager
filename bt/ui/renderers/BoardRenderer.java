@@ -118,7 +118,7 @@ public abstract class BoardRenderer
 		return _Board;
 	}
 	
-	public final void setBoard(BoardRendererView view, Board board, String themeName)
+	public final void setBoard(BoardRendererView view, Board board)
 	{
 		_View = view;
 		_View.setBoardRenderer(this);
