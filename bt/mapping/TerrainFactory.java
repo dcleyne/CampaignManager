@@ -1,7 +1,6 @@
 package bt.mapping;
 
 import java.awt.Color;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -18,13 +17,13 @@ public enum TerrainFactory
 
     private String[] _TerrainImageNames =
     {
-	    "images/Desert.png", "images/Forest.png", "images/Jungle.png", "images/Mountains.png", "images/WoodedHills.png", "images/Hills.png", "images/Plains.png", "images/Swamp.png",
-	    "images/Wasteland.png", "images/Scrub.png", "images/Water.png"
+	    "Desert.png", "Forest.png", "Jungle.png", "Mountains.png", "WoodedHills.png", "Hills.png", "Plains.png", "Swamp.png",
+	    "Wasteland.png", "Scrub.png", "Water.png"
     };
     private String[] _SettlementImageNames =
     {
-	    "images/Capitol.png", "images/Spaceport.png", "images/City.png", "images/Town.png", 
-	    "images/Settlement.png", "images/Mine.png"
+	    "Capitol.png", "Spaceport.png", "City.png", "Town.png", 
+	    "Settlement.png", "Mine.png"
     };
 
 
@@ -87,7 +86,7 @@ public enum TerrainFactory
         return Color.white;
     }
 
-    public Image getTerrainImage(TerrainType index)
+    public BufferedImage getTerrainImage(TerrainType index)
     {
         int image = -1;
         switch (index)
@@ -158,7 +157,7 @@ public enum TerrainFactory
         return _TerrainImages.get(image);
     }
 
-    public Image getSettlementImage(SettlementType settlementType)
+    public BufferedImage getSettlementImage(SettlementType settlementType)
     {
         return _SettlementImages.get(settlementType.ordinal() - 1);
     }

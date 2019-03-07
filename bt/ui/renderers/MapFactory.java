@@ -435,12 +435,12 @@ public enum MapFactory
 
 		private Board instantiateBoard() throws Exception
 		{
-			return (Board) instantiateClass(_BoardClassName, "rl.common.mapping.Board", null, null);
+			return (Board) instantiateClass(_BoardClassName, "bt.mapping.Board", null, null);
 		}
 
 		private BoardRenderer instantiateBoardRenderer() throws Exception
 		{
-			return (BoardRenderer) instantiateClass(_BoardRendererClassName, "rl.client.mapping.BoardRenderer", null, null);
+			return (BoardRenderer) instantiateClass(_BoardRendererClassName, "bt.ui.renderers.BoardRenderer", null, null);
 		}
 
 	}

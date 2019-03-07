@@ -52,7 +52,7 @@ public abstract class BoardHex
 		_MapHex = theMapHex;
 	}
 	
-	public void prepareRenderMapHex()
+	public void prepareBoardHex()
 	{
 		try
 		{

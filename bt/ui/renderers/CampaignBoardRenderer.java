@@ -24,6 +24,7 @@ import java.util.ArrayList;
 
 import bt.mapping.Board;
 import bt.mapping.MapHex;
+import bt.mapping.TerrainFactory;
 import bt.mapping.campaign.CampaignBoard;
 import bt.mapping.campaign.CampaignMapHex;
 
@@ -34,7 +35,7 @@ public class CampaignBoardRenderer extends HexBoardRenderer
 
 	public CampaignBoardRenderer()
 	{
-		System.out.println("Constructing CenturionBoardRenderer");
+		System.out.println("Constructing CampaignBoardRenderer");
 	}
 	
 	public CampaignBoard getCampaignBoard()
@@ -65,29 +66,25 @@ public class CampaignBoardRenderer extends HexBoardRenderer
 	@Override
 	public BufferedImage getTerrainImage(MapHex mapHex)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return TerrainFactory.INSTANCE.getTerrainImage(mapHex.getTerrainType());
 	}
 
 	@Override
 	public ArrayList<BufferedImage> getFeatureImages(MapHex mapHex)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return new ArrayList<BufferedImage>();
 	}
 
 	@Override
 	public Color getTextColour(MapHex mapHex)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return Color.BLACK;
 	}
 
 	@Override
 	public Color getHexBorderColour()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return Color.BLACK;
 	}
 
 }

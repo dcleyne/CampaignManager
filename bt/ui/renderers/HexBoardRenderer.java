@@ -95,6 +95,7 @@ public abstract class HexBoardRenderer extends BoardRenderer
 					if (theMapHex != null)
 					{
 						HexBoardHex boardHex = getBoardHex(theMapHex, x, y);
+						boardHex.prepareBoardHex();
 						_Background.subtract(new Area(boardHex.getHexagon()));
 						_BoardHexes.add(boardHex);
 					}

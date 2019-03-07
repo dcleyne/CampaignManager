@@ -35,7 +35,6 @@ import bt.ui.panels.BoardPanel;
 import bt.ui.renderers.CampaignBoardRenderer;
 import bt.ui.renderers.MapFactory;
 import bt.util.ExceptionUtil;
-import bt.util.PropertyUtil;
 
 
 public class CampaignMapRenderTest extends JFrame
@@ -51,7 +50,7 @@ public class CampaignMapRenderTest extends JFrame
 		try
 		{
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			setTitle("Sprite Rendering Test");
+			setTitle("Campaign Map Rendering Test");
 			setFont(new Font("SansSerif", Font.PLAIN, 9));
 
 			_BoardPanel = new BoardPanel();
@@ -99,7 +98,7 @@ public class CampaignMapRenderTest extends JFrame
 	private CampaignMap constructMap()
 	{
 		CampaignMap map = new CampaignMap(7,11);
-		map.createBlankMap(TerrainType.PLAINS);
+		map.createBlankMap(TerrainType.DESERT);
 		
 		return map;
 	}
@@ -108,10 +107,6 @@ public class CampaignMapRenderTest extends JFrame
 	{
 		try
 		{
-			PropertyUtil.loadSystemProperties("system.properties");
-			PropertyUtil.loadSystemProperties("client.properties");
-			PropertyUtil.loadSystemProperties("centurion.properties");
-
 			UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 			CampaignMapRenderTest client = new CampaignMapRenderTest();
 			client.setVisible(true);
