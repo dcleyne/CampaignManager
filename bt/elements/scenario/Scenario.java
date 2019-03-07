@@ -1,9 +1,9 @@
 package bt.elements.scenario;
 
-import bt.elements.mapping.MapSet;
 import bt.elements.missions.Mission;
 import bt.elements.unit.Force;
 import bt.elements.unit.TechRating;
+import bt.mapping.MapSet;
 
 public class Scenario
 {

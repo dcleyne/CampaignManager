@@ -1,49 +1,50 @@
-package bt.ui.renderers;
+package bt.mapping;
 
 import java.awt.Color;
 import java.awt.Image;
-import java.awt.Toolkit;
-import java.util.Vector;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
-import bt.elements.galaxy.TerrainType;
+import bt.elements.galaxy.SettlementType;
+import bt.util.ExceptionUtil;
+import bt.util.ImageUtil;
 
-public class WorldMapTerrainRenderer
+public enum TerrainFactory
 {
-    private static Vector<Image> TerrainImages = new Vector<Image>();
-    private static WorldMapTerrainRenderer theInst;
-
-    protected WorldMapTerrainRenderer()
-    {
-        Toolkit tk = Toolkit.getDefaultToolkit();
-        for (int i = 0; i < TerrainImageNames.length; i++)
-        {
-        	Image img = tk.getImage(TerrainImageNames[i]);
-        	while (img.getWidth(null) < 0)
-        	{
-        		Thread.yield();
-        	}
-        	TerrainImages.add(img);
-        }
-    }
-
-    public static WorldMapTerrainRenderer getInstance()
-    {
-        if (theInst == null)
-        {
-            theInst = new WorldMapTerrainRenderer();
-        }
-
-        return theInst;
-    }
+	INSTANCE;
 	
-    private static String TerrainImageNames[] =
+    private ArrayList<BufferedImage> _TerrainImages;
+    private ArrayList<BufferedImage> _SettlementImages;
+
+    private String[] _TerrainImageNames =
     {
 	    "images/Desert.png", "images/Forest.png", "images/Jungle.png", "images/Mountains.png", "images/WoodedHills.png", "images/Hills.png", "images/Plains.png", "images/Swamp.png",
 	    "images/Wasteland.png", "images/Scrub.png", "images/Water.png"
     };
+    private String[] _SettlementImageNames =
+    {
+	    "images/Capitol.png", "images/Spaceport.png", "images/City.png", "images/Town.png", 
+	    "images/Settlement.png", "images/Mine.png"
+    };
+
+
+
+    private TerrainFactory()
+    {
+    	try
+    	{
+	    	_TerrainImages = ImageUtil.loadImages(_TerrainImageNames);
+	    	_SettlementImages = ImageUtil.loadImages(_SettlementImageNames);
+    	}
+    	catch (Exception ex)
+    	{
+    		System.out.println(ExceptionUtil.getExceptionStackTrace(ex));
+    	}
+    }
+
 
 	
-    public static Color getTerrainBackground(TerrainType index)
+    public Color getTerrainBackground(TerrainType index)
     {
         switch (index)
         {
@@ -154,7 +155,12 @@ public class WorldMapTerrainRenderer
             return null;
         }
 
-        return TerrainImages.elementAt(image);
+        return _TerrainImages.get(image);
+    }
+
+    public Image getSettlementImage(SettlementType settlementType)
+    {
+        return _SettlementImages.get(settlementType.ordinal() - 1);
     }
 
 }

@@ -1,10 +1,12 @@
 package bt.ui.renderers;
 
 import java.awt.*;
-import bt.elements.galaxy.PlanetMapSector;
+
 import bt.elements.galaxy.SettlementType;
-import bt.elements.galaxy.TerrainType;
-import bt.elements.galaxy.WorldMapNavigation;
+import bt.mapping.TerrainType;
+import bt.mapping.TerrainFactory;
+import bt.mapping.planet.PlanetMapSector;
+import bt.mapping.planet.WorldMapNavigation;
 import bt.util.Hexagon;
 
 /**
@@ -63,8 +65,8 @@ public class WorldSectorRenderer extends Hexagon
         Image img = null;
         if (m_Details != null)
         {
-            bakCol = WorldMapTerrainRenderer.getTerrainBackground(m_Details.getTerrainType());
-            img = WorldMapTerrainRenderer.getInstance().getTerrainImage(m_Details.getTerrainType());
+            bakCol = TerrainFactory.INSTANCE.getTerrainBackground(m_Details.getTerrainType());
+            img = TerrainFactory.INSTANCE.getTerrainImage(m_Details.getTerrainType());
         }
 
     	comp.setColor(bakCol);
@@ -112,7 +114,7 @@ public class WorldSectorRenderer extends Hexagon
         if (m_Details.hasRiver())
         {
             Stroke currentStroke = comp.getStroke();
-			comp.setColor(WorldMapTerrainRenderer.getTerrainBackground(TerrainType.LAKE));
+			comp.setColor(TerrainFactory.INSTANCE.getTerrainBackground(TerrainType.LAKE));
         	for (int river = 0; river < 6; river++)
         	{
         		int riverSize = m_Details.getRiver(river);
@@ -140,7 +142,7 @@ public class WorldSectorRenderer extends Hexagon
             		int riverSize = m_Details.getRiver(river);
             		if (riverSize > 0)
             		{
-            			comp.setColor(WorldMapTerrainRenderer.getTerrainBackground(TerrainType.LAKE));
+            			comp.setColor(TerrainFactory.INSTANCE.getTerrainBackground(TerrainType.LAKE));
             			Point startPoint = aHex.getHexsideStartPoint(river + 1);
             			Point endPoint = aHex.getHexsideEndPoint(river + 1);
             			comp.setStroke(new BasicStroke(riverSize));
@@ -247,7 +249,7 @@ public class WorldSectorRenderer extends Hexagon
 
     public void drawSettlement(Graphics2D comp, SettlementType st)
     {
-        Image img = WorldMapSettlementRenderer.getInstance().getSettlementImage(st);
+        Image img = TerrainFactory.INSTANCE.getSettlementImage(st);
         Rectangle aRect = getBounds();
         
         if (img != null)

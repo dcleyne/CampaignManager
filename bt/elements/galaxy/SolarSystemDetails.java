@@ -7,6 +7,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
+
+import bt.mapping.planet.PlanetMap;
+import bt.mapping.planet.PlanetMapSector;
+import bt.mapping.planet.WorldMapNavigation;
+import bt.mapping.planet.WorldTerrainGenerator;
 import bt.movement.MapSectorPathState;
 import bt.util.Dice;
 import bt.util.ai.aStar;

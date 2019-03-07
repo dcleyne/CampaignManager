@@ -33,7 +33,7 @@ import bt.elements.galaxy.InnerSpherePlanet;
 import bt.elements.galaxy.SolarSystemDetails;
 import bt.managers.PlanetManager;
 import bt.managers.SolarSystemManager;
-import bt.mapping.PlanetMapGenerator;
+import bt.mapping.planet.PlanetMapGenerator;
 import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;
 

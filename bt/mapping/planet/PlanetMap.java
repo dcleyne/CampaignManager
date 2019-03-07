@@ -1,8 +1,10 @@
-package bt.elements.galaxy;
+package bt.mapping.planet;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.Vector;
+
+import bt.mapping.TerrainType;
 
 
 /**

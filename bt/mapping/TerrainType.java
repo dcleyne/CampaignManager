@@ -1,4 +1,4 @@
-package bt.elements.galaxy;
+package bt.mapping;
 
 
 public enum TerrainType

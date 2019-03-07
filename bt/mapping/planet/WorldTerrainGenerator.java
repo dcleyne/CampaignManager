@@ -1,6 +1,8 @@
-package bt.elements.galaxy;
+package bt.mapping.planet;
 
 import java.util.Vector;
+
+import bt.mapping.TerrainType;
 import bt.util.Dice;
 
 public class WorldTerrainGenerator

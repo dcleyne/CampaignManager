@@ -4,8 +4,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.Vector;
 import javax.imageio.ImageIO;
-import bt.elements.mapping.MapSet;
+
 import bt.managers.MapManager;
+import bt.mapping.MapSet;
 import bt.ui.renderers.MapLayoutRenderer;
 import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;

@@ -17,7 +17,7 @@
  * @author Daniel Cleyne
  * @version 0.1
  */
-package bt.mapping;
+package bt.mapping.planet;
 
 import java.awt.Color;
 import java.awt.Dimension;

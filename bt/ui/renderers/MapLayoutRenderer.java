@@ -12,7 +12,8 @@ import java.awt.font.TextLayout;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.text.AttributedString;
-import bt.elements.mapping.MapSet;
+
+import bt.mapping.MapSet;
 import bt.util.Hexagon;
 
 public class MapLayoutRenderer

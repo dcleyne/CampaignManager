@@ -3,9 +3,9 @@ package bt.movement;
 import java.util.Iterator;
 import java.util.Vector;
 
-import bt.elements.galaxy.PlanetMap;
-import bt.elements.galaxy.PlanetMapSector;
-import bt.elements.galaxy.WorldMapNavigation;
+import bt.mapping.planet.PlanetMap;
+import bt.mapping.planet.PlanetMapSector;
+import bt.mapping.planet.WorldMapNavigation;
 import bt.util.ai.aState;
 
 public class MapSectorPathState extends aState

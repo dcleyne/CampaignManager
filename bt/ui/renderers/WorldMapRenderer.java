@@ -1,12 +1,21 @@
 package bt.ui.renderers;
 
-import java.awt.*;
-import bt.elements.galaxy.PlanetMap;
-import bt.elements.galaxy.PlanetMapSector;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Point;
+import java.awt.Polygon;
+import java.awt.Rectangle;
+import java.awt.Shape;
+
 import bt.elements.galaxy.Settlement;
 import bt.elements.galaxy.SolarSystemDetails;
-import bt.elements.galaxy.TerrainType;
-import bt.elements.galaxy.WorldMapNavigation;
+import bt.mapping.TerrainType;
+import bt.mapping.planet.PlanetMap;
+import bt.mapping.planet.PlanetMapSector;
+import bt.mapping.planet.WorldMapNavigation;
 import bt.util.Hexagon;
 
 /**
@@ -413,9 +422,6 @@ public class WorldMapRenderer extends Object
         switch (mode)
         {
         	case MAP:
-        		WorldMapTerrainRenderer.getInstance(); //Force the Image load;
-        		WorldMapSettlementRenderer.getInstance(); //Force the Image load;
-        		
 		        for (int i = 0; i < m_WorldSectors.length; i++)
 		            m_WorldSectors[i].draw(comp2D);
 		

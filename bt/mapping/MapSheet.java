@@ -1,4 +1,4 @@
-package bt.elements.mapping;
+package bt.mapping;
 
 import java.util.Vector;
 

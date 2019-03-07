@@ -1,4 +1,4 @@
-package bt.mapping;
+package bt.mapping.planet;
 
 import java.awt.Dimension;
 
@@ -10,7 +10,6 @@ import java.io.File;
 import javax.imageio.ImageIO;
 
 import bt.elements.galaxy.InnerSpherePlanet;
-import bt.elements.galaxy.PlanetMap;
 import bt.elements.galaxy.SolarSystemDetails;
 import bt.managers.SolarSystemManager;
 import bt.ui.renderers.WorldMapRenderer;

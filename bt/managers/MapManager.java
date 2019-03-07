@@ -12,8 +12,8 @@ import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 
-import bt.elements.mapping.MapSet;
-import bt.elements.mapping.MapSheet;
+import bt.mapping.MapSet;
+import bt.mapping.MapSheet;
 import bt.util.Dice;
 import bt.util.PropertyUtil;
 

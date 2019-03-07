@@ -99,7 +99,7 @@ public class BattlemechDesign implements BattleValue
 	}
 	public void setType(Type type)
 	{
-        if (type != Type.BIPED && type != Type.QUAD && type != Type.LAM && type != Type.OMNI)
+        if (type == null)
             throw new IllegalArgumentException("Cannot set type other than Biped, Quad, LAM or Omni - " + type);
 
         _Type = type;

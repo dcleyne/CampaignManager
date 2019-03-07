@@ -1,4 +1,4 @@
-package bt.elements.galaxy;
+package bt.mapping.planet;
 
 import java.util.Vector;
 
