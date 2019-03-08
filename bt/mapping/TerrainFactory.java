@@ -12,7 +12,20 @@ public enum TerrainFactory
 {
 	INSTANCE;
 	
-    private ArrayList<BufferedImage> _TerrainImages;
+    private static final Color _WaterIceGrey = new Color(232, 232, 240);
+	private static final Color _LakeBlue = new Color(0,0,255);
+	private static final Color _LandIceGrey = new Color(232, 232, 232);
+	private static final Color _ScrubBrown = new Color(99, 148, 99);
+	private static final Color _WastelandGrey = new Color(148, 148, 148);
+	private static final Color _SwampGreen = new Color(111, 164, 20);
+	private static final Color _HillsGreen = new Color(206, 148, 0);
+	private static final Color _WaterBlue = new Color(0, 206, 255);
+	private static final Color _ForestGreen = new Color(0, 177, 0);
+	private static final Color _DeepForestGreen = new Color(0, 128, 0);
+    private static final Color _DeepWaterBlue = new Color(0, 0, 128);
+    private static final Color _MountainBrown = new Color(145, 101, 38);
+    private static final Color _DesertYellow = new Color(252, 244, 54);
+	private ArrayList<BufferedImage> _TerrainImages;
     private ArrayList<BufferedImage> _SettlementImages;
 
     private String[] _TerrainImageNames =
@@ -25,8 +38,7 @@ public enum TerrainFactory
 	    "Capitol.png", "Spaceport.png", "City.png", "Town.png", 
 	    "Settlement.png", "Mine.png"
     };
-
-
+    
 
     private TerrainFactory()
     {
@@ -41,45 +53,60 @@ public enum TerrainFactory
     	}
     }
 
-
+    public Color getTextColor(TerrainType index)
+    {
+        switch (index)
+        {
+            case DEEPFOREST:
+            case DEEPJUNGLE:
+            case DEEPWATER:
+            case WATER:
+            case MOUNTAINS:
+            case VOLCANO:
+            case SCRUB:
+                return Color.WHITE;
+            default:
+        }    	
+        return Color.BLACK;
+    }
 	
     public Color getTerrainBackground(TerrainType index)
     {
         switch (index)
         {
             case DESERT:
-                return new Color(252, 244, 54);
+                return _DesertYellow;
             case DEEPFOREST:
             case DEEPJUNGLE:
-                return new Color(0, 128, 0);
+                return _DeepForestGreen;
             case DEEPWATER:
-                return new Color(0, 0, 128);
+                return _DeepWaterBlue;
             case MOUNTAINS:
-                return new Color(145, 101, 38);
+                return _MountainBrown;
             case FOREST:
             case JUNGLE:
-                return new Color(0, 177, 0);
+                return _ForestGreen;
             case WATER:
-                return new Color(0, 206, 255);
+                return _WaterBlue;
             case WOODEDHILLS:
             case HILLS:
-                return new Color(206, 148, 0);
+                return _HillsGreen;
             case PLAINS:
-                return new Color(0, 177, 0);
+                return _ForestGreen;
             case SWAMP:
-                return new Color(111, 164, 20);
+                return _SwampGreen;
             case WASTELAND:
-                return new Color(148, 148, 148);
+                return _WastelandGrey;
             case SCRUB:
-                return new Color(99, 148, 99);
+                return _ScrubBrown;
             case LANDICE:
-                return new Color(232, 232, 232);
+                return _LandIceGrey;
             case VOLCANO:
             	return Color.red;
             case LAKE:
-            	return new Color(0,0,255);
+            	return _LakeBlue;
             case WATERICE:
-                return new Color(232, 232, 240);
+                return _WaterIceGrey;
             case NONE:
             	throw new RuntimeException("getTerrainBackground called with TerrainType.NONE");
         }

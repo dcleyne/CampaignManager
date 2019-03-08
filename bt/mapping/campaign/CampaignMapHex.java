@@ -22,17 +22,23 @@ import java.util.List;
 
 import org.jdom.Element;
 
+import bt.elements.galaxy.SettlementType;
 import bt.mapping.MapHex;
 import bt.mapping.TerrainType;
 
 public class CampaignMapHex extends MapHex
 {
+	private static final String SETTLEMENT_NAME = "SettlementName";
+	private static final String SETTLEMENT_TYPE = "SettlementType";
+	private static final String SETTLEMENT = "Settlement";
 	private static final String INDEX = "Index";
 	private static final String ROAD = "Road";
 	private static final String RIVER = "River";
 
 	static final long serialVersionUID = 1;
 
+	private SettlementType _SettlementType = SettlementType.NONE;
+	private String _SettlementName = "";
 	private int[] _Road = new int[6];;
 	private int[] _River = new int[6];
 
@@ -146,6 +152,22 @@ public class CampaignMapHex extends MapHex
 		return sides;
 	}
 
+	public SettlementType getSettlementType()
+	{
+		return _SettlementType;
+	}
+
+	public String getSettlementName()
+	{
+		return _SettlementName;
+	}
+
+	public void setSettlement(SettlementType settlementType, String settlementName)
+	{
+		_SettlementType = settlementType;
+		_SettlementName = settlementName;
+	}
+
 	private Element createElement(String name, int index, String value)
 	{
 		Element e = new Element(name);
@@ -164,6 +186,11 @@ public class CampaignMapHex extends MapHex
 			e.addContent(createElement(ROAD, index, Integer.toString(_Road[index])));
 			e.addContent(createElement(RIVER, index, Integer.toString(_River[index])));
 		}
+		
+		org.jdom.Element settlementElement = new org.jdom.Element(SETTLEMENT);
+		settlementElement.setAttribute(SETTLEMENT_TYPE, _SettlementType.toString());
+		settlementElement.setAttribute(SETTLEMENT_NAME, _SettlementName);
+		e.addContent(settlementElement);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -211,6 +238,10 @@ public class CampaignMapHex extends MapHex
 		
 		loadIntegerElement(e, ROAD, _Road);
 		loadIntegerElement(e, RIVER, _River);
+
+		Element settlementElement = e.getChild(SETTLEMENT);
+		_SettlementType = SettlementType.fromString(settlementElement.getAttributeValue(SETTLEMENT_TYPE));
+		_SettlementName = settlementElement.getAttributeValue(SETTLEMENT_NAME);
 	}
 
 }

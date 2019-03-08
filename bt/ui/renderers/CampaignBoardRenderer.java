@@ -82,7 +82,7 @@ public class CampaignBoardRenderer extends HexBoardRenderer
 	@Override
 	public Color getTextColour(MapHex mapHex)
 	{
-		return Color.BLACK;
+		return TerrainFactory.INSTANCE.getTextColor(mapHex.getTerrainType());
 	}
 
 	@Override
@@ -105,6 +105,8 @@ public class CampaignBoardRenderer extends HexBoardRenderer
 			if (bh.intersects(clipRect))
 			{
 				bh.drawRivers(g);
+				bh.drawRoads(g);
+				bh.drawSettlement(g);
 			}
 		}
 

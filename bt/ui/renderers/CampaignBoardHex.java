@@ -20,13 +20,16 @@ package bt.ui.renderers;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Stroke;
+import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 
+import bt.elements.galaxy.SettlementType;
 import bt.mapping.TerrainFactory;
 import bt.mapping.TerrainType;
 import bt.mapping.campaign.CampaignMapHex;
@@ -47,7 +50,7 @@ public class CampaignBoardHex extends HexBoardHex
 	}
 
 	@Override
-	public synchronized void draw(Graphics2D g, ImageObserver obs)
+	protected void drawImage(Graphics2D g, ImageObserver obs)
 	{
         Color curCol = g.getColor();
         Color bakCol = java.awt.Color.darkGray;
@@ -71,10 +74,13 @@ public class CampaignBoardHex extends HexBoardHex
             g.drawImage(img,(int)aRect.getX() + XOff,(int)aRect.getY()+2+YOff,null);
         }
 
-        g.setColor(curCol);
+        g.setColor(curCol);		
+	}
+	
+	@Override
+	public synchronized void draw(Graphics2D g, ImageObserver obs)
+	{
         super.draw(g, obs);
-        
-        g.setColor(curCol);
 	}
 
     public void drawRivers(Graphics2D comp)
@@ -84,7 +90,7 @@ public class CampaignBoardHex extends HexBoardHex
         //Draw Rivers
         if (getMapHex().hasRiver())
         {
-        	bt.util.Hexagon h = _Renderer.getHex(_BoardCoordinate);
+        	Hexagon h = _Renderer.getHex(_BoardCoordinate);
             Stroke currentStroke = comp.getStroke();
 			comp.setColor(TerrainFactory.INSTANCE.getTerrainBackground(TerrainType.LAKE));
         	for (int river = 0; river < 6; river++)
@@ -104,23 +110,24 @@ public class CampaignBoardHex extends HexBoardHex
         comp.setColor(curCol);
     }
 
-    /*
     public void drawRoads(Graphics2D comp)
     {
         Color curCol = comp.getColor();
-		
+        CampaignMapHex mapHex = getMapHex();
+    	Hexagon h = _Renderer.getHex(_BoardCoordinate);
+        
 		//Draw Roads
-        if (m_Details.hasRoad())
+        if (mapHex.hasRoad())
         {
             Stroke currentStroke = comp.getStroke();
 			comp.setColor(Color.lightGray);
         	for (int road = 0; road < 6; road++)
         	{
-        		int roadSize = m_Details.getRoad(road);
+        		int roadSize = mapHex.getRoad(road);
         		if (roadSize > 0)
         		{
-        			Point startPoint = super.GetCenter();
-        			Point endPoint = super.getHexsideMidPoint(road + 1);
+        			Point startPoint = h.getCenter();
+        			Point endPoint = h.getHexsideMidPoint(road + 1);
         			comp.setStroke(new BasicStroke(roadSize + 1));
         			
         			comp.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y);
@@ -128,112 +135,45 @@ public class CampaignBoardHex extends HexBoardHex
         	}
             comp.setStroke(currentStroke);
         }
-		for (int i = 0; i < m_Offsets.size(); i++)
-		{
-            Hexagon aHex = GetOffsetHex(i);
-
-            //Draw Roads
-            if (m_Details.hasRoad())
-            {
-                Stroke currentStroke = comp.getStroke();
-            	for (int road = 0; road < 6; road++)
-            	{
-            		int offset = 0;
-            		int roadSize = m_Details.getRoad(road);
-            		if (roadSize > 0)
-            		{    
-            			comp.setColor(Color.lightGray);
-            			if (m_RowStart)
-            			{
-            				if (m_NorthHemisphere)
-            				{
-            					if (road == 0)
-            					{
-                        			comp.setColor(Color.pink);
-            						offset = 6;
-            					}
-            				}
-            				else
-            				{
-            					switch (road)
-            					{
-            					case 0:
-            						offset = 2;
-            						break;
-            					case 1:
-            						offset = 2;
-            						break;
-            					case 2:
-            						break;
-            					case 3:
-            						offset = 2;
-            						break;
-            					case 4:
-            						offset = 2;
-            						break;
-            					case 5:
-            						offset = -4;
-            						break;
-            					}
-            				}
-            			}
-            			else
-            				offset++;
-            			
-            			Point startPoint = aHex.GetCenter();
-            			Point endPoint = aHex.getHexsideMidPoint(road + offset);
-            			comp.setStroke(new BasicStroke(roadSize + 1));
-            			
-            			comp.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y);
-            		}
-            	}
-                comp.setStroke(currentStroke);
-            }
             
-        }
-		
         comp.setColor(curCol);
     }
 
-    public void drawSettlement(Graphics2D comp, SettlementType st)
+    public void drawSettlement(Graphics2D comp)
     {
-        Image img = TerrainFactory.INSTANCE.getSettlementImage(st);
-        Rectangle aRect = getBounds();
-        
-        if (img != null)
-        {
-            comp.setColor(Color.white);
-            comp.fillPolygon(this);
-        	
-            int XOff = (int)(aRect.getWidth() - img.getWidth(null)) / 2;
-            int YOff = (int)(aRect.getHeight() - img.getHeight(null)) / 2;
-            comp.drawImage(img,(int)aRect.getX() + XOff + 1,(int)aRect.getY()+YOff,null);
+    	SettlementType st = getMapHex().getSettlementType();
+    	if (st != null && st != SettlementType.NONE)
+    	{
+	        BufferedImage img = TerrainFactory.INSTANCE.getSettlementImage(st);
+	    	Hexagon h = _Renderer.getHex(_BoardCoordinate);
+	        Rectangle aRect = h.getBounds();
+	        
+	        if (img != null)
+	        {
+	            int xOff = (int)(aRect.getWidth() - img.getWidth(null)) / 2;
+	            int yOff = (int)(aRect.getHeight() - img.getHeight(null)) / 2;
+	            comp.drawImage(img,(int)aRect.getX() + xOff + 1,(int)aRect.getY()+yOff,null);
 
-            comp.setColor(Color.black);
-            comp.drawPolygon(this);
-        } else
-        	System.out.println("Failed to draw Settlement of type " + st.toString() + " at " + m_Details.getSectorNumber());
-        
-		for (int i = 0; i < m_Offsets.size(); i++)
-		{
-            Hexagon aHex = GetOffsetHex(i);
+	    		Font currentFont = comp.getFont();
+	    		comp.setFont(_Renderer.getFont(BoardRenderer.FontSize.NINE));
 
-            if (img != null)
-            {
-                comp.setColor(Color.white);
-                comp.fillPolygon(aHex);
+	    		String label = getMapHex().getSettlementName();
+	    		if (label.isEmpty())
+	    			return;
+	    		
+    			int tWidth = comp.getFontMetrics().stringWidth(label);
+    			int tHeight = comp.getFontMetrics().getAscent();
+    			float xOffset = (float) (aRect.getX() + (aRect.getWidth() - tWidth) / 2);
+    			float yOffset = (float) (aRect.getY() + img.getHeight(null) + yOff + tHeight);
 
-                aRect = aHex.getBounds();
-                int XOff = (int)(aRect.getWidth() - img.getWidth(null)) / 2;
-                int YOff = (int)(aRect.getHeight() - img.getHeight(null)) / 2;
-                comp.drawImage(img,(int)aRect.getX() + XOff + 1,(int)aRect.getY()+YOff,null);
+	    		comp.setColor(_TextColour);
+	    		comp.drawString(label, xOffset, yOffset);
 
-                comp.setColor(Color.black);
-                comp.drawPolygon(aHex);
-            }
-		}
-        
+	    		comp.setFont(currentFont);
+	        } 
+	        else
+	        	System.out.println("Failed to draw Settlement of type " + st.toString() + " at " + getMapHex().getCoordinate());
+    	}
     }
     
-*/    
 }
