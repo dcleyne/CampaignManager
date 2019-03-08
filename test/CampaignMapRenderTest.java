@@ -102,38 +102,93 @@ public class CampaignMapRenderTest extends JFrame
 		CampaignMap map = new CampaignMap(7,11);
 		map.createBlankMap(TerrainType.PLAINS);
 	
+		setTerrain(map,3,0,TerrainType.MOUNTAINS, SettlementType.TOWN, "Wuhan Pass");
+		setTerrain(map,5,1,TerrainType.MOUNTAINS, SettlementType.TOWN, "Harper's Canyon");
+		setTerrain(map,3,2,TerrainType.PLAINS, SettlementType.TOWN, "Zhuru");
+		setTerrain(map,4,3,TerrainType.SWAMP, SettlementType.TOWN, "Shidong");
+		setTerrain(map,4,3,TerrainType.PLAINS, SettlementType.TOWN, "Janjigo");
+		setTerrain(map,1,3,TerrainType.FOREST, SettlementType.TOWN, "Caidian Forest East");
+		setTerrain(map,1,4,TerrainType.DEEPFOREST, SettlementType.TOWN, "Caidian Forest");
+		setTerrain(map,0,4,TerrainType.FOREST, SettlementType.TOWN, "Caidian Forest North");
+		setTerrain(map,3,5,TerrainType.SWAMP, SettlementType.CITY, "Daji Farm");
+		setTerrain(map,5,5,TerrainType.FOREST, SettlementType.TOWN, "Wudong");
+		setTerrain(map,1,6,TerrainType.PLAINS, SettlementType.TOWN, "Hongshan");
+		setTerrain(map,4,7,TerrainType.PLAINS, SettlementType.TOWN, "Wuphushan");
+		setTerrain(map,0,8,TerrainType.FOREST, SettlementType.TOWN, "Zhashan");
+		setTerrain(map,3,9,TerrainType.PLAINS, SettlementType.CITY, "Tianhe");
+		setTerrain(map,3,10,TerrainType.PLAINS, SettlementType.CAPITOL, "New Wuhan City");
+		
 		setTerrain(map,0,0,TerrainType.MOUNTAINS);
 		setTerrain(map,1,0,TerrainType.MOUNTAINS);
 		setTerrain(map,2,0,TerrainType.MOUNTAINS);
 		setTerrain(map,2,1,TerrainType.MOUNTAINS);
-		setTerrain(map,3,0,TerrainType.MOUNTAINS, SettlementType.TOWN, "Wuhan Pass");
 		setTerrain(map,3,1,TerrainType.MOUNTAINS);
 		setTerrain(map,4,0,TerrainType.MOUNTAINS);
 		setTerrain(map,4,1,TerrainType.MOUNTAINS);
 		setTerrain(map,4,2,TerrainType.MOUNTAINS);
 		setTerrain(map,5,0,TerrainType.MOUNTAINS);
-		setTerrain(map,5,1,TerrainType.MOUNTAINS, SettlementType.TOWN, "Harper's Canyon");
 		setTerrain(map,6,0,TerrainType.MOUNTAINS);
 		setTerrain(map,6,1,TerrainType.MOUNTAINS);
 		setTerrain(map,6,2,TerrainType.MOUNTAINS);
 		
+		setTerrain(map,5,4,TerrainType.FOREST);
+		setTerrain(map,6,4,TerrainType.FOREST);
 		setTerrain(map,6,5,TerrainType.FOREST);
-		
+		setTerrain(map,0,5,TerrainType.FOREST);
+		setTerrain(map,0,9,TerrainType.FOREST);
+		setTerrain(map,0,10,TerrainType.FOREST);
+		setTerrain(map,1,8,TerrainType.FOREST);
+		setTerrain(map,1,9,TerrainType.FOREST);
+		setTerrain(map,1,10,TerrainType.FOREST);
+
+		setTerrain(map,2,2,TerrainType.DEEPFOREST);
+		setTerrain(map,2,3,TerrainType.DEEPFOREST);
+		setTerrain(map,2,4,TerrainType.DEEPFOREST);
+		setTerrain(map,2,5,TerrainType.DEEPFOREST);
+		setTerrain(map,3,3,TerrainType.DEEPFOREST);
+		setTerrain(map,3,4,TerrainType.DEEPFOREST);
+
+		setTerrain(map,4,8,TerrainType.DEEPFOREST);
+		setTerrain(map,4,9,TerrainType.DEEPFOREST);
+		setTerrain(map,4,10,TerrainType.DEEPFOREST);
+		setTerrain(map,5,7,TerrainType.DEEPFOREST);
+		setTerrain(map,5,8,TerrainType.DEEPFOREST);
+		setTerrain(map,5,9,TerrainType.DEEPFOREST);
+		setTerrain(map,5,10,TerrainType.DEEPFOREST);
+		setTerrain(map,6,6,TerrainType.DEEPFOREST);
+		setTerrain(map,6,7,TerrainType.DEEPFOREST);
+		setTerrain(map,6,8,TerrainType.DEEPFOREST);
+		setTerrain(map,6,9,TerrainType.DEEPFOREST);
+		setTerrain(map,6,10,TerrainType.DEEPFOREST);
+
+		setRoads(map,0,7,(new int[] {0,1,0,1,0,0}));
+		setRoads(map,0,8,(new int[] {1,0,1,0,0,0}));
+		setRoads(map,1,8,(new int[] {0,0,1,0,0,1}));
+		setRoads(map,2,9,(new int[] {0,0,1,0,0,1}));
 		setRoads(map,3,0,(new int[] {3,0,3,0,0,0}));
 		setRoads(map,4,1,(new int[] {0,0,3,0,0,3}));
 		setRoads(map,5,1,(new int[] {0,0,0,0,3,3}));
 		setRoads(map,4,2,(new int[] {0,3,0,3,0,0}));
-		setRoads(map,4,3,(new int[] {3,0,0,3,0,0}));
+		setRoads(map,4,3,(new int[] {3,0,0,3,0,1}));
 		setRoads(map,4,4,(new int[] {3,0,3,0,0,0}));
-		setRoads(map,5,4,(new int[] {0,0,0,0,3,3}));
+		setRoads(map,5,4,(new int[] {0,0,0,1,3,3}));
 		setRoads(map,4,5,(new int[] {0,3,0,0,3,0}));
 		setRoads(map,3,5,(new int[] {0,3,0,0,3,0}));
 		setRoads(map,2,6,(new int[] {0,3,0,0,3,0}));
-		setRoads(map,1,6,(new int[] {0,3,3,0,0,0}));
+		setRoads(map,0,4,(new int[] {0,1,1,0,0,0}));
+		setRoads(map,1,3,(new int[] {0,1,0,1,1,0}));
+		setRoads(map,2,3,(new int[] {0,1,0,0,1,0}));
+		setRoads(map,3,2,(new int[] {0,0,1,0,1,0}));
+		setRoads(map,1,4,(new int[] {1,0,0,1,0,1}));
+		setRoads(map,1,5,(new int[] {1,0,0,1,0,0}));
+		setRoads(map,1,6,(new int[] {1,3,3,0,1,0}));
 		setRoads(map,2,7,(new int[] {0,0,3,0,0,3}));
-		setRoads(map,3,7,(new int[] {0,0,0,3,0,3}));
+		setRoads(map,3,7,(new int[] {0,1,0,3,0,3}));
+		setRoads(map,4,7,(new int[] {0,1,0,0,1,0}));
+		setRoads(map,5,5,(new int[] {1,0,0,1,0,0}));
+		setRoads(map,5,6,(new int[] {1,0,0,0,1,0}));
 		setRoads(map,3,8,(new int[] {3,0,0,3,0,0}));
-		setRoads(map,3,9,(new int[] {3,0,0,3,0,0}));
+		setRoads(map,3,9,(new int[] {3,0,0,3,0,1}));
 		setRoads(map,3,10,(new int[] {3,0,0,3,0,0}));
 		
 		

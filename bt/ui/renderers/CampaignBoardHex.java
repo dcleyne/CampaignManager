@@ -120,7 +120,7 @@ public class CampaignBoardHex extends HexBoardHex
         if (mapHex.hasRoad())
         {
             Stroke currentStroke = comp.getStroke();
-			comp.setColor(Color.lightGray);
+			comp.setColor(Color.darkGray);
         	for (int road = 0; road < 6; road++)
         	{
         		int roadSize = mapHex.getRoad(road);
@@ -166,6 +166,8 @@ public class CampaignBoardHex extends HexBoardHex
     			float xOffset = (float) (aRect.getX() + (aRect.getWidth() - tWidth) / 2);
     			float yOffset = (float) (aRect.getY() + img.getHeight(null) + yOff + tHeight);
 
+	    		comp.setColor(TerrainFactory.INSTANCE.getReverseTextColor(getMapHex().getTerrainType()));
+	    		comp.drawString(label, xOffset - 1, yOffset + 1);
 	    		comp.setColor(_TextColour);
 	    		comp.drawString(label, xOffset, yOffset);
 
