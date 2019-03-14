@@ -26,6 +26,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.UIManager;
 
+import org.jdom.Document;
+import org.jdom.output.Format;
+import org.jdom.output.XMLOutputter;
+
 import bt.elements.galaxy.SettlementType;
 import bt.mapping.Coordinate;
 import bt.mapping.TerrainType;
@@ -73,12 +77,20 @@ public class CampaignMapRenderTest extends JFrame
 
 			
 			//_Board = (CampaignBoard) MapFactory.INSTANCE.getBoard("Campaign", "MapBoard2.board");
-			_Board = constructBoard();
+			CampaignMap map = constructMap();
+			_Board = constructBoard(map);
 			
 			
 			_BoardRenderer = (CampaignBoardRenderer) MapFactory.INSTANCE.createBoardRenderer(_Board.getMapType());
 			_BoardRenderer.setBoard(_BoardPanel, _Board);
 			slider.setBoardRenderer(_BoardRenderer);
+			
+			org.jdom.Document doc = new Document();
+			doc.setRootElement(map.saveToElement());
+
+			XMLOutputter out = new XMLOutputter(Format.getPrettyFormat());
+			out.output(doc, System.out);
+
 
 		} 
 		catch (Exception e)
@@ -88,11 +100,11 @@ public class CampaignMapRenderTest extends JFrame
 		}
 	}
 	
-	private CampaignBoard constructBoard() throws Exception
+	private CampaignBoard constructBoard(CampaignMap map) throws Exception
 	{
-		CampaignBoard board = new CampaignBoard(60);
+		CampaignBoard board = new CampaignBoard(82);
 		board.setName("Example");
-		board.addMap(constructMap(), new Coordinate(1,1));
+		board.addMap(map, new Coordinate(1,1));
 		board.completedAddingMaps();
 		return board;
 	}

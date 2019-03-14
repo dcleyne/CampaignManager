@@ -25,6 +25,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.Shape;
 import java.awt.Stroke;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
@@ -66,14 +67,38 @@ public class CampaignBoardHex extends HexBoardHex
     	Hexagon h = _Renderer.getHex(_BoardCoordinate);
         g.fillPolygon(h);
         
+        Shape curClip = g.getClip();
+        g.setClip(h);
+        
         Rectangle aRect = h.getBounds();
         if (img != null)
         {
-            int XOff = (int)(aRect.getWidth() - img.getWidth(null)) / 2;
-            int YOff = (int)(aRect.getHeight() - img.getHeight(null)) / 2;
-            g.drawImage(img,(int)aRect.getX() + XOff,(int)aRect.getY()+2+YOff,null);
+        	int imgHeight = img.getHeight(null);
+        	int imgWidth = img.getWidth(null);
+        	
+        	int rows = aRect.height / imgHeight;
+        	if (aRect.height % imgHeight != 0)
+        		rows ++;
+        	
+        	int cols = aRect.width / imgWidth;
+        	if (aRect.width % imgWidth != 0)
+        		cols++;
+
+            int yOff = 0; //(int)(aRect.getHeight() - img.getHeight(null)) / 2;
+
+        	for (int row = 0; row < rows; row++)
+        	{
+                int xOff = 0; //(int)(aRect.getWidth() - img.getWidth(null)) / 2;
+        		for (int col = 0; col < cols; col++)
+        		{
+                    g.drawImage(img,(int)aRect.getX() + xOff,(int)aRect.getY()+2+yOff,null);
+                    xOff += imgWidth;
+        		}
+        		yOff += imgHeight;
+        	}
         }
 
+        g.setClip(curClip);
         g.setColor(curCol);		
 	}
 	
