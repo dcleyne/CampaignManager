@@ -31,10 +31,10 @@ import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 
 import bt.elements.galaxy.SettlementType;
+import bt.mapping.Hexagon;
 import bt.mapping.TerrainFactory;
 import bt.mapping.TerrainType;
 import bt.mapping.campaign.CampaignMapHex;
-import bt.util.Hexagon;
 
 public class CampaignBoardHex extends HexBoardHex
 {
@@ -84,11 +84,11 @@ public class CampaignBoardHex extends HexBoardHex
         	if (aRect.width % imgWidth != 0)
         		cols++;
 
-            int yOff = 0; //(int)(aRect.getHeight() - img.getHeight(null)) / 2;
+            int yOff = 0;
 
         	for (int row = 0; row < rows; row++)
         	{
-                int xOff = 0; //(int)(aRect.getWidth() - img.getWidth(null)) / 2;
+                int xOff = 0;
         		for (int col = 0; col < cols; col++)
         		{
                     g.drawImage(img,(int)aRect.getX() + xOff,(int)aRect.getY()+2+yOff,null);

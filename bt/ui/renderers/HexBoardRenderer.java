@@ -33,10 +33,10 @@ import bt.mapping.Board;
 import bt.mapping.Coordinate;
 import bt.mapping.HexBoard;
 import bt.mapping.HexGrid;
+import bt.mapping.Hexagon;
 import bt.mapping.MapHex;
 import bt.ui.sprites.HexCursorSprite;
 import bt.util.ExceptionUtil;
-import bt.util.Hexagon;
 
 public abstract class HexBoardRenderer extends BoardRenderer
 {

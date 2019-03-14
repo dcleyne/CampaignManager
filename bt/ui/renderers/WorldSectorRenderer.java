@@ -4,10 +4,10 @@ import java.awt.*;
 
 import bt.elements.galaxy.SettlementType;
 import bt.mapping.TerrainType;
+import bt.mapping.Hexagon;
 import bt.mapping.TerrainFactory;
 import bt.mapping.planet.PlanetMapSector;
 import bt.mapping.planet.WorldMapNavigation;
-import bt.util.Hexagon;
 
 /**
  * Title:        Ant

@@ -12,11 +12,11 @@ import java.awt.Shape;
 
 import bt.elements.galaxy.Settlement;
 import bt.elements.galaxy.SolarSystemDetails;
+import bt.mapping.Hexagon;
 import bt.mapping.TerrainType;
 import bt.mapping.planet.PlanetMap;
 import bt.mapping.planet.PlanetMapSector;
 import bt.mapping.planet.WorldMapNavigation;
-import bt.util.Hexagon;
 
 /**
  * Title:        Ant

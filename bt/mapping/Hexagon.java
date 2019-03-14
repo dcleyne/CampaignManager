@@ -1,4 +1,4 @@
-package bt.util;
+package bt.mapping;
 
 import java.util.*;
 

@@ -13,8 +13,8 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.text.AttributedString;
 
+import bt.mapping.Hexagon;
 import bt.mapping.MapSet;
-import bt.util.Hexagon;
 
 public class MapLayoutRenderer
 {

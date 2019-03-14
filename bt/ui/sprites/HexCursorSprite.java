@@ -35,9 +35,9 @@ import java.awt.image.FilteredImageSource;
 
 import bt.mapping.Coordinate;
 import bt.mapping.HexGrid;
+import bt.mapping.Hexagon;
 import bt.ui.filters.TintFilter;
 import bt.ui.renderers.HexBoardRenderer;
-import bt.util.Hexagon;
 import bt.util.ImageUtil;
 
 /**
