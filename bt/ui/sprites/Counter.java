@@ -24,6 +24,7 @@ public abstract class Counter extends Sprite
 	private Rectangle _Bounds;
 	private Rectangle _FaceBounds;
 	
+	
 	public Counter(BoardRenderer parent, Coordinate location, HexGrid grid, Color faceColor)
 	{
 		super(parent);
@@ -38,7 +39,23 @@ public abstract class Counter extends Sprite
 		setVisible(false);
 		prepare();
 	}
+	
+	private RoundRectangle2D.Double getShadowRect(boolean vertical)
+	{
+		if (vertical)
+			return new RoundRectangle2D.Double(2, 2, 61, 54, 5, 5);
+		
+		return new RoundRectangle2D.Double(0, 0, _Bounds.width, _Bounds.height, 5, 5);
+	}
 
+	private RoundRectangle2D.Double getRect(boolean vertical)
+	{
+		if (vertical)
+			return new RoundRectangle2D.Double(0, 0, 61, 54, 5, 5);
+		
+		return new RoundRectangle2D.Double(0, 0, _FaceBounds.width, _FaceBounds.height, 5, 5);
+	}
+	
 	public Coordinate getLocation()
 	{
 		return _Location;
@@ -53,18 +70,18 @@ public abstract class Counter extends Sprite
 	@Override
 	protected Image drawContent(Graphics2D graph, Image tempImage, Rectangle bounds)
 	{
-		RoundRectangle2D shadow = new RoundRectangle2D.Float(2, 2, 61, 54, 5, 5);
+		RoundRectangle2D shadowRect = getShadowRect(_Sector.isVertical());
+		
+		graph.setColor(Color.black);
+        graph.fill(shadowRect);
+        graph.draw(shadowRect);
+
+		RoundRectangle2D faceRect = getRect(_Sector.isVertical());
+
+		fillBackground(graph, faceRect);
 
 		graph.setColor(Color.black);
-        graph.fill(shadow);
-        graph.draw(shadow);
-		
-		RoundRectangle2D roundedRectangle = new RoundRectangle2D.Float(0, 0, 61, 54, 5, 5);
-		
-		fillBackground(graph, roundedRectangle);
-
-		graph.setColor(Color.black);
-        graph.draw(roundedRectangle);
+        graph.draw(faceRect);
 
 		return tempImage;
 	}
@@ -106,8 +123,22 @@ public abstract class Counter extends Sprite
 	
 	private void setBoundaries(Rectangle bounds)
 	{
-		_Bounds = new Rectangle(bounds.x + 4, bounds.y + 14, bounds.width - 9, bounds.height - 27);
-		_FaceBounds = new Rectangle(bounds.x + 6, bounds.y + 16, bounds.width - 12, bounds.height - 30);		
+		if (_Sector.isVertical())
+		{
+			_Bounds = new Rectangle(bounds.x + 4, bounds.y + 14, bounds.width - 9, bounds.height - 27);
+			_FaceBounds = new Rectangle(bounds.x + 6, bounds.y + 16, bounds.width - 12, bounds.height - 30);
+		}
+		else
+		{
+			int counterWidth = bounds.width * 3 / 4;
+			int counterHeight = bounds.height * 2/ 3;
+			
+			int xOff = bounds.x + ((bounds.width - counterWidth) /2);
+			int yOff = bounds.y + ((bounds.height - counterHeight) /2);
+			
+			_Bounds = new Rectangle(xOff, yOff, counterWidth, counterHeight);
+			_FaceBounds = new Rectangle(xOff, yOff, counterWidth - 3, counterHeight - 3);
+		}
 	}
 
 	@Override

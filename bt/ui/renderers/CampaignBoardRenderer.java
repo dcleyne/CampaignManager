@@ -107,6 +107,7 @@ public class CampaignBoardRenderer extends HexBoardRenderer
 				bh.drawRivers(g);
 				bh.drawRoads(g);
 				bh.drawSettlement(g);
+				bh.drawLabel(g);
 			}
 		}
 

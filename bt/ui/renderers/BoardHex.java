@@ -142,6 +142,8 @@ public abstract class BoardHex
 			_LabelPoint = new Point2D.Float(XOffset, YOffset);
 		}
 		// Draw the Hex Number
+		g.setColor(Color.BLACK);
+		g.drawString(label, _LabelPoint.x + 1, _LabelPoint.y + 1);
 		g.setColor(_TextColour);
 		g.drawString(label, _LabelPoint.x, _LabelPoint.y);
 
@@ -164,7 +166,6 @@ public abstract class BoardHex
 		// log.info("Drawing hex : " + _Coordinate.toString());
 		drawImage(g, obs);
 		drawFeatures(g, obs);
-		drawLabel(g);
 		drawBorder(g);
 	}
 	

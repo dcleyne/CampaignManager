@@ -7,10 +7,8 @@ import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
-import bt.elements.unit.Unit;
 import bt.mapping.Coordinate;
-import bt.mapping.HexGrid;
-import bt.ui.renderers.BoardRenderer;
+import bt.ui.renderers.HexBoardRenderer;
 import bt.util.ImageUtil;
 
 public class CombatUnitCounter extends ImageCounter
@@ -19,43 +17,88 @@ public class CombatUnitCounter extends ImageCounter
 
 	private static final Font IdentifierFont = new Font("SansSerif", Font.BOLD, 8);
 
-	private static final String[] UnitTypeImages = {
-		"battlemech.png",
-		"aerospace.png",
-		"armour.png",
-		"artillery.png",
-		"infantry.png",
-		"engineers.png",
-		"headquarters.png",
-	};
+	public enum Type
+	{
+		BATTLEMECH,
+		AEROSPACE,
+		ARMOUR,
+		ARTILLERY,
+		INFANTRY,
+		ENGINEERS,
+		HEADQUARTERS;
 
-	private static final String[] UnitSizeImages = {
-		"regiment.png",
-		"battalion.png",
-		"company.png"
-	};
+		private static final String[] UnitTypeImages = {
+				"battlemech.png",
+				"aerospace.png",
+				"armour.png",
+				"artillery.png",
+				"infantry.png",
+				"engineers.png",
+				"headquarters.png",
+			};
+
+		public String getImageName()
+		{
+			return UnitTypeImages[ordinal()];
+		}
+	}
 	
-	private Unit _Unit;
+	public enum Size
+	{
+		REGIMENT,
+		BATTALION,
+		COMPANY;
+		
+		private static final String[] UnitSizeImages = {
+				"regiment.png",
+				"battalion.png",
+				"company.png"
+			};
+		
+		public String getImageName()
+		{
+			return UnitSizeImages[ordinal()];
+		}
+	}
+
+	
+	private String _UnitName = "";
+	private Type _Type;
+	private Size _Size;
 	private BufferedImage _UnitSizeImage;
 	private Color _IdentifierColor = Color.white;
 
-	public Unit getUnit()
+	public String getUnitName()
 	{
-		return _Unit;
+		return _UnitName;
 	}
 	
-	public CombatUnitCounter(BoardRenderer renderer, Coordinate location, HexGrid grid, Color faceColor, Unit combatUnit)
+	public CombatUnitCounter(HexBoardRenderer renderer, Coordinate location, Color faceColor, String unitName)
 	{
-		super(renderer, location, grid, faceColor);
-		
-		_Unit = combatUnit;
-		
-		setImage(ImageUtil.loadImage("data/images/unit", UnitTypeImages[0]));
-		_UnitSizeImage = ImageUtil.loadImage("data/images/unit", UnitSizeImages[2]);
-		
-		invalidate();
+		this(renderer, location, faceColor, unitName, Type.BATTLEMECH, Size.COMPANY);
 	}
 
+	public CombatUnitCounter(HexBoardRenderer renderer, Coordinate location, Color faceColor, String unitName, Type type, Size size)
+	{
+		super(renderer, location, renderer.getHexGrid(), faceColor);
+		_UnitName = unitName;		
+		setType(type);
+		setSize(size);
+		invalidate();
+}
+
+	public void setType(Type type)
+	{
+		_Type = type;
+		setImage(ImageUtil.loadImage("data/images/unit", _Type.getImageName()));
+	}
+
+	public void setSize(Size size)
+	{
+		_Size = size;
+		_UnitSizeImage = ImageUtil.loadImage("data/images/unit", _Size.getImageName());
+	}
+	
 	@Override
 	protected Image drawContent(Graphics2D graph, Image tempImage, Rectangle bounds)
 	{
@@ -69,7 +112,8 @@ public class CombatUnitCounter extends ImageCounter
 			graph.drawImage(_UnitSizeImage, xOffset, yOffset, getComponent());
 		}
 		
-		drawCenteredText(graph, ParentUnitTextArea, IdentifierFont, _IdentifierColor, "");
+		if (_UnitName != null && !_UnitName.isEmpty())
+			drawCenteredText(graph, ParentUnitTextArea, IdentifierFont, _IdentifierColor, _UnitName);
 		
 //		drawCenteredText(graph, IdentifierTextArea, IdentifierFont, _IdentifierColor, getIdentifierText());
 //		drawCenteredText(graph, TypeTextArea, TypeFont, _IdentifierColor, getTypeText());

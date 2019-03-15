@@ -19,6 +19,7 @@
 package test;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JFrame;
@@ -40,6 +41,7 @@ import bt.ui.controls.ZoomSlider;
 import bt.ui.panels.BoardPanel;
 import bt.ui.renderers.CampaignBoardRenderer;
 import bt.ui.renderers.MapFactory;
+import bt.ui.sprites.CombatUnitCounter;
 import bt.util.ExceptionUtil;
 
 
@@ -84,6 +86,11 @@ public class CampaignMapRenderTest extends JFrame
 			_BoardRenderer = (CampaignBoardRenderer) MapFactory.INSTANCE.createBoardRenderer(_Board.getMapType());
 			_BoardRenderer.setBoard(_BoardPanel, _Board);
 			slider.setBoardRenderer(_BoardRenderer);
+			
+			
+			CombatUnitCounter unitCounter = new CombatUnitCounter(_BoardRenderer, new Coordinate(1,1), Color.RED, "Elias' Company");
+			unitCounter.setVisible(true);
+			_BoardRenderer.getSpriteManager().registerElement(unitCounter);
 			
 			org.jdom.Document doc = new Document();
 			doc.setRootElement(map.saveToElement());

@@ -192,7 +192,7 @@ public class CampaignBoardHex extends HexBoardHex
     			float yOffset = (float) (aRect.getY() + img.getHeight(null) + yOff + tHeight);
 
 	    		comp.setColor(TerrainFactory.INSTANCE.getReverseTextColor(getMapHex().getTerrainType()));
-	    		comp.drawString(label, xOffset - 1, yOffset + 1);
+	    		comp.drawString(label, xOffset + 1, yOffset + 1);
 	    		comp.setColor(_TextColour);
 	    		comp.drawString(label, xOffset, yOffset);
 

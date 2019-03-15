@@ -55,30 +55,11 @@ public enum TerrainFactory
 
     public Color getTextColor(TerrainType index)
     {
-        switch (index)
-        {
-        	case PLAINS:
-            case FOREST:
-            case JUNGLE:
-            case DEEPFOREST:
-            case DEEPJUNGLE:
-            case DEEPWATER:
-            case WATER:
-            case MOUNTAINS:
-            case VOLCANO:
-            case SCRUB:
-                return Color.WHITE;
-            default:
-        }    	
-        return Color.BLACK;
+        return Color.WHITE;
     }
 
     public Color getReverseTextColor(TerrainType index)
     {
-    	Color textColor = getTextColor(index);
-    	if (textColor == Color.BLACK)
-    		return Color.WHITE;
-    	
     	return Color.BLACK;
     }
 
