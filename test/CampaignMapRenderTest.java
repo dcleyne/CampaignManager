@@ -33,6 +33,7 @@ import org.jdom.output.XMLOutputter;
 
 import bt.elements.galaxy.SettlementType;
 import bt.mapping.Coordinate;
+import bt.mapping.Hexagon;
 import bt.mapping.TerrainType;
 import bt.mapping.campaign.CampaignBoard;
 import bt.mapping.campaign.CampaignMap;
@@ -42,6 +43,7 @@ import bt.ui.panels.BoardPanel;
 import bt.ui.renderers.CampaignBoardRenderer;
 import bt.ui.renderers.MapFactory;
 import bt.ui.sprites.CombatUnitCounter;
+import bt.ui.sprites.HexStraightArrowSprite;
 import bt.util.ExceptionUtil;
 
 
@@ -77,8 +79,6 @@ public class CampaignMapRenderTest extends JFrame
 			// setSize(1280,1024);
 			setVisible(true);
 
-			
-			//_Board = (CampaignBoard) MapFactory.INSTANCE.getBoard("Campaign", "MapBoard2.board");
 			CampaignMap map = constructMap();
 			_Board = constructBoard(map);
 			
@@ -90,15 +90,19 @@ public class CampaignMapRenderTest extends JFrame
 			
 			CombatUnitCounter unitCounter = new CombatUnitCounter(_BoardRenderer, new Coordinate(1,1), Color.RED, "Elias' Company");
 			unitCounter.setVisible(true);
-			_BoardRenderer.getSpriteManager().registerElement(unitCounter);
+			_BoardRenderer.getSpriteManager().registerWidget(unitCounter);
+			
+			Hexagon startHex = _Board.getHexGrid().getHex(1, 1);
+			Hexagon endHex = _Board.getHexGrid().getHex(5, 5);
+			HexStraightArrowSprite hsas = new HexStraightArrowSprite(_BoardRenderer, startHex, endHex, false, Color.CYAN, Color.BLACK);
+			hsas.setVisible(true);
+			_BoardRenderer.getSpriteManager().registerElement(hsas);
 			
 			org.jdom.Document doc = new Document();
 			doc.setRootElement(map.saveToElement());
 
 			XMLOutputter out = new XMLOutputter(Format.getPrettyFormat());
 			out.output(doc, System.out);
-
-
 		} 
 		catch (Exception e)
 		{
