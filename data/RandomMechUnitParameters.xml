@@ -359,6 +359,7 @@
 <!-- <AvailableMech Name="Ostroc" Variant="OSR-3C" Availability="1" /> -->
     <AvailableMech Name="Ostscout" Variant="OTT-7J" Availability="4" />
     <AvailableMech Name="Ostsol" Variant="OTL-4D" Availability="7" />
+    <AvailableMech Name="Panther" Variant="PNT-9R" Availability="10" />
     <AvailableMech Name="Phoenix Hawk" Variant="PXH-1" Availability="8" />
     <AvailableMech Name="Phoenix Hawk" Variant="PXH-1K" Availability="6" />
     <AvailableMech Name="Quickdraw" Variant="QKD-4G" Availability="7" />

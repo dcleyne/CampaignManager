@@ -88,7 +88,7 @@ public class CampaignMapRenderTest extends JFrame
 			slider.setBoardRenderer(_BoardRenderer);
 			
 			
-			CombatUnitCounter unitCounter = new CombatUnitCounter(_BoardRenderer, new Coordinate(1,1), Color.RED, "Elias' Company");
+			CombatUnitCounter unitCounter = new CombatUnitCounter(_BoardRenderer, new Coordinate(1,1), Color.RED, "Elias'");
 			unitCounter.setVisible(true);
 			_BoardRenderer.getSpriteManager().registerWidget(unitCounter);
 			

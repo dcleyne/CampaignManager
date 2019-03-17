@@ -40,6 +40,11 @@ public class CampaignMap extends HexMap
 	private int _Height;
 	private boolean _RoadsAutoExit;
 
+	public CampaignMap(Element e) throws Exception
+	{
+		loadFromElement(e);
+	}
+	
 	public CampaignMap(int width, int height)
 	{
 		super(width, height);

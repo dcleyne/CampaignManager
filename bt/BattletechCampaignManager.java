@@ -42,7 +42,7 @@ import bt.util.PropertyUtil;
  * @version 0.1
  */
 
-public class CampaignManager extends JFrame implements ActionListener, WindowListener
+public class BattletechCampaignManager extends JFrame implements ActionListener, WindowListener
 {
 	private static final String ABOUT = "About...";
 
@@ -81,14 +81,14 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
     protected HashMap<String, JInternalFrame> _SolarSystemFrames = new HashMap<String,JInternalFrame>();
 
 
-    public CampaignManager()
+    public BattletechCampaignManager()
     {
         this("Battletech Campaign Manager");
         
 
     }
 
-    public CampaignManager(String title)
+    public BattletechCampaignManager(String title)
     {
         // Initialize
     	try
@@ -288,7 +288,7 @@ public class CampaignManager extends JFrame implements ActionListener, WindowLis
             } catch (Exception e) {
             }
             // Create a new instance of the application frame and make it visible
-            (new CampaignManager()).setVisible(true);
+            (new BattletechCampaignManager()).setVisible(true);
         } catch (Exception e) {
             System.err.println(e);
             e.printStackTrace();

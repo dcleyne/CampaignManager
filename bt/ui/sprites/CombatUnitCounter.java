@@ -13,8 +13,6 @@ import bt.util.ImageUtil;
 
 public class CombatUnitCounter extends ImageCounter
 {
-	private static final Rectangle ParentUnitTextArea = new Rectangle(2, 2, 57, 10);
-
 	private static final Font IdentifierFont = new Font("SansSerif", Font.BOLD, 8);
 
 	public enum Type
@@ -113,7 +111,11 @@ public class CombatUnitCounter extends ImageCounter
 		}
 		
 		if (_UnitName != null && !_UnitName.isEmpty())
-			drawCenteredText(graph, ParentUnitTextArea, IdentifierFont, _IdentifierColor, _UnitName);
+		{
+			Rectangle parentUnitTextArea = new Rectangle(2, 2, bounds.width - 4, 10);
+
+			drawCenteredText(graph, parentUnitTextArea, IdentifierFont, _IdentifierColor, _UnitName);
+		}
 		
 //		drawCenteredText(graph, IdentifierTextArea, IdentifierFont, _IdentifierColor, getIdentifierText());
 //		drawCenteredText(graph, TypeTextArea, TypeFont, _IdentifierColor, getTypeText());
