@@ -97,6 +97,22 @@ public class Campaign
 		return _Sides.get(name);
 	}
 	
+	public Side getSideForUnit(String unitName)
+	{
+		for (Side s: _Sides.values())
+		{
+			for (Force f: s.getForces())
+			{
+				for (CampaignUnit u: f.getUnits())
+				{
+					if (u.getName().equalsIgnoreCase(unitName))
+						return getSide(s.getName());
+				}
+			}
+		}
+		return null;
+	}
+	
 	public void addLocation(CampaignLocation location)
 	{
 		_Locations.put(location.getNumber(), location);

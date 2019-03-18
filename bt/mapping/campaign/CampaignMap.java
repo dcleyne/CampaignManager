@@ -146,7 +146,7 @@ public class CampaignMap extends HexMap
 
 	private boolean notDefaultMapHex(CampaignMapHex mapHex, TerrainType defaultTerrainType)
 	{
-		if (mapHex.getTerrainType() == defaultTerrainType)
+		if (mapHex.getTerrainType() != defaultTerrainType)
 			return true;
 		
 		if (hasRivers(mapHex))

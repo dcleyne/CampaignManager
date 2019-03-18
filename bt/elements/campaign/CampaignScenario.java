@@ -106,6 +106,17 @@ public class CampaignScenario
 	{
 		return _Sides.get(name);
 	}
+	
+	public CampaignScenarioSide getSideForUnit(String unitName)
+	{
+		for (CampaignScenarioSide s: _Sides.values())
+		{
+			if (s.getUnitName().equalsIgnoreCase(unitName))
+				return s;
+		}
+		return null;
+	}
+
 
 	public void addOutcome(CampaignScenarioOutcome Outcome)
 	{

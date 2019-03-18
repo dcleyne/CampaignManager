@@ -306,4 +306,9 @@ public enum CampaignManager
 		return new ArrayList<String>(_Campaigns.keySet());
 	}
 	
+	public Campaign getCampaign(String name)
+	{
+		return _Campaigns.get(name);
+	}
+	
 }

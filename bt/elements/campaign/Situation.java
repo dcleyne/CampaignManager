@@ -18,6 +18,16 @@ public class Situation
 	{
 		return _UnitLocations;
 	}
+	
+	public SituationUnitLocation getUnitLocation(String unitName)
+	{
+		for (SituationUnitLocation sul: _UnitLocations)
+		{
+			if (sul.getUnitName().equalsIgnoreCase(unitName))
+				return sul;
+		}
+		return null;
+	}
 
 	public void addUnitMovement(SituationIntendedMovement intendedMovement)
 	{
