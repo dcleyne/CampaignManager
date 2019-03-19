@@ -14,6 +14,7 @@ import bt.util.ImageUtil;
 public class CombatUnitCounter extends ImageCounter
 {
 	private static final Font IdentifierFont = new Font("SansSerif", Font.BOLD, 8);
+	private static final Font ParentFont = new Font("SansSerif", Font.BOLD, 9);
 
 	public enum Type
 	{
@@ -61,6 +62,7 @@ public class CombatUnitCounter extends ImageCounter
 
 	
 	private String _UnitName = "";
+	private String _UnitAbbreviation = "";
 	private Type _Type;
 	private Size _Size;
 	private BufferedImage _UnitSizeImage;
@@ -71,15 +73,16 @@ public class CombatUnitCounter extends ImageCounter
 		return _UnitName;
 	}
 	
-	public CombatUnitCounter(HexBoardRenderer renderer, Coordinate location, Color faceColor, String unitName)
+	public CombatUnitCounter(HexBoardRenderer renderer, Coordinate location, Color faceColor, String unitName, String unitAbbreviation)
 	{
-		this(renderer, location, faceColor, unitName, Type.BATTLEMECH, Size.COMPANY);
+		this(renderer, location, faceColor, unitName, unitAbbreviation, Type.BATTLEMECH, Size.COMPANY);
 	}
 
-	public CombatUnitCounter(HexBoardRenderer renderer, Coordinate location, Color faceColor, String unitName, Type type, Size size)
+	public CombatUnitCounter(HexBoardRenderer renderer, Coordinate location, Color faceColor, String unitName, String unitAbbreviation, Type type, Size size)
 	{
 		super(renderer, location, renderer.getHexGrid(), faceColor);
-		_UnitName = unitName;		
+		_UnitName = unitName;
+		_UnitAbbreviation = unitAbbreviation;
 		setType(type);
 		setSize(size);
 		invalidate();
@@ -112,9 +115,15 @@ public class CombatUnitCounter extends ImageCounter
 		
 		if (_UnitName != null && !_UnitName.isEmpty())
 		{
-			Rectangle parentUnitTextArea = new Rectangle(2, 2, bounds.width - 4, 10);
+			Rectangle unitTextArea = new Rectangle(2, 2, bounds.width - 4, 10);
 
-			drawCenteredText(graph, parentUnitTextArea, IdentifierFont, _IdentifierColor, _UnitName);
+			drawCenteredText(graph, unitTextArea, IdentifierFont, _IdentifierColor, _UnitName);
+		}
+		if (_UnitAbbreviation != null && !_UnitAbbreviation.isEmpty())
+		{
+			Rectangle parentUnitTextArea = new Rectangle(2, bounds.height - 14, bounds.width - 4, 10);
+
+			drawCenteredText(graph, parentUnitTextArea, ParentFont, _IdentifierColor, _UnitAbbreviation);
 		}
 		
 //		drawCenteredText(graph, IdentifierTextArea, IdentifierFont, _IdentifierColor, getIdentifierText());

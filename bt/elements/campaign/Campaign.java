@@ -106,7 +106,23 @@ public class Campaign
 				for (CampaignUnit u: f.getUnits())
 				{
 					if (u.getName().equalsIgnoreCase(unitName))
-						return getSide(s.getName());
+						return s;
+				}
+			}
+		}
+		return null;
+	}
+	
+	public Force getForceForUnit(String unitName)
+	{
+		for (Side s: _Sides.values())
+		{
+			for (Force f: s.getForces())
+			{
+				for (CampaignUnit u: f.getUnits())
+				{
+					if (u.getName().equalsIgnoreCase(unitName))
+						return f;
 				}
 			}
 		}

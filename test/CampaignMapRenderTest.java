@@ -19,9 +19,13 @@
 package test;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -33,7 +37,6 @@ import org.jdom.output.XMLOutputter;
 
 import bt.elements.galaxy.SettlementType;
 import bt.mapping.Coordinate;
-import bt.mapping.Hexagon;
 import bt.mapping.TerrainType;
 import bt.mapping.campaign.CampaignBoard;
 import bt.mapping.campaign.CampaignMap;
@@ -42,8 +45,6 @@ import bt.ui.controls.ZoomSlider;
 import bt.ui.panels.BoardPanel;
 import bt.ui.renderers.CampaignBoardRenderer;
 import bt.ui.renderers.MapFactory;
-import bt.ui.sprites.CombatUnitCounter;
-import bt.ui.sprites.HexStraightArrowSprite;
 import bt.util.ExceptionUtil;
 
 
@@ -75,8 +76,7 @@ public class CampaignMapRenderTest extends JFrame
 			
 			setContentPane(contentPanel);
 
-			setSize(1024, 768);
-			// setSize(1280,1024);
+			setSize(570, 1060);
 			setVisible(true);
 
 			CampaignMap map = constructMap();
@@ -86,23 +86,22 @@ public class CampaignMapRenderTest extends JFrame
 			_BoardRenderer = (CampaignBoardRenderer) MapFactory.INSTANCE.createBoardRenderer(_Board.getMapType());
 			_BoardRenderer.setBoard(_BoardPanel, _Board);
 			slider.setBoardRenderer(_BoardRenderer);
-			
-			
-			CombatUnitCounter unitCounter = new CombatUnitCounter(_BoardRenderer, new Coordinate(1,1), Color.RED, "Elias'");
-			unitCounter.setVisible(true);
-			_BoardRenderer.getSpriteManager().registerWidget(unitCounter);
-			
-			Hexagon startHex = _Board.getHexGrid().getHex(1, 1);
-			Hexagon endHex = _Board.getHexGrid().getHex(5, 5);
-			HexStraightArrowSprite hsas = new HexStraightArrowSprite(_BoardRenderer, startHex, endHex, false, Color.CYAN, Color.BLACK);
-			hsas.setVisible(true);
-			_BoardRenderer.getSpriteManager().registerElement(hsas);
-			
+
 			org.jdom.Document doc = new Document();
 			doc.setRootElement(map.saveToElement());
 
 			XMLOutputter out = new XMLOutputter(Format.getPrettyFormat());
 			out.output(doc, System.out);
+			
+			Rectangle bounds = _BoardPanel.getBounds();
+			BufferedImage image = new BufferedImage(bounds.width, bounds.height, BufferedImage.TYPE_3BYTE_BGR);
+	
+			Graphics g = image.getGraphics();
+			g.setClip(bounds.x, bounds.y, bounds.width, bounds.height);
+			_BoardPanel.paint(g);
+			
+			ImageIO.write(image, "PNG", new File("../CampaignManagerData/campaigns/campaign_map.png"));
+
 		} 
 		catch (Exception e)
 		{

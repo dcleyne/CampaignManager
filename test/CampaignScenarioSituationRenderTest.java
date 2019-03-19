@@ -45,6 +45,7 @@ import javax.swing.UIManager;
 
 import bt.elements.campaign.Campaign;
 import bt.elements.campaign.CampaignScenario;
+import bt.elements.campaign.Force;
 import bt.elements.campaign.Situation;
 import bt.elements.campaign.SituationIntendedMovement;
 import bt.elements.campaign.SituationUnitLocation;
@@ -114,7 +115,7 @@ public class CampaignScenarioSituationRenderTest extends JFrame implements ItemL
 			
 			setContentPane(contentPanel);
 
-			setSize(1024, 768);
+			setSize(570, 1060);
 			// setSize(1280,1024);
 			setVisible(true);
 
@@ -165,10 +166,10 @@ public class CampaignScenarioSituationRenderTest extends JFrame implements ItemL
 			{
 				String unitName = sul.getUnitName();
 				System.out.println(unitName);
-				String sideName = _Campaign.getSideForUnit(unitName).getName();
-				Color unitColor = getColorForSide(sideName);
+				Force force = _Campaign.getForceForUnit(unitName);
+				Color unitColor = force.getColor();
 				Coordinate coord = new Coordinate(sul.getCoordinate().x - 1, sul.getCoordinate().y - 1);
-				CombatUnitCounter unitCounter = new CombatUnitCounter(_BoardRenderer, coord, unitColor, unitName);
+				CombatUnitCounter unitCounter = new CombatUnitCounter(_BoardRenderer, coord, unitColor, unitName, force.getAbbreviation());
 				unitCounter.setVisible(true);
 				_BoardRenderer.getSpriteManager().registerElement(unitCounter);				
 			}

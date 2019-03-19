@@ -1,5 +1,6 @@
 package bt.managers;
 
+import java.awt.Color;
 import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -39,6 +40,8 @@ public enum CampaignManager
 {
 	INSTANCE;
 
+	private static final String COLOUR = "Colour";
+	private static final String ABBREVIATION = "Abbreviation";
 	private static final String CAMPAIGN_OUTCOME = "CampaignOutcome";
 	private static final String NEXT_SCENARIO = "NextScenario";
 	private static final String WINNER = "Winner";
@@ -130,7 +133,7 @@ public enum CampaignManager
 	private Campaign loadCampaign(org.jdom.Element e) throws Exception
 	{
 		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm");
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
 		Campaign c = new Campaign();
 		c.setName(e.getAttributeValue(NAME));
@@ -175,6 +178,8 @@ public enum CampaignManager
 				org.jdom.Element forceElement = (org.jdom.Element)forceIterator.next();
 				Force force = new Force();
 				force.setName(forceElement.getAttributeValue(NAME));
+				force.setAbbreviation(forceElement.getAttributeValue(ABBREVIATION));
+				force.setColor(Color.decode(forceElement.getAttributeValue(COLOUR)));
 
 				Iterator<?> unitIterator = forceElement.getChildren(UNIT).iterator();
 				while (unitIterator.hasNext())
