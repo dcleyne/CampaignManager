@@ -127,13 +127,13 @@ public class CampaignMapRenderTest extends JFrame
 		setTerrain(map,3,0,TerrainType.MOUNTAINS, SettlementType.TOWN, "Wuhan Pass");
 		setTerrain(map,5,1,TerrainType.MOUNTAINS, SettlementType.TOWN, "Harper's Canyon");
 		setTerrain(map,3,2,TerrainType.PLAINS, SettlementType.TOWN, "Zhuru");
-		setTerrain(map,4,3,TerrainType.SWAMP, SettlementType.TOWN, "Shidong");
+		setTerrain(map,4,4,TerrainType.SWAMP, SettlementType.TOWN, "Shidong");
 		setTerrain(map,4,3,TerrainType.PLAINS, SettlementType.TOWN, "Janjigo");
 		setTerrain(map,1,3,TerrainType.FOREST, SettlementType.TOWN, "Caidian Forest East");
 		setTerrain(map,1,4,TerrainType.DEEPFOREST, SettlementType.TOWN, "Caidian Forest");
 		setTerrain(map,0,4,TerrainType.FOREST, SettlementType.TOWN, "Caidian Forest North");
 		setTerrain(map,3,5,TerrainType.SWAMP, SettlementType.CITY, "Daji Farm");
-		setTerrain(map,5,5,TerrainType.FOREST, SettlementType.TOWN, "Wudong");
+		setTerrain(map,5,4,TerrainType.FOREST, SettlementType.TOWN, "Wudong");
 		setTerrain(map,1,6,TerrainType.PLAINS, SettlementType.TOWN, "Hongshan");
 		setTerrain(map,4,7,TerrainType.PLAINS, SettlementType.TOWN, "Wuphushan");
 		setTerrain(map,0,8,TerrainType.FOREST, SettlementType.TOWN, "Zhashan");
@@ -153,7 +153,7 @@ public class CampaignMapRenderTest extends JFrame
 		setTerrain(map,6,1,TerrainType.MOUNTAINS);
 		setTerrain(map,6,2,TerrainType.MOUNTAINS);
 		
-		setTerrain(map,5,4,TerrainType.FOREST);
+		setTerrain(map,5,5,TerrainType.FOREST);
 		setTerrain(map,6,4,TerrainType.FOREST);
 		setTerrain(map,6,5,TerrainType.FOREST);
 		setTerrain(map,0,5,TerrainType.FOREST);
