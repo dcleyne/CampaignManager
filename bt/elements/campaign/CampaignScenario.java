@@ -26,6 +26,7 @@ public class CampaignScenario
 	}
 	
 	private String _Number;
+	private String _Name;
 	private String _Map;
 	private OutcomeType _OutcomeType;
 	private String _Track;
@@ -42,6 +43,14 @@ public class CampaignScenario
 	public void setNumber(String number)
 	{
 		_Number = number;
+	}
+	public String getName()
+	{
+		return _Name;
+	}
+	public void setName(String name)
+	{
+		_Name = name;
 	}
 	public String getMap()
 	{

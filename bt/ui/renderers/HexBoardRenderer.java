@@ -147,8 +147,6 @@ public abstract class HexBoardRenderer extends BoardRenderer
 			return;
 		}
 
-		g.setColor(Color.WHITE);
-		g.fill(_Background);
 		Rectangle2D clipRect = g.getClipBounds();
 
 		for (int i = 0; i < _BoardHexes.size(); i++)

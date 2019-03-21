@@ -96,7 +96,7 @@ public class HexGrid extends Object implements Serializable
         int HexWidth = _Hexagon.getXIncrement();
         int HexHeight = _Hexagon.getHeight();
         int XRem = _Hexagon.getWidth() - HexWidth;
-        int YRem = HexHeight;// - Hexagon.getYIncrement();
+        int YRem = HexHeight - _Hexagon.getYIncrement();
         return new Dimension(HexWidth * m_GridWidth + XRem,HexHeight * m_GridHeight + YRem);    	
     }
     

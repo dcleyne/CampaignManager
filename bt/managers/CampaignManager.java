@@ -233,6 +233,7 @@ public enum CampaignManager
 			org.jdom.Element scenarioElement = (org.jdom.Element)scenarioIterator.next();
 			CampaignScenario scenario = new CampaignScenario();
 			scenario.setNumber(scenarioElement.getAttributeValue(NUMBER));
+			scenario.setName(scenarioElement.getAttributeValue(NAME));
 			scenario.setMap(scenarioElement.getAttributeValue(MAP));
 			scenario.setOutcomeType(OutcomeType.fromString(scenarioElement.getAttributeValue(OUTCOME_TYPE)));
 			scenario.setTrack(scenarioElement.getAttributeValue(TRACK));

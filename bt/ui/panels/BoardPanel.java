@@ -1,22 +1,17 @@
 package bt.ui.panels;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import bt.ui.panels.listeners.BoardPanelListener;
-import bt.ui.renderers.BoardRenderer;
 import bt.ui.renderers.BoardRendererView;
 
 public class BoardPanel extends BoardRendererView implements MouseListener
 {
 	static final long serialVersionUID = 1;
-	private BoardRenderer _BoardRenderer = null;
 	private ArrayList<BoardPanelListener> _Listeners = new ArrayList<BoardPanelListener>();
 	
 	public BoardPanel()
@@ -42,41 +37,6 @@ public class BoardPanel extends BoardRendererView implements MouseListener
 		}
 	}
 	
-	public synchronized void setBoardRenderer(BoardRenderer theBoard)
-	{
-		_BoardRenderer = theBoard;
-	}
-	
-	public BoardRenderer getBoardRenderer()
-	{
-		return _BoardRenderer;
-	}
-	
-	@Override
-	public void paint(Graphics g)
-	{
-		g.setColor(getBackground());
-		g.fillRect(0, 0, getBounds().width, getBounds().height);
-
-		Graphics2D g2 = (Graphics2D) g;
-		if (_BoardRenderer != null)
-		{
-			_BoardRenderer.drawBoard(g2, this);
-		}
-	}
-
-	@Override
-	public Dimension getPreferredSize()
-	{
-		if (_BoardRenderer != null)
-		{
-			return _BoardRenderer.getSize();
-		} else
-		{
-			return new Dimension(500, 500);
-		}
-	}
-
 	public void mouseEntered(MouseEvent e)
 	{
 	}
@@ -99,16 +59,16 @@ public class BoardPanel extends BoardRendererView implements MouseListener
 		case MouseEvent.NOBUTTON:
 			break;
 		case MouseEvent.BUTTON1:
-			_BoardRenderer.setCursorLocation(clickPoint);
+			setCursorLocation(clickPoint);
 			notifySelectedLocation(false);
 			break;
 		case MouseEvent.BUTTON2:
 			notifyCenterMap(clickPoint);
 			break;
 		case MouseEvent.BUTTON3:
-			_BoardRenderer.setCursorLocation(clickPoint);
+			setCursorLocation(clickPoint);
 			notifySelectedLocation(true);
-			notifyMenuRequested(_BoardRenderer.translatePoint(clickPoint));
+			notifyMenuRequested(translatePoint(clickPoint));
 			notifySelectedLocation(true);
 			break;
 		}

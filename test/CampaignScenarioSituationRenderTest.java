@@ -137,6 +137,8 @@ public class CampaignScenarioSituationRenderTest extends JFrame implements ItemL
 				_ScenariosComboBox.addItem(scenarioName);
 			
 			_ScenariosComboBox.setSelectedIndex(0);
+			
+			pack();
 		} 
 		catch (Exception e)
 		{

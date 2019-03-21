@@ -27,6 +27,7 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Shape;
 import java.awt.Stroke;
+import java.awt.geom.Area;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 
@@ -68,7 +69,9 @@ public class CampaignBoardHex extends HexBoardHex
         g.fillPolygon(h);
         
         Shape curClip = g.getClip();
-        g.setClip(h);
+        Area hexClip = new Area(h);
+        hexClip.intersect(new Area(curClip));
+        g.setClip(hexClip);
         
         Rectangle aRect = h.getBounds();
         if (img != null)
