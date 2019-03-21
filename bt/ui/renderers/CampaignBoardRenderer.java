@@ -19,18 +19,29 @@
 package bt.ui.renderers;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.util.ArrayList;
 
+import bt.elements.campaign.Campaign;
+import bt.elements.campaign.Force;
+import bt.elements.campaign.Situation;
+import bt.elements.campaign.SituationIntendedMovement;
+import bt.elements.campaign.SituationUnitLocation;
 import bt.mapping.Board;
+import bt.mapping.Coordinate;
 import bt.mapping.HexGrid;
+import bt.mapping.Hexagon;
 import bt.mapping.MapHex;
 import bt.mapping.TerrainFactory;
 import bt.mapping.campaign.CampaignBoard;
 import bt.mapping.campaign.CampaignMapHex;
+import bt.ui.sprites.CombatUnitCounter;
+import bt.ui.sprites.HexStraightArrowSprite;
 
 
 public class CampaignBoardRenderer extends HexBoardRenderer
@@ -112,6 +123,48 @@ public class CampaignBoardRenderer extends HexBoardRenderer
 		}
 
 		getSpriteManager().drawSprites(g, obs, clipRect.getBounds());
+	}
+	
+	public void setSituation(Campaign campaign, Situation situation)
+	{
+		getSpriteManager().clearAllSprites();
+		
+		for (SituationUnitLocation sul: situation.getUnitLocations())
+		{
+			String unitName = sul.getUnitName();
+			Force force = campaign.getForceForUnit(unitName);
+			Color unitColor = force.getColor();
+			Coordinate coord = new Coordinate(sul.getCoordinate().x - 1, sul.getCoordinate().y - 1);
+			CombatUnitCounter unitCounter = new CombatUnitCounter(this, coord, unitColor, unitName, force.getAbbreviation());
+			unitCounter.setVisible(true);
+			getSpriteManager().registerElement(unitCounter);				
+		}
+		
+		for (SituationIntendedMovement sim: situation.getUnitMovements())
+		{
+			SituationUnitLocation sul = situation.getUnitLocation(sim.getUnitName());
+			Coordinate startCoord = sul.getCoordinate();
+			Coordinate endCoord = sim.getDestination();
+			
+			Hexagon startHex = _Board.getHexGrid().getHex(startCoord.x - 1, startCoord.y - 1);
+			Hexagon endHex = _Board.getHexGrid().getHex(endCoord.x - 1, endCoord.y - 1);
+			HexStraightArrowSprite hsas = new HexStraightArrowSprite(this, startHex, endHex, false, Color.CYAN, Color.BLACK);
+			hsas.setVisible(true);
+			getSpriteManager().registerWidget(hsas);				
+		}
+
+	}
+	
+	public BufferedImage renderImage()
+	{
+		Dimension size = getSize();
+		BufferedImage image = new BufferedImage(size.width, size.height, BufferedImage.TYPE_INT_ARGB);
+		
+		Graphics2D g2d = image.createGraphics();
+		g2d.setClip(new Rectangle(0,0,image.getWidth(),image.getHeight()));
+		draw(g2d, null);
+		
+		return image;
 	}
 
 }

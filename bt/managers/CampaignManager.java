@@ -1,16 +1,35 @@
 package bt.managers;
 
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+
+import javax.imageio.ImageIO;
 
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
+
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chapter;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfWriter;
 
 import bt.elements.Era;
 import bt.elements.Faction;
@@ -21,6 +40,8 @@ import bt.elements.campaign.CampaignScenario.OutcomeType;
 import bt.elements.campaign.CampaignScenarioOutcome;
 import bt.elements.campaign.CampaignScenarioSide;
 import bt.elements.campaign.CampaignScenarioSide.Participation;
+import bt.elements.campaign.CampaignUnit;
+import bt.elements.campaign.CampaignUnitElement;
 import bt.elements.campaign.Force;
 import bt.elements.campaign.Outcome;
 import bt.elements.campaign.Side;
@@ -28,11 +49,12 @@ import bt.elements.campaign.Situation;
 import bt.elements.campaign.SituationIntendedMovement;
 import bt.elements.campaign.SituationUnitLocation;
 import bt.elements.campaign.Track;
-import bt.elements.campaign.CampaignUnit;
-import bt.elements.campaign.CampaignUnitElement;
 import bt.elements.unit.TechRating;
 import bt.mapping.Coordinate;
+import bt.mapping.campaign.CampaignBoard;
 import bt.mapping.campaign.CampaignMap;
+import bt.ui.renderers.CampaignBoardRenderer;
+import bt.ui.renderers.MapFactory;
 import bt.util.ExtensionFileFilter;
 import bt.util.PropertyUtil;
 
@@ -42,7 +64,7 @@ public enum CampaignManager
 
 	private static final String COLOUR = "Colour";
 	private static final String ABBREVIATION = "Abbreviation";
-	private static final String CAMPAIGN_OUTCOME = "CampaignOutcome";
+	private static final String CAMPAIGN_RESULT = "CampaignResult";
 	private static final String NEXT_SCENARIO = "NextScenario";
 	private static final String WINNER = "Winner";
 	private static final String PARTICIPATION = "Participation";
@@ -237,8 +259,8 @@ public enum CampaignManager
 			scenario.setMap(scenarioElement.getAttributeValue(MAP));
 			scenario.setOutcomeType(OutcomeType.fromString(scenarioElement.getAttributeValue(OUTCOME_TYPE)));
 			scenario.setTrack(scenarioElement.getAttributeValue(TRACK));
-			scenario.setDateTime(LocalDate.parse(scenarioElement.getAttributeValue(DATE),dateTimeFormatter));
-			scenario.setSynopsis(scenarioElement.getAttributeValue(SYNOPSIS));
+			scenario.setDateTime(LocalDateTime.parse(scenarioElement.getAttributeValue(DATE),dateTimeFormatter));
+			scenario.setSynopsis(scenarioElement.getChildText(SYNOPSIS));
 
 			org.jdom.Element situationElement = scenarioElement.getChild(SITUATION);
 			Situation situation = new Situation();
@@ -286,7 +308,7 @@ public enum CampaignManager
 				CampaignScenarioOutcome outcome = new CampaignScenarioOutcome();
 				outcome.setWinner(scenariooutcomeElement.getAttributeValue(WINNER));
 				outcome.setNextScenario(scenariooutcomeElement.getAttributeValue(NEXT_SCENARIO));
-				outcome.setCampaignOutcome(scenariooutcomeElement.getAttributeValue(CAMPAIGN_OUTCOME));
+				outcome.setCampaignResult(scenariooutcomeElement.getAttributeValue(CAMPAIGN_RESULT));
 				
 				scenario.addOutcome(outcome);
 			}
@@ -317,4 +339,223 @@ public enum CampaignManager
 		return _Campaigns.get(name);
 	}
 	
+	
+	public String printCampaignToPDF(Campaign campaign) throws Exception
+	{
+		DateTimeFormatter fullDateTimeFormatter = DateTimeFormatter.ofPattern("EEEE, dd MMMM yyyy - HH:mm");
+
+		String path = PropertyUtil.getStringProperty(EXTERNAL_DATA_PATH, "data");
+		String filename = path + "/campaigns/" + campaign.getName() + ".pdf";
+
+		File f = new File(filename);
+		if (f.exists())
+			f.delete();
+		
+		CampaignMap map = campaign.getMap();
+		CampaignBoardRenderer boardRenderer = (CampaignBoardRenderer) MapFactory.INSTANCE.createBoardRenderer(map.getMapType());
+		CampaignBoard board = new CampaignBoard(82);
+		board.addMap(map, new Coordinate(1,1));
+		board.completedAddingMaps();
+		boardRenderer.setBoard(null, board);
+		
+		com.itextpdf.text.Document document = new com.itextpdf.text.Document(PageSize.A4, 5, 5, 5, 5);
+		PdfWriter.getInstance(document, new FileOutputStream(filename));
+		document.open();
+		
+		Paragraph title1 = new Paragraph(campaign.getName(), FontFactory.getFont(FontFactory.HELVETICA, 24, Font.BOLDITALIC));
+		Chapter chapter1 = new Chapter(title1, 1);
+		chapter1.setNumberDepth(0);
+		
+		chapter1.add(new Paragraph("Campaign Start Date: " + campaign.getStartDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.ITALIC)));
+		chapter1.add(new Paragraph(campaign.getSynopsis(),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
+		
+		chapter1.add(new Paragraph("",FontFactory.getFont(FontFactory.HELVETICA, 10, Font.ITALIC)));
+		chapter1.add(new Paragraph("Maps",FontFactory.getFont(FontFactory.HELVETICA, 10, Font.ITALIC)));
+		chapter1.add(new Paragraph("",FontFactory.getFont(FontFactory.HELVETICA, 10, Font.ITALIC)));
+		com.itextpdf.text.pdf.PdfPTable locationTable = new com.itextpdf.text.pdf.PdfPTable(4);
+		locationTable.setWidthPercentage(98);
+		locationTable.addCell(createHeaderCell("Number", BaseColor.WHITE, BaseColor.BLACK));
+		locationTable.addCell(createHeaderCell("Name", BaseColor.WHITE, BaseColor.BLACK));
+		locationTable.addCell(createHeaderCell("Map Type", BaseColor.WHITE, BaseColor.BLACK));
+		locationTable.addCell(createHeaderCell("Reference", BaseColor.WHITE, BaseColor.BLACK));
+		locationTable.setHeaderRows(1);
+
+		ArrayList<CampaignLocation> campaignLocations = campaign.getLocations();
+		campaignLocations.sort(new Comparator<CampaignLocation>()
+		{
+			@Override
+			public int compare(CampaignLocation cl1, CampaignLocation cl2)
+			{
+				int num1 = Integer.parseInt(cl1.getNumber());
+				int num2 = Integer.parseInt(cl2.getNumber());
+				return Integer.compare(num1, num2);
+			}
+		});
+		for (CampaignLocation location : campaignLocations)
+		{
+			locationTable.addCell(location.getNumber());
+			locationTable.addCell(location.getName());
+			locationTable.addCell(location.getMapset());
+			Coordinate settlementCoord = campaign.getMap().getCoordinateForSettlement(location.getName());
+			locationTable.addCell(settlementCoord != null ? settlementCoord.toShortString() : "");
+		}
+		chapter1.add(locationTable);
+		chapter1.newPage();
+		chapter1.add(new Paragraph("Campaign Map",FontFactory.getFont(FontFactory.HELVETICA, 18, Font.NORMAL)));
+		
+		Image image = createImage(boardRenderer.renderImage()); 
+		image.scalePercent(80);
+		chapter1.add(image);		
+		document.add(chapter1);
+
+		Chapter chapter2 = new Chapter("Sides", 2);
+
+		ArrayList<String> sideNames = campaign.getSideNames();
+		Collections.sort(sideNames);
+		for (String sideName : sideNames)
+		{
+			Side side = campaign.getSide(sideName);
+
+			chapter2.add(new Paragraph(side.getName() + " - " + side.getFaction(),FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL)));
+			
+			ArrayList<Force> forces = side.getForces();
+			forces.sort(new Comparator<Force>()
+			{
+				@Override
+				public int compare(Force f1, Force f2)
+				{
+					return f1.getName().compareTo(f2.getName());
+				}
+			});
+			for (Force force: forces)
+			{
+				chapter2.add(new Paragraph(force.getName() + " (" + force.getAbbreviation() + ")",FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL)));
+				
+				ArrayList<CampaignUnit> units = force.getUnits();
+				units.sort(new Comparator<CampaignUnit>()
+				{
+					@Override
+					public int compare(CampaignUnit cu1, CampaignUnit cu2)
+					{
+						return cu1.getName().compareTo(cu2.getName());
+					}
+				});
+				for (CampaignUnit unit : units)
+				{
+					chapter2.add(new Paragraph(unit.getName() + " (" + unit.getParentUnitName() + ")",FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
+					
+					com.itextpdf.text.pdf.PdfPTable elementTable = new com.itextpdf.text.pdf.PdfPTable(3);
+					elementTable.setWidthPercentage(60);
+					elementTable.addCell(createHeaderCell("Type", BaseColor.WHITE, BaseColor.BLACK));
+					elementTable.addCell(createHeaderCell("Design", BaseColor.WHITE, BaseColor.BLACK));
+					elementTable.addCell(createHeaderCell("Variant", BaseColor.WHITE, BaseColor.BLACK));
+					elementTable.setHeaderRows(1);
+					
+					for (CampaignUnitElement element : unit.getElements())
+					{
+						elementTable.addCell(element.getType());
+						elementTable.addCell(element.getDesign());
+						elementTable.addCell(element.getVariant());
+					}
+					chapter2.add(elementTable);
+				}
+				chapter2.newPage();
+			}
+		}		
+		document.add(chapter2);
+		
+		Chapter chapter3 = new Chapter("Scenarios", 3);
+
+		ArrayList<CampaignScenario> scenarios = campaign.getScenarios();
+		scenarios.sort(new Comparator<CampaignScenario>()
+		{
+
+			@Override
+			public int compare(CampaignScenario cs1, CampaignScenario cs2)
+			{
+				return cs1.getNumber().compareTo(cs2.getNumber());
+			}
+		});
+		for (CampaignScenario scenario: scenarios)
+		{
+			chapter3.add(new Paragraph("Scenario: " + scenario.getNumber(),FontFactory.getFont(FontFactory.HELVETICA, 18, Font.NORMAL)));
+			chapter3.add(new Paragraph(scenario.getName(),FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL)));
+			chapter3.add(new Paragraph(scenario.getTrack() + " - " + campaign.getLocation(scenario.getMap()).getName() + " : " + scenario.getDateTime().format(fullDateTimeFormatter),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
+			chapter3.add(new Paragraph(scenario.getSynopsis(),FontFactory.getFont(FontFactory.HELVETICA, 9, Font.NORMAL)));
+			
+			chapter3.add(new Paragraph("Sides",FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
+			for (String sideName: scenario.getSides())
+			{
+				CampaignScenarioSide side = scenario.getSide(sideName);
+				chapter3.add(new Paragraph(side.getParticipation() + ": " + side.getSideName() + " - " + side.getUnitName() + " - " + side.getForceName() ,FontFactory.getFont(FontFactory.HELVETICA, 9, Font.NORMAL)));
+			}
+
+			chapter3.add(new Paragraph("Outcomes",FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
+			for (String outcomeName: scenario.getOutcomes())
+			{
+				CampaignScenarioOutcome outcome = scenario.getOutcome(outcomeName);
+				if (scenario.getOutcomeType() == CampaignScenario.OutcomeType.NEXT_SCENARIO)
+					chapter3.add(new Paragraph("Winner: " + outcome.getWinner() + " goto Scenario: " + outcome.getNextScenario(),FontFactory.getFont(FontFactory.HELVETICA, 9, Font.NORMAL)));
+				else
+				{
+					Outcome o = campaign.getOutcome(outcome.getCampaignResult());
+					chapter3.add(new Paragraph("Winner: " + outcome.getWinner() + " - " + o.toString(),FontFactory.getFont(FontFactory.HELVETICA, 9, Font.NORMAL)));					
+				}
+			}
+
+			boardRenderer.setSituation(campaign, scenario.getSituation());
+			Image scenarioImage = createImage(boardRenderer.renderImage()); 
+			scenarioImage.scalePercent(50);
+			chapter3.add(scenarioImage);		
+
+			chapter3.newPage();
+		}
+
+		
+		document.add(chapter3);
+		
+		document.close();
+		System.out.println("Done!");
+		
+		return filename;
+	}
+	
+	private com.itextpdf.text.Image createImage(BufferedImage image)
+	{
+		try
+		{
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ImageIO.write(image, "png", baos);
+			return Image.getInstance(baos.toByteArray());
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		return null;
+	}
+	
+	private com.itextpdf.text.pdf.PdfPCell createHeaderCell(String content, BaseColor foreColor, BaseColor background) throws Exception
+	{
+		Font f = FontFactory.getFont(FontFactory.HELVETICA, 11, Font.BOLD);
+		f.setColor(foreColor);
+		com.itextpdf.text.Phrase phrase = new Phrase(content, f);
+		com.itextpdf.text.pdf.PdfPCell cell = new com.itextpdf.text.pdf.PdfPCell(phrase);
+		cell.setBackgroundColor(background);
+        cell.setHorizontalAlignment(com.itextpdf.text.Element.ALIGN_CENTER);
+		return cell;
+	}
+	
+	@SuppressWarnings("unused")
+	private com.itextpdf.text.pdf.PdfPCell createDataCell(String content, BaseColor foreColor, BaseColor background) throws Exception
+	{
+		Font f = FontFactory.getFont(FontFactory.HELVETICA, 8, Font.BOLD);
+		f.setColor(foreColor);
+		com.itextpdf.text.Phrase phrase = new Phrase(content, f);
+		com.itextpdf.text.pdf.PdfPCell cell = new com.itextpdf.text.pdf.PdfPCell(phrase);
+		cell.setBackgroundColor(background);
+        cell.setHorizontalAlignment(com.itextpdf.text.Element.ALIGN_CENTER);
+		return cell;
+	}
+
 }

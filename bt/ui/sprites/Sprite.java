@@ -24,7 +24,6 @@ package bt.ui.sprites;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -204,11 +203,6 @@ public abstract class Sprite implements ImageObserver
 		}
 	}
 
-	public Graphics getGraphics()
-	{
-		return _Renderer.getGraphics();
-	}
-	
 	public Component getComponent()
 	{
 		return _Renderer.getComponent();

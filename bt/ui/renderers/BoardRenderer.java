@@ -21,17 +21,17 @@ package bt.ui.renderers;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.awt.geom.AffineTransform;
+import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
 
 import bt.mapping.Board;
-import bt.util.ExceptionUtil;
 
 
 public abstract class BoardRenderer
@@ -121,7 +121,9 @@ public abstract class BoardRenderer
 	public final void setBoard(BoardRendererView view, Board board)
 	{
 		_View = view;
-		_View.setBoardRenderer(this);
+		if (_View != null)
+			_View.setBoardRenderer(this);
+		
 		_Board = board;
 		try
 		{
@@ -131,9 +133,10 @@ public abstract class BoardRenderer
 				registerCursors();
 				setViewState();
 			}
-		} catch (Exception ex)
+		} 
+		catch (Exception ex)
 		{
-			throw new RuntimeException(ExceptionUtil.getExceptionStackTrace(ex));
+			ex.printStackTrace();
 		}		
 	}
 
@@ -212,7 +215,8 @@ public abstract class BoardRenderer
 			int y = (int)(bounds.y * _CurrentZoom.getFactor());
 			int width = (int)(bounds.width * _CurrentZoom.getFactor());
 			int height = (int)(bounds.height * _CurrentZoom.getFactor());
-			_View.repaint(x, y, width, height);
+			if (_View != null)
+				_View.repaint(x, y, width, height);
 		}
 		else
 			_View.repaint();
@@ -226,19 +230,25 @@ public abstract class BoardRenderer
 		return newPoint;
 	}
 	
-	public Image createImage(int width, int height)
+	public BufferedImage createImage(int width, int height)
 	{
-		return _View.createImage(width, height);
+		return new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 	}
 
 	public Image createImage(ImageProducer producer)
 	{
-		return _View.createImage(producer);
-	}
-	
-	public Graphics getGraphics()
-	{
-		return _View.getGraphics();
+		Image img = Toolkit.getDefaultToolkit().createImage(producer);
+
+		// Create a buffered image with transparency
+	    BufferedImage bimage = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+
+	    // Draw the image on to the buffered image
+	    Graphics2D bGr = bimage.createGraphics();
+	    bGr.drawImage(img, 0, 0, null);
+	    bGr.dispose();
+
+	    // Return the buffered image
+	    return bimage;
 	}
 	
 	public Component getComponent()

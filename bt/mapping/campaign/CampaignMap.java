@@ -23,6 +23,7 @@ import java.util.List;
 
 import org.jdom.Element;
 
+import bt.mapping.Coordinate;
 import bt.mapping.HexMap;
 import bt.mapping.TerrainType;
 
@@ -88,6 +89,19 @@ public class CampaignMap extends HexMap
 		return _RoadsAutoExit;
 	}
 
+	public Coordinate getCoordinateForSettlement(String locationName)
+	{
+		for (int y = 0; y < getHeight(); y++)
+		{
+			for (int x = 0; x < getWidth(); x++)
+			{
+				CampaignMapHex mapHex = (CampaignMapHex)getHex(x, y);
+				if (mapHex.getSettlementName().equalsIgnoreCase(locationName))
+					return new Coordinate(x,y);
+			}
+		}
+		return null;
+	}
 	
 	private TerrainType determineDefaultTerrain()
 	{

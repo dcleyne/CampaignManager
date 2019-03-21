@@ -4,7 +4,7 @@ public class CampaignScenarioOutcome
 {
 	private String _Winner;
 	private String _NextScenario;
-	private String _CampaignOutcome;
+	private String _CampaignResult;
 	
 	public String getWinner()
 	{
@@ -22,13 +22,13 @@ public class CampaignScenarioOutcome
 	{
 		_NextScenario = nextScenario;
 	}
-	public String getCampaignOutcome()
+	public String getCampaignResult()
 	{
-		return _CampaignOutcome;
+		return _CampaignResult;
 	}
-	public void setCampaignOutcome(String campaignOutcome)
+	public void setCampaignResult(String campaignOutcome)
 	{
-		_CampaignOutcome = campaignOutcome;
+		_CampaignResult = campaignOutcome;
 	}
 	
 }

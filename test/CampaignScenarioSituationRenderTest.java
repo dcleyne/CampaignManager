@@ -45,21 +45,14 @@ import javax.swing.UIManager;
 
 import bt.elements.campaign.Campaign;
 import bt.elements.campaign.CampaignScenario;
-import bt.elements.campaign.Force;
-import bt.elements.campaign.Situation;
-import bt.elements.campaign.SituationIntendedMovement;
-import bt.elements.campaign.SituationUnitLocation;
 import bt.managers.CampaignManager;
 import bt.mapping.Coordinate;
-import bt.mapping.Hexagon;
 import bt.mapping.campaign.CampaignBoard;
 import bt.mapping.campaign.CampaignMap;
 import bt.ui.controls.ZoomSlider;
 import bt.ui.panels.BoardPanel;
 import bt.ui.renderers.CampaignBoardRenderer;
 import bt.ui.renderers.MapFactory;
-import bt.ui.sprites.CombatUnitCounter;
-import bt.ui.sprites.HexStraightArrowSprite;
 import bt.util.ExceptionUtil;
 import bt.util.PropertyUtil;
 
@@ -139,6 +132,8 @@ public class CampaignScenarioSituationRenderTest extends JFrame implements ItemL
 			_ScenariosComboBox.setSelectedIndex(0);
 			
 			pack();
+			
+			CampaignManager.INSTANCE.printCampaignToPDF(_Campaign);
 		} 
 		catch (Exception e)
 		{
@@ -163,31 +158,7 @@ public class CampaignScenarioSituationRenderTest extends JFrame implements ItemL
 		CampaignScenario scenario = _Campaign.getScenario(scenarioName);
 		if (scenario != null)
 		{
-			Situation situation = scenario.getSituation();
-			for (SituationUnitLocation sul: situation.getUnitLocations())
-			{
-				String unitName = sul.getUnitName();
-				System.out.println(unitName);
-				Force force = _Campaign.getForceForUnit(unitName);
-				Color unitColor = force.getColor();
-				Coordinate coord = new Coordinate(sul.getCoordinate().x - 1, sul.getCoordinate().y - 1);
-				CombatUnitCounter unitCounter = new CombatUnitCounter(_BoardRenderer, coord, unitColor, unitName, force.getAbbreviation());
-				unitCounter.setVisible(true);
-				_BoardRenderer.getSpriteManager().registerElement(unitCounter);				
-			}
-			
-			for (SituationIntendedMovement sim: situation.getUnitMovements())
-			{
-				SituationUnitLocation sul = situation.getUnitLocation(sim.getUnitName());
-				Coordinate startCoord = sul.getCoordinate();
-				Coordinate endCoord = sim.getDestination();
-				
-				Hexagon startHex = _Board.getHexGrid().getHex(startCoord.x - 1, startCoord.y - 1);
-				Hexagon endHex = _Board.getHexGrid().getHex(endCoord.x - 1, endCoord.y - 1);
-				HexStraightArrowSprite hsas = new HexStraightArrowSprite(_BoardRenderer, startHex, endHex, false, Color.CYAN, Color.BLACK);
-				hsas.setVisible(true);
-				_BoardRenderer.getSpriteManager().registerWidget(hsas);				
-			}
+			_BoardRenderer.setSituation(_Campaign, scenario.getSituation());
 		}
 	}
 	

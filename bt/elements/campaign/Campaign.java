@@ -86,7 +86,12 @@ public class Campaign
 	{
 		_Sides.put(side.getName(), side);
 	}
-	
+
+	public ArrayList<String> getSideNames()
+	{
+		return new ArrayList<String>(_Sides.keySet());
+	}
+
 	public ArrayList<Side> getSides()
 	{
 		return new ArrayList<Side>(_Sides.values());

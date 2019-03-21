@@ -31,4 +31,9 @@ public class Outcome
 		_Name = outcome;
 	}
 	
+	public String toString()
+	{
+		return _Side + " " + _Name;
+	}
+	
 }

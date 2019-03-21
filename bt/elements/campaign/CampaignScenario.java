@@ -1,6 +1,6 @@
 package bt.elements.campaign;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -30,7 +30,7 @@ public class CampaignScenario
 	private String _Map;
 	private OutcomeType _OutcomeType;
 	private String _Track;
-	private LocalDate _DateTime;
+	private LocalDateTime _DateTime;
 	private String _Synopsis;
 	private Situation _Situation;
 	private HashMap<String, CampaignScenarioSide> _Sides = new HashMap<String, CampaignScenarioSide>();
@@ -76,11 +76,11 @@ public class CampaignScenario
 	{
 		_Track = track;
 	}
-	public LocalDate getDateTime()
+	public LocalDateTime getDateTime()
 	{
 		return _DateTime;
 	}
-	public void setDateTime(LocalDate dateTime)
+	public void setDateTime(LocalDateTime dateTime)
 	{
 		_DateTime = dateTime;
 	}
