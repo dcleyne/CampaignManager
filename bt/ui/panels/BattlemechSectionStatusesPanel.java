@@ -24,17 +24,28 @@ public class BattlemechSectionStatusesPanel extends JPanel
 		BoxLayout layout = new BoxLayout(this, BoxLayout.PAGE_AXIS);
 		setLayout(layout);
 
-		Vector<BattlemechSection> sections = new Vector<BattlemechSection>(mech.getSectionStatuses().keySet());
+		populatePanel();
+	}
+	
+	public void refreshPanel()
+	{
+		removeAll();
+		populatePanel();
+	}
+	
+	private void populatePanel()
+	{
+		Vector<BattlemechSection> sections = new Vector<BattlemechSection>(_Mech.getSectionStatuses().keySet());
 		Collections.sort(sections);
 		
 		for (BattlemechSection section : sections)
 		{
-			BattlemechSectionStatusPanel bssp = new BattlemechSectionStatusPanel(section, mech.getSectionStatuses().get(section));
+			BattlemechSectionStatusPanel bssp = new BattlemechSectionStatusPanel(section, _Mech.getSectionStatuses().get(section));
 			_StatusPanels.add(bssp);
 			add(bssp);
 		}
 		
-    	add(Box.createVerticalGlue());
+    	add(Box.createVerticalGlue());		
 	}
 	
 	public void finaliseSectionDamage()

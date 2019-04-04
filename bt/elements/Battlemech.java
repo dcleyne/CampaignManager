@@ -194,19 +194,19 @@ public class Battlemech extends Asset
 	
 	public int getItemHits(String itemName)
 	{
-		int engineHits = 0;
-		Vector<ItemMount> engineMounts = getAllMounts(itemName);
-		if (engineMounts.size() > 0)
+		int itemHits = 0;
+		Vector<ItemMount> itemMounts = getAllMounts(itemName);
+		if (itemMounts.size() > 0)
 		{
-			ItemMount mount = engineMounts.elementAt(0);
+			ItemMount mount = itemMounts.elementAt(0);
 			for (InternalSlotStatus iss : mount.getSlotReferences())
 			{
 				if (iss.getStatus() != ItemStatus.OK)
-					engineHits++;
+					itemHits++;
 			}
 		}
 		
-		return engineHits;
+		return itemHits;
 	}
 
 	public int getEngineHits()
@@ -437,6 +437,39 @@ public class Battlemech extends Asset
 
 	}
 	
+	public void repairAllDamage()
+	{
+	    for (BattlemechSection section: _SectionStatuses.keySet())
+	    {
+	    	SectionStatus status = _SectionStatuses.get(section);
+	    	status.setBreached(false);
+	    	status.setStatus(SectionStatus.Status.OK);
+	    }
 
+	    for (String internalLocation: _Internals.keySet())
+	    {
+	    	HashMap<Integer, ItemStatus> internalLocationStatus =  _Internals.get(internalLocation);
+	    	for (Integer itemIndex: internalLocationStatus.keySet())
+	    	{
+	    		internalLocationStatus.put(itemIndex, ItemStatus.OK);
+	    	}
+	    }
+	    for (String armourLocation: _Armour.keySet())
+	    {
+	    	HashMap<Integer, ItemStatus> armourLocationStatus =  _Armour.get(armourLocation);
+	    	for (Integer itemIndex: armourLocationStatus.keySet())
+	    	{
+	    		armourLocationStatus.put(itemIndex, ItemStatus.OK);
+	    	}
+	    }
+
+	    for (ItemMount item: _Items)
+	    {
+	    	for (InternalSlotStatus slotStatus : item.getSlotReferences())
+	    	{
+	    		slotStatus.setStatus(ItemStatus.OK);
+	    	}
+	    }
+	}
 	
 }

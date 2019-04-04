@@ -13,9 +13,9 @@ public class UnitTableModel extends AbstractTableModel implements UnitManagerLis
 {
 	private static final long serialVersionUID = 1;
     private String ColumnNames[] =
-        {"Name", "Establish Date", "Notes"};
+        {"Name", "BV", "Establish Date", "Current Date"};
     private Class<?> ColumnTypes[] =
-        {String.class, LocalDate.class, String.class};
+        {String.class, Integer.class, LocalDate.class, LocalDate.class};
     
     private ArrayList<Unit> _Units;
 
@@ -46,9 +46,11 @@ public class UnitTableModel extends AbstractTableModel implements UnitManagerLis
             case 0:
                 return u.getName();
             case 1:
-                return u.getEstablishDate();
+                return u.getUnitBV();
             case 2:
-                return u.getNotes();
+                return u.getEstablishDate();
+            case 3:
+                return u.getCurrentDate();
             default:
                 return "Unknown Column";
         }

@@ -194,6 +194,12 @@ public class BattlemechStatusDiagramPanel extends JPanel implements MouseListene
 		}
 	}
 
+	public void refreshPanel()
+	{
+		_DamageImage = null;
+		repaint();
+	}
+	
 	@Override
 	public void mousePressed(MouseEvent e) 
 	{    

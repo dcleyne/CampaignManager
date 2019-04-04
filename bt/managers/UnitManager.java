@@ -1360,6 +1360,7 @@ public class UnitManager
 		chapter1.add(new Paragraph("Current Date: " + SwingHelper.FormatDate(unit.getCurrentDate()),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
 		chapter1.add(new Paragraph("Establish Date: " + SwingHelper.FormatDate(unit.getEstablishDate()),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
 		chapter1.add(new Paragraph("Warchest Points: " + Double.toString(unit.getWarchestPoints()),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
+		chapter1.add(new Paragraph("Total Battle Value: " + Integer.toString(unit.getUnitBV()),FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
 
 		chapter1.add(new Paragraph(PERSONNEL,FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL)));
 		chapter1.add(new Paragraph(" ",FontFactory.getFont(FontFactory.HELVETICA, 4, Font.NORMAL)));
@@ -1416,11 +1417,9 @@ public class UnitManager
 
 		for (Battlemech mech : unit.getBattlemechs())
 		{
-			// TODO: make sure we use the units real skill target
 			chapter2.add(getBattlemechRepairReport(mech, 7));
 			chapter2.add(new Paragraph(" ",FontFactory.getFont(FontFactory.HELVETICA, 4, Font.NORMAL)));
 		}
-		
 		
 		document.add(chapter2);
 		

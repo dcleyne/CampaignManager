@@ -1,51 +1,51 @@
 package bt.ui.panels;
 
 import java.awt.BorderLayout;
-
-import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
-import javax.swing.event.ListSelectionListener;
-import javax.swing.event.ListSelectionEvent;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 import bt.elements.unit.Unit;
 import bt.ui.listeners.UnitChangeListener;
 import bt.ui.models.TableSorter;
 import bt.ui.models.UnitTableModel;
+import bt.util.SwingHelper;
 
 public class UnitListPanel extends JPanel implements ListSelectionListener, MouseListener
 {
 	private static final long serialVersionUID = 1;
 
-    protected JTable m_UnitTable = new JTable();
-    protected JScrollPane m_ScrollPane = new JScrollPane();
-    protected UnitTableModel m_Model = null;
-    protected TableSorter m_Sorter = new TableSorter();
-    private ArrayList<Unit> m_Units;
+    protected JTable _UnitTable = new JTable();
+    protected JScrollPane _ScrollPane = new JScrollPane();
+    protected UnitTableModel _Model = null;
+    protected TableSorter _Sorter = new TableSorter();
+    private ArrayList<Unit> _Units;
     
     private ArrayList<UnitChangeListener> _EditRequestListeners = new ArrayList<UnitChangeListener>(); 
 
     public UnitListPanel(ArrayList<Unit> units)
     {
-    	m_Units = units;
-    	m_Model = new UnitTableModel(units);
-        m_Sorter.setTableModel(m_Model);
-        m_UnitTable.setModel(m_Sorter);
-        m_Sorter.setTableHeader(m_UnitTable.getTableHeader());
-        m_UnitTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        m_UnitTable.setPreferredSize(new Dimension(1200, 800));
-        m_ScrollPane.setViewportView(m_UnitTable);
-        m_UnitTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        m_UnitTable.getSelectionModel().addListSelectionListener(this);
-        m_UnitTable.addMouseListener(this);
+    	_Units = units;
+    	_Model = new UnitTableModel(units);
+        _Sorter.setTableModel(_Model);
+        _UnitTable.setModel(_Sorter);
+        _Sorter.setTableHeader(_UnitTable.getTableHeader());
+        _UnitTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        _ScrollPane.setViewportView(_UnitTable);
+        _UnitTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        _UnitTable.getSelectionModel().addListSelectionListener(this);
+        _UnitTable.addMouseListener(this);
+        SwingHelper.resizeTableColumnWidth(_UnitTable);
 
         setLayout(new BorderLayout());
-        add(m_ScrollPane, BorderLayout.CENTER);
+        add(_ScrollPane, BorderLayout.CENTER);
 
         setVisible(true);
     }
@@ -70,14 +70,14 @@ public class UnitListPanel extends JPanel implements ListSelectionListener, Mous
 
     public Unit GetSelectedUnit()
     {
-        int Row = m_UnitTable.getSelectedRow();
+        int Row = _UnitTable.getSelectedRow();
         if (Row < 0)
         {
             return null;
         }
 
-        int Index = m_Sorter.modelIndex(Row);
-        return m_Units.get(Index);
+        int Index = _Sorter.modelIndex(Row);
+        return _Units.get(Index);
     }
 
     public void valueChanged(ListSelectionEvent lse)
@@ -91,7 +91,7 @@ public class UnitListPanel extends JPanel implements ListSelectionListener, Mous
             Unit u = GetSelectedUnit();
             if (u != null)
             {
-                m_UnitTable.transferFocus();
+                _UnitTable.transferFocus();
                 System.out.println("Requesting Edit for Unit : " + u.toString());
                 requestUnitEdit(u);                
             }

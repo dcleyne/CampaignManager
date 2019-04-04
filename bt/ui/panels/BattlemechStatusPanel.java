@@ -8,7 +8,7 @@ import javax.swing.JTabbedPane;
 import bt.elements.Battlemech;
 import bt.elements.personnel.Mechwarrior;
 
-public class BattlemechStatusPanel extends JPanel 
+public class BattlemechStatusPanel extends JPanel
 {
 	private static final long serialVersionUID = -6415697568212173096L;
 
@@ -30,7 +30,7 @@ public class BattlemechStatusPanel extends JPanel
         tabbedPane.addTab("Sections", _SectionStatusesPanel);
         tabbedPane.addTab("Display", _DiagramPanel);
         
-        add(tabbedPane, BorderLayout.CENTER);
+        add(tabbedPane, BorderLayout.CENTER);        
 	}
 	
 	public Battlemech getBattlemech()
@@ -43,4 +43,11 @@ public class BattlemechStatusPanel extends JPanel
 		_SectionStatusesPanel.finaliseSectionDamage();
 		_Mech.applyDamage(_DiagramPanel.finaliseDamageNotation());
 	}
+	
+	public void refreshPanel()
+	{
+		_SectionStatusesPanel.refreshPanel();
+		_DiagramPanel.refreshPanel();
+	}
+
 }

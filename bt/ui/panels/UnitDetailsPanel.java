@@ -1,8 +1,11 @@
 package bt.ui.panels;
 
 import java.awt.BorderLayout;
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -28,6 +31,7 @@ public class UnitDetailsPanel extends JPanel implements ClosableEditPanel, Actio
     JTextField _NameTextField = new JTextField();
     JTextField _CurrentDateTextField = new JTextField();
     JTextField _DateEstablishedTextField = new JTextField();
+    JTextField _BattleValueTextField = new JTextField();
     JTextArea _NotesTextArea = new JTextArea();
 
     public UnitDetailsPanel(Unit a)
@@ -39,6 +43,8 @@ public class UnitDetailsPanel extends JPanel implements ClosableEditPanel, Actio
         _EditPanel.add(SwingHelper.GetTextField(_NameTextField, "Name", "The Unit's Name",true));
         _EditPanel.add(SwingHelper.GetTextFieldWithAction(_DateEstablishedTextField, "Date Established", "The Unit's Formation date",true,"SetEstablishDate","Set the date the unit was established",this));
         _EditPanel.add(SwingHelper.GetTextFieldWithAction(_CurrentDateTextField, "Current Date", "The current date for the unit",true,"SetCurrentDate","Set the current date",this));
+        _EditPanel.add(SwingHelper.GetTextField(_BattleValueTextField, "Unit Battle Value", "The total Battle Value for the unit",true));
+        _BattleValueTextField.setEditable(false);
         _EditPanel.add(SwingHelper.GetTextArea(_NotesTextArea, "Notes", "Notes for this Unit",true));
 
         setLayout(new BorderLayout());
@@ -102,7 +108,8 @@ public class UnitDetailsPanel extends JPanel implements ClosableEditPanel, Actio
     	{
     		try
     		{
-    			UnitManager.getInstance().printUnitSummaryToPDF(_Unit);
+				String filename = UnitManager.getInstance().printUnitSummaryToPDF(_Unit);
+				Desktop.getDesktop().open(new File(filename));
     		}
     		catch (Exception ex)
     		{
@@ -126,6 +133,7 @@ public class UnitDetailsPanel extends JPanel implements ClosableEditPanel, Actio
         _NameTextField.setText(_Unit.getName());
         _CurrentDateTextField.setText(SwingHelper.FormatDate(_Unit.getCurrentDate()));
         _DateEstablishedTextField.setText(SwingHelper.FormatDate(_Unit.getEstablishDate()));
+        _BattleValueTextField.setText(Integer.toString(_Unit.getUnitBV()));
         _NotesTextArea.setText(_Unit.getNotes());
 
         _NameTextField.requestFocus();

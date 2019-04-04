@@ -1,6 +1,22 @@
 package bt.ui.panels;
 
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+
 import bt.elements.Asset;
 import bt.elements.Battlemech;
 import bt.elements.ElementType;
@@ -13,13 +29,6 @@ import bt.ui.dialogs.BattlemechStatusDialog;
 import bt.ui.models.AssetTableModel;
 import bt.ui.models.TableSorter;
 import bt.util.SwingHelper;
-
-import java.awt.Dimension;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.ActionEvent;
-import java.awt.BorderLayout;
 
 /**
  * <p>Title: Miradan Phedd</p>
@@ -70,11 +79,9 @@ public class UnitAssetPanel extends JPanel implements ClosableEditPanel, MouseLi
         _AssetTable.setModel(_Sorter);
         _Sorter.setTableHeader(_AssetTable.getTableHeader());
         _AssetTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        _AssetTable.setPreferredSize(new Dimension(1000, 600));
         _AssetTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         _AssetTable.addMouseListener(this);
         _ScrollPane = new JScrollPane(_AssetTable,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-
 
         _EditPanel.setBorder(BorderFactory.createEtchedBorder());
         _EditPanel.setLayout(new BoxLayout(_EditPanel, BoxLayout.Y_AXIS));
@@ -265,6 +272,7 @@ public class UnitAssetPanel extends JPanel implements ClosableEditPanel, MouseLi
 
     protected void FillCombos()
     {
+        SwingHelper.resizeTableColumnWidth(_AssetTable);
     }
 
 }

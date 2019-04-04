@@ -33,8 +33,6 @@ import javax.swing.ListSelectionModel;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumnModel;
 
 import bt.elements.Era;
 import bt.elements.Faction;
@@ -51,6 +49,7 @@ import bt.managers.UnitManager;
 import bt.ui.models.MechDesignTableModel;
 import bt.ui.models.TableSorter;
 import bt.util.ExceptionUtil;
+import bt.util.SwingHelper;
 
 public class CreateNewUnitPanel extends JPanel implements ItemListener, MouseListener, ActionListener
 {
@@ -517,23 +516,6 @@ public class CreateNewUnitPanel extends JPanel implements ItemListener, MouseLis
 		return _CreatedUnit;
 	}
 	
-	private void resizeColumnWidth(JTable table) 
-	{
-	    final TableColumnModel columnModel = table.getColumnModel();
-	    for (int column = 0; column < table.getColumnCount(); column++) 
-	    {
-	        int width = 70; // Min width
-	        for (int row = 0; row < table.getRowCount(); row++) 
-	        {
-	            TableCellRenderer renderer = table.getCellRenderer(row, column);
-	            Component comp = table.prepareRenderer(renderer, row, column);
-	            width = Math.max(comp.getPreferredSize().width +1 , width);
-	        }
-	        if(width > 300)
-	            width=300;
-	        columnModel.getColumn(column).setPreferredWidth(width);
-	    }
-	}
 
 	/**
 	 * This method initializes this
@@ -570,7 +552,7 @@ public class CreateNewUnitPanel extends JPanel implements ItemListener, MouseLis
 			{
 				String selectedEra = (String)_EraComboBox.getSelectedItem();
 				selectFactionsAvailableForEra(selectedEra);
-				resizeColumnWidth(_DesignTable);
+				SwingHelper.resizeTableColumnWidth(_DesignTable);
 				clearSelectedDesigns();
 			}
 		}
@@ -585,7 +567,7 @@ public class CreateNewUnitPanel extends JPanel implements ItemListener, MouseLis
 					public void run()
 					{
 						selectFaction();
-						resizeColumnWidth(_DesignTable);
+						SwingHelper.resizeTableColumnWidth(_DesignTable);
 					}
 				});
 			}
@@ -600,7 +582,7 @@ public class CreateNewUnitPanel extends JPanel implements ItemListener, MouseLis
 					public void run()
 					{
 						_DesignModel.setCollection((String)_CollectionComboBox.getSelectedItem());
-						resizeColumnWidth(_DesignTable);
+						SwingHelper.resizeTableColumnWidth(_DesignTable);
 						clearSelectedDesigns();
 					}
 				});
